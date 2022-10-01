@@ -1,14 +1,14 @@
 ---
 date: 2021-05-21
 title: The DAO Fund
-redirect_from:
+aliases:
   - /decentraland/the-dao-fund/
   - /player/DAO/overview/the-dao-fund
 description: An overview and discussion of the DAO's MANA
 categories:
   - Decentraland
 type: Document
-slug: /player/general/dao/overview/the-dao-fund
+url: /player/general/dao/overview/the-dao-fund
 ---
 
 The Decentraland DAO has been granted with a **10-year vesting contract worth 222,000,000 MANA** started on Feb 19, 2020.

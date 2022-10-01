@@ -1,14 +1,14 @@
 ---
 date: 2021-05-21
 title: DAO Uses
-redirect_from:
+aliases:
   - /decentraland/what-can-you-do-with-the-dao/
   - /player/DAO/overview/what-can-you-do-with-the-dao
 description: The DAO allows users to create and vote on proposals that shape the metaverse.
 categories:
   - Decentraland
 type: Document
-slug: /player/general/dao/overview/what-can-you-do-with-the-dao
+url: /player/general/dao/overview/what-can-you-do-with-the-dao
 ---
 
 The DAO allows for two general types of proposals: **proposals with direct binding actions**, and **governance proposals**.

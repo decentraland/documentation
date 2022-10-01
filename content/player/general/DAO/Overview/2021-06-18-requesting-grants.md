@@ -1,14 +1,14 @@
 ---
 date: 2021-06-18
 title: Requesting Grants
-redirect_from:
+aliases:
   - /decentraland/requesting-grants/
   - /player/dao/grants/requesting-grants
 description: How to request a grant from the DAO
 categories:
   - Decentraland
 type: Document
-slug: /player/general/dao/overview/requesting-grants
+url: /player/general/dao/overview/requesting-grants
 ---
 
 To [request a grant](/player/general/dao/overview/community-grants) from the Decentraland DAO, begin by navigating to **[governance.decentraland.org](https://governance.decentraland.org)** and signing in with your wallet.

@@ -1,14 +1,14 @@
 ---
 date: 2021-06-18
 title: Community Grants
-redirect_from:
+aliases:
  - /decentraland/community-grants/
  - /player/dao/grants/community-grants
 description: An overview of community grants
 categories:
   - Decentraland
 type: Document
-slug: /player/general/dao/overview/community-grants
+url: /player/general/dao/overview/community-grants
 ---
 
 

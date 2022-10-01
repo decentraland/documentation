@@ -1,7 +1,7 @@
 ---
 date: 2018-01-01
 title: Marketplace
-redirect_from:
+aliases:
   - /decentraland/marketplace/
   - /docs/land-manager
   - /blockchain-interactions/marketplace
@@ -12,7 +12,7 @@ description: Meet the LAND marketplace
 categories:
   - market
 type: Document
-slug: /player/market/marketplace
+url: /player/market/marketplace
 ---
 
 The Marketplace is the go-to place to trade and manage all your Decentraland on-chain assets.

@@ -1,7 +1,7 @@
 ---
 date: 2020-09-16
 title: Community Voting
-redirect_from:
+aliases:
    - /decentraland/community-voting/
 description: Vote on the DAO to take part in the governance of Decentraland
 categories:

@@ -5,10 +5,10 @@ description: How Decentraland uses the Ethereum blockchain.
 categories:
   - blockchain-integration
 type: Document
-redirect_from:
+aliases:
   - /blockchain-interactions/ethereum-essentials
   - /blockchain-integration/ethereum-essentials/
-slug: /player/blockchain-integration/ethereum-essentials
+url: /player/blockchain-integration/ethereum-essentials
 ---
 
 All blockchains are in essence decentralized databases that are distributed among the machines of a network. Transactions are grouped into “blocks” and processed sequentially to form a _chain_ of events.

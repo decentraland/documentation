@@ -1,14 +1,14 @@
 ---
 date: 2018-01-01
 title: Whitepaper
-redirect_from:
+aliases:
   - /docs/whitepaper
   - /decentraland/whitepaper/
 description: Read more about the philosophy and design of Decentraland in our white paper.
 categories:
   - Decentraland
 type: Document
-slug: /player/general/whitepaper
+url: /player/general/whitepaper
 ---
 
 The original Decentraland white paper written by Esteban Ordano, Ariel Meilich, Yemel Jardi, and Manuel Araoz can be found using the link below.

@@ -5,9 +5,9 @@ description: Overview of the different platforms and entities that make up the D
 categories:
   - Decentraland
 type: Document
-redirect_from:
+aliases:
   - /decentraland/how-does-the-dao-work/
-slug: /player/general/dao/overview/how-does-the-dao-work
+url: /player/general/dao/overview/how-does-the-dao-work
 ---
 
 To circumvent the very high gas fees associated with full on-chain governance, Decentraland’s DAO uses a combination of free, off-chain voting for the community and a multi-sig wallet controlled by a “DAO Committee” to enact those off-chain decisions on the Ethereum blockchain. This allows everyone who holds MANA, NAMES or LAND to participate in the DAO without having to pay any fees everytime they want to vote or open a proposal.

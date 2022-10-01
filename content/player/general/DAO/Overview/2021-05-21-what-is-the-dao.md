@@ -1,14 +1,14 @@
 ---
 date: 2021-05-21
 title: What is the DAO?
-redirect_from:
+aliases:
   - /decentraland/what-is-the-dao/
   - /player/overview/DAO/what-is-the-dao
 description: The DAO is the decision making platform for Decentraland.
 categories:
   - Decentraland
 type: Document
-slug: /player/general/dao/overview/what-is-the-dao
+url: /player/general/dao/overview/what-is-the-dao
 ---
 
 The Decentraland DAO is the decision-making tool for MANA, NAMES and LAND holders in Decentraland’s virtual world. Through votes in the DAO, the community can issue grants and make changes to the lists of banned names, POIs, and catalyst nodes. The DAO also controls the LAND and Estate smart contracts.

@@ -1,13 +1,13 @@
 ---
 date: 2020-11-24
 title: Hardware acceleration
-redirect_from:
+aliases:
   - /decentraland/hardware-acceleration/
 description: Troubleshoot problems related to graphics processing performance
 categories:
   - Decentraland
 type: Document
-slug: /player/general/hardware-acceleration
+url: /player/general/hardware-acceleration
 ---
 
 Since Decentraland runs in a web browser, you might need to configure your browser and/or operating system to have access to all of your machine's potential to run Decentraland as smoothly as possible.
