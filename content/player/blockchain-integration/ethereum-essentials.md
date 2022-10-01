@@ -122,7 +122,7 @@ _dApps_ (decentralized applications) are applications that are built upon smart 
 
 A dApp can be as simple as something that validates that your wallet holds a certain token and lets you use a service. Or it can be a fully fledged application with its own UI, such as the Decentraland Marketplace.
 
-If you want to build your own dApp around Decentrlanad, see [Create a dApp](/creator/blockchain-integration/create-a-dapp).
+If you want to build your own dApp around Decentrlanad, see [Create a dApp](/creator/development-guide/create-a-dapp).
 
 ## Ropsten test network
 

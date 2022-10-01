@@ -24,7 +24,7 @@ Playing videos is one of the most expensive things for the engine to handle. If 
 
 You should also avoid having videos playing in regions where they can't be seen. For example, if you have a screen indoors, toggle the video using a trigger area based on when the player walks in and out.
 
-> TIP: A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping](/creator/development-guide/2018-02-7-materials#using-textures) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
+> TIP: A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping](/creator/development-guide/materials#using-textures) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
 
 > TIP: When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene](/creator/development-guide/event-listeners#player-enters-or-leaves-scene) .
 
@@ -58,7 +58,7 @@ Note that the scene will be considered fully loaded when everything that isn't a
 
 Try to make the scene's logic rely on listening to [events](/creator/development-guide/event-listeners) as much as possible, instead of running checks every frame.
 
-The `update()` function in a [system](/creator/development-guide/2018-02-3-systems) runs on every frame, 30 times per second (ideally). Avoid doing recurring checks if you can instead subscribe to an event.
+The `update()` function in a [system](/creator/development-guide/systems) runs on every frame, 30 times per second (ideally). Avoid doing recurring checks if you can instead subscribe to an event.
 
 For example, instead of constantly checking the player's wearables, you can subscribe to the `onProfileChanged` event, and check the player's wearables only when they've changed.
 

@@ -48,7 +48,7 @@ The rest of the Tiers Grants are paid via a vesting contract (3 or 6 months depe
 
 #### Title
 
-Provide a title that is concise and descriptive for your grant request. This title will appear as the header of your proposal’s detail page on [governance.decentraland.org](governance.decentraland.org), the proposal in Snapshot, and the Forum thread generated for your proposal.
+Provide a title that is concise and descriptive for your grant request. This title will appear as the header of your proposal’s detail page on [governance.decentraland.org](https://governance.decentraland.org), the proposal in Snapshot, and the Forum thread generated for your proposal.
 
 #### Abstract
 

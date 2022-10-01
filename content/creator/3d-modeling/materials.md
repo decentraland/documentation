@@ -13,7 +13,7 @@ url: /creator/3d-modeling/materials
 
 Materials are embedded into a _.gltf_ or _.glb_ file.
 
-This document refers to materials that are imported in a 3D model. For materials defined via code to apply onto primitive shapes, see [materials](/development-guide/materials).
+This document refers to materials that are imported in a 3D model. For materials defined via code to apply onto primitive shapes, see [materials](/creator/development-guide/materials).
 
 > Note: You can't currently dynamically change the materials of a 3D model from your scene's code, unless this is a primitive shape.
 

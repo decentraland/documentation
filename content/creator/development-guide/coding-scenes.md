@@ -49,7 +49,7 @@ To develop a scene locally, you don't need to own LAND tokens. Developing and te
 
 You must have the following:
 
-- **npm** (Node package manager): Used in the terminal to handle scene dependencies, required to install the Decentraland CLI. [Download link](nodejs.org)
+- **npm** (Node package manager): Used in the terminal to handle scene dependencies, required to install the Decentraland CLI. [Download link](https://nodejs.org)
 
 - **The Decentraland CLI**: Used to build, preview and upload scenes. See [Installation guide](/creator/development-guide/installation-guide)
 

@@ -64,7 +64,7 @@ You can confirm that it worked by checking the `package.json` file for the scene
 
 ## Troubleshooting
 
-If you run into issues, see the [troubleshooting](/development-guide/troubleshooting) section.
+If you run into issues, see the [troubleshooting](/creator/development-guide/troubleshooting) section.
 
 
 

@@ -103,7 +103,7 @@ myMaterial.emissiveColor = Color3.White()
 myMaterial.emissiveIntensity = 0.6
 ```
 
-See [materials](/creator/development-guide/2018-02-7-materials) for more details.
+See [materials](/creator/development-guide/materials) for more details.
 
 ## About Streaming
 

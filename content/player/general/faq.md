@@ -82,7 +82,7 @@ LAND is a non-fungible digital asset maintained in an Ethereum smart contract. L
 
 ## How large is a tile of LAND?
 
-Land parcels are 16m x 16m, or 52ft x 52ft. Height is restricted based on [these limitations](/development-guide/scene-limitations/).
+Land parcels are 16m x 16m, or 52ft x 52ft. Height is restricted based on [these limitations](/creator/development-guide/scene-limitations).
 
 ## What is an Estate?
 

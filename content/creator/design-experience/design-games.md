@@ -50,7 +50,7 @@ Portable experiences are parts of the gameplay that players take with them as th
 
 Smart wearables are a kind of portable experience that is tied to a wearable token and turned on when the player puts on the item of clothing. Smart wearables can grant players new abilities, like a jetpack that lets them fly, or add a new layer of content on top of the rest of the world, like randomly placing coins to be collected throughout the whole of genesis city.
 
-Keep in mind that players might be using someone else’s portable experience while on your scene. See [User Data](/creator/development-guide/user-data}#get-portable-experiences) to learn how to check what portable experiences a player currently has activated.
+Keep in mind that players might be using someone else’s portable experience while on your scene. See [User Data](/creator/development-guide/user-data#get-portable-experiences) to learn how to check what portable experiences a player currently has activated.
 
 ## Game Persistence
 
