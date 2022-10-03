@@ -81,6 +81,6 @@ dcl deploy
 
 Check that your scene has all the necessary metadata: name, description, a preview image, spawn points. See [scene metadata](/creator/development-guide/scene-metadata) for details.
 
-See [publishing](/creator/development-guide/publishing) for more details.
+See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) for more details.
 
 > Tip: To give your new scene more visibility, consider creating an inaugural event in the [events page](https://events.decentraland.org/en/).

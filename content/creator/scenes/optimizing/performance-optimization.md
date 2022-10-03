@@ -126,7 +126,7 @@ Keep in mind that the performance you experience in preview may differ from that
 - The compression of the scenes' 3d models into asset bundles can have a positive impact
 - Some players visiting your scene may be running on less powerful hardware
 
-It's always a good practice to try deploying your scene first to the [test environment](/creator/development-guide/publishing#the-test-server) to do some more thorough testing.
+It's always a good practice to try deploying your scene first to the [test environment]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) to do some more thorough testing.
 
 Always ask players for feedback. Never take for granted that how you experience the scene is the same for everyone else.
 

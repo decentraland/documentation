@@ -12,7 +12,7 @@ Decentraland is made up of _parcels_ of LAND, each 16 meters by 16 meters. A _sc
 
 Scenes are displayed one next to the other and players can freely walk from one to the other. Each scene is its own contained little world, items from one scene can't extend out into another scene, and the code for each scene is sandboxed from all others.
 
-Each parcel of land is tokenized as an NFT. To be allowed to [publish](/creator/development-guide/publishing) a scene to a land parcel, you either need to own that NFT or be given permissions by the owner.
+Each parcel of land is tokenized as an NFT. To be allowed to [publish]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) a scene to a land parcel, you either need to own that NFT or be given permissions by the owner.
 
 <!--
 You can also create smart wearables, which are wearable items of clothes that come with their own behavior. Players that put on that wearable can access a whole other layer of experiences on top of Decentraland. -->

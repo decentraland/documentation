@@ -42,7 +42,7 @@ Every time you make changes to the scene, the preview reloads and updates automa
 
 ## Upload a scene to decentraland
 
-Once you're happy with your scene, you can upload it and publish it to Decentraland, see [publishing](/creator/development-guide/publishing) ) for instructions on how to do that.
+Once you're happy with your scene, you can upload it and publish it to Decentraland, see [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) ) for instructions on how to do that.
 
 You can also upload a preview to a free 3rd party server, [see instructions here](/creator/development-guide/deploy-third-party).
 

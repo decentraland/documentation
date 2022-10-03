@@ -25,7 +25,7 @@ Although there should always be backwards compatibility of content built with ol
 
 You can deploy scenes to a test server as a staging environment, before publishing them to the live content servers. This server is not frequented by any players that visit Decentraland normally. To enter this server you must manually write its URL, but keep in mind that it's not a private environment.
 
-See [The test server](/creator/development-guide/publishing#the-test-server) for details.
+See [The test server]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) for details.
 
 
 ## Access debug information
