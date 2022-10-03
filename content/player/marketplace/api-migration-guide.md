@@ -56,8 +56,7 @@ All of the v1 bid endpoints have been replaced with queries to the Graph. See th
 
 To list open and non-expired bids where the expiration date is specified as a unix timestamp:
 
-{% raw %}
-```
+```graphql
 {
   bids(where:{ status: open, expiresAt_gt: 1611082372  }) {
     nft {
@@ -71,7 +70,6 @@ To list open and non-expired bids where the expiration date is specified as a un
   }
 }
 ```
-{% endraw %}
 
 ### Districts and District Contributions
 
@@ -94,13 +92,11 @@ While two v1 estate endpoints are replaced with Graph queries, version 2.0 intro
 
 To obtain estate data, query the Graph for NFT entities with the condition:
 
-{% raw %}
-```
+```graphql
 {
   category: estate
 }
 ```
-{% endraw %}
 
 ### Map
 
@@ -137,8 +133,7 @@ Some of the parcel endpoints have v2 counterparts, while others are replaced wit
 
 To list all parcels owned by one specific address, submit this query to the Graph:
 
-{% raw %}
-```
+```graphql
 {
   nfts(where:{ category: parcel, owner: "0x..."  }) {
     parcel {
@@ -148,7 +143,6 @@ To list all parcels owned by one specific address, submit this query to the Grap
   }
 }
 ```
-{% endraw %}
 
 ### Publications
 
@@ -161,8 +155,7 @@ The publications endpoints are all replaced with corresponding queries to the Gr
 
 To list all open and non-expired orders, submit this query to the Graph:
 
-{% raw %}
-```
+```graphql
 {
   orders(where:{ status: open, expiresAt_gt: 1611082372  }) {
     nft {
@@ -173,9 +166,7 @@ To list all open and non-expired orders, submit this query to the Graph:
     price
   }
 }
-
 ```
-{% endraw %}
 
 ### Translations
 

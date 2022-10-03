@@ -40,7 +40,7 @@ Below are the maximum number of elements that a scene is allowed to render at th
 
 ## Optimizing
 
-See [Performance Optimization]({{ site.baseurl }}{% post_url /development-guide/2021-01-11-performance-optimization %})) for tips about how you can keep your scene below these limits and make it run smoother for players.
+See [Performance Optimization](/creator/development-guide/performance-optimization/) for tips about how you can keep your scene below these limits and make it run smoother for players.
 
 
 <!--

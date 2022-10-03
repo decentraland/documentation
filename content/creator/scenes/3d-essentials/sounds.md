@@ -98,4 +98,4 @@ Suppose you have a large amount of balls bouncing around in your scene, and you 
 
 ## Audio streaming
 
-See [Audio streaming]({{ site.baseurl }}{% post_url /development-guide/2022-07-11-audio-streams %})) to learn how you can play a live audio stream from an external source.
+See [Audio streaming](/creator/development-guide/audio-streaming) to learn how you can play a live audio stream from an external source.
