@@ -8,6 +8,7 @@ type: Document
 url: /creator
 weight: 2
 ---
+
 Decentraland is made up of _parcels_ of LAND, each 16 meters by 16 meters. A _scene_ is an experience that is built on one or several parcels.
 
 Scenes are displayed one next to the other and players can freely walk from one to the other. Each scene is its own contained little world, items from one scene can't extend out into another scene, and the code for each scene is sandboxed from all others.
@@ -27,7 +28,6 @@ The Decentraland SDK allows you to create your scene by writing in TypeScript (J
 
 - Check out scene [examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
 
-
 ## Graphical editing tools
 
 There are a number of tools that can help with arranging 3d models into position in a Decentraland scene. You still need to resort to the SDK to add interactivity to these items, but setting positions visually is a big help.
@@ -36,14 +36,11 @@ There are a number of tools that can help with arranging 3d models into position
 
 - [**Legacy Builder**](https://builder.decentraland.org): a simple drag and drop editor. No coding required, some items include built-in functionality. You can start a scene with the Builder, and then export it to continue working on it with the SDK.
 
-	Read the [documentation](/builder/builder-101).
+  Read the [documentation](/builder/builder-101).
 
-	> Note: If a scene is created by or modified by the SDK, you can't import it into the Builder. You can only go from the Builder to the SDK, not in the other direction.
+  > Note: If a scene is created by or modified by the SDK, you can't import it into the Builder. You can only go from the Builder to the SDK, not in the other direction.
 
-
-
-
-## 3d Modeling
+## 3D Modeling
 
 You can use any 3rd party modeling tool to create 3D models that can be used in Decentraland scenes. It's easy to [import them into the Builder](/builder/import-items).
 
