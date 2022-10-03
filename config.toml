@@ -1,7 +1,7 @@
 baseURL = 'https://docs.decentraland.org/'
 languageCode = 'en-us'
 title = 'Decentraland Documentation'
-theme = "hugo-book"
+theme = "documentation-theme"
 
 # Book configuration
 disablePathToLower = true
