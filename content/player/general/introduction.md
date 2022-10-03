@@ -11,6 +11,7 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/introduction
+weight: 1
 ---
 
 **Decentraland is a decentralized virtual reality platform powered by the Ethereum blockchain. Within the Decentraland platform, users can create, experience, and monetize their content and applications.**

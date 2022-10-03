@@ -1,6 +1,6 @@
 ---
 date: 2022-09-01
-title: The Rig - features
+title: Rigging features
 description: Features about the avatar rig and downloadable file.
 categories:
   - emotes
@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /emotes/rig-features
 url: /creator/emotes/rig-features
+weight: 4
 ---
 
 This documentation explains the set up for Rig 1.0, its controls, and features.

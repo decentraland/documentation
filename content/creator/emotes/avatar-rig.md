@@ -1,6 +1,6 @@
 ---
 date: 2022-09-01
-title: The Rig - basic concepts
+title: Avatar rig
 description: Basics about the avatar rig.
 categories:
   - emotes
@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /emotes/avatar-rig
 url: /creator/emotes/avatar-rig
+weight: 3
 ---
 
 

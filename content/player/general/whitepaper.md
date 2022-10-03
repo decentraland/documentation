@@ -9,6 +9,7 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/whitepaper
+weight: 3
 ---
 
 The original Decentraland white paper written by Esteban Ordano, Ariel Meilich, Yemel Jardi, and Manuel Araoz can be found using the link below.

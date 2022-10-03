@@ -9,6 +9,7 @@ aliases:
   - /emotes/emotes/
   - /creator/emotes/emotes/
 url: /creator/emotes/emotes-overview
+weight: 1
 ---
 
 Emotes are animation sequences for avatars’ skeleton bones, which are defined in a transport file, usually in `.glb`, or `.gltf` formats.
@@ -84,7 +85,9 @@ For example, if you publish a collection with two items and the price of MANA at
 
 These fees are transferred to the Curator Committee and the Decentraland DAO, where they are used to help fund the growth of the Decentraland through grants and other initiatives voted on by the greater Decentraland community.
 
-> Note: Currently, due to the time and resources required to review each collection submitted, the 150 USD in MANA publication fee is non-refundable. If your collection is rejected, you will not receive your MANA back. If your collection is not immediately approved, the Curation Committee will provide you with suggestions and feedback on how to improve it, but the final acceptance of your collection cannot be guaranteed.
+> **Note:**  
+>
+> Currently, due to the time and resources required to review each collection submitted, the 150 USD in MANA publication fee is non-refundable. If your collection is rejected, you will not receive your MANA back. If your collection is not immediately approved, the Curation Committee will provide you with suggestions and feedback on how to improve it, but the final acceptance of your collection cannot be guaranteed.
 
 
 ### Acceptance Criteria

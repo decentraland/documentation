@@ -1,0 +1,5 @@
+[
+  {"name": "Players", "path": "player", "accent": "#FF2D55"},
+  {"name": "Content Creators", "path": "creator", "accent": "#4947CD"},
+  {"name": "Contributors", "path": "contributor", "accent": "#EE834A"}
+]

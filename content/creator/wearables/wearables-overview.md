@@ -9,6 +9,7 @@ categories:
   - Decentraland
 type: Document
 url: /creator/wearables/wearables-overview
+weight: 1
 ---
 
 Wearables are the various items of clothing, accessories, and body features that can be used to customize the appearance of a Decentraland avatar. There is a selection of default wearables that are freely available to all avatars, but Decentraland also supports the creation and use of custom wearables that are represented by non-fungible tokens (or NFTs). This allows a finite amount of different wearables to be created, or minted, on the blockchain, similar to the LAND.

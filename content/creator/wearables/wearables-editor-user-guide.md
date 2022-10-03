@@ -9,6 +9,7 @@ categories:
   - Decentraland
 type: Document
 url: /creator/wearables/wearables-editor-user-guide
+weight: 4
 ---
 
 ### What is the Wearables Editor?

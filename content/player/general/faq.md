@@ -11,6 +11,7 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/faq
+weight: 2
 ---
 
 ## What equipment or software do I need to play in Decentraland?

@@ -9,6 +9,7 @@ aliases:
   - /wearables/creating-wearables/
   - /decentraland/creating-wearables/
 url: /creator/wearables/creating-wearables
+weight: 2
 ---
 
 ### What are wearables?

@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /emotes/creating-and-exporting-emotes/
 url: /creator/emotes/creating-and-exporting-emotes
+weight: 2
 ---
 
 This documentation will cover the file specifications, the basics of animation in Blender, the proper way to export an Emote, and how to import one into the Builder.
