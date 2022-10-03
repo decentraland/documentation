@@ -12,6 +12,39 @@ url: /creator/emotes/emotes-overview
 weight: 1
 ---
 
+<iframe id="emote-preview" style="width:100%;border:0;height:60vh;"></iframe>
+
+<script>
+  const profile = Math.ceil(Math.random() * 120)
+  const emotes = ['clap', 'dab', 'dance', 'fashion', 'fashion-2', 'fashion-3','fashion-4', 'love', 'money', 'fist-pump', 'head-explode']
+function emote() {
+  return emotes[Math.floor(Math.random() * emotes.length)]
+}
+document.getElementById("emote-preview").src = "https://wearable-preview.decentraland.org/?profile=default"+profile+"&emote="+emote()+"&transparentBackground&loop=true"
+
+  function changeProfile() {
+document.getElementById("emote-preview").contentWindow.postMessage({
+  type: 'update',
+  payload: { options: {
+    profile: `default${Math.ceil(Math.random() * 120)}`
+  } }
+},'*')
+return false
+  }
+
+  function changeEmote() {
+document.getElementById("emote-preview").contentWindow.postMessage({
+  type: 'update',
+  payload: { options: {
+    emote: emote()
+  } }
+},'*')
+return false
+  }
+</script>
+
+<a onclick="changeProfile()" style="cursor: pointer">Change avatar ↺</a> - <a onclick="changeEmote()" style="cursor: pointer">Change emote ↺</a>
+
 Emotes are animation sequences for avatars’ skeleton bones, which are defined in a transport file, usually in `.glb`, or `.gltf` formats.
 
 There are a selection of free default Emotes that are available to any user, but Decentraland also supports the creation and use of custom Emotes that are represented by non-fungible tokens ( NFTs). This allows a finite amount of different Emotes to be created, or minted, on the blockchain, similar to [Wearables](/creator/wearables/wearables-overview).

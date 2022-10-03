@@ -12,6 +12,25 @@ url: /creator/wearables/wearables-overview
 weight: 1
 ---
 
+<iframe id="emote-preview" style="width:100%;border:0;height:60vh;"></iframe>
+
+<script>
+  const profile = Math.ceil(Math.random() * 120)
+document.getElementById("emote-preview").src = "https://wearable-preview.decentraland.org/?profile=default"+profile+"&transparentBackground&loop=true"
+
+  function changeProfile() {
+document.getElementById("emote-preview").contentWindow.postMessage({
+  type: 'update',
+  payload: { options: {
+    profile: `default${Math.ceil(Math.random() * 120)}`
+  } }
+},'*')
+return false
+  }
+</script>
+
+<a onclick="changeProfile()" style="cursor: pointer">Refresh wearables ↺</a>
+
 Wearables are the various items of clothing, accessories, and body features that can be used to customize the appearance of a Decentraland avatar. There is a selection of default wearables that are freely available to all avatars, but Decentraland also supports the creation and use of custom wearables that are represented by non-fungible tokens (or NFTs). This allows a finite amount of different wearables to be created, or minted, on the blockchain, similar to the LAND.
 
 By default, Decentraland Wearables are minted on the Polygon/Matic sidechain so users can mint, buy, sell, or transfer items without having to pay gas fees.
