@@ -5,7 +5,7 @@
    ```
    git clone --recurse-submodules https://github.com/decentraland/documentation.git
    ```
-3. Run `hugo serve` to preview changes locally
+3. Run `hugo serve` to preview changes locally and follow the instructions in the terminal to open a browser
 
 # Links syntax
 
