@@ -28,3 +28,16 @@ To debug the current context of Hugo (the site renderer) you may use this snippe
   or
 
   {{- printf "%#v" $ -}}
+
+
+### Multi platform tabs
+
+Tabs should be used to list content for different platforms as seen in [/content/creator/scenes/getting-started/sdk-101.md](/content/creator/scenes/getting-started/sdk-101.md)
+
+```markdown
+{{< tabs "open-terminal" >}}
+{{< tab "Windows" >}} Right click on the Start button, then search for "_cmd_" and select the "Command Prompt". {{< /tab >}}
+{{< tab "MacOS" >}} Open the Launchpad (Cmd+space) and look for "_Terminal_" {{< /tab >}}
+{{< tab "Linux" >}} You already know how to do it {{< /tab >}}
+{{< /tabs >}}
+```
