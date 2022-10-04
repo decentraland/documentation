@@ -9,6 +9,7 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/dao/overview/the-dao-fund
+weight: 6
 ---
 
 The Decentraland DAO has been granted with a **10-year vesting contract worth 222,000,000 MANA** started on Feb 19, 2020.

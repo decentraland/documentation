@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /blockchain-integration/transactions-in-polygon/
 url: /player/blockchain-integration/transactions-in-polygon
+weight: 3
 ---
 
 ## What is Polygon?

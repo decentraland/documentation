@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /market/mortgages/
 url: /player/market/mortgages
+weight: 30
 ---
 
 > **IMPORTANT: LAND mortgages from the Ripio Credit Network have been deprecated!**

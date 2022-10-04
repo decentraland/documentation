@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /blockchain-integration/estates-marketplace-integrations/
 url: /player/blockchain-integration/estates-marketplace-integrations
+weight: 15
 ---
 
 ## Integrating Decentraland's Estate in your Marketplace

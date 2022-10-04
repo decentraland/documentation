@@ -12,6 +12,7 @@ categories:
   - market
 type: Document
 url: /player/market/api
+weight: 20
 ---
 
 
