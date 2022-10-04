@@ -7,1086 +7,170 @@ aliases:
   - /blockchain-interactions/api
   - /blockchain-integration/api
   - /market/api
+  - /market/api-migration-guide/
 categories:
   - market
 type: Document
 url: /player/market/api
+weight: 20
 ---
 
-Base URL: `https://api.decentraland.org/`
 
-Specify version: `https://api.decentraland.org/v1`
+Current documentation (including configuration details) for the LAND API v2.0 [can be found here](https://github.com/decentraland/atlas-server).
 
-## Table of Contents
 
-- [Bids](#bids)
-- [Contributions](#contributions)
-- [Districts](#districts)
-- [Estates](#estates)
-- [Mortgages](#mortgages)
-- [Map](#map)
-- [Parcels](#parcels)
-- [Publications](#publications)
-- [Translations](#translations)
+Bids and publications come form the nft-server, its documentation [can be found here](https://github.com/decentraland/nft-server)
 
-## Bids
 
-```
-GET /bids/:id
-```
 
-### Description
+## Version 2.0 Migration Guide
 
-Returns a bid by its id.
+Following is a side-by-side comparison of v1 and v2 of the LAND API. Any version 1 endpoints with the tag **Deprecated** will be unavailable starting February 1st, 2021.
 
-### URI Params
+Any version 1 endpoints **without** the deprecation tag will remain working and supported, as there is no replacement in version 2.0.
 
-| name | type   | description       |
-| ---- | ------ | ----------------- |
-| id   | string | The id of the bid |
+There are several v1 endpoints without a v2 counterpart, but the corresponding data can still be found via a query to [Decentraland’s subgraph on The Graph](https://thegraph.com/explorer/subgraph/decentraland/marketplace). Example queries are included for each endpoint group, where applicable.
 
-### Request Example:
+### Tiles
 
-```
-GET /bids/0xaac47013b34b4c9a568503db4e8c5b3a41764919ba26214491fb3e665282eaea
-```
+The v1 tiles endpoint has been replaced with an improved v2 endpoint. The v2 endpoint returns a more readable and more easily parsed object. For an in depth discussion of these improvements, [see this blogpost](https://decentraland.org/blog/technology/land-api-v2/).
 
-### Response Example
 
-```json
+| V1 Endpoint | Description | V2 Endpoint | Description |
+| --- | --- | --- | ---|
+| `GET /v1/tiles` | Returns all tiles in the map, using the legacy format. **Deprecated.** | `GET /v2/tiles` | Returns all tiles in the map, using the new v2 format. This replaces v1 of the same endpoint, returning an object with a new, more useful shape. |
+
+### Bids
+
+All of the v1 bid endpoints have been replaced with queries to the Graph. See the chart and example below for details.
+
+
+| V1 Endpoint | Description | V2 Endpoint | Description |
+| --- | --- | --- | ---|
+| `GET /bids/:id` | Returns a bid by the bid’s ID. **Deprecated** | See example subgraph query below. |  |
+| `GET /addresses/:address/bids` | Returns list of bids by the seller or bidder’s Ethereum address. **Deprecated** | See example subgraph query below. |  |
+| `GET /parcels/:x/:y/bids` | Returns a list of bids placed on a given parcel. **Deprecated** | See example subgraph query below. |  |
+| `GET /estates/:id/bids` | Returns a list of bids placed on a given estate. **Deprecated** | See example subgraph query below. |  |
+| `GET /bids/:address/assets` | Returns a list of bid assets by the seller or bidder’s Ethereum address. **Deprecated** | See example subgraph query below. |  |
+
+To list open and non-expired bids where the expiration date is specified as a unix timestamp:
+
+```graphql
 {
-  "ok": true,
-  "data": {
-    "id": "0xaac47013b34b4c9a568503db4e8c5b3a41764919ba26214491fb3e665282eaea",
-    "token_address": "0x124bf28a423b2ca80b3846c3aa0eb944fe7ebb95",
-    "token_id": "31",
-    "bidder": "0x87956abc4078a0cc3b89b419928b857b8af826ed",
-    "seller": "0xe4d3ba99ffdae47c003f1756c01d8e7ee8fef7c9",
-    "price": 2,
-    "expires_at": "1551495590000",
-    "fingerprint": "0x7bf0da414abc768d638b486dfc3330abd361aa7d7916d673072d4e3776ea9287",
-    "status": "sold",
-    "asset_id": "31",
-    "asset_type": "estate",
-    "block_number": 4924562,
-    "block_time_created_at": "1548876122000",
-    "block_time_updated_at": "1548876183000",
-    "created_at": "2019-01-31T13:42:40.697Z",
-    "updated_at": "2019-02-04T12:42:23.017Z"
+  bids(where:{ status: open, expiresAt_gt: 1611082372  }) {
+    nft {
+      name
+      contractAddress
+      tokenId
+    }
+    price
+    bidder
+    seller
   }
 }
 ```
 
-```
-GET /addresses/:address/bids
-```
+### Districts and District Contributions
 
-### Description
+V2 endpoints to expose data about Districts and District contributions are under active development. Until February 1st, 2021, you may still call the v1 endpoint. After that date, new documentation for the v2 endpoints will be published on this page.
 
-Returns a list of bids where the seller or bidder is the given address.
+| V1 Endpoint | Description | V2 Endpoint | Description |
+| --- | --- | --- | --- |
+| `GET /addresses/:address/contributions` | Returns all contributions to districts by the contributor’s Ethereum address. **Deprecated** | `GET /v2/addresses/:address/contributions` | This v2 endpoint is under active development, and will be functional on February 1st, 2021 when v1 is deprecated. |
+| `GET /districts` | Returns a list of all districts in Genesis City. **Deprecated** | `GET /v2/addresses/:address/contributions` | This v2 endpoint is under active development, and will be functional on February 1st, 2021 when v1 is deprecated. |
 
-### URI Params
+### Estates
 
-| name    | type   | description         |
-| ------- | ------ | ------------------- |
-| address | string | An Ethereum address |
+While two v1 estate endpoints are replaced with Graph queries, version 2.0 introduces a new estate endpoint that allows you to return data about an estate based on the estates ID.
 
-### Query Params
+| V1 Endpoint | Description | V2 Endpoint | Description |
+| --- | --- | --- | --- |
+| `GET /estates` | Returns a list of Estates. **Deprecated** | See example subgraph query below. |  |
+| `GET /addresses/:address/estates` | Returns all Estates belonging to the given Ethereum address. **Deprecated** | See example subgraph query below. |  |
+|  |  | `GET /v2/estates/:id` | New v2 endpoint that returns metadata about an estate with the given ID. |
 
-| name   | type | default | description                                                          |
-| ------ | ---- | ------- | -------------------------------------------------------------------- |
-| status | enum | all     | Filter estates by publications status: `open`, `cancelled` or `sold` |
+To obtain estate data, query the Graph for NFT entities with the condition:
 
-### Request Example:
-
-```
-GET /addresses/0xe4d3ba99ffdae47c003f1756c01d8e7ee8fef7c9/bids
-```
-
-### Response Example
-
-```json
+```graphql
 {
-  "ok": true,
-  "data": [
-    {
-      "id": "0xfbeb6c5f702d3be5564872cd68bc96c683b0029d8116feb79058669c6fe40d1d",
-      "token_address": "0x7a73483784ab79257bb11b96fd62a2c3ae4fb75b",
-      "token_id": "1.1579208923731619542357098500868790784067953708956584089131272353293770581592e+77",
-      "bidder": "0xe4d3ba99ffdae47c003f1756c01d8e7ee8fef7c9",
-      "seller": "0x87956abc4078a0cc3b89b419928b857b8af826ed",
-      "price": 1,
-      "expires_at": "1551409156000",
-      "fingerprint": "0x",
-      "status": "sold",
-      "asset_id": "145,-79",
-      "asset_type": "parcel",
-      "block_number": 4918744,
-      "block_time_created_at": "1548787699000",
-      "block_time_updated_at": "1548787921000",
-      "created_at": "2019-01-31T13:42:40.437Z",
-      "updated_at": "2019-02-04T12:42:22.785Z"
-    }
-  ]
+  category: estate
 }
 ```
 
-```
-GET /parcels/:x/:y/bids
-```
+### Map
 
-### Description
+The v1 map endpoint remains unchanged and supported.
 
-Returns a list of bids placed on a given Parcel.
+| V1 Endpoint | Description | V2 Endpoint | Description |
+| --- | --- | --- | --- |
+| `GET /map` | Returns all parcels and estates in a given area. This endpoint is **depcrecated** and is replaced by `GET /v1/map.png`|  |  |
+| `GET /map.png` | Returns a PNG image of a section of the map. | `GET /v1/map.png` | Returns a PNG image of a section of the map. This endpoint is still supported and functional! There is no v2 version of this endpoint, keep calling the v1 endpoint to get the same data. |
+| `GET /parcels/:x/:y/map.png` | Returns a PNG image of a piece of the map centered on the given parcel. | `GET /v1/parcels/:x/:y/map.png` | Returns a PNG image of a map centered on a highlighted parcel with the given coordinates. |
+| `GET /estates/:id/map.png` | Returns a PNG image of a piece of the map centered on an estate specified by the estate’s ID. | `GET /v1/estates/:id/map.png` | Returns a PNG image of a map centered on a highlighted estate with the given ID. |
 
-### URI Params
+### Mortgages
 
-| name | type | min  | max | default | description               |
-| ---- | ---- | ---- | --- | ------- | ------------------------- |
-| x    | int  | -150 | 150 | 0       | The X coord of the parcel |
-| y    | int  | -150 | 150 | 0       | The Y coord of the parcel |
+The mortgage endpoints are all deprecated with the v2 release. Since mortgages are no longer supported in the marketplace, there’s no longer any data in this category to expose via an API or Graph query.
 
-### Query Params
+| V1 Endpoint | Description | V2 Endpoint | Description |
+| --- | --- | --- | --- |
+| `GET /mortgages/:address/parcels` | Returns list of parcels with an active mortgage requested by a given Ethereum address. **Deprecated** |  |  |
+| `GET /addresses/:address/mortgages` | Returns all mortgages requested by a given Ethereum address. **Deprecated** |  |  |
+| `GET /parcels/:x/:y/mortgages` | Returns all mortgages requested for a given parcel. **Deprecated** |  |  |
 
-| name     | type    | default | description                                                          |
-| -------- | ------- | ------- | -------------------------------------------------------------------- |
-| status   | enum    | all     | Filter estates by publications status: `open`, `cancelled` or `sold` |
-| bidder   | string  | N/A     | The Ethereum address of the bidder                                   |
-| sanitize | boolean | true    | If false, will retrieve all the bids property                        |
+### parcels
 
-### Request Example:
+Some of the parcel endpoints have v2 counterparts, while others are replaced with queries to the Graph. See the chart below for details.
 
-```
-GET /parcels/145,-79/bids
-```
+| V1 Endpoint | Description | V2 Endpoint | Description |
+| --- | --- | --- | --- |
+| `GET /parcels` | Returns a list of all parcels. **Deprecated.** | See the example subgraph query below. |  |
+| `GET /addresses/:address/parcels` | Returns a list of all parcels belonging to a given address. **Deprecated.** | See the example subgraph query below. |  |
+| `GET /parcels/:x/:y` | Returns a single parcel with the given coordinates. **Deprecated.** | `GET /v2/parcels/:x/:y` | Returns metadata about a parcel with the given coordinates. This new v2 endpoint queries The Graph instead of looking at the deprecated v1 server. |
+| `GET /parcels/:tokenId` | Returns a single parcel based on its blockchain ID (also called a token ID). **Deprecated.** | `GET /v2/contracts/:address/tokens/:id` | Returns metadata about a parcel or estate with the given contract address and token/blockchain ID. |
+| `GET /parcels/:x/:y/encodedId` | Returns the blockchain/token ID of a parcel based on its coordinates. **Deprecated** | `GET /v2/tiles?x1&x2&y1&y2&include=tokenId` | By setting both x1 and x2 to X and y1 and y2 to Y value, and including only the tokenId property you can find the same data using the new /v2/tiles endpoint. |
 
-### Response Example
+To list all parcels owned by one specific address, submit this query to the Graph:
 
-```json
+```graphql
 {
-  "ok": true,
-  "data": [
-    {
-      "id": "0xfbeb6c5f702d3be5564872cd68bc96c683b0029d8116feb79058669c6fe40d1d",
-      "token_address": "0x7a73483784ab79257bb11b96fd62a2c3ae4fb75b",
-      "token_id": "1.1579208923731619542357098500868790784067953708956584089131272353293770581592e+77",
-      "bidder": "0xe4d3ba99ffdae47c003f1756c01d8e7ee8fef7c9",
-      "seller": "0x87956abc4078a0cc3b89b419928b857b8af826ed",
-      "price": 1,
-      "expires_at": "1551409156000",
-      "fingerprint": "0x",
-      "status": "sold",
-      "asset_id": "145,-79",
-      "asset_type": "parcel",
-      "block_number": 4918744,
-      "block_time_created_at": "1548787699000",
-      "block_time_updated_at": "1548787921000",
-      "created_at": "2019-01-31T13:42:40.437Z",
-      "updated_at": "2019-02-04T12:42:22.785Z"
+  nfts(where:{ category: parcel, owner: "0x..."  }) {
+    parcel {
+      x
+      y
     }
-  ]
-}
-```
-
-```
-GET /estates/:id/bids
-```
-
-### Description
-
-Returns a list of bids placed on a given Estate.
-
-### URI Params
-
-| name | type   | description          |
-| ---- | ------ | -------------------- |
-| id   | string | The id of the estate |
-
-### Query Params
-
-| name     | type    | default | description                                                          |
-| -------- | ------- | ------- | -------------------------------------------------------------------- |
-| status   | enum    | all     | Filter estates by publications status: `open`, `cancelled` or `sold` |
-| bidder   | string  | N/A     | The Ethereum address of the bidder                                   |
-| sanitize | boolean | true    | If false, will retrieve all the bids property                        |
-
-### Request Example:
-
-```
-GET /estates/1/bids
-```
-
-### Response Example
-
-```json
-{
-  "ok": true,
-  "data": [
-    {
-      "id": "0xaac47013b34b4c9a568503db4e8c5b3a41764919ba26214491fb3e665282eaea",
-      "token_address": "0x124bf28a423b2ca80b3846c3aa0eb944fe7ebb95",
-      "token_id": "1",
-      "bidder": "0x87956abc4078a0cc3b89b419928b857b8af826ed",
-      "seller": "0xe4d3ba99ffdae47c003f1756c01d8e7ee8fef7c9",
-      "price": 2,
-      "expires_at": "1551495590000",
-      "fingerprint": "0x7bf0da414abc768d638b486dfc3330abd361aa7d7916d673072d4e3776ea9287",
-      "status": "sold",
-      "asset_id": "1",
-      "asset_type": "estate",
-      "block_number": 4924562,
-      "block_time_created_at": "1548876122000",
-      "block_time_updated_at": "1548876183000",
-      "created_at": "2019-01-31T13:42:40.697Z",
-      "updated_at": "2019-02-04T12:42:23.017Z"
-    }
-  ]
-}
-```
-
-```
-GET /bids/:address/assets
-```
-
-### Description
-
-Returns a list of bid assets where the seller or bidder is the given address.
-
-### URI Params
-
-| name    | type   | description         |
-| ------- | ------ | ------------------- |
-| address | string | An Ethereum address |
-
-### Query Params
-
-| name   | type | default | description                                                          |
-| ------ | ---- | ------- | -------------------------------------------------------------------- |
-| status | enum | all     | Filter estates by publications status: `open`, `cancelled` or `sold` |
-
-### Request Example:
-
-```
-GET /bids/0xe4d3ba99ffdae47c003f1756c01d8e7ee8fef7c9/assets
-```
-
-### Response Example
-
-```json
-{
-  "ok": true,
-  "data": [
-    {
-      "id": "12345",
-      "owner": "0xe0653744f2d6a388f1fc7496e085156418a9f5ed",
-      "data": {
-        "ipns": "",
-        "name": "My Estate",
-        "parcels": [
-          { "x": -30, "y": -121 },
-          { "x": -29, "y": -121 }
-        ],
-        "version": 0,
-        "description": "My estate is awesome"
-      },
-      "last_transferred_at": "1548929430000",
-      "tx_hash": "0x6d1f7cad7419af31b6b1f65205c5336200a1662e35ed9083d5f4323f95cb9dd6",
-      "token_id": "12345",
-      "update_operator": "0x0000000000000000000000000000000000000000"
-    },
-    {
-      "id": "-74,-52",
-      "x": -74,
-      "y": -52,
-      "auction_price": 2443,
-      "district_id": null,
-      "owner": "0xdeadbeeffaceb00c",
-      "data": {
-        "version": 0,
-        "name": "My Parcel",
-        "description": "My parcel is awesome",
-        "ipns": ""
-      },
-      "auction_owner": "0xdeadbeeffaceb00c",
-      "tags": {},
-      "last_transferred_at": null,
-      "in_estate": false
-    }
-  ]
-}
-```
-
-## Contributions
-
-```
-GET /addresses/:address/contributions
-```
-
-### Description
-
-Returns all the contributions to districts for a given address
-
-### URI Params
-
-| name    | type   | description         |
-| ------- | ------ | ------------------- |
-| address | string | An Ethereum address |
-
-### Response Example
-
-```json
-{
-  "ok": true,
-  "data": [
-    {
-      "address": "0x374cc898638940452b6d7b34f6063170976026f0",
-      "district_id": "219ac351-e6ce-4e17-8b84-eb008afddf69",
-      "land_count": "5"
-    },
-    {
-      "address": "0x374cc898638940452b6d7b34f6063170976026f0",
-      "district_id": "d9bfa18a-c856-457d-8d85-e2dc3b7648a1",
-      "land_count": "15"
-    },
-    {
-      "address": "0x374cc898638940452b6d7b34f6063170976026f0",
-      "district_id": "f5d8e722-fdce-4d41-b38b-adfed2e0cf6c",
-      "land_count": "10"
-    }
-  ]
-}
-```
-
-## Districts
-
-```
-GET /districts
-```
-
-Returns all the districts in Genesis City
-
-### Response Example
-
-```json
-{
-  "ok": true,
-  "data": [
-    {
-      "id": "106f1557-4a92-41a4-9f18-40fcb90b4031",
-      "name": "Dragon City",
-      "description": "A perfect combination of China’s ancient culture and Western modernization, a reflection of both the Eastern and Western civilizations.",
-      "link": "https://github.com/decentraland/districts/issues/30",
-      "public": true,
-      "parcel_count": "6485",
-      "center": "105,-89"
-    },
-    {
-      "id": "219ac351-e6ce-4e17-8b84-eb008afddf69",
-      "name": "AETHERIAN project",
-      "description": "Aetherian City will be one of the main attractions for visitors and dwellers of Decentraland, as it intends to be the largest cyberpunk-agglomeration of the metaverse.",
-      "link": "https://github.com/decentraland/districts/issues/33",
-      "public": true,
-      "parcel_count": "10005",
-      "center": "106,105"
-    }
-  ]
-}
-```
-
-## Estates
-
-```
-GET /estates
-```
-
-### Description
-
-Returns a list of Estates, paginated, sorted, and filtered according to the query params used.
-
-| name       | type | default              | description                                                                          |
-| ---------- | ---- | -------------------- | ------------------------------------------------------------------------------------ |
-| status     | enum | `open`               | Filter estates by publications status: `open`, `cancelled` or `sold`                 |
-| sort_by    | enum | `created_at`         | Property to order by: `price`, `created_at`, `block_time_updated_at` or `expires_at` |
-| sort_order | enum | depends on `sort_by` | The order to sort by: `asc` or `desc`                                                |
-| limit      | int  | `20`                 | The number of results to be returned                                                 |
-| offset     | int  | `0`                  | The number of results to skip (used for pagination)                                  |
-
-### Response Example
-
-```json
-{
-  "ok": true,
-  "data": {
-    "estates": [
-      {
-        "id": "12345",
-        "owner": "0xe0653744f2d6a388f1fc7496e085156418a9f5ed",
-        "data": {
-          "ipns": "",
-          "name": "My Estate",
-          "parcels": [
-            { "x": -30, "y": -121 },
-            { "x": -29, "y": -121 },
-            { "x": -29, "y": -122 },
-            { "x": -30, "y": -122 }
-          ],
-          "version": 0,
-          "description": "My estate is awesome"
-        },
-        "last_transferred_at": "1548929430000",
-        "tx_hash": "0x6d1f7cad7419af31b6b1f65205c5336200a1662e35ed9083d5f4323f95cb9dd6",
-        "token_id": "12345",
-        "update_operator": "0x0000000000000000000000000000000000000000",
-        "publication": {
-          "tx_hash": "0xbcad5e05351972174c05633e8965de0b05a5a0ce4c5415c1a392ffae20b1cab2",
-          "tx_status": "confirmed",
-          "owner": "0xf631c1ba09ee33e7649cac62ccb6d0f410f5647a",
-          "price": 39500,
-          "expires_at": 1554210000000,
-          "status": "sold",
-          "buyer": "0xe0653744f2d6a388f1fc7496e085156418a9f5ed",
-          "contract_id": "0xfe8288241f94ebf31c132b85eb9ee6b834fb27b4c564eab6ba18b3813fafda38",
-          "block_number": 7151964,
-          "block_time_created_at": 1548906378000,
-          "block_time_updated_at": 1548929430000,
-          "asset_type": "estate",
-          "asset_id": "12345",
-          "marketplace_address": "0x8e5660b4ab70168b5a6feea0e0315cb49c8cd539"
-        }
-      }
-    ],
-    "total": 80
   }
 }
 ```
 
-```
-GET /addresses/:address/estates
-```
+### Publications
 
-### Description
+The publications endpoints are all replaced with corresponding queries to the Graph.
 
-Returns all the Estates that belong to a given address
+| V1 Endpoint | Description | V2 Endpoint | Description |
+| --- | --- | --- | --- |
+| `GET /parcels/:x/:y/publications` | Returns all previous publications for a given parcel. **Deprecated** | See example subgraph query below. |  |
+| `GET /publications/:txHash` | Returns a specific publication based on the publication’s transaction hash. **Deprecated.** | See example subgraph query below. |  |
 
-### URI Params
+To list all open and non-expired orders, submit this query to the Graph:
 
-| name    | type   | description         |
-| ------- | ------ | ------------------- |
-| address | string | An Ethereum address |
-
-## Map
-
-```
-GET /map
-```
-
-### Description
-
-Returns all the parcels and estates in a given area
-
-### Query Params
-
-| name | type | min  | max | description                     |
-| ---- | ---- | ---- | --- | ------------------------------- |
-| nw   | int  | -150 | 150 | The northwest coord of the area |
-| se   | int  | -150 | 150 | The southeast coord of the area |
-
-### Request Example:
-
-```
-GET /map?nw=-10,10&se=10,-10
-```
-
-### Result:
-
-```js
+```graphql
 {
-  "data": {
-    "assets": {
-      "parcels": [
-        /* parcels */
-      ],
-      "estates": [
-        /* estates */
-      ]
-    },
-    "total": 441
-  }
-}
-```
-
-```
-GET /map.png
-```
-
-### Description
-
-Returns a PNG of a section of the Genesis City map
-
-### Query Params
-
-| name         | type           | min       | max     | default | description                                                               |
-| ------------ | -------------- | --------- | ------- | ------- | ------------------------------------------------------------------------- |
-| width        | int            | 32        | 2048    | 500     | The width of the PNG image in pixels                                      |
-| height       | int            | 32        | 2048    | 500     | The height of the PNG image in pixels                                     |
-| size         | int            | 5         | 40      | 10      | The size of each parcel (i.e. 10 will render each parcel as 10x10 pixels) |
-| center       | coords         | -150,-150 | 150,150 | 0,0     | The coords on where to center the map                                     |
-| selected     | list of coords | N/A       | N/A     | N/A     | A list of coords separated by semicolons to render as "selected"          |
-| publications | boolean        | N/A       | N/A     | false   | If true, parcels that are on sale are highlighted                         |
-
-### Limits
-
-There's a limit of 15,000 parcels that can be rendered in a single PNG, if a request goes above this threshold the API will return a 500 with a message like this:
-
-```
-Too many parcels. You are trying to render 42436 parcels and the maximum allowed is 15000.
-```
-
-### Request Example:
-
-```
-GET /map.png?width=500&height=500&size=10&center=20,21&selected=20,20;20,21;20,22;20,23;19,21;21,21
-```
-
-### Result:
-
-![map-1](https://user-images.githubusercontent.com/2781777/40743488-0927f342-6428-11e8-942d-3ca36269d7dc.png)
-
-```
-GET /parcels/:x/:y/map.png
-```
-
-### Description
-
-Returns a PNG of a piece of the map center on a given parcel
-
-### URI Params
-
-| name | type | min  | max | default | description               |
-| ---- | ---- | ---- | --- | ------- | ------------------------- |
-| x    | int  | -150 | 150 | 0       | The X coord of the parcel |
-| y    | int  | -150 | 150 | 0       | The Y coord of the parcel |
-
-### Query Params
-
-| name         | type    | min | max  | default | description                                                               |
-| ------------ | ------- | --- | ---- | ------- | ------------------------------------------------------------------------- |
-| width        | int     | 32  | 2048 | 500     | The width of the PNG image in pixels                                      |
-| height       | int     | 32  | 2048 | 500     | The height of the PNG image in pixels                                     |
-| size         | int     | 5   | 40   | 10      | The size of each parcel (i.e. 10 will render each parcel as 10x10 pixels) |
-| publications | boolean | N/A | N/A  | false   | If true, parcels that are on sale are highlighted                         |
-
-### Limits
-
-There's a limit of 15,000 parcels that can be rendered in a single PNG, if a request goes above this threshold the API will return a 500 with a message like this:
-
-```
-Too many parcels. You are trying to render 42436 parcels and the maximum allowed is 15000.
-```
-
-### Request Example:
-
-```
-GET /parcels/-36/-125/map.png?height=500&width=500&size=10&publications=true
-```
-
-### Result:
-
-![map-1](https://user-images.githubusercontent.com/2781777/41127253-9f1af8a0-6a80-11e8-9b26-ba630c85871c.png)
-
-```
-GET /estates/:id/map.png
-```
-
-### Description
-
-Same as `/parcels/:x/:y/map.png`, but instead of using `x` and `y` coordinates to determine the estate, its `id` is used.. Returns a PNG of a piece of the map center on a given estate
-
-### URI Params
-
-| name | type   | description          |
-| ---- | ------ | -------------------- |
-| id   | string | The id of the estate |
-
-### Query Params
-
-| name         | type    | min | max  | default | description                                                               |
-| ------------ | ------- | --- | ---- | ------- | ------------------------------------------------------------------------- |
-| width        | int     | 32  | 2048 | 500     | The width of the PNG image in pixels                                      |
-| height       | int     | 32  | 2048 | 500     | The height of the PNG image in pixels                                     |
-| size         | int     | 5   | 40   | 10      | The size of each parcel (i.e. 10 will render each parcel as 10x10 pixels) |
-| publications | boolean | N/A | N/A  | false   | If true, parcels that are on sale are highlighted                         |
-
-### Limits
-
-There's a limit of 15,000 parcels that can be rendered in a single PNG, if a request goes above this threshold the API will return a 500 with a message like this:
-
-```
-Too many parcels. You are trying to render 42436 parcels and the maximum allowed is 15000.
-```
-
-### Request Example:
-
-```
-GET /estates/23/map.png?height=500&width=500&size=10&publications=true
-```
-
-### Result:
-
-![map-2](https://user-images.githubusercontent.com/692077/42239793-534b4878-7f05-11e8-9f3b-2860693433ef.png)
-
-## Mortgages
-
-```
-GET /mortgages/:address/parcels
-```
-
-### Description
-
-Returns a list of Parcels which has an active mortgage requested by a given address.
-
-### URI Params
-
-| name    | type   | description         |
-| ------- | ------ | ------------------- |
-| address | string | An Ethereum address |
-
-### Request Example:
-
-```
-GET /mortgages/0x374cc898638940452b6d7b34f6063170976026f0/parcels
-```
-
-### Response Example
-
-```json
-{
-  "ok": true,
-  "data": [
-    {
-      "id": "-44,-144",
-      "x": -44,
-      "y": -144,
-      "auction_price": null,
-      "district_id": null,
-      "owner": "0xaf592460d6a44517aba2fb0bcb02ee8f4103b502",
-      "data": { "version": 0 },
-      "auction_owner": null,
-      "tags": {},
-      "last_transferred_at": "1548424046000",
-      "estate_id": null,
-      "update_operator": "0xe4d3ba99ffdae47c003f1756c01d8e7ee8fef7c9",
-      "auction_timestamp": null,
-      "publication": null
+  orders(where:{ status: open, expiresAt_gt: 1611082372  }) {
+    nft {
+      name
+      contractAddress
+      tokenId
     }
-  ]
-}
-```
-
-```
-GET /addresses/:address/mortgages
-```
-
-### Description
-
-Returns all the mortgages requested by a given address
-
-### URI Params
-
-| name    | type   | description         |
-| ------- | ------ | ------------------- |
-| address | string | An Ethereum address |
-
-### Query params
-
-| name   | type | default | description                                                                                                |
-| ------ | ---- | ------- | ---------------------------------------------------------------------------------------------------------- |
-| status | enum | all     | Filter parcels by publications status: `pending`, `cancelled`, `ongoing`, `paid`, `defaulted` or `claimed` |
-
-### Request Example:
-
-```
-GET /addresses/0x374cc898638940452b6d7b34f6063170976026f0/mortgages
-```
-
-### Result:
-
-```json
-{
-  "ok": true,
-  "data": [
-    {
-      "tx_hash": "0xf67f78f63a116fb14a5a119c73505822beddab16c7f3c736e2f88fc48009760f",
-      "tx_status": "confirmed",
-      "block_number": 4929341,
-      "status": "cancelled",
-      "asset_id": "-102,-77",
-      "asset_type": "parcel",
-      "borrower": "0x374cc898638940452b6d7b34f6063170976026f0",
-      "lender": null,
-      "loan_id": 685,
-      "mortgage_id": 16,
-      "amount": 10,
-      "is_due_at": "0",
-      "expires_at": "1551571200000",
-      "block_time_created_at": "1548943095000",
-      "block_time_updated_at": "1548944551000",
-      "created_at": "2019-01-31T13:58:53.067Z",
-      "updated_at": "2019-02-04T12:42:23.047Z",
-      "outstanding_amount": 0,
-      "payable_at": "777600",
-      "interest_rate": 15552000000000,
-      "punitory_interest_rate": 10367989632000,
-      "paid": 0,
-      "started_at": null
-    }
-  ]
-}
-```
-
-```
-GET /parcels/:x/:y/mortgages
-```
-
-### Description
-
-Returns mortgages requested on a given parcel
-
-### URI Params
-
-| name | type | min  | max | default | description               |
-| ---- | ---- | ---- | --- | ------- | ------------------------- |
-| x    | int  | -150 | 150 | 0       | The X coord of the parcel |
-| y    | int  | -150 | 150 | 0       | The Y coord of the parcel |
-
-### Query Params
-
-| name   | type | default | description                                                                                                |
-| ------ | ---- | ------- | ---------------------------------------------------------------------------------------------------------- |
-| status | enum | all     | Filter parcels by publications status: `pending`, `cancelled`, `ongoing`, `paid`, `defaulted` or `claimed` |
-
-### Request Example:
-
-```
-GET /parcels/-102/-77/mortgages
-```
-
-### Result:
-
-```json
-{
-  "ok": true,
-  "data": [
-    {
-      "tx_hash": "0xf67f78f63a116fb14a5a119c73505822beddab16c7f3c736e2f88fc48009760f",
-      "tx_status": "confirmed",
-      "block_number": 4929341,
-      "status": "cancelled",
-      "asset_id": "-102,-77",
-      "asset_type": "parcel",
-      "borrower": "0xe4d3ba99ffdae47c003f1756c01d8e7ee8fef7c9",
-      "lender": null,
-      "loan_id": 685,
-      "mortgage_id": 16,
-      "amount": 10,
-      "is_due_at": "0",
-      "expires_at": "1551571200000",
-      "block_time_created_at": "1548943095000",
-      "block_time_updated_at": "1548944551000",
-      "created_at": "2019-01-31T13:58:53.067Z",
-      "updated_at": "2019-02-04T12:42:23.047Z",
-      "outstanding_amount": 0,
-      "payable_at": "777600",
-      "interest_rate": 15552000000000,
-      "punitory_interest_rate": 10367989632000,
-      "paid": 0,
-      "started_at": null
-    }
-  ]
-}
-```
-
-## Parcels
-
-```
-GET /parcels
-```
-
-Returns a list of parcels, paginated, sorted, and filtered according to the query params used.
-
-### Query Params
-
-| name       | type | default              | description                                                                          |
-| ---------- | ---- | -------------------- | ------------------------------------------------------------------------------------ |
-| status     | enum | `open`               | Filter parcels by publications status: `open`, `cancelled` or `sold`                 |
-| sort_by    | enum | `created_at`         | Property to order by: `price`, `created_at`, `block_time_updated_at` or `expires_at` |
-| sort_order | enum | depends on `sort_by` | The order to sort by: `asc` or `desc`                                                |
-| limit      | int  | `20`                 | The number of results to be retuned                                                  |
-| offset     | int  | `0`                  | The number of results to skip (used for pagination)                                  |
-
-### Response Example
-
-```json
-{
-  "ok": true,
-  "data": {
-    "parcels": [
-      {
-        "id": "-74,-52",
-        "x": -74,
-        "y": -52,
-        "auction_price": 2443,
-        "district_id": null,
-        "owner": "0xdeadbeeffaceb00c",
-        "data": {
-          "version": 0,
-          "name": "My Parcel",
-          "description": "My parcel is awesome",
-          "ipns": ""
-        },
-        "auction_owner": "0xdeadbeeffaceb00c",
-        "tags": {
-          "proximity": {
-            "plaza": {
-              "district_id": "55327350-d9f0-4cae-b0f3-8745a0431099",
-              "distance": 2
-            },
-            "road": {
-              "district_id": "f77140f9-c7b4-4787-89c9-9fa0e219b079",
-              "distance": 0
-            }
-          }
-        },
-        "last_transferred_at": null,
-        "in_estate": false,
-        "publication": {
-          "tx_hash": "0xdeadbeeffaceb00c",
-          "tx_status": "confirmed",
-          "owner": "0xdeadbeeffaceb00c",
-          "price": 60000,
-          "status": "open",
-          "buyer": null,
-          "contract_id": "0xdeadbeeffaceb00c",
-          "block_number": 5812730,
-          "expires_at": 1533081600000,
-          "block_time_created_at": 1529352925000,
-          "block_time_updated_at": null,
-          "type": "parcel",
-          "asset_id": "-74,-52",
-          "marketplace_id": "0xdeadbeeffaceb00c"
-        }
-      }
-    ],
-    "total": 2
+    price
   }
 }
 ```
 
-```
-GET /addresses/:address/parcels
-```
+### Translations
 
-### Description
+This is a legacy endpoint that is only used by the UI. It remains supported and unchanged with the v2 release.
 
-Returns all the parcels that belong to a given address
-
-```
-GET /parcels/:x/:y
-```
-
-### Description
-
-Returns a single parcel by its coords
-
-### URI Params
-
-| name | type | min  | max | default | description               |
-| ---- | ---- | ---- | --- | ------- | ------------------------- |
-| x    | int  | -150 | 150 | 0       | The X coord of the parcel |
-| y    | int  | -150 | 150 | 0       | The Y coord of the parcel |
-
-## Request Example:
-
-```
-GET /parcels/-48/-29
-```
-
-### Response Example
-
-```json
-{
-  "ok": true,
-  "data": {
-    "id": "-48,-29",
-    "x": -48,
-    "y": -29,
-    "auction_price": 2443,
-    "district_id": null,
-    "owner": "0xdeadbeeffaceb00c",
-    "data": {
-      "version": 0,
-      "name": "My Parcel",
-      "description": "My parcel is awesome",
-      "ipns": ""
-    },
-    "auction_owner": "0xdeadbeeffaceb00c",
-    "tags": {
-      "proximity": {
-        "plaza": {
-          "district_id": "55327350-d9f0-4cae-b0f3-8745a0431099",
-          "distance": 2
-        },
-        "road": {
-          "district_id": "f77140f9-c7b4-4787-89c9-9fa0e219b079",
-          "distance": 0
-        }
-      }
-    },
-    "last_transferred_at": null,
-    "in_estate": false
-  }
-}
-```
-
-```
-GET /parcels/:tokenId
-```
-
-### Description
-
-Returns a single parcel by its blockchain id (token id)
-
-### URI Params
-
-| name    | type     | default | description              |
-| ------- | -------- | ------- | ------------------------ |
-| tokenId | int, hex |         | The parcel blockchain id |
-
-## Request Example:
-
-```
-GET /parcels/115792089237316195423570985008687907837276713420356456256678977458620023701475
-```
-
-```
-GET /parcels/0xffffffffffffffffffffffffffffffd0ffffffffffffffffffffffffffffffe3
-```
-
-### Response Example
-
-````json
-### Response Example
-
-```json
-{
-  "ok": true,
-  "data": {
-    "id": "-74,-52",
-    "x": -74,
-    "y": -52,
-    "auction_price": 2443,
-    "district_id": null,
-    "owner": "0xdeadbeeffaceb00c",
-    "data": {
-      "version": 0,
-      "name": "My Parcel",
-      "description": "My parcel is awesome",
-      "ipns": ""
-    },
-    "auction_owner": "0xdeadbeeffaceb00c",
-    "tags": {
-      "proximity": {
-        "plaza": {
-          "district_id": "55327350-d9f0-4cae-b0f3-8745a0431099",
-          "distance": 2
-        },
-        "road": {
-          "district_id": "f77140f9-c7b4-4787-89c9-9fa0e219b079",
-          "distance": 0
-        }
-      }
-    },
-    "last_transferred_at": null,
-    "in_estate": false
-  }
-}
-````
-
-```
-GET /parcels/:x/:y/encodedId
-```
-
-### Description
-
-Returns the blockchain id (token id) by the parcel coordinates
-
-### URI Params
-
-| name | type | min  | max | default | description               |
-| ---- | ---- | ---- | --- | ------- | ------------------------- |
-| x    | int  | -150 | 150 | 0       | The X coord of the parcel |
-| y    | int  | -150 | 150 | 0       | The Y coord of the parcel |
-
-## Request Example:
-
-```
-GET /parcels/-48/-29/encodedId
-```
-
-### Response Example
-
-```json
-{
-  "ok": true,
-  "data": {
-    "encoded_id": "0xffffffffffffffffffffffffffffffd0ffffffffffffffffffffffffffffffe3"
-  }
-}
-```
-
-## Publications
-
-```
-GET /parcels/:x/:y/publications
-```
-
-### Description
-
-Returns all the publications that ever existed for a given parcel
-
-### URI Params
-
-| name | type | min  | max | default | description               |
-| ---- | ---- | ---- | --- | ------- | ------------------------- |
-| x    | int  | -150 | 150 | 0       | The X coord of the parcel |
-| y    | int  | -150 | 150 | 0       | The Y coord of the parcel |
-
-```
-GET /publications/:txHash
-```
-
-### Description
-
-Returns a specific publication by its transaction hash
-
-### URI Params
-
-| name   | type   | description                           |
-| ------ | ------ | ------------------------------------- |
-| txHash | string | The transaction hash of a publication |
-
-## Translations
-
-```
-GET /translations/:locale
-```
-
-### Description
-
-Returns all the available translations for a given `locale`
-
-### URI Params
-
-| name   | type | description                                                  |
-| ------ | ---- | ------------------------------------------------------------ |
-| locale | enum | One of the following locales: `en`, `es`, `fr`, `ko` or `zh` |
+| V1 Endpoint | Description | V2 Endpoint | Description |
+| --- | --- | --- | --- |
+| `GET /translations/:locale` | Returns all available translations for a given ‘locale’ where ‘locale’ can be ‘en’, ‘es’, ‘fr’, ‘ko’, or ‘zh’. |  |  |

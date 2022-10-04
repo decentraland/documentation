@@ -8,6 +8,7 @@ type: Document
 aliases:
    - /market/land-manager/
 url: /player/market/land-manager
+weight: 2
 ---
 
 The Land Manager allows you to manage your LAND and Estate assets.

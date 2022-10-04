@@ -13,6 +13,7 @@ categories:
   - market
 type: Document
 url: /player/market/marketplace
+weight: 1
 ---
 
 The Marketplace is the go-to place to trade and manage all your Decentraland on-chain assets.

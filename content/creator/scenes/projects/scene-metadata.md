@@ -1,6 +1,6 @@
 ---
 date: 2018-02-26
-title: Scene metadata
+title: Scenes
 description: Learn how to add metadata to a scene.
 categories:
   - development-guide

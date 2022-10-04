@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: Ethereum essentials
+title: About the blockchain
 description: How Decentraland uses the Ethereum blockchain.
 categories:
   - blockchain-integration
@@ -9,6 +9,7 @@ aliases:
   - /blockchain-interactions/ethereum-essentials
   - /blockchain-integration/ethereum-essentials/
 url: /player/blockchain-integration/ethereum-essentials
+weight: 2
 ---
 
 All blockchains are in essence decentralized databases that are distributed among the machines of a network. Transactions are grouped into “blocks” and processed sequentially to form a _chain_ of events.

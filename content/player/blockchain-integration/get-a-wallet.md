@@ -1,6 +1,6 @@
 ---
 date: 2020-02-17
-title: Get a Wallet – Beginners guide
+title: Get a Wallet For Beginners
 description: Decentraland uses the Ethereum blockchain to record the ownership of all digital assets and tradable items.
 aliases:
   - /get-a-wallet/
@@ -10,6 +10,7 @@ categories:
   - examples
 type: Document
 url: player/blockchain-integration/get-a-wallet
+weight: 1
 ---
 
 ## What is a wallet?

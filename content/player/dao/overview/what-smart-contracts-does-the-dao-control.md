@@ -1,6 +1,6 @@
 ---
 date: 2021-05-21
-title: The DAO's Smart Contracts
+title: The DAO Smart Contracts
 aliases:
   - /decentraland/what-smart-contracts-does-the-dao-control/
   - /decentraland/what-smart-contracts-does-the-dao-control/
@@ -10,6 +10,7 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/dao/overview/what-smart-contracts-does-the-dao-control
+weight: 4
 ---
 
 The Decentraland DAO owns several of the most critical smart contracts of the Decentraland platform. They are listed below:
