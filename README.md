@@ -3,7 +3,7 @@
 1. [Install Hugo locally](https://gohugo.io/getting-started/installing/)
 2. Clone this repository (including the submodules)
    ```
-   git clone --recurse-submodules https://github.com/decentraland/documentation.git
+   git clone --recurse-submodules https://github.com/decentraland/new-docs.git
    ```
 3. Run `hugo serve` to preview changes locally and follow the instructions in the terminal to open a browser
 
