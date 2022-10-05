@@ -19,7 +19,7 @@ You can either set a `Material` or a `BasicMaterial` component. Each entity can 
 
 You can't add material components to _glTF_ models. _glTF_ models include their own materials that are implicitly imported into a scene together with the model.
 
-When importing a 3D model with its own materials, keep in mind that not all shaders are supported by the Decentraland engine. Only standard materials and PBR (physically based rendering) materials are supported. See [external 3D model considerations](/creator/3d-modeling/materials) for more details.
+When importing a 3D model with its own materials, keep in mind that not all shaders are supported by the Decentraland engine. Only standard materials and PBR (physically based rendering) materials are supported. See [external 3D model considerations]({{< ref "/content/creator/3d-modeling/materials.md" >}}) for more details.
 
 ## Create and apply a material
 
@@ -241,7 +241,7 @@ In the example above, the image for the material is located in a `materials` fol
 
 #### Texture wrapping
 
-If you want the texture to be mapped to specific scale or alignment on your entities, then you need to configure _uv_ properties on the [shape components](/creator/development-guide/shape-components).
+If you want the texture to be mapped to specific scale or alignment on your entities, then you need to configure _uv_ properties on the [shape components]({{< ref "/content/creator/scenes/3d-essentials/shape-components.md" >}}).
 
 You set _u_ and _v_ coordinates on the 2D image of the texture to correspond to the vertices of the shape. The more vertices the entity has, the more _uv_ coordinates need to be defined on the texture, a plane for example needs to have 8 _uv_ points defined, 4 for each of its two faces.
 
@@ -434,6 +434,6 @@ myThirdEntity.addComponent(myMaterial)
 
 ## Video playing
 
-To stream video from a URL into a material, or play a video from a file stored in the scene, see [video playing](/creator/development-guide/video-playing).
+To stream video from a URL into a material, or play a video from a file stored in the scene, see [video playing]({{< ref "/content/creator/scenes/media/video-playing.md" >}}).
 
 The video is used as a texture on a material, you can set any of the other properties of materials to alter how the video screen looks.

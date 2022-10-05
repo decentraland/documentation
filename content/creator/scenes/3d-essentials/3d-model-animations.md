@@ -17,9 +17,9 @@ Most 3D model animations are [_skeletal animations_](https://en.wikipedia.org/wi
 
 As an alternative, _vertex animations_ animate a model without the need of a skeleton. These animations specify the position of each vertex in the model directly. Decentraland supports these animations as well.
 
-See [Animations](/creator/3d-modeling/animations) for details on how to create animations for a 3D model. Read [Shape components](/creator/development-guide/shape-components) for instructions on how to import a 3D model to a scene.
+See [Animations]({{< ref "/content/creator/3d-modeling/animations.md" >}}) for details on how to create animations for a 3D model. Read [Shape components]({{< ref "/content/creator/scenes/3d-essentials/shape-components.md" >}}) for instructions on how to import a 3D model to a scene.
 
-> Tip: Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities](/creator/development-guide/move-entities) for more details.
+> Tip: Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/scenes/3d-essentials/move-entities.md" >}}) for more details.
 
 ## Check a 3D model for animations
 

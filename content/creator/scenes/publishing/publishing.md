@@ -17,7 +17,7 @@ url: /creator/development-guide/publishing
 
 Make sure of the following:
 
-- Your scene complies with all of the [scene limitations](/creator/development-guide/scene-limitations). Most of these are validated each time you run a preview of your scene.
+- Your scene complies with all of the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}). Most of these are validated each time you run a preview of your scene.
 
 - You have a [Metamask](https://metamask.io/) account, with your LAND parcels assigned to it.
 
@@ -43,7 +43,7 @@ Open your scene's _scene.json_ file and complete the following data:
 
 - **spawnPoints**: A set of coordinates inside the scene (relative to the scene's base parcel) where players spawn into. By default players spawn onto the _0,0,0_ location of the scene (bottom-left corner). Use this to start out in a specific location, set a region to prevent players from overlapping with each other when they first appear.
 
-> Note: See [scene metadata](/creator/development-guide/scene-metadata) for more details on how to set these parameters.
+> Note: See [scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for more details on how to set these parameters.
 
 ## To publish the scene
 

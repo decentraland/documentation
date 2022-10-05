@@ -30,9 +30,9 @@ Once created, a custom asset pack is be available in every scene you edit as lon
 
 ## Supported models
 
-All 3D models need to be in _.glTF_ or _.glb_ format. You can convert other formats into these formats with various different editors and tools. See [3D modeling](/creator/3d-modeling/3d-models) for recommendations and tips.
+All 3D models need to be in _.glTF_ or _.glb_ format. You can convert other formats into these formats with various different editors and tools. See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for recommendations and tips.
 
-All materials in the models need to be either _basic material_ or _PBR_, and all textures need to be in sizes that are powers of two (ex: 256, 512). See [Scene limitations](/creator/builder/scene-limitations) for details.
+All materials in the models need to be either _basic material_ or _PBR_, and all textures need to be in sizes that are powers of two (ex: 256, 512). See [Scene limitations]({{< ref "/content/creator/builder/scene-limitations.md" >}}) for details.
 
 If a 3D model relies on external files besides the _.gltf_ file (like _.bin_ or _.png_ files) compress all the relevant files for the 3D model into a _.zip_ file. Then import only this _.zip_ file into the Builder.
 
@@ -57,7 +57,7 @@ Note that in several of these sites, you can choose what format to download the 
 
 ## Colliders
 
-You might find that when running a preview the player can walk through your imported 3D models. This is likely because the models are missing a _collider mesh_ to define a collision geometry. See [colliders](/creator/3d-modeling/colliders) for more details and instructions.
+You might find that when running a preview the player can walk through your imported 3D models. This is likely because the models are missing a _collider mesh_ to define a collision geometry. See [colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}}) for more details and instructions.
 
 > Tip: Instead of editing the model to add a _collider mesh_, a simpler alternative is to an _Invisible wall_ smart item with approximately the same shape to stand in its place.
 
@@ -71,4 +71,4 @@ If there are multiple players in the scene, they may be seeing the animation out
 
 ## Smart items
 
-You can also import your own custom smart items that have built-in interactive behavior, following the same steps as for uploading a model. See [smart items](/creator/development-guide/smart-items).
+You can also import your own custom smart items that have built-in interactive behavior, following the same steps as for uploading a model. See [smart items]({{< ref "/content/creator/scenes/projects/smart-items.md" >}}).

@@ -20,13 +20,13 @@ To teleport a player to another scene, call the following function, indicating t
 teleportTo('-51,1')
 ```
 
-Players are presented a confirmation screen before they are teleported, this screen displays information from the destination scene’s `scene.json file`, including the scene `name`, `description` and `navmapThumbnail`. See [scene metadata](/creator/development-guide/scene-metadata) for details on how to set this data.
+Players are presented a confirmation screen before they are teleported, this screen displays information from the destination scene’s `scene.json file`, including the scene `name`, `description` and `navmapThumbnail`. See [scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for details on how to set this data.
 
 You can also teleport players to the most crowded place in Genesis City by doing `teleportTo(‘crowd’)`, which is equivalent to typing `/goto crowd` in the chat. Similarly you can teleport players to a random location from the curated list that you reach with `/goto magic` by doing ``teleportTo(‘magic’)`.
 
 Bare in mind that teleports take you to a scene in the indicated coordinates, but not necessarily to that same coordinates. This means that when travelling to a scene that has multiple parcels, players may not be landing on the same coordinates as specified, but rather into one of the spawn points designated by the creator of the scene.
 
-To move a player to another set of coordinates inside the current scene, use the `movePlayerTo()` function instead. See [Move a Player](/creator/development-guide/move-player).
+To move a player to another set of coordinates inside the current scene, use the `movePlayerTo()` function instead. See [Move a Player]({{< ref "/content/creator/scenes/interactivity/move-player.md" >}}).
 
 ## External links
 

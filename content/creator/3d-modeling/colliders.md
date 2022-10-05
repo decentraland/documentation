@@ -42,7 +42,7 @@ Stairs are a very common use-case for collider objects. In order for players to 
 
 We recommend using a ramp object for your stair colliders, this provides a much better experience when walking up or down. When they climb up your stairs, it will appear as a smooth ascent or descent, instead of requiring them to “jump” up each individual step.
 
-Using a ramp object also avoids creating unnecessary geometry, saving room for other more complicated models. Keep in mind that collider geometry is also taken into account when calculating the [scene limitations](/creator/development-guide/scene-limitations)
+Using a ramp object also avoids creating unnecessary geometry, saving room for other more complicated models. Keep in mind that collider geometry is also taken into account when calculating the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}})
 
 1.  Create a new object in the shape of a ramp that resembles the size and proportions of the original stairs.
 

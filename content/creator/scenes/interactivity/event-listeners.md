@@ -12,7 +12,7 @@ url: /creator/development-guide/event-listeners
 
 There are several events that the scene can subscribe to, to know the actions of the player while in or near the scene.
 
-For button and click events performed by the player, see [Button events](/creator/development-guide/click-events).
+For button and click events performed by the player, see [Button events]({{< ref "/content/creator/scenes/interactivity/click-events.md" >}}).
 
 ## Player connects or disconnects
 
@@ -205,7 +205,7 @@ The event includes the following data:
   - `distance`: _number_ The distance in meters from the point of origin to the hit point.
   - `origin`: _Vector3_ The point of origin of the click, the position of the player who did the click, relative to the scene.
 
-Tip: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area](/creator/development-guide/avatar-modifiers).
+Tip: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area]({{< ref "/content/creator/scenes/interactivity/avatar-modifiers.md" >}}).
 
 ## Player locks/unlocks cursor
 
@@ -261,7 +261,7 @@ onProfileChanged.add((profileData) => {
 
 Event data includes only the ID of the player and a version number for that avatar's profile, according to the catalyst server. Every time a change is propagated, the version number increases by 1.
 
-> Tip: When this event is triggered, you can then use the [getUserData()](/creator/development-guide/user-data#get-player-data) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+> Tip: When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
 
 When testing in preview, run the scene with `dcl start --web3` so that you connect with your wallet. Otherwise, you will be using a random avatar.
 
@@ -302,7 +302,7 @@ The input of a video event contains the following properties:
 - `VideoStatus.PLAYING` = 4,
 - `VideoStatus.BUFFERING` = 5
 
-Learn more about playing videos in Decentraland in [Video Playing](/creator/development-guide/video-playing).
+Learn more about playing videos in Decentraland in [Video Playing]({{< ref "/content/creator/scenes/media/video-playing.md" >}}).
 
 ## Player changes realm or island
 
@@ -325,4 +325,4 @@ This event includes the following fields:
 
 As players move through the map, they may switch islands to be grouped with those players who are now closest to them. Islands also shift their borders dynamically to fit a manageable group of people in each. So even if a player stands still they could be changed island as others enter and leave surrounding scenes.
 
-If your scene relies on a [3rd party server](/creator/development-guide/remote-scene-considerations) to sync changes between players in real time, then you may want to only share data between players that are grouped in a same realm+island, so it's a good practice to change rooms in the 3rd party server whenever players change island.
+If your scene relies on a [3rd party server]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md" >}}) to sync changes between players in real time, then you may want to only share data between players that are grouped in a same realm+island, so it's a good practice to change rooms in the 3rd party server whenever players change island.

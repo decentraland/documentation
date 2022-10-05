@@ -11,7 +11,7 @@ url: /creator/development-guide/systems
 weight: 2
 ---
 
-Decentraland scenes rely on _systems_ to update the information stored in each entity's [components](/creator/development-guide/entities-components) as the scene changes.
+Decentraland scenes rely on _systems_ to update the information stored in each entity's [components]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}) as the scene changes.
 
 ![](/images/media/ecs-big-picture.png)
 
@@ -62,7 +62,7 @@ In a Decentraland scene, you can think of the game loop as the aggregation of al
 
 ## Loop over a component group
 
-Most of the time, you won't want a system's update function to iterate over the entire set of entities in the scene, as this could be very costly in terms of processing power. To avoid this, you can create a [component group](/creator/development-guide/component-groups) to keep track of which are the relevant entities, and then have your system iterate over that list.
+Most of the time, you won't want a system's update function to iterate over the entire set of entities in the scene, as this could be very costly in terms of processing power. To avoid this, you can create a [component group]({{< ref "/content/creator/scenes/architecture/component-groups.md" >}}) to keep track of which are the relevant entities, and then have your system iterate over that list.
 
 For example, your scene can have a `PhysicsSystem` that calculates the effect of gravity over the entities of your scene. Some entities in your scene, such as trees, are fixed, so it would make sense to avoid wasting energy in calculating the effects of gravity on these. You can then define a component group that keeps track of entities that aren't fixed and then have `PhysicsSystem` only deal with the entities in this group.
 
@@ -202,7 +202,7 @@ Ideally, you should try to avoid having your scene reach this situation, as it c
 
 The `dt` variable becomes useful when frame processing exceeds the default time. Assuming that the current frame will take as much time as the previous, this information may be used to calculate how much to adjust change so that it remains steady and in proportion to the lag between frames.
 
-See [entity positioning](/creator/development-guide/entity-positioning) for examples of how to use `dt` to make movement smoother.
+See [entity positioning]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md" >}}) for examples of how to use `dt` to make movement smoother.
 
 ## Loop at a timed interval
 

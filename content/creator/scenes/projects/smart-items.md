@@ -12,7 +12,7 @@ url: /creator/development-guide/smart-items
 
 Through the Builder, you can drag and drop smart items into a scene. These are items that have configurable parameters and actions that can be triggered, like doors that can be opened or levers that can be activated. There is a default collection of smart items in the Builder, but you can also create your own and import them.
 
-Smart items are written using the same SDK code that you use for creating a scene, making use of [entities, components](/creator/development-guide/entities-components) and [systems](/creator/development-guide/systems). This document assumes that you're familiar with these concepts and will focus on how to encapsulate this code so that it interfaces with the scene and other smart items.
+Smart items are written using the same SDK code that you use for creating a scene, making use of [entities, components]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}) and [systems]({{< ref "/content/creator/scenes/architecture/systems.md" >}}). This document assumes that you're familiar with these concepts and will focus on how to encapsulate this code so that it interfaces with the scene and other smart items.
 
 ## Smart item references
 
@@ -330,7 +330,7 @@ The `props` parameter will expose all the properties that are defined in the `as
 
 You should define a custom type for props, that includes the specific set of properties used by the item. You can then refer to these properties in the `spawn()` function via the parameter's id: `props.onClick`.
 
-The `channel` parameter refers to the name of the channel of communication that will be used by this smart item. Smart items use the [message bus](/creator/development-guide/remote-scene-considerations#p2p-messaging) to communicate between items and to sync state changes with other players. Having separate channels for each item avoids unwanted crosstalk between unrelated items.
+The `channel` parameter refers to the name of the channel of communication that will be used by this smart item. Smart items use the [message bus]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md#p2p-messaging" >}}) to communicate between items and to sync state changes with other players. Having separate channels for each item avoids unwanted crosstalk between unrelated items.
 
 #### Handling actions
 
@@ -400,7 +400,7 @@ If this all works then congratulations, you have a fully stable smart item!
 
 Your item might need to store information at an instance level. For example, each door needs to keep track of if its open or closed, but other more complex items might keep track of more information about themselves.
 
-The example above uses a list of booleans to represent the open/closed state of each door, where the entity name of each door is used as a key. For items with more information, it's advisable to instead define a [custom component](/creator/development-guide/entities-components#custom-components) that holds all of the data of the item.
+The example above uses a list of booleans to represent the open/closed state of each door, where the entity name of each door is used as a key. For items with more information, it's advisable to instead define a [custom component]({{< ref "/content/creator/scenes/architecture/entities-components.md#custom-components" >}}) that holds all of the data of the item.
 
 When instancing an item in the `spawn()` function, you should then add this component to new items.
 
@@ -410,7 +410,7 @@ It's important that you name your custom components with unique names that shoul
 
 ## Custom systems
 
-If you need your item to perform a gradual action that is executed frame by frame, like moving or rotating (not by animation), then you need to define [systems](/creator/development-guide/systems) to carry this out. Delaying an action also requires creating a system that waits x milliseconds.
+If you need your item to perform a gradual action that is executed frame by frame, like moving or rotating (not by animation), then you need to define [systems]({{< ref "/content/creator/scenes/architecture/systems.md" >}}) to carry this out. Delaying an action also requires creating a system that waits x milliseconds.
 
 > NOTE: The `decentraland-ecs-utils` library can perform many of these actions in a scene's code, but this library is not supported in smart items. Any transition needs to be explicitly written as a system.
 
@@ -422,7 +422,7 @@ Note that besides defining the system, you also need to add an instance of it to
 
 ## Multiplayer behavior
 
-All the smart items that are available by default in the Builder have multiplayer capabilities. They achieve this by using the [message bus](/creator/development-guide/remote-scene-considerations#p2p-messaging) to send peer to peer messages between players every time that something changes.
+All the smart items that are available by default in the Builder have multiplayer capabilities. They achieve this by using the [message bus]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md#p2p-messaging" >}}) to send peer to peer messages between players every time that something changes.
 
 Since the state of the item is shared amongst peers, if all players leave the area of the scene, the state of the item is no longer stored anywhere, and it reverts to its initial state.
 

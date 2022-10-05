@@ -40,7 +40,7 @@ Below are the maximum number of elements that a scene is allowed to render at th
 
 ## Optimizing
 
-See [Performance Optimization](/creator/development-guide/performance-optimization/) for tips about how you can keep your scene below these limits and make it run smoother for players.
+See [Performance Optimization]({{< ref "/content/creator/scenes/optimizing/performance-optimization.md" >}}) for tips about how you can keep your scene below these limits and make it run smoother for players.
 
 
 <!--
@@ -59,7 +59,7 @@ import { querySceneLimits } from "@decentraland/EntityController"
 
 Run `this.entityController.querySceneLimits()` to obtain the limits of your scene. The limits are calculated for your scene based on how many parcels it occupies, according to the _scene.json_ file. The values returned by this command don't change over time, as the scene's size is always the same.
 
-The `querySceneLimits()` is [asynchronous](/creator/development-guide/async-functions), so we recommend calling it using the `executeTask()` function, including an `await` statement.
+The `querySceneLimits()` is [asynchronous]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), so we recommend calling it using the `executeTask()` function, including an `await` statement.
 
 ```ts
 executeTask(async () => {
@@ -166,7 +166,7 @@ It's possible to position entities underground, to either hide them or to have o
 
 ## Shader limitations
 
-3D models used in decentraland must use supported shaders and materials. See [3D model materials](/creator/3d-modeling/materials) for a list of supported shaders.
+3D models used in decentraland must use supported shaders and materials. See [3D model materials]({{< ref "/content/creator/3d-modeling/materials.md" >}}) for a list of supported shaders.
 
 ## Lighting
 
@@ -202,5 +202,5 @@ Examples of other valid sizes:
 
 When deploying your scene, you can't upload more than 100 files to IPFS, as having too many files in a scene will make it take too long to load in the client.
 
-If you have more than 100 files in your scene folder, it's likely that many of those files aren't being used directly when loading the scene. You can make the CLI ignore specific files from the scene folder and not upload them to IPFS by specifying them in the _dclignore_ file for the scene. Learn more about it in [Scene files](/creator/development-guide/scene-files).
+If you have more than 100 files in your scene folder, it's likely that many of those files aren't being used directly when loading the scene. You can make the CLI ignore specific files from the scene folder and not upload them to IPFS by specifying them in the _dclignore_ file for the scene. Learn more about it in [Scene files]({{< ref "/content/creator/scenes/projects/scene-files.md" >}}).
 -->

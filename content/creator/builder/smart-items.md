@@ -94,4 +94,4 @@ Make sure that it's not being obstructed by something else. You can't click thro
 
 ## Custom smart items
 
-Besides the default collection of smart items that come with the Builder, you can develop your own to import into your Builder account and use freely. This requires writing code using the SDK. See [smart items](/creator/development-guide/smart-items) for instructions.
+Besides the default collection of smart items that come with the Builder, you can develop your own to import into your Builder account and use freely. This requires writing code using the SDK. See [smart items]({{< ref "/content/creator/scenes/projects/smart-items.md" >}}) for instructions.

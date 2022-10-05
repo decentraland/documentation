@@ -14,9 +14,9 @@ url: /creator/3d-modeling/3d-models
 
 3D models are imported into decentraland in glTF format. There are a number of supported features that these models can include. This section goes over ways to make them compatible with Decentraland and best practices.
 
-See [Set entity position](/creator/development-guide/entity-positioning) for information on how you can configure a 3D model in a Decentraland scene to set its position, scale, etc.
+See [Set entity position]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md" >}}) for information on how you can configure a 3D model in a Decentraland scene to set its position, scale, etc.
 
-Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations](/creator/development-guide/scene-limitations).
+Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}).
 
 ## Supported 3D model formats
 
@@ -122,7 +122,7 @@ Among other things, it converts _.gltf_ format into _.glb_, which is binary and 
 
 The following pages also cover topics related to 3D models for Decentraland:
 
-- [Materials](/creator/3d-modeling/materials)
-- [Meshes](/creator/3d-modeling/meshes)
-- [Colliders](/creator/3d-modeling/colliders)
-- [Animations](/creator/3d-modeling/animations)
+- [Materials]({{< ref "/content/creator/3d-modeling/materials.md" >}})
+- [Meshes]({{< ref "/content/creator/3d-modeling/meshes.md" >}})
+- [Colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}})
+- [Animations]({{< ref "/content/creator/3d-modeling/animations.md" >}})

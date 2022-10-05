@@ -37,7 +37,7 @@ If you're familiar with web development, think of entities as the equivalent of 
 
 Components like `Transform`, `Material` or any of the _shape_ components are closely tied in with the rendering of the scene. If the values in these components change, that alone is enough to change how the scene is rendered in the next frame.
 
-Components are meant to store data about their parent entity. They only store this data, they shouldn't modify it themselves. All changes to the values in the components are carried out by [Systems](/creator/development-guide/systems). Systems are completely decoupled from the components and entities themselves. Entities and components are agnostic to what _systems_ are acting upon them.
+Components are meant to store data about their parent entity. They only store this data, they shouldn't modify it themselves. All changes to the values in the components are carried out by [Systems]({{< ref "/content/creator/scenes/architecture/systems.md" >}}). Systems are completely decoupled from the components and entities themselves. Entities and components are agnostic to what _systems_ are acting upon them.
 
 See [Component Reference](https://github.com/decentraland/ecs-reference) for a reference of all the available constructors for predefined components.
 
@@ -66,7 +66,7 @@ engine.addEntity(box)
 
 When you create a new entity, you're instancing an object and storing it in memory. A newly created entity isn't _rendered_ and it won't be possible for a player to interact with it until it's added to the _engine_.
 
-The engine is the part of the scene that sits in the middle and manages all of the other parts. It determines what entities are rendered and how players interact with them. It also coordinates what functions from [systems](/creator/development-guide/systems ) are executed and when.
+The engine is the part of the scene that sits in the middle and manages all of the other parts. It determines what entities are rendered and how players interact with them. It also coordinates what functions from [systems]({{< ref "/content/creator/scenes/architecture/systems.md" >}}) are executed and when.
 
 ```ts
 // Create an entity
@@ -81,7 +81,7 @@ engine.addEntity(box)
 
 In the example above, the newly created entity isn't viewable by players on your scene until it's added to the engine.
 
-> Note: Entities aren't added to [Component groups](/creator/development-guide/component-groups) either until they are added to the engine.
+> Note: Entities aren't added to [Component groups]({{< ref "/content/creator/scenes/architecture/component-groups.md" >}}) either until they are added to the engine.
 
 It’s sometimes useful to preemptively create entities and not add them to the engine until they are needed. This is especially true for entities that have elaborate geometries that might otherwise take long to load.
 
@@ -104,7 +104,7 @@ Entities that have been added to the engine can also be removed from it. When an
 engine.removeEntity(box)
 ```
 
-Note: Removed entities are also removed from all [Component groups](/creator/development-guide/component-groups).
+Note: Removed entities are also removed from all [Component groups]({{< ref "/content/creator/scenes/architecture/component-groups.md" >}}).
 
 If your scene has a pointer referencing a removed entity, it will remain in memory, allowing you to still access and change its component's values and add it back.
 

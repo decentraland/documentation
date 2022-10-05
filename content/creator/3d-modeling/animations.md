@@ -25,7 +25,7 @@ In a Decentraland scene, you can use `weight` to blend several animations or to 
 
 > Tip: Instead of creating your own animations, you can also download generic animations and apply them to your model. For example, for 3D characters with human-like characteristics, you can download free or paid animations from [Mixamo](https://www.mixamo.com/#/).
 
-This document covers how to add animations into a 3D model. See [handle animations](/creator/development-guide/3d-model-animations) for instructions on how to activate and handle animations in a scene.
+This document covers how to add animations into a 3D model. See [handle animations]({{< ref "/content/creator/scenes/3d-essentials/3d-model-animations.md" >}}) for instructions on how to activate and handle animations in a scene.
 
 ## How to create an animation
 
@@ -79,7 +79,7 @@ In the NLA Editor, select each action that you want to embed in the glTF model a
 
 <img src="/images/media/blender-nla-editor2.png" alt="Stash actions into glTF model" width="600"/>
 
-When adding the model to your Decentraland scene, you must activate animations by configuring the _gltf-model_ entity. See [3D model animations](/creator/development-guide/3d-model-animations) for instructions.
+When adding the model to your Decentraland scene, you must activate animations by configuring the _gltf-model_ entity. See [3D model animations]({{< ref "/content/creator/scenes/3d-essentials/3d-model-animations.md" >}}) for instructions.
 
 ## Best practices for animations
 

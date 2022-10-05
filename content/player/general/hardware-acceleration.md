@@ -16,7 +16,7 @@ Since Decentraland runs in a web browser, you might need to configure your brows
 
 If you see this warning, it means that you are using a sub-optimal set up for rendering 3d graphics. Your experience when playing Decentraland might be laggy and unresponsive because of this. You might notice missing frames as you move around in a jumpy way.
 
-> Note: Some lower end machines, or machines that are not designed for gaming, may not have a _dedicated_ graphics card at all. If that's your case, then ignore this warning. You might still be able to improve how you experience Decentraland by opening the Settings panel and lowering the graphics quality. See [hardware requirements](/player/general/hardware-requirements).
+> Note: Some lower end machines, or machines that are not designed for gaming, may not have a _dedicated_ graphics card at all. If that's your case, then ignore this warning. You might still be able to improve how you experience Decentraland by opening the Settings panel and lowering the graphics quality. See [hardware requirements]({{< ref "/content/player/general/hardware-requirements.md" >}}).
 
 ## Context
 

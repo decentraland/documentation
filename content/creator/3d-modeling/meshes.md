@@ -37,7 +37,7 @@ This setting can be configured separately over individual _faces_, _edges_ and _
 
 ## Bounding boxes
 
-Every mesh has a bounding box, that surrounds the limits of the shape. Keep in mind that the bounding boxes of all 3D models in a Decentraland scene must fit inside the scene limits, see [position entities](/creator/development-guide/entity-positioning#scene-boundaries) for more details.
+Every mesh has a bounding box, that surrounds the limits of the shape. Keep in mind that the bounding boxes of all 3D models in a Decentraland scene must fit inside the scene limits, see [position entities]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#scene-boundaries" >}}) for more details.
 
 ![](/images/media/bounding-box.png)
 
@@ -49,7 +49,7 @@ We recommend that you bake the rotation and scale of every mesh in the model, to
 
 ## Best practices for geometries
 
-- Be mindful of how many faces you add to your 3D models, as more faces make its rendering more demanding. See [scene limitations](/creator/development-guide/scene-limitations) for the limits imposed by a scene.
+- Be mindful of how many faces you add to your 3D models, as more faces make its rendering more demanding. See [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}) for the limits imposed by a scene.
 - Make sure there are no hidden faces that can't be seen but that add to the triangle count.
 - For shapes that should have rounded sides, set them to be _smooth_ rather than adding additional faces.
 - Make sure the _normals_ of all faces are facing outwards instead of inwards. If there are faces in your model that seem not to be there when you render it, this is most likely the cause.

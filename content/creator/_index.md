@@ -22,9 +22,9 @@ You can also create smart wearables, which are wearable items of clothes that co
 
 The Decentraland SDK allows you to create your scene by writing in TypeScript (JavaScript + types).
 
-- Follow the [SDK 101](/creator/development-guide/sdk-101) tutorial for a quick crash course.
+- Follow the [SDK 101]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) tutorial for a quick crash course.
 
-- Read the [documentation](/creator/development-guide/entities-components) to grasp some of the fundamental concepts.
+- Read the [documentation]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}) to grasp some of the fundamental concepts.
 
 - Check out scene [examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
 
@@ -36,16 +36,16 @@ There are a number of tools that can help with arranging 3d models into position
 
 - [**Legacy Builder**](https://builder.decentraland.org): a simple drag and drop editor. No coding required, some items include built-in functionality. You can start a scene with the Builder, and then export it to continue working on it with the SDK.
 
-  Read the [documentation](/builder/builder-101).
+  Read the [documentation]({{< ref "/content/creator/builder/builder-101.md" >}}).
 
   > Note: If a scene is created by or modified by the SDK, you can't import it into the Builder. You can only go from the Builder to the SDK, not in the other direction.
 
 ## 3D Modeling
 
-You can use any 3rd party modeling tool to create 3D models that can be used in Decentraland scenes. It's easy to [import them into the Builder](/builder/import-items).
+You can use any 3rd party modeling tool to create 3D models that can be used in Decentraland scenes. It's easy to [import them into the Builder]({{< ref "/content/creator/builder/import-items.md" >}}).
 
-See [3D modeling](/creator/3d-modeling/3d-models) for tips and tricks, and information about supported features and formats for 3D models.
+See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for tips and tricks, and information about supported features and formats for 3D models.
 
 ## Design your experience
 
-No matter which tools you'll use, it's always recommended that you think carefully about what you want to build before you start building it. Read the [Design experiences](/creator/design-experience/mvp-guidelines) section to better understand the context, limitations and possibilities that you'll have as your design space when creating a scene for Decentraland.
+No matter which tools you'll use, it's always recommended that you think carefully about what you want to build before you start building it. Read the [Design experiences]({{< ref "/content/creator/scenes/design-experience/mvp-guidelines.md" >}}) section to better understand the context, limitations and possibilities that you'll have as your design space when creating a scene for Decentraland.

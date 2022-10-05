@@ -16,7 +16,7 @@ weight: 2
 
 ## What equipment or software do I need to play in Decentraland?
 
-A PC or Mac running Chrome, Firefox or Brave. See [hardware requirements](/player/general/hardware-requirements)
+A PC or Mac running Chrome, Firefox or Brave. See [hardware requirements]({{< ref "/player/general/hardware-requirements.md" >}})
 
 - **Can I play on a mobile device?<br/>**
 
@@ -83,7 +83,7 @@ LAND is a non-fungible digital asset maintained in an Ethereum smart contract. L
 
 ## How large is a tile of LAND?
 
-Land parcels are 16m x 16m, or 52ft x 52ft. Height is restricted based on [these limitations](/creator/development-guide/scene-limitations).
+Land parcels are 16m x 16m, or 52ft x 52ft. Height is restricted based on [these limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}).
 
 ## What is an Estate?
 

@@ -24,7 +24,7 @@ Please make sure you first install the CLI tools by running the following comman
 npm install -g decentraland
 ```
 
-See the [Installation Guide](/creator/development-guide/installation-guide) for more details instructions.
+See the [Installation Guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}) for more details instructions.
 
 ## Preview a scene
 
@@ -44,7 +44,7 @@ Every time you make changes to the scene, the preview reloads and updates automa
 
 Once you're happy with your scene, you can upload it and publish it to Decentraland, see [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) ) for instructions on how to do that.
 
-You can also upload a preview to a free 3rd party server, [see instructions here](/creator/development-guide/deploy-third-party).
+You can also upload a preview to a free 3rd party server, [see instructions here]({{< ref "/content/creator/scenes/publishing/deploy-third-party.md" >}}).
 
 ## Parameters of the preview command
 

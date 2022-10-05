@@ -128,7 +128,7 @@ If you use `.addComponentOrReplace()` to assign a _Dog_ component to an entity t
 
 You may want to add a component that simply flags an entity to differentiate it from others, without using it to store any data.
 
-This is especially useful when using [Component groups](/creator/development-guide/component-groups). Since component groups list entities based on components they own, a simple flag component can tell entities apart from others.
+This is especially useful when using [Component groups]({{< ref "/content/creator/scenes/architecture/component-groups.md" >}}). Since component groups list entities based on components they own, a simple flag component can tell entities apart from others.
 
 ```ts
 @Component("myFlag")

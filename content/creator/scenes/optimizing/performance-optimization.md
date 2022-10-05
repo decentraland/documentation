@@ -24,9 +24,9 @@ Playing videos is one of the most expensive things for the engine to handle. If 
 
 You should also avoid having videos playing in regions where they can't be seen. For example, if you have a screen indoors, toggle the video using a trigger area based on when the player walks in and out.
 
-> TIP: A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping](/creator/development-guide/materials#using-textures) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
+> TIP: A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping]({{< ref "/content/creator/scenes/3d-essentials/materials.md#using-textures" >}}) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
 
-> TIP: When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene](/creator/development-guide/event-listeners#player-enters-or-leaves-scene) .
+> TIP: When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-enters-or-leaves-scene" >}}) .
 
 #### Lazy loading
 
@@ -38,7 +38,7 @@ See [this example scene](https://github.com/decentraland-scenes/lazy-loading) fo
 
 For the best result in terms of avoiding hiccups, hide entities by switching their shape's `visible` property to false. With this approach, you add them to the engine when creating them, but you simply don't make their models visible.
 
-An alternative is to not add the entities to the engine until needed. This may result in some hiccups when the entities appear for the first time, and they might also take a couple of seconds to become visible. The advantage of this approach is that it's a valid way to get around the [scene limitations](/creator/development-guide/scene-limitations). Keep in mind that the scene limitations count is for the content that is being rendered in the scene at any given time, not for the total content that could be rendered. Loading and unloading parts of the scene should allow you to work around those limitations.
+An alternative is to not add the entities to the engine until needed. This may result in some hiccups when the entities appear for the first time, and they might also take a couple of seconds to become visible. The advantage of this approach is that it's a valid way to get around the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}). Keep in mind that the scene limitations count is for the content that is being rendered in the scene at any given time, not for the total content that could be rendered. Loading and unloading parts of the scene should allow you to work around those limitations.
 
 > Note: Entities that are not visible but are added to the engine do count towards the scene limitations.
 
@@ -48,7 +48,7 @@ You can also toggle animations on or off for entities that are far or occluded. 
 
 #### Async blocks
 
-Blocks of [async code](/creator/development-guide/async-functions) are processed in a separate thread from the rest of the scene, to prevent blocking the progress of everything else.
+Blocks of [async code]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) are processed in a separate thread from the rest of the scene, to prevent blocking the progress of everything else.
 
 Any processes that rely on responses from asynchronous services, such as `getPlayerData()` or `getRealmData()` should always run in async blocks, as they otherwise block the rest of the scene's loading while waiting for a response. The same applies to any calls to third party servers.
 
@@ -56,9 +56,9 @@ Note that the scene will be considered fully loaded when everything that isn't a
 
 #### Rely on Events
 
-Try to make the scene's logic rely on listening to [events](/creator/development-guide/event-listeners) as much as possible, instead of running checks every frame.
+Try to make the scene's logic rely on listening to [events]({{< ref "/content/creator/scenes/interactivity/event-listeners.md" >}}) as much as possible, instead of running checks every frame.
 
-The `update()` function in a [system](/creator/development-guide/systems) runs on every frame, 30 times per second (ideally). Avoid doing recurring checks if you can instead subscribe to an event.
+The `update()` function in a [system]({{< ref "/content/creator/scenes/architecture/systems.md" >}}) runs on every frame, 30 times per second (ideally). Avoid doing recurring checks if you can instead subscribe to an event.
 
 For example, instead of constantly checking the player's wearables, you can subscribe to the `onProfileChanged` event, and check the player's wearables only when they've changed.
 
@@ -90,11 +90,11 @@ About once a day, the Decentraland content servers run a process to compress eve
 
 ## Connectivity
 
-If your scene connects to any 3rd party servers or uses the [messagebus](/creator/development-guide/remote-scene-considerations) to send messages between players, there are also some things you might want to keep in mind.
+If your scene connects to any 3rd party servers or uses the [messagebus]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md" >}}) to send messages between players, there are also some things you might want to keep in mind.
 
 - Your scene should only have one active WebSockets connection at a time.
 - HTTP calls are funneled by the engine so that only one is handled at a time. Any additional requests are queued internally and must wait till other requests are completed. This queuing process is handled automatically, you don't need to do anything.
-- When using the [messagebus](/creator/development-guide/remote-scene-considerations) to send messages between players, be mindful that all messages are sent to all other players in the server island. Avoid situations where an incoming message directly results in sending another message, as the number of messages can quickly grow exponentially when there's a crowd in the scene.
+- When using the [messagebus]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md" >}}) to send messages between players, be mindful that all messages are sent to all other players in the server island. Avoid situations where an incoming message directly results in sending another message, as the number of messages can quickly grow exponentially when there's a crowd in the scene.
 
 ## Scene UI
 

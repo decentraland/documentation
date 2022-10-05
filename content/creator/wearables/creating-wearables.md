@@ -20,7 +20,7 @@ There’s a growing range of available wearables including cyberpunk themed snea
 
 This guide introduces the basics of creating custom 3D models for Decentraland wearables. It explains how the Decentraland “avatar system” works, and it illustrates how to properly model your own wearables.
 
-**Note: this guide assumes that you already have some basic to intermediate knowledge of 3D modeling. If you’re new to 3D modeling, [start here](/creator/3d-modeling/3d-models).**
+**Note: this guide assumes that you already have some basic to intermediate knowledge of 3D modeling. If you’re new to 3D modeling, [start here]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}).**
 
 ### The Decentraland Avatar System
 

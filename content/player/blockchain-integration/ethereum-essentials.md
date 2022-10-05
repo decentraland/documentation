@@ -62,7 +62,7 @@ Each developer working on a scene will be able to choose whether to use the main
 
 The sidechain will be kept interoperable with the Ethereum’s mainchain. You’ll be able to load tokens from the main chain into the side chain and vice versa. Transactions that take place in the sidechain are eventually reflected in the mainchain when the tokens “exit” back into the mainchain.
 
-Read more about this in [Second layer](/creator/development-guide/second-layer).
+Read more about this in [Second layer]({{< ref "/content/creator/scenes/blockchain/second-layer.md" >}}).
 
 #### Trigger transactions from a scene
 
@@ -123,7 +123,7 @@ _dApps_ (decentralized applications) are applications that are built upon smart 
 
 A dApp can be as simple as something that validates that your wallet holds a certain token and lets you use a service. Or it can be a fully fledged application with its own UI, such as the Decentraland Marketplace.
 
-If you want to build your own dApp around Decentrlanad, see [Create a dApp](/creator/development-guide/create-a-dapp).
+If you want to build your own dApp around Decentrlanad, see [Create a dApp]({{< ref "/content/creator/scenes/blockchain/create-a-dapp.md" >}}).
 
 ## Ropsten test network
 

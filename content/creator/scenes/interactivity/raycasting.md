@@ -12,7 +12,7 @@ url: /creator/development-guide/raycasting
 
 Raycasting is a fundamental tool in game development. With raycasting, you can trace an imaginary line in space, and query if any entities are intersected by the line. This is useful for calculating lines of sight, trajectories of bullets, pathfinding algorithms and many other applications.
 
-When a player clicks or pushes the primary or secondary button, a ray is traced from the player's position in the direction they are looking, see [button events](/creator/development-guide/click-events) for more details about this. This document covers how to trace an invisible ray from any arbitrary position and direction, independent of player actions, which you can use in many other scenarios.
+When a player clicks or pushes the primary or secondary button, a ray is traced from the player's position in the direction they are looking, see [button events]({{< ref "/content/creator/scenes/interactivity/click-events.md" >}}) for more details about this. This document covers how to trace an invisible ray from any arbitrary position and direction, independent of player actions, which you can use in many other scenarios.
 
 Please note that as a general rule, all raycasts in the SDK will only hit objects with colliders. So if you want to detect ray hits against a model that you've imported, that model should contain colliders.
 
@@ -204,7 +204,7 @@ physicsCast.hitAll(
 
 ## Recurrent raycasting
 
-If your scene does raycasting on every frame via a [system](/creator/development-guide/systems), then you should be careful about how it affects your scene's performance.
+If your scene does raycasting on every frame via a [system]({{< ref "/content/creator/scenes/architecture/systems.md" >}}), then you should be careful about how it affects your scene's performance.
 
 Both the `hitAll` and `hitFirst` methods have a third argument that takes a _raycast id_. All raycast queries that share a same id are handled in a lossy queue, so that if these requests pile up over time then only the latest one to arrive is processed. This can potentially save a lot of resources and makes your scene run a lot more smoothly.
 

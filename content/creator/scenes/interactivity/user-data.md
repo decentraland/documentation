@@ -81,7 +81,7 @@ The `avatar` object has the following nested information:
   - `face256`: _string_ The player's face as a 256x256 pixel image.
   - `body`: _string_ The full resolution image of the player standing straight, with 512x1024 pixels.
 
-> WARNING: The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits](/creator/development-guide/materials#avatar-portraits) ).
+> WARNING: The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/scenes/3d-essentials/materials.md#avatar-portraits" >}}) ).
 
 #### Data from current player
 
@@ -100,7 +100,7 @@ executeTask(async () => {
 
 The function returns the entire set of data described above, including address, name, wearables, snapshots, etc.
 
-> Tip: The `getUserData()` function is asynchronous. See [Asynchronous functions](/creator/development-guide/async-functions) if you're not familiar with those.
+> Tip: The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 
 > Note: When running a local preview, use `dcl start --web3` to connect with your wallet and fetch your actual data. Otherwise, the preview uses random user data, just as when you enter as a guest.
 
@@ -119,7 +119,7 @@ executeTask(async () => {
 
 The function returns the entire set of data described above, including address, name, wearables, snapshots, etc.
 
-> Tip: The `getPlayerData()` function is asynchronous. See [Asynchronous functions](/creator/development-guide/async-functions) if you're not familiar with those.
+> Tip: The `getPlayerData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 
 `getPlayerData()` can only fetch data from players who are currently nearby. They don't have to be necessarily standing in the same scene, but in visual range, that's because this information is being fetched from the local engine that's rendering these avatars. To try this out in preview, open a second tab and log in with a different account.
 
@@ -173,14 +173,14 @@ onLeaveSceneObservable.add((player) => {
 })
 ```
 
-> TIP: Read more about `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` in [Player connects or disconnects](/creator/development-guide/event-listeners#player-connects-or-disconnects) and about about `onEnterSceneObservable` and `onLeaveSceneObservable` in [Player enters or leaves scene](/creator/development-guide/event-listeners#player-enters-or-leaves-scene).
+> TIP: Read more about `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` in [Player connects or disconnects]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-connects-or-disconnects" >}}) and about about `onEnterSceneObservable` and `onLeaveSceneObservable` in [Player enters or leaves scene]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-enters-or-leaves-scene" >}}).
 
 Listen for events when players connect and disconnect
 As more players connect and disconnect, you can pic
 
 #### Data from any player
 
-To obtain information from any player, make a [REST API call](/creator/development-guide/network-connections#call-a-rest-api) to the content servers. This returns the same information as the `getUserData()` and `getPlayerData()` functions, detailed at the start of the section.
+To obtain information from any player, make a [REST API call]({{< ref "/content/creator/scenes/networking/network-connections.md#call-a-rest-api" >}}) to the content servers. This returns the same information as the `getUserData()` and `getPlayerData()` functions, detailed at the start of the section.
 
 This information is exposed in the following URL, appending the player's user id to the url parameter.
 
@@ -240,7 +240,7 @@ const publicKeyRequest = executeTask(async () => {
 })
 ```
 
-> Tip: The `getUserPublicKey()` function is asynchronous. See [Asynchronous functions](/creator/development-guide/async-functions) if you're not familiar with those.
+> Tip: The `getUserPublicKey()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 
 ## Get Decentraland Time
 
@@ -257,7 +257,7 @@ executeTask(async () => {
 })
 ```
 
-> Tip: The `getDecentralandTime()` function is asynchronous. See [Asynchronous functions](/creator/development-guide/async-functions) if you're not familiar with those.
+> Tip: The `getDecentralandTime()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 
 `getDecentralandTime()` returns an object with a `seconds` property. This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the `seconds` value is _36000_, it corresponds to _10 AM_.
 
@@ -285,7 +285,7 @@ executeTask(async () => {
 
 Players in decentraland exist in several separate _realms_. Players in different realms can't see each other, interact or chat with each other, even if they're standing on the same parcels. Dividing players like this allows Decentraland to handle an unlimited amount of players without running into any limitations. It also pairs players who are in close regions, to ensure that ping times between players that interact are acceptable.
 
-If your scene sends data to a [3rd party server](/creator/development-guide/remote-scene-considerations) to sync changes between players in real time, then it's often important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
+If your scene sends data to a [3rd party server]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md" >}}) to sync changes between players in real time, then it's often important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
 
 ```ts
 import { getCurrentRealm } from "@decentraland/EnvironmentAPI"
@@ -304,11 +304,11 @@ The `getCurrentRealm()` function returns the following information:
 - `domain`: _(string)_ The URL of the server
 - `serverName`: _(string)_ The name of the server
 
-> Tip: The `getCurrentRealm()` function is asynchronous. See [Asynchronous functions](/creator/development-guide/async-functions) if you're not familiar with those.
+> Tip: The `getCurrentRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 
 As players move through the map, they may switch islands to be grouped with those players who are now closest to them. Islands also shift their borders dynamically to fit a manageable group of people, so even if a player stands still, as players enter and leave the world, the player could find themselves on another island.
 
-See [onRealmChangedObservable](/creator/development-guide/event-listeners#player-changes-realm-or-island) for how to detect changes regarding the player's realm or island.
+See [onRealmChangedObservable]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-changes-realm-or-island" >}}) for how to detect changes regarding the player's realm or island.
 
 > Note: When the scene first loads, there might not yet be an island assigned for the player. The explorer will always eventually assign an island to the player, but this can sometimes occur a couple of seconds after the scene is loaded.
 
@@ -355,7 +355,7 @@ executeTask(async () => {
 
 The `getUserData()` and `getPlayerData()` return only a list of wearable ids, without information about each wearable. If instead of individual wearables you want to check for any wearable of a specific category (eg: hats), or any wearable of a specific rarity (eg: Mythic), then you'll need to fetch more detailed information about the player's wearables.
 
-Make a [REST API call](/creator/development-guide/network-connections#call-a-rest-api) to the following URL, to obtain a full updated list of all wearables that are currently usable, with details about each.
+Make a [REST API call]({{< ref "/content/creator/scenes/networking/network-connections.md#call-a-rest-api" >}}) to the following URL, to obtain a full updated list of all wearables that are currently usable, with details about each.
 
 `${playerRealm.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`
 
@@ -396,7 +396,7 @@ executeTask(fetchWearablesData)
 
 ## Check the player's camera mode
 
-> Note: `Camera.instance.cameraMode` is currently deprecated and is not always reliable. The recommended approach is to track camera change events with `onCameraModeChangedObservable`. This event is fired once when the scene first obtains information about the player's current camera mode, and then any time the player changes camera mode while in or around your scene. See [Event Listeners](/creator/development-guide/event-listeners#player-changes-camera-mode).
+> Note: `Camera.instance.cameraMode` is currently deprecated and is not always reliable. The recommended approach is to track camera change events with `onCameraModeChangedObservable`. This event is fired once when the scene first obtains information about the player's current camera mode, and then any time the player changes camera mode while in or around your scene. See [Event Listeners]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-changes-camera-mode" >}}).
 
 Players can either be using a 1st or 3rd person camera when exploring Decentraland. Check which of these the player is using by checking the value `Camera.instance.cameraMode`.
 

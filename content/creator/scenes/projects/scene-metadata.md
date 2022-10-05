@@ -88,7 +88,7 @@ The above commands all generate rectangular-shaped scenes. Decentraland scenes c
 
 Give your scene a title, a description and a thumbnail image to attract players to your scene and so they know what to expect.
 
-Players will see these when they select the parcels of your scene on the map, they will also see these in a confirmation screen when being [teleported](/creator/development-guide/external-links) there by another scene.
+Players will see these when they select the parcels of your scene on the map, they will also see these in a confirmation screen when being [teleported]({{< ref "/content/creator/scenes/interactivity/external-links.md" >}}) there by another scene.
 
 <!-- screenshot -->
 
@@ -142,7 +142,7 @@ Your scene might have objects that can block players from moving if they happen 
   ],
 ```
 
-The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to [position an entity](/creator/development-guide/entity-positioning).
+The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to [position an entity]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md" >}}).
 
 > Note: All spawn points must be within the parcels that make up the scene. You can't spawn a player outside the space of these parcels.
 
@@ -238,8 +238,8 @@ The corresponding features are blocked from being used by the scene, unless the 
 
 Currently, the following permissions are managed on all content:
 
-- `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player](/creator/development-guide/move-player)
-- `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar](/creator/development-guide/trigger-emotes)
+- `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/scenes/interactivity/move-player.md" >}})
+- `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/scenes/interactivity/trigger-emotes.md" >}})
 
 Portable experiences and smart wearables are also affected by the following permissions:
 
@@ -307,4 +307,4 @@ executeTask(async () => {
 })
 ```
 
-> Note: `getParcel()` needs to be run as an [async function](/creator/development-guide/async-functions), since the response may delay a fraction of a second or more in returning data.
+> Note: `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.

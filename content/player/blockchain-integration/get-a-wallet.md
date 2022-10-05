@@ -108,4 +108,4 @@ Steps to buy MANA:
 To summarize, Gas Price (gwei) is the amount of Ether offered per gas unit to pay miners to process your transaction. The higher the gas price you set, the faster your transaction will get processed. So, for more important transactions – such as a collectible that you really like ;D – think about increasing the suggested gas price.
 
 **For extra technical information, visit**
-**[this link](/player/blockchain-integration/ethereum-essentials)**
+**[this link]({{< ref "/player/blockchain-integration/ethereum-essentials.md" >}})**

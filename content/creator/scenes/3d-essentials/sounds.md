@@ -98,4 +98,4 @@ Suppose you have a large amount of balls bouncing around in your scene, and you 
 
 ## Audio streaming
 
-See [Audio streaming](/creator/development-guide/audio-streaming) to learn how you can play a live audio stream from an external source.
+See [Audio streaming]({{< ref "/content/creator/scenes/media/audio-streaming.md" >}}) to learn how you can play a live audio stream from an external source.

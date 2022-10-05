@@ -75,7 +75,7 @@ Note that 3d models have bounding boxes that surround them. Sometimes, even thou
 
 If you imported a custom 3D model that has bounding boxes that extend far beyond the model itself, it's a good practice to edit the model to make sure the bounding boxes extend out as little as possible. See [Meshes](/creator/3d-modeling/meshes #bounding-boxes).
 
-To keep scenes in Decentraland lightweight, you are limited to a maximum amount of textures, triangles, etc. See [scene limitations](/creator/builder/scene-limitations).
+To keep scenes in Decentraland lightweight, you are limited to a maximum amount of textures, triangles, etc. See [scene limitations]({{< ref "/content/creator/builder/scene-limitations.md" >}}).
 
 ## Preview
 
@@ -105,6 +105,6 @@ Once your scene has been published, you can keep making changes to it and then p
 
 ## Other useful information
 
-- [Design constraints for games](/creator/design-experience/design-games)
-- [3D modeling](/creator/3d-modeling/3d-models)
-- [Scene limitations](/creator/development-guide/scene-limitations)
+- [Design constraints for games]({{< ref "/content/creator/scenes/design-experience/design-games.md" >}})
+- [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}})
+- [Scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}})

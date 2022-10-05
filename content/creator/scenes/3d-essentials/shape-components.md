@@ -44,7 +44,7 @@ let sphere = new SphereShape()
 myEntity.addComponent(sphere)
 ```
 
-Primitive shapes don't include materials. To give it a color or a texture, you must assign a [material component](/creator/development-guide/materials) to the same entity.
+Primitive shapes don't include materials. To give it a color or a texture, you must assign a [material component]({{< ref "/content/creator/scenes/3d-essentials/materials.md" >}}) to the same entity.
 
 ## 3D models
 
@@ -62,11 +62,11 @@ In the example above, the model is located in a `models` folder at root level of
 
 > Tip: We recommend keeping your models separate in a `/models` folder inside your scene.
 
-glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this.
+glTF models can include their own embedded textures, materials, colliders and animations. See [3D models]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for more information on this.
 
-Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations](/creator/development-guide/scene-limitations).
+Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}).
 
-#### Free libraries for 3D models
+### Free libraries for 3D models
 
 Instead of building your own 3d models, you can also download them from several free or paid libraries.
 
@@ -114,11 +114,11 @@ Entities don't use collisions by default. Depending on the type of the shape com
 
 A _collider_ is a set of geometric shapes or planes that define which parts of the model are collided with. This allows for much greater control and is a lot less demanding on the system, as the collision object is usually a lot simpler (with less vertices) than the original model.
 
-See [3D models](/creator/3d-modeling/3d-models) for more details on how to add colliders to a 3D model.
+See [3D models]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for more details on how to add colliders to a 3D model.
 
 ## Pointer blocking
 
-All shapes block player [button events](/creator/development-guide/click-events) by default, so that for example a player can't click through a wall, or pick something up that is locked inside a chest.
+All shapes block player [button events]({{< ref "/content/creator/scenes/interactivity/click-events.md" >}}) by default, so that for example a player can't click through a wall, or pick something up that is locked inside a chest.
 
 You can however disable this behavior on any shape, no matter if it's a primitive or an imported 3D model.
 
@@ -144,7 +144,7 @@ myEntity.addComponent(new BoxShape())
 myEntity.getComponent(BoxShape).visible = false
 ```
 
-If an entity is invisible, its collider can block a player's path, but it can't be clicked. To make an entity that's both invisible and clickable, keep the `visible` property set to _true_, and instead give it a [material](/creator/development-guide/materials#pooling-entities-and-components) with 100% transparency.
+If an entity is invisible, its collider can block a player's path, but it can't be clicked. To make an entity that's both invisible and clickable, keep the `visible` property set to _true_, and instead give it a [material]({{< ref "/content/creator/scenes/3d-essentials/materials.md#pooling-entities-and-components" >}}) with 100% transparency.
 
 ## Optimize 3D models
 
@@ -153,13 +153,13 @@ To ensure that 3D models in your scene load faster and take up less memory, foll
 - Save your models in _.glb_ format, which is a lighter version of _.gltf_.
 - If you have multiple models that share the same textures, export your models with textures in a separate file. That way multiple models can refer to a single texture file that only needs to be loaded once.
 - If you have multiple entities using the same 3D model, instance a single `GLTFShape` component and assign that same one to the entities that will use it.
-- If your scene has entities that appear and disappear, it might be a good idea to pool these entities and keep them already defined but removed from the engine until needed. This will help them appear faster, the trade-off is that they will occupy memory when not in use. See [entities and components](/creator/development-guide/entities-components#pooling-entities-and-components)
+- If your scene has entities that appear and disappear, it might be a good idea to pool these entities and keep them already defined but removed from the engine until needed. This will help them appear faster, the trade-off is that they will occupy memory when not in use. See [entities and components]({{< ref "/content/creator/scenes/architecture/entities-components.md#pooling-entities-and-components" >}})
 
 ## Reuse shapes
 
 If multiple entities in your scene use a same primitive or 3D model, there's no need to create an instance of the shape component for each. All entities can share one same instance.
 
-This keeps your scene lighter to load and prevents you from exceeding the [maximum amount](/creator/development-guide/scene-limitations) of _bodies_ per scene.
+This keeps your scene lighter to load and prevents you from exceeding the [maximum amount]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}) of _bodies_ per scene.
 
 > Note: Reused shapes are added to the _triangle_ count of the scene. So it is possible to exceed the triangle limit by reusing shapes.
 
@@ -180,4 +180,4 @@ myThirdEntity.addComponent(house)
 
 Each entity that shares a shape can apply different scales, rotations or even materials (in the case of primitives) without affecting how the other entities are being rendered.
 
-Entities that share a 3D model instance can also have animations that run independently of each other. Each must have a separate `Animator` component, with separate `AnimationState` objects to keep track of what part of the animation is currently being played. See [3D model animations](/creator/development-guide/3d-model-animations)
+Entities that share a 3D model instance can also have animations that run independently of each other. Each must have a separate `Animator` component, with separate `AnimationState` objects to keep track of what part of the animation is currently being played. See [3D model animations]({{< ref "/content/creator/scenes/3d-essentials/3d-model-animations.md" >}})

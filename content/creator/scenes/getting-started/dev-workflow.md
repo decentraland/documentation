@@ -21,7 +21,7 @@ Please make sure you first install the CLI tools by running the following comman
 npm install -g decentraland
 ```
 
-See the [Installation Guide](/creator/development-guide/installation-guide) for more details instructions.
+See the [Installation Guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}) for more details instructions.
 
 Make sure you also own or have deploy rights on at least one parcel of land in Decentraland.
 
@@ -33,7 +33,7 @@ To preview a scene run the following command on the scene's main folder:
 dcl start
 ```
 
-See [Preview your scene](/creator/development-guide/preview-scene) ) for more details. Check the [Debug a scene](/creator/development-guide/preview-scene#debug-a-scene)) for tips on how to debug any issues.
+See [Preview your scene]({{< ref "/content/creator/scenes/getting-started/preview-scene.md" >}}) ) for more details. Check the [Debug a scene]({{< ref "/content/creator/scenes/getting-started/preview-scene.md#debug-a-scene" >}})) for tips on how to debug any issues.
 
 ## Deploy to the test environment
 
@@ -79,7 +79,7 @@ Once you're happy with your scene, it's time to publish it to the production env
 dcl deploy
 ```
 
-Check that your scene has all the necessary metadata: name, description, a preview image, spawn points. See [scene metadata](/creator/development-guide/scene-metadata) for details.
+Check that your scene has all the necessary metadata: name, description, a preview image, spawn points. See [scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for details.
 
 See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) for more details.
 

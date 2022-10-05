@@ -13,7 +13,7 @@ url: /creator/development-guide/video-playing
 
 There are two different ways you can show a video in a scene. One is to stream the video from an external source, the other is to pack the video file with the scene and play it from there.
 
-In both cases, you assign the video to a `VideoTexture`, which can be used on a [material](/creator/development-guide/materials) and then applied to any [primitive shape](/creator/development-guide/shape-components) like a plane, cube, or even a cone.
+In both cases, you assign the video to a `VideoTexture`, which can be used on a [material]({{< ref "/content/creator/scenes/3d-essentials/materials.md" >}}) and then applied to any [primitive shape]({{< ref "/content/creator/scenes/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
 
 > TIP: Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
 
@@ -103,7 +103,7 @@ myMaterial.emissiveColor = Color3.White()
 myMaterial.emissiveIntensity = 0.6
 ```
 
-See [materials](/creator/development-guide/materials) for more details.
+See [materials]({{< ref "/content/creator/scenes/3d-essentials/materials.md" >}}) for more details.
 
 ## About Streaming
 
@@ -121,7 +121,7 @@ The following file formats are supported:
 - _.ogg_
 - _.webm_
 
-Keep in mind that a video file adds to the total size of the scene, which makes the scene take longer to download for players walking into your scene. The video size might also make you go over the [scene limitations](/creator/development-guide/scene-limitations), as you have a maximum of 15 MB per parcel to use. We recommend compressing the video as much as possible, so that it's less of a problem.
+Keep in mind that a video file adds to the total size of the scene, which makes the scene take longer to download for players walking into your scene. The video size might also make you go over the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}), as you have a maximum of 15 MB per parcel to use. We recommend compressing the video as much as possible, so that it's less of a problem.
 
 We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
 

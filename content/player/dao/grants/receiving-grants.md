@@ -12,7 +12,7 @@ url: /player/general/dao/overview/receiving-grants
 ---
 
 
-If your [grant request](/player/general/dao/overview/community-grants) was approved by the DAO, congratulations! Following is an overview of what happens when your grant is approved, the actions you need to take to receive your funding, and how you are expected to report your work to the community.
+If your [grant request]({{< ref "/content/player/dao/grants/community-grants.md" >}}) was approved by the DAO, congratulations! Following is an overview of what happens when your grant is approved, the actions you need to take to receive your funding, and how you are expected to report your work to the community.
 
 
 ## Receiving your funds

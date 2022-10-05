@@ -55,7 +55,7 @@ This document is mostly oriented for representatives of Third Parties that want 
 
 Linked Wearables are 3D representations of NFTs that originate from outside Decentraland that can be used as wearables in-world, can be equipped on the avatar, and are found in the backpack.
 
-Linked Wearables are not [regular wearables](/creator/wearables/wearables-overview). They look the same, but carry a completely different meaning.
+Linked Wearables are not [regular wearables]({{< ref "/content/creator/wearables/wearables-overview.md" >}}). They look the same, but carry a completely different meaning.
 
 Linked Wearables do not exist inside traditional wearable collections, have no rarity, and can not be sold in [primary](https://market.decentraland.org/browse?assetType=item&section=wearables) or [secondary](https://market.decentraland.org/browse?assetType=nft&section=wearables&vendor=decentraland&page=1&sortBy=recently_listed&onlyOnSale=true&viewAsGuest=false&onlySmart=false) markets. They are only **in-world representations mapped to external NFTs by a Third Party.**
 
@@ -82,7 +82,7 @@ After the DAO has approved the proposal, a group of Third Party managers will be
 # Linked Wearables
 
 Linked Wearables are regular wearables mapped to external NFTs. The 3D model version of your NFTs that will be used as in-world wearables will have to be compliant with the same
-[guidelines](/creator/wearables/creating-wearables) as regular wearables.
+[guidelines]({{< ref "/content/creator/wearables/creating-wearables.md" >}}) as regular wearables.
 
 To create a Linked Wearable, you will need to:
 
@@ -124,7 +124,7 @@ To do so, follow these steps:
 
    ![](/images/media/linked-wearables/multiple-items-upload.png)
 
-3. Follow the steps to upload and configure your wearable as it is described in the _Uploading an item_ section in the [wearables editor user guide](/creator/wearables/wearables-editor-user-guide).
+3. Follow the steps to upload and configure your wearable as it is described in the _Uploading an item_ section in the [wearables editor user guide]({{< ref "/content/creator/wearables/wearables-editor-user-guide.md" >}}).
 
 ## Creating Linked Wearables in bulk
 
@@ -136,7 +136,7 @@ The process of uploading wearables in bulk involves uploading a ZIP file for eac
 - A **required** `wearable.json` file containing the information of the wearable.
 - An **optional** `thumbnail.png` file containing the thumbnail of the wearable that will be seen in the Builder and the world. If it is not provided, one will be generated using the 3D model.
 
-The 3D models and the optional `thumbnail.png` follow the [creating wearables guidelines](/creator/wearables/creating-wearables) and the [wearables editor user guide](/creator/wearables/wearables-editor-user-guide) on how to create a custom thumbnail.
+The 3D models and the optional `thumbnail.png` follow the [creating wearables guidelines]({{< ref "/content/creator/wearables/creating-wearables.md" >}}) and the [wearables editor user guide]({{< ref "/content/creator/wearables/wearables-editor-user-guide.md" >}}) on how to create a custom thumbnail.
 
 The `wearable.json` accompanying the content of the wearables has the following format (typed as Typescript would):
 
@@ -204,7 +204,7 @@ enum WearableBodyShape {
 
 Some things to consider about the `wearable.json` file:
 
-- All the information about the wearable categories and which to choose can be found in the [creating wearables guidelines](/creator/wearables/creating-wearables).
+- All the information about the wearable categories and which to choose can be found in the [creating wearables guidelines]({{< ref "/content/creator/wearables/creating-wearables.md" >}}).
 - The `id` field is optional and can be used to:
   - Create a wearable with an specific ID.
   - Update a wearable in Bulk (which will be seen in the [Editing wearables in bulk](#editing-wearables-in-bulk)
@@ -359,7 +359,7 @@ To edit a single wearable, follow these steps:
 
    ![](/images/media/linked-wearables/edit-single-wearable.png)
 
-2. Edit the wearable as standard wearables are edited. Follow the _Editing items_ section in the [wearables editor user guide](/creator/wearables/wearables-editor-user-guide).
+2. Edit the wearable as standard wearables are edited. Follow the _Editing items_ section in the [wearables editor user guide]({{< ref "/content/creator/wearables/wearables-editor-user-guide.md" >}}).
 
 ## Editing a wearable's ID or URN
 
@@ -484,7 +484,7 @@ The curation process will differ according to the process used to generate the w
 
 ### Handcrafted wearables
 
-For 3D models that were made individually without any automated process (the usual method for most regular wearables) the Curator will need to go through all items in the collection individually to make sure they are all compliant with the [Wearable Guidelines](/creator/wearables/creating-wearables).
+For 3D models that were made individually without any automated process (the usual method for most regular wearables) the Curator will need to go through all items in the collection individually to make sure they are all compliant with the [Wearable Guidelines]({{< ref "/content/creator/wearables/creating-wearables.md" >}}).
 
 ### Programmatic collections
 

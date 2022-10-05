@@ -18,7 +18,7 @@ While editing a scene, press the _Download scene_ icon to download the contents 
 
 You can then share this scene with another Builder user, or edit the scene with more freedom by using the Decentraland SDK.
 
-See [SDK 101](/creator/development-guide/sdk-101) if you're not yet familiar with coding with the Decentraland SDK.
+See [SDK 101]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) if you're not yet familiar with coding with the Decentraland SDK.
 
 ## Import a scene
 

@@ -20,7 +20,7 @@ To export a scene, open the scene and click the export icon.
 
 This will export the scene as a .zip file. This zip file will contain all of the required code and supporting files to run the scene, including 3D models, sound files, etc.
 
-See [SDK 101](/creator/development-guide/sdk-101) if you're not yet familiar with coding with the Decentraland SDK.
+See [SDK 101]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) if you're not yet familiar with coding with the Decentraland SDK.
 
 ## Workflow
 
@@ -59,4 +59,4 @@ const transform = new Transform({
 _scene.addComponentOrReplace(transform)
 ```
 
-See [Entity positioning](/creator/development-guide/entity-positioning) for more details on how to move and rotate items.
+See [Entity positioning]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md" >}}) for more details on how to move and rotate items.

@@ -12,7 +12,7 @@ url: /creator/development-guide/custom-events
 
 Sometimes it's useful to decouple the different parts of your scene's code and make them interact with each other via sending events.
 
-Decentraland scenes handle some [default events](/creator/development-guide/click-events) like `click` events and `buttonDown` or `buttonUp` events, but you can create your own to handle things that are specific to your scene.
+Decentraland scenes handle some [default events]({{< ref "/content/creator/scenes/interactivity/click-events.md" >}}) like `click` events and `buttonDown` or `buttonUp` events, but you can create your own to handle things that are specific to your scene.
 
 For example, you could have a `pickedCoin` event that's emitted every time the player picks up a coin in your scene. You could then have a score board that listens for these events and updates the score accordingly. Thanks to this, the part of your code that handles the picking of coins doesn't need to have any reference to the part of the code that updates the scoreboard.
 

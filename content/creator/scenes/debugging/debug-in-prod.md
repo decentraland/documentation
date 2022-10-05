@@ -16,7 +16,7 @@ When running a scene that's already deployed to land in Decentraland, there are 
 
 ### Preview
 
-Before you deploy your scene to Decentraland, make sure the scene runs well in preview using the latest version of the Decentraland SDK. See [debug in preview](/creator/development-guide/debug-in-preview).
+Before you deploy your scene to Decentraland, make sure the scene runs well in preview using the latest version of the Decentraland SDK. See [debug in preview]({{< ref "/content/creator/scenes/debugging/debug-in-preview.md" >}}).
 
 Although there should always be backwards compatibility of content built with older SDK versions, some platform-level aspects are subject to change over time. For example, lighting, avatar animations, skybox textures, global UIs, etc. By running a preview with the latest SDK version, you're using a newer version of the engine, which should render your scene in a way that's closer to what's used in production.
  
@@ -48,7 +48,7 @@ To view scene stats, add the following URL parameter:
 
 `&SCENE_DEBUG_PANEL`
 
-This will enable the option of opening a panel that displays stats that update in real time, including material count, entity count, processed messages, etc. See [view scene stats](/creator/development-guide/debug-in-preview#view-scene-stats) for details.
+This will enable the option of opening a panel that displays stats that update in real time, including material count, entity count, processed messages, etc. See [view scene stats](({{< ref "/content/creator/scenes/debugging/debug-in-preview.md#view-scene-stats" >}})) for details.
 
 With this flag enabled, you'll see a hint on the top-right corner of the screen, and you can press Y to open up this panel and see stats for the scene you're currently standing on.
 

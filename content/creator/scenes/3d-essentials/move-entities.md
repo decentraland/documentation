@@ -12,7 +12,7 @@ url: /creator/development-guide/move-entities
 
 To move, rotate or resize an entity in your scene, change the _position_, _rotation_ and _scale_ values stored in an entity's `Transform` component incrementally, frame by frame. This can be used on primitive shapes (cubes, spheres, planes, etc) as well as on 3D models (glTF).
 
-You can easily perform these incremental changes by moving entities a small amount each time the `update()` function of a [system](/creator/development-guide/systems) is called.
+You can easily perform these incremental changes by moving entities a small amount each time the `update()` function of a [system]({{< ref "/content/creator/scenes/architecture/systems.md" >}}) is called.
 
 > Tip: You can use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve most of the tasks described in this doc. The code shown in these examples is handled in the background by the library, so in most cases it only takes a single line of code to use them.
 
@@ -70,7 +70,7 @@ myEntity.addComponent(new BoxShape())
 engine.addEntity(myEntity)
 ```
 
-> Tip: To make an entity always rotate to face the player, you can add a [`Billboard` component](/creator/development-guide/entity-positioning#face-the-user).
+> Tip: To make an entity always rotate to face the player, you can add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}).
 
  <img src="/images/media/gifs/rotate.gif" alt="Move entity" width="300"/>
 

@@ -16,7 +16,7 @@ weight: 4
 
 The Wearables Editor is a tool within Decentraland’s Builder that allows you to upload, add metadata to, and publish your own custom wearables.
 
-> Remember: these docs don’t explain how to create the models, meshes, and textures that make up wearables, they just explain how to use the Wearables Editor to upload and publish your wearables. For an intro on the actual wearable creation process, [start here](/creator/wearables/creating-wearables).
+> Remember: these docs don’t explain how to create the models, meshes, and textures that make up wearables, they just explain how to use the Wearables Editor to upload and publish your wearables. For an intro on the actual wearable creation process, [start here]({{< ref "/content/creator/wearables/creating-wearables.md" >}}).
 
 ### Logging in
 
@@ -47,7 +47,7 @@ Also, you can create your items first and then drag and drop to your collection!
 
 #### Uploading an item
 
-When uploading an item you can either browse your computer to find the file you want, or you can click and drag your file right into the editor. For an overview of the 3D file types supported in Decentraland, see [3D Model Essentials](/creator/3d-modeling/3d-models).
+When uploading an item you can either browse your computer to find the file you want, or you can click and drag your file right into the editor. For an overview of the 3D file types supported in Decentraland, see [3D Model Essentials]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}).
 
 > **Wearable items cannot currently exceed 2MB.**
 
@@ -201,7 +201,7 @@ After reviewing your total fee, click **Next**.
 > **Warning!**
 > You will not be able to add or remove items in your collection after beginning the publication process. You will be able to see your items within the Decentraland Marketplace, but they will not be able to be bought, sold, or transferred until they have been approved.
 
-For more detailed information on the publication and approval process, see [Publishing Wearables](/creator/wearables/publishing-wearables).
+For more detailed information on the publication and approval process, see [Publishing Wearables]({{< ref "/content/creator/wearables/publishing-wearables.md" >}}).
 
 When you are ready, click **Publish** and sign the message when prompted by your wallet.
 

@@ -90,7 +90,7 @@ Here's the full list of supported frame styles:
 - Canvas
 - None
 
-Some frames use more materials than others. For example, the default frame adds 1 material for the NFT itself, 1 material for a background colored plane, and 2 materials for the frame (shared with other picture frames of the same style). If you need to reduce materials to [stay within scene limitations](/creator/development-guide/scene-limitations/), pick a style that is simpler. For example "none" only uses only 1 material for the NFT itself.
+Some frames use more materials than others. For example, the default frame adds 1 material for the NFT itself, 1 material for a background colored plane, and 2 materials for the frame (shared with other picture frames of the same style). If you need to reduce materials to [stay within scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}), pick a style that is simpler. For example "none" only uses only 1 material for the NFT itself.
 
 
 > Tip: Using Visual Studio Code (or another IDE), see the whole list by typing `PictureFrameStyle.` and waiting for the smart suggestions display the list of options. Use `PictureFrameStyle.None`to display the plain NFT as is, with no frame or background color.
