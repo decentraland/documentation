@@ -78,7 +78,7 @@ There are several ways in which your 3d models can be optimized to be lighter.
 
 - Avoid skinned meshes. They can drag down the performance significantly.
 
-> TIP: Read more on 3d model best practices in the [3d Modeling Section](/creator/3d-modeling/3d-models
+> TIP: Read more on 3d model best practices in the [3d Modeling Section]({{< ref "/creator/3d-modeling/3d-models.md" >}})
 
 #### Asset Bundle conversion
 
