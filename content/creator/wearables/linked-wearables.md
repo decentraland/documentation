@@ -69,7 +69,7 @@ Even though there is a storage cost to upload the 3D representations of your Lin
 
 ## Getting started - DAO Proposal
 
-The **first step** to registering your NFTs as Linked Wearables is to be admitted by the DAO as an enabled _Third Party_ _(the original creator of the external NFT)_ by submitting a proposal using the template in the new category “Linked Wearables Registry”.
+The **first step** to registering your NFTs as Linked Wearables is to be admitted by the DAO as an enabled _Third Party_ _(the original creator of the external NFT)_ by submitting a proposal using the template in the new category [Linked Wearables Registry](https://governance.decentraland.org/submit/linked-wearables/).
 
 Third Parties will need to share details about their project, collection, and define the managers that will later upload the 3D models of their NFTs in the [Builder](https://builder.decentraland.org/).
 
@@ -626,7 +626,7 @@ The purpose of the API is to map an owner of an NFT with a wearable (or multiple
 
 These are the steps that Third Parties need to follow, in summary:
 
-1. **[Create a DAO proposal](#getting-started---dao-proposal)** in the category “Linked Wearables Registry”. You'll need to:
+1. **[Create a DAO proposal](https://governance.decentraland.org/submit/linked-wearables/)** in the category “Linked Wearables Registry”. You'll need to:
    1. Request to be added to the Linked Wearables Registry
    2. Describe your company or community
    3. Describe your collection and the number of NFTs in it
