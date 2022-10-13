@@ -1,4 +1,4 @@
 ---
-bookCollapseSection: false
-weight: 50
+title: Verified partners
+BookHref: https://partners.decentraland.vote/
 ---
