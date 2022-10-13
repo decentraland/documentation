@@ -10,11 +10,9 @@ description: In-World Voice Chat
 categories:
   - Decentraland
 type: Document
-url: /player/general/in-world-feature/voice-chat
-weight: 2
+url: /player/general/in-world-features/voice-chat
+weight: 10
 ---
-
-## How to use voice chat?
 
 ### Accessing the chat
 
@@ -27,7 +25,7 @@ By keeping pressed the microphone button (or the T key), you will be able to sen
 It is possible that the first time you do this, the browser will ask you about microphone permissions. You will see a browser’s modal similar to this
 ![](/images/media/voice-chat-2.png)
 
-> You will have to grant the website required permission to be able to use voice chat feature
+> You have to grant the website required permission to be able to use voice chat feature
 
 ### Seeing nearby users
 
@@ -55,7 +53,7 @@ You will know it is disconnected because you will see this Voice Chat bar in the
 
 Clicking on the `JOIN VOICE CHAT` button, you will be connected again.
 
-## Troubleshooting
+# Troubleshooting
 
 ### The Voice Chat get disconnected when I try to send audio message
 
