@@ -378,12 +378,12 @@ async function fetchWearablesData() {
     let url = `${playerRealm.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`.toString()
     log("using URL: ", url)
 
- 
+
     let response = await fetch(url)
     let json = await response.json()
 
     log("full response: ", json)
-  
+
   } catch {
     log("an error occurred while reaching for wearables data")
   }

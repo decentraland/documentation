@@ -1,6 +1,6 @@
 ---
 date: 2022-02-17
-title: Integrating Decentraland's Estate in your Marketplace
+title: Marketplace integration
 description: Important things to have in mind if you want to integrate the Decentraland's Estate in your marketplace
 categories:
   - blockchain-integration
