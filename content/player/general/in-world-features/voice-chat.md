@@ -11,7 +11,6 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/in-world-features/voice-chat
-weight: 20
 ---
 
 ### Accessing the chat
@@ -32,7 +31,7 @@ It is possible that the first time you do this, the browser will ask you about m
 ### Seeing nearby users
 
 You can see all nearby users by opening the Voice Chat window. For that, you will have to click on the headphones button in the taskbar and this window will be showed
-<img src="/images/media/voice-chat-3.png" style="margin: 2rem auto; display: block;width: 90%;"/>
+<img src="/images/media/voice-chat-3.png" style="margin: 2rem auto; display: block;width: 60%;"/>
 
 ### Filtering users I want to listen to
 
@@ -66,7 +65,7 @@ For some users, when they try to send an audio message for the first time, may r
 
 If you experience this, you will notice that just after that happens the Voice Chat is disconnected. Simply click on the `JOIN VOICE CHAT` button in the taskbar and it will be connected again.
 
-<img src="/images/media/voice-chat-6.png" style="margin: 2rem auto; display: block;width: 90%;"/>
+<img src="/images/media/voice-chat-6.png" style="margin: 2rem auto; display: block;width: 60%;"/>
 
 ### My Voice Chat is connected but I can’t send neither hear audio messages
 

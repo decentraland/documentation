@@ -8,6 +8,7 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/hardware-acceleration
+weight: 5
 ---
 
 Since Decentraland runs in a web browser, you might need to configure your browser and/or operating system to have access to all of your machine's potential to run Decentraland as smoothly as possible.
