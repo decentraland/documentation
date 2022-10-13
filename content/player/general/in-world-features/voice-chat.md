@@ -1,5 +1,5 @@
 ---
-date: 2018-01-01
+date: 2022-10-01
 title: Voice Chat
 aliases:
   - /docs/voice-chat
@@ -11,26 +11,28 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/in-world-features/voice-chat
-weight: 10
+weight: 20
 ---
 
 ### Accessing the chat
 
 When you enter the world, the voice chat will be automatically connected. You can confirm that voice chat is connected, when you see this UI in the taskbar.
-![](/images/media/voice-chat-1.png)
+
+<img src="/images/media/voice-chat-1.png" style="margin: 2rem auto; display: block;width: 90%;"/>
 
 ### Sending audio message
 
 By keeping pressed the microphone button (or the T key), you will be able to send audio messages to the nearby users also connected to the Voice Chat.
 It is possible that the first time you do this, the browser will ask you about microphone permissions. You will see a browser’s modal similar to this
-![](/images/media/voice-chat-2.png)
+
+<img src="/images/media/voice-chat-2.png" style="margin: 2rem auto; display: block;width: 90%;"/>
 
 > You have to grant the website required permission to be able to use voice chat feature
 
 ### Seeing nearby users
 
 You can see all nearby users by opening the Voice Chat window. For that, you will have to click on the headphones button in the taskbar and this window will be showed
-![](/images/media/voice-chat-3.png)
+<img src="/images/media/voice-chat-3.png" style="margin: 2rem auto; display: block;width: 90%;"/>
 
 ### Filtering users I want to listen to
 
@@ -48,8 +50,9 @@ You will also be able to mute/unmute ALL the nearby users using the top right `M
 ### Leaving chat
 
 By clicking on the `LEAVE` button (you can find it in the top right corner of the Voice Chat window or in the right side of the Voice Chat bar), you will be disconnected from the Voice Chat. From this point on you won’t hear anything from the nearby users.
-You will know it is disconnected because you will see this Voice Chat bar in the taskbar:
-![](/images/media/voice-chat-4.png)
+You will know it is disconnected because you will see this Voice Chat bar in the taskbar
+
+<img src="/images/media/voice-chat-4.png" style="margin: 2rem auto; display: block;width: 90%;"/>
 
 Clicking on the `JOIN VOICE CHAT` button, you will be connected again.
 
@@ -58,9 +61,12 @@ Clicking on the `JOIN VOICE CHAT` button, you will be connected again.
 ### The Voice Chat get disconnected when I try to send audio message
 
 For some users, when they try to send an audio message for the first time, may receive this warning message in the top of the screen.
-![](/images/media/voice-chat-5.png)
+
+<img src="/images/media/voice-chat-5.png" style="margin: 2rem auto; display: block;width: 90%;"/>
+
 If you experience this, you will notice that just after that happens the Voice Chat is disconnected. Simply click on the `JOIN VOICE CHAT` button in the taskbar and it will be connected again.
-![](/images/media/voice-chat-6.png)
+
+<img src="/images/media/voice-chat-6.png" style="margin: 2rem auto; display: block;width: 90%;"/>
 
 ### My Voice Chat is connected but I can’t send neither hear audio messages
 
@@ -75,6 +81,8 @@ Another possible cause could be not having the microphone permissions allowed in
 This could happen in case you missed the permissions popup the first time the browser asked you for, or maybe you forgot to apply any action when the browser asked you. 
 In any case, we can check this configuration again by opening our browser’s configuration: **Settings** → **Privacy and Security** → **Site Settings** and look for `play.decentraland.org` in **Recent activity**. 
 You will see a list of permissions
-![](/images/media/voice-chat-7.png) 
+
+<img src="/images/media/voice-chat-7.png" style="margin: 2rem auto; display: block;width: 90%;"/>
+
 > It is important that, after doing this, you close and re-open the browser to apply the changes. From this point on you should be able to send and receive audio messages correctly.
 
