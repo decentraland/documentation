@@ -1,4 +1,4 @@
 ---
-title: Verified partners
+title: Verified Partners
 BookHref: https://partners.decentraland.vote/
 ---
