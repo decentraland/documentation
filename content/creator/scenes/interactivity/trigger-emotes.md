@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/trigger-emotes/
 url: /creator/development-guide/trigger-emotes
+weight: 4
 ---
 
 To make a player perform an emote, use the `triggerEmote()` function. Note that only existing default emotes are supported for now. This function takes a single argument:

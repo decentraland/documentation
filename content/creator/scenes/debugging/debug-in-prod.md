@@ -1,6 +1,6 @@
 ---
 date: 2022-06-29
-title: Debug in Production
+title: Debug in production
 description: How you can debug your scene that is running inside Decentraland
 categories:
   - development-guide
@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/debug-in-prod/
 url: /creator/development-guide/debug-in-prod
+weight: 2
 ---
 
 When running a scene that's already deployed to land in Decentraland, there are a number of things you can try out to debug it.

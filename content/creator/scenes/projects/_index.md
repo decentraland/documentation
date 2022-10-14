@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: true
 weight: 4
-title: Decentraland Projects
+title: Decentraland projects
 ---

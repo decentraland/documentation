@@ -1,6 +1,6 @@
 ---
 date: 2020-09-24
-title: Modifier Areas
+title: Modifier areas
 description: Specify an area on your scene where player avatars or the camera behave differently
 categories:
   - development-guide
@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/avatar-modifiers/
 url: /creator/development-guide/avatar-modifiers
+weight: 3
 ---
 
 ## Avatar Modifiers

@@ -1,6 +1,6 @@
 ---
 date: 2021-05-31
-title: Publishing Wearables
+title: Publishing wearables
 aliases:
   - /wearables/publishing-wearables/
   - /decentraland/publishing-wearables/
