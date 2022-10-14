@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/external-links/
 url: /creator/development-guide/external-links
+weight: 6
 ---
 
 You can add links from your scene out to other content, either to other scenes or to external websites.

@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: CLI Installation Guide
+title: CLI installation guide
 description: Step-by-step guide to installing the SDK
 aliases:
   - /documentation/installation-guide/
