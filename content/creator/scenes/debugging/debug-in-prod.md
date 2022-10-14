@@ -48,7 +48,7 @@ To view scene stats, add the following URL parameter:
 
 `&SCENE_DEBUG_PANEL`
 
-This will enable the option of opening a panel that displays stats that update in real time, including material count, entity count, processed messages, etc. See [view scene stats](({{< ref "/content/creator/scenes/debugging/debug-in-preview.md#view-scene-stats" >}})) for details.
+This will enable the option of opening a panel that displays stats that update in real time, including material count, entity count, processed messages, etc. See [view scene stats]({{< ref "/content/creator/scenes/debugging/debug-in-preview.md#view-scene-stats" >}}) for details.
 
 With this flag enabled, you'll see a hint on the top-right corner of the screen, and you can press Y to open up this panel and see stats for the scene you're currently standing on.
 
