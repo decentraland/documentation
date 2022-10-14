@@ -60,9 +60,9 @@ With this workspace, you have everything needed to start animating!
 These are the bottom windows. The top one is in the _**Graph Editor,**_ the middle one in the _**Dope Sheet,**_ and the bottom one is the _**Timeline.**_ The top red arrow shows the _**Only Show Selected**_ tool and the bottom one shows the _**Auto Keying**_.
 
 {{< hint info >}}
-**Hint!**
+**💡 Hint!**
 
-💡 **Since Blender is highly customizable, this is also a good time to set up the layout that best suits you, adding, adjusting, or removing windows. Each animator has their own preferences, so feel free to edit the layout however you want!**
+Since Blender is highly customizable, this is also a good time to set up the layout that best suits you, adding, adjusting, or removing windows. Each animator has their own preferences, so feel free to edit the layout however you want!
 {{< /hint >}}
 
 ### Getting Started
@@ -71,9 +71,11 @@ These are the bottom windows. The top one is in the _**Graph Editor,**_ the midd
 
 In the rig file provided, there’s already an action, the _**Starting_Pose**_. Considering that all avatar actions start from the idle pose, **we really encourage starting your animation from that pose and also using it again in the last frame**. This will make for a better transition from Idle to Emote and a more fluid animation.
 
-### **Hint!**
+{{< hint info >}}
+**💡 Hint!**
 
-💡 **If you want to do a loop animation, you don’t have to start the animation from the Starting Pose. Feel free to use the pose that makes more sense in your animation!**
+If you want to do a loop animation, you don’t have to start the animation from the Starting Pose. Feel free to use the pose that makes more sense in your animation!**
+{{< /hint >}}
 
 **Ground Reference and Animation Area**
 
@@ -111,9 +113,12 @@ Spotlight
 
 Thalia Dance
 
-### Attention!
 
-💡 **Watch out for these boundaries because crossing them might cause gameplay issues.**
+{{< hint info >}}
+**💡 Attention!**
+
+Watch out for these boundaries because crossing them might cause gameplay issues.
+{{< /hint >}}
 
 
 **Creating an Animation**
@@ -132,9 +137,11 @@ In Blender, you can have multiple animation tracks in the same file. It is possi
 
 Browsing animations: The ones with an F will be saved, and the ones with 0 will be deleted.
 
-### **Hint!**
+{{< hint info >}}
+**💡 Hint!**
 
-💡 **Do not always edit the same animation track. Before making major changes, just duplicate the animation. That way you have a back up version in case you regret deleting or changing something. This is also a nice way to keep track of the progress made so far!**
+Do not always edit the same animation track. Before making major changes, just duplicate the animation. That way you have a back up version in case you regret deleting or changing something. This is also a nice way to keep track of the progress made so far!
+{{< /hint >}}
 
 
 **Naming**
@@ -152,10 +159,9 @@ Browsing animations: The ones with an F will be saved, and the ones with 0 will 
 
 The max length of an animation is **10 seconds** or **300 frames**. Remember to keyframe every control’s properties on the first and last frames.
 
-### Attention!
-
-⚠️ **Channels with visibility turned off in the Graph Editor won’t be keyframed, deleted, or even shown in the Action Editor. Unless it was intentionally done that way, pay extra attention to the visibility.**
-
+{{< hint warning >}}
+⚠️ Channels with visibility turned off in the Graph Editor won’t be keyframed, deleted, or even shown in the Action Editor. Unless it was intentionally done that way, pay extra attention to the visibility.
+{{< /hint >}}
 
 ![Make channels visible before keyframing!](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/channels_visibility_graph_editor.gif)
 
@@ -179,9 +185,11 @@ The drawback, however, is that the animation will start getting less and less fl
 
 Usually, a **sampling rate of 2 or 3** will do the trick. Those numbers can optimize the animation without compromising the quality.
 
-### Hint!
+{{< hint info >}}
+**💡 Hint!**
 
-💡 **If the number of frames of the animation can be divided by the sampling rate, that’s a good thing! It means that the final frame will be baked, preserving the transition from end to start of the animation.**
+If the number of frames of the animation can be divided by the sampling rate, that’s a good thing! It means that the final frame will be baked, preserving the transition from end to start of the animation.
+{{< /hint >}}
 
 
 **File Size**
@@ -225,10 +233,12 @@ Next step is to choose the thumbnail that shows the emote as its best! Select th
 
 ![Screen Shot 2022-08-04 at 12.39.58.png](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/screen_shot_2022-09-21_at_13.48.58.png)
 
-### Attention!
 
-💡 **Make sure to choose the thumbnail that show a key pose of the emote and centered in the frame. It has be clear to other users what the emote is about, otherwise it’s up to the curator to reject the collection.**
+{{< hint warning >}}
+**Attention!**
 
+Make sure to choose the thumbnail that show a key pose of the emote and centered in the frame. It has be clear to other users what the emote is about, otherwise it’s up to the curator to reject the collection.
+{{< /hint >}}
 
 Once it is imported, click on this eye icon to visualize it!
 
