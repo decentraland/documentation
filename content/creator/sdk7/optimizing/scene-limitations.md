@@ -42,119 +42,9 @@ Below are the maximum number of elements that a scene is allowed to render at th
 
 ## Optimizing
 
-See [Performance Optimization]({{ site.baseurl }}{% post_url /development-guide/2021-01-11-performance-optimization %})) for tips about how you can keep your scene below these limits and make it run smoother for players.
+See [Performance Optimization]({{< ref "/content/creator/sdk7/optimizing/performance-optimization.md" >}}) for tips about how you can keep your scene below these limits and make it run smoother for players.
 
 
-<!--
-
-## Query scene limitations via code
-
-From a scene's code, you can query both the limitations that apply to the scene and how much the scene is currently using. This is especially useful with scenes where the content changes dynamically. For example, in a scene where you add a new entity each time the player clicks, you could stop adding entities when you reach the scene limits.
-
-To use this functionality, you must first import `EntityController` into your scene.
-
-```ts
-import { querySceneLimits } from "@decentraland/EntityController"
-```
-
-#### Obtain scene limitations
-
-Run `this.entityController.querySceneLimits()` to obtain the limits of your scene. The limits are calculated for your scene based on how many parcels it occupies, according to the _scene.json_ file. The values returned by this command don't change over time, as the scene's size is always the same.
-
-The `querySceneLimits()` is [asynchronous](/creator/development-guide/async-functions), so we recommend calling it using the `executeTask()` function, including an `await` statement.
-
-```ts
-executeTask(async () => {
-  try {
-    const limits = await querySceneLimits()
-    log('limits' + limits)
-  }
-})
-```
-
-The `querySceneLimits()` function returns a promise of an object with the following properties, all of type _number_.
-
-
-```ts
-// import controller
-import { querySceneLimits } from '@decentraland/EntityController'
-
-
-// get limits object
-executeTask(async () => {
-  try {
-    const limits = await querySceneLimits()
-
-    // print maximum triangles
-    log(limits.triangles)
-
-    // print maximum entities
-    log(limits.entities)
-
-    // print maximum bodies
-    log(limits.bodies)
-
-    // print maximum materials
-    log(limits.materials)
-
-    // print maximum textures
-    log(limits.textures)
-  }
-}
-```
-
-
-For example, if your scene has only one parcel, logging `limits.triangles` should print `10000`.
-
-#### Obtain the current use
-
-Just as you can check via code the maximum allowed values for your scene, you can also check how much of that is currently used by the scene. You do this by running `this.querySceneMetrics()`. The values returned by this command change over time as your scene renders different content.
-
-The `querySceneMetrics()` is asynchronous, so we recommend calling it using the `executeTask()` function, including an `await` statement.
-
-```ts
-executeTask(async () => {
-  try {
-    const limits = await querySceneMetrics()
-    log('limits' + limits)
-  }
-})
-```
-
-The `querySceneMetrics()` function returns a promise of an object with the following properties, all of type _number_.
-
-
-```ts
-// import controller
-import { querySceneMetrics } from '@decentraland/EntityController'
-
-
-// get limits object
-executeTask(async () => {
-  try {
-    const limits = await querySceneMetrics()
-
-    // print maximum triangles
-    log(limits.triangles)
-
-    // print maximum entities
-    log(limits.entities)
-
-    // print maximum bodies
-    log(limits.bodies)
-
-    // print maximum materials
-    log(limits.materials)
-
-    // print maximum textures
-    log(limits.textures)
-  }
-}
-```
-
-For example, if your scene is only rendering one box entity at the time, logging `limits.entities` should print `1`.
-
--->
 
 ## Scene boundaries
 
@@ -168,7 +58,7 @@ It's possible to position entities underground, to either hide them or to have o
 
 ## Shader limitations
 
-3D models used in decentraland must use supported shaders and materials. See [3D model materials](/creator/3d-modeling/materials) for a list of supported shaders.
+3D models used in decentraland must use supported shaders and materials. See [3D model materials]({{< ref "/content/creator/3d-modeling/materials.md">}}) for a list of supported shaders.
 
 ## Lighting
 
@@ -199,10 +89,3 @@ Examples of other valid sizes:
 
 > Note: Although textures of arbitrary sizes sometimes work, they are also often rendered with bugs and are more unstable. We strongly advise that all your textures match these sizes.
 
-<!--
-## File amount limitations
-
-When deploying your scene, you can't upload more than 100 files to IPFS, as having too many files in a scene will make it take too long to load in the client.
-
-If you have more than 100 files in your scene folder, it's likely that many of those files aren't being used directly when loading the scene. You can make the CLI ignore specific files from the scene folder and not upload them to IPFS by specifying them in the _dclignore_ file for the scene. Learn more about it in [Scene files](/creator/development-guide/scene-files).
--->

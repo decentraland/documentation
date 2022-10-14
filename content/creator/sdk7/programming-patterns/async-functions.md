@@ -16,7 +16,7 @@ url: /creator/development-guide/async-functions/
 
 Most of the code in your scene runs synchronously using a single thread. That means that commands are executed sequentially line by line. Each command must first wait for the previous command to finish executing before it can start.
 
-Even the `update()` functions in your scene's systems are executed one by one, following a [priority order](/creator/development-guide/systems#system-execution-order).
+Even the `update()` functions in your scene's systems are executed one by one, following a [priority order]({{< ref "/content/creator/sdk7/architecture/systems.md#system-execution-order">}}).
 
 Running code synchronously ensures consistency, as you can always be sure you'll know the order in which the commands in your code run.
 
@@ -83,7 +83,7 @@ You then need to create a system to process these results in the frame when they
 
 > Tip: If the processing of the results of a raycast takes a lot of calculations (like running a path-finding algorithm) you might want to run that computation in an asynchronous function.
 
-See [click events](/creator/development-guide/click-events) and [raycasting](/creator/development-guide/raycasting).
+See [click events]({{< ref "/content/creator/sdk7/interactivity/click-events.md" >}}) and [raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}).
 
 ## Subscribe a listener
 

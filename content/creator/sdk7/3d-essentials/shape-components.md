@@ -36,16 +36,16 @@ MeshRenderer.create(primitiveEntity, { box: {} })
 ```
 
 
-Primitive shapes don't include materials. To give it a color or a texture, you must assign a [material component](/creator/development-guide/materials) to the same entity.
+Primitive shapes don't include materials. To give it a color or a texture, you must assign a [material component]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) to the same entity.
 
-To make a primitive clickable, or to prevent players from walking through it, you must give the entity a _collider_ via a [MeshCollider](/creator/development-guide/colliders) component.
+To make a primitive clickable, or to prevent players from walking through it, you must give the entity a _collider_ via a [MeshCollider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) component.
 
 
 Each of these components has certain fields that are specific to that shape, for example the _cylinder_ shape has `radiusTop` and `radiusBottom`, etc.
 
 > Tip: You can make a cone out of a cylinder by setting the `radiusTop` or `radiusBottom` to 0.
 
-Primitives of type `box` or `plane` include a `uvs` field that allows you to handle how to map textures to their surface. See [materials](/creator/development-guide/materials) for more details. 
+Primitives of type `box` or `plane` include a `uvs` field that allows you to handle how to map textures to their surface. See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) for more details. 
 
 
 ## 3D models
@@ -68,7 +68,7 @@ The `src` field is required, you must give it a value when constructing the comp
 
 glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this.
 
-Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations](/creator/development-guide/scene-limitations).
+Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
 
 ### Free libraries for 3D models
 
@@ -96,7 +96,7 @@ To ensure that 3D models in your scene load faster and take up less memory, foll
 
 - Save your models in _.glb_ format, which is a lighter version of _.gltf_.
 - If you have multiple models that share the same textures, export your models with textures in a separate file. That way multiple models can refer to a single texture file that only needs to be loaded once.
-- If your scene has entities that appear and disappear, it might be a good idea to pool these entities and keep them underground, or at a scale of 0. This will help them appear faster, the trade-off is that they will occupy memory when not in use. See [entities and components](/creator/development-guide/entities-components#pooling-entities-and-components)
+- If your scene has entities that appear and disappear, it might be a good idea to pool these entities and keep them underground, or at a scale of 0. This will help them appear faster, the trade-off is that they will occupy memory when not in use. See [entities and components]({{< ref "/content/creator/sdk7/architecture/entities-components.md#pooling-entities-and-components" >}})
 
 
 ## Stretching a shape

@@ -107,4 +107,4 @@ source.volume = 0.5
 
 ## Audio streaming
 
-See [Audio streaming]({{ site.baseurl }}{% post_url /development-guide/2022-07-11-audio-streams %})) to learn how you can play a live audio stream from an external source.
+See [Audio streaming]({{< ref "/content/creator/sdk7/media/audio-streaming.md" >}}) to learn how you can play a live audio stream from an external source.

@@ -13,9 +13,9 @@ url: /creator/development-guide/raycasting/
 
 Raycasting is a fundamental tool in game development. With raycasting, you can trace an imaginary line in space, and query if any entities are intersected by the line. This is useful for calculating lines of sight, trajectories of bullets, pathfinding algorithms and many other applications.
 
-When a player pushes the pointer button, or the primary or secondary button, a ray is traced from the player's position in the direction they are looking, see [button events](/creator/development-guide/click-events) for more details about this. This document covers how to trace an invisible ray from any arbitrary position and direction, independent of player actions, which you can use in many other scenarios.
+When a player pushes the pointer button, or the primary or secondary button, a ray is traced from the player's position in the direction they are looking, see [button events]({{< ref "/content/creator/sdk7/interactivity/click-events.md" >}}) for more details about this. This document covers how to trace an invisible ray from any arbitrary position and direction, independent of player actions, which you can use in many other scenarios.
 
-Please note that as a general rule, all raycasts in the SDK will only hit objects with colliders. So if you want to detect ray hits against a model that you've imported, that model should contain [collider meshes](/creator/3d-models/colliders), or you should add a [MeshCollider component](/creator/development-guide/colliders).
+Please note that as a general rule, all raycasts in the SDK will only hit objects with colliders. So if you want to detect ray hits against a model that you've imported, that model should contain [collider meshes](/creator/3d-models/colliders), or you should add a [MeshCollider component]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}).
 
 
 
@@ -101,7 +101,7 @@ engine.addSystem(() => {
 })
 ```
 
-The next example shows how you can access `RaycastResult` components from all entities in the scene, using a [component query](/creator/development-guide/querying-components).
+The next example shows how you can access `RaycastResult` components from all entities in the scene, using a [component query]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}).
 
 ```typescript
 let originPos = Vector3.create(2, 1, 4)
@@ -223,7 +223,7 @@ This example runs two raycast queries on every frame of the scene. Since they ea
 
 ## Collide with the player
 
-You can't directly hit the player with a ray, but what you can do as a workaround is position an invisible entity occupying the same space as the player using the [`AvatarAttach component](/creator/development-guide/entity-positioning/#attach-an-entity-to-an-avatar), and check collisions with that cube.
+You can't directly hit the player with a ray, but what you can do as a workaround is position an invisible entity occupying the same space as the player using the [`AvatarAttach component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar">}}), and check collisions with that cube.
 
 
 <!--

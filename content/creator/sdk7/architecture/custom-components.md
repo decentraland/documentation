@@ -10,9 +10,9 @@ aliases:
 url: /creator/development-guide/custom-components/
 ---
 
-Data about an entity is stored in its [components](/creator/development-guide/entities-components). The Decentraland SDK provides a series of base components that manage different aspects about an entity, like its position, shape, material, etc. The engine knows how to interpret the information in these, and will change how the entity is rendered accordingly as soon as they change their values.
+Data about an entity is stored in its [components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}). The Decentraland SDK provides a series of base components that manage different aspects about an entity, like its position, shape, material, etc. The engine knows how to interpret the information in these, and will change how the entity is rendered accordingly as soon as they change their values.
 
-If your scene's logic requires storing information about an entity that isn't handled by the default components of the SDK, then you can create a custom type of component on your scene. You can then build [systems](/creator/development-guide/systems) that check for changes on these components and respond accordingly.
+If your scene's logic requires storing information about an entity that isn't handled by the default components of the SDK, then you can create a custom type of component on your scene. You can then build [systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) that check for changes on these components and respond accordingly.
 
 
 ## About defining components
@@ -84,7 +84,7 @@ To easily create new ids....
 
 You may want to add a component that simply flags an entity to differentiate it from others, without using it to store any data. To do this, leave the schema as an empty object.
 
-This is especially useful when using [querying components](/creator/development-guide/querying-components). A simple flag component can be used tell entities apart from others, and avoid having the system iterate over more entities than needed.
+This is especially useful when using [querying components]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}). A simple flag component can be used tell entities apart from others, and avoid having the system iterate over more entities than needed.
 
 ```ts
 export const IsEnemyFlag = engine.defineComponent({}, 2000)
@@ -256,4 +256,4 @@ export function spinSystem(dt: number) {
 engine.addSystem(spinSystem)
 ```
 
-The example above defines a system that iterates over all entities that include the custom `WheelSpinComponent`, and rotates them slightly on every tick of the game loop. The amount of this rotation is proportional to the `speed` value stored on each entity's instance of the component. The example makes use of [component queries](/creator/development-guide/querying-components) to obtain only the relevant entities.
+The example above defines a system that iterates over all entities that include the custom `WheelSpinComponent`, and rotates them slightly on every tick of the game loop. The amount of this rotation is proportional to the `speed` value stored on each entity's instance of the component. The example makes use of [component queries]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to obtain only the relevant entities.

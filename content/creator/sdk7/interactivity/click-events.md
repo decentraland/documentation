@@ -19,12 +19,12 @@ A Decentraland scene can detect button events from all of the buttons that are u
 
 You can detect pointer events on any entity that has a collider. There are a couple of handy helper functions that allow you to query if a particular entity was just interacted with, or if an entity is currently being interacted with.
 
-> Note: The entity must have a [collider](/creator/development-guide/colliders) to respond to button events. If an entity has no collider, give it a `MeshCollider` component to make it clickable.
+> Note: The entity must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) to respond to button events. If an entity has no collider, give it a `MeshCollider` component to make it clickable.
 
 
 ### Check for button presses
 
-Check if an entity was triggered by a pointer event in the last frame by using the `wasEntityClicked()` within a [system](/creator/development-guide/system). 
+Check if an entity was triggered by a pointer event in the last frame by using the `wasEntityClicked()` within a [system]({{< ref "/content/creator/sdk7/architecture/systems.md">}}). 
 
 The `wasEntityClicked()` function requires that you pass it an entity and a specific button to check for events.
 
@@ -85,7 +85,7 @@ function killSystem() {
 engine.addSystem(killSystem)
 ```
 
-This example uses a [component query](/creator/development-guide/querrying-components) to iterate over all the entities with a `PointerEvents` component. It then checks each with `wasEntityClicked()`, and if so removes the entity from the engine.
+This example uses a [component query]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to iterate over all the entities with a `PointerEvents` component. It then checks each with `wasEntityClicked()`, and if so removes the entity from the engine.
 
 Instead of iterating over _all_ the entities with a `PointerEvents` component in a single system, you might want to instead write different systems to handle entities that should behave in different ways.
 
@@ -567,7 +567,7 @@ The `subscribe()` method takes four arguments:
 - `useRaycast`: Boolean to define if raycasting will be used. If `false`, the button event will not contain information about any `hit` objects that align with the pointer at the time of the event. Avoid setting this field to `true` when information about hit objects is not required, as it involves extra calculations.
 - `fn`: The function to execute each time the event occurs.
 
-> Note: Other keys on the PC keyboard aren't tracked for future cross-platform compatibility, as this limited set of keys can be mapped to a joystick. For detecting key-strokes when writing text, check the [UIInputBox](/creator/development-guide/onscreen-ui).
+> Note: Other keys on the PC keyboard aren't tracked for future cross-platform compatibility, as this limited set of keys can be mapped to a joystick. For detecting key-strokes when writing text, check the [UIInputBox]({{< ref "/content/creator/sdk7/interactivity/onscreen-ui.md" >}}).
 
 ```ts
 // Instance the input object

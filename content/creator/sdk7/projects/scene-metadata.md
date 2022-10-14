@@ -12,13 +12,15 @@ url: /creator/development-guide/scene-metadata/
 
 A scene is a Decentraland project that is spatially delimited, and is mapped to one or several LAND parcels. If a scene is deployed to the Decentraland map, players can experience it by visiting the scene's coordinates.
 
+See [Files in a scene]({{< ref "/content/creator/sdk7/projects/scene-files.md" >}}) for a list of what files are used in a scene project.
+
 ## Metadata
 
 All scenes have a `scene.json` file where you can set metadata for the scene. Some fields in this file are predefined with information that's necessary to load your scene. You're also free to add any fields that you wish.
 
 ## Scene parcels
 
-When [deploying](/creator/development-guide/publishing) a scene, the `scene.json` file must include information about what parcels will be occupied by this scene in the Decentraland map. The CLI reads this information from off this field and deploys to those parcels directly.
+When [deploying]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) a scene, the `scene.json` file must include information about what parcels will be occupied by this scene in the Decentraland map. The CLI reads this information from off this field and deploys to those parcels directly.
 
 ```json
  "scene": {
@@ -90,7 +92,7 @@ The above commands all generate rectangular-shaped scenes. Decentraland scenes c
 
 It's very important to give your scene a title, a description and a thumbnail image to attract players to your scene and so they know what to expect.
 
-Players will see these displayed on a modal when they select the parcels of your scene on the map. They will also see these in a confirmation screen when being [teleported](/creator/development-guide/external-links) there by another scene. Setting up compelling data here can significantly help drive traffic to your scene.
+Players will see these displayed on a modal when they select the parcels of your scene on the map. They will also see these in a confirmation screen when being [teleported]({{< ref "/content/creator/sdk7/interactivity/external-links.md" >}}) there by another scene. Setting up compelling data here can significantly help drive traffic to your scene.
 
 
 When players navigate the world and enter your scene, they are able to read the scene title from under the minimap.
@@ -143,7 +145,7 @@ Your scene might have objects that can block players from moving if they happen 
   ],
 ```
 
-The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to [position an entity](/creator/development-guide/entity-positioning).
+The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to [position an entity]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md" >}}).
 
 > Note: All spawn points must be within the parcels that make up the scene. You can't spawn a player outside the space of these parcels.
 
@@ -237,8 +239,8 @@ The corresponding features are blocked from being used by the scene, unless the 
 
 Currently, the following permissions are managed on all content:
 
-- `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player](/creator/development-guide/move-player)
-- `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar](/creator/development-guide/trigger-emotes)
+- `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}})
+- `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >}})
 
 Portable experiences and smart wearables are also affected by the following permissions:
 
@@ -322,5 +324,5 @@ async function getSceneData(){
 getSceneData()
 ```
 
-> Note: `getParcel()` needs to be run as an [async function](/creator/development-guide/async-functions), since the response may delay a fraction of a second or more in returning data.
+> Note: `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
 

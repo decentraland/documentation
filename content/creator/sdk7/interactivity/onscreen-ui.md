@@ -43,7 +43,7 @@ There are several different types of UI elements you can add to the screenspace:
 
 - Images: Add a `UIImage` component to display any image. Use the `source` field to point to the path of the image.
 
-- Text: Add a `UIText`component to display text. The properties you can set are the same as in a `TextShape` component. See [text](/creator/development-guide/text).
+- Text: Add a `UIText`component to display text. The properties you can set are the same as in a `TextShape` component. See [text]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).
 
 <!--
 - Buttons: Add a `UIButton` to add a clickable button. The button offers some visual feedback when players mouse over it and when they click it.
@@ -160,7 +160,7 @@ Setting an element's opacity also affects all of its children. If you don't want
 
 ## Text
 
-The `UIText` component lets you add text. It has properties that are similar to the `TextShape` component. See [text](/creator/development-guide/text).
+The `UIText` component lets you add text. It has properties that are similar to the `TextShape` component. See [text]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).
 
 - `value`: The string to display.
 - `color`: `Color4` For the text color.
@@ -244,7 +244,7 @@ The `UIImage` component has the following fields to crop a sub-section of the or
 - `sourceWidth`: the width, in pixels, of the selected area
 - `sourceHeight`: the height, in pixels, of the selected area
 
-When constructing a `UIImage` component, you must pass a `Texture` component as an argument. Read more about `Texture` components in [materials](/creator/development-guide/materials).
+When constructing a `UIImage` component, you must pass a `Texture` component as an argument. Read more about `Texture` components in [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}).
 
 ```ts
 let imageAtlas = "images/image-atlas.jpg"

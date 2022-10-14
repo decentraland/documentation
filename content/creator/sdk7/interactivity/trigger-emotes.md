@@ -67,6 +67,6 @@ Before you can use this feature, you must add the `ALLOW_TO_TRIGGER_AVATAR_EMOTE
   ],
 ```
 
-See [Required permissions](/creator/development-guide/scene-metadata#required-permissions) for more details.
+See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
 
 > Note: To prevent abusive behavior that might damage a player's experience, the ability to make a player perform an emote is handled as a permission. Currently, this permission has no effect in how the player experiences the scene. In the future, players who walk into a scene with this permission in the `scene.json` file will be requested to grant the scene the ability to play emotes on them.

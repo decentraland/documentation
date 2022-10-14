@@ -12,14 +12,14 @@ url: /creator/development-guide/querying-components/
 
 
 
-You can [query components](/creator/development-guide/querying-components) with the method `engine.getEntitiesWith(...components)` to keep track of all entities in the scene that have certain components.
+You can [query components]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) with the method `engine.getEntitiesWith(...components)` to keep track of all entities in the scene that have certain components.
 
 
 <!-- TODO: check image -->
 ![](/images/media/ecs-big-picture-w-compgroup.png)
 
 
-[Systems](/creator/development-guide/systems) typically iterate over the entities in these queries, performing the same operations on each. Having a predefined group of valid entities is a great way to save resources, specially for functions that run on every tick of the game loop. If on every tick your system would have to iterate over every single entity in the scene looking for the ones it needs, that would be very inefficient.
+[Systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) typically iterate over the entities in these queries, performing the same operations on each. Having a predefined group of valid entities is a great way to save resources, specially for functions that run on every tick of the game loop. If on every tick your system would have to iterate over every single entity in the scene looking for the ones it needs, that would be very inefficient.
 
 You can access the entities in a query in the following way. 
 
@@ -39,7 +39,7 @@ for (const [entity] of engine.getEntitiesWith(Transform, Physics, NextPosition))
   }
 ```
 
-> Tip: If your query returns entities that you don't need to deal with, consider creating a custom component to act as a [flag](/creator/development-guide/entities-components#components-as-flags). This component doesn't need to have any properties in it, but can be used to mark a specific subgroup of entities that you might want to treat differently.
+> Tip: If your query returns entities that you don't need to deal with, consider creating a custom component to act as a [flag]({{< ref "/content/creator/sdk7/architecture/entities-components.md#components-as-flags">}}). This component doesn't need to have any properties in it, but can be used to mark a specific subgroup of entities that you might want to treat differently.
 
 ## Use queries in a system
 

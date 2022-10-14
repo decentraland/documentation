@@ -11,7 +11,7 @@ type: Document
 url: /creator/development-guide/scene-files/
 ---
 
-After [creating a new scene](/creator/development-guide/sdk-101) using the CLI, the scene folder will have a series of files with default content.
+After [creating a new scene]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}) using the CLI, the scene folder will have a series of files with default content.
 
 ## Default files in a local scene
 
@@ -27,7 +27,7 @@ Scenes include the following files:
 
 This is the entry point to your scene's code. You could fit your entire scene's logic into this file, although for clarity in most cases we recommend spreading out your code over several other _.ts_ files.
 
-In most cases, you'll only need to edit this and other .ts files to create your scene. It contains the code that generates the [entities, components](/creator/development-guide/entities-components) and [systems](/creator/development-guide/systems) of your scene.
+In most cases, you'll only need to edit this and other .ts files to create your scene. It contains the code that generates the [entities, components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}) and [systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) of your scene.
 
 When running the scene, the contents of your `.ts` files are compiled to a single minified `.js` file, `bin/scene.js`. 
 
@@ -37,7 +37,7 @@ When running the scene, the contents of your `.ts` files are compiled to a singl
 
 The _scene.json_ file is a JSON formatted manifest for a scene in the world. A scene can span a single or multiple LAND parcels. The _scene.json_ manifest describes what objects exist in the scene, a list of any assets needed to render it, contact information for the parcel owner, and security settings. 
 
-For more information see [scene metadata](/creator/development-guide/scenes#metadata). You can also read the original [specification proposal](https://github.com/decentraland/proposals/blob/master/dsp/0020.mediawiki) for this metadata.
+For more information see [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#metadata">}}). You can also read the original [specification proposal](https://github.com/decentraland/proposals/blob/master/dsp/0020.mediawiki) for this metadata.
 
 All of this metadata is optional for previewing the scene locally, but part of it is needed for deploying. You can change this information manually at any time.
 

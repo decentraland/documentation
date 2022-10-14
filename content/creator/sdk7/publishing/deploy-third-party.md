@@ -12,7 +12,7 @@ type: Document
 url: /creator/development-guide/deploy-third-party/
 ---
 
-If you don't own parcels in Decentraland or are not ready to [deploy](/creator/development-guide/publishing) your scene to Decentraland, you can upload your scene preview to run as an app in a free server.
+If you don't own parcels in Decentraland or are not ready to [deploy]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) your scene to Decentraland, you can upload your scene preview to run as an app in a free server.
 
 Once uploaded, the only thing that others have to do to explore your scene is follow a link. They don’t need to install the CLI, Node, NPM, or any of the other tools that would be required to run the preview on their local machine.
 

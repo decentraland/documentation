@@ -10,7 +10,7 @@ aliases:
 url: /creator/development-guide/systems/
 ---
 
-Decentraland scenes rely on _systems_ to update any data over time, including information stored in each entity's [components](/creator/development-guide/entities-components).
+Decentraland scenes rely on _systems_ to update any data over time, including information stored in each entity's [components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}).
 
 
 <!-- TODO: Change image -->
@@ -44,7 +44,7 @@ engine.addSystem(mySystem() {
 ```
 
 
-The function in a system can perform anything you want. Typically, it will act upon all the entities that meet certain [query](/creator/development-guide/querying-components), following certain logic to change the values stored in the entity's components.
+The function in a system can perform anything you want. Typically, it will act upon all the entities that meet certain [query]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}), following certain logic to change the values stored in the entity's components.
 
 
 ```ts
@@ -116,7 +116,7 @@ For larger projects, we recommend that you keep system definitions on separate f
 
 A lot of times, your scene will have multiple entities of the same type that will have similar behaviors. For example many doors that can be opened, or many enemies that can attack the player. It makes sense to handle all of these similar entities in a single system, iterating over the list and performing the same checks on each.
 
-You don't want a system's function to iterate over _the entire_ set of entities in the scene, as this could be very costly in terms of processing power. To avoid this, you can [query components](/creator/development-guide/querying-components), to only iterate over the relevant entities.
+You don't want a system's function to iterate over _the entire_ set of entities in the scene, as this could be very costly in terms of processing power. To avoid this, you can [query components]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}), to only iterate over the relevant entities.
 
 For example, your scene can have a `PhysicsSystem` that calculates the effect of gravity over the entities of your scene. Some entities in your scene, such as trees, are not meant to ever move; so it would be smart to avoid calculating the effects of gravity on these. You can define a `HasPhysics` component to mark entities that could be affected by gravity, and then have `PhysicsSystem` only deal with the entities returned by this query.
 
@@ -168,7 +168,7 @@ Ideally, you should avoid your scene dropping frames, as it impacts the quality 
 
 The `dt` variable is useful when frame processing exceeds the default time. Assuming that the current frame will take as much time as the previous one, this information may be used to calculate how much to adjust a gradual change, so that the rate of change appears steady and in proportion to the lag between frames.
 
-See [entity positioning](/creator/development-guide/entity-positioning) for examples of how to use `dt` to make movement smoother.
+See [entity positioning]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md" >}}) for examples of how to use `dt` to make movement smoother.
 
 
 ## Loop at a timed interval
@@ -190,7 +190,7 @@ function LoopSystem(dt: number) {
 engine.addSystem(LoopSystem)
 ```
 
-For more complex use cases, where there may be multiple delays and loops being created dynamically, it may be worth defining a custom component to store an individual timer value for each entity. See [Custom components](/creator/development-guide/custom-components).
+For more complex use cases, where there may be multiple delays and loops being created dynamically, it may be worth defining a custom component to store an individual timer value for each entity. See [Custom components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}).
 
 
 ## System execution order

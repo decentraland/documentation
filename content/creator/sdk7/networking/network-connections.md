@@ -18,7 +18,7 @@ You can also set up your own external server to aid your scene and serve to sync
 
 Your scene's code can send calls to a REST API to fetch data.
 
-Since the server might take time to send its response, you must execute this command as an [asynchronous function](/creator/development-guide/async-functions), using `executeTask()`.
+Since the server might take time to send its response, you must execute this command as an [asynchronous function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), using `executeTask()`.
 
 ```ts
 executeTask(async () => {

@@ -38,7 +38,7 @@ Our SDK includes the following components:
 - **The Decentraland Editor**: Use it to create and preview Decentraland scenes. You don't need to download any software to your machine, the editor runs entirely on your browser.
 -->
 
-- **The Decentraland CLI** (Command Line Interface): Use it to [generate](/creator/development-guide/coding-scenes) new Decentraland scenes locally on your own machine, preview them and upload them to the content server.
+- **The Decentraland CLI** (Command Line Interface): Use it to [generate]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}) new Decentraland scenes locally on your own machine, preview them and upload them to the content server.
 - **The Decentraland ECS**: A TypeScript package containing the library of helper methods that allows you to create interactive experiences. Use it to create and manipulate objects in the scene and also to facilitate in-world transactions between players or other applications. ( [latest ECS reference](https://github.com/decentraland/ecs-reference/blob/master/docs-latest/decentraland-ecs.md))
 
 - **Scene examples**: Take inspiration and coding best practices from the [scene examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
@@ -51,7 +51,7 @@ You must have the following:
 
 - **npm** (Node package manager): Used in the terminal to handle scene dependencies, required to install the Decentraland CLI. [Download link](nodejs.org)
 
-- **The Decentraland CLI**: Used to build, preview and upload scenes. See [Installation guide](/creator/development-guide/installation-guide)
+- **The Decentraland CLI**: Used to build, preview and upload scenes. See [Installation guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}})
 
 - **A source code editor**: Helps you create scenes a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports. We recommend [Visual Studio Code](https://code.visualstudio.com/), which is a free tool with a rich ecosystem of helpful extensions.
 
@@ -78,7 +78,7 @@ Scenes are deployed to virtual LAND in Decentraland. LAND is a scarce and non-fu
 
 When players visit Decentraland, they download and render the content of each scene as they walk through the map. They unload scenes as they walk away from them.
 
-You can also run a scene locally on your machine by running a preview from the CLI. You can also [upload a preview](/creator/development-guide/deploy-third-party) to run remotely on a 3rd party server to easily share your work with others.
+You can also run a scene locally on your machine by running a preview from the CLI. You can also [upload a preview]({{< ref "/content/creator/sdk7/publishing/deploy-third-party.md" >}}) to run remotely on a 3rd party server to easily share your work with others.
 
 ## Entities and Components
 
@@ -114,7 +114,7 @@ Entities may be nested inside other entities to form a tree structure. If you're
 Entities are an abstract concept. An entity is just an id, that is used as a reference to group different components.
 
 
-See [Entities and components](/creator/development-guide/entities-components) for an in-depth look of both these concepts and how they're used by Decentraland scenes.
+See [Entities and components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}) for an in-depth look of both these concepts and how they're used by Decentraland scenes.
 
 ## The game loop
 
@@ -132,7 +132,7 @@ We call each iteration over the loop a _tick_. Decentraland scenes are rendered 
 
 In each tick, the scene is updated; then the scene is re-rendered, based on the updated values.
 
-In Decentraland scenes, there is no explicitly declared game loop, but rather the [Systems](/creator/development-guide/systems) of the scene make up the game loop.
+In Decentraland scenes, there is no explicitly declared game loop, but rather the [Systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) of the scene make up the game loop.
 
 The compiling and rendering of the scene is carried out in the backend, you don't need to handle that while developing your scene.
 
@@ -162,13 +162,13 @@ engine.addSystem(mySystemDT)
 
 A single scene can have 0 or many systems running at the same time. Systems can be turned on or off at different moments during the scene’s duration. It’s generally a good practice to keep independent behaviors in separate systems.
 
-See [Systems](/creator/development-guide/systems) for more details about how systems are used in a scene.
+See [Systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) for more details about how systems are used in a scene.
 
 ## Querying components
 
-You can [query components](/creator/development-guide/querying-components) with the method `engine.getEntitiesWith(...components)` to keep track of all entities in the scene that have certain components.
+You can [query components]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) with the method `engine.getEntitiesWith(...components)` to keep track of all entities in the scene that have certain components.
 
-It often makes sense to query components within a [system](/creator/development-guide/systems), to then loop over each of the returned entities and perform a same set of actions on each.
+It often makes sense to query components within a [system]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}), to then loop over each of the returned entities and perform a same set of actions on each.
 
 If you attempt to iterate over all the entities in the scene on every tick of the game loop, that could have a significant cost in performance. By referring only to the entities returned by a query, you ensure you're only dealing with those that are relevant.
 
@@ -207,7 +207,7 @@ const mutableTransform = Transform.getMutable(myEntity)
 mutableTransform.position.y = 2
 ```
 
-See [mutable data](/creator/development-guide/mutable-data) for more details.
+See [mutable data]({{< ref "/content/creator/sdk7/programming-patterns/mutable-data.md" >}}) for more details.
 
 
 ## Putting it all together

@@ -24,7 +24,7 @@ If this occurs, there are several places where you can look for error messages t
 
 If an entity is located or extends beyond the limits of the scene, it will be displayed in red to indicate this, with a red bounding box to mark its boundaries. Nothing in your scene can extend beyond the scene limits. This won't stop the scene from being rendered locally, but it will stop the offending entities form being rendered in Decentraland.
 
-> Tip: Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow](/creator/development-guide/dev-workflow#deploy-to-the-test-environment)
+> Tip: Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md#deploy-to-the-test-environment">}})
 
 #### Use the console
 
@@ -53,7 +53,7 @@ Click the _Y_ key to open the Panel. This panel displays the following informati
 
 The processed messages and message queue refer to the messages sent by your scene's code to the engine. These are useful to know if your scene is running more operations than the engine can support. If many messages get queued up, that's usually a bad sign.
 
-The other numbers in the panel refer to the usage of resources, in relation to the [scene limitations](/creator/development-guide/scene-limitations). Keep in mind that the maximum allowed number for these values is proportional to the amount of parcels in the scene. If your scene tries to render an entity that exceeds these values, for example if it has too many triangles, it won't be rendered in-world once deployed.
+The other numbers in the panel refer to the usage of resources, in relation to the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}). Keep in mind that the maximum allowed number for these values is proportional to the amount of parcels in the scene. If your scene tries to render an entity that exceeds these values, for example if it has too many triangles, it won't be rendered in-world once deployed.
 
 > Note: Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
 
@@ -77,7 +77,7 @@ executeTask(async () => {
 }
 ```
 
-> Note: `isPreviewMode()` needs to be run as an [async function](/creator/development-guide/async-functions), since the response may delay in returning data.
+> Note: `isPreviewMode()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay in returning data.
 
 #### Dependency versions
 

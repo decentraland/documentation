@@ -12,7 +12,7 @@ url: /creator/development-guide/event-listeners/
 
 There are several events that the scene can subscribe to, to know the actions of the player while in or near the scene.
 
-For button and click events performed by the player, see [Button events](/creator/development-guide/click-events).
+For button and click events performed by the player, see [Button events]({{< ref "/content/creator/sdk7/interactivity/click-events.md" >}}).
 
 ## Player connects or disconnects
 
@@ -31,7 +31,7 @@ executeTask(async () => {
 ```
 
 
-> Note: The `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` events are deprecated on SDK 7.x. Instead, track the list of connected players, from `getConnectedPlayers()`. This is a more [data oriented approach](/creator/development-guide/data-oriented-programming) and should result in better performance.
+> Note: The `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` events are deprecated on SDK 7.x. Instead, track the list of connected players, from `getConnectedPlayers()`. This is a more [data oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and should result in better performance.
 
 Whenever another player starts or stops being rendered by the local engine, this creates an event you can listen to. Players may or may not be standing on the same scene as you, but must be within visual range (not necessarily in sight). The `onPlayerConnectedObservable` detects both when a player newly connects nearby or comes close enough to be in visual range, likewise the `onPlayerDisconnectedObservable` detects when a player ends their session or or walks far away.
 
@@ -136,7 +136,7 @@ engine.addSystem(
 )
 ```
 
-See [Check player's camera mode](/creator/development-guide/user-data#check-the-players-camera-mode).
+See [Check player's camera mode]({{< ref "/content/creator/sdk7/interactivity/user-data.md#check-the-players-camera-mode">}}).
 
 
 ## Player plays animation
@@ -155,7 +155,7 @@ The event includes the following information:
 
 > Note: This event is triggered any time the player makes an emote and the scene is loaded. The player could be standing in a nearby scene when this happens.
 
-> Note: The `onPlayerExpressionObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach](/creator/development-guide/data-oriented-programming), based on regularly querying data rather than events.
+> Note: The `onPlayerExpressionObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
 
 
 
@@ -169,7 +169,7 @@ onPlayerClickedObservable.add((clickEvent) => {
 })
 ```
 
-> Note: The `onPlayerClickedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach](/creator/development-guide/data-oriented-programming), based on regularly querying data rather than events.
+> Note: The `onPlayerClickedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
 
 > Note: Both the player performing the click and the player being clicked must be standing within the parcels of the scene. This listener only detects events of the current player clicking on other players, not those of clicks performed by other players.
 
@@ -181,7 +181,7 @@ The event includes the following data:
   - `distance`: _number_ The distance in meters from the point of origin to the hit point.
   - `origin`: _Vector3_ The point of origin of the click, the position of the player who did the click, relative to the scene.
 
-Tip: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area](/creator/development-guide/avatar-modifiers).
+Tip: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md" >}}).
 
 ## Player locks/unlocks cursor
 
@@ -201,7 +201,7 @@ onPointerLockedStateChange.add(({ locked }) => {
 })
 ```
 
-> Note: The `onPointerLockedStateChange` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach](/creator/development-guide/data-oriented-programming), based on regularly querying data rather than events.
+> Note: The `onPointerLockedStateChange` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
 
 > Note: This event is triggered even if the player is not standing directly inside the scene.
 
@@ -221,7 +221,7 @@ onIdleStateChangedObservable.add(({ isIdle }) => {
 })
 ```
 
-> Note: The `onIdleStateChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach](/creator/development-guide/data-oriented-programming), based on regularly querying data rather than events.
+> Note: The `onIdleStateChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
 
 
 The `isIdle` property is a boolean value that is _true_ when the player enters the idle mode and _false_ when the player leaves the idle mode.
@@ -240,12 +240,12 @@ onProfileChanged.add((profileData) => {
 })
 ```
 
-> Note: The `onProfileChanged` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach](/creator/development-guide/data-oriented-programming), based on regularly querying data rather than events.
+> Note: The `onProfileChanged` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
 
 
 Event data includes only the ID of the player and a version number for that avatar's profile, according to the catalyst server. Every time a change is propagated, the version number increases by 1.
 
-> Tip: When this event is triggered, you can then use the [getUserData()](/creator/development-guide/user-data#get-player-data) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+> Tip: When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data">}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
 
 When testing in preview, run the scene with `dcl start --web3` so that you connect with your wallet. Otherwise, you will be using a random avatar.
 
@@ -261,7 +261,7 @@ onSceneReadyObservable.add(() => {
 })
 ```
 
-> Note: The `onSceneReadyObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach](/creator/development-guide/data-oriented-programming), based on regularly querying data rather than events.
+> Note: The `onSceneReadyObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
 
 ## Video playing
 
@@ -273,7 +273,7 @@ onVideoEvent.add((data) => {
 })
 ```
 
-> Note: The `onVideoEvent` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach](/creator/development-guide/data-oriented-programming), based on regularly querying data rather than events.
+> Note: The `onVideoEvent` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
 
 The input of a video event contains the following properties:
 
@@ -290,7 +290,7 @@ The input of a video event contains the following properties:
 - `VideoStatus.PLAYING` = 4,
 - `VideoStatus.BUFFERING` = 5
 
-Learn more about playing videos in Decentraland in [Video Playing](/creator/development-guide/video-playing).
+Learn more about playing videos in Decentraland in [Video Playing]({{< ref "/content/creator/sdk7/media/video-playing.md" >}}).
 
 ## Player changes realm or island
 
@@ -304,7 +304,7 @@ onRealmChangedObservable.add((realmChange) => {
 })
 ```
 
-> Note: The `onRealmChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach](/creator/development-guide/data-oriented-programming), based on regularly querying data rather than events.
+> Note: The `onRealmChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
 
 This event includes the following fields:
 
@@ -315,4 +315,4 @@ This event includes the following fields:
 
 As players move through the map, they may switch islands to be grouped with those players who are now closest to them. Islands also shift their borders dynamically to fit a manageable group of people in each. So even if a player stands still they could be changed island as others enter and leave surrounding scenes.
 
-If your scene relies on a [3rd party server](/creator/development-guide/remote-scene-considerations) to sync changes between players in real time, then you may want to only share data between players that are grouped in a same realm+island, so it's a good practice to change rooms in the 3rd party server whenever players change island.
+If your scene relies on a [3rd party server]({{< ref "/content/creator/sdk7/networking/remote-scene-considerations.md" >}}) to sync changes between players in real time, then you may want to only share data between players that are grouped in a same realm+island, so it's a good practice to change rooms in the 3rd party server whenever players change island.

@@ -215,7 +215,7 @@ Material.create(myEntity, {
 
 #### Texture wrapping
 
-If you want the texture to be mapped to specific scale or alignment on your entities, then you need to configure _uv_ properties on the [MeshRenderer component](/creator/development-guide/shape-components).
+If you want the texture to be mapped to specific scale or alignment on your entities, then you need to configure _uv_ properties on the [MeshRenderer component]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}).
 
 You set _u_ and _v_ coordinates on the 2D image of the texture to correspond to the vertices of the shape. The more vertices the entity has, the more _uv_ coordinates need to be defined on the texture, a plane for example needs to have 8 _uv_ points defined, 4 for each of its two faces.
 
@@ -420,6 +420,6 @@ Material.create(meshEntity3, {
 
 <!-- TODO: feature missing -->
 
-To stream video from a URL into a material, or play a video from a file stored in the scene, see [video playing](/creator/development-guide/video-playing).
+To stream video from a URL into a material, or play a video from a file stored in the scene, see [video playing]({{< ref "/content/creator/sdk7/media/video-playing.md" >}}).
 
 The video is used as a texture on a material, you can set any of the other properties of materials to alter how the video screen looks.

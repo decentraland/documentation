@@ -9,7 +9,7 @@ aliases:
 url: /creator/development-guide/mutable-data/
 ---
 
-When referencing data from a [component](/creator/development-guide/entities-components), you can either fetch the mutable or the read-only (immutable) version. 
+When referencing data from a [component]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}), you can either fetch the mutable or the read-only (immutable) version. 
 
 You should always deal with the read-only versions of data when possible. This practice can bring a very significant improvement in the performance of your scene, when compared to always dealing with mutable versions of that same data.
 
@@ -63,7 +63,7 @@ engine.addSystem(HeightLimitSystem)
 
 In the example above, a system checks the read-only values of an entity's `Transform` component. On every tick it checks to see if the position's _y_ is higher than a hard-coded maximum height. If the height on the transform happens to be above this limit, then and only then we fetch the mutable version of the Transform. This may seem like extra work for the scene, but in a scene where we're checking values on every tick of the game loop, and only making changes occasionally, it results in huge performance gains.
 
-This practice follows the principles of [data oriented programming](/creator/development-guide/data-oriented-programming). It's also gradually being adopted as an industry standard practice in the gaming, because of how much of an improvement it makes.
+This practice follows the principles of [data oriented programming]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}). It's also gradually being adopted as an industry standard practice in the gaming, because of how much of an improvement it makes.
 
 
 > Note: In older versions of the SDK (6.x or older), components were always treated as mutable. That pattern may be a bit more straight forward to learn, but was a lot less efficient to run.

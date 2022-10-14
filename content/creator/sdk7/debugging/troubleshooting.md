@@ -97,7 +97,7 @@ As an alternative, you can run `dcl deploy --skip-build` to skip the running of 
 
 - Keep in mind that it can take a few minutes for new content to be propagated throughout all of the servers in the catalyst network, give it a little time.
 
-- See [Verify Deployment Success](/creator/development-guide/preview-scene#verify-deployment-success) for instructions on how you can ensure that the content was properly propagated to all servers.
+- See [Verify Deployment Success]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md#verify-deployment-success">}}) for instructions on how you can ensure that the content was properly propagated to all servers.
 
 ### Issue: Once deployed, some 3d models are missing
 
@@ -109,7 +109,7 @@ As an alternative, you can run `dcl deploy --skip-build` to skip the running of 
 
 - If the textures look different, keep in mind that textures in 3d models are capped to a maximum size of 512x512 pixels. This conversion is carried out to ensure that Decentraland runs smoothly for everyone.
 
-- If models look different, there could be an issue with the conversion of the models to asset bundles. Read more about asset bundle compression [here](/creator/development-guide/performance-optimization#asset-bundle-conversion). 
+- If models look different, there could be an issue with the conversion of the models to asset bundles. Read more about asset bundle compression [here]({{< ref "/content/creator/sdk7/optimizing/performance-optimization.md#asset-bundle-conversion">}}). 
 
 	To validate this, try running the scene with the URL parameter `&DISABLE_ASSET_BUNDLES`. If the models look fine with this flag, the issue must be related to a bug in the conversion of the model.
 

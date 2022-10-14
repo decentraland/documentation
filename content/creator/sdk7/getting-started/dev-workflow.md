@@ -20,7 +20,7 @@ Please make sure you first install the CLI tools by running the following comman
 npm install -g decentraland
 ```
 
-See the [Installation Guide](/creator/development-guide/installation-guide) for more details instructions.
+See the [Installation Guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}) for more details instructions.
 
 Make sure you also own or have deploy rights on at least one parcel of land in Decentraland.
 
@@ -32,7 +32,7 @@ To preview a scene run the following command on the scene's main folder:
 dcl start
 ```
 
-See [Preview your scene](/creator/development-guide/preview-scene) for more details. Check the [Debug a scene](/creator/development-guide/preview-scene#debug-a-scene)) for tips on how to debug any issues.
+See [Preview your scene]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md" >}}) for more details. Check the [Debug a scene]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md#debug-a-scene">}}) for tips on how to debug any issues.
 
 ## Deploy to the test environment
 
@@ -50,7 +50,7 @@ Players aren't directed to this server, so it's a safe place to test out the ful
 
 Content deployed to the test server is not private. It could potentially be visited by anyone who intentionally enters this server.
 
-> Tip: If you want to hide your content from any possible leaks, you might want to consider launching your own Catalyst server, and not submit it to the DAO for adding to the network. That way this server behaves just like the test server, but its address isn't known to others. See the [How to run a catalyst](/contributor/tutorials/how-to-run-a-catalyst) for instructions on how to do this.
+> Tip: If you want to hide your content from any possible leaks, you might want to consider launching your own Catalyst server, and not submit it to the DAO for adding to the network. That way this server behaves just like the test server, but its address isn't known to others. See the [How to run a catalyst]({{< ref "/content/contributor/tutorials/how-to-run-a-catalyst.md">}}) for instructions on how to do this.
 
 
 ## Upload a scene to decentraland
@@ -61,9 +61,9 @@ Once you're happy with your scene, it's time to publish it to the production env
 dcl deploy
 ```
 
-Check that your scene has all the necessary metadata: name, description, a preview image, spawn points. See [scene metadata](/creator/development-guide/scene-metadata) for details.
+Check that your scene has all the necessary metadata: name, description, a preview image, spawn points. See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for details.
 
-See [publishing](/creator/development-guide/publishing) for more details.
+See [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for more details.
 
 > Tip: To give your new scene more visibility, consider creating an inaugural event in the [events page](https://events.decentraland.org/en/).
 

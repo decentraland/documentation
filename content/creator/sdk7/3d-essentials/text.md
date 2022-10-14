@@ -16,7 +16,7 @@ Text in Decentraland supports all _utf8_ characters, this includes oriental and 
 
 > Note: This component is useful for in-world labels and UIs that exist in the 3D space of the scene, not for the player's 2D HUD UI.
 
-The `TextShape` component is mutually exclusive with other shape components like primitive shapes and glTF 3D models, see [Shape components](/creator/development-guide/shape-components) for more details.
+The `TextShape` component is mutually exclusive with other shape components like primitive shapes and glTF 3D models, see [Shape components]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) for more details.
 
 To add text as a label on an existing entity, you create a second entity that has the `TextShape` component and set it as a child of the other entity.
 
@@ -44,7 +44,7 @@ TextShape.create(sign,{
 
 When creating a new text component, you assign it a string to display. This string is stored in the `text` field.
 
-If you want to change the string displayed by the component, you can do so at any time by changing the `text` field on a [mutable version](/creator/development-guide/mutable-data) of the component.
+If you want to change the string displayed by the component, you can do so at any time by changing the `text` field on a [mutable version]({{< ref "/content/creator/sdk7/programming-patterns/mutable-data.md" >}}) of the component.
 
 ```ts
 const mutableText = TextShape.getMutable(myEntity)
@@ -114,7 +114,7 @@ The `TextShape` component creates a text box that has a size, padding, etc.
 - `paddingLeft`: _number_. Space between the text and the outline of the text box.
 - `zIndex`: _number_. Useful for when multiple flat entities occupy the same space, it determines which one to show in front.
 
-> Tip: If a text is meant to float in space, it's a good idea to add a [`Billboard` component](/creator/development-guide/entity-positioning#face-the-user) so that the text rotates to always face the player and be legible.
+> Tip: If a text is meant to float in space, it's a good idea to add a [`Billboard` component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#face-the-user">}}) so that the text rotates to always face the player and be legible.
 
 ## Text shadow and outline properties
 

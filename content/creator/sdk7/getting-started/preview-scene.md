@@ -23,7 +23,7 @@ Please make sure you first install the CLI tools by running the following comman
 npm install -g decentraland
 ```
 
-See the [Installation Guide](/creator/development-guide/installation-guide) for more details instructions.
+See the [Installation Guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}) for more details instructions.
 
 ## Preview a scene
 
@@ -41,9 +41,9 @@ Every time you make changes to the scene, the preview reloads and updates automa
 
 ## Upload a scene to decentraland
 
-Once you're happy with your scene, you can upload it and publish it to Decentraland, see [publishing](/creator/development-guide/publishing) for instructions on how to do that.
+Once you're happy with your scene, you can upload it and publish it to Decentraland, see [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for instructions on how to do that.
 
-You can also upload a preview to a free 3rd party server, [see instructions here]((/creator/development-guide/deploy-third-party) ).
+You can also upload a preview to a free 3rd party server, [see instructions here](({{< ref "/content/creator/sdk7/publishing/deploy-third-party.md" >}}) ).
 
 ## Parameters of the preview command
 
@@ -79,7 +79,7 @@ If you're building a scene to be uploaded to several adjacent parcels, you can e
   },
 ```
 
-You can also change the coordinates by running the `dcl coords` command from the command line, this is especially useful on large scenes with many parcels. See [set parcels via the command line](/creator/development-guide/scene-metadata/#set-parcels-via-the-command-line) for more details.
+You can also change the coordinates by running the `dcl coords` command from the command line, this is especially useful on large scenes with many parcels. See [set parcels via the command line]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#set-parcels-via-the-command-line">}}) for more details.
 
 > Tip: While running the preview, the parcel coordinates don't need to match those that your scene will really use, as long as they're adjacent and are arranged into the same shape. You will have to replace these with the actual coordinates later when you [deploy the scene](#upload-a-scene-to-decentraland).
 

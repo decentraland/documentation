@@ -25,7 +25,7 @@ The following tools currently exist, all of them provided by Decentraland:
 
 Note that all transactions triggered by a scene will require a player to approve and pay a gas fee.
 
-All blockchain operations also need to be carried out as [asynchronous functions](/creator/development-guide/async-functions), since the timing depends on external events.
+All blockchain operations also need to be carried out as [asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the timing depends on external events.
 
 When running a preview of a scene that uses one of the ethereum libraries, you must have Metamask open in your browser and you must run the preview with:
 
@@ -62,7 +62,7 @@ executeTask(async () => {
 })
 ```
 
-As shown in the example above, you should wrap the function in an `async()` function, learn more about this in [async functions](/creator/development-guide/async-functions)
+As shown in the example above, you should wrap the function in an `async()` function, learn more about this in [async functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}})
 
 The following example keeps track of provided addresses.
 

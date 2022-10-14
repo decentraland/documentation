@@ -12,7 +12,7 @@ url: /creator/development-guide/move-entities/
 
 To move, rotate or resize an entity in your scene over a period of time, change the _position_, _rotation_ and _scale_ values stored in an entity's `Transform` component incrementally, frame by frame. This can be used on primitive shapes (cubes, spheres, planes, etc) as well as on 3D models (glTF).
 
-You can easily perform these incremental changes by moving entities a small amount each time the function of [system](/creator/development-guide/systems) runs.
+You can easily perform these incremental changes by moving entities a small amount each time the function of [system]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) runs.
 
 <!--
 > Tip: You can use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve most of the tasks described in this doc. The code shown in these examples is handled in the background by the library, so in most cases it only takes a single line of code to use them.
@@ -68,7 +68,7 @@ Note that in order to combine the current rotation with each increment, we're us
 In this example, we're rotating the entity by 1 degree in an upwards direction in each tick of the game loop.
 
 
-> Tip: To make an entity always rotate to face the player, you can add a [`Billboard` component](/creator/development-guide/entity-positioning#face-the-user).
+> Tip: To make an entity always rotate to face the player, you can add a [`Billboard` component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#face-the-user" >}}).
 
  <img src="/images/media/gifs/rotate.gif" alt="Move entity" width="300"/>
 
@@ -154,7 +154,7 @@ For example, if the origin vector is _(0, 0, 0)_ and the target vector is _(10, 
 - Using an amount of 0.3 would return _(3, 0, 3)_
 - Using an amount of 1 would return _(10, 0, 10)_
 
-To implement this `lerp()` in your scene, we recommend creating a [custom component](/creator/development-guide/custom-components) to store the necessary information. You also need to define a system that implements the gradual movement in each frame.
+To implement this `lerp()` in your scene, we recommend creating a [custom component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) to store the necessary information. You also need to define a system that implements the gradual movement in each frame.
 
 
 ```ts
@@ -233,7 +233,7 @@ const targetRotation = Quaternion.euler(0, 0, 0)
 let newRotation = Quaternion.slerp(originRotation, targetRotation, 0.6)
 ```
 
-To implement this in your scene, we recommend storing the data that goes into the `Slerp()` function in a [custom component](/creator/development-guide/custom-components). You also need to define a system that implements the gradual rotation in each frame.
+To implement this in your scene, we recommend storing the data that goes into the `Slerp()` function in a [custom component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}). You also need to define a system that implements the gradual rotation in each frame.
 
 
 ```ts
