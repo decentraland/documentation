@@ -1,6 +1,6 @@
 ---
 date: 2022-04-05
-title: Linked Wearables
+title: Linked wearables
 aliases:
   - /wearables/linked-wearables/
   - /decentraland/linked-wearables/
