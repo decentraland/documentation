@@ -197,6 +197,6 @@ If you have more than 100 files in your scene folder, it's likely that many of t
 
 ## Optimizing
 
-See [Performance Optimization]({{< ref "/content/creator/scenes/optimizing/performance-optimizations.md" >}}) for tips about how you can keep your scene below these limits and make it run smoother for players.
+See [Performance Optimization]({{< ref "/content/creator/scenes/optimizing/performance-optimization.md" >}}) for tips about how you can keep your scene below these limits and make it run smoother for players.
 
 
