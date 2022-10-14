@@ -193,3 +193,10 @@ When deploying your scene, you can't upload more than 100 files to IPFS, as havi
 
 If you have more than 100 files in your scene folder, it's likely that many of those files aren't being used directly when loading the scene. You can make the CLI ignore specific files from the scene folder and not upload them to IPFS by specifying them in the _dclignore_ file for the scene. Learn more about it in [Scene files]({{< ref "/content/creator/scenes/projects/scene-files.md" >}}).
 -->
+
+
+## Optimizing
+
+See [Performance Optimization]({{< ref "/content/creator/scenes/optimizing/performance-optimizations.md" >}}) for tips about how you can keep your scene below these limits and make it run smoother for players.
+
+
