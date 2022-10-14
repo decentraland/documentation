@@ -233,6 +233,10 @@ After you set all the parameters of your Emote, you can see how it will look in 
 
 ![Untitled](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images//emotes/Untitled%207.png)
 
+You need to make sure that your Emote is not traspassing the established boundaries. To check this in the Editor, you can turn on the cylinder view, and see if the avatar is not going over, or throught the red cylinder. The avatar must not traspass the floor either. 
+
+![](/images/emotes/emotes-preview.png)
+
 If everything is looking good, you are ready to **publish your Collection.**
 
 ### Publishing Items
