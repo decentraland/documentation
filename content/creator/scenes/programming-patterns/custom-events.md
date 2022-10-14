@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/custom-events/
 url: /creator/development-guide/custom-events
+weight: 3
 ---
 
 Sometimes it's useful to decouple the different parts of your scene's code and make them interact with each other via sending events.

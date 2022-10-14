@@ -1,6 +1,6 @@
 ---
 date: 2018-01-06
-title: Scene MVP Guidelines
+title: Scene MVP guidelines
 description: Recommended guidelines for producing your first MVP scene or experience using the SDK
 aliases:
   - /documentation/mvp-guidelines/

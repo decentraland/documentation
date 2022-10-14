@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: true
 weight: 3
-title: 3D Content Essentials
+title: 3D content essentials
 ---

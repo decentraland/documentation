@@ -1,6 +1,6 @@
 ---
 date: 2021-05-31
-title: Creating Wearables
+title: Creating wearables
 description: Tips and guidelines for creating Decentraland wearables
 categories:
   - Decentraland

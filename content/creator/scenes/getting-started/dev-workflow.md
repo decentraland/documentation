@@ -1,6 +1,6 @@
 ---
 date: 2021-05-17
-title: Development Workflow
+title: Development workflow
 description: Recommended procedure for developing and testing a scene
 categories:
   - development-guide

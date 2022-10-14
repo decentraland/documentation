@@ -1,6 +1,6 @@
 ---
 date: 2018-02-07
-title: Display an NFT in a scene
+title: Display an NFT
 description: Learn how to display a certified NFT that you own in your scene
 categories:
   - development-guide
@@ -10,6 +10,7 @@ aliases:
   - /blockchain-integration/display-a-certified-nft
   - /development-guide/display-a-certified-nft/
 url: /creator/development-guide/display-a-certified-nft
+weight: 3
 ---
 
 You can display a 2D NFT (Non-Fungible Token) that you own in your Decentraland scenes.

@@ -1,6 +1,6 @@
 ---
 date: 2021-05-31
-title: Wearables Overview
+title: Wearables overview
 aliases:
   - /wearables/wearables-overview/
   - /decentraland/wearables-overview/
