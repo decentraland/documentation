@@ -1,6 +1,6 @@
 ---
 date: 2018-02-5
-title: Set Entity positions
+title: Set entity positions
 description: How to set the position, rotation and scale of an entity in a scene
 categories:
   - development-guide
@@ -9,6 +9,7 @@ aliases:
   - /development-guide/entity-positioning/
 type: Document
 url: /creator/development-guide/entity-positioning/
+weight: 1
 ---
 
 You can set the _position_, _rotation_ and _scale_ of any entity by using the `Transform` component. This can be used on any entities, affecting where 3d objects are rendered, like primitive shapes (cube, sphere, plane, etc) and 3D models (`GltfContainer`).

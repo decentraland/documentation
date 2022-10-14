@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/async-functions/
 url: /creator/development-guide/async-functions/
+weight: 1
 ---
 
 <!-- TODO: executeTask doesn't currently work. Change examples? -->

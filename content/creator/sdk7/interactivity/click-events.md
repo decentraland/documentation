@@ -10,6 +10,7 @@ aliases:
   - /development-guide/click-events/
 type: Document
 url: /creator/development-guide/click-events/
+weight: 1
 ---
 
 

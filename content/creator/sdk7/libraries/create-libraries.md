@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/create-libraries/
 url: /creator/development-guide/create-libraries/
+weight: 1
 ---
 
 Libraries are a great way to share solutions to common problems. Complex challenges can be approached once, the solutions encapsulated into a library, and whenever they come up you just need to write one line of code. By sharing libraries with the community, we can make the productivity of all creators grow exponentially.

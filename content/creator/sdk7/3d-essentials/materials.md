@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/materials/
 url: /creator/development-guide/materials/
+weight: 3
 ---
 
 ## Materials

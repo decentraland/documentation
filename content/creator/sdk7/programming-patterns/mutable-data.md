@@ -7,6 +7,7 @@ categories:
 type: Document
 aliases:
 url: /creator/development-guide/mutable-data/
+weight: 2
 ---
 
 When referencing data from a [component]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}), you can either fetch the mutable or the read-only (immutable) version. 

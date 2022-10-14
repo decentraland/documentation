@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/scene-metadata/
 url: /creator/development-guide/scene-metadata/
+weight: 1
 ---
 
 A scene is a Decentraland project that is spatially delimited, and is mapped to one or several LAND parcels. If a scene is deployed to the Decentraland map, players can experience it by visiting the scene's coordinates.

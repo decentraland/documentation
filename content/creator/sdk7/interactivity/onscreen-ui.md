@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/onscreen-ui/
 url: /creator/development-guide/onscreen-ui/
+weight: 7
 ---
 
 There are several special component types that are meant for using in a 2D screen space as part of the UI, instead of in the 3D world space. These components are displayed fixed on the player's screen.

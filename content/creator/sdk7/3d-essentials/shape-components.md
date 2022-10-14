@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/shape-components/
 url: /creator/development-guide/shape-components/
+weight: 2
 ---
 
 Three dimensional scenes in Decentraland are based on the [Entity-Component](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system) model, where everything in a scene is an _entity_, and each entity can include _components_ that shape its characteristics and functionality.

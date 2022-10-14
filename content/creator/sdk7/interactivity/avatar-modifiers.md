@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/avatar-modifiers/
 url: /creator/development-guide/avatar-modifiers/
+weight: 3
 ---
 
 ## Avatar Modifiers

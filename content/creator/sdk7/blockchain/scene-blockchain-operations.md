@@ -12,6 +12,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/scene-blockchain-operations/
+weight: 1
 ---
 
 <!-- TODO: Verify that eth-connect still works -->

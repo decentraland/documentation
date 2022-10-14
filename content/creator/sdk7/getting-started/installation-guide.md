@@ -10,6 +10,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/installation-guide/
+weight: 2
 ---
 
 To build scenes for Decentraland you will need to install the Command Line Interface (CLI).

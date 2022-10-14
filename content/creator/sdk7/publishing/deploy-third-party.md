@@ -10,6 +10,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/deploy-third-party/
+weight: 2
 ---
 
 If you don't own parcels in Decentraland or are not ready to [deploy]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) your scene to Decentraland, you can upload your scene preview to run as an app in a free server.

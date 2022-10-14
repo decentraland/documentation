@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: SDK coding essentials
+title: Coding essentials
 description: This set will help you understand how things work in the client and SDK of decentraland.
 aliases:
   - /documentation/introduction/
@@ -20,6 +20,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/coding-scenes/
+weight: 1
 ---
 
 ## The development tools

@@ -1,6 +1,6 @@
 ---
 date: 2021-05-17
-title: Development Workflow
+title: Development workflow
 description: Recommended procedure for developing and testing a scene
 categories:
   - development-guide
@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/dev-workflow/
 url: /creator/development-guide/dev-workflow/
+weight: 5
 ---
 
 This document outlines the recommended steps involved in developing a scene for Decentraland, going from testing in the local environment to deploying to production.

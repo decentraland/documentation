@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/querying-components/
 url: /creator/development-guide/querying-components/
+weight: 4
 ---
 
 

@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/custom-components/
 url: /creator/development-guide/custom-components/
+weight: 3
 ---
 
 Data about an entity is stored in its [components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}). The Decentraland SDK provides a series of base components that manage different aspects about an entity, like its position, shape, material, etc. The engine knows how to interpret the information in these, and will change how the entity is rendered accordingly as soon as they change their values.

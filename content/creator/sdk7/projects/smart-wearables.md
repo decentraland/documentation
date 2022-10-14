@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/smart-wearables/
 url: /creator/development-guide/smart-wearables/
+weight: 4
 ---
 
 > **WARNING:** Smart wearables are still in Alpha. The Builder does not support the upload of smart wearables, and there isn't an approval process in place to allow community-built smart wearables to be published. The current development tools allow you to create and test smart wearables, but please don't attempt to publish any in the Builder, they will not be approved.

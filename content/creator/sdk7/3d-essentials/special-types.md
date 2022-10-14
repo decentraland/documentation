@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/special-types/
 url: /creator/development-guide/special-types/
+weight: 8
 ---
 
 <!-- TODO: all -->

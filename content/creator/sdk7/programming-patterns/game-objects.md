@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/game-objects
 url: /creator/development-guide/game-objects/
+weight: 3
 ---
 
 <!-- TODO: all -->

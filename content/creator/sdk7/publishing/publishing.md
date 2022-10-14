@@ -11,6 +11,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/publishing/
+weight: 1
 ---
 
 ## Before you begin

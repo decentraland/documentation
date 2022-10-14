@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/sounds/
 url: /creator/development-guide/sounds/
+weight: 4
 ---
 
 Sound is a great way to provide feedback to player actions and events, background sounds can also give your scene more context and improve the player's immersion into it.

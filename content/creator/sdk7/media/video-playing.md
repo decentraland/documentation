@@ -1,6 +1,6 @@
 ---
 date: 2020-05-04
-title: Play Videos
+title: Play videos
 description: Stream video into a scene
 categories:
   - development-guide
@@ -9,6 +9,7 @@ aliases:
   - /development-guide/video-streaming
   - /development-guide/video-playing
 url: /creator/development-guide/video-playing/
+weight: 2
 ---
 
 <!-- TODO: all -->

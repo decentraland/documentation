@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/text/
 url: /creator/development-guide/text/
+weight: 6
 ---
 
 Add text to a scene using the `TextShape` component. This text sits in a position

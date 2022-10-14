@@ -1,6 +1,6 @@
 ---
 date: 2022-03-17
-title: Hand out POAP Tokens
+title: Hand out POAP tokens
 description: Give away POAP tokens to players that visit your scene
 categories:
   - development-guide
@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/poap-tokens/
 url: /creator/development-guide/poap-tokens/
+weight: 3
 ---
 
 > Note: The POAP example scene is currently only available using the older SDK version 6.x. To build in SDK 7.x, you'll have to adapt the code from that example.

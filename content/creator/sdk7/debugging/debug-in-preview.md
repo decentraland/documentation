@@ -1,6 +1,6 @@
 ---
 date: 2022-06-29
-title: Debug in Preview
+title: Debug in preview
 description: How you can debug your scene while running it locally in preview
 categories:
   - development-guide
@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/debug-in-preview/
 url: /creator/development-guide/debug-in-preview/
+weight: 1
 ---
 
 

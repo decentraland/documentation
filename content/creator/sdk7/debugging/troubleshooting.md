@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guides/troubleshooting/
 url: /creator/development-guide/troubleshooting/
+weight: 3
 ---
 
 

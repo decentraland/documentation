@@ -11,6 +11,7 @@ categories:
 type: Document
 set: getting-started
 url: /creator/development-guide/preview-scene/
+weight: 4
 ---
 
 Once you have [built a new scene](https://docs.decentraland.org/#create-your-first-scene) or downloaded a [scene example](https://github.com/decentraland-scenes/Awesome-Repository#examples) you can preview it locally.

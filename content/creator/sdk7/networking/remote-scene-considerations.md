@@ -9,6 +9,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/remote-scene-considerations/
+weight: 2
 ---
 
 Decentraland runs scenes locally in a player's browser. By default, players are able to see each other and interact directly, but each one interacts with the environment independently. Changes in the environment aren't shared between players by default. You need to implement this manually.

@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/systems/
 url: /creator/development-guide/systems/
+weight: 2
 ---
 
 Decentraland scenes rely on _systems_ to update any data over time, including information stored in each entity's [components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}).
