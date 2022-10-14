@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/event-listeners/
 url: /creator/development-guide/event-listeners
+weight: 8
 ---
 
 There are several events that the scene can subscribe to, to know the actions of the player while in or near the scene.

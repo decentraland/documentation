@@ -9,6 +9,7 @@ aliases:
   - /development-guide/scene-files/
 type: Document
 url: /creator/development-guide/scene-files
+weight: 2
 ---
 
 After [creating a new scene](https://docs.decentraland.org/#create-your-first-scene) using the CLI, the scene folder will have a series of files with default content.

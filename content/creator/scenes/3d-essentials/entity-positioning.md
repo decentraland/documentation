@@ -1,6 +1,6 @@
 ---
 date: 2018-02-5
-title: Set Entity positions
+title: Set entity positions
 description: How to set the position, rotation and scale of an entity in a scene
 categories:
   - development-guide

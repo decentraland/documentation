@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/smart-items
 url: /creator/development-guide/smart-items
+weight: 5
 ---
 
 Through the Builder, you can drag and drop smart items into a scene. These are items that have configurable parameters and actions that can be triggered, like doors that can be opened or levers that can be activated. There is a default collection of smart items in the Builder, but you can also create your own and import them.
