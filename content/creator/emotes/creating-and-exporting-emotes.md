@@ -59,10 +59,11 @@ With this workspace, you have everything needed to start animating!
 
 These are the bottom windows. The top one is in the _**Graph Editor,**_ the middle one in the _**Dope Sheet,**_ and the bottom one is the _**Timeline.**_ The top red arrow shows the _**Only Show Selected**_ tool and the bottom one shows the _**Auto Keying**_.
 
-### **Hint!**
+{{< hint info >}}
+**Hint!**
 
 💡 **Since Blender is highly customizable, this is also a good time to set up the layout that best suits you, adding, adjusting, or removing windows. Each animator has their own preferences, so feel free to edit the layout however you want!**
-
+{{< /hint >}}
 
 ### Getting Started
 
