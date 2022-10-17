@@ -93,3 +93,19 @@ enableGitInfo = true
 
   # Segment Api Key
   SegmentApiKey = ''
+
+
+
+[outputs]
+home = ["HTML", "REDIR"]
+
+[mediaTypes]
+[mediaTypes."text/cloudflare-redirects"]
+delimiter = ""
+
+[outputFormats]
+[outputFormats.REDIR]
+mediatype = "text/cloudflare-redirects"
+baseName = "_redirects"
+isPlainText = true
+notAlternative = true
