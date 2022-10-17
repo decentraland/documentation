@@ -86,9 +86,9 @@ The different categories are:
 
 - **Body_shape:** Replaces the entire avatar’s body.
 - **Skin:** Replaces the entire avatar (head, upper body, lower body and feet except accesories)
-- **Hat:** Replaces the avatar’s hair. For hats that leave some hair exposed, it must be attached to the hair in the mesh to prevent the avatar from going bald whenever they put on their hat.
+- **Hat:** Replaces the avatar’s hat. For hats that leave some hair exposed, it must be attached to the hair in the mesh to prevent the avatar from going bald whenever they put on their hat.
 - **Helmet:** Overrides the avatar’s entire head, replacing both hair and facial_hair.
-- **Hair:** Replaces an avatar’s hat.
+- **Hair:** Replaces an avatar’s hair.
 - **Facial_hair:** facial hair won’t replace or override any other wearables.
 - **Head:**
   - Mouth
