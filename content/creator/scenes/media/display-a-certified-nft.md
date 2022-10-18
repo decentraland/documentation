@@ -22,11 +22,11 @@ The picture frame is displayed adjusting to the dimensions of the NFT image. If 
 
 ## Add an NFT
 
-Add an `NFTShape` component to an entity to display a 2D token in your scene.
+Add an `NftShape` component to an entity to display a 2D token in your scene.
 
 ```ts
 const entity = new Entity()
-const shapeComponent = new NFTShape(
+const shapeComponent = new NftShape(
   "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536"
 )
 entity.addComponent(shapeComponent)
@@ -38,7 +38,7 @@ entity.addComponent(
 engine.addEntity(entity)
 ```
 
-The `NFTShape` component must be instanced with a parameter that includes the following:
+The `NftShape` component must be instanced with a parameter that includes the following:
 
 - The _contract_ of the token (for example, the CryptoKitties contract)
 - The _id_ of the specific token you own
@@ -53,7 +53,7 @@ By default, the image will have a purple background and have a frame with a puls
 - `style`: Selects a frame model from an enum of several predetermined options.
 
 ```ts
-const shapeComponent = new NFTShape(
+const shapeComponent = new NftShape(
   "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536",
   {
     color: Color3.Green(),
@@ -101,7 +101,7 @@ Open a prebuilt UI that displays the name, owner, and description of an NFT. It 
 
 <img src="/images/media/nft-ui.png" alt="Move entity" width="500"/>
 
-Open this UI by calling the function `openNFTDialog(), passing it the NFT's contract and id, just like with the NFT shape. The UI must be opened as a result of a button event, to prevent abusive spamming. The button event doesn't necessarily need to be on the same picture frame or on an NFTShape.
+Open this UI by calling the function `openNFTDialog(), passing it the NFT's contract and id, just like with the NFT shape. The UI must be opened as a result of a button event, to prevent abusive spamming. The button event doesn't necessarily need to be on the same picture frame or on an NftShape.
 
 To open this UI, add the following:
 
