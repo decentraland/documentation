@@ -18,18 +18,16 @@ The audio in the source must be in one of the following formats: `.mp3`, `ogg`, 
 > Note: To instead play a pre-recorded sound in your scene, see [Sounds]({{< ref "/content/creator/scenes/3d-essentials/sounds.md" >}}).
 
 
-To add an audio stream into your scene, simply add an entity with an `AudioStream` component:
+To add an audio stream into your scene, simply add an `AudioStream` component to an entity:
 
 ```ts
-const streamSource = new Entity()
-streamSource.addComponent(
-  new AudioStream(
-    "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3"
-  )
-)
-engine.addEntity(streamSource)
+const streamEntity = engine.addEntity()
 
-streamSource.getComponent(AudioStream).playing = true
+AudioStream.create(cube,{
+	url: "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3",
+	playing: true,
+	volume: 0.8
+})
 ```
 
 > Note: The streamed sound isn't positional, it will be heard at a consistent volume throughout your entire scene. If a player steps out of the scene, they will not hear the streaming at all.
