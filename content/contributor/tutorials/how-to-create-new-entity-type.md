@@ -1,6 +1,6 @@
 ---
 title: "Create a new Entity in the Content Server"
-slug: "/contributor/tutorials/how-to-create-an-entity"
+url: "/contributor/tutorials/how-to-create-an-entity"
 ---
 
 ### When is needed to create a new entity?
