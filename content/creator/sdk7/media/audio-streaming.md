@@ -11,27 +11,23 @@ url: /creator/development-guide/audio-streaming/
 weight: 1
 ---
 
-<!-- TODO: all -->
-
 You can stream audio from a URL. This is useful to play music directly from an internet radio, or stream a conference into your scene.
 
 The audio in the source must be in one of the following formats: `.mp3`, `ogg`, or `aac`. The source must also be an _https_ URL (_http_ URLs aren't supported), and the source should have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it. If this is not the case, you might need to set up a server to act as a proxy and expose the stream in a valid way.
 
-> Note: To instead play a pre-recorded sound in your scene, see [Sounds]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}).
+> Note: To instead play a pre-recorded sound in your scene, see [Sounds]({{< ref "/content/creator/scenes/3d-essentials/sounds.md" >}}).
 
 
-To add an audio stream into your scene, simply add an entity with an `AudioStream` component:
+To add an audio stream into your scene, simply add an `AudioStream` component to an entity:
 
 ```ts
-const streamSource = new Entity()
-streamSource.addComponent(
-  new AudioStream(
-    "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3"
-  )
-)
-engine.addEntity(streamSource)
+const streamEntity = engine.addEntity()
 
-streamSource.getComponent(AudioStream).playing = true
+AudioStream.create(cube,{
+	url: "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3",
+	playing: true,
+	volume: 0.8
+})
 ```
 
 > Note: The streamed sound isn't positional, it will be heard at a consistent volume throughout your entire scene. If a player steps out of the scene, they will not hear the streaming at all.

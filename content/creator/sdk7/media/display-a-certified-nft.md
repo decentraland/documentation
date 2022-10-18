@@ -32,7 +32,7 @@ Transform.create(nft, {
 	position: { x: 8, y: 1, z: 8 }
 })
 
-NFTShape.create(nft, {
+NftShape.create(nft, {
 	src: 'ethereum://0x06012c8cf97bead5deae237070f9587f8e7a266d/558536'
 })
 ```
@@ -52,7 +52,7 @@ By default, the image will have a purple background and have a frame with a puls
 - `style`: Selects a frame model from an enum of several predetermined options. Use a value from the enum `NftFrameType`, which contains a list of all available styles.
 
 ```ts
-const shapeComponent = new NFTShape(
+const shapeComponent = new NftShape(
   "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536",
   {
     color: Color3.Green(),
