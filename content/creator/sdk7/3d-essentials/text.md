@@ -105,8 +105,7 @@ TextShape.create(sign,{
 
 The `TextShape` component creates a text box that has a size, padding, etc.
 
-- `hTextAlign`: _string_. Either _left_, _right_ or _center_ (default).
-- `vTextAlign`: string. Either _top_, _bottom_ or _center_ (default).
+- `textAlign`: Select a value from the `TextAlignMode` enum. Possible values include all combinations between vertical and horizontal alignment.
 - `width`: _number_. The width of the text box.
 - `height`: _number_. The height of the text box.
 - `paddingTop`: _number_. Space between the text and the outline of the text box.
