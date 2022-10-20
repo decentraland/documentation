@@ -60,23 +60,19 @@ The `TextShape` component has several properties that can be set to style the te
 
 - `font`: Value from the enum `Font`.
 - `fontSize`: _number_.
-- `textColor`: _Color3_ object. _Color3_ objects store an _RBG_ color as three numbers from 0 to 1.
-
-<!--
-- `fontFamily`: _string_. Can be a specific font (like _Arial_) or a type of font (_serif_/_sans-serif_). If you list several different fonts, it will attempt with the first and progressively fall back to the next ones. If you are using an uncommon font, it's always recommendable to also list a more generic one, in case a player can't access it.
-- `fontWeight`: _string_. Can be _normal_, _bold_, _bolder_, or _lighter_.
--->
-
+- `textColor`: _Color4_ object. _Color4_ objects store an _RBG_ color as three numbers from 0 to 1, plus _alpha_ for transparency. See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details.
 - `opacity`: _number_. Set it to less than 1 to make the text translucid.
 
 ```ts
 TextShape.create(sign,{
     text: 'Hello World',
-	textColor: { r: 1, g: 0, b: 0 },
+	textColor: { r: 1, g: 0, b: 0, a:1 },
 	fontSize: 5,
 	font: Font.F_SANS_SERIF
   })
 ```
+
+
 
 ## Fonts
 
@@ -105,7 +101,7 @@ TextShape.create(sign,{
 
 The `TextShape` component creates a text box that has a size, padding, etc.
 
-- `textAlign`: Select a value from the `TextAlignMode` enum. Possible values include all combinations between vertical and horizontal alignment.
+- `textAlign`: Select a value from the `TextAlignMode` enum. Possible values include all combinations between vertical (_top_, _bottom_, _center_) and horizontal (_left_, _right_, _center_) alignment.
 - `width`: _number_. The width of the text box.
 - `height`: _number_. The height of the text box.
 - `paddingTop`: _number_. Space between the text and the outline of the text box.

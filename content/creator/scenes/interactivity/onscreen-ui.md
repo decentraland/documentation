@@ -419,3 +419,6 @@ close.onClick = new OnClick(() => {
 })
 ```
 ````
+
+
+See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.

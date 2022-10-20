@@ -47,58 +47,8 @@ Color values are composed of _r_, _g_ and _b_ values (red, green, and blue). Eac
 
 > Note: If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `{r: 15, g: 0, b: 0}` produces a very bright red glow.
 
+See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.
 
-
-<!-->
-All color fields are either of type `Color3` or `Color4`. `Color3` holds three values, for _Red_, _Green_ and _Blue_. Each of these numbers is between _0_ and _1_. `Color4` holds those same three values and a fourth value for _Alpha_, also between _0_ and _1_, where _0_ is completely transparent and _1_ is completely opaque.
-
-```ts
-myMaterial.albedoColor = new Color3(0.5, 0, 0.5)
-```
-
-
-
-
-You can also pick predetermined colors using the following functions of the `Color3` object:
-
-```ts
-let red = Color3.Red()
-
-let green = Color3.Green()
-
-let blue = Color3.Blue()
-
-let black = Color3.Black()
-
-let white = Color3.White()
-
-let purple = Color3.Purple()
-
-let magenta = Color3.Magenta()
-
-let yellow = Color3.Yellow()
-
-let gray = Color3.Gray()
-
-let teal = Color3.Teal()
-```
-
-You can otherwise pick a random color using the following function:
-
-```ts
-// Pick a random color
-let green = Color3.Random()
-```
-
-If you prefer to specify a color using hexadecimal values, as is often done in JavaScript web development, you can do so using the `.FromHexString()` function
-
-```ts
-let gray = Color3.FromHexString("#CCCCCCC")
-```
-
-The `Color3` object also includes a lot of other functions to add, substract, compare, lerp, or convert the format of colors.
-
--->
 
 You can also edit the following fields in a `Material` component to fine-tune how its color is perceived:
 
@@ -107,39 +57,6 @@ You can also edit the following fields in a `Material` component to fine-tune ho
 - _reflectionColor_: The color reflected from the material.
 - _reflectivityColor_: AKA _Specular Color_ in other nomenclature.
 
-
-<!--
-#### Change a color gradually
-
-Change a color gradually with linear interpolation between two colors, using the `.Lerp()` function.
-
-```ts
-// This variable will store the ratio between both colors
-let colorRatio = 0
-
-// Define colors
-const red = Color3.Red()
-const yellow = Color3.Yellow()
-
-// Create material
-const myMaterial = new Material()
-
-// This system changes the value of colorRatio every frame, and sets a new color on the material
-export class ColorSystem implements ISystem {
-  update(dt: number) {
-    myMaterial.albedoColor = Color3.Lerp(red, yellow, colorRatio)
-    if (colorRatio < 1) {
-      colorRatio += 0.01
-    }
-  }
-}
-
-// Add the system to the engine
-engine.addSystem(ColorSystem)
-```
-
-The example above changes the color of a material from red to yellow, incrementally shifting it on every frame.
--->
 
 
 ## Using textures
