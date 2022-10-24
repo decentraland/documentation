@@ -95,7 +95,7 @@ const door = engine.addEntity()
 
 // Give the entity a position via a transform component
 Transform.create(door, {
-	position: { x: 5, y: 1, z: 5 }
+	position: Vector3.create(5, 1, 5)
 })
 
 // Give the entity a visible shape via a GltfContainer component
@@ -228,7 +228,7 @@ const cube = engine.addEntity()
 
 // Give the entity a position via a transform component
 Transform.create(cube, {
-	position: { x: 5, y: 1, z: 5 }
+	position: Vector3.create(5, 1, 5)
 })
 
 // Give the entity a visible shape via a MeshRenderer component
@@ -240,7 +240,7 @@ function rotationSystem(dt: number) {
   // query for entities that include both MeshRenderer and Transform components	
   for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
     const transform = Transform.getMutable(entity)
-    transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.angleAxis(dt * 10, Vector3.Up()))
+    transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.fromAngleAxis(dt * 10, Vector3.Up()))
   }
 }
 

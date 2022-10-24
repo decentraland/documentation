@@ -248,7 +248,7 @@ export function spinSystem(dt: number) {
 		const transform = Transform.getMutable(entity)
 
 		// update the rotation value accordingly
-		transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.angleAxis(dt * wheelSpin.speed, Vector3.Up()))
+		transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.fromAngleAxis(dt * wheelSpin.speed, Vector3.Up()))
 	}
   }
 }

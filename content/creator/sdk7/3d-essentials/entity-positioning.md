@@ -27,9 +27,9 @@ SphereShape.create(ball)
 
 // Give this entity a Transform component
 Transform.create(ball, {
-	  position: { x: 5, y: 1, z: 5 },
-	  scale: { x: 1, y: 1, z: 1 },
-	  rotation: { x: 0, y: 0, z: 0, w: 1 }
+	  position: Vector3.create(5, 1, 5),
+	  scale: Vector3.create(1, 1, 1),
+	  rotation: Quaternion.Zero()
 })
 ```
 
@@ -48,7 +48,7 @@ const ball = engine.addEntity()
   
 // Create transform with a predefined position
 Transform.create(ball, {
-	  position: { x: 5, y: 1, z: 5 }
+	  position: Vector3.create(5, 1, 5)
 }
 
 // Fetch a mutable version of the transform
@@ -101,9 +101,9 @@ When setting a position, keep the following considerations in mind:
 // Create a new entity
 const cube = engine.addEntity()
   
-// Create transform with a predefined position
+// Create transform with a predefined rotation of 0
 Transform.create(cube, {
-	  rotation: { x: 0, y: 0, z: 0, w: 1 }
+	  rotation: Quaternion.Zero()
 }
 
 // Fetch a mutable version of the transform
@@ -188,7 +188,7 @@ MeshRenderer.create(cube, { box: {} })
 
 // Create transform with a predefined position
 Transform.create(cube, {
-	  position: { x: 5, y: 1, z: 5 }
+	  position: Vector3.create(5, 1, 5)
 }
 
 // Give the entity a Billboard component
@@ -209,7 +209,7 @@ You can configure how the billboard behaves with the following parameters:
 const perpendicularPlane = engine.addEntity()
 
 Transform.create(perpendicularPlane, {
-    position: { x:8, y:1, z:8 },
+    position: Vector3.create(8, 1, 8),
   })
 
 PlaneShape.create(perpendicularPlane)
@@ -222,7 +222,7 @@ Billboard.create(perpendicularPlane, {
 const textLabel = engine.addEntity()
 
 Transform.create(textLabel, {
-    position: { x:6, y:1, z:6 },
+    position: Vector3.create(6, 1 ,6),
   })
 
 TextShape.create(textLabel, {
@@ -281,11 +281,15 @@ const ball = engine.addEntity()
   
 // Create transform with a predefined position
 Transform.create(ball, {
-	  scale: { x: 5, y: 5, z: 5 }
+	  scale: Vector3.create(5, 5, 5)
 }
 
 // Fetch a mutable version of the transform
 const mutableTransform = Transform.getMutable(ball)
+
+// Set the scale with a Vector3
+
+mutableTransform.scale = Vector3.create(2, 2, 2)
 
 // Set the position with an object
 mutableTransform.scale = { x: 5, y: 1, z: 5 }
@@ -312,13 +316,13 @@ const childEntity = engine.addEntity()
 
 // Create a transform for the parent
 Transform.create(parentEntity, {
-	  position: { x: 3, y: 1, z: 1 },
-	  scale: { x: 0.5, y: 0.5, z: 0.5}
+	  position: Vector3.create(3, 1, 1),
+	  scale: Vector3.create(0.5, 0.5, 0.5)
 	})
 
 // Create a transform for the child, and assign it as a child
 Transform.create(childEntity, {
-	  position: { x: 0, y: 1, z: 0 },
+	  position: Vector3.create(0, 1, 0),
 	  parent: parentEntity
 	})
 ```
@@ -385,8 +389,8 @@ let childEntity = engine.addEntity()
 ConeShape.create(childEntity)
 
 Transform.create(childEntity, {
-    scale: { x: 0.2, y: 0.2, z: 0.2 },
-    position:{ x: 0, y: 0.4, z: 0 },
+    scale: Vector3.create(0.2, 0.2, 0.2),
+    position: Vector3.create(0, 0.4, 0),
 	parent: parentEntity
 })
 ```

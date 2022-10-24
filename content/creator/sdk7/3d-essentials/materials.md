@@ -26,7 +26,9 @@ The following example creates a material and sets some of its fields to give it 
 ```ts
 //Create entity and assign shape
 const meshEntity = engine.addEntity()
-Transform.create(meshEntity, { position: { x: 4, y: 1, z: 4 } })
+Transform.create(meshEntity, { 
+	position: Vector3.create(4, 1, 4) 
+})
 MeshRenderer.create(meshEntity, { box: {} })
 
 //Create material and configure its fields
@@ -139,7 +141,9 @@ You set _u_ and _v_ coordinates on the 2D image of the texture to correspond to 
 
 ```ts
 const meshEntity = engine.addEntity()
-Transform.create(meshEntity, { position: { x: 4, y: 1, z: 4 } })
+Transform.create(meshEntity, { 
+	position: Vector3.create(4, 1, 4) 
+})
 MeshRenderer.create(meshEntity, { plane: {
 	uvs: [
 		  	0, 0.75,
@@ -172,7 +176,9 @@ The following example includes a function that simplifies the setting of uvs. Th
 
 ```ts
 const meshEntity = engine.addEntity()
-Transform.create(meshEntity, { position: { x: 4, y: 1, z: 4 } })
+Transform.create(meshEntity, { 
+	position: Vector3.create(4, 1, 4)
+})
 MeshRenderer.create(meshEntity, { plane: {
 	uvs: setUVs(3, 3)
 } })

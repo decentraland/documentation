@@ -568,7 +568,7 @@ The `subscribe()` method takes four arguments:
 - `useRaycast`: Boolean to define if raycasting will be used. If `false`, the button event will not contain information about any `hit` objects that align with the pointer at the time of the event. Avoid setting this field to `true` when information about hit objects is not required, as it involves extra calculations.
 - `fn`: The function to execute each time the event occurs.
 
-> Note: Other keys on the PC keyboard aren't tracked for future cross-platform compatibility, as this limited set of keys can be mapped to a joystick. For detecting key-strokes when writing text, check the [UIInputBox]({{< ref "/content/creator/sdk7/interactivity/onscreen-ui.md" >}}).
+> Note: Other keys on the PC keyboard aren't tracked for future cross-platform compatibility, as this limited set of keys can be mapped to a joystick. For detecting key-strokes when writing text, check the [UIInputBox]({{< ref "/content/creator/sdk7/2d-ui/onscreen-ui.md" >}}).
 
 ```ts
 // Instance the input object

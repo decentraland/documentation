@@ -9,7 +9,7 @@ url: /creator/development-guide/color-types/
 weight: 6
 ---
 
-Color values can passed as properties of different components, like [Materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}), [Text]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}) or different properties of [UI entities]({{< ref "/content/creator/sdk7/interactivity/onscreen-ui.md" >}}). Color values can either be of type `Color3` or `Color4`.
+Color values can passed as properties of different components, like [Materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}), [Text]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}) or different properties of [UI entities]({{< ref "/content/creator/sdk7/2d-ui/onscreen-ui.md" >}}). Color values can either be of type `Color3` or `Color4`.
 
 `Color3` contains three properties, _red_, _green_, and _blue_. `Color4` has those same three plus `alpha`, for transparency values.
 

@@ -5,23 +5,166 @@ description: Learn how to create a UI for players in your scene. This is useful,
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/onscreen-ui/
 url: /creator/development-guide/onscreen-ui/
-weight: 7
+weight: 1
 ---
 
-There are several special component types that are meant for using in a 2D screen space as part of the UI, instead of in the 3D world space. These components are displayed fixed on the player's screen.
 
-UI elements are only visible when the player is standing inside the scene's LAND parcels, as neighboring scenes might have their own UI to display. When the player clicks the _close UI_ button, on the bottom-right corner of the screen, all UI elements go away.
+You can build a UI for your scene, to be displayed in the screen's fixed 2D space, instead of in the 3D world space.
 
-The UI can also be triggered to open when certain events occur in the world-space, for example if the player clicks on a specific place.
+UI elements are only visible when the player is standing inside the scene's LAND parcels, as neighboring scenes might have their own UI to display. Parts of the UI can also be triggered to open when certain events occur in the world-space, for example if the player clicks on a specific place.
+
+You can build a UI Decentraland scenes by defining a structure of `UIEntity` in JSX. The syntax used for UIs is very similar to that of [React](https://reactjs.org/) (a very popular javascript-based framework for building web UIs).
+
+A simple UI with static elements can look a lot like HTML, but when you add dynamic elements that respond to a change in state, you can do things that are a lot more powerful.
+
 
 The default Decentraland explorer UI includes a chat widget, a map, and other elements. These UI elements are always displayed on the top layer, above any scene-specific UI. So if your scene has UI elements that occupy the same screen space as these, they will be occluded.
 
-## Add a Screenspace UI
+TODO: Should I call it JSX? any better name??
 
-To add a screenspace UI to your scene, you must create a `UICanvas` component, this component doesn't need to belong to any Entities to work. All the visible UI elements that you want the player to see are added as additional objects that are children of this parent component.
+When the player clicks the _close UI_ button, on the bottom-right corner of the screen, all UI elements go away.
+
+See [UX guidelines]({{< ref "/content/creator/sdk7/design-experience/ux-ui-guide.md" >}})
+
+## Render a UI
+
+To display a UI in your scene, use the `renderUi()` function, passing it a valid structure of entities, described in JSX.
+
+Each entity is defined as an HTML-like node, with properties for each of its components.
+
+```ts
+export const uiMenu = () => (
+	<UiEntity
+		uiTransform={{
+			width: 700,
+			height: 400,
+			margin: { top: '35px', left: '500px' }
+		}}
+		uiBackground={{ backgroundColor: Color4.Red() }}
+	/>
+)
+
+renderUi(uiMenu)
+```
+
+You can also define an entity structure and render it, all in one same command.
+
+```ts
+renderUi(() => (
+	<UiEntity
+		uiTransform={{
+			width: 700,
+			height: 400,
+			margin: { top: '35px', left: '500px' }
+		}}
+		uiBackground={{ backgroundColor: Color4.Red() }}
+	/>
+))
+```
+
+## UI Entities
+
+Each element in the UI must be defined as a separate `UiEntity`, wether it's an image, text, an invisible alignment box, etc. Just like in the scene's 3d space, each `UiEntity` has its own components to give it a position, color, etc. 
+
+The React-like syntax allows you to specify each component as a property within the `UiEntity`, this makes the code a lot faster to write and more readable.
+
+
+The components used in a `UiEntity` are different from those used in regular entities. You cannot apply a UI component to a regular entity, nor a regular component to a UI entity.
+
+The following components are available to use in the UI:
+
+- `uiTransform`
+- `uiBackground`
+- `uiText`
+
+
+Like with HTML tags, you can define components as self-closing or nest one within another.
+
+```ts
+renderUi(() => (
+	// self-closing entity
+	<UiEntity
+		uiTransform={{
+			width: 400,
+			height: 400,
+			margin: { top: '35px', left: '500px' }
+		}}
+		uiBackground={{ backgroundColor: Color4.Red() }}
+	/>
+
+	// parent entity
+	<UiEntity
+		uiTransform={{
+			width: 200,
+			height: 200,
+			margin: { top: '250px', left: '500px' }
+		}}
+		uiBackground={{ backgroundColor: Color4.Blue() }}
+	>
+		// child enity
+		<UiEntity
+		  uiText={{ value: `This is text`, fontSize: 40 }}
+		/>
+	// closing statement for the parent entity
+	</UiEntity>
+))
+```
+
+
+## UI Components
+
+### uiTransform
+
+width and height
+
+as number = in pixels
+
+also define as `200px`
+or define percentage as string `20%`
+
+margin
+
+top, left, right bottom
+
+
+justifyContent: YGJustify.YGJ_CENTER,
+alignItems: YGAlign.YGA_CENTER,
+display: YGDisplay.YGD_FLEX
+
+
+
+As with entities in 3d space, child entities inherit the parent's position
+
+TODO: do children inherit scale?
+TODO: no rotation, right?
+
+
+
+### uiBackground
+
+a background is a block 
+
+
+give it a color (see color types)
+
+add material??
+
+
+
+### uiText
+
+Text elements 
+
+A single entity can have both text and background
+
+
+
+
+TODO:  How do I define a type and reuse it???
+
+
+
 
 <!--
 ![](/images/media/UI-basic.png)

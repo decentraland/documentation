@@ -51,7 +51,7 @@ Portable experiences are parts of the gameplay that players take with them as th
 
 Smart wearables are a kind of portable experience that is tied to a wearable token and turned on when the player puts on the item of clothing. Smart wearables can grant players new abilities, like a jetpack that lets them fly, or add a new layer of content on top of the rest of the world, like randomly placing coins to be collected throughout the whole of genesis city.
 
-Keep in mind that players might be using someone else’s portable experience while on your scene. See [User Data]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-portable-experiences" >}}) to learn how to check what portable experiences a player currently has activated.
+Keep in mind that players might be using someone else’s portable experience while on your scene. See [User Data]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-portable-experiences" >}}) to learn how to check what portable experiences a player currently has activated.
 
 ## Game Persistence
 
@@ -95,7 +95,7 @@ As the owner of a scene, you can’t forcefully push or teleport an offending pl
 
 **You should also try to keep the scene lightweight.** Unlike other online games where the same textures and assets are conveniently repeated throughout a large open world, in Decentraland every scene could have its own completely different set of assets. As players walk through multiple scenes, they should be able to download the entirety of the scene content, including textures, sound files, etc at a reasonable speed.
 
-Because of this, we’ve imposed some limits to prevent excessive use of computational resources. See [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}) for details on what these limits are.
+Because of this, we’ve imposed some limits to prevent excessive use of computational resources. See [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) for details on what these limits are.
 
 ## Access to scenes
 
@@ -105,7 +105,7 @@ New players will start their experience in Genesis Plaza, in the center of the m
 
 Players can also manually type a URL for a specific coordinate in the Decentraland map to spawn to that location. You can also share links to URLs that have hard-coded initial coordinates.
 
-Keep in mind that if a player starts at a location that is walled out or below the level of the terrain, it won’t be a pleasant experience. To avoid this, there’s a way you can define a set of specific locations in your scene that is safe to spawn into. See [scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for details.
+Keep in mind that if a player starts at a location that is walled out or below the level of the terrain, it won’t be a pleasant experience. To avoid this, there’s a way you can define a set of specific locations in your scene that is safe to spawn into. See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for details.
 
 In future releases, players will also be able to navigate the world rapidly using maps with spawn points, lists of popular locations, and friend locations. The SDK will also make it possible to add teleports in your scene that can transport to other parts of the world.
 

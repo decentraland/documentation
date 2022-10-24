@@ -29,7 +29,7 @@ The following example shows how to create a `TextShape` component and add it to 
 const sign = engine.addEntity(true)
 
 Transform.create(sign,{
-    position: { x:8, y:1, z:8 }
+    position: Vector3.create(8, 1 ,8) 
   })
 
 TextShape.create(sign,{

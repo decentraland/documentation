@@ -59,7 +59,7 @@ The `Camera` object exposes information about the player's point of view in your
 const cube = engine.addEntity()
 
 Transform.create(cube, {
-	position: { x: 3, y: 1, z: 3 }
+	position: Vector3.create(3, 1, 3)
 })
 
 MeshRenderer.create(cube, { box: {}})

@@ -52,7 +52,7 @@ The easiest way to rotate an entity is to gradually change the values in the Tra
 ```ts
 function SimpleRotate() {
 	let transform = Transform.getMutable(myEntity)
-	transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.angleAxis(1, Vector3.Up()))
+	transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.fromAngleAxis(1, Vector3.Up()))
 }
 
 engine.addSystem(SimpleRotate)
@@ -82,7 +82,7 @@ When rotating the parent entity, its children will be all rotated using the pare
 ```ts
 function SimpleRotate() {
 	let transform = Transform.getMutable(pivotEntity)
-  transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.angleAxis(1, Vector3.Up()))
+  transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.fromAngleAxis(1, Vector3.Up()))
 }
 
 engine.addSystem(SimpleRotate)

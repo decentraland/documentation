@@ -56,7 +56,7 @@ const door = engine.addEntity()
 
 // Give the entity a position via a transform component
 Transform.create(door, {
-	position: { x: 5, y: 1, z: 5 }
+	position: Vector3.create(5, 1, 5)
 })
 
 // Give the entity a visible shape via a GltfContainer component
@@ -84,12 +84,34 @@ engine.removeEntity(door)
 
 If a removed entity has any child entities, these change their parent back to the default `engine.RootEntity` entity, which is positioned at the scene base position, with a scale of _1_.
 
-<!-- TODO: remove children too -->
 
+To remove an entity and also all of its children (and any children of its children, recurrently), use `engine.removeEntityWithChildren()`.
 
+```ts
+// Create parent entity
+const door = engine.addEntity()
 
-NOTE: not the same as making invisible - link to invisible
+// Create child entity
+const doorKnob = engine.addEntity()
 
+// Give the entities a visible shape
+GltfContainer.create(door, {
+	src: "models/door.glb"
+})
+GltfContainer.create(doorKnob, {
+	src: "models/doorKnob.glb"
+})
+
+// Parent
+Transform.create(doorKnob, {
+	parent: door
+})
+
+// Remove both parent and children
+engine.removeEntityWithChildren(door)
+```
+
+> TIP: Instead of removing an entity from the engine, in some cases it might be better to make it invisible, in case you want to be able to load it again without any delay. See [Make invisible]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md#make-invisible
 
 ### Removing entities behind the scenes
 
@@ -170,7 +192,7 @@ To prevent this error, you can use `.createOrReplace` instead of `.create`. This
 
 ```ts
 Transform.createOrReplace(door, {
-	position: { x: 5, y: 1, z: 5 }
+	position: Vector3.create(5, 1, 5)
 })
 ```
 
