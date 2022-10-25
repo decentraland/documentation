@@ -5,8 +5,6 @@ description: Recommended procedure for developing and testing a scene
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/dev-workflow/
 url: /creator/development-guide/dev-workflow/
 weight: 5
 ---

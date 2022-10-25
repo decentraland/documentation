@@ -2,20 +2,6 @@
 date: 2018-01-01
 title: Coding essentials
 description: This set will help you understand how things work in the client and SDK of decentraland.
-aliases:
-  - /documentation/introduction/
-  - /docs/sdk-overview/
-  - /docs/command-line-interface/
-  - /docs/sdk-quick-start-guide/
-  - /sdk-reference/introduction/
-  - /sdk-reference/scriptable-scene/
-  - /development-guide/scriptable-scene/
-  - /documentation/tsx-coding-guide/
-  - /development-guide/typescript-tips/
-  - /decentraland/SDK-Overview/
-  - /sdk-reference/SDK-Overview/
-  - /getting-started/coding-scenes/
-  - /development-guide/coding-scenes/
 categories:
   - development-guide
 type: Document

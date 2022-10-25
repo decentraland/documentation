@@ -5,8 +5,6 @@ description: Link to other scenes or external sites
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/external-links/
 url: /creator/development-guide/external-links/
 weight: 6
 ---

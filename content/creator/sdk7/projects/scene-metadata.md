@@ -5,8 +5,6 @@ description: Learn how to set up a scene and configure its metadata.
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/scene-metadata/
 url: /creator/development-guide/scene-metadata/
 weight: 1
 ---

@@ -5,8 +5,6 @@ description: Learn what special types exist, including Vector, Quaternions, and 
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/special-types/
 url: /creator/development-guide/special-types/
 weight: 8
 ---

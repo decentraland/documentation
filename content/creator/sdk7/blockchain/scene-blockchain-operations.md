@@ -2,12 +2,6 @@
 date: 2018-01-07
 title: Scene blockchain operations
 description: Learn what the SDK offers for performing operations with the Ethereum blockchain
-aliases:
-  - /sdk-reference/blockchain-operations/
-  - /blockchain-interactions/scene-blockchain-operations
-  - /blockchain-integration/scene-blockchain-operations
-  - /development-guide/scene-blockchain-operations
-
 categories:
   - development-guide
 type: Document

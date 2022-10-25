@@ -5,8 +5,6 @@ description: Track player analytics for your scene
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/scene-analytics/
 url: /creator/development-guide/scene-analytics/
 ---
 

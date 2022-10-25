@@ -5,8 +5,6 @@ description: How to add text to your scene
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/text/
 url: /creator/development-guide/text/
 weight: 6
 ---

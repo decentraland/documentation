@@ -5,9 +5,6 @@ description: Stream video into a scene
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/video-streaming
-  - /development-guide/video-playing
 url: /creator/development-guide/video-playing/
 weight: 2
 ---

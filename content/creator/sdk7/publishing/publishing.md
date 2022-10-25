@@ -2,11 +2,6 @@
 date: 2018-01-06
 title: Publishing a scene
 description: How to publish my project?
-aliases:
-  - /documentation/publishing/
-  - /getting-started/publishing/
-  - /deploy/publishing/
-  - /development-guide/publishing/
 categories:
   - development-guide
 type: Document

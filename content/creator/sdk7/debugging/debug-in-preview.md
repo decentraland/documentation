@@ -5,8 +5,6 @@ description: How you can debug your scene while running it locally in preview
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/debug-in-preview/
 url: /creator/development-guide/debug-in-preview/
 weight: 1
 ---

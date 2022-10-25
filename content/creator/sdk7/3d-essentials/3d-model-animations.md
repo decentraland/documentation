@@ -5,8 +5,6 @@ description: How to move and animate entities in your scene
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/3d-model-animations/
 url: /creator/development-guide/3d-model-animations/
 weight: 5
 ---

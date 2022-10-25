@@ -2,9 +2,6 @@
 date: 2018-01-06
 title: Scene MVP Guidelines
 description: Recommended guidelines for producing your first MVP scene or experience using the SDK
-aliases:
-  - /documentation/mvp-guidelines/
-  - /design-experience/mvp-guidelines/
 categories:
   - design-experience
 type: Document

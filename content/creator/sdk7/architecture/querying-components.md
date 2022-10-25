@@ -5,8 +5,6 @@ description: Learn about how to obtain lists of entities that have components in
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/querying-components/
 url: /creator/development-guide/querying-components/
 weight: 4
 ---

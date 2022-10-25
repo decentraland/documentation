@@ -5,8 +5,6 @@ description: Tips and practices to build scenes where players will want to stay 
 categories:
   - design-experience
 type: Document
-aliases: 
-  - /design-experience/ux-ui-guide/
 url: /creator/design-experience/ux-ui-guide
 weight: 2
 ---

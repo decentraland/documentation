@@ -5,8 +5,6 @@ description: Obtain data from players as they interact with your scene.
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/user-data/
 url: /creator/development-guide/user-data/
 weight: 5
 ---

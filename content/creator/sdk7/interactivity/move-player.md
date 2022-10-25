@@ -5,8 +5,6 @@ description: Change a player's position inside the scene
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/move-player/
 url: /creator/development-guide/move-player/
 weight: 2
 ---

@@ -5,7 +5,6 @@ description: Learn how to handle ead-only and mutable data from components
 categories:
   - development-guide
 type: Document
-aliases:
 url: /creator/development-guide/mutable-data/
 weight: 2
 ---

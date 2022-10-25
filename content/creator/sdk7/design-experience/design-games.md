@@ -5,8 +5,6 @@ description: What you need to keep in mind when designing a game for Decentralan
 categories:
   - design-experience
 type: Document
-aliases: 
-  - /design-experience/design-games/
 url: /creator/design-experience/design-games
 weight: 3
 ---

@@ -5,9 +5,6 @@ description: Reference for creating your own Decentralized App
 categories:
   - blockchain-integration
 type: Document
-aliases:
-  - /blockchain-interactions/create-a-dapp
-  - /blockchain-integration/create-a-dapp
 url: /creator/development-guide/create-a-dapp/
 weight: 4
 ---

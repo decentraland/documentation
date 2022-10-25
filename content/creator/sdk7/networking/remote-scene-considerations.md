@@ -2,9 +2,6 @@
 date: 2018-01-10
 title: About multiplayer in scenes
 description: Tips and tricks for scenes with multiple players
-aliases:
-  - /documentation/remote-scene-considerations/
-  - /development-guide/remote-scene-considerations/
 categories:
   - development-guide
 type: Document

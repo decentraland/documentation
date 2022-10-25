@@ -2,10 +2,6 @@
 date: 2018-01-01
 title: CLI Installation Guide
 description: Step-by-step guide to installing the SDK
-aliases:
-  - /documentation/installation-guide/
-  - /getting-started/installation-guide/
-  - /development-guide/installation-guide/
 categories:
   - development-guide
 type: Document

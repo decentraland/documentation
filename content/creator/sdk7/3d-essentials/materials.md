@@ -5,8 +5,6 @@ description: Learn how to add materials and textures to entities with primitive 
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/materials/
 url: /creator/development-guide/materials/
 weight: 3
 ---

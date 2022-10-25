@@ -5,8 +5,6 @@ description: Create your own Decentraland libraries to share with others
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/create-libraries/
 url: /creator/development-guide/create-libraries/
 weight: 1
 ---

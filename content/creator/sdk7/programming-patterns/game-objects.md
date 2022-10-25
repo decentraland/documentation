@@ -5,8 +5,6 @@ description: Use the game object pattern to make your code more readable and eas
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/game-objects
 url: /creator/development-guide/game-objects/
 weight: 3
 ---

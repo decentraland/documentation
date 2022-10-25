@@ -5,8 +5,6 @@ description: Learn how systems are used to update the scene state
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/systems/
 url: /creator/development-guide/systems/
 weight: 2
 ---

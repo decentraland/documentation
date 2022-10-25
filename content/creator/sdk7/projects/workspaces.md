@@ -5,8 +5,6 @@ description: Run multiple DCL projects at a time
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/workspaces/
 url: /creator/development-guide/workspaces/
 weight: 3
 ---

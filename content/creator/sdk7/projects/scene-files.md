@@ -4,9 +4,6 @@ title: Files in a scene
 description: Default files created in a new scene.
 categories:
   - development-guide
-aliases:
-  - /documentation/scene-files/
-  - /development-guide/scene-files/
 type: Document
 url: /creator/development-guide/scene-files/
 weight: 2

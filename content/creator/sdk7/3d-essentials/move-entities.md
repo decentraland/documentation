@@ -5,8 +5,6 @@ description: How to move, rotate and scale an entity gradually over time, with i
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/move-entities
 url: /creator/development-guide/move-entities/
 weight: 7
 ---

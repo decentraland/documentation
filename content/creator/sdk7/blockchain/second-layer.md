@@ -5,9 +5,6 @@ description: Use Polygon's sidechain in your scene to enable much faster and che
 categories:
   - development-guide
 type: Document
-aliases:
-  - /blockchain-integration/second-layer
-  - /development-guide/second-layer/
 url: /creator/development-guide/second-layer/
 weight: 2
 ---

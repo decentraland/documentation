@@ -4,16 +4,6 @@ title: Entities and components
 description: Learn the essentials about entities and components in a Decentraland scene
 categories:
   - development-guide
-aliases:
-  - /sdk-reference/scene-state/
-  - /sdk-reference/scene-content-guide/
-  - /docs/entities
-  - /sdk-reference/entity-interfaces/
-  - /development-guide/scene-state/
-  - /development-guide/scene-content/
-  - /development-guide/entity-interfaces/
-  - /development-guide/entity-components/
-  - /development-guide/entities-components/
 type: Document
 url: /creator/development-guide/entities-components/
 weight: 1

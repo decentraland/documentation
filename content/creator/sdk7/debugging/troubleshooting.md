@@ -5,8 +5,6 @@ description: Fixes for common problems
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guides/troubleshooting/
 url: /creator/development-guide/troubleshooting/
 weight: 3
 ---

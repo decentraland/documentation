@@ -5,8 +5,6 @@ description: Provide users with costless transactions
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/deploying-your-own-transactions-server/
 url: /creator/development-guide/deploying-your-own-transactions-server/
 weight: 5
 ---

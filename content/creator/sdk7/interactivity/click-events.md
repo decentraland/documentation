@@ -4,10 +4,6 @@ title: Button events
 description: Learn how to handle user clicks in your scene.
 categories:
   - development-guide
-aliases:
-  - /sdk-reference/event-handling/
-  - /development-guide/event-handling/
-  - /development-guide/click-events/
 type: Document
 url: /creator/development-guide/click-events/
 weight: 1
@@ -45,6 +41,9 @@ It's always a good practice to add a `PointerEvents` component to an entity that
 
 
 > Note: `wasEntityClicked()` helps disambiguate several corner cases that might occur, especially if the player clicks fast. For example, if the button was pushed down and up since the last tick, this should be considered a new click event, even if the button is currently no longer down. Also, if the button was down on the last tick, but was raised and then pushed down again since the last tick, this should be considered a new click event. 
+
+
+EXAMPLE WITH GLOBAL BUTTON EVENT
 
 
 See [advanced pointer event results](#advanced-pointer-event-results) for ways to obtain more detailed data from pointer events.
@@ -370,6 +369,33 @@ PointerEvents.create(NPCEntity, {
 
 Players will see multiple labels, one for each pointer event, displayed radially around the cursor.
 
+### Data from a pointer event
+ 
+
+Use `getClick` and `getInputCommand` to fetch data about a pointer event.
+
+Every click event comes with the following data
+
+
+- `analog`: Flag to mark if the event is from an analog or a digital input. Digital inputs have a value of _1_, analog inputs (like a joy stick) have a value of _0_.
+- `button`: Which button id was pressed. The number corresponds to the `InputAction` enum, that lists all of the available buttons.
+- `state`: Type of pointer event, from the enum `PointerEventType`. _0_ refers to `PointerEventType.PET_DOWN`, _1_ to `PointerEventType.PET_UP`, _2_ to `PointerEventType.PET_HOVER_ENTER`, _3_ to `PointerEventType.PET_HOVER_LEAVE`
+
+- `timestamp`: A [lamport timestamp](https://en.wikipedia.org/wiki/Lamport_timestamp) to identify each button event. 
+
+	> Note: This timestamp is not numbered based on the current time. Think of it as a counter that starts at 0 and is incremented by 1 for each event.
+
+- `hit`: An object that contains the following data about the hit event:
+
+	- `entityId`: Id number of the entity that was hit by the ray.
+	- `meshName`: _String_ with the internal name of the specific mesh in the 3D model that was hit. This is useful when a 3D model is composed of multiple meshes.
+	- `origin`: _Vector3_ for the position where the ray originates (relative to the scene)
+	- `position`: _Vector3_ for the position where the ray intersected with the hit entity (relative to the scene)
+	- `length`: Length of the ray from its origin to the position where the hit against the entity occurred.
+	- `normalHit`: _Quaternion_ for the angle of the normal of the hit in world space.
+
+
+TODO: example example example
 
 
 ### Differentiate meshes inside a model
@@ -416,6 +442,7 @@ The `PointerEventsResult` stores a `commands` array, containing one object for e
 
 Each event in the `commands` array has the following data:
 
+
 - `analog`: Flag to mark if the event is from an analog or a digital input. Digital inputs have a value of _1_, analog inputs (like a joy stick) have a value of _0_.
 - `button`: Which button id was pressed. The number corresponds to the `InputAction` enum, that lists all of the available buttons.
 - `state`: Type of pointer event, from the enum `PointerEventType`. _0_ refers to `PointerEventType.PET_DOWN`, _1_ to `PointerEventType.PET_UP`, _2_ to `PointerEventType.PET_HOVER_ENTER`, _3_ to `PointerEventType.PET_HOVER_LEAVE`
@@ -434,6 +461,7 @@ Each event in the `commands` array has the following data:
 	- `normalHit`: _Quaternion_ for the angle of the normal of the hit in world space.
 
 
+
 <!-- TODO: meshName not currently in `hit`, will it be included? -->
 
 
@@ -450,7 +478,6 @@ function PointerReadingSystem() {
 }
 
 engine.addSystem(PointerReadingSystem)
-
 ```
 
 

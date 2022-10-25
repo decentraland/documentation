@@ -2,10 +2,6 @@
 date: 2018-01-01
 title: Preview your scene
 description: What you can see in a scene's preview
-aliases:
-  - /documentation/preview-scene/
-  - /getting-started/preview-scene/
-  - /development-guide/preview-scene/
 categories:
   - development-guide
 type: Document

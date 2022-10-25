@@ -104,7 +104,7 @@ renderUi(() => (
 	>
 		// child enity
 		<UiEntity
-		  uiText={{ value: `This is text`, fontSize: 40 }}
+		  uiText={{ value: `Hello world!`, fontSize: 40 }}
 		/>
 	// closing statement for the parent entity
 	</UiEntity>
@@ -139,7 +139,20 @@ As with entities in 3d space, child entities inherit the parent's position
 TODO: do children inherit scale?
 TODO: no rotation, right?
 
+Old text:
 
+By default, to the top-left corner of its parent. If the `hAlign` or `vAlign` properties are set, then `positionX` and `positionY` offset the UI component relative to the position of these alignment properties.
+
+> Tip: When measuring from the top, the numbers for `positionY` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `positionX` to 20 and `positionY` to -20.
+
+`paddingBottom`: padding space to leave empty around. To set these fields in pixels, write the value as a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`
+
+- `width`, `height`: Set the size of the component in the screen. To set these fields in pixels, write the value as a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10%`
+
+
+examples:
+```ts
+```
 
 ### uiBackground
 
@@ -150,6 +163,9 @@ give it a color (see color types)
 
 add material??
 
+examples:
+```ts
+```
 
 
 ### uiText
@@ -159,6 +175,21 @@ Text elements
 A single entity can have both text and background
 
 
+Is this true??
+The properties you can set are the same as in a `TextShape` component. See [text]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).
+
+examples:
+```ts
+```
+
+
+<!-- 
+### Pointer events
+
+### Input box
+ -->
+
+
 
 
 TODO:  How do I define a type and reuse it???
@@ -166,68 +197,7 @@ TODO:  How do I define a type and reuse it???
 
 
 
-<!--
-![](/images/media/UI-basic.png)
--->
 
-```ts
-// Create screenspace component
-const canvas = new UICanvas()
-
-// Create a textShape component, setting the canvas as parent
-const text = new UIText(canvas)
-text.value = "Hello world!"
-```
-
-> Note: Create only one `UICanvas` per scene. To have different menus that appear at different times, make them all children of the same `UICanvas`, and set their visibility at that level.
-
-## Types of UI content
-
-There are several different types of UI elements you can add to the screenspace:
-
-- Images: Add a `UIImage` component to display any image. Use the `source` field to point to the path of the image.
-
-- Text: Add a `UIText`component to display text. The properties you can set are the same as in a `TextShape` component. See [text]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).
-
-<!--
-- Buttons: Add a `UIButton` to add a clickable button. The button offers some visual feedback when players mouse over it and when they click it.
--->
-
-- Text input box: Add a `UIInputText` to have an input box where players can type in text with their keyboards or their mobile devices.
-
-<!--
-- Scrollable rectangle: Add a `UIScrollRect` to have an area that can be filled with content. The rectangle can optionally have a slider if the content exceeds the rectangle area. Players can drag this slider to explore the contents of the rectangle.
--->
-
-## Positioning
-
-All UI components have several fields you can set to determine the position of the component on the screenspace.
-
-- `hAlign` horizontal alignment relative to the parent. Possible values: `left`, `right`, `center`.
-
-- `vAlign` horizontal alignment relative to the parent. Possible values: `top`, `bottom`, `center`.
-
-- `positionX`, `positionY`: the position of the top-left corner of the component, relative to the parent. By default, to the top-left corner of its parent. If the `hAlign` or `vAlign` properties are set, then `positionX` and `positionY` offset the UI component relative to the position of these alignment properties.
-
-> Tip: When measuring from the top, the numbers for `positionY` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `positionX` to 20 and `positionY` to -20.
-
-- `paddingLeft`, `paddingRight`, `paddingTop`, `paddingBottom`: padding space to leave empty around. To set these fields in pixels, write the value as a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`
-
-- `width`, `height`: Set the size of the component in the screen. To set these fields in pixels, write the value as a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10%`
-
-```ts
-const canvas = new UICanvas()
-
-const message = new UIText(canvas)
-message.value = "Close UI"
-message.fontSize = 15
-message.width = 120
-message.height = 30
-message.vAlign = "bottom"
-message.positionX = -80
-```
-
-To determine the z position of UI elements, the UI uses the parenting hierarchy of the components. So, if a component is a child of another, it will appear in front of the other.
 
 ## Use parent elements for organizing
 
@@ -261,30 +231,6 @@ Container components also have following properties:
 
 - `stackOrientation`: The `UIContainerStack` component has this property to set if the stack will expand vertically or horizontally.
 
-<!--
-#### Scrollable rectangles
-
-You can also add UI elements into a `UIScrollRect`. If these rectangles have more content in them that what fits in their width or height, a slider will appear on the margins, that players can interact with to explore this content.
-
-Scrollable rectangles can be horizontal or vertical, or both.
-
-```ts
-const canvas = new UICanvas()
-
-const scrollableContainer = new UIScrollRect(canvas)
-scrollableContainer.width = "50%"
-scrollableContainer.height = "50%"
-scrollableContainer.backgroundColor = Color4.Gray()
-scrollableContainer.isVertical = true
-scrollableContainer.onChanged = new OnChanged(() => {
-  log("scrolled to ", scrollableContainer.positionY)
-})
-```
-
-Scrolling values are always normalized from 0 to 1. You can set the scrolling value manually via the `valueX` and `valueY` properties.
-
-The `onChanged` property lets you run a function whenever the value of the scrollbar changes.
--->
 
 ## Set transparency
 
@@ -329,7 +275,6 @@ myText.positionX = "15px"
 myText.color = Color4.Blue()
 ```
 
-> TIP: If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
 
 You can share a same instanced `Font` object accross multiple `UIText` components.
 
@@ -426,7 +371,7 @@ You can change the texture being used by an existing `UIImage` component, set th
 ```ts
 playButton.source = imageTexture2
 ```
-
+<!-- 
 ## Clicking UI elements
 
 All UI elements have an `isPointerBlocker` property, that determines if they can be clicked. If this value is false, the pointer should ignore them and respond to whatever is behind the element.
@@ -448,9 +393,6 @@ clickableImage.onClick = new OnClick(() => {
 })
 ```
 
-<!--
-![](/images/media/UI-clicks.png)
--->
 
 > Note: To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
 
@@ -503,7 +445,8 @@ When the player interacts with the component, you can use the following events t
 textInput.onChanged = new OnChanged((data: { value: string }) => {
   inputTextState = data.value
 })
-```
+``` 
+-->
 
 
 ## Open the UI

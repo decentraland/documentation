@@ -5,8 +5,6 @@ description: Give away POAP tokens to players that visit your scene
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/poap-tokens/
 url: /creator/development-guide/poap-tokens/
 weight: 3
 ---

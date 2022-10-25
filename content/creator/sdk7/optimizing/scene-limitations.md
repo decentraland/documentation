@@ -2,10 +2,6 @@
 date: 2018-01-06
 title: Scene limitations
 description: How many things can I put on my scene?
-aliases:
-  - /documentation/scene-limitations/
-  - /builder/scene-limitations/
-  - /development-guide/scene-limitations/
 categories:
   - development-guide
 type: Document

@@ -5,8 +5,6 @@ description: Events that the scene can track, related to player actions and scen
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/event-listeners/
 url: /creator/development-guide/event-listeners/
 weight: 8
 ---

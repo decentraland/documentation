@@ -5,8 +5,6 @@ description: Learn how to add sounds to your scene.
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/sounds/
 url: /creator/development-guide/sounds/
 weight: 4
 ---

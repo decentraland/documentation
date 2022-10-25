@@ -5,8 +5,6 @@ description: Create wearables with interactive capabilities
 categories:
   - development-guide
 type: Document
-aliases:
-  - /development-guide/smart-wearables/
 url: /creator/development-guide/smart-wearables/
 weight: 4
 ---
