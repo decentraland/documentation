@@ -5,10 +5,6 @@ description: Learn how to display a certified NFT that you own in your scene
 categories:
   - development-guide
 type: Document
-aliases:
-  - /blockchain-interactions/display-a-certified-nft
-  - /blockchain-integration/display-a-certified-nft
-  - /development-guide/display-a-certified-nft/
 url: /creator/development-guide/display-a-certified-nft/
 weight: 3
 ---
@@ -23,13 +19,13 @@ The picture frame is displayed adjusting to the dimensions of the NFT image. If 
 
 ## Add an NFT
 
-Add an `NFTShape` component to an entity to display a 2D token in your scene.
+Add an `NftShape` component to an entity to display a 2D token in your scene.
 
 ```ts
 const nft = engine.addEntity()
 
 Transform.create(nft, {
-	position: { x: 8, y: 1, z: 8 }
+	position: Vector3.create(8, 1, 8)
 })
 
 NftShape.create(nft, {
@@ -37,7 +33,7 @@ NftShape.create(nft, {
 })
 ```
 
-The `NFTShape` component must be instanced with a parameter that includes the following:
+The `NftShape` component must be instanced with a parameter that includes the following:
 
 - The _contract_ of the token (for example, the CryptoKitties contract)
 - The _id_ of the specific token you own
@@ -102,7 +98,7 @@ Open a prebuilt UI that displays the name, owner, and description of an NFT. It 
 
 <img src="/images/media/nft-ui.png" alt="Move entity" width="500"/>
 
-Open this UI by calling the function `openNFTDialog(), passing it the NFT's contract and id, just like with the NFT shape. The UI must be opened as a result of a button event, to prevent abusive spamming. The button event doesn't necessarily need to be on the same picture frame or on an NFTShape.
+Open this UI by calling the function `openNFTDialog()`, passing it the NFT's contract and id, just like with the NFT shape. The UI must be opened as a result of a button event, to prevent abusive spamming. The button event doesn't necessarily need to be on the same picture frame or on an `NftShape`.
 
 To open this UI, add the following:
 
