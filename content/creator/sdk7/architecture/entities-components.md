@@ -101,7 +101,7 @@ Transform.create(doorKnob, {
 engine.removeEntityWithChildren(door)
 ```
 
-> TIP: Instead of removing an entity from the engine, in some cases it might be better to make it invisible, in case you want to be able to load it again without any delay. See [Make invisible]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md#make-invisible
+> TIP: Instead of removing an entity from the engine, in some cases it might be better to make it invisible, in case you want to be able to load it again without any delay. See [Make invisible]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md#make-invisible" >}})
 
 ### Removing entities behind the scenes
 
