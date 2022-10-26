@@ -196,7 +196,7 @@ function payment(){
 const myEntity = engine.addEntity()
 MeshRenderer.create(meshEntity, { box: { } })
 MeshCollider.create(meshEntity, { box: { } })
-PointerEvents.create(myEntity, {
+PointerHoverFeedback.create(myEntity, {
     pointerEvents: [
       {
         eventType: PointerEventType.PET_DOWN,

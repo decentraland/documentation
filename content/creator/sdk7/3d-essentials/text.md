@@ -37,7 +37,7 @@ TextShape.create(sign,{
 
 > Note: If the entity with the text component is a child of another entity, then it will be affected by the parent's scale. If the parent is scaled unevenly along its axis, this will result in the text also being stretched or compressed.
 
-> Note: `TextShape` components aren't clickable. `PointerEvents` comopnents aren't activated when used on entites that have a `TextShape` component.
+> Note: `TextShape` components aren't clickable. `PointerHoverFeedback` comopnents aren't activated when used on entites that have a `TextShape` component.
 
 ## Change the text value
 

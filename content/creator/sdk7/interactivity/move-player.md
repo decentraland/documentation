@@ -32,7 +32,7 @@ Transform.create(myEntity, {
 })
 
 // give entity a PointerEvents component
-PointerEvents.create(myEntity, {
+PointerHoverFeedback.create(myEntity, {
     pointerEvents: [
       {
         eventType: PointerEventType.PET_DOWN,

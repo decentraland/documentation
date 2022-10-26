@@ -40,7 +40,7 @@ const sceneMessageBus = new MessageBus()
 const myEntity = engine.addEntity()
 MeshRenderer.create(myEntity, {box:{uvs:[]}})
 MeshCollider.create(myEntity, {box:{}})
-PointerEvents.create(myEntity, {
+PointerHoverFeedback.create(myEntity, {
     pointerEvents: [
       {
         eventType: PointerEventType.PET_DOWN,
@@ -105,7 +105,7 @@ function createCube(x: number, y: number, z: number, spawner = true): Entity {
   MeshRenderer.create(meshEntity, { box: { uvs: [] } })
   MeshCollider.create(meshEntity, { box: {} })
   if (spawner) {
-    PointerEvents.create(meshEntity, {
+    PointerHoverFeedback.create(meshEntity, {
       pointerEvents: [
         {
           eventType: PointerEventType.PET_DOWN,
