@@ -14,18 +14,18 @@ You can build a UI for your scene, to be displayed in the screen's fixed 2D spac
 
 UI elements are only visible when the player is standing inside the scene's LAND parcels, as neighboring scenes might have their own UI to display. Parts of the UI can also be triggered to open when certain events occur in the world-space, for example if the player clicks on a specific place.
 
-You can build a UI Decentraland scenes by defining a structure of `UIEntity` in JSX. The syntax used for UIs is very similar to that of [React](https://reactjs.org/) (a very popular javascript-based framework for building web UIs).
+Build a UI by defining a structure of `UIEntity` in JSX. The syntax used for UIs is very similar to that of [React](https://reactjs.org/) (a very popular javascript-based framework for building web UIs).
 
 A simple UI with static elements can look a lot like HTML, but when you add dynamic elements that respond to a change in state, you can do things that are a lot more powerful.
 
-
 The default Decentraland explorer UI includes a chat widget, a map, and other elements. These UI elements are always displayed on the top layer, above any scene-specific UI. So if your scene has UI elements that occupy the same screen space as these, they will be occluded.
 
-TODO: Should I call it JSX? any better name??
+See [UX guidelines]({{< ref "/content/creator/sdk7/design-experience/ux-ui-guide.md" >}}) for tips on how to design the look and feel of your UI.
+
+<!-- TODO: Should I call it JSX? any better name?? -->
 
 When the player clicks the _close UI_ button, on the bottom-right corner of the screen, all UI elements go away.
 
-See [UX guidelines]({{< ref "/content/creator/sdk7/design-experience/ux-ui-guide.md" >}})
 
 ## Render a UI
 
@@ -65,10 +65,9 @@ renderUi(() => (
 
 ## UI Entities
 
-Each element in the UI must be defined as a separate `UiEntity`, wether it's an image, text, an invisible alignment box, etc. Just like in the scene's 3d space, each `UiEntity` has its own components to give it a position, color, etc. 
+Each element in the UI must be defined as a separate `UiEntity`, wether it's an image, text, an invisible alignment box, etc. Just like in the scene's 3d space, each `UiEntity` has its own components to give it a position, color, etc.
 
-The React-like syntax allows you to specify each component as a property within the `UiEntity`, this makes the code a lot faster to write and more readable.
-
+The React-like syntax allows you to specify each component as a property within the `UiEntity`, this makes the code shorter and more readable.
 
 The components used in a `UiEntity` are different from those used in regular entities. You cannot apply a UI component to a regular entity, nor a regular component to a UI entity.
 
@@ -77,7 +76,7 @@ The following components are available to use in the UI:
 - `uiTransform`
 - `uiBackground`
 - `uiText`
-
+- `onClick`
 
 Like with HTML tags, you can define components as self-closing or nest one within another.
 
@@ -114,23 +113,29 @@ renderUi(() => (
 
 ## UI Components
 
+The following components are available to configure the look and behavior of a `UiEntity`.
+
 ### uiTransform
 
-width and height
+The `uiTransform` component works in the screen's 2d space very much like the `Transform` component works in the the scene's 3d space.
 
-as number = in pixels
+The following fields are available to configure:
 
+- `width` and `height`: The size of the entity. To set these fields in pixels, write the value as a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`.
+- `justifyContent`:YGJustify.YGJ_CENTER,
+- `alignItems`: YGAlign.YGA_CENTER,
+- `display`:YGDisplay.YGD_FLEX
+- `margin`: An object that can contain the following properties.
+	- `top`, `bottom`, `left`, and `right`:  Set space between the entity and its parent's margins.
+... 
+
+TODO: many more properties of uiTransform
+
+
+> Note: Most numerical values... 
 also define as `200px`
 or define percentage as string `20%`
 
-margin
-
-top, left, right bottom
-
-
-justifyContent: YGJustify.YGJ_CENTER,
-alignItems: YGAlign.YGA_CENTER,
-display: YGDisplay.YGD_FLEX
 
 
 
@@ -145,10 +150,6 @@ By default, to the top-left corner of its parent. If the `hAlign` or `vAlign` pr
 
 > Tip: When measuring from the top, the numbers for `positionY` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `positionX` to 20 and `positionY` to -20.
 
-`paddingBottom`: padding space to leave empty around. To set these fields in pixels, write the value as a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`
-
-- `width`, `height`: Set the size of the component in the screen. To set these fields in pixels, write the value as a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10%`
-
 
 examples:
 ```ts
@@ -156,35 +157,89 @@ examples:
 
 ### uiBackground
 
-a background is a block 
+A `uiBackground` colors an entity's area. It uses the size and position defined by the entity's `uiTransform`.
+
+The following fields can be configured:
+
+- `backgroundColor`: The color to use on the entity, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}) value.
+
+> Tip: Make an entity semi-transparent by setting the 4th value of the `Color4` to less than 1.
+
+TODO: can I add texture??
 
 
-give it a color (see color types)
-
-add material??
-
-examples:
 ```ts
+renderUi(() => (
+  <UiEntity
+    uiTransform={{
+      width: 700,
+      height: 400
+    }}
+    uiBackground={{ 
+		backgroundColor: Color4.create(0.5, 0.8, 0.1, 0.6) 
+	}}
+  >
+))
 ```
-
 
 ### uiText
 
-Text elements 
+Ad text to your UI by giving entities a `uiText` component.
 
-A single entity can have both text and background
+The following fields can be configured:
+
+- `value`: The string to display
+- `fontSize`: The size of the text, as a number.
+- `color`: The color of the text, as a [Color3]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}).
+- `font`: 
+- `textAlign`: 
+
+TODO: what value for font?? (not the same as text)
+what about text align, TextAlignMode not valid either
 
 
-Is this true??
-The properties you can set are the same as in a `TextShape` component. See [text]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).
+> TIP: A single entity can have both `uiText` and `uiBackground` components.
 
-examples:
+> NOTE: The `fontSize` is not affected by the size of its entity or parent entities.
+
 ```ts
+renderUi(() => (
+  <UiEntity
+    uiTransform={{
+      width: 700,
+      height: 400
+    }}
+    uiText={{ value: 'SDK 7', fontSize: 80, color: Color3.Red()  }}
+  >
+))
 ```
+
+TODO: examples with textAlign
+
+
+
+For multi-line text, you can add line breaks into the string, using `\n`.
+
+
+```ts
+renderUi(() => (
+  <UiEntity
+    uiText={{ 
+		value:  "Hello World,\nthis message is quite long and won't fit in a single line.\nI hope that's not a problem." 
+	}}
+  >
+))
+```
+
+## OnClick
+
+
+do we need up and down event?
+
+> Note: To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
 
 
 <!-- 
-### Pointer events
 
 ### Input box
  -->
@@ -196,129 +251,19 @@ TODO:  How do I define a type and reuse it???
 
 
 
+TODO: what is `key` for?  to give an element a searchable name?
 
 
 
-## Use parent elements for organizing
-
-Certain UI elements are there to help you organize how you place other elements.
-
-<!--
-![](/images/media/UI-rectangle.png)
--->
-
-For this, you can use the `UIContainerStack` and the `UIContainerRect`.
-
-Both these shapes have properties to set their color, and line thickness.
-
-```ts
-const canvas = new UICanvas()
-
-const inventoryContainer = new UIContainerStack(canvas)
-inventoryContainer.adaptWidth = true
-inventoryContainer.width = "40%"
-inventoryContainer.positionY = 100
-inventoryContainer.positionX = 10
-inventoryContainer.color = Color4.White()
-inventoryContainer.hAlign = "left"
-inventoryContainer.vAlign = "top"
-inventoryContainer.stackOrientation = UIStackOrientation.VERTICAL
-```
-
-Container components also have following properties:
-
-- `adaptWidth`, `adaptHeight`: Set on parent components. If these are set to true, the width and height wrap the child components (plus padding). If these are true, `width` and `height` values are ignored
-
-- `stackOrientation`: The `UIContainerStack` component has this property to set if the stack will expand vertically or horizontally.
 
 
-## Set transparency
-
-You can make a UI element partly transparent by setting its `opacity` property to a value that's less than 1.
-
-```ts
-const canvas = new UICanvas()
-
-const rect = new UIContainerRect(canvas)
-rect.width = "100%"
-rect.height = "100%"
-rect.color = Color4.Blue()
-rect.opacity = 0.5
-```
-
-Setting an element's opacity also affects all of its children. If you don't want its children to be transparent, for example you want the background to be transparent but not the text on it, you can set the color with a hex string that has four values, one of them being the alpha channel.
-
-## Text
-
-The `UIText` component lets you add text. It has properties that are similar to the `TextShape` component. See [text]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).
-
-- `value`: The string to display.
-- `color`: `Color4` For the text color.
-- `fontSize`: Font size.
-- `font`: Font to use.
-- `lineSpacing` : Space between lines of text, expressed as a string. For example "30px".
-- `lineCount`: How many max lines of text.
-- `textWrapping`: If text automatically occupies more lines.
-- `outlineWidth`, `outlineColor`: Add an outline to the text.
-- `shadowBlur`, `shadowOffsetX`, `shadowOffsetY`, `shadowColor`: Add a shadow to the text.
-
-Fonts are set as a _Font object_. Font objects are initiated with a value from the _Fonts_ enum, which contains all supported fonts. By default, all text components use _LiberationSans_ font.
-
-```ts
-const canvas = new UICanvas()
-
-const myText = new UIText(canvas)
-myText.value = "Hello"
-myText.font = new Font(Fonts.SansSerif)
-myText.fontSize = 20
-myText.positionX = "15px"
-myText.color = Color4.Blue()
-```
 
 
-You can share a same instanced `Font` object accross multiple `UIText` components.
 
-```ts
-const sfFont = new Font(Fonts.SansSerif)
-
-const myText = new UIText(canvas)
-myText.value = "Hello"
-myText.font = sfFont
-
-const myText2 = new UIText(canvas)
-myText2.value = "World"
-myText2.font = sfFont
-```
-
-
-#### Multiline text
-
-`UIText` components by default adapt their width to the length of the provided string. To make a text span multiple lines, set the `textWrapping` property to _true_ and `adaptWidth` to _false_, and also specify the desired width.
-
-```ts
-const canvas = new UICanvas()
-
-const myText = new UIText(canvas)
-myText.value =
-  "Hello World, this message is quite long and won't fit in a single line. I hope that's not a problem."
-myText.fontSize = 20
-myText.adaptWidth = false
-myText.textWrapping = true
-myText.width = 100
-```
-
-Alternatively, you can add line breaks into the string, using `\n`.
-
-```ts
-const canvas = new UICanvas()
-
-const myText = new UIText(canvas)
-myText.value =
-  "Hello World,\nthis message is quite long and won't fit in a single line.\nI hope that's not a problem."
-myText.fontSize = 20
-```
-
+<!-- 
 ## Images from an image atlas
+
+TODO: Wait for textures in UI
 
 You can use an image atlas to store multiple images and icons in a single image file. You then display rectangular parts of this image file in your UI based on pixel positions, pixel width, and pixel height inside the source image.
 
@@ -370,7 +315,9 @@ You can change the texture being used by an existing `UIImage` component, set th
 
 ```ts
 playButton.source = imageTexture2
-```
+``` -->
+
+
 <!-- 
 ## Clicking UI elements
 
@@ -394,7 +341,6 @@ clickableImage.onClick = new OnClick(() => {
 ```
 
 
-> Note: To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
 
 > Tip: If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
 
@@ -448,7 +394,7 @@ textInput.onChanged = new OnChanged((data: { value: string }) => {
 ``` 
 -->
 
-
+<!-- 
 ## Open the UI
 
 You can have the code of your scene make the UI visible when specific events occurs, for example at the end of a game to display the final score.
@@ -505,4 +451,4 @@ close.onClick = new OnClick(() => {
   canvas.isPointerBlocker = false
 })
 ```
-````
+-->
