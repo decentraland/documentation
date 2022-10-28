@@ -16,6 +16,8 @@ UI elements are only visible when the player is standing inside the scene's LAND
 
 Build a UI by defining a structure of `UIEntity` in JSX. The syntax used for UIs is very similar to that of [React](https://reactjs.org/) (a very popular javascript-based framework for building web UIs).
 
+> Note: You can only define JSX UI syntax in files that have a `.tsx` extension. `.tsx` files support everything that `.ts` files support, plus UI syntax. We recommend creating a `.ui.tsx` file and defining your UI there. 
+
 A simple UI with static elements can look a lot like HTML, but when you add dynamic elements that respond to a change in state, you can do things that are a lot more powerful.
 
 The default Decentraland explorer UI includes a chat widget, a map, and other elements. These UI elements are always displayed on the top layer, above any scene-specific UI. So if your scene has UI elements that occupy the same screen space as these, they will be occluded.
@@ -82,16 +84,6 @@ Like with HTML tags, you can define components as self-closing or nest one withi
 
 ```ts
 renderUi(() => (
-	// self-closing entity
-	<UiEntity
-		uiTransform={{
-			width: 400,
-			height: 400,
-			margin: { top: '35px', left: '500px' }
-		}}
-		uiBackground={{ backgroundColor: Color4.Red() }}
-	/>
-
 	// parent entity
 	<UiEntity
 		uiTransform={{
@@ -101,158 +93,23 @@ renderUi(() => (
 		}}
 		uiBackground={{ backgroundColor: Color4.Blue() }}
 	>
-		// child enity
+		// self-closing child entity
 		<UiEntity
-		  uiText={{ value: `Hello world!`, fontSize: 40 }}
+			uiTransform={{
+				width: 400,
+				height: 400,
+				margin: { top: '35px', left: '500px' }
+			}}
+			uiText={{ value: `Hello world!`, fontSize: 40 }}
 		/>
 	// closing statement for the parent entity
 	</UiEntity>
 ))
 ```
 
+A JSX statement can only have one parent-level entity. You can define as many other entities as you want, but they must all fit inside a structure with one single parent at the top.
 
-## UI Components
-
-The following components are available to configure the look and behavior of a `UiEntity`.
-
-### uiTransform
-
-The `uiTransform` component works in the screen's 2d space very much like the `Transform` component works in the the scene's 3d space.
-
-The following fields are available to configure:
-
-- `width` and `height`: The size of the entity. To set these fields in pixels, write the value as a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`.
-- `justifyContent`:YGJustify.YGJ_CENTER,
-- `alignItems`: YGAlign.YGA_CENTER,
-- `display`:YGDisplay.YGD_FLEX
-- `margin`: An object that can contain the following properties.
-	- `top`, `bottom`, `left`, and `right`:  Set space between the entity and its parent's margins.
-... 
-
-TODO: many more properties of uiTransform
-
-
-> Note: Most numerical values... 
-also define as `200px`
-or define percentage as string `20%`
-
-
-
-
-As with entities in 3d space, child entities inherit the parent's position
-
-TODO: do children inherit scale?
-TODO: no rotation, right?
-
-Old text:
-
-By default, to the top-left corner of its parent. If the `hAlign` or `vAlign` properties are set, then `positionX` and `positionY` offset the UI component relative to the position of these alignment properties.
-
-> Tip: When measuring from the top, the numbers for `positionY` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `positionX` to 20 and `positionY` to -20.
-
-
-examples:
-```ts
-```
-
-### uiBackground
-
-A `uiBackground` colors an entity's area. It uses the size and position defined by the entity's `uiTransform`.
-
-The following fields can be configured:
-
-- `backgroundColor`: The color to use on the entity, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}) value.
-
-> Tip: Make an entity semi-transparent by setting the 4th value of the `Color4` to less than 1.
-
-TODO: can I add texture??
-
-
-```ts
-renderUi(() => (
-  <UiEntity
-    uiTransform={{
-      width: 700,
-      height: 400
-    }}
-    uiBackground={{ 
-		backgroundColor: Color4.create(0.5, 0.8, 0.1, 0.6) 
-	}}
-  >
-))
-```
-
-### uiText
-
-Ad text to your UI by giving entities a `uiText` component.
-
-The following fields can be configured:
-
-- `value`: The string to display
-- `fontSize`: The size of the text, as a number.
-- `color`: The color of the text, as a [Color3]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}).
-- `font`: 
-- `textAlign`: 
-
-TODO: what value for font?? (not the same as text)
-what about text align, TextAlignMode not valid either
-
-
-> TIP: A single entity can have both `uiText` and `uiBackground` components.
-
-> NOTE: The `fontSize` is not affected by the size of its entity or parent entities.
-
-```ts
-renderUi(() => (
-  <UiEntity
-    uiTransform={{
-      width: 700,
-      height: 400
-    }}
-    uiText={{ value: 'SDK 7', fontSize: 80, color: Color3.Red()  }}
-  >
-))
-```
-
-TODO: examples with textAlign
-
-
-
-For multi-line text, you can add line breaks into the string, using `\n`.
-
-
-```ts
-renderUi(() => (
-  <UiEntity
-    uiText={{ 
-		value:  "Hello World,\nthis message is quite long and won't fit in a single line.\nI hope that's not a problem." 
-	}}
-  >
-))
-```
-
-## OnClick
-
-
-do we need up and down event?
-
-> Note: To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
-
-
-<!-- 
-
-### Input box
- -->
-
-
-
-
-TODO:  How do I define a type and reuse it???
-
-
-
-TODO: what is `key` for?  to give an element a searchable name?
-
+TODO: Can I have multiple JSX statements in a scene?
 
 
 
@@ -319,30 +176,7 @@ playButton.source = imageTexture2
 
 
 <!-- 
-## Clicking UI elements
 
-All UI elements have an `isPointerBlocker` property, that determines if they can be clicked. If this value is false, the pointer should ignore them and respond to whatever is behind the element.
-
-Clickable UI elements also have an `OnClick` property, that lets you add a function to execute every time it's clicked.
-
-```ts
-const canvas = new UICanvas()
-
-const clickableImage = new UIImage(canvas, new Texture("icon.png"))
-clickableImage.name = "clickable-image"
-clickableImage.width = "92px"
-clickableImage.height = "91px"
-clickableImage.sourceWidth = 92
-clickableImage.sourceHeight = 91
-clickableImage.isPointerBlocker = true
-clickableImage.onClick = new OnClick(() => {
-  // DO SOMETHING
-})
-```
-
-
-
-> Tip: If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
 
 ## Input text
 
@@ -451,4 +285,13 @@ close.onClick = new OnClick(() => {
   canvas.isPointerBlocker = false
 })
 ```
+
+
+TODO:  How do I define a type and reuse it???
+
+
+
+TODO: what is `key` for?  to give an element a searchable name?
 -->
+
+
