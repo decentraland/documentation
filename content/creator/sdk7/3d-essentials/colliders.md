@@ -75,3 +75,52 @@ MeshCollider.create(myEntity, {
 ```
 
 The example above creates a `MeshCollider` component that is configured to only respond to player physics. With this configuration, you could for example have an invisible wall that players can't walk through, but that does allow them to click on items on the other side of the wall.
+
+
+## Advanced Syntax
+
+
+The complete syntax for creating a `MeshCollider` component, without any helpers to simplify it, looks like this:
+
+```ts
+MeshCollider.create(myBox, {
+    mesh: { 
+      $case: 'box',
+      box: {} 
+    }
+  })
+
+MeshCollider.create(myPlane, {
+    mesh: { 
+      $case: 'plane',
+      plane: {} 
+    }
+  })
+
+MeshCollider.create(myShpere, {
+    mesh: { 
+      $case: 'sphere',
+      sphere: {} 
+    }
+  })
+
+MeshCollider.create(myCylinder, {
+    mesh: { 
+      $case: 'cylinder',
+      cylinder: {} 
+    }
+  })
+```
+
+This is how the base protocol interprets MeshCollider components. The helper functions abstract away from this and expose a friendlier syntax, but behind the scenes they output this syntax.
+
+The `$case` field allows you to specify one of the allowed types. Each type supports a different set of parameters.
+
+The supported values for `$case` are the following:
+
+- `box`
+- `plane`
+- `sphere`
+- `cylinder`
+
+Depending on the value of `$case`, it's valid to define the object for the corresponding shape, passing any relevant properties.

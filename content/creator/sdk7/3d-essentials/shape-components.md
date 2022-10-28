@@ -132,3 +132,52 @@ VisibilityComponent.create(myEntity, {visible: false})
 The `VisibilityComponent` works the same for entities with primitive shapes and with `GLTFContainer` components.
 
 If an entity is invisible, its collider can block a player's path and can prevent clicking entities that are behind it.
+
+
+## Advanced syntax
+
+The complete syntax for creating a `MeshRenderer` component, without any helpers to simplify it, looks like this:
+
+```ts
+MeshRenderer.create(myBox, {
+    mesh: { 
+      $case: 'box',
+      box: { uvs: []} 
+    }
+  })
+
+MeshRenderer.create(myPlane, {
+    mesh: { 
+      $case: 'plane',
+      plane: { uvs: []} 
+    }
+  })
+
+MeshRenderer.create(myShpere, {
+    mesh: { 
+      $case: 'sphere',
+      sphere: {} 
+    }
+  })
+
+MeshRenderer.create(myCylinder, {
+    mesh: { 
+      $case: 'cylinder',
+      cylinder: {} 
+    }
+  })
+```
+
+This is how the base protocol interprets MeshRenderer components. The helper functions abstract away from this and expose a friendlier syntax, but behind the scenes they output this syntax.
+
+
+The `$case` field allows you to specify one of the allowed types. Each type supports a different set of parameters. In the example above, the `box` type supports a `uvs` field.
+
+The supported values for `$case` are the following:
+
+- `box`
+- `plane`
+- `sphere`
+- `cylinder`
+
+Depending on the value of `$case`, it's valid to define the object for the corresponding shape, passing any relevant properties.

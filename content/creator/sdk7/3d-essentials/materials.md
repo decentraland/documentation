@@ -266,19 +266,28 @@ Material.create(myEntity, {
 
 ## Avatar Portraits
 
-<!-- TODO: Feature needs doing -->
+<!-- TODO: Helper missing -->
 
-To display a thumbnail image of any player, create an `AvatarTexture`, passing the address of an existing player. This creates a texture from a 256x256 image of the player, showing head and shoulders. The player is displayed wearing the set of wearables that the current server last recorded.
+To display a thumbnail image of any player, create a material that includes an `avatarTexture`, passing the address of an existing player. This creates a texture from a 256x256 image of the player, showing head and shoulders. The player is displayed wearing the set of wearables that the current server last recorded.
 
 ```ts
-let myTexture = new AvatarTexture("0xAAAAAAAAAAAAAAAAA")
-const myMaterial = new Material()
-myMaterial.albedoTexture = myTexture
+Material.create(myEntity, {
+  texture: {
+    tex: {
+      $case: 'avatarTexture',
+      avatarTexture: {
+        userId: '0x517....'
+      }
+    }
+  }
+})
 ```
+<img src="/images/media/avatarTexture.png" alt="Avatar Texture" width="300"/>
+
+You can fetch the portrait of any Decentraland player, even if they're not currently connected, and even if they don't have a claimed Decentraland name.
+
 
 ## Transparent materials
-
-<!-- TODO: any alternative to do this??? -->
 
 To make a material with a plain color transparent, simply define the color as a `Color4`, and set the 4th value to something between _0_ and _1_. The closer to _1_, the more opaque it will be.
 
@@ -286,7 +295,7 @@ To make a material with a plain color transparent, simply define the color as a 
 let transparentRed = Color4(1, 0, 0, 0.5)
 ```
 
-To make a material with texture partially transparent:
+To make a material with a texture only transparent in regions of the texture:
 
 - Set an image in `alphaTexture`.
 
@@ -345,3 +354,46 @@ Material.create(meshEntity3, {
 To stream video from a URL into a material, or play a video from a file stored in the scene, see [video playing]({{< ref "/content/creator/sdk7/media/video-playing.md" >}}).
 
 The video is used as a texture on a material, you can set any of the other properties of materials to alter how the video screen looks.
+
+
+
+
+## Advanced syntax
+
+The complete syntax for creating a `Materials` component, without any helpers to simplify it, looks like this:
+
+```ts
+Material.create(myEntity, {
+  texture: {
+    tex: {
+      $case: 'texture',
+      texture: {
+        src: 'images/scene-thumbnail.png'
+      }
+    }
+  }
+})
+
+Material.create(myEntity, {
+  texture: {
+    tex: {
+      $case: 'avatarTexture',
+	  avatarTexture: {
+			userId: '0x517....'
+	  }
+    }
+  }
+})
+```
+
+This is how the base protocol interprets Materials components. The helper functions abstract away from this and expose a friendlier syntax, but behind the scenes they output this syntax.
+
+
+The `$case` field allows you to specify one of the allowed types. Each type supports a different set of parameters. In the example above, the `box` type supports a `uvs` field.
+
+The supported values for `$case` are the following:
+
+- `texture`
+- `avatarTexture`
+
+Depending on the value of `$case`, it's valid to define the object for the corresponding shape, passing any relevant properties.
