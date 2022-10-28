@@ -52,7 +52,7 @@ See [3D models](/creator/3d-modeling/3d-models) for more details on how to add c
 
 ## Pointer blocking
 
-Only shapes that have colliders can be activated with [pointer events]({{< ref "/content/creator/sdk7/interactivity/click-events.md" >}}). An entity also needs to have a collider to block pointer events on entities behind it. So for example, a player can't pick something up that is locked inside a chest, if the chest has colliders around it. The player's pointer events are only affected by collider meshes, not by the model's visible geometry.
+Only shapes that have colliders can be activated with [pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}). An entity also needs to have a collider to block pointer events on entities behind it. So for example, a player can't pick something up that is locked inside a chest, if the chest has colliders around it. The player's pointer events are only affected by collider meshes, not by the model's visible geometry.
 
 You can configure a `MeshCollider` component to only respond to one kind of interaction. To do this, set the `collisionMask` property to one of the following values:
 

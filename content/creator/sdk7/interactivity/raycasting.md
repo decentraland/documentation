@@ -12,7 +12,7 @@ weight: 5
 
 Raycasting is a fundamental tool in game development. With raycasting, you can trace an imaginary line in space, and query if any entities are intersected by the line. This is useful for calculating lines of sight, trajectories of bullets, pathfinding algorithms and many other applications.
 
-When a player pushes the pointer button, or the primary or secondary button, a ray is traced from the player's position in the direction they are looking, see [button events]({{< ref "/content/creator/sdk7/interactivity/click-events.md" >}}) for more details about this. This document covers how to trace an invisible ray from any arbitrary position and direction, independent of player actions, which you can use in many other scenarios.
+When a player pushes the pointer button, or the primary or secondary button, a ray is traced from the player's position in the direction they are looking, see [button events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}) for more details about this. This document covers how to trace an invisible ray from any arbitrary position and direction, independent of player actions, which you can use in many other scenarios.
 
 Please note that as a general rule, all raycasts in the SDK will only hit objects with colliders. So if you want to detect ray hits against a model that you've imported, that model should contain [collider meshes](/creator/3d-models/colliders), or you should add a [MeshCollider component]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}).
 

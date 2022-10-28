@@ -11,7 +11,7 @@ weight: 8
 
 There are several events that the scene can subscribe to, to know the actions of the player while in or near the scene.
 
-For button and click events performed by the player, see [Button events]({{< ref "/content/creator/sdk7/interactivity/click-events.md" >}}).
+For button and click events performed by the player, see [Button events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}).
 
 ## Player connects or disconnects
 
