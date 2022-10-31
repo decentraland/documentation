@@ -1,5 +1,5 @@
 ---
-title: Button events
+title: Input actions
 bookCollapseSection: true
 weight: 1
 ---
