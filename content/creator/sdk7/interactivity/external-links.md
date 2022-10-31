@@ -35,7 +35,7 @@ To add a link to an external website, use the `openExternalURL()` command.
 openExternalURL("https://docs.decentraland.org")
 ```
 
-To prevent any abusive usage of this feature to spam players, it's only possible to call the `openExternalURL` from an explicit click or button event on an entity. It's not possible to call this function as a result of a timer, or a collision area, or a global click event. See [Button events]({{< ref "/content/creator/sdk7/interactivity/click-events.md" >}}) for details on how to do this.
+To prevent any abusive usage of this feature to spam players, it's only possible to call the `openExternalURL` from an explicit click or button event on an entity. It's not possible to call this function as a result of a timer, or a collision area, or a global click event. See [Button events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}) for details on how to do this.
 
 When `openExternalURL` is called, players are prompted with a confirmation screen, where they are informed of where the link will take them, and where can accept of decline to visit the link.
 

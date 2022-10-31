@@ -82,7 +82,7 @@ You then need to create a system to process these results in the frame when they
 
 > Tip: If the processing of the results of a raycast takes a lot of calculations (like running a path-finding algorithm) you might want to run that computation in an asynchronous function.
 
-See [click events]({{< ref "/content/creator/sdk7/interactivity/click-events.md" >}}) and [raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}).
+See [click events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}) and [raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}).
 
 ## Subscribe a listener
 
