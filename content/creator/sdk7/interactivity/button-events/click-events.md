@@ -18,7 +18,61 @@ You can detect button events against an entity. This involves pressing the butto
 
 There are several different ways to handle button events, depending on the use case.
 
-- **Register a callback**: The easiest way to add interaction to a single entity. Write a single statement to set up a callback function and hover feedback.
-- **System-based**: Ideal for handling multiple entities with similar behavior. Use a system to iterate over similar entities and query for button events on each, handling them all with the same logic. Hover feedback needs to be set up separately. This approach is required for handling global button events.
-- **Advanced**: Read the raw response data on each entity, including time-stamps and an event history of button events. This can be useful for defining custom interaction patterns.
+- [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}): The easiest way to add interaction to a single entity. Write a single statement to set up a callback function and hover feedback.
+- [**System-based**]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}): Ideal for handling multiple entities with similar behavior. Use a system to iterate over similar entities and query for button events on each, handling them all with the same logic. Hover feedback needs to be set up separately. This approach is also required for handling global button events.
+- [**Advanced**]({{< ref "/content/creator/sdk7/interactivity/button-events/advanced-button-events.md" >}}): Read the raw response data on each entity, including time-stamps and an event history of button events. This can be useful for defining custom interaction patterns.
 
+## Hover Feedback
+
+Whichever method you use, it's important to make players aware that an entity is interactive. Otherwise, they might completely miss out on the experience you built. It's not a good experience to be clicking on every object hoping for one to respond. Users of Decentraland are used to the pattern that if hovering over an object offers no feedback, then it must be non-interactive.
+
+The default way to add feedback is to display a hover hint on the UI whenever the player passes their cursor over the entity. The [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) makes this super easy to implement, by just passing a string with the text to display. You can also implement this behavior by adding a `PointerHoverFeedback` component to an entity.
+
+You could also implement [custom] ways of feedback, for example you could play a sound, making the entity change color, spin or or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
+
+
+## Pointer buttons
+
+
+The following buttons can be handled by any of the methods.
+
+- `InputAction.IA_POINTER`: **left-mouse button** on a computer.
+- `InputAction.IA_PRIMARY`: **E** key on a computer.
+- `InputAction.IA_SECONDARY`: **F** key on a computer.
+- `InputAction.IA_ACTION_3`: **1** key on a computer.
+- `InputAction.IA_ACTION_4`: **2** key on a computer.
+- `InputAction.IA_ACTION_5`: **3** key on a computer.
+- `InputAction.IA_ACTION_6`: **4** key on a computer.
+- `InputAction.IA_JUMP`: **Space** key on a computer.
+- `InputAction.IA_FORWARD`: **W** key on a computer.
+- `InputAction.IA_LEFT`: **A** key on a computer.
+- `InputAction.IA_RIGHT`: **D** key on a computer.
+- `InputAction.IA_BACK`: **S** key on a computer.
+- `InputAction.IA_WALK`: **Shift** key on a computer.
+
+
+Each `InputAction` is abstracted away from the literal input in the keyboard so that it can be mapped to different inputs depending on the device. For this same reason, not all buttons on the keyboard can be tracked for button events, only the buttons that are used for movement and interaction. This intentional limitation is to ensure that all content is compatible in the future with VR controllers, other kinds of game controllers, and mobile devices. 
+
+## Types of pointer events
+
+Each input can produce the following types of pointer events. Each of the following is a value in the `PointerEventType` enum.
+
+- `DOWN`: Player pushes down a specific button while having the cursor pointing at the entity's collider.
+- `UP`: Player releases a specific button while having the cursor pointing at the entity's collider.
+- `HOVER_ENTER`: Player's cursor starts pointing at the entity's collider.
+- `HOVER_LEAVE`: Player's cursor stops pointing at the entity's collider.
+
+> Note: A _click_ event, as detected by the `Input.wasJustClicked` helper function, is a combination of a `DOWN` event followed by an `UP` event. Note that as this event may take several ticks of the game loop to be completed, it can't be detected in a single frame, and therefore can only be detected thanks to a helper function.
+
+
+## Obstacles
+
+Button events cast rays that only interact with the first entity on their path, as long as the entity is closer than its distance limit.
+
+For an entity to be intercepted by the ray of a button event, the entity's 3d model must either have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). Either the entity's 3d model must include a collider mesh, or the entity must have a `CollierMesh` component.
+
+If another entity's collider is standing on the way of the entity that the player wants to click, the player won't be able to click the entity that's behind, unless the entity's `MeshCollider` component is configured to allow clicking through it.
+
+## Data
+
+TODO: here????

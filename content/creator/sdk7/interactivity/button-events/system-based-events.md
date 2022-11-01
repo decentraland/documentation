@@ -10,6 +10,10 @@ weight: 3
 ---
 
 
+About
+
+links to other methods
+
 ## Check for button events
 
 
@@ -96,8 +100,8 @@ TODO: check this
 
 The `Input.wasInputJustActive` function takes the following arguments:
 
-- `InputAction`: Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons](#pointer-buttons) for supported options.
-- `PointerEventType`: What type of event to listen for, as a value from the `PointerEventType` enum. See [Types of pointer events](#types-of-pointer-events) for supported options.
+- `InputAction`: Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options.
+- `PointerEventType`: What type of event to listen for, as a value from the `PointerEventType` enum. See [Types of pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#types-of-pointer-events" >}}) for supported options.
 - `Entity` _(optional)_: What entity to check these events on. If no value is provided, it will check for global presses of the button, regardless of where the player's cursor was pointing at.
 
 The following example checks for button presses against a particular entity.
@@ -154,7 +158,7 @@ If the click event is being checked against a specific entity, both the button d
 
 The `Input.wasJustClicked` function takes the following arguments:
 
-- `InputAction`: Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons](#pointer-buttons) for supported options.
+- `InputAction`: Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options.
 - `Entity` _(optional)_: What entity to check clicks on. If no value is provided, it will check for global clicks of the button, regardless of where the player's cursor was pointing at.
 
 
@@ -184,44 +188,8 @@ engine.addSystem(() => {
 
 The `Input.isActionDown` function takes a single argument:
 
-- `InputAction`: Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons](#pointer-buttons) for supported options.
+- `InputAction`: Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options.
 
-
-### Types of pointer events
-
-
-There are various types of pointer event that can be detected.
-
-The following types of events are available in the `PointerEventType` enum.
-
-- `DOWN`: Player pushes down a specific button while having the cursor pointing at the entity's collider.
-- `UP`: Player releases a specific button while having the cursor pointing at the entity's collider.
-- `HOVER_ENTER`: Player's cursor starts pointing at the entity's collider.
-- `HOVER_LEAVE`: Player's cursor stops pointing at the entity's collider.
-
-> Note: A _click_ event, as detected by the `Input.wasJustClicked` helper function, is a combination of a `DOWN` event followed by an `UP` event. Note that as this event may take several ticks of the game loop to be completed, it can't be detected in a single frame, and therefore can only be detected thanks to a helper function.
-
-
-### Pointer buttons
-
-The following buttons can be handled on pointer events:
-
-- `InputAction.IA_POINTER`: **left-mouse button** on a computer.
-- `InputAction.IA_PRIMARY`: **E** key on a computer.
-- `InputAction.IA_SECONDARY`: **F** key on a computer.
-- `InputAction.IA_ACTION_3`: **1** key on a computer.
-- `InputAction.IA_ACTION_4`: **2** key on a computer.
-- `InputAction.IA_ACTION_5`: **3** key on a computer.
-- `InputAction.IA_ACTION_6`: **4** key on a computer.
-- `InputAction.IA_JUMP`: **Space** key on a computer.
-- `InputAction.IA_FORWARD`: **W** key on a computer.
-- `InputAction.IA_LEFT`: **A** key on a computer.
-- `InputAction.IA_RIGHT`: **D** key on a computer.
-- `InputAction.IA_BACK`: **S** key on a computer.
-- `InputAction.IA_WALK`: **Shift** key on a computer.
-
-
-Each `InputAction` is abstracted away from the literal input in the keyboard so that it can be mapped to different inputs depending on the device. For this same reason, not all buttons on the keyboard can be tracked for button events, only the buttons that are used for movement and interaction. This intentional limitation is to ensure that all content is compatible in the future with VR controllers, other kinds of game controllers, and mobile devices. 
 
 ### Handle multiple entities
 
@@ -264,6 +232,9 @@ Does is make sense to add `PointerHoverFeedback` to the equation? so do `engine.
 
 In the example above, the system iterates over the entities that have both a `PointerHoverFeedback` component and a custom `IsDoor` flag component, that is added to all doors in your scene.  -->
 
+### Global button events
+
+TODO
 
 
 ## Show feedback
@@ -297,10 +268,10 @@ TODO: image
 
 The `PointerHoverFeedback` component requires that you define at least one pointer event. You can potentially add multiple ones as an array. Each pointer event can be configured with the following:
 
-- `eventType`: What type of event to listen for, as a value from the `PointerEventType` enum. See [Types of pointer events](#types-of-pointer-events) for supported options.
+- `eventType`: What type of event to listen for, as a value from the `PointerEventType` enum. See [Types of pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#types-of-pointer-events" >}}) for supported options.
 - `eventInfo`: An object that can contain the following fields:
 
-	- `button` (_required_): Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons](#pointer-buttons) for supported options.
+	- `button` (_required_): Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options.
 	- `hoverText` _(optional)_: What string to display in the UI.
 	- `maxDistance`  _(optional)_: Only show feedback when the player is closer than a certain distance from the entity. Default is _10 meters_.
 
@@ -436,16 +407,8 @@ The example above sets the maximum distance to _6 meters_.
 
 > Note: The `maxDistance` is measured in meters from meters from the player's camera. Keep in mind that in 3rd person the camera is a bit further away, so make sure the distance you set works well in both modes.
 
-## Obstacles
-
-Button events cast rays that only interact with the first entity on their path, as long as the entity is closer than its distance limit.
-
-For an entity to be intercepted by the ray of a button event, the entity's 3d model must either have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). Either the entity's 3d model must include a collider mesh, or the entity must have a `CollierMesh` component.
-
-If another entity's collider is standing on the way of the entity that the player wants to click, the player won't be able to click the entity that's behind, unless the entity's `MeshCollider` component is configured to allow clicking through it.
 
 ## Data from a pointer event
-
 
 
 When using the `Input.getInputCommand`, the following data comes back:
