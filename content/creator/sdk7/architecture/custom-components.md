@@ -156,6 +156,7 @@ The following basic types are available for using within the fields of a schema:
 - `Schemas.Number`
 - `Schemas.Short`
 - `Schemas.String`
+- `Schemas.Entity`
 
 The following complex types also exist. They each include a series of nested properties with numerical values.
 
@@ -165,6 +166,21 @@ The following complex types also exist. They each include a series of nested pro
 - `Schemas.Color4`
 
 > TIP: See [Geometry types]({{< ref "/content/creator/sdk7/3d-essentials/special-types.md" >}}) and [Color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how these types of data are useful.
+
+For example, you can use these schema types in a component like this to track the gradual movement of an entity. This component stores an initial and a final position as Vector3 values, as well as a speed and fraction of the completed path as float numbers. See [Move entities]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md#move-between-two-points" >}}) for the full implementation of this example.
+
+```ts
+const MoveTransportData = {
+  start: Schemas.Vector3,
+  end: Schemas.Vector3,
+  fraction: Schemas.Float,
+  speed: Schemas.Float,
+}
+
+export const LerpTransformComponent = engine.defineComponent(MoveTransportData, COMPONENT_ID)
+```
+
+
 
 ### Array types
 

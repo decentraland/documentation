@@ -33,7 +33,7 @@ MeshCollider.create(myEntity, { box: {} })
 
 The shape used by the `MeshCollider` doesn't need to necessarily match the one used by the `MeshRenderer`.
 
-## Colliders on 3d models
+## Colliders on 3D models
 
 3D models can include their own colliders as part of a _.glTF_ or _.glb_ file. Any mesh in the model who's name ends in `_collider` is interpreted as a collider.
 

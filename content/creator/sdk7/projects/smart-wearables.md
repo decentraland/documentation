@@ -32,7 +32,7 @@ When prompted by the command, select `smart wearable (beta)`
 This command creates the basic files and structure for a new smart wearable. This folder is very similar to that of a Decentraland scene, but you will notice the following differences:
 
 - `wearable.json` includes all of the metadata for the portable experience
-- There’s a placeholder 3d model (glasses.glb) and thumbnail (glasses.png) for a pair of dark glasses. You should replace these with the actual wearable you want to use
+- There’s a placeholder 3D model (glasses.glb) and thumbnail (glasses.png) for a pair of dark glasses. You should replace these with the actual wearable you want to use
 - `scene.json` is a lot shorter, it doesn’t include properties that are irrelevant to a wearable, like parcels or spawn points
 
 ## About wearable.json
@@ -93,9 +93,9 @@ The following fields can also optionally be included. These settings can also be
   - `hides`: List of categories of other wearables that should be hidden (but not unequipped) when equipping this wearable, in addition to the default of this category.
   - `tags`: Tags used to make the wearable searchable in the marketplace.
   - `representations`:
-    - `bodyShapes`: The list of avatar representations that can use this werable. Eg, both `BaseMale` and `BaseFemale`.
-    - `mainFile`: The main file with the 3d model of the wearable.
-    - `contents`: The full list of files used to render the 3d model of the wearable. For example, the 3d model could include textures as separate files.
+    - `bodyShapes`: The list of avatar representations that can use this wearable. Eg, both `BaseMale` and `BaseFemale`.
+    - `mainFile`: The main file with the 3D model of the wearable.
+    - `contents`: The full list of files used to render the 3D model of the wearable. For example, the 3D model could include textures as separate files.
     - `overrideHides`: Any exceptions from the default _hide_ behavior of this wearable category. 
     - `overrideReplaces`:  Any exceptions from the default _replace_ behavior of this wearable category.
 
@@ -134,7 +134,7 @@ The following fields can also optionally be included. These settings can also be
     - 'skin'
 
 - `menuBarIcon`: Image to use on the “experiences” menu, to represent this portable experience, to represent the portable experience. This image should be at root level in your folder. The recommended image size is 256x256.
-- `model`: The 3d model to use for the wearable. This file should be at root level in your folder.
+- `model`: The 3D model to use for the wearable. This file should be at root level in your folder.
 - `bodyShape`: The avatar body type that this wearable is compatible with. Possible values:
   - male
   - female
@@ -149,7 +149,7 @@ Chose an image that sets player expectations and properly represents your creati
 
 ## The Preview
 
-Running a preview of a portable experience is just like running that of a scene, simply run `dcl start`. If the `wearable.json` file is properly configured and the project is recognized as a portable experience, you’ll notice that all the visible around you are the default empty parcels. In this preview mode, you are not restricted to any set of parcels, you can add 3d models or sounds anywhere in the world.
+Running a preview of a portable experience is just like running that of a scene, simply run `dcl start`. If the `wearable.json` file is properly configured and the project is recognized as a portable experience, you’ll notice that all the visible around you are the default empty parcels. In this preview mode, you are not restricted to any set of parcels, you can add 3D models or sounds anywhere in the world.
 
 To test how the smart wearable behaves in the context of a scene, you can also run a preview of your wearable at the same time as you run a preview of one or several scenes by using a [Workspace]({{< ref "/content/creator/sdk7/projects/workspaces.md" >}}). For example, you can run your smart wearable together with the [Genesis Plaza](https://github.com/decentraland-scenes/Genesis-Plaza) scene to test how it behaves on a busy scene, while on an elevator, etc.
 
@@ -163,7 +163,7 @@ To test how the smart wearable behaves in the context of a scene, you can also r
 - To interact with surrounding scenes:
   - You can’t directly send any instructions to nearby scenes or other portable experiences, the `messageBus` is currently sandboxed for each portable experience/scene.
   - You can use an intermediate server to send information between the portable experience and a scene.
-  - If you do a raycast, you can detect hits against the colliders of entities from the surrounding scenes. This can tell you the exact hit location, normal direction, and even the entity name and mesh name of the 3d model.
+  - If you do a raycast, you can detect hits against the colliders of entities from the surrounding scenes. This can tell you the exact hit location, normal direction, and even the entity name and mesh name of the 3D model.
 - Kill a portable experience: Run the `kill()` method to self-terminate a portable experience.
 
 ## Publish
@@ -182,7 +182,7 @@ To publish your smart wearable:
 
   > Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model): 
     a) Select only Male and complete the process
-    b) Open the wearables in the editor, click the three dot options button, select “upload female representation”, and upload the 3d model for the female shape.
+    b) Open the wearables in the editor, click the three dot options button, select “upload female representation”, and upload the 3D model for the female shape.
 
 5. Open the editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
 6. Create a new collection with this and perhaps other wearables.
@@ -199,7 +199,7 @@ See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadat
 
 ## Limitations
 
-> IMPORTANT: The entire smart wearable needs to fit within 2 MB. This includes the 3d model, thumbnail, code, libraries, sound files, additional 3d models, UI images, etc. This limit is for the uncompressed folder. The builder will not let you upload larger wearables than this.
+> IMPORTANT: The entire smart wearable needs to fit within 2 MB. This includes the 3D model, thumbnail, code, libraries, sound files, additional 3D models, UI images, etc. This limit is for the uncompressed folder. The builder will not let you upload larger wearables than this.
 > To check the size of your portable experience, run `dcl pack`, the project size is specified in the output text of the command. You can also verify this by uncompressing the generated `portable-expereince.zip` file.
 
 Smart wearables only run the portable experience for the player wearing the wearable. Other players don't see the effects. For example, if the portable experience renders a pet that follows the player, other players around won't see this pet.

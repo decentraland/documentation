@@ -68,7 +68,7 @@ Anything that is meant to run in the player's client must located inside the sce
 
 We suggest using these folder names consistently for storing the different types of assets that your scene might need:
 
-- 3d models: `/models`
+- 3D models: `/models`
 - Videos: `/videos`
 - Sound files: `/sounds`
 - Image files for textures (except for glTF models): `/materials`

@@ -9,7 +9,7 @@ url: /creator/development-guide/entity-positioning/
 weight: 1
 ---
 
-You can set the _position_, _rotation_ and _scale_ of any entity by using the `Transform` component. This can be used on any entities, affecting where 3d objects are rendered, like primitive shapes (cube, sphere, plane, etc) and 3D models (`GltfContainer`).
+You can set the _position_, _rotation_ and _scale_ of any entity by using the `Transform` component. This can be used on any entities, affecting where 3D objects are rendered, like primitive shapes (cube, sphere, plane, etc) and 3D models (`GltfContainer`).
 
 <!-- TODO: check image -->
 <img src="/images/media/ecs-simple-components.png" alt="nested entities" width="400"/>
@@ -197,7 +197,7 @@ You can configure how the billboard behaves with the following parameters:
 - `billboardMode`: Uses a value of the `BillboardMode` to set its behavior:
 	- `BillboardMode.BM_ALL_AXES`: The entity rotates to face the player on all of its rotation axis. If the player is high above the entity, the entity will face up.
 	- `BillboardMode.BM_Y_AXE`: The entity has its _y_ rotation axis fixed. It only rotates left and right, not up and down. It stays perpendicular to the ground if the player is above or below the entity.
-- `oppositeDirection`: Switch what side of the entity faces the player. This is useful for `TextShape` components, and for 3d models that may have been built using different conventions of what direction is _forward_.
+- `oppositeDirection`: Switch what side of the entity faces the player. This is useful for `TextShape` components, and for 3D models that may have been built using different conventions of what direction is _forward_.
 
 
 

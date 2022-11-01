@@ -133,7 +133,7 @@ Collision meshes can be added to any model in an external 3D modeling tool like 
 
 While running a scene preview, open the debug menu (on the right of the minimap) and click **Bounding Boxes** to toggle the visualization of bounding boxes on and off.
 
-Bounding boxes are displayed as thin white boxes around each mesh. Bounding boxes show the limits of the space occupied by a 3d model. Every mesh in a 3d model has its own bounding box.
+Bounding boxes are displayed as thin white boxes around each mesh. Bounding boxes show the limits of the space occupied by a 3D model. Every mesh in a 3D model has its own bounding box.
 
 When Decentraland's engine checks if an entity is within the scene limits, it looks at the positions of each corner of the bounding box. Checking the corners of the bounding boxes is an engine optimization, as checking the position of each vertex in the model would be a lot more work. Ideally the bounding box shouldn't extend beyond the visible vertexes of the model, but it may not be the case if the model wasn't carefully built with this in mind.
 
@@ -141,7 +141,7 @@ By visualizing bounding boxes, you can debug problems with entities being report
 
 ## Lighting conditions
 
-The in-world time of day has a big impact on how 3d models look. The color of the light source changes subtly, having a bluish tint at night, and a reddish tint during sunrise and sunset. The direction of the light also moves across the sky, casting shadows in different directions.
+The in-world time of day has a big impact on how 3D models look. The color of the light source changes subtly, having a bluish tint at night, and a reddish tint during sunrise and sunset. The direction of the light also moves across the sky, casting shadows in different directions.
 
 Check that your scene looks good at all times of day by switching the game clock to different values. Open the settings panel, and in the **General** tab set the **skybox time** to any time you prefer. If this slider is grayed out, make sure that the **Dynamic skybox** option is disabled.
 
@@ -150,7 +150,7 @@ Check that your scene looks good at all times of day by switching the game clock
     <figcaption>In-world instructions</figcaption>
 </figure>
 
-Your 3d model's materials might not look the same as they did in the modeling tool you created it with. This is to be expected, as all 3d rendering engines have subtle differences in how they deal with light and materials.
+Your 3D model's materials might not look the same as they did in the modeling tool you created it with. This is to be expected, as all 3D rendering engines have subtle differences in how they deal with light and materials.
 
 ## Avatars and accounts
 

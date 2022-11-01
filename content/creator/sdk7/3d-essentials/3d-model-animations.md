@@ -31,13 +31,13 @@ Not all _glTF_ files include animations. To see if there are any available, you 
 
 ## Automatic playing
 
-If a 3d model includes any animations, the default behavior is that the first of these is always played on a loop.
+If a 3D model includes any animations, the default behavior is that the first of these is always played on a loop.
 
 To avoid this behavior, add an `Animator` component to the entity that has the model, and then handle the playing of animations explicitly. If an `Animator` component is present in the entity, all animations default to a `stopped` state, and need to be manually played.
 
 ## Handle animations explicitly
 
-An `Animator` component is used to access all the animations of the entity and can be used to explicitly tell the entity to play or stop an animation. The `Animator` component includes an array of `states`, this list must include one object for each one of the animations that the 3d model can perform. A single `Animator` can include as many states as needed.
+An `Animator` component is used to access all the animations of the entity and can be used to explicitly tell the entity to play or stop an animation. The `Animator` component includes an array of `states`, this list must include one object for each one of the animations that the 3D model can perform. A single `Animator` can include as many states as needed.
 
 ```ts
 // Create entity
@@ -82,11 +82,11 @@ const mutableAnimator = Animator.getMutable(shark)
 const swimAnim = mutableAnimator.states.find( (anim) =>{return anim.name=="swim"})
 ```
 
-> Note: If you attempt to use `.find()` to fetch a clip that exists in the 3d model, but is not listed in the `Animator` component, it returns `null`.
+> Note: If you attempt to use `.find()` to fetch a clip that exists in the 3D model, but is not listed in the `Animator` component, it returns `null`.
 
 ## Play an animation
 
-The `.playing` field in an animation state determines if the animation is currently playing. Note that multiple animations may be playing in a single 3d model at the same time.
+The `.playing` field in an animation state determines if the animation is currently playing. Note that multiple animations may be playing in a single 3D model at the same time.
 
 
 ```ts

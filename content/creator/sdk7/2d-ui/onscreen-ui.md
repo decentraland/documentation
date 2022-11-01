@@ -69,7 +69,7 @@ renderUi(() => (
 
 ## UI Entities
 
-Each element in the UI must be defined as a separate `UiEntity`, wether it's an image, text, an invisible alignment box, etc. Just like in the scene's 3d space, each `UiEntity` has its own components to give it a position, color, etc.
+Each element in the UI must be defined as a separate `UiEntity`, wether it's an image, text, an invisible alignment box, etc. Just like in the scene's 3D space, each `UiEntity` has its own components to give it a position, color, etc.
 
 The React-like syntax allows you to specify each component as a property within the `UiEntity`, this makes the code shorter and more readable.
 

@@ -13,7 +13,7 @@ weight: 3
 
 For all kinds of UI content, use the `uiTransform` component to set the size, position, and other properties related to the entity's alignment.
 
-The `uiTransform` component works in the screen's 2d space very much like the `Transform` component works in the the scene's 3d space.
+The `uiTransform` component works in the screen's 2d space very much like the `Transform` component works in the the scene's 3D space.
 
 ```ts
 renderUi(() => (

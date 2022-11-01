@@ -98,15 +98,15 @@ As an alternative, you can run `dcl deploy --skip-build` to skip the running of 
 
 - See [Verify Deployment Success]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md#verify-deployment-success">}}) for instructions on how you can ensure that the content was properly propagated to all servers.
 
-### Issue: Once deployed, some 3d models are missing
+### Issue: Once deployed, some 3D models are missing
 
-- Make sure the 3d models are all within the scene boundaries, even their bounding boxes. When running in preview, any 3d models that extend beyond the scene boundaries are marked in red and their bounding boxes are marked. In the deployed scene, these models aren't rendered at all, as they could be intruding into the parcels of your neighbors.
-
-
-### Issue: Once deployed, my 3d models look different
+- Make sure the 3D models are all within the scene boundaries, even their bounding boxes. When running in preview, any 3D models that extend beyond the scene boundaries are marked in red and their bounding boxes are marked. In the deployed scene, these models aren't rendered at all, as they could be intruding into the parcels of your neighbors.
 
 
-- If the textures look different, keep in mind that textures in 3d models are capped to a maximum size of 512x512 pixels. This conversion is carried out to ensure that Decentraland runs smoothly for everyone.
+### Issue: Once deployed, my 3D models look different
+
+
+- If the textures look different, keep in mind that textures in 3D models are capped to a maximum size of 512x512 pixels. This conversion is carried out to ensure that Decentraland runs smoothly for everyone.
 
 - If models look different, there could be an issue with the conversion of the models to asset bundles. Read more about asset bundle compression [here]({{< ref "/content/creator/sdk7/optimizing/performance-optimization.md#asset-bundle-conversion">}}). 
 
@@ -120,4 +120,4 @@ Your scene's performance could be affected by neighboring scenes that follow bad
 
 You can reduce the line of sight even further by running your scene with the parameter `&LOS=0`, to not load any surrounding scenes at all.
 
-If you just deployed your scene, the burden when loading the scene might also be reduced once the servers convert the 3d models in the scene to compressed asset bundles. You can check if the models are being loaded as compressed asset bundles or not by accessing the scene via the following URL:  `https://play.decentraland.zone/?renderer-branch=feat%2Fab-view`. Compressed models are tinted green, non-compressed are tinted red.
+If you just deployed your scene, the burden when loading the scene might also be reduced once the servers convert the 3D models in the scene to compressed asset bundles. You can check if the models are being loaded as compressed asset bundles or not by accessing the scene via the following URL:  `https://play.decentraland.zone/?renderer-branch=feat%2Fab-view`. Compressed models are tinted green, non-compressed are tinted red.

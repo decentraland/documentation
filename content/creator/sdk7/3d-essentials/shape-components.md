@@ -71,7 +71,7 @@ Keep in mind that all models, their shaders and their textures must be within th
 
 ### Free libraries for 3D models
 
-Instead of building your own 3d models, you can also download them from several free or paid libraries.
+Instead of building your own 3D models, you can also download them from several free or paid libraries.
 
 To get you started, below is a list of libraries that have free or relatively inexpensive content:
 
@@ -100,7 +100,7 @@ To ensure that 3D models in your scene load faster and take up less memory, foll
 
 ## Stretching a shape
 
-Primitive shapes and 3d models have default dimensions that you can alter by changing the scale in the entity's `Transform` component.
+Primitive shapes and 3D models have default dimensions that you can alter by changing the scale in the entity's `Transform` component.
 
 ```ts
 const primitiveEntity = engine.addEntity()

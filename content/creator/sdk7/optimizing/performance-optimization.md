@@ -29,7 +29,7 @@ You should also avoid having videos playing in regions where they can't be seen.
 
 #### Lazy loading
 
-If your scene is large, or has indoor areas that are not always visible, you can choose to not load the entire set of entities from the very start. Instead, load the content by region as the player visits different parts of the scene. This can significantly reduce the load time of the scene, and also the amount of textures and 3d content that the engine needs to handle on every frame.
+If your scene is large, or has indoor areas that are not always visible, you can choose to not load the entire set of entities from the very start. Instead, load the content by region as the player visits different parts of the scene. This can significantly reduce the load time of the scene, and also the amount of textures and 3D content that the engine needs to handle on every frame.
 
 For example, the main building of a museum could load from the start, but the paintings on each floor only load for each player as they visit each floor.
 
@@ -63,11 +63,11 @@ For example, instead of constantly checking the player's wearables, you can subs
 
 If you must use a system, avoid doing checks or adjustments on every single frame. You can include a timer as part of the update function and only run the check once per every full second, or whatever period makes sense.
 
-## Optimize 3d models
+## Optimize 3D models
 
-There are several ways in which your 3d models can be optimized to be lighter.
+There are several ways in which your 3D models can be optimized to be lighter.
 
-- When possible, share textures across 3d models. A good practice is to use a single texture as an atlas map, shared across all models in the scene. It's better to have 1 large shared texture of 1024x1024 pixels instead of several small ones.
+- When possible, share textures across 3D models. A good practice is to use a single texture as an atlas map, shared across all models in the scene. It's better to have 1 large shared texture of 1024x1024 pixels instead of several small ones.
 
   > Note: Avoid using the same image file for both the albedo texture and the normal map or the emissive map of a material. Use separate files, even if identical. Assigning a same image file to different types of texture properties may introduce unwanted visual artifacts when compressed to asset bundles.
 
@@ -77,15 +77,15 @@ There are several ways in which your 3d models can be optimized to be lighter.
 
 - Avoid skinned meshes. They can drag down the performance significantly.
 
-> TIP: Read more on 3d model best practices in the [3d Modeling Section](/creator/3d-modeling/3d-models
+> TIP: Read more on 3D model best practices in the [3D Modeling Section](/creator/3d-modeling/3d-models
 
 #### Asset Bundle conversion
 
 About once a day, the Decentraland content servers run a process to compress every _.gltf_ and _.glb_ model in every newly deployed scene to asset bundle format. This format is _significantly_ lighter, making scenes a lot faster to load and smoother to run on the browser.
 
-> Tip: When planning an event in Decentraland, make sure you deploy your scene a day in advance, so that the models are all converted to asset bundles by then. If you don't want to spoil the surprize before the event, you can deploy a version of your scene that includes all the final 3d models in the project folder, but where these are not visible or where their size is set to 0.
+> Tip: When planning an event in Decentraland, make sure you deploy your scene a day in advance, so that the models are all converted to asset bundles by then. If you don't want to spoil the surprize before the event, you can deploy a version of your scene that includes all the final 3D models in the project folder, but where these are not visible or where their size is set to 0.
 
-> Note: If you make _any_ change to a 3d model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
+> Note: If you make _any_ change to a 3D model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
 
 ## Connectivity
 
@@ -122,7 +122,7 @@ As you interact with things that involve messages between the SDK and the engine
 Keep in mind that the performance you experience in preview may differ from that in production:
 
 - Surrounding neighboring scenes might have a negative impact
-- The compression of the scenes' 3d models into asset bundles can have a positive impact
+- The compression of the scenes' 3D models into asset bundles can have a positive impact
 - Some players visiting your scene may be running on less powerful hardware
 
 It's always a good practice to try deploying your scene first to the [test environment]({{< ref "/content/creator/sdk7/publishing/publishing.md#the-test-server">}}) to do some more thorough testing.

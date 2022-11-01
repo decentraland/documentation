@@ -340,7 +340,7 @@ To prevent a material from casting shadows over other objects, use the `castShad
 
 ```ts
 Material.create(meshEntity3, {
-  albedoColor: {r:1, g: 0, b:0},
+  albedoColor: Color4.Red(),
   castShadows: true
 })
 ```

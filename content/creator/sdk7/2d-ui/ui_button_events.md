@@ -11,6 +11,8 @@ weight: 3
 ---
 
 
+TODO: Use register events
+
 Make a UI entity clickable by giving it an `onClick` component. The `onClick` component references a function that runs every time the UI entity is clicked.
 
 
@@ -38,7 +40,7 @@ function handleClick() {
 renderUi(() => (
 	<UiEntity 
 		uiTransform = {{ width: 100 }} 
-		onClick = {handleClick} } 
+		onClick = {{handleClick}} 
 	/>
 ))
 ```

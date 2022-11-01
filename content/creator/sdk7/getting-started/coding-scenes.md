@@ -59,7 +59,7 @@ You can use another tool or language instead of TypeScript and compile it into J
 
 ## Scenes
 
-The content you deploy to your LAND is called a **scene**. A scene is an interactive program that renders 3d content, this could be a game, an interactive experience, an art gallery, whatever you want!
+The content you deploy to your LAND is called a **scene**. A scene is an interactive program that renders 3D content, this could be a game, an interactive experience, an art gallery, whatever you want!
 
 Scenes are deployed to virtual LAND in Decentraland. LAND is a scarce and non-fungible asset maintained in an Ethereum smart contract. Deploy to a single **parcel**, a 16 meter by 16 meter plot of LAND, or to multiple adjacent parcels.
 
