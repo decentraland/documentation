@@ -153,5 +153,41 @@ TODO: Make example pretty, with better positioning of entities
 
 The examples in the sections above show how to dynamically change a single property in an entity, but you can also define entire structures of entities that can scale based on dynamically changing data. This kind of pattern is common in web development when using libraries like React, and is extremely powerful. With this you can define extremely flexible and scalable UI applications.
 
-TODO: example
+The following example lists the ids of all entities in the scene that have a `MeshRenderer` and `Transform`. It creates a `uiText` for each. As the scene's content changes, the list of UI entities also adapts on every tick.
+
+```ts
+renderUi(() => (
+  <UiEntity
+    uiTransform={{
+      width: '100%',
+      height: '300px',
+      justifyContent: YGJustify.YGJ_CENTER,
+      alignItems: YGAlign.YGA_CENTER,
+    }}
+    uiBackground={{ backgroundColor: Color4.create(0.5, 0.8, 0.1, 0.6) }}
+  >
+    <UiEntity>
+      {generateText()}
+    </UiEntity>
+  </UiEntity>
+))
+
+
+function generateText(){
+  return Array.from(engine.getEntitiesWith(
+    MeshRenderer,
+    Transform
+  )).map(([entity]) => <TextComponent value={entity.toString()} key={entity} /> )
+}
+
+
+function TextComponent(props: { value: string; key: string | number }) {
+  return <UiEntity
+    key={props.key}
+    uiTransform={{ width: 80, height: 20 }}
+    uiText={{ value: props.value, textAlign: 0, fontSize: 12 }}
+    uiBackground={{ backgroundColor: { r: 255, g: 45, b: 85, a: 1 } }}
+  />
+}
+```
 

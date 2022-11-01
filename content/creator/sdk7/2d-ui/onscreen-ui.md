@@ -65,6 +65,8 @@ renderUi(() => (
 ))
 ```
 
+> Note: All of your UI elements need to be nested into the same structure, and have one single parent at the root of the structure. You can only call `renderUi()` once in the scene.
+
 ## UI Entities
 
 Each element in the UI must be defined as a separate `UiEntity`, wether it's an image, text, an invisible alignment box, etc. Just like in the scene's 3d space, each `UiEntity` has its own components to give it a position, color, etc.
