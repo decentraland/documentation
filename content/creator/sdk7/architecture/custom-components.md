@@ -71,9 +71,10 @@ const readOnlyInstance MyCustomComponent.deleteFrom(myEntity)
 
 Each component must have a unique ID, that differentiates it internally. The Decentraland SDK has the numbers 1000 to 2000 reserved for the base components. Any new component you create must have an id that is a number higher than **2000**.
 
-To easily create new ids....
 
-<!-- TODO: tips -->
+
+<!-- To easily create new ids....
+TODO: tips -->
 
 
 > Warning: Component IDs must be created in a deterministic way. Do not give it a random number, or one that may vary based on in what order the scene loads, or the actions taken by the player. This is especially consideration if changes in the scene are synced between players. If two player's local versions of the scene use different ids for a same component, it won't be possible to properly sync them.
@@ -89,12 +90,23 @@ This is especially useful when using [querying components]({{< ref "/content/cre
 export const IsEnemyFlag = engine.defineComponent({}, 2000)
 ```
 
+You can then create a system that iterates over all entities with this component.
+
+```ts
+export function handleEnemies() {
+  for (const [entity] of engine.getEntitiesWith(IsEnemyFlag)) {
+	// do something on each entity
+  }
+}
+
+engine.addSystem(handleEnemies)
+```
+
 ## Component Schemas
 
 A schema describes the structure of the data inside a component. A component can store as many fields as you want, each one must be included in the schema's structure. The schema can include as many levels of nested items as you need.
 
 Every field in the schema must include a type declaration. You can only use the special schema types provided by the SDK. For example, use the type `Schemas.Boolean` instead of type `boolean`. Write `Schemas.` and your IDE will display all the available options.
-
 
 ```ts
 export const WheelSpinComponent = engine.defineComponent({
@@ -131,24 +143,30 @@ export const WheelSpinComponent = engine.defineComponent(mySchema, 2000)
 
 > Note: All values in a custom component are optional when instancing a component. There is no mechanism to define default values for these fields when instancing the component, but you can define systems that execute default behaviors if no values are present for a given field.
 
-### Basic Schema types
+### Default Schema types
 
-The following types are available for using within the fields of a schema: 
+The following basic types are available for using within the fields of a schema: 
 
-- `Scehmas.Boolean`
-- `Scehmas.Byte`
-- `Scehmas.Double`
-- `Scehmas.Float`
-- `Scehmas.Int`
-- `Scehmas.Int64`
-- `Scehmas.Number`
-- `Scehmas.Short`
-- `Scehmas.String`
+- `Schemas.Boolean`
+- `Schemas.Byte`
+- `Schemas.Double`
+- `Schemas.Float`
+- `Schemas.Int`
+- `Schemas.Int64`
+- `Schemas.Number`
+- `Schemas.Short`
+- `Schemas.String`
 
+The following complex types also exist. They each include a series of nested properties with numerical values.
 
-### Complex schema types
+- `Schemas.Vector3`
+- `Schemas.Quaternion`
+- `Schemas.Color3`
+- `Schemas.Color4`
 
-The types in a schema can also be arrays or objects with other nested fields.
+> TIP: See [Geometry types]({{< ref "/content/creator/sdk7/3d-essentials/special-types.md" >}}) and [Color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how these types of data are useful.
+
+### Array types
 
 To set the type of a field as an array, use `Schemas.Array()`. Pass the type of the elements in the array as a property.
 
@@ -157,6 +175,9 @@ const MySchema = {
 	numberList: Schemas.Array(Schemas.Int),
   }
 ```
+
+### Custom schema types
+
 
 To set the type of a field to be an object, use `Schemas.Map()`. Pass the contents of this object as a property. This nested object is essentially a schema itself, nested within the parent schema.
 

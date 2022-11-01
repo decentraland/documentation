@@ -31,9 +31,9 @@ engine.addSystem(SimpleMove)
 
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-	position: {x: 4, y: 1, z: 4}
+	position: Vector3.create(4, 1, 4)
 })
-MeshRenderer.create(myEntity, { box: {} })
+MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
 ```
 
 In this example we're moving an entity by 0.1 meters per tick of the game loop.
@@ -57,9 +57,9 @@ engine.addSystem(SimpleRotate)
 
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-	position: {x: 4, y: 1, z: 4}
+	position: Vector3.create(4, 1, 4)
 })
-MeshRenderer.create(myEntity, { box: {} })
+MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
 ```
 
 Note that in order to combine the current rotation with each increment, we're using `Quaternion.multiply`. In quaternion math, you combine two rotations by multiplying them, NOT by adding them. The resulting rotation of multiplying one quaternion by another will be the equivalent final rotation after first performing one rotation and then the other.
@@ -87,15 +87,15 @@ engine.addSystem(SimpleRotate)
 
 const pivotEntity = engine.addEntity()
 Transform.create(pivotEntity, {
-	position: {x: 4, y: 1, z: 4}
+	position: Vector3.create(4, 1, 4)
 })
 
 const childEntity = engine.addEntity()
 Transform.create(childEntity, {
-	position: {x: 1, y: 0, z: 0},
+	position: Vector3.create(1, 0, 0),
 	parent: pivotEntity
 })
-MeshRenderer.create(childEntity, { box: {} })
+MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
 ```
 
 Note that in this example, the system is rotating the `pivotEntity` entity, that's a parent of the `childEntity` entity.
@@ -118,9 +118,9 @@ engine.addSystem(SimpleMove)
 
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-	position: {x: 4, y: 1, z: 4}
+	position: Vector3.create(4, 1, 4)
 })
-MeshRenderer.create(myEntity, { box: {} })
+MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
 ```
 
 The example above keeps movement at approximately the same speed as the movement example above, even if the frame rate drops. When running at 30 frames per second, the value of `dt` is 1/30.
@@ -161,15 +161,9 @@ To implement this `lerp()` in your scene, we recommend creating a [custom compon
 // define custom component
 const COMPONENT_ID = 2046
 
-const Vector3EcsType = Schemas.Map({
-	x: Schemas.Float,
-	y: Schemas.Float,
-	z: Schemas.Float
-  })
-
 const MoveTransportData = {
-  start: Vector3EcsType,
-  end: Vector3EcsType,
+  start: Schemas.Vector3,
+  end: Schemas.Vector3,
   fraction: Schemas.Float,
   speed: Schemas.Float,
 }
@@ -183,7 +177,7 @@ function LerpMove(dt: number) {
 	let lerp = LerpTransformComponent.getMutable(myEntity)
 	if (lerp.fraction < 1) {
 		lerp.fraction += dt * lerp.speed
-		transform.position = Vector3.lerp(lerp.start as Vector3.ReadonlyVector3, lerp.end  as Vector3.ReadonlyVector3, lerp.fraction)
+		transform.position = Vector3.lerp(lerp.start, lerp.end, lerp.fraction)
 	}
 }
 
@@ -193,20 +187,18 @@ engine.addSystem(LerpMove)
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
-	position: {x: 4, y: 1, z: 4}
+	position: Vector3.create(4, 1, 4)
 })
 
-MeshRenderer.create(myEntity, { box: {} })
+MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
 
 LerpTransformComponent.create(myEntity, {
-  start: {x: 4, y: 1, z: 4},
-  end: {x: 8, y: 1, z: 8},
+  start: Vector3.create(4, 1, 4),
+  end: Vector3.create(8, 1, 8),
   fraction: 0,
   speed: 1
 })
 ```
-
-Note that the `start` and `end` values in the custom component are of a custom type `Vector3EcsType`, so it's necessary to force their type to `Vector3.ReadonlyVector3` so that they're compatible with the `Vector3.lerp` function.
 
 <img src="/images/media/gifs/lerp-move.gif" alt="Move entity" width="300"/>
 
@@ -239,16 +231,9 @@ To implement this in your scene, we recommend storing the data that goes into th
 // define custom component
 const COMPONENT_ID = 2046
 
-const QuaternionEcsType = Schemas.Map({
-	x: Schemas.Float,
-	y: Schemas.Float,
-	z: Schemas.Float,
-	w:  Schemas.Float
-})
-
 const RotateSlerpData = {
-  start: QuaternionEcsType,
-  end: QuaternionEcsType,
+  start: Schemas.Quaternion,
+  end: Schemas.Quaternion,
   fraction: Schemas.Float,
   speed: Schemas.Float,
 }
@@ -263,7 +248,7 @@ function SlerpRotate(dt: number) {
 	let slerpData = SlerpData.getMutable(myEntity)
 	if (slerpData.fraction < 1) {
 		slerpData.fraction += dt * slerpData.speed
-		transform.rotation = Quaternion.slerp(slerpData.start as Quaternion.ReadonlyQuaternion, slerpData.end as Quaternion.ReadonlyQuaternion, slerpData.fraction)
+		transform.rotation = Quaternion.slerp(slerpData.start, slerpData.end, slerpData.fraction)
 	}
 }
 
@@ -273,10 +258,10 @@ engine.addSystem(SlerpRotate)
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
-	position: {x: 4, y: 1, z: 4}
+	position: Vector3.create(4, 1, 4)
 })
 
-MeshRenderer.create(myEntity, { box: {} })
+MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
 
 SlerpData.create(myEntity, {
   start: Quaternion.euler(0, 0, 0),
@@ -285,8 +270,6 @@ SlerpData.create(myEntity, {
   speed: 0.3
 })
 ```
-Note that the `start` and `end` values in the custom component are of a custom type `QuaternionEcsType`, so it's necessary to force their type to `Quaternion.ReadonlyQuaternion` so that they're compatible with the `Quaternion.slerp` function.
-
 
 > Note: You could instead represent the rotation with euler angles as `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient for the scene to work with quaternions.
 
@@ -309,20 +292,16 @@ const simpleRotateSystem = engine.addSystem(SimpleRotate)
 
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-	position: {x: 4, y: 1, z: 4},
+	position: Vector3.create(4, 1, 4),
 	rotation: Quaternion.euler(0, 0, 90)
 })
 
-MeshRenderer.create(myEntity, { box: {} })
+MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
 ```
 
 In the example above `Quaternion.rotateTowards` takes three arguments: the initial rotation, the final rotation that's desired, and the maximum increment per frame. In this case, since the maximum increment is of `dt * 10` degrees, the rotation will be carried out over a period of a couple of 9 seconds.
 
 Note that the system also checks to see if the rotation is complete and if so it removes the system from the engine. Otherwise, the system would keep making calculations on every frame, even once the rotation is complete.
-
-<!--
-
-TODO: scalar namespace missing
 
 
 ## Change scale between two sizes
@@ -347,43 +326,54 @@ let newScale = Scalar.Lerp(originScale, targetScale, 0.6)
 To implement this lerp in your scene, we recommend creating a custom component to store the necessary information. You also need to define a system that implements the gradual scaling in each frame.
 
 ```ts
-@Component("lerpData")
-export class LerpSizeData {
-  origin: number = 0.1
-  target: number = 2
-  fraction: number = 0
+
+// define custom component
+const COMPONENT_ID = 2046
+
+const ScaleTransportData = {
+  start: Schemas.Number,
+  end: Schemas.Number,
+  fraction: Schemas.Float,
+  speed: Schemas.Float,
 }
 
-// a system to carry out the movement
-export class LerpSize implements ISystem {
-  update(dt: number) {
-    let transform = myEntity.getComponent(Transform)
-    let lerp = myEntity.getComponent(LerpSizeData)
-    if (lerp.fraction < 1) {
-      let newScale = Scalar.Lerp(lerp.origin, lerp.target, lerp.fraction)
-      transform.scale.setAll(newScale)
-      lerp.fraction += dt / 6
-    }
-  }
+export const ScaleTransformComponent = engine.defineComponent(ScaleTransportData, COMPONENT_ID)
+
+
+// define system
+function LerpMove(dt: number) {
+	let transform = Transform.getMutable(myEntity)
+	let lerp = ScaleTransformComponent.getMutable(myEntity)
+	if (lerp.fraction < 1) {
+		lerp.fraction += dt * lerp.speed
+    const newScale =  Scalar.lerp(lerp.start, lerp.end, lerp.fraction)
+		transform.scale = Vector3.create(newScale, newScale, newScale)
+	}
 }
 
-// Add system to engine
-engine.addSystem(new LerpSize())
+engine.addSystem(LerpMove)
 
-const myEntity = new Entity()
-myEntity.addComponent(new Transform())
-MeshRenderer.create(myEntity, { box: {} })
+// create entity
+const myEntity = engine.addEntity()
 
-myEntity.addComponent(new LerpSizeData())
-myEntity.getComponent(LerpSizeData).origin = 0.1
-myEntity.getComponent(LerpSizeData).target = 2
+Transform.create(myEntity, {
+	position: {x: 4, y: 1, z: 4}
+})
 
-engine.addEntity(myEntity)
+MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+
+ScaleTransformComponent.create(myEntity, {
+  start: 1,
+  end: 2,
+  fraction: 0,
+  speed: 1
+})
+
+Vector3.create(1, 1, 1)
 ```
 
  <img src="/images/media/gifs/lerp-scale.gif" alt="Move entity" width="300"/>
 
--->
 
 ## Move at irregular speeds between two points
 
@@ -397,15 +387,9 @@ Often these non-linear transitions can breathe a lot of life into a scene. A mov
 // define custom component
 const COMPONENT_ID = 2046
 
-const Vector3EcsType = Schemas.Map({
-	x: Schemas.Float,
-	y: Schemas.Float,
-	z: Schemas.Float
-  })
-
 const MoveTransportData = {
-  start: Vector3EcsType,
-  end: Vector3EcsType,
+  start: Schemas.Vector3,
+  end: Schemas.Vector3,
   fraction: Schemas.Float,
   speed: Schemas.Float,
 }
@@ -419,7 +403,7 @@ function LerpMove(dt: number) {
 	if (lerp.fraction < 1) {
 		lerp.fraction += dt * lerp.speed
 		const interpolatedValue = interpolate(lerp.fraction)
-		transform.position = Vector3.lerp(lerp.start as Vector3.ReadonlyVector3, lerp.end as Vector3.ReadonlyVector3, interpolatedValue)
+		transform.position = Vector3.lerp(lerp.start, lerp.end, interpolatedValue)
 	}
 }
 
@@ -437,11 +421,11 @@ Transform.create(myEntity, {
 	position: {x: 4, y: 1, z: 4}
 })
 
-MeshRenderer.create(myEntity, { box: {} })
+MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
 
 LerpTransformComponent.create(myEntity, {
-  start: {x: 4, y: 1, z: 4},
-  end: {x: 8, y: 1, z: 8},
+  start: Vector3.create(4, 1, 4),
+  end: Vector3.create(8, 1, 8),
   fraction: 0,
   speed: 1
 })
@@ -463,16 +447,10 @@ You can have an entity loop over an array of vectors, performing a lerp movement
 // define custom component
 const COMPONENT_ID = 2046
 
-const Vector3EcsType = Schemas.Map({
-	x: Schemas.Float,
-	y: Schemas.Float,
-	z: Schemas.Float
-  })
-
 const PathTransportData = {
-  path: Schemas.Array(Vector3EcsType),
-  start: Vector3EcsType,
-  end: Vector3EcsType,
+  path: Schemas.Array(Schemas.Vector3),
+  start: Schemas.Vector3,
+  end: Schemas.Vector3,
   fraction: Schemas.Float,
   speed: Schemas.Float,
   pathTargetIndex: Schemas.Int
@@ -487,7 +465,7 @@ function PathMove(dt: number) {
 	let lerp = LerpTransformComponent.getMutable(myEntity)
 	if (lerp.fraction < 1) {
 		lerp.fraction += dt * lerp.speed
-		transform.position = Vector3.lerp(lerp.start as Vector3.ReadonlyVector3, lerp.end as Vector3.ReadonlyVector3, lerp.fraction)
+		transform.position = Vector3.lerp(lerp.start, lerp.end, lerp.fraction)
 	} else {
       lerp.pathTargetIndex += 1
       if (lerp.pathTargetIndex >= lerp.path.length) {
@@ -505,23 +483,23 @@ engine.addSystem(PathMove)
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
-	position: {x: 1, y: 1, z: 1}
+	position: Vector3.create(1, 1, 1)
 })
 
-MeshRenderer.create(myEntity, { box: {uvs:[]} })
+MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
 
-const point1 = {x: 1, y: 1, z: 1}
-const point2 = {x: 8, y: 1, z: 3}
-const point3 = {x: 8, y: 4, z: 7}
-const point4 = {x: 1, y: 1, z: 7}
+const point1 = Vector3.create(1, 1, 1)
+const point2 = Vector3.create(8, 1, 3)
+const point3 = Vector3.create(8, 4, 7)
+const point4 = Vector3.create(1, 1, 7)
 
 const myPath = [point1, point2, point3, point4]
 
 
 LerpTransformComponent.create(myEntity, {
   path: myPath,
-  start: {x: 4, y: 1, z: 4},
-  end: {x: 8, y: 1, z: 8},
+  start: Vector3.create(4, 1, 4),
+  end: Vector3.create(8, 1, 8),
   fraction: 0,
   speed: 1,
   pathTargetIndex: 1
