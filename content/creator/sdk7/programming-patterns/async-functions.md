@@ -9,13 +9,12 @@ url: /creator/development-guide/async-functions/
 weight: 1
 ---
 
-<!-- TODO: executeTask doesn't currently work. Change examples? -->
 
 ## Overview
 
 Most of the code in your scene runs synchronously using a single thread. That means that commands are executed sequentially line by line. Each command must first wait for the previous command to finish executing before it can start.
 
-Even the `update()` functions in your scene's systems are executed one by one, following a [priority order]({{< ref "/content/creator/sdk7/architecture/systems.md#system-execution-order">}}).
+Even the functions in your scene's systems are executed one by one, following a [priority order]({{< ref "/content/creator/sdk7/architecture/systems.md#system-execution-order">}}).
 
 Running code synchronously ensures consistency, as you can always be sure you'll know the order in which the commands in your code run.
 
@@ -27,7 +26,6 @@ This is especially useful for tasks that rely on external services that could ta
 
 For example:
 
-- When playing a sound file
 - When retrieving data from a REST API
 - When performing a transaction on the blockchain
 
@@ -38,12 +36,12 @@ For example:
 Mark any function as `async` so that it runs on a separate thread from the scene's main thread every time that it's called.
 
 ```ts
-// declare function
+// declare async function
 async function myAsyncTask() {
-  // run async steps
+  // run function's steps
 }
 
-// call function
+// call async function
 myAsyncTask()
 
 // rest of the code keeps being executed
@@ -51,7 +49,7 @@ myAsyncTask()
 
 ## The executeTask function
 
-The `executeTask` function executes a lambda function asynchronously, in a separate thread from the scene's main thread.
+The `executeTask()` function executes a lambda function asynchronously, in a separate thread from the scene's main thread. `executeTask()` allows us to declare and execute the function all in one same statement.
 
 ```ts
 executeTask(async () => {
@@ -78,25 +76,14 @@ myAsyncTask().then((data) => {
 
 When your scene uses a `PointerEvent` or a `RayCast` component, the calculations of collisions are carried out async in the engine. The engine then returns a results event to the scene, which can arrive one or several ticks of the game loop later than when the event was invoked.
 
-You then need to create a system to process these results in the frame when they arrive. 
+You then need to create a system to process these results in the frame when they arrive.
 
-> Tip: If the processing of the results of a raycast takes a lot of calculations (like running a path-finding algorithm) you might want to run that computation in an asynchronous function.
+> Note: If you handle clicks via the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach, you don't need to explicitly create a system to handle this, but the same occurs in the background.
 
 See [click events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}) and [raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}).
 
-## Subscribe a listener
+> Tip: If the processing of the results of a raycast takes a lot of calculations (like running a path-finding algorithm) you might want to run that computation in an asynchronous function.
 
-Another way to run asynchronous code is to instance an event listener. Event listeners trigger the running of an asynchronous lambda function every time that a given event occurs.
-
-```ts
-Input.instance.subscribe("BUTTON_DOWN", (e) => {
-  log("pointerUp works", e)
-})
-```
-
-The example above runs a function every time that the button _A_ is pressed down.
-
-<!-- TODO: change example? -->
 
 ## The await statement
 
