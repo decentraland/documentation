@@ -10,75 +10,40 @@ weight: 3
 ---
 
 
-About
+If your scene has multiple similar entities that are all activated using the same logic, you can write a single system to iterates over all of them and describe that behavior only once. This is also the most performant and more [data oriented]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) approach.
 
-links to other methods
+If all you want to do is click or push a button on a single entity to activate it, the easiest way is to use the [Register a callback]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach.
 
-## Check for button events
+To set more specific custom logic, you might want to deal with the raw data and use the [Advanced]({{< ref "/content/creator/sdk7/interactivity/button-events/advanced-button-events.md" >}}) approach.
 
+For an entity to be interactive, it must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). See [obstacles]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#obstacles" >}}) for more details.
+
+## Using a system
 
 Check for button events by running one of the helper functions on the input `Input` namespace on every tick within a [system]({{< ref "/content/creator/sdk7/architecture/systems.md">}}).
 
-For example, the following system uses the `Input.wasJustClicked()` function to check if the pointer was clicked.
+For example, the following system uses the `Input.wasInputJustActive()` function to check if the pointer was clicked. On every tick, it checks if the button was pressed. If `Input.wasInputJustActive()` returns _true_, the system runs some custom logic in response.
 
 ```ts
 engine.addSystem(() => {
-    if (Input.wasJustClicked(InputAction.IA_POINTER)){
-      log("Pointer button just clicked")
+    if (Input.wasInputJustActive(InputAction.IA_POINTER)){
+      // Logic in response to button press
     }
 })
 ```
 
-The following helper functions are available:
+The following helper functions are available in the `Input` namespace, and can be called similarly on every tick:
 
-- `Input.wasJustClicked`
-- `Input.wasInputJustActive`
-- `Input.isActionDown`
-- `Input.getClick`
-- `Input.getInputCommand`
+- `Input.wasInputJustActive`: Returns true if an input action ocurred since the last tick.
+- `Input.isActionDown`: Returns true if an input is currently being held down. It will return true on every tick until the button goes up again.
+- `Input.getInputCommand`: Returns an object with data about the input action.
 
 See the sections below for more details on each.
 
-In any of these functions, you can pass a second parameter to detect pointer events that were done while pointing at a specific entity's colliders.
-
-```ts
-engine.addSystem(() => {
-    if (Input.wasJustClicked(InputAction.IA_POINTER, myEntity)){
-      log("Entity was just clicked")
-    }
-})
-```
-
 When handling button events on an entity, always provide feedback to the player, so that the player is aware that an entity can be interacted with. If you add a `PointerHoverFeedback` component to an entity, players will see a hint while hovering their cursor on that entity. See [Pointer event feedback](#pointer-event-feedback) to learn how you can add hover hints on interactive entities.
 
-```ts
-// create entity
-const myEntity = engine.addEntity()
 
-// give the entity hover feedback
-PointerHoverFeedback.create(myEntity, {
-    pointerEvents: [
-      {
-        eventType: PointerEventType.PET_DOWN,
-        eventInfo: {
-          button: InputAction.IA_POINTER,
-		  hoverText: "Open",
-        }
-      }
-    ]
-})
-
-// handle click events on the entity
-engine.addSystem(() => {
-    if (Input.wasJustClicked(InputAction.IA_POINTER, myEntity)){
-      log("Entity was just clicked")
-    }
-})
-```
-
-TODO: screenshot
-
-### Check for button presses
+### Global input events
 
 Use `Input.wasInputJustActive` to detect button down and button up events on any of the inputs tracked by the SDK.
 
@@ -86,7 +51,7 @@ Use `Input.wasInputJustActive` to detect button down and button up events on any
 ```ts
 engine.addSystem(() => {
     if (Input.wasInputJustActive(InputAction.IA_POINTER, PointerEventType.PET_DOWN)){
-      log("The pointer button was just pressed down")
+      // Logic in response to button press
     }
 })
 ```
@@ -95,8 +60,29 @@ The example above checks on every tick if a single hard-coded entity was pressed
 
 `Input.wasInputJustActive()` returns _true_ only if the indicated button was pressed down in the current tick of the game loop. If the button was not pushed down, or it was already down from the previous tick, it returns _false_.
 
-TODO: check this
+TODO: check this:
+
 > Note: The player needs to be standing inside the scene's boundaries for the pointer event to be detected. The player's cursor also needs to be locked, buttons pressed while having the free cursor aren't detected.
+
+The `Input.wasInputJustActive` function takes the following required arguments:
+
+- `InputAction`: Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options.
+- `PointerEventType`: What type of event to listen for, as a value from the `PointerEventType` enum. See [Types of pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#types-of-pointer-events" >}}) for supported options.
+
+
+### Activate an entity
+
+To detect button events while pointing at a particular entity, pass a third optional argument to `Input.wasInputJustActive` to specify what entity to check against.
+
+The following example checks for button presses against a particular entity.
+
+```ts
+engine.addSystem(() => {
+    if (Input.wasInputJustActive(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)){
+		// Logic in response to button press on myEntity
+    }
+})
+```
 
 The `Input.wasInputJustActive` function takes the following arguments:
 
@@ -104,37 +90,26 @@ The `Input.wasInputJustActive` function takes the following arguments:
 - `PointerEventType`: What type of event to listen for, as a value from the `PointerEventType` enum. See [Types of pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#types-of-pointer-events" >}}) for supported options.
 - `Entity` _(optional)_: What entity to check these events on. If no value is provided, it will check for global presses of the button, regardless of where the player's cursor was pointing at.
 
-The following example checks for button presses against a particular entity.
+For an entity to be interactive, it must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). See [obstacles]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#obstacles" >}}) for more details.
 
-```ts
-engine.addSystem(() => {
-    if (Input.wasInputJustActive(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)){
-      log("The pointer button was just pressed down on myEntity")
-    }
-})
-```
+> TIP: See [Data from a pointer event](#data-from-a-pointer-event) for ways to obtain more detailed data about a pointer event.
 
-
-> TIP: See [Data from a pointer event](#data-from-a-pointer-event) for ways to obtain more detailed data from pointer events.
+### Input button up
 
 You can also check for pointer up events in much the same way, by using `PointerEventType.PET_UP`. 
-
 
 ```ts
 engine.addSystem(() => {
     if (Input.wasInputJustActive(InputAction.IA_POINTER, PointerEventType.PET_UP, myEntity)){
-      log("The pointer button was just raised while pointing at myEntity")
+      // Logic in response to button up while pointing at myEntity
     }
 })
 ```
 
 > Note: When checking pointer up events against a specific entity, it doesn't take into consideration where the cursor was pointing at when the button was pushed down. It only considers where the cursor is pointing at when the button is raised.
 
-TODO:
 
-To obtain data about a pointer event, beyond just its occurrence, use `Input.getInputCommand`. 
-
-
+<!-- 
 ### Check for clicks
 
 A click is defined as pushing a button down, and then shortly after letting it rise again. The event is only recognized as a click when the button is raised up again.
@@ -167,7 +142,7 @@ The `Input.wasJustClicked` function takes the following arguments:
 
 TODO
 
-To obtain data about a click event, beyond just its occurrence, use `Input.getClick`. 
+To obtain data about a click event, beyond just its occurrence, use `Input.getClick`.  -->
 
 
 ### Check for active buttons
@@ -178,7 +153,7 @@ Check if a button is currently being held down while aiming at an entity by usin
 ```ts
 engine.addSystem(() => {
     if (Input.isActionDown(InputAction.IA_POINTER)){
-      log("Pointer is currently down")
+       // Logic in response to button being held down
     }
 })
 ```
@@ -193,55 +168,51 @@ The `Input.isActionDown` function takes a single argument:
 
 ### Handle multiple entities
 
-If your scene has multiple entities that might be affected by pointer events, it makes sense to write a system that iterates over all of them.
+If your scene has multiple entities that are affected by pointer events in the same way, it makes sense to write a system that iterates over all of them.
 
 ```ts
-function killSystem() {
+engine.addSystem(() => {
   const clickedCubes = engine.getEntitiesWith(PointerHoverFeedback)
   for (const [entity] of clickedCubes) {
-    if (Input.wasJustClicked(InputAction.IA_PRIMARY, entity)) {
-		engine.removeEntity(entity)
+    if (Input.wasInputJustActive(InputAction.IA_POINTER, PointerEventType.PET_DOWN, entity)) {
+		 // Logic in response to interacting with an entity
     }
   }
-}
-engine.addSystem(killSystem)
+})
 ```
 
-This example uses a [component query]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to iterate over all the entities with a `PointerHoverFeedback` component. It then checks each of these entities with `Input.wasJustClicked`. If a click is detected, it removes the entity from the engine.
+This example uses a [component query]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to iterate over all the entities with a `PointerHoverFeedback` component. It then checks each of these entities with `Input.wasInputJustActive`, iterating over them one by one. If an input action is detected on any of these entities, it carries out custom logic.
 
-Instead of iterating over _all_ the entities with a `PointerHoverFeedback` component in a single system, you might want to instead write different systems to handle entities that should behave in different ways. The recommended approach is to mark different types of entities with a [custom component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}).
+Instead of iterating over _all_ the entities with a `PointerHoverFeedback` component in a single system, you might want to write different systems to handle entities that should behave in different ways. The recommended approach is to mark different types of entities with specific [custom components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}), and iterate over them in separate systems.
 
 ```ts
-function openDoorSystem() {
+engine.addSystem(() => {
   const clickedDoors = engine.getEntitiesWith(IsDoor)
   for (const [entity] of clickedDoors) {
-    if (Input.wasJustClicked(InputAction.IA_PRIMARY, entity)) {
+    if (Input.wasInputJustActive(InputAction.IA_POINTER, PointerEventType.PET_DOWN, entity)) {
 		openDoor(entity)
     }
   }
-}
-engine.addSystem(openDoorSystem)
+})
+
+engine.addSystem(() => {
+  const pickedUpGems = engine.getEntitiesWith(IsGem)
+  for (const [entity] of pickedUpGems) {
+    if (Input.wasInputJustActive(InputAction.IA_POINTER, PointerEventType.PET_DOWN, entity)) {
+		pickUp(entity)
+    }
+  }
+})
 ```
 
-This example iterates over all entities that have a custom component named `IsDoor`, and checks each to see if they were clicked with the primary button (E on a keyboard). The system allows you to run the same code for every door that can be clicked.
+This example has one system that iterates over all entities that have a custom component named `IsDoor` and another that iterates over all entities that have a custom component named `isGem`. In both systems, it checks every matching entity to see if they were activated with the pointer button.
 
-
-<!-- 
-TODO:
-Does is make sense to add `PointerHoverFeedback` to the equation? so do `engine.getEntitiesWith(IsDoor, PointerHoverFeedback)`. That way you only query entities with at least one pointer interaction
-
-In the example above, the system iterates over the entities that have both a `PointerHoverFeedback` component and a custom `IsDoor` flag component, that is added to all doors in your scene.  -->
-
-### Global button events
-
-TODO
+This way of organizing your scene's code is very [data oriented]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and should result in a very efficient use of memory resources.
 
 
 ## Show feedback
 
-
 To display UI hints while pointing at an entity, give the entity a `PointerHoverFeedback` component.
-
 
 ```ts
 // create entity
@@ -262,11 +233,12 @@ PointerHoverFeedback.create(myEntity, {
 
 Whenever the player's cursor points at the colliders in this entity, the UI will display a hover hint to indicate that the entity can be interacted with. See the sections below for details on what you can configure.
 
-> Note: The `PointerHoverFeedback` component just handles the displaying of hover feedback. To handle the button events themselves with custom logic, see [Check for events](#check-for-events).
-
 TODO: image
 
-The `PointerHoverFeedback` component requires that you define at least one pointer event. You can potentially add multiple ones as an array. Each pointer event can be configured with the following:
+
+> Note: The `PointerHoverFeedback` component just handles the displaying of hover feedback. To handle the button events themselves with custom logic, see [Using-a-system](#check-for-events).
+
+The `PointerHoverFeedback` component requires at least one pointer event. Each pointer event can be configured with the following:
 
 - `eventType`: What type of event to listen for, as a value from the `PointerEventType` enum. See [Types of pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#types-of-pointer-events" >}}) for supported options.
 - `eventInfo`: An object that can contain the following fields:
@@ -276,7 +248,7 @@ The `PointerHoverFeedback` component requires that you define at least one point
 	- `maxDistance`  _(optional)_: Only show feedback when the player is closer than a certain distance from the entity. Default is _10 meters_.
 
 
-A single `PointerHoverFeedback` component can hold multiple pointer events, that can detect different events for different buttons. Each entity can only have _one_ `PointerHoverFeedback` component, but it can include multiple objects in its `pointerEvents` array, one for each event to respond to.
+A single `PointerHoverFeedback` component can hold multiple pointer events, that can detect different events for different buttons. Each entity can only have _one_ `PointerHoverFeedback` component, but this component can include multiple objects in its `pointerEvents` array, one for each event to respond to.
 
 
 ```ts
@@ -315,6 +287,33 @@ Players will see multiple labels, one for each pointer event, displayed radially
 
 TODO: Image with multiple hints
 
+The example below combines using `PointerHoverFeedback` to show hover hints, together with a system that actually handles the player's action with custom logic.
+
+```ts
+// create entity
+const myEntity = engine.addEntity()
+
+// give the entity hover feedback
+PointerHoverFeedback.create(myEntity, {
+    pointerEvents: [
+      {
+        eventType: PointerEventType.PET_DOWN,
+        eventInfo: {
+          button: InputAction.IA_POINTER,
+		  hoverText: "Open",
+        }
+      }
+    ]
+})
+
+// handle click events on the entity
+engine.addSystem(() => {
+    if (Input.wasInputJustActive(InputAction.IA_POINTER, myEntity)){
+      // Custom logic in response to an input action
+    }
+})
+```
+
 
 ### Hint messages
 
@@ -349,7 +348,6 @@ If an entity has multiple pointer events on it, the hover hints for each of thes
 
 The `hoverText` of an `.UP` pointer event is only displayed while the player is already holding down the corresponding key and pointing at the entity.
 
-<!-- TODO: Confirm -->
 
 If an entity has both a `DOWN` pointer event and an `UP` pointer event, the hint for the `DOWN` action is shown while the button is not being pressed. The hint switches to the one from the `UP` event only when the button is pressed and remains pressed.
 
@@ -380,8 +378,9 @@ PointerHoverFeedback.create(entity, {
 
 ### Max distance
 
-Pointer events have a max range of interaction. If a player is too far away from an entity, the pointer event won't be activated and the hover hint won't be displayed next to the cursor.
+Some entities can be intentionally only interactive at a close range. If a player is too far away from an entity, the hover hint won't be displayed next to the cursor.
 
+TODO: Check this
 By default, entities are only clickable when the player is within a close range of the entity, at a maximum distance of _10 meters_. You can change the maximum distance by setting the `maxDistance` property of a pointer event.
 
 ```ts
@@ -402,7 +401,7 @@ PointerHoverFeedback.create(myEntity, {
 })
 ```
 
-The example above sets the maximum distance to _6 meters_.
+The example above sets the maximum distance for hover hints to _6 meters_. Make sure that the logic for handling the input actions also follows the same rules. See [Data from a pointer event](#data-from-a-pointer-evetn) for how to obtain the distance of an input action.
 
 
 > Note: The `maxDistance` is measured in meters from meters from the player's camera. Keep in mind that in 3rd person the camera is a bit further away, so make sure the distance you set works well in both modes.
