@@ -58,7 +58,7 @@ Change the string by changing the `hoverText` value. Keep this string short, so 
 
 ```ts
 EventsSystem.onPointerDown(
-  entity,
+  myEntity,
   function () {
     log("opened door")
   },
@@ -69,7 +69,25 @@ EventsSystem.onPointerDown(
 )
 ```
 
+
 TODO: screenshot
+
+To hide a hover feedback, set the `hoverText` to an empty string "". When doing this, the cursor doesn't show any icons.
+
+
+```ts
+EventsSystem.onPointerDown(
+  myEntity,
+  function () {
+    log("opened secret door")
+  },
+  {
+    button: InputAction.IA_PRIMARY,
+    hoverText: ''
+  }
+)
+```
+
 
 ### Change existing feedback
 
@@ -115,7 +133,8 @@ A same entity can have two different callbacks registered, one for `EventsSystem
 <!-- 
 ## Click events
 
-EventsSystem.onClick(entity, fn, { button, hoverText }) -->
+EventsSystem.onClick(entity, fn, { button, hoverText }) 
+-->
 
 ## Remove callbacks
 
@@ -130,42 +149,81 @@ EventsSystem.removeOnPointerUp(myEntity)
 Once removed, the hover feedback on the entity should no longer be displayed, and the entity should no longer be interactive.
 
 
-## Data from event
+## Data from input action
 
-Fetch additional data about the action event, like the id of the entity that was hit, or the angle of the ray, by using `Input.getInputCommand()`.
+Fetch data from an input action, such as the button that was pressed, the entity that was hit, the direction and length of the ray, etc. See ({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#data-from-an-input-action" >}}) for a description of all of the data available.
 
+To fetch this data, pass a parameter to the callback function. This parameter contains the full data structure with data about the input event.
 
 ```ts
 EventsSystem.onPointerDown(
   myEntity,
-  function () {
-    const eventData = Input.getInputCommand(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)
-    log(eventData.hit.entityId)
+  function (cmd) {
+      log(cmd.hit.entityId)
   },
-  {
-    button: InputAction.IA_PRIMARY,
-    hoverText: 'Click'
-  }
 )
 ```
 
+### Max click distance
 
+To enforce a maximum distance, so that an entity is only clickable at close range, fetch `hit.length` property of the event data.
 
-See [LINK]
-TODO link
+```ts
+EventsSystem.onPointerDown(
+  myEntity,
+  function (cmd) {
+	if(cmd.hit.length < 6){
+		// do something
+	}
+  }
+)
+```
 
 ### Handle multiple buttons
 
 You can't register more than one `onPointerDown` on a single entity. Ideally you should use the [System-based]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) approach, as this allows you to handle as many different inputs as you wish, and display a UI hover feedback hint for each.
 
-As an alternative, you can use the Register callback approach and leave the `button` field undefined. This is not ideal, as the hover hint shows a single string and won't specify what action to activate. Note that this will make the callback function run for every input action including movement keys, so you must filter out only the actions you care about. Fetch which input was activated via `Input.getInputCommand`.
+As an alternative, you can use the Register callback approach and set the `button` field as `InputAction.IA_ANY`.
 
+```ts
+EventsSystem.onPointerDown(
+  myEntity,
+  function (cmd) {
+      if(cmd.button === InputAction.IA_POINTER){
+        // do X
+      } else if (cmd.button === InputAction.IA_PRIMARY){
+        // do Y
+      }
+  },{
+    button: InputAction.IA_ANY
+  }
+)
+```
 
-TODO: example
+This approach is not ideal, as the hover hint shows a single string and won't specify what action to activate. Note that this will make the callback function run for every input action including movement keys, so you must filter out only the actions you care about.
+
+### Different meshes inside a model
+
+Often, _.glTF_ 3D models are made up of multiple meshes, that each have an individual internal name. All button events events include the information of what specific mesh was clicked, so you can use this information to trigger different click behaviors in each case.
+
+To see how the meshes inside the model are named, you must open the 3D model with an editing tool, like [Blender](https://www.blender.org/) for example.
+
+<img src="/images/media/mesh-names.png" alt="Mesh internal names in an editor" width="250"/>
+
+> Tip: You can also learn the name of the clicked mesh by logging it and reading it off console.
+
+You access the `meshName` property as part of the `hit` object, that's returned by the click event.
+
+In the example below we have a house model that includes a mesh named `firePlace`. We want to turn on the fireplace only when its corresponding mesh is clicked.
 
 
 ```ts
-
+EventsSystem.onPointerDown(
+  myEntity,
+  function (cmd) {
+      if(cmd.hit.meshName === "firePlace"){
+        // light fire
+      }
+  },
+)
 ```
-
-

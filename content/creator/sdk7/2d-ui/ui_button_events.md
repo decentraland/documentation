@@ -11,7 +11,8 @@ weight: 3
 ---
 
 
-TODO: Use register events
+TODO: Use register events with
+EventsManager.onPointerDown
 
 Make a UI entity clickable by giving it an `onClick` component. The `onClick` component references a function that runs every time the UI entity is clicked.
 

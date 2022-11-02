@@ -31,6 +31,14 @@ The default way to add feedback is to display a hover hint on the UI whenever th
 You could also implement [custom] ways of feedback, for example you could play a sound, making the entity change color, spin or or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
 
 
+## Obstacles
+
+Button events cast rays that only interact with the first entity on their path, as long as the entity is closer than its distance limit.
+
+For an entity to be intercepted by the ray of a button event, the entity's 3d model must either have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). Either the entity's 3d model must include a collider mesh, or the entity must have a `CollierMesh` component.
+
+If another entity's collider is standing on the way of the entity that the player wants to interact with it, the player won't be able to click the entity that's behind, unless the entity's `MeshCollider` component is configured to allow clicking through it.
+
 ## Pointer buttons
 
 
@@ -65,14 +73,70 @@ Each input can produce the following types of pointer events. Each of the follow
 <!-- > Note: A _click_ event, as detected by the `Input.wasJustClicked` helper function, is a combination of a `DOWN` event followed by an `UP` event. Note that as this event may take several ticks of the game loop to be completed, it can't be detected in a single frame, and therefore can only be detected thanks to a helper function. -->
 
 
-## Obstacles
 
-Button events cast rays that only interact with the first entity on their path, as long as the entity is closer than its distance limit.
+## Data from an input action
 
-For an entity to be intercepted by the ray of a button event, the entity's 3d model must either have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). Either the entity's 3d model must include a collider mesh, or the entity must have a `CollierMesh` component.
+All input actions include data about the event, including things like the button that was activated, and where the pointer was pointing at at the time.
 
-If another entity's collider is standing on the way of the entity that the player wants to interact with it, the player won't be able to click the entity that's behind, unless the entity's `MeshCollider` component is configured to allow clicking through it.
+The following information can be obtained from any input event:
 
-## Data
+- `analog`: Flag to mark if the event is from an analog or a digital input. Digital inputs have a value of _1_, analog inputs (like a joy stick) have a value of _0_.
+- `button`: Which button id was pressed. The number corresponds to the `InputAction` enum, that lists all of the available buttons.
+- `state`: Type of pointer event, from the enum `PointerEventType`. _0_ refers to `PointerEventType.PET_DOWN`, _1_ to `PointerEventType.PET_UP`, _2_ to `PointerEventType.PET_HOVER_ENTER`, _3_ to `PointerEventType.PET_HOVER_LEAVE`
 
-TODO: here????
+- `timestamp`: A [lamport timestamp](https://en.wikipedia.org/wiki/Lamport_timestamp) to identify each button event. 
+
+	> Note: This timestamp is not numbered based on the current time. Think of it as a counter that starts at 0 and is incremented by 1 for each event.
+
+- `hit`: An object that contains the following data about the hit event:
+
+	- `entityId`: Id number of the entity that was hit by the ray.
+	- `meshName`: _String_ with the internal name of the specific mesh in the 3D model that was hit. This is useful when a 3D model is composed of multiple meshes.
+	- `origin`: _Vector3_ for the position where the ray originates (relative to the scene)
+	- `position`: _Vector3_ for the position where the ray intersected with the hit entity (relative to the scene)
+	- `length`: Length of the ray from its origin to the position where the hit against the entity occurred.
+	- `normalHit`: _Quaternion_ for the angle of the normal of the hit in world space.
+
+
+This data is accessed in different ways depending on what approach you're using to handle input actions.
+
+Using the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach, the first parameter passed to the callback function contains this entire data structure.
+
+```ts
+EventsSystem.onPointerDown(
+  myEntity,
+  function (cmd) {
+      log(cmd.hit.entityId)
+  },
+)
+```
+
+Using the [**System-based**]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) approach, use `Input.getInputCommand()` to fetch this data.
+
+```ts
+engine.addSystem(() => {
+  const cmd = Input.getInputCommand(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)
+  if(cmd){
+ 	log(cmd.hit.entityId)
+  }
+})
+```
+
+Using the [**Advanced**]({{< ref "/content/creator/sdk7/interactivity/button-events/advanced-button-events.md" >}}) approach, the `PointerEventsResults` contains an array with a recent history of all pointer events against that entity.
+
+```ts
+engine.addSystem(() => {
+  const pointerEvents = engine.getEntitiesWith(PointerEventsResult)
+  for (const [entity] of pointerEvents) {
+      const poninterEvents = PointerEventsResult.get(entity)
+
+	  if(poninterEvents.commands.length > 0){
+		log(poninterEvents.commands[0].hit.entityId)
+	  }   
+  }
+})
+```
+
+
+<!-- 
+When using `Input.getClick`, it returns an object with a `down` and an `up` object, each of these with all the same data structure returned by `Input.getInputCommand`. The `down` object contains the data relevant to the moment when the moment when button was pushed down, the `up` object for when the button went up. -->
