@@ -12,7 +12,7 @@ url: /player/general/dao/overview/community-grants
 ---
 
 
-The Decentraland DAO possesses a [MANA fund]({{< ref "/content/player/dao/overview/the-dao-fund.md" >}}) that has been set aside to help sponsor and facilitate the continual growth of the Decentraland platform. One avenue used by the DAO to achieve these goals is a grants program that was [voted in place by the community](https://governance.decentraland.org/en/proposal/?id=b265e3e0-bcb0-11eb-a871-a927ffd81f49).
+The Decentraland DAO possesses a [MANA fund]({{< ref "/content/player/dao/overview/the-dao-fund.md" >}}) that has been set aside to help sponsor and facilitate the continual growth of the Decentraland platform. One avenue used by the DAO to achieve these goals is a grants program that was [voted in place by the community](https://governance.decentraland.org/proposal/?id=b265e3e0-bcb0-11eb-a871-a927ffd81f49).
 
 This grants program allows any member of the community to request funding to help reimburse their efforts in community building and education, creating 3D content for the world, or implementing new features and improvements to the platform.
 

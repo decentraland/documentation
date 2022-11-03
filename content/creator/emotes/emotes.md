@@ -110,7 +110,7 @@ See [Editor Guide](#Editor-User-Guide) below for a detailed guide of the entire 
 
 ### Publication fees
 
-A fee is required for publishing items. This fee was originally [voted in place by the Decentraland DAO](https://governance.decentraland.org/en/proposal/?id=50092c00-c315-11eb-ac84-1705d1ae4a66) to deter users from publishing an excessive number of Wearables in an attempt to ‘spam’ the Wearables market.
+A fee is required for publishing items. This fee was originally [voted in place by the Decentraland DAO](https://governance.decentraland.org/proposal/?id=50092c00-c315-11eb-ac84-1705d1ae4a66) to deter users from publishing an excessive number of Wearables in an attempt to ‘spam’ the Wearables market.
 
 The [most recent vote](https://governance.decentraland.org/proposal/?id=b8075360-e8e7-11ec-82d9-d917cdd158ac) regarding publication fees has pegged them to a fixed amount of 150 United States dollars per item, to be paid in MANA.
 
