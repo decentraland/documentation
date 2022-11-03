@@ -214,12 +214,12 @@ The `slerp()` function takes three parameters:
 - The [quaternion](https://en.wikipedia.org/wiki/Quaternion) angle for the target rotation
 - The amount, a value from 0 to 1 that represents what fraction of the translation to do.
 
-> Tip: You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.Euler()`.
+> Tip: You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.fromEulerDegrees()`.
 
 
 ```ts
-const originRotation = Quaternion.euler(0, 90, 0)
-const targetRotation = Quaternion.euler(0, 0, 0)
+const originRotation = Quaternion.fromEulerDegrees(0, 90, 0)
+const targetRotation = Quaternion.fromEulerDegrees(0, 0, 0)
 
 let newRotation = Quaternion.slerp(originRotation, targetRotation, 0.6)
 ```
@@ -264,8 +264,8 @@ Transform.create(myEntity, {
 MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
 
 SlerpData.create(myEntity, {
-  start: Quaternion.euler(0, 0, 0),
-  end: Quaternion.euler(0, 180, 0),
+  start: Quaternion.fromEulerDegrees(0, 0, 0),
+  end: Quaternion.fromEulerDegrees(0, 180, 0),
   fraction: 0,
   speed: 0.3
 })
@@ -281,8 +281,8 @@ A simpler but less efficient approach to this takes advantage of the `Quaternion
 ```ts
 function SimpleRotate(dt: number) {
 	let transform = Transform.getMutable(myEntity)
-	transform.rotation = Quaternion.rotateTowards(transform.rotation, Quaternion.euler(90, 0, 0), dt *10)
-  if(transform.rotation === Quaternion.euler(90, 0, 0)){
+	transform.rotation = Quaternion.rotateTowards(transform.rotation, Quaternion.fromEulerDegrees(90, 0, 0), dt *10)
+  if(transform.rotation === Quaternion.fromEulerDegrees(90, 0, 0)){
     log("done")
     engine.removeSystem(this)
   }
@@ -293,7 +293,7 @@ const simpleRotateSystem = engine.addSystem(SimpleRotate)
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
 	position: Vector3.create(4, 1, 4),
-	rotation: Quaternion.euler(0, 0, 90)
+	rotation: Quaternion.fromEulerDegrees(0, 0, 90)
 })
 
 MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })

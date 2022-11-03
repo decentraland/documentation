@@ -177,7 +177,7 @@ import { createDispenser } from "./booth/dispenser"
 const POAPBooth = createDispenser(
   {
     position: new Vector3(8, 0, 8),
-    rotation: Quaternion.Euler(0, 0, 0),
+    rotation: Quaternion.fromEulerDegrees(0, 0, 0),
   },
   "dcl_event_uuid"
 )
