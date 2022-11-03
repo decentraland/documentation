@@ -209,12 +209,6 @@ This example has one system that iterates over all entities that have a custom c
 
 This way of organizing your scene's code is very [data oriented]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and should result in a very efficient use of memory resources.
 
-### Hover events
-
-
-
-// TODO
-
 
 ## Show feedback
 
@@ -421,6 +415,32 @@ engine.addSystem(() => {
 The example above sets the maximum distance for hover hints to _6 meters_. Make sure that the logic for handling the input actions also follows the same rules. See [Data from input action](#data-from-input-action) for how to obtain the distance of an input action.
 
 > Note: The `maxDistance` is measured in meters from meters from the player's camera. Keep in mind that in 3rd person the camera is a bit further away, so make sure the distance you set works well in both modes.
+
+
+## Advanced custom hints
+
+The `PointerHoverFeedback` component easily adds UI hints when the player's cursor starts hovering over an entity. It's generally a good thing that hints behave consistently with what players are used to seeing in other Decentraland scenes. However, in some cases you might want to signal that something is interactive in a custom way. For example, you could play a subtle sound when the player starts hovering over the entity. You could also show a glowing highlight around the entity while hovering, and hide it when no longer hovering. It could also be used for specific gameplay mechanics.
+
+Use the `Input.isTriggered()` function together with the `PointerEventType.PET_HOVER_ENTER` and `PointerEventType.PET_HOVER_LEAVE` events to carry out custom behaviors whenever the player's cursor starts pointing at the entity's collider, and whenever the cursor stops pointing at it.
+
+The example below enlarges entities to a size of _1.5_ when the cursor starts pointing at their collider, and sets them back at a size of _1_ when the cursor leaves them.
+
+
+```ts
+engine.addSystem(() => {
+  const meshEntities = engine.getEntitiesWith(MeshRenderer)
+  for (const [entity] of meshEntities) {
+    if (Input.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_HOVER_ENTER, entity)) {
+      Transform.getMutable(entity).scale = Vector3.create(1.5, 1.5, 1.5)
+    }
+
+     if (Input.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_HOVER_LEAVE, entity)) {
+      Transform.getMutable(entity).scale = Vector3.create(1, 1, 1)
+    }
+  }
+})
+
+```
 
 
 ## Data from input action

@@ -42,10 +42,6 @@ Each event in the `commands` array has the following data:
 	- `normalHit`: _Quaternion_ for the angle of the normal of the hit in world space.
 
 
-
-<!-- TODO: meshName not currently in `hit`, will it be included? -->
-
-
 ```ts
 function PointerReadingSystem() {
   const clickedCubes = engine.getEntitiesWith(PointerEventsResult)
@@ -70,15 +66,3 @@ In real-time multiplayer games where the timing of player movements is critical,
 
 This approach helps compensate for network delays, but is sure to result in discrepancies, so you should also regularly poll the player's current position to make corrections. Balancing these predictions and corrections may require plenty of fine-tuning.
 
-
-## Advanced custom hints
-
-The [`PointerHoverFeedback`](#hint-messages) component adds UI hints when the player's cursor starts hovering over an entity. This is easy to set up, and it's also good that it's consistent with what players are used to seeing in other scenes.
-
-In some cases, you might want to otherwise use `HOVER_ENTER` and `HOVER_LEAVE` pointer events to hint that something is interactable in some custom way. For example, you could play a subtle sound when `HOVER_ENTER` event is activated. You could also show a glowing highlight around the entity when a `HOVER_ENTER` event is activated, and hide it when `HOVER_LEAVE` is activated. It could also be used for specific gameplay mechanics.
-
-
-```ts
-TODO
-
-```

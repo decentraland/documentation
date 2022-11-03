@@ -11,9 +11,6 @@ weight: 3
 ---
 
 
-TODO: Use register events with
-EventsManager.onPointerDown
-
 Make a UI entity clickable by giving it an `onClick` component. The `onClick` component references a function that runs every time the UI entity is clicked.
 
 
@@ -52,8 +49,6 @@ renderUi(() => (
 <!--
 
 TODO: children of an entity with OnClick aren't clickable too, right?
-
-TODO: is a click just a button down or button down + button up?
 
 TODO: is there an euqivalent to isPointerBlocker?
 
