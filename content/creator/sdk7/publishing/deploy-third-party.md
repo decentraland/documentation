@@ -5,7 +5,7 @@ description: Upload a preview of your scene to a server and share it offchain.
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/deploy-third-party/
+url: /creator/development-guide/sdk7/deploy-third-party/
 weight: 2
 ---
 

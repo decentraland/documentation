@@ -5,7 +5,7 @@ description: Default files created in a new scene.
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/scene-files/
+url: /creator/development-guide/sdk7/scene-files/
 weight: 2
 ---
 

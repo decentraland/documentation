@@ -5,7 +5,7 @@ description: Learn how to make UIs dynamic, responding to changes in data.
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/dynamic-ui/
+url: /creator/development-guide/sdk7/dynamic-ui/
 weight: 2
 ---
 

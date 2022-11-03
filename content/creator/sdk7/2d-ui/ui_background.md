@@ -7,7 +7,7 @@ description: Set a background color on a UI entity.
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/ui-background/
+url: /creator/development-guide/sdk7/ui-background/
 weight: 4
 ---
 

@@ -6,7 +6,7 @@ description: Set the position, scale, padding and other properties of UI entitie
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/ui-positioning/
+url: /creator/development-guide/sdk7/ui-positioning/
 weight: 3
 ---
 

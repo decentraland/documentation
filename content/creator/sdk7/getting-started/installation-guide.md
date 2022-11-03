@@ -5,7 +5,7 @@ description: Step-by-step guide to installing the SDK
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/installation-guide/
+url: /creator/development-guide/sdk7/installation-guide/
 weight: 2
 ---
 

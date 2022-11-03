@@ -5,7 +5,7 @@ description: How to define color values
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/color-types/
+url: /creator/development-guide/sdk7/color-types/
 weight: 6
 ---
 

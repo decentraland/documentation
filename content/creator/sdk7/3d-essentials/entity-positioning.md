@@ -5,7 +5,7 @@ description: How to set the position, rotation and scale of an entity in a scene
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/entity-positioning/
+url: /creator/development-guide/sdk7/entity-positioning/
 weight: 1
 ---
 

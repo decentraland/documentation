@@ -5,7 +5,7 @@ description: Fixes for common problems
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/troubleshooting/
+url: /creator/development-guide/sdk7/troubleshooting/
 weight: 3
 ---
 

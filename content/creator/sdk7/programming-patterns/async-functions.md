@@ -5,7 +5,7 @@ description: Learn when and how to run asynchronous functions in your scene's co
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/async-functions/
+url: /creator/development-guide/sdk7/async-functions/
 weight: 1
 ---
 

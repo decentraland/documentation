@@ -5,7 +5,7 @@ description: Learn how to create a UI for players in your scene. This is useful,
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/onscreen-ui/
+url: /creator/development-guide/sdk7/onscreen-ui/
 weight: 1
 ---
 

@@ -5,7 +5,7 @@ description: Learn what the SDK offers for performing operations with the Ethere
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/scene-blockchain-operations/
+url: /creator/development-guide/sdk7/scene-blockchain-operations/
 weight: 1
 ---
 

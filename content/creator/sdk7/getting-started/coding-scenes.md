@@ -5,7 +5,7 @@ description: This set will help you understand how things work in the client and
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/coding-scenes/
+url: /creator/development-guide/sdk7/coding-scenes/
 weight: 1
 ---
 

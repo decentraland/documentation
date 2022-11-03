@@ -5,7 +5,7 @@ description: How to publish my project?
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/publishing/
+url: /creator/development-guide/sdk7/publishing/
 weight: 1
 ---
 

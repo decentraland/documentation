@@ -5,7 +5,7 @@ description: Learn how to display a certified NFT that you own in your scene
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/display-a-certified-nft/
+url: /creator/development-guide/sdk7/display-a-certified-nft/
 weight: 3
 ---
 

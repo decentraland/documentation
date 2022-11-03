@@ -5,7 +5,7 @@ description: How you can debug your scene that is running inside Decentraland
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/debug-in-prod/
+url: /creator/development-guide/sdk7/debug-in-prod/
 weight: 2
 ---
 

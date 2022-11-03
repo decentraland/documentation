@@ -5,7 +5,7 @@ description: The Data Oriented Programming is a powerful approach to programming
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/data-oriented-programming
+url: /creator/development-guide/sdk7/data-oriented-programming
 weight: 7
 ---
 

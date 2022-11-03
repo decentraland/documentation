@@ -5,7 +5,7 @@ description: Create a custom component to handle specific data related to an ent
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/custom-components/
+url: /creator/development-guide/sdk7/custom-components/
 weight: 3
 ---
 

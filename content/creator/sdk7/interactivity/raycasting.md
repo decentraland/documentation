@@ -5,7 +5,7 @@ description: Use raycasting to trace a line in space and query for collisions wi
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/raycasting/
+url: /creator/development-guide/sdk7/raycasting/
 weight: 5
 ---
 

@@ -5,7 +5,7 @@ description: Learn the essentials about entities and components in a Decentralan
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/entities-components/
+url: /creator/development-guide/sdk7/entities-components/
 weight: 1
 ---
 

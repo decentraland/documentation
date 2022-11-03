@@ -5,7 +5,7 @@ description: How to communicate your scene with external servers and APIs.
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/network-connections/
+url: /creator/development-guide/sdk7/network-connections/
 weight: 1
 ---
 

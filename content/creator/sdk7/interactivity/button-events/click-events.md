@@ -5,7 +5,7 @@ description: Learn how to handle user clicks in your scene.
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/click-events/
+url: /creator/development-guide/sdk7/click-events/
 weight: 1
 ---
 

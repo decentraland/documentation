@@ -5,7 +5,7 @@ description: Specify an area on your scene where player avatars or the camera be
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/avatar-modifiers/
+url: /creator/development-guide/sdk7/avatar-modifiers/
 weight: 3
 ---
 

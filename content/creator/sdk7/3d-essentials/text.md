@@ -5,7 +5,7 @@ description: How to add text to your scene
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/text/
+url: /creator/development-guide/sdk7/text/
 weight: 6
 ---
 

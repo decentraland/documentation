@@ -5,7 +5,7 @@ description: Learn about the different components that give entities their 3D sh
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/shape-components/
+url: /creator/development-guide/sdk7/shape-components/
 weight: 2
 ---
 

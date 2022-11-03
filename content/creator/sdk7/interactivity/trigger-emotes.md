@@ -5,7 +5,7 @@ description: Make the player perform an emote
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/trigger-emotes/
+url: /creator/development-guide/sdk7/trigger-emotes/
 weight: 4
 ---
 

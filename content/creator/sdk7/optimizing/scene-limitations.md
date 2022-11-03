@@ -5,7 +5,7 @@ description: How many things can I put on my scene?
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/scene-limitations/
+url: /creator/development-guide/sdk7/scene-limitations/
 weight: 2
 ---
 

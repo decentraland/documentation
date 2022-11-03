@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 set: getting-started
-url: /creator/development-guide/preview-scene/
+url: /creator/development-guide/sdk7/preview-scene/
 weight: 4
 ---
 

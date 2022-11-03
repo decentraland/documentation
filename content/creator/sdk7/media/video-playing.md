@@ -5,7 +5,7 @@ description: Stream video into a scene
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/video-playing/
+url: /creator/development-guide/sdk7/video-playing/
 weight: 2
 ---
 

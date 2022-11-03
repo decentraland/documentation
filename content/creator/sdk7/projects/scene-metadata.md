@@ -5,7 +5,7 @@ description: Learn how to set up a scene and configure its metadata.
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/scene-metadata/
+url: /creator/development-guide/sdk7/scene-metadata/
 weight: 1
 ---
 

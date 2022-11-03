@@ -5,7 +5,7 @@ description: Recommended procedure for developing and testing a scene
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/dev-workflow/
+url: /creator/development-guide/sdk7/dev-workflow/
 weight: 5
 ---
 

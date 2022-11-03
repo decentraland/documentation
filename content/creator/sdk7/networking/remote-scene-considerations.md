@@ -5,7 +5,7 @@ description: Tips and tricks for scenes with multiple players
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/remote-scene-considerations/
+url: /creator/development-guide/sdk7/remote-scene-considerations/
 weight: 2
 ---
 
