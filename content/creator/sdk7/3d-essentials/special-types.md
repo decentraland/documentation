@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/sdk7/special-types/
-weight: 8
+weight: 1000
 ---
 
 <!-- TODO: all -->
@@ -83,7 +83,7 @@ let myQuaternion = Quaternion.crate(0, 0, 0, 1)
 // Edit one of its values
 myQuaternion.x = 1
 
-// Call functions from the quaternion class
+// Call functions from the quaternion namespace
 let midPoint = Quaternion.slerp(myQuaternion1, myQuaternion2, 0.5)
 
 let rotationDifference = Quaternion.fromToRotation(myQuaternion1, myQuaternion2, Quaternion.Zero())
