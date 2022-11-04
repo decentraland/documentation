@@ -37,7 +37,7 @@ To move, rotate or resize an entity in your scene over a period of time, change 
 
 ## Position
 
-`position` is a _3D vector_, it sets the position of the entity's center on all three axes, _x_, _y_, and _z_.
+`position` is a _3D vector_, it sets the position of the entity's center on all three axes, _x_, _y_, and _z_. See [Geometry types]({{< ref "/content/creator/sdk7/3d-essentials/special-types.md" >}}) for more details.
 
 ```ts
 // Create a new entity
@@ -92,7 +92,7 @@ When setting a position, keep the following considerations in mind:
 
 ## Rotation
 
-`rotation` is stored as a [_quaternion_](https://en.wikipedia.org/wiki/Quaternion), a system of four numbers, _x_, _y_, _z_ and _w_. Each of these numbers goes from 0 to 1.
+`rotation` is stored as a [_quaternion_](https://en.wikipedia.org/wiki/Quaternion), a system of four numbers, _x_, _y_, _z_ and _w_. Each of these numbers goes from 0 to 1. See [Geometry types]({{< ref "/content/creator/sdk7/3d-essentials/special-types.md" >}}) for more details.
 
 ```ts
 // Create a new entity
@@ -241,25 +241,34 @@ If an entity has both a `Billboard` component and `Transform` component with `ro
 
 
 
-<!--
-
 ## Face a set of coordinates
 
-You can use `lookAt()` on the Transform component to orient an entity fo face a specific point in space by simply passing it that point's coordinates. This is a way to avoid dealing with the math for calculating the necessary angles.
+For entity A to look at entity B: 
+
+	1) Subtract the position of entity A from entity B to get a vector that describes the distance between them.
+	2) Normalize that vector, so it has a length of 1, maintaining its direction.
+	3) Use `Quaternion.lookRotation` to get a Quaternion rotation that describes rotating in that direction.
+	4) Set that Quaternion as the rotation of entity A
+
+
 
 ```ts
-// Create a transform
-let myTransform = new Transform()
-
-// Rotate to face the coordinates (4, 1, 2)
-myTransform.lookAt(new Vector3(4, 1, 2))
+export function turn(entity:Entity, target: ReadOnlyVector3){
+	const transform = Transform.getMutable(entity)
+	const difference = Vector3.subtract( target, transform.position)
+	const normalizedDifference = Vector3.normalize(difference)
+	transform.rotation = Quaternion.lookRotation(normalizedDifference)
+}
 ```
+
+<!-- 
+ corr the Transform component to orient an entity fo face a specific point in space by simply passing it that point's coordinates. This is a way to avoid dealing with the math for calculating the necessary angles.
 
 This field requires a _Vector3_ object as a value, or any object with _x_, _y_ and _z_ attributes. This vector indicates the coordinates of the position of the point in the scene to look at.
 
-The `lookAt()` function has a second optional argument that sets the global direction for _up_ to use as reference. For most cases, you won't need to set this field.
+The `lookAt()` function has a second optional argument that sets the global direction for _up_ to use as reference. For most cases, you won't need to set this field. -->
 
--->
+
 
 ## Scale
 
@@ -330,7 +339,6 @@ If a child entity has no `position` on its Transform, the default is `0,0,0`, wh
 
 You can use an invisible entity with no shape component as a parent, to wrap a set of other entities. This entity won't be visible in the rendered scene, but can be used to group its children and apply a transform to all of them.
 
-
 ## Attach an entity to an avatar
 
 To fix an entity's position to an avatar, add an `AvatarAttach` component to the entity.
@@ -349,7 +357,6 @@ When creating an `AvatarAttach` component, you must pass an object with the foll
 - `avatarId`: The ID of the player to attach to. This is the same as the player's Ethereum address, for those players connected with an Ethereum wallet.
 - `AvatarAnchorPoint`: What anchor point on the avatar skeleton to attach the entity.
 
-
 The following anchor points are available on the player:
 
 - `AvatarAnchorPointType.AAPT_NAME_TAG`: Floats right above the player's name tag, isn't affected by the player's animations.
@@ -360,11 +367,9 @@ The following anchor points are available on the player:
 - `AvatarAnchorPointType.AAPT_RIGHT_HAND`: Is fixed on the player's right hand
 - `AvatarAnchorPointType.AAPT_LEFT_HAND`: Is fixed on the player's left hand
 
-
 Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to everyone seeing that player.
 
 > Note: Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
-
 
 The `AvatarAttach` component overwrites the `Transform` component, a single entity can't have both an `AvatarAttach` and a `Transform` component at the same time.
 

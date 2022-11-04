@@ -144,8 +144,9 @@ function toggleMenuVisibility(){
 }
 ```
 
+<!-- TODO: Make example pretty, with better positioning of entities -->
 
-TODO: Make example pretty, with better positioning of entities
+
 
 
 

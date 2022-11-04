@@ -181,9 +181,6 @@ You can also use `Animator.stopAnims()`  at any time to explicitly set the postu
 
 If a 3D model has multiple animations packed into it, a single `Animator` component can deal with all of them.
 
-<!-- TODO: Do layers exist?? Can I still play two animations at once? -->
-
-Animations exist in _layers_ in an `Animator` component. If two animations are in the same layer, only one of them can play at a time. Starting one will stop the other. If two animations exist on separate layers, they can play at the same time, given that their _weight_ values add up, or if they each control different bones or vertexes from the model.
 
 ```ts
 // Create entity
@@ -211,8 +208,6 @@ Animator.create(shark, {
 ```
 
 In the example above, two animations are handled by separate `state` objects, and they are then both assigned to the same `Animator` component.
-
-> Note: If the layer of an animation isn't specified, it's assigned to layer 0.
 
 Each bone in an animation can only be affected by one animation at a time, unless these animations have a `weight` that adds up to a value of 1 or less.
 

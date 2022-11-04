@@ -9,7 +9,10 @@ url: /creator/development-guide/sdk7/video-playing/
 weight: 2
 ---
 
-<!-- TODO: all -->
+> Note: Feature not yet supported in SDK7.
+
+<!-- 
+
 
 There are two different ways you can show a video in a scene. One is to stream the video from an external source, the other is to pack the video file with the scene and play it from there.
 
@@ -145,4 +148,6 @@ You can also change the following properties:
 
 - `volume`: Lets you change the volume of the audio. _1_ by default.
 
-- `seek`: Allows you to set a different starting position on the video. It's expressed in seconds after the video's original beginning. _-1_ by default, which makes it start at the actual start of the video.
+- `seek`: Allows you to set a different starting position on the video. It's expressed in seconds after the video's original beginning. _-1_ by default, which makes it start at the actual start of the video. 
+
+-->
