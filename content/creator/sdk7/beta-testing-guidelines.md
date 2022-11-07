@@ -10,7 +10,7 @@ weight: 1
 ---
 
 
-SDK version 7 is currently being tested as a beta release. We're gathering feedback from the community, to make sure the release doesn't present any major issues and that the experience of using it is good.
+SDK version 7 is currently being tested as a beta release. We're gathering feedback from the community, to ensure the release doesn't present any major issues and that the experience of using it is good.
 
 We encourage you to test and experiment with this new SDK as much as possible, but please don't build any events or important scenes that rely on content written with SDK7. As things are still in a beta stage, breaking changes are still possible.
 
@@ -24,7 +24,7 @@ Note that this is an unpublished branch of the Decentraland documentation, under
 
 To try out SDK7, visit [the playground](https://decentraland.github.io/sdk-playground/). Write SDK7 code on the left of the screen, and see the resulting scene on the right. As you change the code, the scene is updated automatically.
 
-If you run into any issues, please copy a URL to the current setup of your scene with the **Share** button, and [report an issue](#reporting-issues).
+If you run into any issues, please copy a URL to the current setup of your scene with the **Share** button, and [report an issue](#reporting-issues) including that link to your code.
 
 
 ## Running in preview
@@ -37,7 +37,7 @@ To run a scene using SDK7 in preview
 
 2) Manually copy this [template scene](https://github.com/decentraland/ecs7-template) into a new folder.
 
-3) Add any additional files you want. Run previews with `dcl start`, the same as with older versions.
+3) Run previews with `dcl start`, the same as with older versions. Edit or add any additional files you want into the folder structure to build out your scene. 
 
 > Note: Notice that scenes that use SDK7 don't have the `decentraland-ecs` package installed. Instead, they have the `@dcl/sdk` package.
 
@@ -45,10 +45,7 @@ To run a scene using SDK7 in preview
 
 You can deploy scenes with SDK7 using `dcl deploy` the same as any scene with SDK6.
 
-TODO: check, is this param still needed?
-Players will only be able to load scenes with SDK7 if they add the following parameter to their URL `&ENABLE_ECS7`.
-
-> Note: Please only deploy experiments for now, not scenes that are of critical importance.
+> Note: Please note that this is not yet a stable version. Breaking changes are possible, so avoid using this version for scenes that are of critical importance.
 
 ## Example scenes
 
@@ -61,7 +58,7 @@ You can find more example scenes written with SDK7 here:
 
 TODO: where to report bugs?
 
-If you run into any bugs, please report an issue in the []() repository.
+If you run into any bugs, please report an issue in the [SDK](https://github.com/decentraland/sdk/issues) repository.
 
 We ask you to please detail how to reproduce the issue as much as possible. The ideal way to report a bug is to include a link to the [playground](https://decentraland.github.io/sdk-playground/), showcasing a minimal scene where this issue can be observed. Click the **Share** button in the playground to copy a URL that includes the code that you're currently using. That way, the issue is 100% reproducible by whoever is debugging it.
 
@@ -70,4 +67,4 @@ We ask you to please detail how to reproduce the issue as much as possible. The 
 
 Once you've had a chance to try the new SDK, submit your feedback in the following form:
 
-TODO: feedback link
+TODO: [feedback link]()
