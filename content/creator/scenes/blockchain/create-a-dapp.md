@@ -9,6 +9,7 @@ aliases:
   - /blockchain-interactions/create-a-dapp
   - /blockchain-integration/create-a-dapp
 url: /creator/development-guide/create-a-dapp
+weight: 4
 ---
 
 You can create your own decentralized apps (dApps) to interface with Decentraland's smart contracts and expose their functionality in more elaborate and friendlier ways.

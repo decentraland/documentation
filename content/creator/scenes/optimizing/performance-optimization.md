@@ -1,6 +1,6 @@
 ---
 date: 2021-01-11
-title: Performance Optimization
+title: Performance optimization
 description: Optimize your scene to load fast and run smoothly for all players.
 categories:
   - development-guide
@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/performance-optimization/
 url: /creator/development-guide/performance-optimization
+weight: 1
 ---
 
 There are several aspects you can optimize in your scenes to ensure the best possible experience for players who visit them. This document covers some best practices that can make a big difference in how fast your scene loads and how smoothly it runs for players that are on it or on neighboring scenes.
@@ -78,7 +79,7 @@ There are several ways in which your 3d models can be optimized to be lighter.
 
 - Avoid skinned meshes. They can drag down the performance significantly.
 
-> TIP: Read more on 3d model best practices in the [3d Modeling Section](/creator/3d-modeling/3d-models
+> TIP: Read more on 3d model best practices in the [3d Modeling Section]({{< ref "/creator/3d-modeling/3d-models.md" >}})
 
 #### Asset Bundle conversion
 

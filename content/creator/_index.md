@@ -6,6 +6,9 @@ categories:
   - development-guide
 type: Document
 url: /creator
+aliases:
+  - /content-intro/
+  - /development-guide/content-intro/
 weight: 2
 ---
 

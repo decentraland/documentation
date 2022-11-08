@@ -10,6 +10,7 @@ aliases:
   - /development-guide/click-events/
 type: Document
 url: /creator/development-guide/click-events
+weight: 1
 ---
 
 Decentraland accepts events from pointer clicks, a primary button and a secondary button.

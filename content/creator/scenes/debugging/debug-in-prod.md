@@ -1,6 +1,6 @@
 ---
 date: 2022-06-29
-title: Debug in Production
+title: Debug in production
 description: How you can debug your scene that is running inside Decentraland
 categories:
   - development-guide
@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/debug-in-prod/
 url: /creator/development-guide/debug-in-prod
+weight: 2
 ---
 
 When running a scene that's already deployed to land in Decentraland, there are a number of things you can try out to debug it.
@@ -48,7 +49,7 @@ To view scene stats, add the following URL parameter:
 
 `&SCENE_DEBUG_PANEL`
 
-This will enable the option of opening a panel that displays stats that update in real time, including material count, entity count, processed messages, etc. See [view scene stats](({{< ref "/content/creator/scenes/debugging/debug-in-preview.md#view-scene-stats" >}})) for details.
+This will enable the option of opening a panel that displays stats that update in real time, including material count, entity count, processed messages, etc. See [view scene stats]({{< ref "/content/creator/scenes/debugging/debug-in-preview.md#view-scene-stats" >}}) for details.
 
 With this flag enabled, you'll see a hint on the top-right corner of the screen, and you can press Y to open up this panel and see stats for the scene you're currently standing on.
 

@@ -1,6 +1,6 @@
 ---
 date: 2020-05-04
-title: Play Videos
+title: Play videos
 description: Stream video into a scene
 categories:
   - development-guide
@@ -9,6 +9,7 @@ aliases:
   - /development-guide/video-streaming
   - /development-guide/video-playing
 url: /creator/development-guide/video-playing
+weight: 2
 ---
 
 There are two different ways you can show a video in a scene. One is to stream the video from an external source, the other is to pack the video file with the scene and play it from there.
