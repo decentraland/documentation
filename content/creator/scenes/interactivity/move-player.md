@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/move-player/
 url: /creator/development-guide/move-player
+weight: 2
 ---
 
 To change the player's position in the scene, use the `movePlayerTo()` function. This function takes two arguments:

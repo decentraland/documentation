@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/user-data/
 url: /creator/development-guide/user-data
+weight: 5
 ---
 
 ## Track player position and rotation

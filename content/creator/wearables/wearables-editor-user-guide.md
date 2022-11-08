@@ -1,6 +1,6 @@
 ---
 date: 2021-05-31
-title: Wearables Editor User Guide
+title: Wearables editor user guide
 aliases:
   - /wearables/wearables-editor-user-guide/
   - /decentraland/wearables-editor-user-guide/

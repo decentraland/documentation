@@ -1,6 +1,6 @@
 ---
 date: 2022-07-15
-title: Data Oriented Programming
+title: Data oriented programming
 description: The Data Oriented Programming is a powerful approach to programming gets the most out of performance.
 categories:
   - development-guide

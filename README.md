@@ -1,3 +1,6 @@
+# Docs web
+[https://docs.decentraland.org/](https://docs.decentraland.org/)
+
 # Set up local environment
 
 1. [Install Hugo locally](https://gohugo.io/getting-started/installing/)

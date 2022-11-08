@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/raycasting/
 url: /creator/development-guide/raycasting
+weight: 7
 ---
 
 Raycasting is a fundamental tool in game development. With raycasting, you can trace an imaginary line in space, and query if any entities are intersected by the line. This is useful for calculating lines of sight, trajectories of bullets, pathfinding algorithms and many other applications.

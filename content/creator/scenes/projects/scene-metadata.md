@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /development-guide/scene-metadata/
 url: /creator/development-guide/scene-metadata
+weight: 1
 ---
 
 All scenes have a `scene.json` file where you can set metadata for the scene. Some fields in this file are predefined with information that's necessary for the Decentraland client.

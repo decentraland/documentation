@@ -110,7 +110,7 @@ See [Editor Guide](#Editor-User-Guide) below for a detailed guide of the entire 
 
 ### Publication fees
 
-A fee is required for publishing items. This fee was originally [voted in place by the Decentraland DAO](https://governance.decentraland.org/en/proposal/?id=50092c00-c315-11eb-ac84-1705d1ae4a66) to deter users from publishing an excessive number of Wearables in an attempt to ‘spam’ the Wearables market.
+A fee is required for publishing items. This fee was originally [voted in place by the Decentraland DAO](https://governance.decentraland.org/proposal/?id=50092c00-c315-11eb-ac84-1705d1ae4a66) to deter users from publishing an excessive number of Wearables in an attempt to ‘spam’ the Wearables market.
 
 The [most recent vote](https://governance.decentraland.org/proposal/?id=b8075360-e8e7-11ec-82d9-d917cdd158ac) regarding publication fees has pegged them to a fixed amount of 150 United States dollars per item, to be paid in MANA.
 
@@ -232,6 +232,10 @@ When you’re finished entering your descriptive metadata, click **Next**.
 After you set all the parameters of your Emote, you can see how it will look in the Editor. You can also combine it with a Wearable to see how the combination of both assets look in the Decentraland Avatar.
 
 ![Untitled](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images//emotes/Untitled%207.png)
+
+You need to make sure that your Emote is not traspassing the established boundaries. To check this in the Editor, you can turn on the cylinder view, and see if the avatar is not going over, or throught the red cylinder. The avatar must not traspass the floor either. 
+
+![](/images/emotes/emotes-preview.png)
 
 If everything is looking good, you are ready to **publish your Collection.**
 

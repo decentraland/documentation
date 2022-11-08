@@ -1,6 +1,6 @@
 ---
 date: 2018-02-07
-title: Second Layer Blockchain
+title: Second layer blockchain
 description: Use Polygon's sidechain in your scene to enable much faster and cheaper blockchain transactions.
 categories:
   - development-guide
@@ -9,6 +9,7 @@ aliases:
   - /blockchain-integration/second-layer
   - /development-guide/second-layer/
 url: /creator/development-guide/second-layer
+weight: 2
 ---
 
 ## About second layer solutions
