@@ -1,6 +1,6 @@
 ---
 title: "Realm Selection"
-slug: "/contributor/catalyst/realm-selection"
+url: "/contributor/catalyst/realm-selection"
 ---
 
 A [Catalyst](https://github.com/decentraland/catalyst) is a Server that bundles different Services required by the Decentraland World. Some of the main responsibilities of the server are the management of the decentralized storage for most of the content needed by the client and the orchestration of communications between peers.
