@@ -24,7 +24,7 @@ The Decentraland editor is an extension of Visual Studio Code, built for easing 
 
 Ultimately the editor will offer many no-code options for placing items, and setting component parameters via graphical UIs. The first version of the editor aims for simplifying the experience of coding scenes by removing the command line from the list of tools you need to use. It offers UI options for:
 
-- **Create projects**: Scaffold a new project of various types: scene, library, portable experience, and smart item.
+- **Create projects**: Scaffold a new project of various types: scene, library, portable experience, and smart item. See [Quick start]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}).
 - **Run scenes**: preview your scenes within VSCode, or launch in a browser. See [Run preiview]({{< ref "/content/creator/scenes/getting-started/preview-scene.md#using-the-editor" >}})
 - **Publish scenes**: publish your scene to the world. See [Publishing]({{< ref "/content/creator/scenes/publishing/publishing.md#via-the-editor" >}}).
 - **Manage dependencies**: add, remove, and list the libraries and dependencies that your project is using. See [Manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-dependencies.md" >}}).
