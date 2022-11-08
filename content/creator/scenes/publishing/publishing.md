@@ -19,15 +19,15 @@ Make sure of the following:
 
 - Your scene complies with all of the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}). Most of these are validated each time you run a preview of your scene.
 
-- You have a [Metamask](https://metamask.io/) account, with your LAND parcels assigned to it.
+- You have a [Metamask](https://metamask.io/) account, or another wallet that's accessible via Wallet Connect, and that your LAND parcels are owned by that account or have permissions.
 
-- You own the necessary amount of adjacent LAND parcels. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org).
+- You own or have permissions to the necessary amount of adjacent LAND parcels. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org).
 
 > Note: Multi-parcel scenes can only be deployed to adjacent parcels.
 
 ## Check scene data
 
-When deploying, the CLI reads information from the _scene.json_ to know where to deploy your scene to.
+When deploying, Decentraland uses information from _scene.json_ to know where to deploy your scene to.
 
 Open your scene's _scene.json_ file and complete the following data:
 
@@ -46,6 +46,26 @@ Open your scene's _scene.json_ file and complete the following data:
 > Note: See [scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for more details on how to set these parameters.
 
 ## To publish the scene
+
+### Via the Editor
+
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/installation-guide/installation-guide.md" >}}).
+
+1) Open your scene's folder using Visual Studio Code. 
+
+> Note: The Visual Studio window must be at the root folder of the scene project.
+
+2) Open the Editor's menu, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
+
+	This opens a new tab in Visual Studio, showing what parcels you're deploying to.
+
+3) Approve the transaction
+
+	- If the LAND tokens you own or have permissions are linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
+	- If you need to use Metamask on the browser, click **Open in Browser** to open this same window on a browser tab. Then approve the transaction on the Metamask browser extension.
+
+### Via the CLI
+
 
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
 2.  Run `dcl deploy` from the scene's folder.

@@ -13,21 +13,40 @@ url: /creator/development-guide/installation-guide
 weight: 2
 ---
 
-To build scenes for Decentraland you will need to install the Command Line Interface (CLI).
 
-The CLI allows you to compile and preview your scene in an "off-chain" development environment. After testing your scene locally, you can use the CLI to upload your content to the content server, linking it with your LAND.
+To build scenes for Decentraland you an either use 
 
-**Please note:** Currently, the Decentraland SDK (bundled with the CLI installation) only supports TypeScript.
+- The visual Editor
+- The Command Line Interface (CLI).
+
+Both tools allow you to compile and preview your scene in an "off-chain" development environment. After testing your scene locally, you can upload your content to the content server, linking it with your LAND.
+
+**Please note:** Currently, the Decentraland SDK only supports TypeScript.
+
+## The Editor
+
+The Decentraland Editor is a Visual Studio extension, that allows you to build, preview and deploy Decentraland scenes.
+
+### Install the Editor
+
+- 1) Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+
+- 2) Open Visual Studio Code, and open the extensions marketplace. Search for the **Decentraland** extension and install it.
+
+
+## The CLI
 
 The Decentraland CLI is distributed via [npm](https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm).
 
-## Before you Begin
+> Note: The Editor uses the CLI behind the scenes. Although the Editor is easier to use, there are some scenarios where you might need to use the CLI directly, like when building automatic publishing flows.
+
+### Before you Begin
 
 Please install the following dependencies before you install the CLI:
 
 - [Node.js](https://nodejs.org) (version 8 or later)
 
-## Install the CLI
+### Install the CLI
 
 Open the _Terminal_ app and run the following command:
 
@@ -37,7 +56,7 @@ npm install -g decentraland
 
 Once the installation is complete, the `dcl` command will be globally available.
 
-## Update the CLI on any platform
+### Update the CLI on any platform
 
 To update the CLI to the latest supported version, we recommend first uninstalling the CLI and then reinstalling a fresh version. To do this, run the following commands:
 
