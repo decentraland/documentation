@@ -18,7 +18,7 @@ Once you have [built a new scene]({{< ref "/content/creator/scenes/getting-start
 
 ## Using the editor
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/installation-guide/installation-guide.md" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}).
 
 1) Open your scene's folder using Visual Studio Code. 
 

@@ -16,7 +16,7 @@ We encourage you to test and experiment with this editor as much as possible.
 
 ## Install the editor
 
-See the [Installation guide]({{< ref "/content/creator/scenes/installation-guide/installation-guide.md" >}}).
+See the [Installation guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}).
 
 ## About the Decentraland Editor
 

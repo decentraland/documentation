@@ -49,7 +49,7 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ### Via the Editor
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/installation-guide/installation-guide.md" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}).
 
 1) Open your scene's folder using Visual Studio Code. 
 
