@@ -52,9 +52,6 @@ TODO: children of an entity with OnClick aren't clickable too, right?
 
 TODO: is there an euqivalent to isPointerBlocker?
 
-All UI elements have an `isPointerBlocker` property, that determines if they can be clicked. If this value is false, the pointer should ignore them and respond to whatever is behind the element.
-
-
 > Tip: If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
  -->
 

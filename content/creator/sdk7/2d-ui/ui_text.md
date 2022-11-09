@@ -23,8 +23,8 @@ The following fields can be configured:
 - `font`: 
 - `textAlign`: 
 
-TODO: what value for font?? (not the same as text)
-what about text align, TextAlignMode not valid either
+<!-- TODO: what value for font?? (not the same as text)
+what about text align, TextAlignMode not valid either -->
 
 
 > TIP: A single entity can have both `uiText` and `uiBackground` components.
@@ -43,7 +43,7 @@ renderUi(() => (
 ))
 ```
 
-TODO: examples with textAlign
+<!-- TODO: examples with textAlign -->
 
 
 

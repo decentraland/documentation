@@ -140,8 +140,6 @@ The `Input.wasJustClicked` function takes the following arguments:
 `Input.wasJustClicked()` helps disambiguate several corner cases that might occur, especially if the player clicks fast. If the button was pushed down and up all in the time since the last tick, this should be considered a new click event. Also, if the button was down, then was raised and then pushed down again in the time since the last tick, we should detect a click event.
 
 
-TODO
-
 To obtain data about a click event, beyond just its occurrence, use `Input.getClick`.  -->
 
 
@@ -232,8 +230,8 @@ PointerHoverFeedback.create(myEntity, {
 ```
 
 Whenever the player's cursor points at the colliders in this entity, the UI will display a hover hint to indicate that the entity can be interacted with. See the sections below for details on what you can configure.
-
-TODO: image
+<!-- 
+TODO: image -->
 
 
 > Note: The `PointerHoverFeedback` component just handles the displaying of hover feedback. To handle the button events themselves with custom logic, see [Using-a-system](#check-for-events).

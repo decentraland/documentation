@@ -226,9 +226,6 @@ You can also define how the texture is tiled if the mapping spans more than the 
 - `TextureWrapMode.TWM_CLAMP`: The texture is only displayed once in the specified size. The rest of the surface of the mesh is left transparent.
 - `TextureWrapMode.TWM_REPEAT`: The texture is repeated as many times as it fits in the mesh, using the specified size.
 - `TextureWrapMode.TWM_MIRROR`: As in wrap, the texture is repeated as many times as it fits, but the orientation of these repetitions is mirrored.
-- `TextureWrapMode.TWM_MIRROR_ONCE`: As in mirror, the texture is repeated, but mirrored around just one axis of symmetry.
-
-<!-- TODO: I don't see a difference between Mirror & MirrorOnce -->
 
 
 ```ts
@@ -336,6 +333,9 @@ Material.create(meshEntity1, {
 
 ## Casting no shadows
 
+<!-- TODO: not currently working -->
+
+
 To prevent a material from casting shadows over other objects, use the `castShadows` property set to _false_. This property is always _true_ by default.
 
 ```ts
@@ -345,7 +345,6 @@ Material.create(meshEntity3, {
 })
 ```
 
-<!-- TODO: not currently working -->
 
 ## Video playing
 

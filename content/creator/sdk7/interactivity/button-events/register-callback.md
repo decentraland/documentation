@@ -29,7 +29,10 @@ This statement requires three parameters:
 - `opts`: An object with additional data:
 	- `button`: Which button to listen for. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options. If no button is specified, then all buttons are listened to, including movement buttons like forward and jump.
 	- `hoverText`: What string to display in the hover feedback hint. "Interact" by default.
-	- TODO: hideFeedback
+	<!-- - `hideFeedback`: If true, it hides the hover hint for this entity. 
+
+	TODO: hideFeedback not implemented yet 
+	-->
 
 ```ts
 EventsSystem.onPointerDown(
@@ -70,7 +73,7 @@ EventsSystem.onPointerDown(
 ```
 
 
-TODO: screenshot
+<!-- TODO: screenshot -->
 
 To hide a hover feedback, set the `hoverText` to an empty string "". When doing this, the cursor doesn't show any icons.
 
@@ -123,7 +126,10 @@ This statement requires three parameters:
 - `opts`: An object with additional data:
 	- `button`: Which button to listen for. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options. If no button is specified, then all buttons are listened to, including movement buttons like forward and jump.
 	- `hoverText`: What string to display in the hover feedback hint. "Interact" by default.
-	- TODO: hideFeedback
+	<!-- - `hideFeedback`: If true, it hides the hover hint for this entity. 
+
+	TODO: hideFeedback not implemented yet 
+	-->
 
 A same entity can have two different callbacks registered, one for `EventsSystem.onPointerDown` and one for `EventsSystem.onPointerUp`.
 

@@ -111,8 +111,6 @@ renderUi(() => (
 
 A JSX statement can only have one parent-level entity. You can define as many other entities as you want, but they must all fit inside a structure with one single parent at the top.
 
-TODO: Can I have multiple JSX statements in a scene?
-
 
 
 
@@ -229,14 +227,4 @@ textInput.onChanged = new OnChanged((data: { value: string }) => {
 })
 ``` 
 -->
-
-<!-- 
-
-TODO:  How do I define a type and reuse it???
-
-
-
-TODO: what is `key` for?  to give an element a searchable name?
--->
-
 

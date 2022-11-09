@@ -12,11 +12,9 @@ weight: 2
 
 Display an avatar as an entity in a scene.
 
+## Create an avatar
 
-## Create avatar
-
-
-The following creates an avatar with random wearables and body shape, and name "NPC".
+The following snippet creates an avatar with random wearables and body shape, and name "NPC".
 
 ```ts
 const myAvatar = engine.addEntity()
@@ -27,11 +25,11 @@ Transform.create(myAvatar, {
 })
 ```
 
-To pass data when generating the `AvatarShape`, the following fields are required:
+When passing data to generate an `AvatarShape`, the following fields are required:
 
 - `id`: (required) Internal identifier for the Avatar
 - `wearables`:  (required) Array with list of URNs for wearables that the avatar currently has on. If wearables conflict (like two of them are hats), the last one in the list replaces the other.
-- `emotes`:  (required) Array with list of URNs for emotes that the avatar is currently playing 
+- `emotes`:  (required) Array with list of URNs for NFT emotes that the avatar is capable of playing 
 
 <!-- TODO: check if emotes really work like this -->
 
@@ -48,14 +46,9 @@ The following optional fields are also available:
 > TIP: See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.
 
 
-## Default animations
-
-Avatars play default idle animations while still. If they change positions, they play the walk or run position while moving. If they move above the ground level they play the jump animation and if they fall, they play the falling animation.
-
-TODO: Validate this
-
-
 ## Animations
+
+Avatars play default idle animations while still.
 
 To play animations on the avatar, set the `expressionTriggerId` string to the name of the animation you want to play.
 
@@ -73,5 +66,5 @@ Transform.create(myAvatar, {
 })
 ```
 
-TODO: Should I aso set `expressionTriggerTimestamp`? is it lamport or time?
+<!-- TODO: Should I aso set `expressionTriggerTimestamp`? is it lamport or time? -->
 

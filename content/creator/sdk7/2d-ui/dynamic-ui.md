@@ -192,3 +192,9 @@ function TextComponent(props: { value: string; key: string | number }) {
 }
 ```
 
+
+
+<!-- TODO: explain how `key` is used
+  to give an element in a query a reference
+  required when iterating over a query of elements
+Only used for recursive react-like things with queries -->

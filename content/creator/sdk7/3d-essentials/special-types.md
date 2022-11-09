@@ -9,8 +9,6 @@ url: /creator/development-guide/sdk7/special-types/
 weight: 1000
 ---
 
-<!-- TODO: all -->
-
 ## Vector3
 
 Decentraland uses _vector3_ data to represent paths, points in space, and directions. Vectors can also be used to define rotation orientations, as a friendlier alternative to _quaternions_. A Vector3 object contains numerical values for each of the _x_, _y_, and _z_ axis.

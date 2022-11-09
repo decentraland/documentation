@@ -33,7 +33,7 @@ A Raycast component describes the invisible ray that will be used to query for e
 > Note: The `origin` and `direction` are not affected if the entity that holds the `Raycast` component also has a Transform, or if the entity has a parent entity with a Transform. The ray is traced in scene space, relative to the scene's _0, 0, 0_ point. 
 
 
-<!-- TODO: Do we want to keep timestamp?? -->
+<!-- TODO: Remove timestamp?? -->
 
 ```typescript
 let originPos = Vector3.create(2, 1, 4)
