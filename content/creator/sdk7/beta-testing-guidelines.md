@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/sdk7/beta-testing-guidelines/
-weight: 1
+weight: 2000
 ---
 
 
