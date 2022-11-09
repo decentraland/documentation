@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/scene/editor-beta-testing-guidelines/
-weight: 1000
+weight: 2000
 ---
 
 
