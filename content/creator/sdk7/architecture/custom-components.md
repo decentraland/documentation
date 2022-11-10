@@ -71,13 +71,21 @@ const readOnlyInstance MyCustomComponent.deleteFrom(myEntity)
 
 Each component must have a unique ID, that differentiates it internally. The Decentraland SDK has the numbers 1000 to 2000 reserved for the base components. Any new component you create must have an id that is a number higher than **2000**.
 
+A good practice is to list all of the IDs for components in your scene in an enum:
 
-
-<!-- To easily create new ids....
-TODO: tips -->
+```ts
+enum CustomComponentIds {
+  isButton = 2001,
+  isDoor = 2002,
+  pickedUp = 2003
+}
+```
 
 
 > Warning: Component IDs must be created in a deterministic way. Do not give it a random number, or one that may vary based on in what order the scene loads, or the actions taken by the player. This is especially consideration if changes in the scene are synced between players. If two player's local versions of the scene use different ids for a same component, it won't be possible to properly sync them.
+
+
+Note that if you're using a library, the creators of the library might have created their own custom components. The range of the IDs of these components in the library should be specified in the library's readme file, so you can avoid overlaps.
 
 
 ## Components as flags
