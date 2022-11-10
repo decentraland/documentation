@@ -63,6 +63,4 @@ We ask you to please detail how to reproduce the issue as much as possible. The 
 
 ## Submit feedback
 
-Once you've had a chance to try the new SDK, submit your feedback in the following form:
-
-TODO: [feedback link]()
+Once you've had a chance to try the new SDK, please fill in the [feedback form](https://form.typeform.com/to/YDwCljEz).
