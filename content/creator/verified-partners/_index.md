@@ -1,7 +1,7 @@
 ---
-title: Verified Partners
-BookHref: https://partners.decentraland.vote/
+title: Metaverse Studios
+BookHref: https://studios.decentraland.org/
 aliases:
-  - /metaverse-agencies
-  - /creator/metaverse-agencies
+  - /metaverse-studios
+  - /creator/metaverse-studios
 ---
