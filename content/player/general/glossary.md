@@ -9,6 +9,7 @@ categories:
   - Decentraland
 type: Document
 url: player/general/glossary
+weight: 6
 ---
 
 ### dApp

@@ -8,6 +8,7 @@ type: Document
 aliases: 
   - /decentraland/hardware-requirements/
 url: /player/general/hardware-requirements
+weight: 4
 ---
 
 These are the minimum hardware specs required to successfully run the Decentraland explorer.
