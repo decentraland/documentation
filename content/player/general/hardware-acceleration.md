@@ -65,7 +65,7 @@ To set up hardware acceleration:
 - Under _Set graphics preference_, choose **High Performance** and click **Save**
 
 
-### GNU/Linux
+### Linux
 
 Note: Thes following instructions are meant for using with a Chromium-based browser and an NVIDIA GPU with drivers installed.
 
