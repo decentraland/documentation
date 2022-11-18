@@ -2,9 +2,6 @@
 date: 2022-11-18
 title: FAQ
 description: Places FAQ
-redirect_from:
-categories:
-  - places
 type: Document
 slug: /creator/places/faq
 ---
