@@ -3,7 +3,7 @@ date: 2022-11-18
 title: FAQ
 description: Places FAQ
 type: Document
-slug: /creator/places/faq
+url: /creator/places/faq
 ---
 
 Below you can find the **frequently asked questions** about [Places](https://places.decentraland.org/).
