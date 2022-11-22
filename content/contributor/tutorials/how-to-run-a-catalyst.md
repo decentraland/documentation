@@ -1,6 +1,6 @@
 ---
-title: How to run your own DCL Node
-sidebartitle: Run a DCL Node
+title: How to run your own Catalyst Node
+sidebartitle: Run a Catalyst Node
 url: /contributor/tutorials/how-to-run-a-catalyst
 ---
 
