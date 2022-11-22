@@ -218,7 +218,7 @@ Transform.create(cube, {
 })
 
 // Give the entity a visible shape via a MeshRenderer component
-MeshRenderer.create(cube, { box: {} })
+MeshRenderer.setBox(cube)
 
 // Define a System
 function rotationSystem(dt: number) {

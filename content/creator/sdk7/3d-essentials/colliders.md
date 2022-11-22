@@ -18,20 +18,42 @@ Colliders are also needed to make an entity clickable. Button events are based o
 
 Entities that have a `MeshRenderer` component to give them a [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md#primitive-shapes" >}})(boxes, spheres, planes etc) don't have colliders by default. You must also give the entity a `MeshCollider` component.
 
+
+The following collider shapes are available. Several shapes include optional additional fields, specific to that shape.
+
+- **box**:
+
+	Use `MeshRenderer.setBox()`, passing the entity.
+
+- **plane**:
+
+	Use `MeshRenderer.setPlane()`, passing the entity.
+
+- **sphere**:
+
+	Use `MeshRenderer.setSphere()`, passing the entity. 
+
+- **cylinder**:
+
+	Use `MeshRenderer.setCylinder()`, passing the entity. Pass `radiusTop` and `radiusBottom` as additional optional fields, to modify the cylinder.
+
+	TIP: Set  either `radiusTop` or `radiusBottom` to 0 to make a cone.
+
+
 This example defines a box entity that can't be walked through.
 
 ```ts
 // create entity
-const myEntity = engine.addEntity()
+const myCollider = engine.addEntity()
 
 // visible shape
-MeshRenderer.create(myEntity, { box: {} })
+MeshRenderer.setBox(myCollider)
 
 // collider
-MeshCollider.create(myEntity, { box: {} })
+MeshCollider.setBox(myCollider)
 ```
 
-The shape used by the `MeshCollider` doesn't need to necessarily match the one used by the `MeshRenderer`.
+The shape used by the `MeshCollider` doesn't need to necessarily match the one used by the `MeshRenderer`. You can also add a `MeshCollider` to an entity that has a 3D model from a `GLTFContainer` component, or to an entity that has no visible shape at all.
 
 ## Colliders on 3D models
 
@@ -65,13 +87,10 @@ You can configure a `MeshCollider` component to only respond to one kind of inte
 const myEntity = engine.addEntity()
 
 // visible shape
-MeshRenderer.create(myEntity, { box: {} })
+MeshRenderer.setBox(myEntity)
 
 // create a MeshCollider component that only responds to player physics
-MeshCollider.create(myEntity, {
-  collisionMask: ColliderLayer.CL_PHYSICS,
-  box: {}
- })
+MeshCollider.setBox(myEntity, ColliderLayer.CL_PHYSICS)
 ```
 
 The example above creates a `MeshCollider` component that is configured to only respond to player physics. With this configuration, you could for example have an invisible wall that players can't walk through, but that does allow them to click on items on the other side of the wall.

@@ -17,35 +17,55 @@ The rendered shape of an entity is determined by what component it uses.
 
 ## Primitive shapes
 
-Several basic shapes, often called _primitives_, can be added to an entity.
+Several basic shapes, often called _primitives_, can be added to an entity by giving the entity a `MeshRenderer` component.
 
-The following primitive shape components are available:
+The following shapes are available. Several shapes include optional additional fields, specific to that shape.
 
-- `box`
-- `sphere`
-- `plane`
-- `cylinder`
+- **box**:
 
-To apply a primitive shape to an entity, give it a `MeshRenderer` component:
+	Use `MeshRenderer.setBox()`, passing the entity. Pass `uvs` as an additional optional field, to map texture alignment. See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) for more details.
+
+- **plane**:
+
+	Use `MeshRenderer.setPlane()`, passing the entity. Pass `uvs` as an additional optional field, to map texture alignment. See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) for more details.
+
+- **sphere**:
+
+	Use `MeshRenderer.setSphere()`, passing the entity. 
+
+- **cylinder**:
+
+	Use `MeshRenderer.setCylinder()`, passing the entity. Pass `radiusTop` and `radiusBottom` as additional optional fields, to modify the cylinder.
+
+	TIP: Set  either `radiusTop` or `radiusBottom` to 0 to make a cone.
+
+The following example creates a cube:
 
 ```ts
-const primitiveEntity = engine.addEntity()
+const myCube = engine.addEntity()
 
-MeshRenderer.create(primitiveEntity, { box: {} })
+Transform.create(myCube, {
+	position: Vector3.create(8, 1, 8)
+})
+
+MeshRenderer.setBox(myCube)
 ```
 
+The following example creates a cylinder with a `radiusTop` of 0, which produces a cone:
+
+```ts
+const myCone = engine.addEntity()
+
+Transform.create(myCone, {
+	position: Vector3.create(8, 1, 8)
+})
+
+MeshRenderer.setCylinder(myCone, 0, 1)
+```
 
 Primitive shapes don't include materials. To give it a color or a texture, you must assign a [material component]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) to the same entity.
 
 To make a primitive clickable, or to prevent players from walking through it, you must give the entity a _collider_ via a [MeshCollider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) component.
-
-
-Each of these components has certain fields that are specific to that shape, for example the _cylinder_ shape has `radiusTop` and `radiusBottom`, etc.
-
-> Tip: You can make a cone out of a cylinder by setting the `radiusTop` or `radiusBottom` to 0.
-
-Primitives of type `box` or `plane` include a `uvs` field that allows you to handle how to map textures to their surface. See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) for more details. 
-
 
 ## 3D models
 
@@ -105,7 +125,7 @@ Primitive shapes and 3D models have default dimensions that you can alter by cha
 ```ts
 const primitiveEntity = engine.addEntity()
 
-MeshRenderer.create(primitiveEntity, { box: {} })
+MeshRenderer.setBox(primitiveEntity)
 
 Transform.create(primitiveEntity, {
 	position: {x: 8, y:1, z: 8},
@@ -124,7 +144,7 @@ const myEntity = engine.addEntity()
 Transform.create(myEntity, { 
   position: Vector3.create(4, 0, 4)
 })
-MeshRenderer.create(myEntity, { box: {} })
+MeshRenderer.setBox(myEntity)
 
 VisibilityComponent.create(myEntity, {visible: false})
 ```
@@ -139,7 +159,7 @@ If an entity is invisible, its collider can block a player's path and can preven
 The complete syntax for creating a `MeshRenderer` component, without any helpers to simplify it, looks like this:
 
 ```ts
-MeshRenderer.create(myBox, {
+MeshRenderer.setBox(myBox, {
     mesh: { 
       $case: 'box',
       box: { uvs: []} 

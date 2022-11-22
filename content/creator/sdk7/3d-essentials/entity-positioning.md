@@ -181,7 +181,7 @@ Billboards were a common technique used in 3D games of the 90s, where most entit
 const cube = engine.addEntity()
 
 // Give the entity a visible shape
-MeshRenderer.create(cube, { box: {} })
+MeshRenderer.setBox(cube)
 
 // Create transform with a predefined position
 Transform.create(cube, {

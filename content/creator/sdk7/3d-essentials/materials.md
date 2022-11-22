@@ -27,7 +27,7 @@ const meshEntity = engine.addEntity()
 Transform.create(meshEntity, { 
 	position: Vector3.create(4, 1, 4) 
 })
-MeshRenderer.create(meshEntity, { box: {} })
+MeshRenderer.setBox(meshEntity)
 
 //Create material and configure its fields
 Material.create(createSphere(15, 1, 15), {
@@ -142,8 +142,7 @@ const meshEntity = engine.addEntity()
 Transform.create(meshEntity, { 
 	position: Vector3.create(4, 1, 4) 
 })
-MeshRenderer.create(meshEntity, { plane: {
-	uvs: [
+MeshRenderer.setPlane(meshEntity, [
 		  	0, 0.75,
 
 			0.25, 0.75,
@@ -160,7 +159,7 @@ MeshRenderer.create(meshEntity, { plane: {
 
 			0, 1,
 	]
-} })
+)
 
 Material.create(myEntity, {
   texture: {
@@ -177,9 +176,7 @@ const meshEntity = engine.addEntity()
 Transform.create(meshEntity, { 
 	position: Vector3.create(4, 1, 4)
 })
-MeshRenderer.create(meshEntity, { plane: {
-	uvs: setUVs(3, 3)
-} })
+MeshRenderer.setBox(meshEntity, setUVs(3, 3))
 
 Material.create(myEntity, {
   texture: {

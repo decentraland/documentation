@@ -33,7 +33,7 @@ const myEntity = engine.addEntity()
 Transform.create(myEntity, {
 	position: Vector3.create(4, 1, 4)
 })
-MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+MeshRenderer.setBox(myEntity)
 ```
 
 In this example we're moving an entity by 0.1 meters per tick of the game loop.
@@ -59,7 +59,7 @@ const myEntity = engine.addEntity()
 Transform.create(myEntity, {
 	position: Vector3.create(4, 1, 4)
 })
-MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+MeshRenderer.setBox(myEntity)
 ```
 
 Note that in order to combine the current rotation with each increment, we're using `Quaternion.multiply`. In quaternion math, you combine two rotations by multiplying them, NOT by adding them. The resulting rotation of multiplying one quaternion by another will be the equivalent final rotation after first performing one rotation and then the other.
@@ -95,7 +95,7 @@ Transform.create(childEntity, {
 	position: Vector3.create(1, 0, 0),
 	parent: pivotEntity
 })
-MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+MeshRenderer.setBox(myEntity)
 ```
 
 Note that in this example, the system is rotating the `pivotEntity` entity, that's a parent of the `childEntity` entity.
@@ -120,7 +120,7 @@ const myEntity = engine.addEntity()
 Transform.create(myEntity, {
 	position: Vector3.create(4, 1, 4)
 })
-MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+MeshRenderer.setBox(myEntity)
 ```
 
 The example above keeps movement at approximately the same speed as the movement example above, even if the frame rate drops. When running at 30 frames per second, the value of `dt` is 1/30.
@@ -190,7 +190,7 @@ Transform.create(myEntity, {
 	position: Vector3.create(4, 1, 4)
 })
 
-MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+MeshRenderer.setBox(myEntity)
 
 LerpTransformComponent.create(myEntity, {
   start: Vector3.create(4, 1, 4),
@@ -261,7 +261,7 @@ Transform.create(myEntity, {
 	position: Vector3.create(4, 1, 4)
 })
 
-MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+MeshRenderer.setBox(myEntity)
 
 SlerpData.create(myEntity, {
   start: Quaternion.fromEulerDegrees(0, 0, 0),
@@ -296,7 +296,7 @@ Transform.create(myEntity, {
 	rotation: Quaternion.fromEulerDegrees(0, 0, 90)
 })
 
-MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+MeshRenderer.setBox(myEntity)
 ```
 
 In the example above `Quaternion.rotateTowards` takes three arguments: the initial rotation, the final rotation that's desired, and the maximum increment per frame. In this case, since the maximum increment is of `dt * 10` degrees, the rotation will be carried out over a period of a couple of 9 seconds.
@@ -360,7 +360,7 @@ Transform.create(myEntity, {
 	position: {x: 4, y: 1, z: 4}
 })
 
-MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+MeshRenderer.setBox(myEntity)
 
 ScaleTransformComponent.create(myEntity, {
   start: 1,
@@ -421,7 +421,7 @@ Transform.create(myEntity, {
 	position: {x: 4, y: 1, z: 4}
 })
 
-MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+MeshRenderer.setBox(myEntity)
 
 LerpTransformComponent.create(myEntity, {
   start: Vector3.create(4, 1, 4),
@@ -486,7 +486,7 @@ Transform.create(myEntity, {
 	position: Vector3.create(1, 1, 1)
 })
 
-MeshRenderer.create(myEntity, { mesh: { $case:"box", box:{ uvs:[]}} })
+MeshRenderer.setBox(myEntity)
 
 const point1 = Vector3.create(1, 1, 1)
 const point2 = Vector3.create(8, 1, 3)
