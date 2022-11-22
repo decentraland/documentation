@@ -29,9 +29,9 @@ The Decentraland Editor is a Visual Studio extension, that allows you to build, 
 
 ### Install the Editor
 
-- 1) Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+1) Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
 
-- 2) Open Visual Studio Code, and open the extensions marketplace. Search for the **Decentraland** extension and install it.
+2) Open Visual Studio Code, and open the extensions marketplace. Search for the **Decentraland** extension and install it.
 
 
 ## The CLI
