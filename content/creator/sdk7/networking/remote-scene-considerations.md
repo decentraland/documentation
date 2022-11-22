@@ -38,8 +38,8 @@ Use the `.emit` command of the message bus to send a message to all other player
 const sceneMessageBus = new MessageBus()
 
 const myEntity = engine.addEntity()
-MeshRenderer.create(myEntity, {box:{uvs:[]}})
-MeshCollider.create(myEntity, {box:{}})
+MeshRenderer.setBox(myEntity)
+MeshCollider.setBox(myEntity)
 PointerHoverFeedback.create(myEntity, {
     pointerEvents: [
       {
@@ -86,8 +86,8 @@ sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
   Transform.create(myEntity, {
 	  position:  { x: info.position.x, y: info.position.y, z: info.position.z }
 	})
-  MeshRenderer.create(myEntity, {box:{uvs:[]}})
-  MeshCollider.create(myEntity, {box:{}})
+  MeshRenderer.setBox(myEntity)
+  MeshCollider.setBox(myEntity)
 })
 ```
 
@@ -102,8 +102,8 @@ This example uses a message bus to send a new message every time the main cube i
 function createCube(x: number, y: number, z: number, spawner = true): Entity {
   const meshEntity = engine.addEntity()
   Transform.create(meshEntity, { position: { x, y, z } })
-  MeshRenderer.create(meshEntity, { box: { uvs: [] } })
-  MeshCollider.create(meshEntity, { box: {} })
+  MeshRenderer.setBox(meshEntity)
+  MeshCollider.setBox(meshEntity)
   if (spawner) {
     PointerHoverFeedback.create(meshEntity, {
       pointerEvents: [

@@ -187,7 +187,7 @@ Transform.create(entity, {
 	scale: {x: 8, y:3, z:8}
 })
 
-MeshRenderer.create(entity, { box: {} })
+MeshRenderer.setBox(entity)
 ```
 
 To activate the effects of the modifier area, the player's head or torso should enter the area. It won't take effect if only the feet of the player are covered. Make sure the player can't easily evade the area by jumping.

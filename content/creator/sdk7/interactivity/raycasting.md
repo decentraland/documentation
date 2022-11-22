@@ -208,8 +208,8 @@ engine.addSystem((dt) => {
 const cubeEntity = engine.addEntity()
 Transform.create(cubeEntity, { position: { x:8, y:1, z:8 } })
 CubeOscilator.create(cubeEntity)
-MeshRenderer.create(cubeEntity, { box: { uvs: [] } })
-MeshCollider.create(cubeEntity, { box: {} })
+MeshRenderer.setBox(cubeEntity)
+MeshCollider.setBox(cubeEntity)
 ```
 
 The example above runs a recurring raycast every 0.1 seconds. It uses a timer component and a system's `dt` property to time these evenly. It also includes a cube that oscillates up and down, controlled by another system, to move in and out of the path of the ray.

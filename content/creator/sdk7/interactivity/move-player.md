@@ -24,8 +24,8 @@ The `engine.PlayerEntity` entity may not be available to modify while the scene 
 ```ts
 // create entity
 const myEntity = engine.addEntity()
-MeshRenderer.create(myEntity, { box: {} })
-MeshCollider.create(myEntity, { box: {} })
+MeshRenderer.setBox(myEntity)
+MeshCollider.setBox(myEntity)
 
 Transform.create(myEntity, {
   position: {x:4, y:1, z:4}

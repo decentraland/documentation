@@ -60,7 +60,7 @@ Transform.create(cube, {
 	position: Vector3.create(3, 1, 3)
 })
 
-MeshRenderer.create(cube, { box: {}})
+MeshRenderer.setBox(cube)
 
 function CubeRotateSystem() {
 	if(!Transform.has(engine.PlayerEntity)) return
