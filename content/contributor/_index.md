@@ -1,5 +1,7 @@
-# Let’s build the metaverse together
-
+---
+title: Let’s build the metaverse together
+url: "/contributor/"
+---
 Decentraland is an Open Source project and the Contributors section is intended for members of the community or techies who are looking to learn more about the technical components that make the platform work. If you are looking to learn about the implementation details, forking the project and hosting your own Metaverse implementation, or be part of the community of code contributors this is the right place to start!  
 
 This section is brand new and growing, more content will gradually be added with relevant information about the implementation details.
