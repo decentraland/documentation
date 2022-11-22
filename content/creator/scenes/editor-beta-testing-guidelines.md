@@ -16,7 +16,7 @@ We encourage you to test and experiment with this editor as much as possible.
 
 ## Install the editor
 
-See the [Installation guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}).
+See the [Installation guide](https://editor.new-docs-6m4.pages.dev/creator/development-guide/installation-guide/).
 
 ## About the Decentraland Editor
 
@@ -24,11 +24,11 @@ The Decentraland editor is an extension of Visual Studio Code, built for easing 
 
 Ultimately the editor will offer many no-code options for placing items, and setting component parameters via graphical UIs. The first version of the editor aims for simplifying the experience of coding scenes by removing the command line from the list of tools you need to use. It offers UI options for:
 
-- **Create projects**: Scaffold a new project of various types: scene, library, portable experience, and smart item. See [Quick start]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}).
-- **Run scenes**: preview your scenes within VSCode, or launch in a browser. See [Run preiview]({{< ref "/content/creator/scenes/getting-started/preview-scene.md#using-the-editor" >}})
-- **Debug scenes**: Add breakpoints to the code, to pause execution and see current state of all variables at that point in time. See [Debug in preview]({{< ref "/content/creator/scenes/debugging/debug-in-preview.md#using-the-editor" >}}).
-- **Publish scenes**: publish your scene to the world. See [Publishing]({{< ref "/content/creator/scenes/publishing/publishing.md#via-the-editor" >}}).
-- **Manage dependencies**: add, remove, and list the libraries and dependencies that your project is using. See [Manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-dependencies.md" >}}).
+- **Create projects**: Scaffold a new project of various types: scene, library, portable experience, and smart item. See [Quick start](https://editor.new-docs-6m4.pages.dev/creator/development-guide/sdk-101/).
+- **Run scenes**: preview your scenes within VSCode, or launch in a browser. See [Run preiview](https://editor.new-docs-6m4.pages.dev/creator/development-guide/preview-scene/#using-the-editor)
+- **Debug scenes**: Add breakpoints to the code, to pause execution and see current state of all variables at that point in time. See [Debug in preview](https://editor.new-docs-6m4.pages.dev/creator/development-guide/debug-in-preview/#using-the-editor).
+- **Publish scenes**: publish your scene to the world. See [Publishing](https://editor.new-docs-6m4.pages.dev/creator/development-guide/publishing/#via-the-editor).
+- **Manage dependencies**: add, remove, and list the libraries and dependencies that your project is using. See [Manage dependencies](https://editor.new-docs-6m4.pages.dev/creator/development-guide/scene/libraries/manage-dependencies/).
 - **Preview models**: Open a gltf or .glb model to see an interactive preview.
 
 ## Documentation
