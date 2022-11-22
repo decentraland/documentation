@@ -68,7 +68,7 @@ npm rm decentraland -g
 npm install -g decentraland
 ```
 
-#### Update the SDK version of a scene
+### Update the SDK version of a scene
 
 If your CLI is up to date, the new projects you create with it will use the latest version of the SDK.
 
