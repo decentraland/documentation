@@ -17,9 +17,14 @@ You can't add material components to _glTF_ models. _glTF_ models include their 
 
 When importing a 3D model with its own materials, keep in mind that not all shaders are supported by the Decentraland engine. Only standard materials and PBR (physically based rendering) materials are supported. See [external 3D model considerations](/creator/3d-modeling/materials) for more details.
 
+There are different types of supported materials:
+
+- PBR (Physically Based Rendering): The most common kind of material in Decentraland. It supports plain colors or textures, and different properties like metallic, emissive, transparency, etc. Read more about [PBR](https://en.wikipedia.org/wiki/Physically_based_rendering).
+- Basic materials: They don't respond to lights and shadows, which makes them ideal for displaying billboard images.
+
 ## Add a material
 
-The following example creates a material and sets some of its fields to give it a red color and metallic properties. This material is added to an entity that also has a `boxShape` component, so it will color the box with this material.
+The following example creates a PBR material and sets some of its fields to give it a red color and metallic properties. This material is added to an entity that also has a box shape, so it will color the box with this material.
 
 ```ts
 //Create entity and assign shape
@@ -30,9 +35,8 @@ Transform.create(meshEntity, {
 MeshRenderer.setBox(meshEntity)
 
 //Create material and configure its fields
-Material.create(createSphere(15, 1, 15), {
-  albedoColor: { r: 0, g: 0, b: 1 },
-  reflectivityColor: { r: 0.5, g: 0.5, b: 0.5 },
+Material.setPbrMaterial(meshEntity, {
+  albedoColor: Color4.Red(),
   metallic: 0.8,
   roughness: 0.1
 })
@@ -41,42 +45,43 @@ Material.create(createSphere(15, 1, 15), {
 
 ## Material colors
 
-Give a material a plain color. In a `Material` component, you set the `albedoColor` field. Albedo colors respond to light and can include shades on them.
+Give a material a plain color. In a PBR Material, you set the `albedoColor` field. Albedo colors respond to light and can include shades on them.
 
-Color values are composed of _r_, _g_ and _b_ values (red, green, and blue). Each of these takes values between 0 and 1. By setting different values for these, you can compose any visible color. For black, set all three to 0. For white, set all to 1.
+Color values are of type `Color4`, composed of _r_, _g_ and _b_ values (red, green, and blue). Each of these takes values between 0 and 1. By setting different values for these, you can compose any visible color. For black, set all three to 0. For white, set all to 1.
 
 > Note: If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `{r: 15, g: 0, b: 0}` produces a very bright red glow.
 
 See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.
 
 
-You can also edit the following fields in a `Material` component to fine-tune how its color is perceived:
+You can also edit the following fields in a PBR Material to fine-tune how its color is perceived:
 
 - _emissiveColor_: The color emitted from the material.
-- _ambientColor_: AKA _Diffuse Color_ in other nomenclature.
-- _reflectionColor_: The color reflected from the material.
 - _reflectivityColor_: AKA _Specular Color_ in other nomenclature.
-
-
 
 ## Using textures
 
-You can set an image file as a texture on a material by setting the `texture` parameter.
+Set an image file as a texture on a material by setting the `texture` parameter.
 
 ```ts
-Material.create(createSphere(15, 1, 15), {
-  texture: {
-    src: "materials/wood.png",
-  }
+//Create entity and assign shape
+const meshEntity = engine.addEntity()
+Transform.create(meshEntity, { 
+	position: Vector3.create(4, 1, 4) 
+})
+MeshRenderer.setBox(meshEntity)
+
+//Create material and configure its fields
+Material.setPbrMaterial(meshEntity, {
+  texture: Material.Texture.Common({
+    src: 'materials/wood.png'
+  })
 })
 ```
-
 
 In the example above, the image for the material is located in a `materials` folder, which is located at root level of the scene project folder.
 
 > Tip: We recommend keeping your texture image files separate in a `/materials` folder inside your scene.
-
-
 
 While creating a texture, you can also pass additional parameters:
 
@@ -84,16 +89,24 @@ While creating a texture, you can also pass additional parameters:
 - `wrapMode`: Determines how a texture is tiled onto an object. This takes a value from the `TextureWrapMode` emote. See [Texture Wrapping](#texture-wrapping).
 
 ```ts
-Material.create(myEntity, {
-  texture: {
-    src: "materials/wood.png",
-    filterMode: TextureFilterMode.TFM_BILINEAR,
+Material.setPbrMaterial(myEntity, {
+  texture: Material.Texture.Common({
+    src: 'materials/wood.png',
+	filterMode: TextureFilterMode.TFM_BILINEAR,
 	wrapMode: TextureWrapMode.TWM_CLAMP
-  }
+  })
 })
 ```
 
-> Note: If you create a material that only includes a texture as a property, it will by default not be affected by light and shadows in the environment. If you want your material to be affected by the environment lighting, give the material another property, like for example `roughness`.
+To create a texture that is not affected by light and shadows in the environment, create a basic material instead of a PBR material.
+
+```ts
+Material.setBasicMaterial(myEntity, {
+  texture: Material.Texture.Common({
+    src: 'materials/wood.png'
+  })
+})
+```
 
 <!-- TODO: See if this behavior changes -->
 
@@ -120,16 +133,15 @@ The URL must start with `https`, `http` URLs aren't supported. The site where th
 You can use several image files as layers to compose more realistic textures, for example including a `bumpTexture` and a `emissiveTexture`.
 
 ```ts
-Material.create(myEntity, {
-  texture: {
-    src: "materials/wood.png"
-  },  
-  bumpTexture: {
-    src: "materials/woodBump.png"
-  }
+Material.setPbrMaterial(myEntity, {
+  texture: Material.Texture.Common({
+    src: 'materials/wood.png',
+  }),
+  bumpTexture: Material.Texture.Common({
+    src: 'materials/woodBump.png',
+  }),
 })
 ```
-
 
 #### Texture wrapping
 
@@ -161,11 +173,11 @@ MeshRenderer.setPlane(meshEntity, [
 	]
 )
 
-Material.create(myEntity, {
-  texture: {
-    src: "materials/wood.png",
+Material.setPbrMaterial(myEntity, {
+  texture: Material.Texture.Common({
+    src: 'materials/wood.png',
 	wrapMode: TextureWrapMode.TWM_REPEAT
-  }
+  })
 })
 ```
 
@@ -178,11 +190,11 @@ Transform.create(meshEntity, {
 })
 MeshRenderer.setBox(meshEntity, setUVs(3, 3))
 
-Material.create(myEntity, {
-  texture: {
-    src: "materials/atlas.png",
+Material.setPbrMaterial(myEntity, {
+  texture: Material.Texture.Common({
+    src: 'materials/atlas.png',
 	wrapMode: TextureWrapMode.TWM_REPEAT
-  }
+  })
 })
 
 function setUVs(rows: number, cols: number) {
@@ -226,11 +238,11 @@ You can also define how the texture is tiled if the mapping spans more than the 
 
 
 ```ts
-Material.create(myEntity, {
-  texture: {
-    src: "materials/atlas.png",
+Material.setPbrMaterial(myEntity, {
+  texture: Material.Texture.Common({
+    src: 'materials/atlas.png',
 	wrapMode: TextureWrapMode.TWM_MIRROR
-  }
+  })
 })
 ```
 
@@ -249,31 +261,24 @@ The `Material` object uses the _bilinear_ algorithm by default, but it lets you 
 - `TextureFilterMode.TFM_TRILINEAR`: Uses a trilinear algorithm to estimate the color of each pixel.
 
 ```ts
-Material.create(myEntity, {
-  texture: {
-    src: "materials/wood.png",
-    filterMode: TextureFilterMode.TFM_BILINEAR,
-  }
+Material.setPbrMaterial(myEntity, {
+  texture: Material.Texture.Common({
+    src: 'materials/atlas.png',
+	filterMode: TextureFilterMode.TFM_BILINEAR,
+  })
 })
 ```
 
 
 ## Avatar Portraits
 
-<!-- TODO: Helper missing -->
-
-To display a thumbnail image of any player, create a material that includes an `avatarTexture`, passing the address of an existing player. This creates a texture from a 256x256 image of the player, showing head and shoulders. The player is displayed wearing the set of wearables that the current server last recorded.
+To display a thumbnail image of any player, use `Material.Texture.Avatar` when setting the texture of your material, passing the address of an existing player. This creates a texture from a 256x256 image of the player, showing head and shoulders. The player is displayed wearing the set of wearables that the current server last recorded.
 
 ```ts
-Material.create(myEntity, {
-  texture: {
-    tex: {
-      $case: 'avatarTexture',
-      avatarTexture: {
-        userId: '0x517....'
-      }
-    }
-  }
+Material.setPbrMaterial(myEntity, {
+  texture: Material.Texture.Avatar({
+   userId: '0x517....'
+  })
 })
 ```
 <img src="/images/media/avatarTexture.png" alt="Avatar Texture" width="300"/>
@@ -286,7 +291,11 @@ You can fetch the portrait of any Decentraland player, even if they're not curre
 To make a material with a plain color transparent, simply define the color as a `Color4`, and set the 4th value to something between _0_ and _1_. The closer to _1_, the more opaque it will be.
 
 ```typescript
-let transparentRed = Color4(1, 0, 0, 0.5)
+let transparentRed = Color4.create(1, 0, 0, 0.5)
+
+Material.setPbrMaterial(meshEntity, {
+  albedoColor: transparentRed,
+})
 ```
 
 To make a material with a texture only transparent in regions of the texture:
@@ -311,19 +320,19 @@ If you set the `transparencyMode` to `MaterialTransparencyMode.MTM_ALPHA_TEST`, 
 
 ```ts
 // Using alpha test
-Material.create(meshEntity1, {
-  texture: {
+Material.setPbrMaterial(meshEntity1, {
+  texture: Material.Texture.Common({
     src: "images/myTexture.png"
-  },
+  }),
   transparencyMode: MaterialTransparencyMode.MTM_ALPHA_TEST,
   alphaTest: 1
 })
 
 // Using a alpha blend
-Material.create(meshEntity1, {
-  texture: {
+Material.setPbrMaterial(meshEntity1, {
+  texture: Material.Texture.Common({
     src: "images/myTexture.png"
-  },
+  }),
   transparencyMode: MaterialTransparencyMode.MTM_ALPHA_BLEND,
 })
 ```
