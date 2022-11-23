@@ -22,7 +22,6 @@ Please note that as a general rule, all raycasts in the SDK will only hit object
 
 A Raycast component describes the invisible ray that will be used to query for entities. Rays are defined using the following data:
 
-- `timestamp`: _number_ with the time of sending the ray
 - `origin`: _Vector3_ with the coordinates in scene space to start the ray from. 
 - `direction`: _Vector3_ describing the direction of the ray (as if the ray started from _0,0,0_).
 - `maxDistance`: _number_ to set the length with which this ray will be traced.
@@ -33,15 +32,12 @@ A Raycast component describes the invisible ray that will be used to query for e
 > Note: The `origin` and `direction` are not affected if the entity that holds the `Raycast` component also has a Transform, or if the entity has a parent entity with a Transform. The ray is traced in scene space, relative to the scene's _0, 0, 0_ point. 
 
 
-<!-- TODO: Remove timestamp?? -->
-
 ```typescript
 let originPos = Vector3.create(2, 1, 4)
 let direction = Vector3.create(0, 1, 1)
 
 // only return first entity
 Raycast.createOrReplace(engine.addEntity(), {
-  timestamp: 123,
   origin: Vector3.create(8, 1, 0),
   direction: Vector3.create(0, 0, 1),
   maxDistance: 16,
@@ -50,7 +46,6 @@ Raycast.createOrReplace(engine.addEntity(), {
 
 // return all entities
 Raycast.createOrReplace(engine.addEntity(), {
-  timestamp: 123,
   origin: Vector3.create(8, 1, 0),
   direction: Vector3.create(0, 0, 1),
   maxDistance: 16,
@@ -87,7 +82,6 @@ let direction = Vector3.create(0, 1, 1)
 const rayEntity = engine.addEntity()
 
 Raycast.createOrReplace(rayEntity, {
-  timestamp: 123,
   origin: Vector3.create(8, 1, 0),
   direction: Vector3.create(0, 0, 1),
   maxDistance: 16,
@@ -110,7 +104,6 @@ let direction = Vector3.create(0, 1, 1)
 const rayEntity = engine.addEntity()
 
 Raycast.createOrReplace(rayEntity, {
-  timestamp: 123,
   origin: Vector3.create(8, 1, 0),
   direction: Vector3.create(0, 0, 1),
   maxDistance: 16,
@@ -159,11 +152,12 @@ const CubeOscilator = engine.defineComponent(
 
 const TimerComponent = engine.defineComponent(
   {
-    timeStamp: Schemas.Int,
     t: Schemas.Float
   },
   213
 )
+
+const RAY_INTERVAL = 0.1
 
 // check rays
 engine.addSystem((dt) => {
@@ -171,12 +165,10 @@ engine.addSystem((dt) => {
     const timer = TimerComponent.getMutable(entity)
     timer.t += dt
 
-    if (timer.t > 0.1) {
-      timer.timeStamp++
+    if (timer.t > RAY_INTERVAL) {
       timer.t = 0
 
       Raycast.createOrReplace(entity, {
-        timestamp: timer.timeStamp,
         origin: Vector3.create(8, 1, 0),
         direction: Vector3.create(0, 0, 1),
         maxDistance: 16,
