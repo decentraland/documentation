@@ -136,12 +136,6 @@ A same entity can have two different callbacks registered, one for `EventsSystem
 > Note: The hover feedback for a button up event is only displayed when the button is currently pushed down. If the player points at the entity without holding the button down, they will see no feedback, or the feedback for the button down event, if any.
 
 
-<!-- 
-## Click events
-
-EventsSystem.onClick(entity, fn, { button, hoverText }) 
--->
-
 ## Remove callbacks
 
 To remove a callback function, use `EventsSystem.removeOnPointerDown` or `EventsSystem.removeOnPointerUp`.

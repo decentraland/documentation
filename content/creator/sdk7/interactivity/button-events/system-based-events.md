@@ -60,7 +60,7 @@ The example above checks on every tick if a single hard-coded entity was pressed
 
 `Input.isTriggered()` returns _true_ only if the indicated button was pressed down in the current tick of the game loop. If the button was not pushed down, or it was already down from the previous tick, it returns _false_.
 
-TODO: check this outside playground:
+<!-- TODO: check this outside playground: -->
 
 > Note: The player needs to be standing inside the scene's boundaries for the pointer event to be detected. The player's cursor also needs to be locked, buttons pressed while having the free cursor aren't detected.
 
@@ -283,7 +283,7 @@ PointerHoverFeedback.create(NPCEntity, {
 
 Players will see multiple labels, one for each pointer event, displayed radially around the cursor.
 
-TODO: Image with multiple hints
+<!-- TODO: Image with multiple hints -->
 
 The example below combines using `PointerHoverFeedback` to show hover hints, together with a system that actually handles the player's action with custom logic.
 
@@ -378,7 +378,8 @@ PointerHoverFeedback.create(entity, {
 
 Some entities can be intentionally only interactive at a close range. If a player is too far away from an entity, the hover hint won't be displayed next to the cursor.
 
-TODO: Check this
+<!-- TODO: Check this -->
+
 By default, entities are only clickable when the player is within a close range of the entity, at a maximum distance of _10 meters_. You can change the maximum distance by setting the `maxDistance` property of a pointer event.
 
 ```ts

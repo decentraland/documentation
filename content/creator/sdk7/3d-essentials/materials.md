@@ -336,10 +336,10 @@ Material.setPbrMaterial(meshEntity1, {
   transparencyMode: MaterialTransparencyMode.MTM_ALPHA_BLEND,
 })
 ```
-
+<!--
 ## Casting no shadows
 
-<!-- TODO: not currently working -->
+ TODO: not currently working 
 
 
 To prevent a material from casting shadows over other objects, use the `castShadows` property set to _false_. This property is always _true_ by default.
@@ -350,16 +350,16 @@ Material.create(meshEntity3, {
   castShadows: true
 })
 ```
-
-
+-->
+<!--
 ## Video playing
 
-<!-- TODO: feature missing -->
-
+ TODO: feature missing 
 To stream video from a URL into a material, or play a video from a file stored in the scene, see [video playing]({{< ref "/content/creator/sdk7/media/video-playing.md" >}}).
 
 The video is used as a texture on a material, you can set any of the other properties of materials to alter how the video screen looks.
 
+-->
 
 
 
@@ -392,7 +392,6 @@ Material.create(myEntity, {
 ```
 
 This is how the base protocol interprets Materials components. The helper functions abstract away from this and expose a friendlier syntax, but behind the scenes they output this syntax.
-
 
 The `$case` field allows you to specify one of the allowed types. Each type supports a different set of parameters. In the example above, the `box` type supports a `uvs` field.
 
