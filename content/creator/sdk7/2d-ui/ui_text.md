@@ -1,5 +1,3 @@
-
-
 ---
 date: 2022-10-28
 title: UI Text
@@ -19,7 +17,7 @@ The following fields can be configured:
 
 - `value`: The string to display
 - `fontSize`: The size of the text, as a number.
-- `color`: The color of the text, as a [Color3]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}).
+- `color`: The color of the text, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}).
 - `font`: 
 - `textAlign`: 
 
@@ -38,7 +36,7 @@ renderUi(() => (
       width: 700,
       height: 400
     }}
-    uiText={{ value: 'SDK 7', fontSize: 80, color: Color3.Red()  }}
+    uiText={{ value: 'SDK 7', fontSize: 80, color: Color4.Red()  }}
   >
 ))
 ```

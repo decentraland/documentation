@@ -94,7 +94,7 @@ Since it's a lot easier to think in terms of Euler degrees, the SDK includes a c
 
 ```ts
 // From euler to Quaternion
-let myQuaternion = Quaternion.fromEulerDegress(90, 0, 0)
+let myQuaternion = Quaternion.fromEulerDegrees(90, 0, 0)
 
 // From quaternion to Euler
 let myEuler = Quaternion.toEulerAngles(myQuaternion)
