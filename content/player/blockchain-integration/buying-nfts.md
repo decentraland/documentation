@@ -158,7 +158,7 @@ buy(
 
 When the transaction to buy the item is successful. 20 MANA will be transferred from my address to the creator (or a beneficiary defined by the creator), the hat will be minted as an NFT and transferred to me.
 
-## Testnet Marketplace Smart Contracts
+## Testnet Smart Contracts
 
 These are the smart contracts that can be found on the respective Ethereum and Polygon testnets.
 
