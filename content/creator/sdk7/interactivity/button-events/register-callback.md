@@ -63,7 +63,7 @@ Change the string by changing the `hoverText` value. Keep this string short, so 
 EventsSystem.onPointerDown(
   myEntity,
   function () {
-    log("opened door")
+    // open door
   },
   {
     button: InputAction.IA_PRIMARY,

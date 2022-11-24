@@ -14,10 +14,6 @@ weight: 4
 You can [query components]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) with the method `engine.getEntitiesWith(...components)` to keep track of all entities in the scene that have certain components.
 
 
-<!-- TODO: check image -->
-![](/images/media/ecs-big-picture-w-compgroup.png)
-
-
 [Systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) typically iterate over the entities in these queries, performing the same operations on each. Having a predefined group of valid entities is a great way to save resources, specially for functions that run on every tick of the game loop. If on every tick your system would have to iterate over every single entity in the scene looking for the ones it needs, that would be very inefficient.
 
 You can access the entities in a query in the following way. 

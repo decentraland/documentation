@@ -511,6 +511,3 @@ The example above defines a 3D path that's made up of four 3D vectors. The `Path
 The system is very similar to the system in the _lerp_ example, but when a lerp action is completed, it sets the `target` and `origin` fields to new values. If we reach the end of the path, we return to the first value in the path.
 
  <img src="/images/media/gifs/lerp-path.gif" alt="Move entity" width="300"/>
-
-
- <!-- TODO: Check all images in this page!! -->

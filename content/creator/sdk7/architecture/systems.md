@@ -12,7 +12,7 @@ weight: 2
 Decentraland scenes rely on _systems_ to update any data over time, including information stored in each entity's [components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}).
 
 
-![](/images/media/new-architecture.png)
+![](/images/media/ecs-big-picture.png)
 
 _systems_ are what make scenes dynamic, they're functions that are executed periodically on every tick of the scene's game loop, changing what will be rendered.
 
@@ -54,7 +54,7 @@ function moveSystem(dt: number) {
 	const transform = Transform.getMutable(entity)
 
 	// update the position value
-  	transform.position.x += 0.01
+  	transform.position.z += 0.01
   }
 }
 
@@ -64,7 +64,6 @@ engine.addSystem(moveSystem)
 In the example above, the system `MoveSystem` is a function that runs on each tick of the game loop, changing position of every entity in the scene that has a Transform.
 
 
-<!-- TODO: change image -->
 ![](/images/media/ecs-system.png)
 
 <!--
