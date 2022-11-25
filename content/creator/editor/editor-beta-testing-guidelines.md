@@ -3,10 +3,10 @@ date: 2022-11-07
 title: Editor Beta testing guidelines
 description: Instructions to try out the Decentraland Editor
 categories:
-  - development-guide
+  - editor
 type: Document
-url: /creator/development-guide/scene/editor-beta-testing-guidelines/
-weight: 2000
+url: /creator/development-guide/editor/editor-beta-testing-guidelines/
+weight: 1
 ---
 
 
@@ -16,7 +16,7 @@ We encourage you to test and experiment with this editor as much as possible.
 
 ## Install the editor
 
-See the [Installation guide](https://editor.new-docs-6m4.pages.dev/creator/development-guide/installation-guide/).
+See the [Installation guide]({{< ref "/content/creator/editor/installation-guide.md" >}}).
 
 ## About the Decentraland Editor
 
@@ -24,18 +24,13 @@ The Decentraland editor is an extension of Visual Studio Code, built for easing 
 
 Ultimately the editor will offer many no-code options for placing items, and setting component parameters via graphical UIs. The first version of the editor aims for simplifying the experience of coding scenes by removing the command line from the list of tools you need to use. It offers UI options for:
 
-- **Create projects**: Scaffold a new project of various types: scene, library, portable experience, and smart item. See [Quick start](https://editor.new-docs-6m4.pages.dev/creator/development-guide/sdk-101/).
-- **Run scenes**: preview your scenes within VSCode, or launch in a browser. See [Run preiview](https://editor.new-docs-6m4.pages.dev/creator/development-guide/preview-scene/#using-the-editor)
-- **Debug scenes**: Add breakpoints to the code, to pause execution and see current state of all variables at that point in time. See [Debug in preview](https://editor.new-docs-6m4.pages.dev/creator/development-guide/debug-in-preview/#using-the-editor).
-- **Publish scenes**: publish your scene to the world. See [Publishing](https://editor.new-docs-6m4.pages.dev/creator/development-guide/publishing/#via-the-editor).
-- **Manage dependencies**: add, remove, and list the libraries and dependencies that your project is using. See [Manage dependencies](https://editor.new-docs-6m4.pages.dev/creator/development-guide/scene/libraries/manage-dependencies/).
+- **Create projects**: Scaffold a new project of various types: scene, library, portable experience, and smart item. See [Create a project]({{< ref "/content/creator/editor/create-a-project.md" >}}).
+- **Run scenes**: preview your scenes within VSCode, or launch in a browser. See [Run preview]({{< ref "/content/creator/editor/preview-scene.md" >}}).
+- **Debug scenes**: Add breakpoints to the code, to pause execution and see current state of all variables at that point in time. See [Debug in preview]({{< ref "/content/creator/editor/preview-scene.md#debug" >}}).
+- **Publish scenes**: publish your scene to the world. See [Publishing]({{< ref "/content/creator/editor/publishing.md" >}}).
+- **Manage dependencies**: add, remove, and list the libraries and dependencies that your project is using. See [Manage dependencies]({{< ref "/content/creator/editor/manage-dependencies.md" >}}).
 - **Preview models**: Open a gltf or .glb model to see an interactive preview.
 
-## Documentation
-
-Find the full documentation for the Editor in this branch of the Documentation site. Navigate the tree under **scenes** to find information about every functionality of the editor.
-
-Note that the contents of this document are in an [unpublished branch](https://editor.new-docs-6m4.pages.dev/creator/development-guide/scene/editor-beta-testing-guidelines/) of the Decentraland documentation.
 
 ## Test cases
 

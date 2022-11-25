@@ -58,18 +58,6 @@ The other numbers in the panel refer to the usage of resources, in relation to t
 
 > Note: Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
 
-## Using the editor
-
-Using the Decentraland Editor, you can add breakpoints to your scene's code. When running a preview, whenever the code passes through these breakpoints, it pauses execution. A **Debug** panel opens, showing the current values of all variables at that point in time.
-
-This is especially useful to validate that the data at a given point in time is what you expect. You can also modify the values of any variable manually and resume execution with the blue play button, using those new variables. This is great to test corner cases, to make sure the scene behaves as expected on every scenario, which might otherwise be a lot harder to reproduce.
-
-1. Open VSCode in a Decentraland scene project.
-2. Click on the Debugger icon on the left sidebar.
-3. Click on `Run and Debug` and select `Decentraland` (this step might not be necessary if you already have a `.vscode/launch.json` file).
-4. Click on `Run`. A browser should open.
-5. Try setting a breakpoint and interacting with the scene in a way it will step on that line. 
-
 
 ## Run code only in preview
 
