@@ -42,6 +42,27 @@ Material.setPbrMaterial(meshEntity, {
 })
 ```
 
+To change the material of an entity that already has a `Material` component, run `Material.setPbrMaterial()` or any of the other helper functions and it will overwrite the original material. There's no need to remove the original `Material` or to use the advanced syntax.
+
+```ts
+//Create entity and assign shape
+const meshEntity = engine.addEntity()
+Transform.create(meshEntity, { 
+	position: Vector3.create(4, 1, 4) 
+})
+MeshRenderer.setBox(meshEntity)
+
+//Create material and configure its fields
+Material.setPbrMaterial(meshEntity, {
+  albedoColor: Color4.Red(),
+})
+
+//Overwrite with new material component
+Material.setPbrMaterial(meshEntity, {
+  albedoColor: Color4.Blue(),
+})
+```
+
 
 ## Material colors
 
@@ -401,3 +422,5 @@ The supported values for `$case` are the following:
 - `avatarTexture`
 
 Depending on the value of `$case`, it's valid to define the object for the corresponding shape, passing any relevant properties.
+
+To add a `Material` component to an entity that potentially already has an instance of this component, use `Material.createOrReplace()`. The helper functions like `MeshRenderer.setPbrMaterial()` handle overwriting existing instances of the component, but running `Material.create()` on an entity that already has this component returns an error.

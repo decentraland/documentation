@@ -67,6 +67,21 @@ Primitive shapes don't include materials. To give it a color or a texture, you m
 
 To make a primitive clickable, or to prevent players from walking through it, you must give the entity a _collider_ via a [MeshCollider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) component.
 
+To change the shape of an entity that already has a `MeshRenderer` component, run `MeshRenderer.setBox()` or any of the other helper functions and it will overwrite the original shape. There's no need to remove the original `MeshRenderer` or to use the advanced syntax.
+
+```ts
+const myCube = engine.addEntity()
+
+Transform.create(myCube, {
+	position: Vector3.create(8, 1, 8)
+})
+
+MeshRenderer.setBox(myCube)
+
+// overwrite shape
+MeshRenderer.setSphere(myCube)
+```
+
 ## 3D models
 
 For more complex shapes, you can build a 3D model in an external tool like Blender and then import them in _.glTF_ or _.glb_ (binary _.glTF_). [glTF](https://www.khronos.org/gltf) (GL Transmission Format) is an open project by Khronos providing a common, extensible format for 3D assets that is both efficient and highly interoperable with modern web technologies.
@@ -127,7 +142,7 @@ const primitiveEntity = engine.addEntity()
 
 MeshRenderer.setBox(primitiveEntity)
 
-Transform.create(primitiveEntity, {
+Transform.ceate(primitiveEntity, {
 	position: {x: 8, y:1, z: 8},
 	scale: {x: 4, y:0.5, z: 4}
 })
@@ -201,3 +216,5 @@ The supported values for `$case` are the following:
 - `cylinder`
 
 Depending on the value of `$case`, it's valid to define the object for the corresponding shape, passing any relevant properties.
+
+To add a `MeshRenderer` component to an entity that potentially already has an instance of this component, use `MeshRenderer.createOrReplace()`. The helper functions like `MeshRenderer.setBox()` handle overwriting existing instances of the component, but running `MeshRenderer.create()` on an entity that already has this component returns an error.
