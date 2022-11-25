@@ -16,9 +16,8 @@ We encourage you to test and experiment with this new SDK as much as possible, b
 
 ## Documentation
 
-Find the full documentation for SDK7 in this branch of the Documentation site. Navigate the tree under **SDK7** to find information about every component and thing you can do.
+Find the full documentation for SDK7 in under the **SDK7** section of the documentation.
 
-Note that this is an unpublished branch of the Decentraland documentation, under [sdk7.new-docs-6m4.pages.dev](https://sdk7.new-docs-6m4.pages.dev).
 
 ## Using the playground
 
