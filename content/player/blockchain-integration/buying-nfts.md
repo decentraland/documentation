@@ -102,9 +102,83 @@ This a safe mechanism to avoid bad actors from removing all LAND from an Estate 
 
 More information about it can be found in [Integrating Decentraland's Estate in your Marketplace](/player/blockchain-integration/estates-marketplace-integrations)
 
+**IMPORTANT: The owner of the asset has to approve the Marketplace contract to be able to operate the NFT on its behalf. The buyer also has to approve the Marketplace contract to operate MANA. If these conditions are not met, the transaction will revert when the Marketplace contract tries to transfer the NFT from the previous owner to the buyer or when the contract tries to transfer MANA from the buyer to the owner.**
+
 ## Bids
 
-Soon...
+Maybe the NFT you like is too expensive or is not even on sale. This is where the Bids contract comes handy.
+
+Any user can create a Bid for an NFT using this contract by determining the price they are willing to pay for it. If the owner finds that price fair, they can accept the Bid and the bidder will become the owner of the NFT while the previous owner will receive the payment in MANA.
+
+Bids can be created by calling the `placeBid` function on the Bids contract.
+
+```sol
+/// @param _tokenAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote Collection address).
+/// @param _tokenId The token id of the NFT.
+/// @param _price The price (in MANA) the caller wants to purchase the NFT for.
+/// @param _duration How long the Bid will be valid until it expires.
+function placeBid(
+    address _tokenAddress,
+    uint256 _tokenId,
+    uint256 _price,
+    uint256 _duration
+)
+```
+
+There is another `placeBid` function in the contract that along the arguments received by the previous examples, it receives a `fingerprint` argument.
+
+```sol
+/// @param _tokenAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote Collection address).
+/// @param _tokenId The token id of the NFT.
+/// @param _price The price (in MANA) the caller wants to purchase the NFT for.
+/// @param _duration How long the Bid will be valid until it expires.
+/// @param _fingerprint Data that determines how the NFT has to be composed of for the Bid to be executed.
+function placeBid(
+    address _tokenAddress,
+    uint256 _tokenId,
+    uint256 _price,
+    uint256 _duration,
+    bytes memory _fingerprint
+)
+```
+
+More information about the `fingerprint` argument can be found in [Integrating Decentraland's Estate in your Marketplace](/player/blockchain-integration/estates-marketplace-integrations)
+
+As the owner of the NFT. You can accept any Bids that have been made for it as long as it has not expired and the bidder still has enough MANA to pay for it.
+
+In order to accept a Bid, the owner of the asset has to transfer the NFT to the Bids contract using the `safeTransferFrom` function of the NFT contract with some extra data containing the accepted Bid information.
+
+For example, to accept a Bid for one of my LANDs I would have to call the LAND contract `safeTransferFrom` function to transfer my LAND to the Bids contract which will then execute the bid.
+
+```sol
+/// @param from The current owner (or operator) of the NFT.
+/// @param to The address that will receive the NFT.
+/// @param assetId The token id of the NFT to be transferred.
+/// @param userData Arbitrary data used by the recipient of the NFT to handle the transfer.
+function safeTransferFrom(
+  address from,
+  address to,
+  uint256 assetId,
+  bytes memory userData
+)
+```
+
+Let's say I want to accept a Bid with id "0xBidId" for one of the LANDs I own that has token id "100".
+
+I would have to call the `safeTransferFrom` function on the LAND contract with the following input.
+
+```js
+safeTransferFrom(
+  "0xMyAddress", // My address as I am the owner of the LAND.
+  "0xBidsContractAddress", // The address of the Bids contract in the same network.
+  "100", // The token id of my LAND.
+  "0xBidId" // The id of the Bid I want to accept.
+);
+```
+
+When the Bids contract receives the NFT, it will check in its `onERC721Received` function that the bid is not expired and the bidder has enough funds to pay for it. If everything is correct, the NFT will be transferred to the bidder and the previous owner will be paid the amount declared in the Bid.
+
+**IMPORTANT: The bidder must have approved the Bids Smart Contract to operate MANA on its behalf or the bid execution will revert when the Bids contract tries to transfer the bidders MANA to the previous owner.**
 
 ## CollectionStore
 
@@ -112,7 +186,7 @@ This smart contract can only be found on the Polygon Network. This is because We
 
 When a creator publishes a collection and it is approved by the curation committee. The creator can then put the collection on sale in the marketplace, allowing other users to be able to buy the items of that collection for the price determined by the creator.
 
-When you are buying items from a collection this way, you are actually minting a new NFT that can then be commercialized with the Polygon Marketplace or Bids smart contract. 
+When you are buying items from a collection this way, you are actually minting a new NFT that can then be commercialized with the Polygon Marketplace or Bids smart contract.
 
 If a collection is on sale, any user with the sufficient amount of MANA can buy an item from it as long as there is stock left to be minted.
 
@@ -129,7 +203,7 @@ struct ItemToBuy {
   IERC721CollectionV2 collection;
   // The id of the particular items in the collection that the caller want to buy.
   uint256[] ids;
-  // The price that the buyer wants to pay for the item in the same index. 
+  // The price that the buyer wants to pay for the item in the same index.
   // Must be equal to the price set by the creator.
   uint256[] prices;
   // The addresses that will receive the minted items in the same index.
@@ -137,23 +211,21 @@ struct ItemToBuy {
 }
 ```
 
-To make this easier to understand. Imagine that I want to buy item "Spooky Hat" with item id 0 from the collection called "Halloween Madness". 
+To make this easier to understand. Imagine that I want to buy item "Spooky Hat" with item id 0 from the collection called "Halloween Madness".
 
 The hat has been determined by the creator to have a price of 20 MANA.
 
 To buy the item I would have to call the `buy` function with the following data:
 
 ```js
-buy(
+buy([
   [
-    [
-      "0xHalloweenMadnessAddress",
-      ["0"], // The item id of the Spooky Hat, other items in the collection will have different incrementing ids.
-      ["20000000000000000000"], // Which is the equivalent in wei to 20
-      ["My own address"]
-    ]
-  ]
-)
+    "0xHalloweenMadnessAddress",
+    ["0"], // The item id of the Spooky Hat, other items in the collection will have different incrementing ids.
+    ["20000000000000000000"], // Which is the equivalent in wei to 20
+    ["My own address"],
+  ],
+]);
 ```
 
 When the transaction to buy the item is successful. 20 MANA will be transferred from my address to the creator (or a beneficiary defined by the creator), the hat will be minted as an NFT and transferred to me.
