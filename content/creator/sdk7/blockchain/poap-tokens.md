@@ -169,7 +169,7 @@ For simple implementations of the POAP booth:
 2. Install the dependencies with
    `npm i -B @dcl/ui-scene-utils @dcl/ecs-scene-utils`
 
-3. Add the booth in your game.ts with:
+3. Add the booth in your index.ts with:
 
 ```ts
 import { createDispenser } from "./booth/dispenser"

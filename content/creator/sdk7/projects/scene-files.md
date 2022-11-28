@@ -15,13 +15,13 @@ After [creating a new scene]({{< ref "/content/creator/sdk7/getting-started/sdk-
 
 Scenes include the following files:
 
-- **src/game.ts**: The entry point of the scene.
+- **src/index.ts**: The entry point of the scene.
 - **scene.json**: The manifest that contains metadata for the scene.
 - **package.json** and **package-lock.json**: Specify the versions of all dependencies of the scene.
 - **tsconfig.json**: Typescript configuration file.
 - **.dclignore**: Lists what files in your project not to deploy to IPFS.
 
-### game.ts
+### index.ts
 
 This is the entry point to your scene's code. You could fit your entire scene's logic into this file, although for clarity in most cases we recommend spreading out your code over several other _.ts_ files.
 
