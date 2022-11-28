@@ -1,18 +1,18 @@
 ---
 date: 2022-11-04
-title: SDK7 Beta testing guidelines
+title: SDK7 alpha testing guidelines
 description: Play live audio streams in your scene.
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/sdk7/beta-testing-guidelines/
+url: /creator/development-guide/sdk7/alpha-testing-guidelines/
 weight: 2000
 ---
 
 
-SDK version 7 is currently being tested as a beta release. We're gathering feedback from the community, to ensure the release doesn't present any major issues and that the experience of using it is good.
+SDK version 7 is currently being tested as an alpha release. We're gathering feedback from the community, to ensure the release doesn't present any major issues and that the experience of using it is good.
 
-We encourage you to test and experiment with this new SDK as much as possible, but please don't build any events or important scenes that rely on content written with SDK7. As things are still in a beta stage, breaking changes are still possible.
+We encourage you to test and experiment with this new SDK as much as possible, but please don't build any events or important scenes that rely on content written with SDK7. As things are still in a alpha stage, breaking changes are still possible.
 
 ## Documentation
 
