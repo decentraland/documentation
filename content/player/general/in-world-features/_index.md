@@ -1,5 +1,4 @@
 ---
 bookCollapseSection: true
-title: Release notes
-weight: 100
+weight: 20
 ---

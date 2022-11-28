@@ -14,9 +14,26 @@ url: /creator/development-guide/preview-scene
 weight: 4
 ---
 
-Once you have [built a new scene](https://docs.decentraland.org/#create-your-first-scene) or downloaded a [scene example](https://github.com/decentraland-scenes/Awesome-Repository#examples) you can preview it locally.
+Once you have [built a new scene]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) or downloaded a [scene example](https://github.com/decentraland-scenes/Awesome-Repository#examples) you can preview it locally.
 
-## Before you begin
+## Using the editor
+
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}).
+
+1) Open your scene's folder using Visual Studio Code. 
+
+> Note: The Visual Studio window must be at the root folder of the scene project.
+
+2) Open the Editor's menu, by clicking the Decentraland logo on the tabs on the left. Then click **Run scene**.
+
+This opens a new window in Visual Studio Code, running Decentraland. 
+
+Click **Open in browser**, over the top margin of the tab to run the preview in a web browser window.
+
+
+## Using the CLI
+
+### Before you begin
 
 Please make sure you first install the CLI tools by running the following command:
 
@@ -26,7 +43,7 @@ npm install -g decentraland
 
 See the [Installation Guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}) for more details instructions.
 
-## Preview a scene
+### Preview a scene
 
 To preview a scene run the following command on the scene's main folder:
 
@@ -40,13 +57,7 @@ Every time you make changes to the scene, the preview reloads and updates automa
 
 > Note: Some scenes depend on an external server to store a shared state for all players in the scene. When previewing one of these scenes, you'll likely have to also run the server locally on another port. Check the scene's readme for instructions on how to launch the server as well as the scene.
 
-## Upload a scene to decentraland
-
-Once you're happy with your scene, you can upload it and publish it to Decentraland, see [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) ) for instructions on how to do that.
-
-You can also upload a preview to a free 3rd party server, [see instructions here]({{< ref "/content/creator/scenes/publishing/deploy-third-party.md" >}}).
-
-## Parameters of the preview command
+### Parameters of the preview command
 
 You can add the following flags to the `dcl start` command to change its behavior:
 
@@ -61,9 +72,17 @@ You can add the following flags to the `dcl start` command to change its behavio
 
 > Note: To preview old scenes that were built for older versions of the SDK, you must set the corresponding version of `decentraland-ecs` in your project's `package.json` file.
 
+
+## Upload a scene to decentraland
+
+Once you're happy with your scene, you can upload it and publish it to Decentraland, see [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) ) for instructions on how to do that.
+
+You can also upload a preview to a free 3rd party server, [see instructions here]({{< ref "/content/creator/scenes/publishing/deploy-third-party.md" >}}).
+
+
 ## Preview scene size
 
-The scene size shown in the preview is based on the scene's configuration, you set this when building the scene using the CLI. By default, the scene occupies a single parcel (16 x 16 meters).
+The scene size shown in the preview is based on the scene's configuration. By default, the scene occupies a single parcel (16 x 16 meters).
 
 If you're building a scene to be uploaded to several adjacent parcels, you can edit the _scene.json_ file to reflect this, listing multiple parcels in the "parcels" field. Placing any entities outside the bounds of the listed parcels will display them in red.
 

@@ -4,6 +4,7 @@ title: DAO User Guide
 aliases:
   - /decentraland/dao-userguide/
   - /player/dao/dao-userguide
+  - /decentraland/community-voting/
 description: How to use the Decentraland DAO
 categories:
   - Decentraland
