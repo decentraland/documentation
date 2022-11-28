@@ -64,7 +64,7 @@ engine.addSystem(moveSystem)
 In the example above, the system `MoveSystem` is a function that runs on each tick of the game loop, changing position of every entity in the scene that has a Transform.
 
 
-![](/images/media/ecs-system.png)
+![](/images/media/ecs-system-new.png)
 
 <!--
 > Tip: As a simpler alternative to create custom systems, you can use the helpers in the [utils library](https://github.com/decentraland/decentraland-ecs-utils). The library creates systems in the background that handle common tasks like moving or rotating entities. In most cases, this library only requires a single line of code to apply these behaviors.

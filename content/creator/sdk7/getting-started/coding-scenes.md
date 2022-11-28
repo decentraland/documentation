@@ -71,7 +71,7 @@ You can also run a scene locally on your machine by running a preview from the C
 
 Three dimensional scenes in Decentraland are based on an [Entity-Component-System](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system) architecture, where everything in a scene is an _entity_. Entities have _components_, each component gives the entity it belongs to specific properties. A door entity is likely to have at least a Transform component (that sets position, rotation & scale) and another to provide it a shape. Components are just a place to store data, they don’t carry out any actions. 
 
-<img src="/images/media/ecs-components.png" alt="nested entities" width="400"/>
+<img src="/images/media/ecs-components-new.png" alt="nested entities" width="400"/>
 
 
 ```ts
@@ -95,7 +95,7 @@ For example, I can define a custom “doorState” component to track the door�
 
 Entities may be nested inside other entities to form a tree structure. If you're familiar with web development, you might find it useful to think of entities as elements in a DOM tree and of components as the attributes of each of these elements.
 
-<img src="/images/media/ecs-nested-entities.png" alt="nested entities" width="400"/>
+<img src="/images/media/ecs-nested-entities-new.png" alt="nested entities" width="400"/>
 
 Entities are an abstract concept. An entity is just an id, that is used as a reference to group different components.
 
