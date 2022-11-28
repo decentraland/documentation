@@ -5,7 +5,7 @@ description: How to publish a scene using the Decentraland Editor
 categories:
   - editor
 type: Document
-url: /creator/editor/create-a-project
+url: /creator/editor/publishing
 weight: 5
 ---
 
