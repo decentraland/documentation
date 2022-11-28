@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: true
-title: Release notes
-weight: 100
+weight: 4
+title: Editor (beta)
 ---
