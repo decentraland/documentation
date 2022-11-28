@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: true
 weight: 4
-title: Editor (alpha)
+title: Editor (beta)
 ---
