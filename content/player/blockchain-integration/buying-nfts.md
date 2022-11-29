@@ -1,7 +1,7 @@
 ---
 date: 2022-02-17
 title: Buying NFTs
-description: Different contracts and functions that can to be used to buy NFTs from the Decentraland Marketplace
+description: Different contracts and functions that can be used to buy NFTs from the Decentraland Marketplace
 categories:
   - blockchain-integration
 type: Document
