@@ -21,12 +21,12 @@ Add an entity with an `AvatarModifierArea` component and position this entity by
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-	area: {x: 4, y:3, z:4},
+	area: Vector3.create(4, 3, 4),
 	modifiers: [AvatarModifierType.HIDE_AVATARS],
 })
 
 Transform.create(childEntity, {
-	position: {x: 8, y:0, z:8}
+	position: Vector3.create(8, 0, 8)
 })
 ```
 
@@ -57,12 +57,12 @@ When a player walks into an `AvatarModifierArea` that has the `AvatarModifierTyp
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-	area: {x: 4, y:3, z:4},
+	area:  Vector3.create(4, 3, 4),
 	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
 })
 
 Transform.create(childEntity, {
-	position: {x: 8, y:0, z:8}
+	position: Vector3.create(8, 0, 8)
 })
 ```
 
@@ -76,12 +76,12 @@ When a player walks into an `AvatarModifierArea` that has the `AvatarModifierTyp
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-	area: {x: 4, y:3, z:4},
+	area:  Vector3.create(4, 3, 4),
 	modifiers: [AvatarModifierType.AMT_DISABLE_PASSPORTS],
 })
 
 Transform.create(childEntity, {
-	position: {x: 8, y:0, z:8}
+	position:  Vector3.create(8, 0, 8)
 })
 ```
 
@@ -95,7 +95,7 @@ Players are normally free to switch between first and third person camera by pre
 const entity = engine.addEntity()
 
 CameraModeArea.create(entity, {
-	area: {x: 4, y:3, z:4},
+	area:  Vector3.create(4, 3, 4),
 	mode: CameraType.CT_FIRST_PERSON
 })
 ```
@@ -128,13 +128,13 @@ This example hides all avatars in an area, except those of players with specific
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-	area: {x: 4, y:3, z:4},
+	area:  Vector3.create(4, 3, 4),
 	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
 	excludeIds: ['0xx1...', '0xx2...'],
 })
 
 Transform.create(childEntity, {
-	position: {x: 8, y:0, z:8}
+	position:  Vector3.create(8, 0, 8)
 })
 ```
 
@@ -154,13 +154,13 @@ executeTask(async () => {
   const entity = engine.addEntity()
 
   AvatarModifierArea.create(entity, {
-	area: {x: 16, y:5, z:16},
+	area:  Vector3.create(16, 5, 16),
 	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
 	excludeIds: [userData.userId],
   })
 
   Transform.create(childEntity, {
-	position: {x: 8, y:0, z:8}
+	position:  Vector3.create(8, 0, 8)
   })
 })
 ```
@@ -178,13 +178,13 @@ To verify the positions of a `AvatarModifierArea` or a `CameraModeArea`, give th
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-	area: {x: 8, y:3, z:8},
+	area:  Vector3.create(8, 3, 8),
 	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
 })
 
 Transform.create(entity, {
-	position: {x: 8, y:0, z:8},
-	scale: {x: 8, y:3, z:8}
+	position:  Vector3.create(8, 0, 8),
+	scale:  Vector3.create(8, 3, 8)
 })
 
 MeshRenderer.setBox(entity)
