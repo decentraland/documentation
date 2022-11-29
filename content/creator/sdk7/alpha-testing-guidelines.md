@@ -55,6 +55,8 @@ You can find more example scenes written with SDK7 here:
 
 ## Reporting issues
 
+See the list of existing known issues [here](https://github.com/orgs/decentraland/projects/20/views/13).
+
 If you run into any bugs, please report an issue in the [SDK](https://github.com/decentraland/sdk/issues) repository.
 
 We ask you to please detail how to reproduce the issue as much as possible. The ideal way to report a bug is to include a link to the [playground](https://decentraland.github.io/sdk-playground/), showcasing a minimal scene where this issue can be observed. Click the **Share** button in the playground to copy a URL that includes the code that you're currently using. That way, the issue is 100% reproducible by whoever is debugging it.
