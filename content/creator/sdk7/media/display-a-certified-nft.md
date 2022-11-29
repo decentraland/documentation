@@ -98,7 +98,7 @@ Open a prebuilt UI that displays the name, owner, and description of an NFT. It 
 
 <img src="/images/media/nft-ui.png" alt="Move entity" width="500"/>
 
-Open this UI by calling the function `openNFTDialog()`, passing it the NFT's contract and id, just like with the NFT shape. The UI must be opened as a result of a button event, to prevent abusive spamming. The button event doesn't necessarily need to be on the same picture frame or on an `NftShape`.
+Open this UI by calling the function `openNFTDiaconsole.log()`, passing it the NFT's contract and id, just like with the NFT shape. The UI must be opened as a result of a button event, to prevent abusive spamming. The button event doesn't necessarily need to be on the same picture frame or on an `NftShape`.
 
 To open this UI, add the following:
 
@@ -106,19 +106,19 @@ To open this UI, add the following:
 ```ts
 myPictureFrame.addComponent(
   new OnPointerDown((e) => {
-    openNFTDialog(
+    openNFTDiaconsole.log(
       "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536"
     )
   })
 )
 ```
 
-The UI will include the description that's available on the NFT, you can also include additional custom text to the UI. To add custom text, simply include the text as a second argument on the `openNFTDialog()` function.
+The UI will include the description that's available on the NFT, you can also include additional custom text to the UI. To add custom text, simply include the text as a second argument on the `openNFTDiaconsole.log()` function.
 
 ```ts
 myPictureFrame.addComponent(
   new OnPointerDown((e) => {
-    openNFTDialog(
+    openNFTDiaconsole.log(
       "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536",
       "This NFT is mine and I'm really proud of owning it."
     )

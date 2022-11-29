@@ -23,7 +23,7 @@ renderUi(() => (
 	<UiEntity 
 		uiTransform = {{ width: 100, height: 100 }} 
 		uiBackground={{ backgroundColor: Color4.Green() }}
-		onClick = { ()=>{ log("Clicked on the UI")} } 
+		onClick = { ()=>{ console.log("Clicked on the UI")} } 
 	/>
 ))
 ```
@@ -33,7 +33,7 @@ You can also write the function that is executed by the click outside the UI def
 ```ts
 function handleClick() {
 	// Do something onClick
-	log("Clicked on the UI")
+	console.log("Clicked on the UI")
 }
 renderUi(() => (
 	<UiEntity 

@@ -117,7 +117,7 @@ A click is defined as pushing a button down, and then shortly after letting it r
 ```ts
 engine.addSystem(() => {
     if (Input.wasJustClicked(InputAction.IA_POINTER, myEntity)){
-      log("Entity was just clicked")
+      console.log("Entity was just clicked")
     }
 })
 ```
@@ -452,7 +452,7 @@ To fetch this data, use `Input.getInputCommand`. This function returns the full 
 engine.addSystem(() => {
   const cmd = Input.getInputCommand(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)
   if(cmd){
-	log(cmd.hit.entityId)
+	console.log(cmd.hit.entityId)
   }
 })
 ```

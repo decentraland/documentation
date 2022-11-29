@@ -38,7 +38,7 @@ This statement requires three parameters:
 EventsSystem.onPointerDown(
   entity,
   function () {
-    log("clicked entity")
+    console.log("clicked entity")
   },
   {
     button: InputAction.IA_PRIMARY,
@@ -82,7 +82,7 @@ To hide a hover feedback, set the `hoverText` to an empty string "". When doing 
 EventsSystem.onPointerDown(
   myEntity,
   function () {
-    log("opened secret door")
+    console.log("opened secret door")
   },
   {
     button: InputAction.IA_PRIMARY,
@@ -110,7 +110,7 @@ Use `EventsSystem.onPointerUp` to register a callback function that gets called 
 EventsSystem.onPointerUp(
   myEntity,
   function () {
-    log("button up")
+    console.log("button up")
   },
   {
     button: InputAction.IA_PRIMARY,
@@ -159,7 +159,7 @@ To fetch this data, pass a parameter to the callback function. This parameter co
 EventsSystem.onPointerDown(
   myEntity,
   function (cmd) {
-      log(cmd.hit.entityId)
+      console.log(cmd.hit.entityId)
   },
 )
 ```

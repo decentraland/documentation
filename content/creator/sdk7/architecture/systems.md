@@ -23,7 +23,7 @@ The following example shows a basic system declaration:
 function mySystem() {
 
 	// performed on every tick
-	log("my system is running")
+	console.log("my system is running")
 }
 
 // Add system to engine
@@ -37,7 +37,7 @@ You must add a _System_ to the engine before its functions start being called. Y
 engine.addSystem(mySystem() {
 
 	// performed on every tick
-	log("my system is running")
+	console.log("my system is running")
 })
 ```
 
@@ -99,7 +99,7 @@ export function UpdateScore() {
 
 	// call reference to individual entity
 	const points = ScoreComponent.get(game).points
-	log(points)
+	console.log(points)
 }
 
 // Add system to engine
@@ -143,7 +143,7 @@ The function in a system can optionally include an argument called `dt`, of type
 function MySystem(dt: number) {
 
 	// Udate scene
-	log("time since last tick: ", dt)
+	console.log("time since last tick: ", dt)
 }
 
 engine.addSystem(MySystem)
@@ -221,7 +221,7 @@ To remove a system, you must first create a pointer to it when adding it to the 
 ```ts
 // declare system
 function mySystem(dt: number){
-	log("delay since last tick: ", dt)
+	console.log("delay since last tick: ", dt)
 }
 
 // add system (making a pointer)

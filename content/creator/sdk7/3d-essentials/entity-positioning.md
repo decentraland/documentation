@@ -409,7 +409,7 @@ import { getUserData } from "~system/UserIdentity"
 
 executeTask(async () => {
   let data = await getUserData()
-  log(data.userId)
+  console.log(data.userId)
 })
 ```
 
@@ -421,7 +421,7 @@ import { getConnectedPlayers } from "~system/Players"
 executeTask(async () => {
   let players = await getConnectedPlayers()
   players.forEach((player) => {
-    log("player is nearby: ", player.userId)
+    console.log("player is nearby: ", player.userId)
   })
 })
 ```
@@ -434,7 +434,7 @@ import { getUserData } from "~system/UserIdentity"
 async function attachEntity (entity: Entity){
   let userData = await getUserData({})
   if(!userData.data) return
-  log(userData.data.userId)
+  console.log(userData.data.userId)
 
   AvatarAttach.create(entity, {
 	anchorPointId: AvatarAnchorPoint.LEFT_HAND,

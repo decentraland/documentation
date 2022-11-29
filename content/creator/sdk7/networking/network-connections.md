@@ -24,9 +24,9 @@ executeTask(async () => {
   try {
     let response = await fetch(callUrl)
     let json = await response.json()
-    log(json)
+    console.log(json)
   } catch {
-    log("failed to reach URL")
+    console.log("failed to reach URL")
   }
 })
 ```
@@ -51,9 +51,9 @@ executeTask(async () => {
       body: JSON.stringify(myBody),
     })
     let json = await response.json()
-    log(json)
+    console.log(json)
   } catch {
-    log("failed to reach URL")
+    console.log("failed to reach URL")
   }
 })
 ```
@@ -99,9 +99,9 @@ executeTask(async () => {
 
     let json = await JSON.parse(response.text)
 
-    log("Response received: ", json)
+    console.log("Response received: ", json)
   } catch {
-    log("failed to reach URL")
+    console.log("failed to reach URL")
   }
 })
 ```
@@ -135,7 +135,7 @@ You can also send and obtain data from a WebSocket server, as long as this serve
 var socket = new WebSocket("url")
 
 socket.onmessage = function (event) {
-  log("WebSocket message received:", event)
+  console.log("WebSocket message received:", event)
 }
 ```
 

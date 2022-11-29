@@ -49,7 +49,7 @@ function PointerReadingSystem() {
 
     const result = PointerEventsResult.getOrNull(entity)
     if(result){
-      log("POINTER EVENT DATA:", result.commands)
+      console.log("POINTER EVENT DATA:", result.commands)
     }
   }
 }

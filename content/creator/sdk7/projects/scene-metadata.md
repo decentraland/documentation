@@ -294,27 +294,27 @@ async function getSceneData(){
 	if(parcel){
 
 		// full scene json
-		log("full json: ",  parcel.land!.sceneJsonData)
+		console.log("full json: ",  parcel.land!.sceneJsonData)
 
 		const sceneJson = JSON.parse(parcel.land!.sceneJsonData)
 
 		// parcels
-		log("parcels: ", sceneJson.scene.parcels)
-		log("base parcel: ", sceneJson.scene.base)
+		console.log("parcels: ", sceneJson.scene.parcels)
+		console.log("base parcel: ", sceneJson.scene.base)
 
 		// spawn points
-		log("spawnpoints: ", sceneJson.spawnPoints)
+		console.log("spawnpoints: ", sceneJson.spawnPoints)
 
 		// general scene data
-		log("title: ", sceneJson.display?.title)
-		log("author: ", sceneJson.contact?.name)
-		log("email: ", sceneJson.contact?.email)
+		console.log("title: ", sceneJson.display?.title)
+		console.log("author: ", sceneJson.contact?.name)
+		console.log("email: ", sceneJson.contact?.email)
 
 		// required permissions
-		log("email: ", sceneJson.requiredPermissions)
+		console.log("email: ", sceneJson.requiredPermissions)
 
 		// other info
-		log("tags: ", sceneJson.sceneJsonData.tags)
+		console.log("tags: ", sceneJson.sceneJsonData.tags)
 	}
   
 	

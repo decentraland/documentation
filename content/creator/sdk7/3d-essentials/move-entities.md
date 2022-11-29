@@ -283,7 +283,7 @@ function SimpleRotate(dt: number) {
 	let transform = Transform.getMutable(myEntity)
 	transform.rotation = Quaternion.rotateTowards(transform.rotation, Quaternion.fromEulerDegrees(90, 0, 0), dt *10)
   if(transform.rotation === Quaternion.fromEulerDegrees(90, 0, 0)){
-    log("done")
+    console.log("done")
     engine.removeSystem(this)
   }
 }

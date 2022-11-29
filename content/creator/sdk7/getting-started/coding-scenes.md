@@ -133,14 +133,14 @@ A system is a pure and simple function that gets called once on every tick (up t
 ```ts
 // Basic system
 function mySystem() {
-  log("my system is running")
+  console.log("my system is running")
 }
 
 engine.addSystem(mySystem)
 
 // System with dt
 function mySystemDT(dt: number) {
-  log("time since last frame:  ", dt)
+  console.log("time since last frame:  ", dt)
  }
  
 engine.addSystem(mySystemDT)
@@ -165,7 +165,7 @@ function boxHeightSystem(dt: number) {
   // query for entities that include both MeshRenderer and Transform components	
   for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
     const transform = Transform.get(entity)
-    log("a box is at height:  ", transform.position.y)
+    console.log("a box is at height:  ", transform.position.y)
   }
 }
 

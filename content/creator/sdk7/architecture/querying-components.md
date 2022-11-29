@@ -111,7 +111,7 @@ You can then refer to these references as you iterate over the collection of res
 ```ts
   for (const [entity, transformReadOnly] of engine.getEntitiesWith(Transform)) {
 
-	log("entity id: ", entity)
-	log("has position : ", transformReadOnly.position)
+	console.log("entity id: ", entity)
+	console.log("has position : ", transformReadOnly.position)
   }
 ```

@@ -106,7 +106,7 @@ Using the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity
 EventsSystem.onPointerDown(
   myEntity,
   function (cmd) {
-      log(cmd.hit.entityId)
+      console.log(cmd.hit.entityId)
   },
 )
 ```
@@ -117,7 +117,7 @@ Using the [**System-based**]({{< ref "/content/creator/sdk7/interactivity/button
 engine.addSystem(() => {
   const cmd = Input.getInputCommand(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)
   if(cmd){
- 	log(cmd.hit.entityId)
+ 	console.log(cmd.hit.entityId)
   }
 })
 ```
@@ -131,7 +131,7 @@ engine.addSystem(() => {
       const poninterEvents = PointerEventsResult.get(entity)
 
 	  if(poninterEvents.commands.length > 0){
-		log(poninterEvents.commands[0].hit.entityId)
+		console.log(poninterEvents.commands[0].hit.entityId)
 	  }   
   }
 })

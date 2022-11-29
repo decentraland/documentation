@@ -54,7 +54,7 @@ The `executeTask()` function executes a lambda function asynchronously, in a sep
 ```ts
 executeTask(async () => {
   let data = await myAsyncTask()
-  log(data)
+  console.log(data)
 })
 
 // rest of the code keeps being executed
@@ -66,7 +66,7 @@ The `then` function takes in a lambda function as an argument, that only gets ex
 
 ```ts
 myAsyncTask().then((data) => {
-  log(data)
+  console.log(data)
 })
 ```
 
@@ -95,9 +95,9 @@ async function myAsyncTask() {
   try {
     let response = await fetch(callUrl)
     let json = await response.json()
-    log(json)
+    console.log(json)
   } catch {
-    log("failed to reach the URL")
+    console.log("failed to reach the URL")
   }
 }
 

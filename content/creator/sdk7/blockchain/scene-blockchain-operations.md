@@ -50,9 +50,9 @@ import { getUserAccount } from "@decentraland/EthereumController"
 executeTask(async () => {
   try {
     const address = await getUserAccount()
-    log(address)
+    console.log(address)
   } catch (error) {
-    log(error.toString())
+    console.log(error.toString())
   }
 })
 ```
@@ -72,13 +72,13 @@ executeTask(async () => {
     let lowerCaseAddress = address.toLowerCase()
     for (let i = 0; i < registeredAddresses.length; i++) {
       if (lowerCaseAddress == registeredAddresses[i]) {
-        log("already registered")
+        console.log("already registered")
       } else {
         registeredAddresses.push(lowerCaseAddress)
       }
     }
   } catch (error) {
-    log(error.toString())
+    console.log(error.toString())
   }
 })
 ```
@@ -127,7 +127,7 @@ let eth = EthereumController
 executeTask(async () => {
   const convertedMessage = await eth.convertMessageToObject(messageToSign)
   const { message, signature } = await eth.signMessage(convertedMessage)
-  log({ message, signature })
+  console.log({ message, signature })
 })
 ```
 
@@ -150,12 +150,12 @@ function signMessage(msg: string) {
   executeTask(async () => {
     const convertedMessage = await eth.convertMessageToObject(msg)
     const { message, signature } = await eth.signMessage(convertedMessage)
-    log({ message, signature })
+    console.log({ message, signature })
 
     const originalMessageHex = await toHex(msg)
     const sentMessageHex = await toHex(message)
     const isEqual = sentMessageHex === originalMessageHex
-    log("Is the message correct?", isEqual)
+    console.log("Is the message correct?", isEqual)
   })
 }
 
@@ -188,7 +188,7 @@ function payment(){
       await eth.requirePayment(myWallet, enterPrice, 'ETH')
       openDoor()
     } catch {
-      log("failed process payment")
+      console.log("failed process payment")
     }
   })
 }
@@ -366,7 +366,7 @@ executeTask(async () => {
       "0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb"
     )) as any
     const address = await getUserAccount({})
-    log(address)
+    console.log(address)
 
     // Perform a function from the contract
     const res = await contract.setBalance(
@@ -377,9 +377,9 @@ executeTask(async () => {
       }
     )
     // Log response
-    log(res)
+    console.log(res)
   } catch (error) {
-    log(error.toString())
+    console.log(error.toString())
   }
 })
 ```

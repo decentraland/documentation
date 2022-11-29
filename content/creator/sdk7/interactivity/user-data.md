@@ -26,10 +26,10 @@ const CameraPos = Transform.get(engine.CameraEntity).position
 //camera rotation
 const CameraRot = Transform.get(engine.CameraEntity).rotation
 
-log("playerPos: ", playerPos)
-log("playerRot: ", playerRot)
-log("cameraPos: ", CameraPos)
-log("cameraRot: ", CameraRot)
+console.log("playerPos: ", playerPos)
+console.log("playerRot: ", playerRot)
+console.log("cameraPos: ", CameraPos)
+console.log("cameraRot: ", CameraRot)
 ```
 
 
@@ -112,7 +112,7 @@ import { getUserData } from "~system/UserIdentity"
 
 executeTask(async () => {
   let userData = await getUserData({})
-  log(userData.data)
+  console.log(userData.data)
 })
 ```
 
@@ -131,7 +131,7 @@ import { getPlayerData } from "~system/Players"
 
 executeTask(async () => {
 	let userData = await getPlayerData({ userId: "0x…." })
-	log(userData)
+	console.log(userData)
 })
 ```
 
@@ -153,18 +153,18 @@ import { getConnectedPlayers} from "~system/Players"
 executeTask(async () => {
    let connectedPlayers = await getConnectedPlayers({})
   connectedPlayers.players.forEach((player) => {
-    log("player is nearby: ", player.userId)
+    console.log("player is nearby: ", player.userId)
   })
 })
 
 // Event when player connects
 onPlayerConnectedObservable.add((player) => {
-  log("player entered: ", player.userId)
+  console.log("player entered: ", player.userId)
 })
 
 // Event when player disconnects
 onPlayerDisconnectedObservable.add((player) => {
-  log("player left: ", player.userId)
+  console.log("player left: ", player.userId)
 })
 ```
 
@@ -179,18 +179,18 @@ import { getPlayersInScene } from "~system/Players"
 executeTask(async () => {
   let connectedPlayers = await getPlayersInScene({})
   connectedPlayers.players.forEach((player) => {
-    log("player is nearby: ", player.userId)
+    console.log("player is nearby: ", player.userId)
   })
 })
 
 // Event when player enters scene
 onEnterSceneObservable.add((player) => {
-  log("player entered scene: ", player.userId)
+  console.log("player entered scene: ", player.userId)
 })
 
 // Event when player leaves scene
 onLeaveSceneObservable.add((player) => {
-  log("player left scene: ", player.userId)
+  console.log("player left scene: ", player.userId)
 })
 ```
 
@@ -228,17 +228,17 @@ async function fetchPlayerData() {
   const playerRealm = await getCurrentRealm({})
 
   let url = `{playerRealm.currentRealm.domain}/lambdas/profile/{userData.userId}`.toString()
-  log("using URL: ", url)
+  console.log("using URL: ", url)
 
   try {
     let response = await fetch(url)
     let json = await response.json()
 
-    log("full response: ", json)
-    log("player is wearing :", json[0].metadata.avatars[0].avatar.wearables)
-    log("player owns :", json[0].metadata.avatars[0].inventory)
+    console.log("full response: ", json)
+    console.log("player is wearing :", json[0].metadata.avatars[0].avatar.wearables)
+    console.log("player owns :", json[0].metadata.avatars[0].inventory)
   } catch {
-    log("an error occurred while reaching for player data")
+    console.log("an error occurred while reaching for player data")
   }
 }
 
@@ -256,7 +256,7 @@ import { getUserPublicKey } from "~system/UserIdentity"
 
 const publicKeyRequest = executeTask(async () => {
   const publicKey = await getUserPublicKey({})
-  log("public key: ", publicKey.address)
+  console.log("public key: ", publicKey.address)
   return publicKey
 })
 ```
@@ -274,7 +274,7 @@ import { getDecentralandTime } from "~system/EnvironmentAPI"
 
 executeTask(async () => {
   let time = await getDecentralandTime({})
-  log(time.seconds)
+  console.log(time.seconds)
 })
 ```
 
@@ -291,13 +291,13 @@ import { getDecentralandTime } from "~system/EnvironmentAPI"
 
 executeTask(async () => {
   let time = await getDecentralandTime({})
-  log(time.seconds)
+  console.log(time.seconds)
   if (time.seconds < 6.25 * 60 * 60 || time.seconds > 19.85 * 60 * 60) {
     // night time
-    log("playing cricket sounds")
+    console.log("playing cricket sounds")
   } else {
     // day time
-    log("playing bird sounds")
+    console.log("playing bird sounds")
   }
 })
 ```
@@ -314,7 +314,7 @@ import { getCurrentRealm } from "~system/EnvironmentAPI"
 
 executeTask(async () => {
   let realm = await getCurrentRealm({})
-  log(`You are in the realm: `, realm.currentRealm.displayName)
+  console.log(`You are in the realm: `, realm.currentRealm.displayName)
 })
 ```
 
@@ -346,11 +346,11 @@ import { getPlatform } from "~system/EnvironmentAPI"
 
 executeTask(async () => {
   let data = await getPlatform()
-  log(data.platform)
+  console.log(data.platform)
   if (data.platform === Platform.BROWSER) {
-    log("In browser")
+    console.log("In browser")
   } else if (data.platform === Platform.DESKTOP) {
-    log("In native desktop app")
+    console.log("In native desktop app")
   }
 })
 ```
@@ -370,7 +370,7 @@ import { getPortableExperiencesLoaded } from "~system/PortableExperiences"
 
 executeTask(async () => {
   let portableExperiences = await getPortableExperiencesLoaded({})
-  log(portableExperiences.loaded)
+  console.log(portableExperiences.loaded)
 })
 ```
 
@@ -404,16 +404,16 @@ async function fetchWearablesData() {
     const playerRealm = await getCurrentRealm({})
 
     let url = `${playerRealm.currentRealm?.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`.toString()
-    log("using URL: ", url)
+    console.log("using URL: ", url)
 
  
     let response = await fetch(url)
     let json = await response.json()
 
-    log("full response: ", json)
+    console.log("full response: ", json)
   
   } catch {
-    log("an error occurred while reaching for wearables data")
+    console.log("an error occurred while reaching for wearables data")
   }
 }
 
@@ -430,9 +430,9 @@ Players can either be using a 1st or 3rd person camera when exploring Decentrala
 let cameraEntity = CameraMode.get(engine.CameraEntity)
 
 if(cameraEntity.mode == CameraType.CT_THIRD_PERSON){
-	log("The player is using the 3rd person camera")
+	console.log("The player is using the 3rd person camera")
 } else {
-	log("The player is using the 1st person camera")
+	console.log("The player is using the 1st person camera")
 }
 ```
 

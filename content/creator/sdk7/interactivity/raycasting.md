@@ -90,7 +90,7 @@ Raycast.createOrReplace(rayEntity, {
 
 engine.addSystem(() => {
 	const rayResult = RaycastResult.get(rayEntity)
-	log(rayResult.hits)
+	console.log(rayResult.hits)
 })
 ```
 
@@ -112,7 +112,7 @@ Raycast.createOrReplace(rayEntity, {
 
 engine.addSystem(() => {
 	for (const [_, result] of engine.getEntitiesWith(RaycastResult)) {
-		log(result.hits)
+		console.log(result.hits)
 	}
 })
 ```
@@ -178,7 +178,7 @@ engine.addSystem((dt) => {
   }
 
   for (const [_, result] of engine.getEntitiesWith(RaycastResult)) {
-    log("ray hit : ", result.hits.length)
+    console.log("ray hit : ", result.hits.length)
   }
 })
 

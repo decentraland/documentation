@@ -24,7 +24,7 @@ import { getConnectedPlayers } from "~system/Players"
 executeTask(async () => {
 	let connectedPlayers = await getConnectedPlayers({})
 	connectedPlayers.players.forEach((player) => {
-	  log("player was already here: ", player.userId)
+	  console.log("player was already here: ", player.userId)
 	})
 })
 ```
@@ -36,11 +36,11 @@ Whenever another player starts or stops being rendered by the local engine, this
 
 ```ts
 onPlayerConnectedObservable.add((player) => {
-  log("player entered: ", player.userId)
+  console.log("player entered: ", player.userId)
 })
 
 onPlayerDisconnectedObservable.add((player) => {
-  log("player left: ", player.userId)
+  console.log("player left: ", player.userId)
 })
 ```
 
@@ -54,11 +54,11 @@ Whenever an avatar steps inside or out of the parcels of land that make up your 
 
 ```ts
 onEnterSceneObservable.add((player) => {
-  log("player entered scene: ", player.userId)
+  console.log("player entered scene: ", player.userId)
 })
 
 onLeaveSceneObservable.add((player) => {
-  log("player left scene: ", player.userId)
+  console.log("player left scene: ", player.userId)
 })
 ```
 
@@ -75,16 +75,16 @@ executeTask(async () => {
   let myPlayer = await getUserData({})
 
   onEnterSceneObservable.add((player) => {
-    log("player entered scene: ", player.userId)
+    console.log("player entered scene: ", player.userId)
     if (player.userId === myPlayer.data?.userId) {
-      log("I entered the scene!")
+      console.log("I entered the scene!")
     }
   })
 
   onLeaveSceneObservable.add((player) => {
-    log("player left scene: ", player.userId)
+    console.log("player left scene: ", player.userId)
     if (player.userId === myPlayer.data?.userId) {
-      log("I left the scene!")
+      console.log("I left the scene!")
     }
   })
 })
@@ -102,7 +102,7 @@ import { getPlayersInScene } from "~system/Players"
 executeTask(async () => {
   let connectedPlayers = await getPlayersInScene({})
   connectedPlayers.players.forEach((player) => {
-    log("player was already here: ", player.userId)
+    console.log("player was already here: ", player.userId)
   })
 })
 ```
@@ -126,9 +126,9 @@ engine.addSystem(
 		if(cameraEntity.mode !== previousCameraMode ){
 			previousCameraMode = cameraEntity.mode
 			if(cameraEntity.mode == CameraType.CT_THIRD_PERSON){
-				log("The player is using the 3rd person camera")
+				console.log("The player is using the 3rd person camera")
 			} else {
-				log("The player is using the 1st person camera")
+				console.log("The player is using the 1st person camera")
 			}
 		}		
 	}
@@ -144,7 +144,7 @@ Whenever the player plays an emote (dance, clap, wave, etc), you can detect this
 
 ```ts
 onPlayerExpressionObservable.add(({ expressionId }) => {
-  log("Expression: ", expressionId)
+  console.log("Expression: ", expressionId)
 })
 ```
 
@@ -164,7 +164,7 @@ Whenever the player clicks on another player, you can detect an event.
 
 ```ts
 onPlayerClickedObservable.add((clickEvent) => {
-  log("Clicked ", clickEvent.userId, " details: ", clickEvent.ray)
+  console.log("Clicked ", clickEvent.userId, " details: ", clickEvent.ray)
 })
 ```
 
@@ -193,9 +193,9 @@ This `onPointerLockedStateChange` event is activated each time a player switches
 ```ts
 onPointerLockedStateChange.add(({ locked }) => {
   if (locked) {
-    log("Pointer has been locked")
+    console.log("Pointer has been locked")
   } else {
-    log("Pointer has been unlocked")
+    console.log("Pointer has been unlocked")
   }
 })
 ```
@@ -216,7 +216,7 @@ Whenever the player is inactive for a full minute, without interacting with any 
 
 ```ts
 onIdleStateChangedObservable.add(({ isIdle }) => {
-  log("Idle State change: ", isIdle)
+  console.log("Idle State change: ", isIdle)
 })
 ```
 
@@ -235,7 +235,7 @@ Whenever the player makes a change to their profile, the `onProfileChanged` even
 
 ```ts
 onProfileChanged.add((profileData) => {
-  log("Own profile data is ", profileData)
+  console.log("Own profile data is ", profileData)
 })
 ```
 
@@ -256,7 +256,7 @@ When the scene finishes loading, the `onSceneReadyObservable` gets called. This 
 
 ```ts
 onSceneReadyObservable.add(() => {
-  log("SCENE LOADED")
+  console.log("SCENE LOADED")
 })
 ```
 
@@ -268,7 +268,7 @@ When a `VideoTexture` changes its playing status, the `onVideoEvent` observable 
 
 ```ts
 onVideoEvent.add((data) => {
-  log("New Video Event ", data)
+  console.log("New Video Event ", data)
 })
 ```
 
@@ -299,7 +299,7 @@ Each time the player changes realms or island, the `onRealmChangedObservable` ev
 
 ```ts
 onRealmChangedObservable.add((realmChange) => {
-  log("PLAYER CHANGED ISLAND TO ", realmChange.room)
+  console.log("PLAYER CHANGED ISLAND TO ", realmChange.room)
 })
 ```
 
