@@ -103,7 +103,7 @@ This data is accessed in different ways depending on what approach you're using 
 Using the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach, the first parameter passed to the callback function contains this entire data structure.
 
 ```ts
-EventsSystem.onPointerDown(
+pointerEventsSystem.onPointerDown(
   myEntity,
   function (cmd) {
       console.log(cmd.hit.entityId)

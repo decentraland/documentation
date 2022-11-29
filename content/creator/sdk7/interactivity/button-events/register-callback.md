@@ -35,7 +35,7 @@ This statement requires three parameters:
 	-->
 
 ```ts
-EventsSystem.onPointerDown(
+pointerEventsSystem.onPointerDown(
   entity,
   function () {
     console.log("clicked entity")
@@ -60,7 +60,7 @@ Change the string by changing the `hoverText` value. Keep this string short, so 
 
 
 ```ts
-EventsSystem.onPointerDown(
+pointerEventsSystem.onPointerDown(
   myEntity,
   function () {
     // open door
@@ -79,7 +79,7 @@ To hide a hover feedback, set the `hoverText` to an empty string "". When doing 
 
 
 ```ts
-EventsSystem.onPointerDown(
+pointerEventsSystem.onPointerDown(
   myEntity,
   function () {
     console.log("opened secret door")
@@ -104,10 +104,10 @@ hoverFeedback.pointerEvents[0].eventInfo.hoverText = "Close door"
 
 ## Pointer up
 
-Use `EventsSystem.onPointerUp` to register a callback function that gets called when the indicated player lets the button up while pointing at the entity.
+Use `pointerEventsSystem.onPointerUp` to register a callback function that gets called when the indicated player lets the button up while pointing at the entity.
 
 ```ts
-EventsSystem.onPointerUp(
+pointerEventsSystem.onPointerUp(
   myEntity,
   function () {
     console.log("button up")
@@ -131,19 +131,19 @@ This statement requires three parameters:
 	TODO: hideFeedback not implemented yet 
 	-->
 
-A same entity can have two different callbacks registered, one for `EventsSystem.onPointerDown` and one for `EventsSystem.onPointerUp`.
+A same entity can have two different callbacks registered, one for `pointerEventsSystem.onPointerDown` and one for `pointerEventsSystem.onPointerUp`.
 
 > Note: The hover feedback for a button up event is only displayed when the button is currently pushed down. If the player points at the entity without holding the button down, they will see no feedback, or the feedback for the button down event, if any.
 
 
 ## Remove callbacks
 
-To remove a callback function, use `EventsSystem.removeOnPointerDown` or `EventsSystem.removeOnPointerUp`.
+To remove a callback function, use `pointerEventsSystem.removeOnPointerDown` or `pointerEventsSystem.removeOnPointerUp`.
 
 ```ts
-EventsSystem.removeOnPointerDown(myEntity)
+pointerEventsSystem.removeOnPointerDown(myEntity)
 
-EventsSystem.removeOnPointerUp(myEntity)
+pointerEventsSystem.removeOnPointerUp(myEntity)
 ```
 
 Once removed, the hover feedback on the entity should no longer be displayed, and the entity should no longer be interactive.
@@ -156,7 +156,7 @@ Fetch data from an input action, such as the button that was pressed, the entity
 To fetch this data, pass a parameter to the callback function. This parameter contains the full data structure with data about the input event.
 
 ```ts
-EventsSystem.onPointerDown(
+pointerEventsSystem.onPointerDown(
   myEntity,
   function (cmd) {
       console.log(cmd.hit.entityId)
@@ -169,7 +169,7 @@ EventsSystem.onPointerDown(
 To enforce a maximum distance, so that an entity is only clickable at close range, fetch `hit.length` property of the event data.
 
 ```ts
-EventsSystem.onPointerDown(
+pointerEventsSystem.onPointerDown(
   myEntity,
   function (cmd) {
 	if(cmd.hit.length < 6){
@@ -186,7 +186,7 @@ You can't register more than one `onPointerDown` on a single entity. Ideally you
 As an alternative, you can use the Register callback approach and set the `button` field as `InputAction.IA_ANY`.
 
 ```ts
-EventsSystem.onPointerDown(
+pointerEventsSystem.onPointerDown(
   myEntity,
   function (cmd) {
       if(cmd.button === InputAction.IA_POINTER){
@@ -218,7 +218,7 @@ In the example below we have a house model that includes a mesh named `firePlace
 
 
 ```ts
-EventsSystem.onPointerDown(
+pointerEventsSystem.onPointerDown(
   myEntity,
   function (cmd) {
       if(cmd.hit.meshName === "firePlace"){
