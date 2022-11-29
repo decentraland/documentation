@@ -23,7 +23,7 @@ Hopefully, this guide will let you understand the different Smart Contracts used
 
 This is a list of smart contracts accessible to users through the marketplace application.
 
-### Mainnet
+**Mainnet**
 
 |Contract|Mainnet|Polygon|
 |:-|:-|:-|
@@ -31,7 +31,7 @@ This is a list of smart contracts accessible to users through the marketplace ap
 |Bids|[0xe479dfd9664c693b2e2992300930b00bfde08233](https://etherscan.io/address/0xe479dfd9664c693b2e2992300930b00bfde08233)|[0xb96697FA4A3361Ba35B774a42c58dACcaAd1B8E1](https://polygonscan.com/address/0xb96697FA4A3361Ba35B774a42c58dACcaAd1B8E1)|
 |CollectionStore|-|[0x214ffC0f0103735728dc66b61A22e4F163e275ae](https://polygonscan.com/address/0x214ffC0f0103735728dc66b61A22e4F163e275ae)|
 
-### Testnet
+**Testnet**
 
 |Contract|Goerli|Mumbai|
 |:-|:-|:-|
