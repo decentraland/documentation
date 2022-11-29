@@ -34,19 +34,19 @@ As a LAND Owner, you can list your LAND (Parcels or Estates) for Rent in the [Ma
 
 In order to do this on-chain, the LAND Owner has to approve the Rent Smart Contract to use the LAND on their behalf. Then every listing would need a signature from the Owner as well.
 
-![](static/images/Rentals/Image1.png)
+![](/images/Rentals/Image1.png)
 
 You can set a rental price per day in MANA and the amount of days you want to allow people to rent it. The price per day times the number of days in the period is what the tenant will pay **upfront, and in total** for that rent.
 
-![](static/images/Rentals/Image2.png)
+![](/images/Rentals/Image2.png)
 
 After defining the Price per Day, you need to select the number of days that Users can rent your LAND. For example, if you select 7 and 30 days only, the Tenant can only choose between those 2 options. In case 30 days option is selected by the Tenant, that would be the duration of the rent from the day it is confirmed.
 
-![](static/images/Rentals/Image3.png)
+![](/images/Rentals/Image3.png)
 
 You can also set an expiration date for the listing. This means that, if the LAND wasn’t rented until the selected date, the listing will be removed from the Marketplace. Also, the smart contract will reject the expired signature so that no one can rent it for the listing price and duration previously selected. This is a security measure to prevent it to be rented for an undesired price or duration. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/967379db-3a93-4d36-8fde-2cc298220747/Untitled.png)
+![](/images/Rentals/Image4.png)
 
 After the price, rent period and listing expiration date are set, your LAND will appear as available for rent in the Marketplace.
 
