@@ -64,7 +64,7 @@ After the price, rent period and listing expiration date are set, your LAND will
 
 After the LAND is Listed for Rent in the Marketplace, and before anybody rents it, you can edit the conditions of the Listing by clicking on the pencil icon in the LAND detail. You can also remove the Listing from the Marketplace and the blockchain.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3ef30382-6177-4454-92d1-decb1bb61576/Untitled.png)
+![](static/images/Rentals/Image5.png)
 
 <aside>
 💡 Edit and cancel actions may require a transaction, which costs gas. See Transactions section below for more details.
@@ -77,17 +77,17 @@ After the Rent is over, you can either **Claim your LAND Back, or List it for Re
 
 **Operator Permissions are not transferred automatically back to the LAND Owner**. In order to get them back, the LAND Owner has to Claim the LAND back by sending that transaction and paying for the gas fee. Confirming the transaction will take out Operator Permissions from the Tenant and give them back to the LAND Owner.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/de1fb895-04b9-43f8-9ab8-5e854d9ae9c0/Untitled.png)
+![](static/images/Rentals/Image6.png)
 
 The other possibility is to List the LAND for Rent Again, instead of claiming it back. This will not require paying for another transaction, but **Operator Permissions will be kept by the previous Tenant until a new Tenant confirms a new Rent.** 
 
 The LAND Owner can edit the price, rent period, and listing expiration date for the new listing. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c600c48e-2ee2-4666-9283-b1a112562bd3/Untitled.png)
+![](static/images/Rentals/Image7.png)
 
 Both actions can be done from the LAND detail page in the Marketpalce.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d71cd93d-3462-4693-be4a-dc548d2cc68a/Untitled.png)
+![](static/images/Rentals/Image8.png)
 
 ## Renting Status
 
@@ -97,7 +97,7 @@ You can check the Status of any rented LAND in My Store > My Assets. The possibl
 - Rented Period Over - At this stage, the LAND is available to Claim Back or List Again for Rent by the LAND Owner
 - Rented until *“date”* - The LAND is already rented and the Tenant has Operator Permissions until it’s claimed back or rented by another user
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/00ce683c-7a9d-4e40-b2d8-4e05370a016f/Untitled.png)
+![](static/images/Rentals/Image9.png)
 
 # For Tenants
 
@@ -105,31 +105,31 @@ You can check the Status of any rented LAND in My Store > My Assets. The possibl
 
 All users can find LAND listed for rent in the Marketplace under the LAND section.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a5b0d04-2aac-4b52-9ee6-a60b89ccf8f4/Untitled.png)
+![](static/images/Rentals/Image10.png)
 
 There are LANDs that are available for Sale or Rent. In case both options are available, you can see the conditions available for each one by clicking on the toggle Sale/Rent. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4f38bd8c-36fa-4a38-acf2-9276ed479ea4/Untitled.png)
+![](static/images/Rentals/Image11.png)
 
 Once you find the LAND you want to rent, you need to select the Rent Period, this is the days you will have the LAND. After selecting the Rent Period, you will see the total price to be paid for the Rent. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/737e3a67-8ea5-42f8-b30e-e02e409b4a5a/Untitled.png)
+![](static/images/Rentals/Image12.png)
 
 You’ll need to approve the Rent Smart Contract to take the MANA from your account before you proceed.
 
 Before you confirm the Rent, you can decide who will manage the LAND (Operator Permission). It can be yourself or any other address you choose. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/75131e13-9637-4732-bebc-bff5703dba6b/Untitled.png)
+![](static/images/Rentals/Image13.png)
 
 Operator Permission can be changed later by the Tenant (the address who rented the LAND in the first place) from the [Builder](https://builder.decentraland.org/). 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/08ef8997-5fdd-4820-9347-2de953caa793/Untitled.png)
+![](static/images/Rentals/Image14.png)
 
 After selecting all the details and approving the Rent Smart Contract to handle your MANA, you can confirm the Rent by sending a transaction. 
 
 And you are all set! you can start working on your LAND, and deploy a scene using the Builder or the SDK. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e74e5dcd-1496-41f1-92f8-4dedffa016cd/Untitled.png)
+![](static/images/Rentals/Image15.png)
 
 Note: after the Rent ends, the Tenant will still have Operator Permissions until the LAND Owner Claims it back, or somebody else rents it. **Make sure you save your content before the end of the rent, otherwise it could be lost.**
 
@@ -152,13 +152,13 @@ Transactions in the blockchain are minimum in order to provide a **robust and tr
 
 Before Listing the first Parcel or Estate for rent, LAND Owners need to allow the Rents Smart Contract to operate LAND on their behalf. This has to be done only once for Parcels and only once for Estates. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0b1fdd32-53d6-4bef-b0cb-3c40a9ba1428/Untitled.png)
+![](static/images/Rentals/Image16.png)
 
 ### Claim LAND Back or List for Rent Again
 
 After the renting period ends, **Operator Permissions are not transferred automatically back to the LAND Owner**. In order to get them back, the LAND Owner has to Claim the LAND back by sending that transaction and paying for the gas fee.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3df2a497-5f8f-4e2f-91f7-f4b21d522297/Untitled.png)
+![](static/images/Rentals/Image17.png)
 
 Another possibility is to List the LAND for Rent Again, instead of claiming it back. This will not require paying for another transaction, but Operator Permissions will be kept by the previous Tenant until a new Tenant confirms a new Rent. 
 
@@ -166,7 +166,7 @@ Another possibility is to List the LAND for Rent Again, instead of claiming it b
 
 If either the Price, Rent Period, or Expiration Date is changed, a transaction has to be sent by the LAND Owner in order to protect themselves from somebody hitting the Smart Contract directly (not from the Marketplace UI) and getting it from a lower price than desired or for an undesired duration. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f03e1655-75c9-48b2-9130-59e6410d876f/Untitled.png)
+![](static/images/Rentals/Image18.png)
 
 ## For Tenants
 
@@ -180,10 +180,10 @@ After approving the Rent Smart Contract to operate your MANA, you are ready to c
 
 If you want to rent another Parcel or Estate, you only need to send one transaction to confirm it, there is no need to approve the Smart Contract to operate your MANA again. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/714412a9-eeae-4bb5-9202-62c81ab8484b/Untitled.png)
+![](static/images/Rentals/Image19.png)
 
 ### Change Operator
 
 At the moment of renting the LAND, the user can choose which address will have Operator Permissions for that LAND. If that address wants to be changed, a transaction has to be sent.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/981dfe34-d990-434e-9307-d7470710fcdf/Untitled.png)
+![](static/images/Rentals/Image20.png)
