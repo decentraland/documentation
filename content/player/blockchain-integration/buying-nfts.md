@@ -23,19 +23,15 @@ Hopefully, this guide will let you understand the different Smart Contracts used
 
 This is a list of smart contracts accessible to users through the marketplace application.
 
+### Mainnet
+
 |Contract|Mainnet|Polygon|
 |:-|:-|:-|
 |Marketplace|[0x8e5660b4ab70168b5a6feea0e0315cb49c8cd539](https://etherscan.io/address/0x8e5660b4ab70168b5a6feea0e0315cb49c8cd539)|[0x480a0f4e360E8964e68858Dd231c2922f1df45Ef](https://polygonscan.com/address/0x480a0f4e360E8964e68858Dd231c2922f1df45Ef)|
 |Bids|[0xe479dfd9664c693b2e2992300930b00bfde08233](https://etherscan.io/address/0xe479dfd9664c693b2e2992300930b00bfde08233)|[0xb96697FA4A3361Ba35B774a42c58dACcaAd1B8E1](https://polygonscan.com/address/0xb96697FA4A3361Ba35B774a42c58dACcaAd1B8E1)|
 |CollectionStore|-|[0x214ffC0f0103735728dc66b61A22e4F163e275ae](https://polygonscan.com/address/0x214ffC0f0103735728dc66b61A22e4F163e275ae)|
 
-As you can see, there are contracts both in the Ethereum and the Polygon networks. This is because different kinds of assets can be found in one network and the rest in the other. For example, LANDs, Estates, and Names are all in the Ethereum Network, while Wearables and Emotes are in the Polygon Network.
-
-**Networks are not interoperable, meaning that you cannot buy Wearables in the Ethereum network or place bids for LANDs in Polygon. Contracts can only interact with the assets found in their same networks.**
-
-## Testnet Smart Contracts
-
-These smart contracts can be found on the respective Ethereum and Polygon testnets.
+### Testnet
 
 |Contract|Goerli|Mumbai|
 |:-|:-|:-|
@@ -43,6 +39,9 @@ These smart contracts can be found on the respective Ethereum and Polygon testne
 |Bids|[0xd7dC1C183B8fFaED6b7f30fFC616Ff81B66812e5](https://goerli.etherscan.io/address/0xd7dC1C183B8fFaED6b7f30fFC616Ff81B66812e5)|[0x78Dd92c8941dBC7BE54E2a9390D58aD28AD97afD](https://mumbai.polygonscan.com/address/0x78Dd92c8941dBC7BE54E2a9390D58aD28AD97afD)|
 |CollectionStore|-|[0x6ddF1b1924DAD850AdBc1C02026535464Be06B0c](https://mumbai.polygonscan.com/address/0x6ddF1b1924DAD850AdBc1C02026535464Be06B0c)|
 
+As you can see, there are contracts both in the Ethereum and the Polygon networks. This is because different kinds of assets can be found in one network and the rest in the other. For example, LANDs, Estates, and Names are all in the Ethereum Network, while Wearables and Emotes are in the Polygon Network.
+
+**Networks are not interoperable, meaning that you cannot buy Wearables in the Ethereum network or place bids for LANDs in Polygon. Contracts can only interact with the assets found in their same networks.**
 
 ## Marketplace
 
