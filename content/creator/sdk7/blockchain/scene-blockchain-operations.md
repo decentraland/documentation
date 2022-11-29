@@ -196,22 +196,17 @@ function payment(){
 const myEntity = engine.addEntity()
 MeshRenderer.setBox(meshEntity)
 MeshCollider.setBox(meshEntity)
-PointerHoverFeedback.create(myEntity, {
-    pointerEvents: [
-      {
-        eventType: PointerEventType.PET_DOWN,
-        eventInfo: {
-          button: InputAction.IA_POINTER,
-        }
-      }
-    ]
-})
 
-engine.addSystem(() => {
-    if (wasEntityClicked(myEntity, InputAction.IA_POINTER)){
-       payment()
-    }
-})
+pointerEventsSystem.onPointerDown(
+  meshEntity,
+  function () {
+     payment()
+  },
+  {
+    button: InputAction.IA_POINTER,
+    hoverText: 'Click'
+  }
+)
 ```
 
 The example above listens for clicks on a _button_ entity. When clicked, the player is prompted to make a payment in ETH to a specific wallet for a given amount. Once the player accepts this payment, the rest of the function can be executed. If the player doesn't accept the payment, the rest of the function won't be executed.

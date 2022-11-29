@@ -53,7 +53,7 @@ PointerHoverFeedback.create(myEntity, {
 
 // create a system to react to pointer events on this entity
 engine.addSystem(() => {
-    if (wasEntityClicked(myEntity, InputAction.IA_POINTER)){
+    if (inputSystem.getInputCommand(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)){
       sceneMessageBus.emit("box1Clicked", {})
     }
 })
@@ -126,7 +126,7 @@ function createCube(x: number, y: number, z: number, spawner = true): Entity {
 function spawnerSystem() {
   const clickedCubes = engine.getEntitiesWith(PointerEvents)
   for (const [entity] of clickedCubes) {
-    if (wasEntityClicked(entity, InputAction.IA_PRIMARY)) {
+    if (inputSystem.getInputCommand(InputAction.IA_PRIMARY, PointerEventType.PET_DOWN, myEntity) {
       sceneMessageBus.emit("spawn", { position: {x: 1 + Math.random() * 8, y: Math.random() * 8, z: 1 + Math.random() * 8} })
     }
   }

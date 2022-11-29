@@ -31,26 +31,19 @@ Transform.create(myEntity, {
   position: {x:4, y:1, z:4}
 })
 
-// give entity a PointerEvents component
-PointerHoverFeedback.create(myEntity, {
-    pointerEvents: [
-      {
-        eventType: PointerEventType.PET_DOWN,
-        eventInfo: {
-          button: InputAction.IA_POINTER,
-        }
-      }
-    ]
-})
+// give entity behavior
+pointerEventsSystem.onPointerDown(
+  entity,
+  function () {
+     respawnPlayer()
+  },
+  {
+    button: InputAction.IA_POINTER,
+    hoverText: 'Click'
+  }
+)
 
-// create a system to react to pointer events on this entity
-engine.addSystem(() => {
-    if (wasEntityClicked(myEntity, InputAction.IA_POINTER)){
-		  respawnPlayer()
-    }
-})
-
-
+// function to handle respawn
 function respawnPlayer(){
  const playerTransform = Transform.getMutable(engine.PlayerEntity)
 	  playerTransform.position = {x: 1, y: 10, z: 1}
