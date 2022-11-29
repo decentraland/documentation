@@ -13,15 +13,15 @@ weight: 15
 
 ## Buying NFTs directly through Decentraland's Smart Contracts
 
-Users can easily buy Land, Estates, Names, Wearables and Emotes using the [Marketplace](https://market.decentraland.org/). As easy as it seems to do it in the website, there are various Smart Contracts both on the Ethereum Network and the Polygon Network that make this possible.
+Users can easily buy Land, Estates, Names, Wearables and Emotes using the [Marketplace](https://market.decentraland.org/). As easy as it seems to do it on the website, various Smart Contracts on the Ethereum Network and the Polygon Network make this possible.
 
 Lands, Estates and Names are commercialized in the marketplace using a different contract than the ones used for Wearables and Emotes, and Wearables that you buy from the store listed as primary sales use a different one as well. Users are also able to place bids for different NFTs which are also handled by different contracts.
 
-Hopefully this guide will let you understand the different Smart Contracts used behind the scenes to make the marketplace possible, and the ways one can interact with this contracts directly to execute a purchase without the need or relying on a UI.
+Hopefully, this guide will let you understand the different Smart Contracts used behind the scenes to make the marketplace possible and the ways one can interact with these contracts directly to execute a purchase without the need or relying on a UI.
 
 ## Smart Contracts
 
-This is a list of smart contracts which are made accessible to users through the marketplace application.
+This is a list of smart contracts accessible to users through the marketplace application.
 
 |Contract|Network|Address|
 |:-|:-|:-|
@@ -31,7 +31,7 @@ This is a list of smart contracts which are made accessible to users through the
 |Bids|Polygon|[0xb96697FA4A3361Ba35B774a42c58dACcaAd1B8E1](https://polygonscan.com/address/0xb96697FA4A3361Ba35B774a42c58dACcaAd1B8E1)|
 |CollectionStore|Polygon|[0x214ffC0f0103735728dc66b61A22e4F163e275ae](https://polygonscan.com/address/0x214ffC0f0103735728dc66b61A22e4F163e275ae)|
 
-As you can see, there are contracts both in the Ethereum and the Polygon networks. This is because different kind of assets can be found in a network and the rest in the other. For example, LANDs, Estates and Names are all in the Ethereum Network while Wearables and Emotes are in the Polygon Network.
+As you can see, there are contracts both in the Ethereum and the Polygon networks. This is because different kinds of assets can be found in one network and the rest in the other. For example, LANDs, Estates, and Names are all in the Ethereum Network, while Wearables and Emotes are in the Polygon Network.
 
 **Networks are not interoperable, meaning that you cannot buy Wearables in the Ethereum network or place bids for LANDs in Polygon. Contracts can only interact with the assets found in their same networks.**
 
@@ -39,7 +39,7 @@ As you can see, there are contracts both in the Ethereum and the Polygon network
 
 The Marketplace Smart Contract is the one that allows users to create an Order to sell their assets. On Ethereum, you can create an Order to sell LANDs, Estates and Names while on Polygon, the Marketplace Smart Contract allows the user to create Orders for Wearables and Emotes.
 
-Orders can be created using the `createOrder` function that has the following signature.
+Orders can be created using the `createOrder` function with the following signature.
 
 ```sol
 /// @param nftAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote Collection address).
@@ -54,12 +54,12 @@ function createOrder(
 )
 ```
 
-Once an Order has been created on-chain, any user that has the sufficient MANA, and as long as the Order is not expired, has the ability to execute the Order and purchase the NFT.
+Once an Order has been created on-chain, any user with sufficient MANA, and as long as the Order is not expired, can execute the Order and purchase the NFT.
 
 An order is executed by calling the `executeOrder` function in the Marketplace Smart Contract.
 
 ```sol
-/// @param nftAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote Collection address).
+/// @param nftAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote/etc Collection address).
 /// @param assetId The token id of the NFT.
 /// @param price The price (in MANA) the caller wants to purchase the NFT for.
 ///        Has to match the price of the Order for that NFT.
@@ -72,7 +72,7 @@ function executeOrder(
 
 When the transaction to execute an Order is successful. The buyer will pay the price in MANA to the owner of the NFT, and the NFT will be transferred from the owner to the buyer, which becomes the new owner.
 
-There is another way to execute Orders which is by calling 'safeExecuteOrder'.
+Another way to execute Orders is by calling 'safeExecuteOrder'.
 
 ```sol
 /// @param nftAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote Collection address).
@@ -88,26 +88,26 @@ function safeExecuteOrder(
 )
 ```
 
-Composable NFTs (NFTs made up of other NFTs such as Estates that are composed of many LANDs) have a fingerprint that determines what they are composed of.
+Composable NFTs (NFTs made up of other NFTs such as Estates composed of many LANDs) have a fingerprint that determines what they are composed of.
 
-By executing an Order providing a fingerprint, you are telling the contract that you want that NFT to be composed in a certain way, if it is different, the Order will fail to be executed.
+By executing an Order providing a fingerprint, you are telling the contract that you want that NFT to be composed in a certain way. If it is different, the Order will fail to be executed.
 
-This a safe mechanism to avoid bad actors from removing all LAND from an Estate before an interested buyer purchases it.
+This a safe mechanism to prevent bad actors from removing all LAND from an Estate before an interested buyer purchase it.
 
 More information about it can be found in [Integrating Decentraland's Estate in your Marketplace](/player/blockchain-integration/estates-marketplace-integrations)
 
-**IMPORTANT: The owner of the asset has to approve the Marketplace contract to be able to operate the NFT on its behalf. The buyer also has to approve the Marketplace contract to operate MANA. If these conditions are not met, the transaction will revert when the Marketplace contract tries to transfer the NFT from the previous owner to the buyer or when the contract tries to transfer MANA from the buyer to the owner.**
+**IMPORTANT: The asset owner has to approve the Marketplace contract to operate the NFT on its behalf. The buyer also has to approve the Marketplace contract to operate MANA. If these conditions are not met, the transaction will revert when the Marketplace contract transfers the NFT from the previous owner to the buyer or when the contract tries to transfer MANA from the buyer to the owner.**
 
 ## Bids
 
-Maybe the NFT you like is too expensive or is not even on sale. This is where the Bids contract comes handy.
+Maybe the NFT you like is too expensive or is not even on sale. This is where the Bids contract comes in handy.
 
-Any user can create a Bid for an NFT using this contract by determining the price they are willing to pay for it. If the owner finds that price fair, they can accept the Bid and the bidder will become the owner of the NFT while the previous owner will receive the payment in MANA.
+Users can create a Bid for an NFT using this contract by determining the price they are willing to pay. If the owner finds that price fair, they can accept the Bid and the bidder will become the owner of the NFT while the previous owner will receive the payment in MANA.
 
 Bids can be created by calling the `placeBid` function on the Bids contract.
 
 ```sol
-/// @param _tokenAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote Collection address).
+/// @param _tokenAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote/etc Collection address).
 /// @param _tokenId The token id of the NFT.
 /// @param _price The price (in MANA) the caller wants to purchase the NFT for.
 /// @param _duration How long the Bid will be valid until it expires.
@@ -119,10 +119,10 @@ function placeBid(
 )
 ```
 
-There is another `placeBid` function in the contract that along the arguments received by the previous examples, it receives a `fingerprint` argument.
+There is another `placeBid` function in the contract that, along with the arguments received by the previous examples, receives a `fingerprint` argument.
 
 ```sol
-/// @param _tokenAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote Collection address).
+/// @param _tokenAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote/etc Collection address).
 /// @param _tokenId The token id of the NFT.
 /// @param _price The price (in MANA) the caller wants to purchase the NFT for.
 /// @param _duration How long the Bid will be valid until it expires.
@@ -138,11 +138,11 @@ function placeBid(
 
 More information about the `fingerprint` argument can be found in [Integrating Decentraland's Estate in your Marketplace](/player/blockchain-integration/estates-marketplace-integrations)
 
-As the owner of the NFT. You can accept any Bids that have been made for it as long as it has not expired and the bidder still has enough MANA to pay for it.
+As the owner of the NFT. You can accept any Bids made for it as long as it has not expired and the bidder still has enough MANA to pay for it.
 
-In order to accept a Bid, the owner of the asset has to transfer the NFT to the Bids contract using the `safeTransferFrom` function of the NFT contract with some extra data containing the accepted Bid information.
+To accept a Bid, the asset owner has to transfer the NFT to the Bids contract using the `safeTransferFrom` function of the NFT contract with some extra data containing the accepted Bid information.
 
-For example, to accept a Bid for one of my LANDs I would have to call the LAND contract `safeTransferFrom` function to transfer my LAND to the Bids contract which will then execute the bid.
+For example, to accept a Bid for one of my LANDs, I would have to call the LAND contract `safeTransferFrom` function to transfer my LAND to the Bids contract, which will then execute the bid.
 
 ```sol
 /// @param from The current owner (or operator) of the NFT.
@@ -176,13 +176,13 @@ When the Bids contract receives the NFT, it will check in its `onERC721Received`
 
 ## CollectionStore
 
-This smart contract can only be found on the Polygon Network. This is because Wearable and Emote Collections only exist on that chain, meaning that there is no purpose for it to be on Ethereum unless Collections were published there.
+This smart contract can only be found on the Polygon Network. This is because collections like Wearables, Emotes, etc, only exist on that chain, meaning there is no purpose for them to be on Ethereum unless Collections were published there.
 
-When a creator publishes a collection and it is approved by the curation committee. The creator can then put the collection on sale in the marketplace, allowing other users to be able to buy the items of that collection for the price determined by the creator.
+When a creator publishes a collection approved by the curation committee, the creator can then put the collection on sale in the marketplace, allowing other users to buy the items of that collection for the price determined by the creator.
 
 When you are buying items from a collection this way, you are actually minting a new NFT that can then be commercialized with the Polygon Marketplace or Bids smart contract.
 
-If a collection is on sale, any user with the sufficient amount of MANA can buy an item from it as long as there is stock left to be minted.
+If a collection is on sale, any user with a sufficient amount of MANA can buy an item from it as long as there is stock left to be minted.
 
 The CollectionStore smart contract exposes the `buy` function to do so.
 
@@ -209,13 +209,13 @@ To make this easier to understand. Imagine that I want to buy item "Spooky Hat" 
 
 The hat has been determined by the creator to have a price of 20 MANA.
 
-To buy the item I would have to call the `buy` function with the following data:
+To buy the item, I would have to call the `buy` function with the following data:
 
 ```js
 buy([
   [
     "0xHalloweenMadnessAddress",
-    ["0"], // The item id of the Spooky Hat, other items in the collection will have different incrementing ids.
+    ["0"], // The item id of the Spooky Hat. Other items in the collection will have different incrementing ids.
     ["20000000000000000000"], // Which is the equivalent in wei to 20
     ["My own address"],
   ],
@@ -226,7 +226,7 @@ When the transaction to buy the item is successful. 20 MANA will be transferred 
 
 ## Testnet Smart Contracts
 
-These are the smart contracts that can be found on the respective Ethereum and Polygon testnets.
+These smart contracts can be found on the respective Ethereum and Polygon testnets.
 
 |Contract|Network|Address|
 |:-|:-|:-|
