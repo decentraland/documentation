@@ -19,15 +19,15 @@ Make sure of the following:
 
 - Your scene complies with all of the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}). Most of these are validated each time you run a preview of your scene.
 
-- You have a [Metamask](https://metamask.io/) account, with your LAND parcels assigned to it.
+- You have a [Metamask](https://metamask.io/) account, or another wallet that's accessible via Wallet Connect, and that your LAND parcels are owned by that account or have permissions.
 
-- You own the necessary amount of adjacent LAND parcels. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org).
+- You own or have permissions to the necessary amount of adjacent LAND parcels. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org).
 
 > Note: Multi-parcel scenes can only be deployed to adjacent parcels.
 
 ## Check scene data
 
-When deploying, the CLI reads information from the _scene.json_ to know where to deploy your scene to.
+When deploying, Decentraland uses information from _scene.json_ to know where to deploy your scene to.
 
 Open your scene's _scene.json_ file and complete the following data:
 
@@ -47,6 +47,9 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ## To publish the scene
 
+### Via the CLI
+
+
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
 2.  Run `dcl deploy` from the scene's folder.
     > Tip: If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying.
@@ -56,6 +59,12 @@ Open your scene's _scene.json_ file and complete the following data:
 > Tip: If you're implementing a continuous integration flow, where changes to your scene are deployed automatically, then you can set the `export DCL_PRIVATE_KEY` environment variable to the private key of an account that has deploy permissions.
 
 > Tip: `dcl deploy` runs a `dcl build`, which checks the scene for type errors more strictly than running `dcl start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `dcl deploy  --skip-build`  to skip the `dcl build` step and deploy the scene as it is.
+
+### Via the Decentraland Editor 
+
+See instructions deploying via the Decentraland Editor [here]({{< ref "/content/creator/editor/publishing.md" >}})
+
+> Note: The Decentraland Editor is currently in alpha.
 
 ## Publish from a hardware wallet
 
