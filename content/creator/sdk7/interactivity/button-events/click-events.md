@@ -70,7 +70,7 @@ Each input can produce the following types of pointer events. Each of the follow
 - `HOVER_ENTER`: Player's cursor starts pointing at the entity's collider.
 - `HOVER_LEAVE`: Player's cursor stops pointing at the entity's collider.
 
-<!-- > Note: A _click_ event, as detected by the `Input.wasJustClicked` helper function, is a combination of a `DOWN` event followed by an `UP` event. Note that as this event may take several ticks of the game loop to be completed, it can't be detected in a single frame, and therefore can only be detected thanks to a helper function. -->
+<!-- > Note: A _click_ event, as detected by the `inputSystem.wasJustClicked` helper function, is a combination of a `DOWN` event followed by an `UP` event. Note that as this event may take several ticks of the game loop to be completed, it can't be detected in a single frame, and therefore can only be detected thanks to a helper function. -->
 
 
 
@@ -111,11 +111,11 @@ EventsSystem.onPointerDown(
 )
 ```
 
-Using the [**System-based**]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) approach, use `Input.getInputCommand()` to fetch this data.
+Using the [**System-based**]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) approach, use `inputSystem.getInputCommand()` to fetch this data.
 
 ```ts
 engine.addSystem(() => {
-  const cmd = Input.getInputCommand(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)
+  const cmd = inputSystem.getInputCommand(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)
   if(cmd){
  	console.log(cmd.hit.entityId)
   }
@@ -139,4 +139,4 @@ engine.addSystem(() => {
 
 
 <!-- 
-When using `Input.getClick`, it returns an object with a `down` and an `up` object, each of these with all the same data structure returned by `Input.getInputCommand`. The `down` object contains the data relevant to the moment when the moment when button was pushed down, the `up` object for when the button went up. -->
+When using `Input.getClick`, it returns an object with a `down` and an `up` object, each of these with all the same data structure returned by `inputSystem.getInputCommand`. The `down` object contains the data relevant to the moment when the moment when button was pushed down, the `up` object for when the button went up. -->

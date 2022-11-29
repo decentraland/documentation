@@ -18,7 +18,7 @@ If you need the interaction in your scene to follow custom logic that is not com
 
 When a pointer event is detected by the engine, the entity that was clicked is assigned a `PointerEventsResult` component. This component contains all the raw data about the hit event, and stores historic data about previous events.
 
-The helpers in `Input`, like `Input.wasJustClicked` or  `Input.getInputCommand` are good for most simple scenarios, but if you need to get more details about the hit event, check the raw data in the `PointerEventsResult`.
+The helpers in `Input`, like `inputSystem.wasJustClicked` or  `inputSystem.getInputCommand` are good for most simple scenarios, but if you need to get more details about the hit event, check the raw data in the `PointerEventsResult`.
 
 The `PointerEventsResult` stores a `commands` array, containing one object for each pointer event it stores. It stores a list of up to 30 events, newer events are stored at the end of the array. Once the list reaches a length of 30, it starts discarding old events for each new one that comes in.
 
