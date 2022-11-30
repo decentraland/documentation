@@ -27,6 +27,8 @@ The first of these options is the easiest to implement. The downside is that you
 Create a message bus object to handle the methods that are needed to send and receive messages between players.
 
 ```ts
+import {MessageBus} from '@dcl/sdk/messageBus'
+
 const sceneMessageBus = new MessageBus()
 ```
 
@@ -35,33 +37,31 @@ const sceneMessageBus = new MessageBus()
 Use the `.emit` command of the message bus to send a message to all other players in the scene.
 
 ```ts
+import {MessageBus} from '@dcl/sdk/messageBus'
+
 const sceneMessageBus = new MessageBus()
 
 const myEntity = engine.addEntity()
 MeshRenderer.setBox(myEntity)
 MeshCollider.setBox(myEntity)
-PointerHoverFeedback.create(myEntity, {
-    pointerEvents: [
-      {
-        eventType: PointerEventType.PET_DOWN,
-        eventInfo: {
-          button: InputAction.IA_POINTER,
-        }
-      }
-    ]
-})
 
-// create a system to react to pointer events on this entity
-engine.addSystem(() => {
-    if (inputSystem.getInputCommand(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)){
-      sceneMessageBus.emit("box1Clicked", {})
-    }
-})
+pointerEventsSystem.onPointerDown(
+  myEntity,
+  function () {
+    sceneMessageBus.emit("box1Clicked", {})
+  },
+  {
+    button: InputAction.IA_PRIMARY,
+    hoverText: 'Click'
+  }
+)
 ```
 
 Each message can contain a payload as a second argument. The payload is of type `Object`, and can contain any relevant data you wish to send.
 
 ```ts
+import {MessageBus} from '@dcl/sdk/messageBus'
+
 const sceneMessageBus = new MessageBus()
 
 sceneMessageBus.emit("spawn", { position: {x: 10, y: 2, z: 10} })
@@ -74,6 +74,8 @@ sceneMessageBus.emit("spawn", { position: {x: 10, y: 2, z: 10} })
 To handle messages from all other players in that scene, use `.on`. When using this function, you provide a message string and define a function to execute. For each time that a message with a matching string arrives, the given function is executed once.
 
 ```ts
+import {MessageBus} from '@dcl/sdk/messageBus'
+
 const sceneMessageBus = new MessageBus()
 
 type NewBoxPosition = {
@@ -98,47 +100,39 @@ sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
 This example uses a message bus to send a new message every time the main cube is clicked, generating a new cube in a random position. The message includes the position of the new cube, so that all players see these new cubes in the same positions.
 
 ```ts
-// Cube factory
-function createCube(x: number, y: number, z: number, spawner = true): Entity {
-  const meshEntity = engine.addEntity()
-  Transform.create(meshEntity, { position: { x, y, z } })
-  MeshRenderer.setBox(meshEntity)
-  MeshCollider.setBox(meshEntity)
-  if (spawner) {
-    PointerHoverFeedback.create(meshEntity, {
-      pointerEvents: [
-        {
-          eventType: PointerEventType.PET_DOWN,
-          eventInfo: {
-            button: InputAction.IA_PRIMARY,
-            hoverText: 'Press E to spawn',
-            maxDistance: 100,
-            showFeedback: true
-          }
-        }
-      ]
-    })
-  }
-  return meshEntity
-}
+import {MessageBus} from '@dcl/sdk/messageBus'
 
-// system to detect clicks and send messagebus messages
-function spawnerSystem() {
-  const clickedCubes = engine.getEntitiesWith(PointerEvents)
-  for (const [entity] of clickedCubes) {
-    if (inputSystem.getInputCommand(InputAction.IA_PRIMARY, PointerEventType.PET_DOWN, myEntity) {
-      sceneMessageBus.emit("spawn", { position: {x: 1 + Math.random() * 8, y: Math.random() * 8, z: 1 + Math.random() * 8} })
-    }
-  }
+/// --- Create message bus ---
+const sceneMessageBus = new MessageBus()
+
+// Cube factory
+function createCube(x: number, y: number, z: number): Entity {
+	const meshEntity = engine.addEntity()
+	Transform.create(meshEntity, { position: { x, y, z } })
+	MeshRenderer.setBox(meshEntity)
+	MeshCollider.setBox(meshEntity)
+
+    // When a cube is clicked, send message to spawn another one
+	pointerEventsSystem.onPointerDown(
+		meshEntity,
+		function () {
+			sceneMessageBus.emit("spawn", {
+				position: {x: 1 + Math.random() * 8, y: Math.random() * 8, z: 1 + Math.random() * 8} 
+			})
+		},
+		{
+			button: InputAction.IA_PRIMARY,
+			hoverText: 'Press E to spawn'
+		}
+	)
+  
+
+  	return meshEntity
 }
 
 // Init
 createCube(8, 1, 8)
-engine.addSystem(spawnerSystem)
 
-
-/// --- Create message bus ---
-const sceneMessageBus = new MessageBus()
 
 // define type of data
 type NewBoxPosition = {
