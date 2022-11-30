@@ -9,16 +9,14 @@ url: /creator/development-guide/sdk7/trigger-emotes/
 weight: 4
 ---
 
-
 <!-- TODO: all -->
-
 
 To make a player perform an emote, use the `triggerEmote()` function. Note that only existing default emotes are supported for now. This function takes a single argument:
 
 - `emote`: An emote from the `PredefinedEmote` enum.
 
 ```ts
-import { triggerEmote, PredefinedEmote } from "@decentraland/RestrictedActions"
+import { triggerEmote } from "~system/RestrictedActions"
 
 const emoter = new Entity()
 emoter.addComponent(new BoxShape())
@@ -26,7 +24,7 @@ emoter.addComponent(new Transform({ position: new Vector3(8, 0, 8) }))
 emoter.addComponent(
   new OnPointerDown(
     (e) => {
-      triggerEmote({ predefined: PredefinedEmote.ROBOT })
+      triggerEmote({ predefined: "robot" })
     },
     { hoverText: "Dance" }
   )
@@ -35,24 +33,24 @@ emoter.addComponent(
 engine.addEntity(emoter)
 ```
 
-Only the emotes in the `PredefinedEmote` enum are currently supported. This list includes the following:
+There are some default emotes available to all players:
 
-- 'WAVE'
-- 'FIST_PUMP'
-- 'ROBOT'
-- 'RAISE_HAND'
-- 'CLAP'
-- 'MONEY'
-- 'KISS'
-- 'TIK'
-- 'HAMMER',
-- 'TEKTONIK'
-- 'DONT_SEE'
-- 'HANDS_AIR'
-- 'SHRUG'
-- 'DISCO'
-- 'DAB'
-- 'HEAD_EXPLODE'
+- `wave`
+- `fist_pump`
+- `robot`
+- `raise_hand`
+- `clap`
+- `money`
+- `kiss`
+- `tik`
+- `hammer`,
+- `tektonik`
+- `dont_see`
+- `hands_air`
+- `shrug`
+- `disco`
+- `dab`
+- `head_explode`
 
 The emote animation is seen both by the player (in 3rd person view) and any other players around. If the player walks, runs or jumps, they will interrupt the animation and return to playing the corresponding animations for these actions.
 
@@ -61,7 +59,7 @@ The emote animation is seen both by the player (in 3rd person view) and any othe
 Before you can use this feature, you must add the `ALLOW_TO_TRIGGER_AVATAR_EMOTE` permission to the `scene.json` file. If not yet present, create a `requiredPermissions` property at root level in the JSON file to assign it this permission.
 
 ```json
-"requiredPermissions": [
+  "requiredPermissions": [
     "ALLOW_TO_TRIGGER_AVATAR_EMOTE"
   ],
 ```

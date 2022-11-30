@@ -15,20 +15,18 @@ For button and click events performed by the player, see [Button events]({{< ref
 
 ## Player connects or disconnects
 
-Get the full list of currently connected players from `getConnectedPlayers`. 
+Get the full list of currently connected players from `getConnectedPlayers`.
 
 ```ts
 import { getConnectedPlayers } from "~system/Players"
 
-
 executeTask(async () => {
-	let connectedPlayers = await getConnectedPlayers({})
-	connectedPlayers.players.forEach((player) => {
-	  console.log("player was already here: ", player.userId)
-	})
+  let connectedPlayers = await getConnectedPlayers({})
+  connectedPlayers.players.forEach((player) => {
+    console.log("player was already here: ", player.userId)
+  })
 })
 ```
-
 
 > Note: The `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` events are deprecated on SDK 7.x. Instead, track the list of connected players, from `getConnectedPlayers()`. This is a more [data oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and should result in better performance.
 
@@ -44,9 +42,7 @@ onPlayerDisconnectedObservable.add((player) => {
 })
 ```
 
-
 Keep in mind that if other players are already being rendered in the surroundings before the player has loaded your scene, this event won't notify the newly loaded scene of the already existing players. If you need to keep track of all current players, you can query for existing players upon scene loading, and then listen to this event for updates.
-
 
 ## Player enters or leaves scene
 
@@ -107,7 +103,6 @@ executeTask(async () => {
 })
 ```
 
-
 ## Player changes camera mode
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when on 3rd person.
@@ -117,26 +112,23 @@ The following system regularly checks the player's camera mode:
 ```ts
 let previousCameraMode: CameraType
 
-engine.addSystem(
-	function cameraModeCheck(){
-		let cameraEntity = CameraMode.get(engine.CameraEntity)
+engine.addSystem(function cameraModeCheck() {
+  let cameraEntity = CameraMode.get(engine.CameraEntity)
 
-		if(!cameraEntity) return
+  if (!cameraEntity) return
 
-		if(cameraEntity.mode !== previousCameraMode ){
-			previousCameraMode = cameraEntity.mode
-			if(cameraEntity.mode == CameraType.CT_THIRD_PERSON){
-				console.log("The player is using the 3rd person camera")
-			} else {
-				console.log("The player is using the 1st person camera")
-			}
-		}		
-	}
-)
+  if (cameraEntity.mode !== previousCameraMode) {
+    previousCameraMode = cameraEntity.mode
+    if (cameraEntity.mode == CameraType.CT_THIRD_PERSON) {
+      console.log("The player is using the 3rd person camera")
+    } else {
+      console.log("The player is using the 1st person camera")
+    }
+  }
+})
 ```
 
 See [Check player's camera mode]({{< ref "/content/creator/sdk7/interactivity/user-data.md#check-the-players-camera-mode">}}).
-
 
 ## Player plays animation
 
@@ -155,8 +147,6 @@ The event includes the following information:
 > Note: This event is triggered any time the player makes an emote and the scene is loaded. The player could be standing in a nearby scene when this happens.
 
 > Note: The `onPlayerExpressionObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
-
-
 
 ## Player clicks on another player
 
@@ -222,7 +212,6 @@ onIdleStateChangedObservable.add(({ isIdle }) => {
 
 > Note: The `onIdleStateChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
 
-
 The `isIdle` property is a boolean value that is _true_ when the player enters the idle mode and _false_ when the player leaves the idle mode.
 
 This event is especially useful for multiplayer scenes, when you might want to disconnect from the server players who are likely away from the machine or left Decentraland in a tab in the background.
@@ -240,7 +229,6 @@ onProfileChanged.add((profileData) => {
 ```
 
 > Note: The `onProfileChanged` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
-
 
 Event data includes only the ID of the player and a version number for that avatar's profile, according to the catalyst server. Every time a change is propagated, the version number increases by 1.
 

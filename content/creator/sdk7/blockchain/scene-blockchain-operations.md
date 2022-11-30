@@ -9,7 +9,9 @@ url: /creator/development-guide/sdk7/scene-blockchain-operations/
 weight: 1
 ---
 
-<!-- TODO: Verify that eth-connect still works -->
+# 🚨 Ethereum interactions are not yet working for the SDK7 https://github.com/decentraland/sdk/issues/497
+
+<!-- 
 
 A Decentraland scene can interface with the Ethereum blockchain. This can serve to obtain data about the user's wallet and the tokens in it, or to trigger transactions that could involve any Ethereum token, fungible or non-fungible. This can be used in many ways, for example to sell tokens, to reward tokens as part of a game-mechanic, to change how a player interacts with a scene if they own certain tokens, etc.
 
@@ -35,7 +37,7 @@ The simplest way to perform operations on the Ethereum blockchain is through the
 To import the Ethereum controller into your scene file:
 
 ```ts
-import * as EthereumController from "@decentraland/EthereumController"
+import * as EthereumController from "~system/EthereumController"
 ```
 
 Below we explain some of the things you can do with this controller.
@@ -45,7 +47,7 @@ Below we explain some of the things you can do with this controller.
 Use the `getUserAccount()` function from the EthereumController to find a player's Ethereum public key.
 
 ```ts
-import { getUserAccount } from "@decentraland/EthereumController"
+import { getUserAccount } from "~system/EthereumController"
 
 executeTask(async () => {
   try {
@@ -405,3 +407,5 @@ You must also own MANA in the Ropsten blockchain. To obtain free Ropsten mana in
 To preview your scene using the test network, add the `DEBUG` property to the URL you're using to access the scene preview on your browser. For example, if you're accessing the scene via `http://127.0.0.1:8000/?position=0%2C-1`, you should set the URL to `http://127.0.0.1:8000/?DEBUG&position=0%2C-1`.
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
+
+-->

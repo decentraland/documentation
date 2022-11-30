@@ -21,12 +21,12 @@ Add an entity with an `AvatarModifierArea` component and position this entity by
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-	area: Vector3.create(4, 3, 4),
-	modifiers: [AvatarModifierType.HIDE_AVATARS],
+  area: Vector3.create(4, 3, 4),
+  modifiers: [AvatarModifierType.HIDE_AVATARS],
 })
 
 Transform.create(childEntity, {
-	position: Vector3.create(8, 0, 8)
+  position: Vector3.create(8, 0, 8),
 })
 ```
 
@@ -44,7 +44,7 @@ All the effects of an `AvatarModifierArea` only take place within the region of 
 
 An `AvatarModifierArea` affects only players that are inside the area, entering the area doesn't affect how other players that are outside the area are perceived.
 
-The effects of an `AvatarModifierArea` are calculated locally for each player. You can have an `AvatarModifierArea` that is only present in the scene for some of the players and not for others. For example, you could make a "marco polo" game, where only one player in the scene has a modifier area that hides all of the other players. All the other players that don't have this modifier area in their local version of the scene are able to see each other normally. 
+The effects of an `AvatarModifierArea` are calculated locally for each player. You can have an `AvatarModifierArea` that is only present in the scene for some of the players and not for others. For example, you could make a "marco polo" game, where only one player in the scene has a modifier area that hides all of the other players. All the other players that don't have this modifier area in their local version of the scene are able to see each other normally.
 If the area hides avatars, then the players that don't have the area in their local version of the scene will see all avatars normally. Even those that experience themselves as hidden. Players that do have the area will experience themselves and all other avatars as affected by the area when they enter it.
 
 > Note: Avatar modifier areas are affected by the _position_ and _rotation_ of the Transform component of their host entity, but they're not affected by the _scale_.
@@ -57,12 +57,12 @@ When a player walks into an `AvatarModifierArea` that has the `AvatarModifierTyp
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-	area:  Vector3.create(4, 3, 4),
-	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+  area: Vector3.create(4, 3, 4),
+  modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
 })
 
 Transform.create(childEntity, {
-	position: Vector3.create(8, 0, 8)
+  position: Vector3.create(8, 0, 8),
 })
 ```
 
@@ -76,12 +76,12 @@ When a player walks into an `AvatarModifierArea` that has the `AvatarModifierTyp
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-	area:  Vector3.create(4, 3, 4),
-	modifiers: [AvatarModifierType.AMT_DISABLE_PASSPORTS],
+  area: Vector3.create(4, 3, 4),
+  modifiers: [AvatarModifierType.AMT_DISABLE_PASSPORTS],
 })
 
 Transform.create(childEntity, {
-	position:  Vector3.create(8, 0, 8)
+  position: Vector3.create(8, 0, 8),
 })
 ```
 
@@ -95,8 +95,8 @@ Players are normally free to switch between first and third person camera by pre
 const entity = engine.addEntity()
 
 CameraModeArea.create(entity, {
-	area:  Vector3.create(4, 3, 4),
-	mode: CameraType.CT_FIRST_PERSON
+  area: Vector3.create(4, 3, 4),
+  mode: CameraType.CT_FIRST_PERSON,
 })
 ```
 
@@ -128,24 +128,22 @@ This example hides all avatars in an area, except those of players with specific
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-	area:  Vector3.create(4, 3, 4),
-	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
-	excludeIds: ['0xx1...', '0xx2...'],
+  area: Vector3.create(4, 3, 4),
+  modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+  excludeIds: ["0xx1...", "0xx2..."],
 })
 
 Transform.create(childEntity, {
-	position:  Vector3.create(8, 0, 8)
+  position: Vector3.create(8, 0, 8),
 })
 ```
 
 > Note: Make sure the player IDs are all written with lower-case letters. Use `.toLowerCase()` if necessary.
 
-
 Modifier areas run locally on each player's instance, the list of excluded IDs can be different for each player. In the example below, each player excludes their own ID from a modifier that hides avatars, so that they each view their own avatar and no others.
 
-
 ```ts
-import { getUserData } from '@decentraland/Identity'
+import { getUserData } from "~system/UserIdentity"
 
 executeTask(async () => {
   let userData = await getUserData()
@@ -154,13 +152,13 @@ executeTask(async () => {
   const entity = engine.addEntity()
 
   AvatarModifierArea.create(entity, {
-	area:  Vector3.create(16, 5, 16),
-	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
-	excludeIds: [userData.userId],
+    area: Vector3.create(16, 5, 16),
+    modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+    excludeIds: [userData.userId],
   })
 
   Transform.create(childEntity, {
-	position:  Vector3.create(8, 0, 8)
+    position: Vector3.create(8, 0, 8),
   })
 })
 ```
@@ -174,17 +172,16 @@ To verify the positions of a `AvatarModifierArea` or a `CameraModeArea`, give th
 > Note: Modifier areas aren't affected by the `scale` property of the transform, their size is based on their `area` property.
 
 ```ts
-
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-	area:  Vector3.create(8, 3, 8),
-	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+  area: Vector3.create(8, 3, 8),
+  modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
 })
 
 Transform.create(entity, {
-	position:  Vector3.create(8, 0, 8),
-	scale:  Vector3.create(8, 3, 8)
+  position: Vector3.create(8, 0, 8),
+  scale: Vector3.create(8, 3, 8),
 })
 
 MeshRenderer.setBox(entity)
