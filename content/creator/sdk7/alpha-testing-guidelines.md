@@ -52,6 +52,24 @@ You can find more example scenes written with SDK7 here:
 
 - [Goerli plaza](https://github.com/decentraland-scenes/sdk7-goerli-plaza)
 
+## Pending features
+
+The SDK7 alpha includes almost complete feature parity with everything that's possible with older versions of the SDK. A few features have been left out of the initial scope, in order to tackle them before the first official non-alpha release. The following features are not available in the current alpha:
+
+- Video texture
+- Textures on UI elements
+- Input boxes on the UI
+- Trigger the playing of an emote on the avatar
+
+
+A couple of features are intended to be re-implemented in future releases following Data Oriented Programming principles. These for now are still exposed as legacy functions that are marked as deprecated.
+
+- Functions to get player data, like `getUserData`, `getPlayersInScene`, or 
+- Functions to get data about the context, like `getDecentralandTime`, `getCurrentRealm`, `getPlatform`, `getPortableExperiencesLoaded`
+- Observables for player events like `onEnterSceneObservable`, `onLeaveSceneObservable`, `onPlayerExpressionObservable`, `onPlayerClickedObservable`, `onPointerLockedStateChange`, `onIdleStateChangedObservable`, or `onProfileChanged`
+- Observables for other events like `onSceneReadyObservable`, `onRealmChangedObservable`
+- The MessageBus
+
 
 ## Reporting issues
 
