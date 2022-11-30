@@ -51,12 +51,11 @@ Content deployed to the test server is not private. It could potentially be visi
 
 > Tip: If you want to hide your content from any possible leaks, you might want to consider launching your own Catalyst server, and not submit it to the DAO for adding to the network. That way this server behaves just like the test server, but its address isn't known to others. See the [How to run a catalyst]({{< ref "/content/contributor/tutorials/how-to-run-a-catalyst.md">}}) for instructions on how to do this.
 
-
 ## Upload a scene to decentraland
 
 Once you're happy with your scene, it's time to publish it to the production environment. There all players will have access to it if they visit the scene's coordinates.
 
-```
+```bash
 dcl deploy
 ```
 
@@ -66,7 +65,6 @@ See [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) f
 
 > Tip: To give your new scene more visibility, consider creating an inaugural event in the [events page](https://events.decentraland.org/en/).
 
-
 ## Latest SDK changes
 
 When developing a new scene, you use the `@latest` stable SDK release by default.
@@ -75,11 +73,11 @@ You can install the `@next` SDK release if you want to leverage or preview upcom
 
 To do so, run the following on your scene:
 
-`npm i decentraland-ecs@next`
+`npm i @dcl/sdk@next`
 
 > Note: Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.
 
-You can also access the latest unreleased features by loading the version dynamically via URL parameters. Add the following to the preview URL: `&kernel-branch=main&renderer-branch=master`.
+You can also access the latest unreleased features by loading the version dynamically via URL parameters. Add the following to the preview URL: `&kernel-branch=main&renderer-branch=dev`.
 
 You can also access your scene in the test environment with the features from `@next` by accessing the `.zone` client.
 
