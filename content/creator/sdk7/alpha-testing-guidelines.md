@@ -49,7 +49,8 @@ You can deploy scenes with SDK7 using `dcl deploy` the same as any scene with SD
 
 You can find more example scenes written with SDK7 here:
 
-- [Goerli plaza](https://github.com/decentraland-scenes/sdk7-goerli-plaza)
+- [SDK7 Scene Template](https://github.com/decentraland/sdk7-scene-template)
+- [Goerli Plaza](https://github.com/decentraland-scenes/sdk7-goerli-plaza)
 
 ## Pending features
 
