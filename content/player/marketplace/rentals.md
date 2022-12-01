@@ -67,7 +67,7 @@ After the LAND is Listed for Rent in the Marketplace, and before anybody rents i
 ![](/images/Rentals/Image5.png)
 
 <aside>
-💡 Edit and cancel actions may require a transaction, which costs gas. See Transactions section below for more details.
+💡 Edit and cancel require a transaction, which costs gas. See Transactions section below for more details.
 
 </aside>
 
