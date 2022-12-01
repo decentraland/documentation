@@ -164,7 +164,7 @@ Another possibility is to List the LAND for Rent Again, instead of claiming it b
 
 ### Edit Listing
 
-If either the Price, Rent Period, or Expiration Date is changed, a transaction has to be sent by the LAND Owner in order to protect themselves from somebody hitting the Smart Contract directly (not from the Marketplace UI) and getting it from a lower price than desired or for an undesired duration. 
+If either the Price, Rent Period, or Expiration Date is changed, a transaction has to be sent by the LAND Owner in order to protect themselves from somebody using the previous listing signature on the Smart Contract directly (not from the Marketplace UI) and getting it from a lower price than desired or for an undesired duration. 
 
 ![](/images/Rentals/Image18.png)
 
