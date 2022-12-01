@@ -188,7 +188,7 @@ This smart contract can only be found on the Polygon Network. This is because co
 
 When a creator publishes a collection approved by the curation committee, the creator can then put the collection on sale in the marketplace, allowing other users to buy the items of that collection for the price determined by the creator.
 
-When you are buying items from a collection this way, you are actually minting a new NFT that can then be commercialized with the Polygon Marketplace or Bids smart contract.
+When you buy items from a collection this way, you are minting a new NFT that can be commercialized with the Polygon Marketplace or Bids smart contract.
 
 If a collection is on sale, any user with a sufficient amount of MANA can buy an item from it as long as there is stock left to be minted.
 
