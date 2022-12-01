@@ -91,7 +91,7 @@ Both actions can be done from the LAND detail page in the Marketpalce.
 
 ## Renting Status
 
-You can check the Status of any rented LAND in My Store > My Assets. The possible status are:
+You can check the Status of any rented LAND in My Assets > Store > On Rent. The possible status are:
 
 - Listed for Rent - The listing was confirmed and it’s available for users to rent in the Marketplace
 - Rented Period Over - At this stage, the LAND is available to Claim Back or List Again for Rent by the LAND Owner
