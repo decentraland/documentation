@@ -30,7 +30,7 @@ Below you will find all the steps you need to follow to Rent a LAND, and the tra
 
 ## List LAND for Rent
 
-As a LAND Owner, you can list your LAND (Parcels or Estates) for Rent in the [Marketplace](https://market.decentraland.org/) > My Assets > [LAND](https://market.decentraland.org/account?assetType=nft&section=land&vendor=decentraland&page=1&sortBy=newest&onlyOnSale=false&viewAsGuest=false). 
+As a LAND Owner, you can list your LAND (Parcels or Estates) for Rent in the [Marketplace](https://market.decentraland.org/) > My Assets > LAND. 
 
 In order to do this on-chain, the LAND Owner has to approve the Rent Smart Contract to use the LAND on their behalf. Then every listing would need a signature from the Owner as well.
 
