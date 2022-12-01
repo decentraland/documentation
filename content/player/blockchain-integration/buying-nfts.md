@@ -178,7 +178,7 @@ safeTransferFrom(
 );
 ```
 
-When the Bids contract receives the NFT, it will check in its `onERC721Received` function that the bid is not expired and the bidder has enough funds to pay for it. If everything is correct, the NFT will be transferred to the bidder and the previous owner, the address declared in the `from` parameter of the `safeTransferFrom` function, will be paid the amount declared in the Bid.
+When the Bids contract receives the NFT, it will check in its `onERC721Received` function that the bid is not expired and the bidder has enough funds to pay for it. If everything is correct, the NFT will be transferred to the bidder and the caller of the `safeTransferFrom` function will be paid the amount of MANA declared in the Bid.
 
 **IMPORTANT: The bidder must have approved the Bids Smart Contract to operate MANA on its behalf or the bid execution will revert when the Bids contract tries to transfer the bidders MANA to the previous owner.**
 
