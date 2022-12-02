@@ -10,7 +10,9 @@ url: /creator/development-guide/sdk7/ui-button-events/
 weight: 3
 ---
 
+The current alpha version of SDK7 does not yet support making UI elements clickable. This feature will be available soon.
 
+<!-- 
 Make a UI entity clickable by giving it an `onClick` component. The `onClick` component references a function that runs every time the UI entity is clicked.
 
 
@@ -19,7 +21,7 @@ Make a UI entity clickable by giving it an `onClick` component. The `onClick` co
 The following example shows how to create a clickable UI entity. 
 
 ```ts
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
 	<UiEntity 
 		uiTransform = {{ width: 100, height: 100 }} 
 		uiBackground={{ backgroundColor: Color4.Green() }}
@@ -35,13 +37,13 @@ function handleClick() {
 	// Do something onClick
 	console.log("Clicked on the UI")
 }
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
 	<UiEntity 
 		uiTransform = {{ width: 100 }} 
 		onClick = {{handleClick}} 
 	/>
 ))
-```
+``` -->
 
 
 
