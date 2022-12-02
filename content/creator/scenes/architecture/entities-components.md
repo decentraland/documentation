@@ -21,7 +21,7 @@ weight: 1
 
 Decentraland scenes are built around [_entities_, _components_ and _systems_](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system). This is a common pattern used in the architecture of several game engines, that allows for easy composability and scalability.
 
-![](/images/media/ecs-big-picture.png)
+![](/images/media/ecs-big-picture-old.png)
 
 ## Overview
 

@@ -23,7 +23,7 @@ The following fields can be configured:
 
 
 ```ts
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiTransform={{
       width: 700,
