@@ -30,7 +30,7 @@ what about text align, TextAlignMode not valid either -->
 > NOTE: The `fontSize` is not affected by the size of its entity or parent entities.
 
 ```ts
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiTransform={{
       width: 700,
@@ -49,7 +49,7 @@ For multi-line text, you can add line breaks into the string, using `\n`.
 
 
 ```ts
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiText={{ 
 		value:  "Hello World,\nthis message is quite long and won't fit in a single line.\nI hope that's not a problem." 

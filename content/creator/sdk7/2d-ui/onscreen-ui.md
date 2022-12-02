@@ -31,7 +31,7 @@ When the player clicks the _close UI_ button, on the bottom-right corner of the 
 
 ## Render a UI
 
-To display a UI in your scene, use the `renderUi()` function, passing it a valid structure of entities, described in JSX.
+To display a UI in your scene, use the `ReactEcsRenderer.setUiRenderer()` function, passing it a valid structure of entities, described in JSX.
 
 Each entity is defined as an HTML-like node, with properties for each of its components.
 
@@ -47,13 +47,13 @@ export const uiMenu = () => (
 	/>
 )
 
-renderUi(uiMenu)
+ReactEcsRenderer.setUiRenderer(uiMenu)
 ```
 
 You can also define an entity structure and render it, all in one same command.
 
 ```ts
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
 	<UiEntity
 		uiTransform={{
 			width: 700,
@@ -65,7 +65,7 @@ renderUi(() => (
 ))
 ```
 
-> Note: All of your UI elements need to be nested into the same structure, and have one single parent at the root of the structure. You can only call `renderUi()` once in the scene.
+> Note: All of your UI elements need to be nested into the same structure, and have one single parent at the root of the structure. You can only call `ReactEcsRenderer.setUiRenderer()` once in the scene.
 
 ## UI Entities
 
@@ -85,7 +85,7 @@ The following components are available to use in the UI:
 Like with HTML tags, you can define components as self-closing or nest one within another.
 
 ```ts
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
 	// parent entity
 	<UiEntity
 		uiTransform={{

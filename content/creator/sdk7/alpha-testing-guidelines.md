@@ -58,6 +58,7 @@ The SDK7 alpha includes almost complete feature parity with everything that's po
 
 - Video texture
 - Textures on UI elements
+- Button events on UI elements
 - Input boxes on the UI
 - Trigger the playing of an emote on the avatar
 
