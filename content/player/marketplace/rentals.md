@@ -190,7 +190,7 @@ At the moment of renting the LAND, the user can choose which address will have O
 
 # Smart Contract Wallets
 
-The Rentals feature relies heavily on off-chain signatures. Off-chain actions allow Land Owners to list LANDs for rent without having to pay the cost of a transaction.
+The Rentals feature relies heavily on off-chain signatures. Off-chain actions allow Land Owners to list LANDs for rent without paying the transaction cost.
 
 By signing a listing, the Rent Smart Contract can verify that the listing was created by the signer.
 
