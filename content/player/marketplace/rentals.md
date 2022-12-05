@@ -198,6 +198,6 @@ Signing has the particularity that it requires a private key. All EOA (Externall
 
 Smart Contracts Wallets, which are Smart Contracts. Do not have a private key, thus, they are unable to sign messages. Instead, an EOA authorized by the Smart Contract Wallet has to sign.
 
-To support these signatures, the Rent Smart Contract verifies with the Smart Contract Wallet if the signer is an authorized address via the [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) standard. If the signer is authorized, the rental can be executed. 
+To support these signatures, the Rent Smart Contract verifies with the Smart Contract Wallet if the signature is valid by following the [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) standard. If the signature is valid, the rental can be executed. 
 
 The Smart Contract Wallet not only has to have the standard signature verification method defined in the EIP-1271, but also the token receiver method defined the [EIP-721](https://eips.ethereum.org/EIPS/eip-721) standard for non fungible tokens. This is required while claiming LAND back because the Rent Smart Contract will call a `safeTransferFrom` to return the NFT to the Smart Contract Wallet, and if it has not implemented the appropriate `onERC721Received` function it will fail to recover the LAND.
