@@ -25,7 +25,7 @@ The example below defines a variable `playerCurrentPosition` and references it a
 let playerCurrentPosition: string = ""
 
 // draw UI
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
       <UiEntity
         uiTransform={{
 			width: '100%',
@@ -71,7 +71,7 @@ This example is similar to the one in the previous section, but by calling a fun
 
 
 ```ts
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
       <UiEntity
        uiTransform={{
         width: '100%',
@@ -103,7 +103,7 @@ The following example uses a variable to set the `display` field of a part of th
 // Variable to reflect current state of menu visibility
 var isMenuVisible: boolean = false
 
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
    // parent
    <UiEntity>
       // Menu
@@ -157,7 +157,7 @@ The examples in the sections above show how to dynamically change a single prope
 The following example lists the ids of all entities in the scene that have a `MeshRenderer` and `Transform`. It creates a `uiText` for each. As the scene's content changes, the list of UI entities also adapts on every tick.
 
 ```ts
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiTransform={{
       width: '100%',
