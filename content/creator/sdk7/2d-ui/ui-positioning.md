@@ -16,7 +16,7 @@ For all kinds of UI content, use the `uiTransform` component to set the size, po
 The `uiTransform` component works in the screen's 2d space very much like the `Transform` component works in the the scene's 3D space.
 
 ```ts
-renderUi(() => (
+ReactEcsRenderer.setUiRenderer(() => (
       <UiEntity
        uiTransform={{
           width: '200px',
@@ -66,7 +66,7 @@ By default, child entities are positioned in relation to the top-left corner of 
 
 > Tip: When measuring from the top, the numbers for `position` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `position` to 20, -20.
 
-
+<!-- 
 examples:
 ```ts
-```
+``` -->
