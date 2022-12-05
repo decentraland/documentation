@@ -187,3 +187,17 @@ If you want to rent another Parcel or Estate, you only need to send one transact
 At the moment of renting the LAND, the user can choose which address will have Operator Permissions for that LAND. If that address wants to be changed, a transaction has to be sent.
 
 ![](/images/Rentals/Image20.png)
+
+# Smart Contract Wallets
+
+The Rentals feature relies heavily on off-chain signatures. Off-chain actions allow Land Owners to list LANDs for rent without paying the transaction cost.
+
+By signing a listing, the Rent Smart Contract can verify that the listing was created by the signer.
+
+Signing has the particularity that it requires a private key. All EOA (Externally Owned Accounts) have one, and they can sign listings with it. The Rentals Smart Contract will then verify the EOA generated signature when executing a rental.
+
+Smart Contracts Wallets, which are Smart Contracts. Do not have a private key, thus, they are unable to sign messages. Instead, an EOA authorized by the Smart Contract Wallet has to sign.
+
+To support these signatures, the Rent Smart Contract verifies with the Smart Contract Wallet if the signature is valid by following the [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) standard. If the signature is valid, the rental can be executed. 
+
+The Smart Contract Wallet not only has to have the standard signature verification method defined in the EIP-1271 but also the token receiver method defined in the [EIP-721 standard](https://eips.ethereum.org/EIPS/eip-721). This is required while claiming LAND back because the Rent Smart Contract will call a `safeTransferFrom` to return the NFT to the Smart Contract Wallet, and if it has not implemented the appropriate `onERC721Received` function, it will fail to recover the LAND.
