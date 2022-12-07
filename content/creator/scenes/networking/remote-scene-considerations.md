@@ -40,7 +40,7 @@ Use the `.emit` command of the message bus to send a message to all other player
 const sceneMessageBus = new MessageBus()
 
 box1.AddComponent(
-  new OnClick((e) => {
+  new OnPointerDown((e) => {
     sceneMessageBus.emit("box1Clicked", {})
   })
 )
@@ -112,7 +112,7 @@ const cube = spawnCube(8, 1, 8)
 
 /// --- Emit messages ---
 cube.addComponent(
-  new OnClick(() => {
+  new OnPointerDown(() => {
     const action: NewBoxPosition = {
       position: {
         x: Math.random() * 8 + 1,
