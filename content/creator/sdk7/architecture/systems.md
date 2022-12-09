@@ -176,9 +176,8 @@ If you want a system to execute something at a regular time interval, you can do
 let timer: number = 10
 
 function LoopSystem(dt: number) {
-  if (timer > 0) {
-      timer -= dt
-    } else {
+  timer -= dt
+  if (timer <= 0) {
       timer = 10
       // DO SOMETHING
     }
