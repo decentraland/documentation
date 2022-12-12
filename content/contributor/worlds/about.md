@@ -6,7 +6,7 @@ weight: 1
 
 In this document you will learn how to use Decentraland Worlds, a new service that lets you deploy isolated scenes that you can access with the Decentraland Explorer and with your digital identity.  
 
-The name **Worlds** was given to scenes that exists outside the Genesis City boundaries. Worlds can be used to do experiments, create new experiences or as a Scenes Preview Service to test scenes before uploading them to the Genesis City. Worlds scenes are attached to [Decentraland NAMEs](https://builder.decentraland.org/names) and the NAMEs are used to tell the Decentraland Explorer which world to load.  
+The name **Worlds** was given to scenes that exist outside the Genesis City boundaries. Worlds can be used to do experiments, create new experiences or as a Scenes Preview Service to test scenes before uploading them to the Genesis City. Worlds scenes are attached to [Decentraland NAMEs](https://builder.decentraland.org/names) and the NAMEs are used to tell Decentraland Explorer which world to load.  
 
 ### WARNINGS: The Worlds Service is in BETA state
 
