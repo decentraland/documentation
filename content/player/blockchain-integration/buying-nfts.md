@@ -5,8 +5,6 @@ description: Different contracts and functions that can be used to buy NFTs from
 categories:
   - blockchain-integration
 type: Document
-aliases:
-  - /blockchain-integration/buying-nfts/
 url: /player/blockchain-integration/buying-nfts
 weight: 15
 ---
