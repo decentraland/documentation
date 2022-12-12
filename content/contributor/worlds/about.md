@@ -25,7 +25,7 @@ If you are a content creator, you are already familiar with the [CLI](https://do
 `dcl deploy --target-content https://worlds-content-server.decentraland.org` 
 
 
-Once you run the command you will be prompt to sign the deployment with your wallet and a set of validations will be executed to allow or reject the scene: 
+Once you run the command you will be prompted to sign the deployment with your wallet and a set of validations will be executed to allow or reject the scene: 
 - The wallet signing the deployment must own a Decentraland NAME 
 - The scene can occupy a maximum of 4 parcels
 - The size of the scene must be less or equal to 100MB 
