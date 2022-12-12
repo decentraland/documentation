@@ -275,7 +275,7 @@ Items can be sold in secondary sales at any time, and for any price, in the Dece
 - They have been **minted**, or
 - they have been **purchased in a primary sale**
 
-In other words, anybody who owns an NFT for a wearable can sell it in the Decentraland Marketplace. There are no royalties for wearables sold in secondary sales in Decentraland.
+In other words, anybody who owns an NFT for a wearable can sell it in the Decentraland Marketplace. There are royalties for wearables sold in secondary sales in Decentraland. Royalties goes to the item beneficiary.
 
 ### Minting wearables
 

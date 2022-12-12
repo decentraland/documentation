@@ -20,7 +20,7 @@ For an entity to be interactive, it must have a [collider]({{< ref "/content/cre
 
 ## Pointer down
 
-Use `EventSystem.onPointerDown()` to detect presses of a specific button.
+Use `pointerEventsSystem.onPointerDown()` to detect presses of a specific button.
 
 This statement requires three parameters:
 
