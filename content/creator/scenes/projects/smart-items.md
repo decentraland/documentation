@@ -1,6 +1,6 @@
 ---
 date: 2019-02-20
-title: Smart items
+title: Smart items (deprecated)
 description: Create your own smart items to use in the Builder
 categories:
   - development-guide
@@ -11,9 +11,10 @@ url: /creator/development-guide/smart-items
 weight: 5
 ---
 
+> NOTE: The creation of new Smart items is no longer supported with the latest versions of the SDK.
+
 Through the Builder, you can drag and drop smart items into a scene. These are items that have configurable parameters and actions that can be triggered, like doors that can be opened or levers that can be activated. There is a default collection of smart items in the Builder, but you can also create your own and import them.
 
-Smart items are written using the same SDK code that you use for creating a scene, making use of [entities, components]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}) and [systems]({{< ref "/content/creator/scenes/architecture/systems.md" >}}). This document assumes that you're familiar with these concepts and will focus on how to encapsulate this code so that it interfaces with the scene and other smart items.
 
 ## Smart item references
 
