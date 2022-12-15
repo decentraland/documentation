@@ -15,7 +15,22 @@ As you may gather, the most common use of pointers is obtaining the ID for the a
 
 ## Entity Pointers
 
-_Pending answer to some questions_
+Pointers referencing entities are [[Decentraland URNs]] that include the entity ID, such as this one:
+
+```
+urn:decentraland:entity:bafkreid44xhavttoz4nznidmyj3rjnrgdza7v6l7kd46xajleor5lmsxfm
+```
+
+### Optional components
+
+Entity URNs can include a `baseUrl` to suggest a content server to use, making the URN easily translatable into an HTTP address. For example:
+
+```
+urn:decentraland:entity:<id>?baseUrl=https://contentserver.com/files/
+```
+
+This tells an application that the entity can be downloaded from `https://contentserver.com/files/<id>`, though other content servers can also be used.
+
 
 ## Land Pointers
 
