@@ -40,7 +40,7 @@ The following helper functions are available in the `inputSystem` namespace, and
 
 See the sections below for more details on each.
 
-When handling button events on an entity, always provide feedback to the player, so that the player is aware that an entity can be interacted with. If you add a `PointerHoverFeedback` component to an entity, players will see a hint while hovering their cursor on that entity. See [Pointer event feedback](#pointer-event-feedback) to learn how you can add hover hints on interactive entities.
+When handling button events on an entity, always provide feedback to the player, so that the player is aware that an entity can be interacted with. If you add a `PointerHoverFeedback` component to an entity, players will see a hint while hovering their cursor on that entity. See [Show feedback](#show-feedback) to learn how you can add hover hints on interactive entities.
 
 
 ### Global input events
