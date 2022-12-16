@@ -342,19 +342,25 @@ You can use an invisible entity with no shape component as a parent, to wrap a s
 
 To fix an entity's position to an avatar, add an `AvatarAttach` component to the entity.
 
-<!-- You can pick different anchor points on the avatar, most of these points are linked to the player's armature and follow the player's animations. For example, when using the `RightHand` anchor point the attached entity will move when the avatar waves or swings their arms while running, just as if the player was holding the entity in their hand. -->
+You can pick different anchor points on the avatar, most of these points are linked to the player's armature and follow the player's animations. For example, when using the right hand anchor point the attached entity will move when the avatar waves or swings their arms while running, just as if the player was holding the entity in their hand.
 
 ```ts
+// Attach to loacl player
 AvatarAttach.create(myEntity,{
-	avatarId: '0xAAAAAAAAAAAAAAAAA',
+    AvatarAnchorPoint: AvatarAnchorPointType.AAPT_NAME_TAG,
+})
+
+// Attach to another player, by ID
+AvatarAttach.create(myEntity,{
+    avatarId: '0xAAAAAAAAAAAAAAAAA',
     AvatarAnchorPoint: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 ```
 
-When creating an `AvatarAttach` component, you must pass an object with the following data:
+When creating an `AvatarAttach` component, pass an object with the following data:
 
-- `avatarId`: The ID of the player to attach to. This is the same as the player's Ethereum address, for those players connected with an Ethereum wallet.
-- `AvatarAnchorPoint`: What anchor point on the avatar skeleton to attach the entity.
+- `avatarId`: _Optional_ The ID of the player to attach to. This is the same as the player's Ethereum address, for those players connected with an Ethereum wallet. If not speccified, it attaches the entity to the local player's avatar.
+- `AvatarAnchorPoint`: What anchor point on the avatar skeleton to attach the entity, using a value from the enum `AvatarAnchorPointType`.
 
 The following anchor points are available on the player:
 
@@ -366,7 +372,7 @@ The following anchor points are available on the player:
 - `AvatarAnchorPointType.AAPT_RIGHT_HAND`: Is fixed on the player's right hand
 - `AvatarAnchorPointType.AAPT_LEFT_HAND`: Is fixed on the player's left hand
 
-Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to everyone seeing that player.
+Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to other players who are seeing that player. If an entity is attached to the default local player, each player will experience the entity as attached to their own avatar.
 
 > Note: Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
 
@@ -396,24 +402,13 @@ Transform.create(childEntity, {
 })
 ```
 
-### Obtain the avatarId
+### Obtain an avatarId
 
-To attach an entity to an avatar, you must provide the user's ID in the field `avatarId`. There are [various ways]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >}}) to obtain this data.
+To attach an entity to the avatar of another player, you must provide the user's ID in the field `avatarId`. There are [various ways]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >}}) to obtain this data.
 
 > Note: For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
 
-- Fetch the local player's `userId` via `getUserData()`.
-
-```ts
-import { getUserData } from "~system/UserIdentity"
-
-executeTask(async () => {
-  let data = await getUserData()
-  console.log(data.userId)
-})
-```
-
-- Fetch the `userId` for all other nearby players via `getConnectedPlayers()`
+Fetch the `userId` for all other nearby players via `getConnectedPlayers()`
 
 ```ts
 import { getConnectedPlayers } from "~system/Players"
@@ -426,21 +421,23 @@ executeTask(async () => {
 })
 ```
 
-Using it together with `AvatarAttach`, it could look like this:
+Using it together with `AvatarAttach`, you could use the following code to add a cube floating over the head of every other player in the scene:
 
 ```ts
-import { getUserData } from "~system/UserIdentity"
+import { getConnectedPlayers } from "~system/Players"
 
-async function attachEntity (entity: Entity){
-  let userData = await getUserData({})
-  if(!userData.data) return
-  console.log(userData.data.userId)
-
-  AvatarAttach.create(entity, {
-	anchorPointId: AvatarAnchorPoint.LEFT_HAND,
-	avatarId: userData.data.userId
+executeTask(async () => {
+  let players = await getConnectedPlayers()
+  if(!players.length) return
+  players.forEach((player) => {
+	const myEntity = engine.addEntity()
+	MeshRenderer.setBox(myEntity)
+	AvatarAttach.create(myEntity, {
+		anchorPointId: AvatarAnchorPoint.LEFT_HAND,
+		avatarId: player.userId
+  	})
   })
-}
+})
 ```
 
 See other ways to fetch other user's IDs in [Get Player Data]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >}}).
