@@ -29,7 +29,10 @@ bafybeicgclohdfaccu2sqqkzrzuenjxzcry3m5vcb4mpxgucjl3oheq5tq
 
 The first few bytes contain information about the encoding and version of the identifier itself, and the rest is a SHA-256 hash.
 
-In practice, these details are not necessary to discover and download content. Clients of the protocol can treat identifiers like opaque strings without losing capabilities.
+> !!NOTE
+> For historical reasons, some APIs call the file identifier _hash_ rather than _id_. They refer to the same thing.
+
+In practice, these details are not necessary to discover and download content. Most clients of the protocol can treat identifiers like opaque strings without losing capabilities.
 
 ## Ownership and Persistence
 
