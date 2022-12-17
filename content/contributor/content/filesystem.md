@@ -40,3 +40,10 @@ Most of the files stored in the network are associated to an [[entity]] owned by
 
 [[Catalyst]] servers are required by protocol to always store the latest version of an entity, and thus all the associated files, but may choose whether to retain old versions according to their individual configuration.
 
+## Downloading Files
+
+The [[`/contents/<fileId>` endpoint]] of the content server can be used to download any file.
+
+## Uploading Files
+
+Files are uploaded to content servers during the deployment of an [[entity]]. Only a few special files, such as [[snapshots]], are independent from any particular entity.
