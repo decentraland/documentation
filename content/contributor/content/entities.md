@@ -17,13 +17,11 @@ Every entitiy is signed by an owner (who is associated to an Ethereum account). 
 
 There are five types of entities:
 
-!!links to pages for each type
-
-- **Scenes**: virtual spaces in the world with their own objects and behavior.
-- **Profiles**: information about a specific player, such as their avatar.
-- **Wearables**: clothing and items that players can add to their avatars.
-- **Emotes**: animations that a player's avatar can perform.
-- **Stores**: collections of wearables and emotes that players can explore and purchase. !!mmmmNO
+- [**Scenes**]({{< relref "entity-types/scenes" >}}): virtual spaces in the world with their own objects and behavior.
+- [**Profiles**]({{< relref "entity-types/profiles" >}}): information about a specific player, such as their avatar.
+- [**Wearables**]({{< relref "entity-types/wearables" >}}): clothing and items that players can add to their avatars.
+- [**Emotes**]({{< relref "entity-types/emotes" >}}): animations that a player's avatar can perform.
+- [**Stores**]({{< relref "entity-types/stores" >}}): collections of wearables and emotes that players can explore and purchase. !!mmmmNO
 
 All types follow the same procedures for creation, identification, ownership and hosting. !!mmm
 
