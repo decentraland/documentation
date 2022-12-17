@@ -39,6 +39,12 @@ Every entity has certain common properties, applicable to all types. When [[requ
 | `content` | An array of references to additional [files]({{< relref "filesystem" >}}) in the entity's package.
 | `metadata` | An object with information specific to this entity type.
 
+The structure and values of the `metadata` field for each type are detailed in their specific pages. The `pointers` array also has different use-cases for some types.
+
+{{< info >}}
+Old entity documents may contain the `version` field, deprecated in [ADR-45](https://adr.decentraland.org/adr/ADR-45). You may safely ignore it, since the `timestamp` field is now used vor versioning.
+{{< /info >}}
+
 This is a typical JSON document describing an entity:
 
 ```json
@@ -56,8 +62,6 @@ This is a typical JSON document describing an entity:
 ```
 
 You can find the schemas for these JSON structures, along with other objects in Decentraland protocol, in the [Common Schemas](https://github.com/decentraland/common-schemas) repository.
-
-The structure and values of the `metadata` field for each type are detailed in their specific pages.
 
 ## Files
 
