@@ -92,8 +92,9 @@ This is how it typically looks inside the `content` field showcased above:
 
 The JSON document with the entity's description is a file itself, uploaded by the owner and stored in the distributed file-system just like any other. The entity ID is actually the JSON file's ID.
 
-> !!NOTE
-> The `file` field is always in lower-case, to prevent issues when building entities in different operating systems, where filename casing may be important.
+{{< info >}}
+The `file` field is always in lower-case, to prevent issues when building entities in different operating systems, where filename casing may be important.
+{{< /info >}}
 
 The lifespan of a file is tied to the entity that contains it. For entities currently in use (i.e. not yet replaced by their owner), [[Catalyst]] servers are required by protocol to preserve all associated files. If the entity is deleted, the files can be kept or discarded at the server's discretion.
 
