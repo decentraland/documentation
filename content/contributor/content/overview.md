@@ -5,15 +5,15 @@ url: "/contributor/content/overview"
 weight: 1
 ---
 
-Everything you can find inside the virtual world of Decentraland is hosted in a distributed network of servers known as [[Catalysts]], that can be used (among other things) to upload and download content.
+Everything you can find inside the virtual world of Decentraland is hosted in a distributed network of servers known as [[Catalysts]], that provide (among other things) the content server API. They are the means by which clients upload and download content.
 
-The complete API of the Catalyst is available in [[its own reference]]. Here, we'll focus on understanding how content is organized, and how it can be discovered and downloaded. 
+The complete API of the Catalyst is available in [its own reference](https://decentraland.github.io/catalyst-api-specs/). Here, we'll focus on understanding how content is organized, and how it can be discovered and downloaded. !!stale paragraph
 
 All of the important concepts mentioned below are further described in their own pages.
 
 ## Files, Entities, Pointers
 
-There are three layers in Decentraland's content system: [[files]] are packaged inside [[entities]], and entities are discovered using [[pointers]].
+There are three layers in Decentraland's content system: [files]({{< relref "filesystem" >}}) are packaged inside [entities]({{< relref "entities" >}}), and entities are discovered using [pointers]({{< relref "pointers" >}}).
 
 !!diagram showing relation
 
@@ -26,4 +26,4 @@ Pointers are stable references that can be resolved to the ID of an entity. When
 
 ## Snapshots
 
-Content servers also host large line-separated-JSON files with summaries of all active entities (i.e. those currently referenced by pointers) at a certain point in time. These are called [[snapshots]], and can be used to explore all available content.
+Content servers also host large line-separated-JSON files with summaries of all active entities (i.e. those currently referenced by pointers) at a certain point in time. These are called [snapshots]({{< relref "snapshots" >}}), and can be used to explore all available content.

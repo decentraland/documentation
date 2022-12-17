@@ -5,7 +5,7 @@ url: "/contributor/content/snapshots"
 weight: 5
 ---
 
-Content servers will periodically compile summaries of the active entities they are hosting, called _snapshots_. They are regular [[files]] and can be downloaded using their ID.
+Content servers will periodically compile summaries of the active entities they are hosting, called _snapshots_. They are regular [files]({{< relref "filesystem" >}}) and can be downloaded using their ID.
 
 Clients that want to systematically discover content can use these files as the starting point.
 
@@ -17,14 +17,14 @@ Snapshot files begin with this exact line:
 ### Decentraland json snapshot
 ```
 
-After that, each line is a JSON document describing an [[entity]] with the following fields:
+After that, each line is a JSON document describing an [entity]({{< relref "entities" >}}) with the following fields:
 
 | Field | Value |
 | ----- | --- |
-| `entityId` | The immutable [[identifier]] for this entity
-| `entityType` | One of `scene`, `profile`, `wearable`, `emote` or `store`
-| `pointers` | An array of [[pointers]] that resolve (or used to resolve) to this entity. !!mmm
-| `localTimestamp` | The Unix UTC timestamp when this entity was uploaded.!!why local
+| `entityId` | The immutable identifier for this [entity]({{< relref "entities" >}}).
+| `entityType` | One of `scene`, `profile`, `wearable`, `emote` or `store`.
+| `pointers` | An array of [pointers]({{< relref "pointers" >}}) that resolve (or used to resolve) to this entity. !!mmm
+| `localTimestamp` | The Unix UTC timestamp when this entity was uploaded. !!why local
 | `authChain` | The [[authentication chain]] for this entity.
 
 A typical entry looks like this:
@@ -46,10 +46,13 @@ A typical entry looks like this:
 
 ## Dowloading Snapshots
 
-To locate the current set of snapshots, use the [[`/snapshot` endpoint]]. The response contains referecenes to snapshot files for each entity type, as well as the Unix UTC timestamp of their creation. For example:
+To locate the current set of snapshots, use the [`/snapshot`](https://decentraland.github.io/catalyst-api-specs/#tag/Content-Server/operation/getActiveEntities) endpoint. The response contains a reference to a global snapshot file for all entities, as well as individual ones for each entity type. Each entry lists the Unix UTC timestamp at the time of creation. For example:
 
 ```json
 {
+  "hash": "bafybeiasjraajptih2ffc64hwnie2a7fbysalij7modahswdd54zrnsr4u",
+  "lastIncludedDeploymentTimestamp": 1671294282247,
+
   "entities": {
     "profile": {
       "hash": "bafybeihfpwdtow7qickcnryunu3smb4twrqlrmhbvzj5f25xvaxudiayyy",
@@ -57,8 +60,6 @@ To locate the current set of snapshots, use the [[`/snapshot` endpoint]]. The re
     },
     // ... same for emote, wearable, etc
   },
-  "hash": "bafybeiasjraajptih2ffc64hwnie2a7fbysalij7modahswdd54zrnsr4u",
-  "lastIncludedDeploymentTimestamp": 1671294282247
 }
 ```
 

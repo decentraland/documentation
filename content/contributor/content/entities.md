@@ -6,9 +6,9 @@ weight: 3
 
 Each individual piece of content in the world (such as a scene or a wearable item) is called an _entity_.
 
-Entities are immutable packages of [[files]] identified by an `entityID`. This identifier is deterministically derived from the contained data, and can be used to download the package from the content server.
+Entities are immutable packages of [files]({{< relref "filesystem" >}}) identified by an `entityId`. This identifier is deterministically derived from the contained data, and can be used to download the package from the content server.
 
-Since they are immutable, entities can't be updated in the traditional sense. Instead, they are replaced by new entities discoverable using the same stable [[pointer]]. The newest version of an entity is said to be _active_.
+Since they are immutable, entities can't be updated in the traditional sense. Instead, they are replaced by new entities discoverable using the same stable [pointer]({{< relref "pointers" >}}). The newest version of an entity is said to be _active_.
 
 Every entitiy is signed by an owner (who is associated to an Ethereum account). The owner can later use the same signing keys to upload a new version of the entity and indicate that it replaces the old one. Content servers validate these signatures before accepting new entities, whether they come straight from a client or were relayed by another server. !!mmmmm
 
@@ -34,9 +34,9 @@ Every entity has certain common properties, applicable to all types. When [[requ
 | Field | Value |
 | ----- | --- |
 | `type` | One of `scene`, `profile`, `wearable`, `emote` or `store`.
-| `pointers` | An array of pointers that resolve (or used to resolve) to this entity. !!mmm
+| `pointers` | An array of [pointers]({{< relref "pointers" >}}) that resolve (or used to resolve) to this entity. !!mmm
 | `timestamp` | The Unix UTC timestamp when this entity was uploaded.
-| `content` | An array of references to additional files in the entity's package.
+| `content` | An array of references to additional [files]({{< relref "filesystem" >}}) in the entity's package.
 | `metadata` | An object with information specific to this entity type.
 
 This is a typical JSON document describing an entity:
@@ -61,16 +61,16 @@ The structure and values of the `metadata` field for each type are detailed in t
 
 ## Files
 
-All entities have at least one associated file: the JSON document describing the entity itself. The entity ID is the [[file-system identifier]] of this special file.
+All entities have at least one associated file: the JSON document describing the entity itself. The entity ID is the [file-system identifier]({{< relref "filesystem#identifiers" >}}) of this special file.
 
 Contained inside each entity is an array of references to additional files, under the `content` field. These are typically assets, such as 3d models and animations, or scripts for scenes.
 
-Entity files are stored in Decentraland's [[distributed file system]]. Each item in the array has two properties:
+Entity files are stored in Decentraland's [distributed file system]({{< relref "filesystem" >}}). Each item in the array has two properties:
 
 | Field | Value |
 | --- | --- |
 | `file` | The internal name used by files in this entity version to reference each other.
-| `hash` | The global [[identifier for this file]], unique across all content.
+| `hash` | The global [identifier for this file]({{< relref "filesystem#identifiers" >}}), unique across all content.
 
 This is how it typically looks inside the `content` field showcased above:
 
