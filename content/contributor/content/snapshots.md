@@ -41,8 +41,9 @@ A typical entry looks like this:
 }
 ```
 
-> !!INFO
-> If you intend to parse a snapshot line by line, remember to skip the first one.
+{{< info >}}
+If you intend to parse a snapshot line by line, remember to skip the first one with the header.
+{{< /info >}}
 
 ## Dowloading Snapshots
 
