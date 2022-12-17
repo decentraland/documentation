@@ -15,9 +15,9 @@ you need to:
 1. Design products and applications in the ecosystem
 2. Conduct research and investigate the contents of the world
 3. Create your own World Explorer
-4. Pursue novel ideas that may end up in this list!
+4. Pursue novel ideas that may end up in this list
 
-Let's build the metaverse together!
+**Let's build the metaverse together!**
 
 ## Where to start?
 
