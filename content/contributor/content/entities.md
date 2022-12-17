@@ -27,7 +27,7 @@ There are five types of entities:
 
 All types follow the same procedures for creation, identification, ownership and hosting. !!mmm
 
-## Common Properties
+## Common Properties {#properties}
 
 Every entity has certain common properties, applicable to all types. When [[requesting an entity]] from a content server, these fields will always be present:
 
