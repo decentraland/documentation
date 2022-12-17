@@ -34,7 +34,7 @@ Every entity has certain common properties, applicable to all types. When [[requ
 | Field | Value |
 | ----- | --- |
 | `type` | One of `scene`, `profile`, `wearable`, `emote` or `store`.
-| `pointers` | An array of [pointers]({{< relref "pointers" >}}) that resolve (or used to resolve) to this entity. !!mmm
+| `pointers` | An array of [pointers]({{< relref "pointers" >}}) associated to this entity.
 | `timestamp` | The Unix UTC timestamp when this entity was uploaded.
 | `content` | An array of references to additional [files]({{< relref "filesystem" >}}) in the entity's package.
 | `metadata` | An object with information specific to this entity type.
