@@ -15,7 +15,22 @@ All of the important concepts mentioned below are further described in their own
 
 There are three layers in Decentraland's content system: [files]({{< relref "filesystem" >}}) are packaged inside [entities]({{< relref "entities" >}}), and entities are discovered using [pointers]({{< relref "pointers" >}}).
 
-!!diagram showing relation
+!!Placeholder GoAT diagram, could be much better
+
+```goat
+.---------.         .--------.       .---------.
+| Pointer +-------> | Entity +-+---> |  File 1 |
+'---------'         '--------' |     '---------'
+                               |
+                               |     .---------.
+                               +---> |  File 2 |
+                               |     '---------'
+                               |
+                               |     .---------.
+                               +---> |  File 3 |
+                                     '---------'
+```
+
 
 Files are stored in a decentralised file-system resembling IPFS, and automatically synchronized across content servers. They are identified by a unique string ID that is computed from the file's content, and both the identifier and the content are **immutable**. There is no such thing as updating a file. Instead, replacement files are uploaded and stale files are deleted.
 
