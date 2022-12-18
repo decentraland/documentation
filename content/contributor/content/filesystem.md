@@ -7,11 +7,6 @@ weight: 2
 
 Underlying the different content APIs in the Decentraland protocol is an implementation of a distributed file system. Each [[Catalyst]] server holds a copy of the entire storage, and synchronizes the updates it receives with other instances.
 
-> !!INFO
-> When a change is made in the distributed file-system, it takes about 4 seconds for the updated metadata to propagate through the Catalyst network. 
->
-> _!!Verify this, I only heard it without thinking, what about the entity's files? Is it atomic?_
-
 Files uploaded to the system are **immutable**. Once created and indexed, neither their identifier
 nor their contents change. They can be updated only in the sense that a new version is uploaded and
 applications choose to use it, while the old one can be discarded.
