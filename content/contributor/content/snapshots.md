@@ -7,7 +7,7 @@ weight: 5
 
 Content servers will periodically compile summaries of the active entities they are hosting, called _snapshots_. They are regular [files]({{< relref "filesystem" >}}) and can be downloaded using their ID.
 
-Clients that want to systematically discover content can use these files as the starting point.
+Separate snapshots are created for each entity type, as well as a global one for all content. Clients that want to systematically discover content can use these files as the starting point.
 
 ## Format
 
