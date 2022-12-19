@@ -31,6 +31,12 @@ The Decentraland SDK allows you to create your scene by writing in TypeScript (J
 
 - Check out scene [examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
 
+## The Decentraland Editor
+
+The Editor is an all-in-one content creation tool. It's intended for users of any knowledge level, combining a graphical interface with code editing capabilities. Both technical and non-technical creators will benefit from using it.
+
+[Learn more]({{< ref "/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+
 ## Graphical editing tools
 
 There are a number of tools that can help with arranging 3d models into position in a Decentraland scene. You still need to resort to the SDK to add interactivity to these items, but setting positions visually is a big help.
