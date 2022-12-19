@@ -16,7 +16,6 @@ The BETA is open to anyone to use, in order to kick-off the product and be able 
 - Scenes can occupy 4 parcels of any shape 
 - 100MB is the maximum size for the scene deployment 
 - Up to 100 users will be allowed to join a World scene concurrently  
-- Only scenes created with SDK7 are allowed
 
 ### Publish a scene 
 
@@ -29,7 +28,6 @@ Once you run the command you will be prompted to sign the deployment with your w
 - The wallet signing the deployment must own a Decentraland NAME 
 - The scene can occupy a maximum of 4 parcels
 - The size of the scene must be less or equal to 100MB 
-- Scene must be created using SDK7
 
 In case you have multiple NAMEs in your wallet, you can specify under which 
 NAME that deployment is to be made. In your `scene.json` you need to add a 
