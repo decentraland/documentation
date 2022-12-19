@@ -32,7 +32,7 @@ Once created, a custom asset pack is be available in every scene you edit as lon
 
 All 3D models need to be in _.glTF_ or _.glb_ format. You can convert other formats into these formats with various different editors and tools. See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for recommendations and tips.
 
-All materials in the models need to be either _basic material_ or _PBR_, and all textures need to be in sizes that are powers of two (ex: 256, 512). See [Scene limitations]({{< ref "/content/creator/builder/scene-limitations.md" >}}) for details.
+All materials in the models need to be either _basic material_ or _PBR_, and all textures need to be in sizes that are powers of two (ex: 256, 512). See [Scene limitations]({{< ref "/creator/development-guide/scene-limitations.md" >}}) for details.
 
 If a 3D model relies on external files besides the _.gltf_ file (like _.bin_ or _.png_ files) compress all the relevant files for the 3D model into a _.zip_ file. Then import only this _.zip_ file into the Builder.
 
