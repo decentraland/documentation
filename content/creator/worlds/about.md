@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Worlds Overview"
 slug: "/contributor/worlds/about"
 weight: 1
 ---
