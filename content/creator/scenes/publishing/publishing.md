@@ -50,7 +50,7 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ### Via the Decentraland Editor
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/editor/installation-guide.md" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/creator/development-guide/installation-guide.md#the-decentraland-editor" >}}).
 
 1) Open your scene's folder using Visual Studio Code. 
 
@@ -111,6 +111,24 @@ The information on each copy of the server is verifiable, as each scene is signe
 ## The test server
 
 You can deploy content to the test catalyst server to run full tests with multiple users, the sourrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
+
+> Note: To deploy to parcels in the test server, you must have the same permissions required to deploy to those parcels in the main network.
+
+### Via the Decentraland Editor
+
+To deploy a scene to the test server:
+
+1. Open VSCode in a Decentraland scene project.
+2. Click on the Decentraland icon on the left sidebar.
+4. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Deploy Scene To Custom Catalyst`
+5. Enter the address of the test server, as `peer-testing.decentraland.org`
+6. Approve the transaction
+
+	- If the LAND tokens you own or have permissions are linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
+	- If you need to use Metamask on the browser, click **Open in Browser** to open this same window on a browser tab. Then approve the transaction on the Metamask browser extension.
+
+
+### Via the CLI
 
 To deploy to the test server, run:
 

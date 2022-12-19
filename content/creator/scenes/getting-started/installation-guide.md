@@ -6,6 +6,7 @@ aliases:
   - /documentation/installation-guide/
   - /getting-started/installation-guide/
   - /development-guide/installation-guide/
+  - /creator/editor/installation-guide
 categories:
   - development-guide
 type: Document
@@ -16,21 +17,21 @@ weight: 2
 
 To build scenes for Decentraland you an either use 
 
+- The Decentraland Editor
 - The Command Line Interface (CLI)
-- The visual Editor
 
 Both tools allow you to compile and preview your scene in an "off-chain" development environment. After testing your scene locally, you can upload your content to the content server, linking it with your LAND.
 
-**Please note:** Currently, the Decentraland SDK only supports TypeScript.
-
 ## The Decentraland Editor
+
 
 The Decentraland Editor is a Visual Studio extension, that allows you to build, preview and deploy Decentraland scenes.
 
-See installation instructions for the editor [here]({{< ref "/content/creator/editor/installation-guide.md" >}})
+To install the Decentraland Editor:
 
-> Note: The Decentraland Editor is currently in alpha.
+1) Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
 
+2) Open Visual Studio Code, and open the extensions marketplace. Search for the **Decentraland** extension and click **Install**. You'll then need to restart Visual Studio to use the extension.
 
 ## The CLI
 

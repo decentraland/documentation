@@ -23,19 +23,21 @@ Check the [Awesome repository](https://github.com/decentraland-scenes/Awesome-Re
 ### Install a dependency
 
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/editor/installation-guide.md" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/creator/development-guide/sdk7/installation-guide.md#the-decentraland-editor" >}}).
 
 1) Open your scene's folder using Visual Studio Code. 
 
 > Note: The Visual Studio window must be at the root folder of the scene project.
 
-2) Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
+2) Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
 
-3) Click the plus sign on the header of the **Dependencies** section.
+3) Click the `+` icon on the header of the **Dependencies** view.
 
-4) Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene.
+4) Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `react`.
 
 > Note: If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
+
+5) If it is a Decentraland library (ie. `decentraland-ecs-utils`) select `Yes`, otherwise `No`.
 
 ### Update a dependency
 

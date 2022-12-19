@@ -6,6 +6,7 @@ aliases:
   - /documentation/preview-scene/
   - /getting-started/preview-scene/
   - /development-guide/preview-scene/
+  - /creator/editor/preview-scene
 categories:
   - development-guide
 type: Document
@@ -18,18 +19,22 @@ Once you have [built a new scene]({{< ref "/content/creator/scenes/getting-start
 
 ## Using the editor
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}).
+To run a scene preview using the Decentraland Editor:
+
+Make sure you've [installed the Decentraland editor]({{< ref "/creator/development-guide/installation-guide.md#the-decentraland-editor" >}}).
+
 
 1) Open your scene's folder using Visual Studio Code. 
 
-> Note: The Visual Studio window must be at the root folder of the scene project.
+	> Note: The Visual Studio window must be at the root folder of the scene project.
 
-2) Open the Editor's menu, by clicking the Decentraland logo on the tabs on the left. Then click **Run scene**.
+2) Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
 
-This opens a new window in Visual Studio Code, running Decentraland. 
+3) Click the **Run Scene** button.
 
-Click **Open in browser**, over the top margin of the tab to run the preview in a web browser window.
+	This opens a new tab in Visual Studio Code, running the Decentraland scene, just like in a web browser tab.
 
+Optionally click **Open in browser**, over the top margin of the tab to run the preview in a web browser window.
 
 ## Using the CLI
 
@@ -97,6 +102,8 @@ If you're building a scene to be uploaded to several adjacent parcels, you can e
     "base": "0,0"
   },
 ```
+
+You can also change the coordinates by running the `dcl coords` command from the command line, this is especially useful on large scenes with many parcels. See [set parcels via the command line]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#set-parcels-via-the-command-line">}}) for more details.
 
 > Tip: While running the preview, the parcel coordinates don't need to match those that your scene will really use, as long as they're adjacent and are arranged into the same shape. You will have to replace these with the actual coordinates later when you [deploy the scene](#upload-a-scene-to-decentraland).
 
