@@ -11,7 +11,7 @@ weight: 3
 
 ## Install the editor
 
-See the [Installation guide]({{< ref "/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+See the [Installation guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 ## About the Decentraland Editor
 

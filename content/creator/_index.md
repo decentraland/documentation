@@ -35,7 +35,7 @@ The Decentraland SDK allows you to create your scene by writing in TypeScript (J
 
 The Editor is an all-in-one content creation tool. It's intended for users of any knowledge level, combining a graphical interface with code editing capabilities. Both technical and non-technical creators will benefit from using it.
 
-[Learn more]({{< ref "/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+[Learn more]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 ## Graphical editing tools
 

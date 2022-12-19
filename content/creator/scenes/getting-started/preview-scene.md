@@ -21,7 +21,7 @@ Once you have [built a new scene]({{< ref "/content/creator/scenes/getting-start
 
 To run a scene preview using the Decentraland Editor:
 
-Make sure you've [installed the Decentraland editor]({{< ref "/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 
 1) Open your scene's folder using Visual Studio Code. 

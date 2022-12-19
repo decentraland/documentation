@@ -28,7 +28,7 @@ Check the [Awesome repository](https://github.com/decentraland-scenes/Awesome-Re
 
 ### Install a dependency
 
-Make sure you've [installed the Decentraland editor]({{< ref "/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 1) Open your scene's folder using Visual Studio Code. 
 

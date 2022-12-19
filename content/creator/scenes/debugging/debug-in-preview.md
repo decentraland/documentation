@@ -41,7 +41,7 @@ Using the Decentraland Editor, you can add breakpoints to your scene's code. Whe
 
 This is especially useful to validate that the data at a given point in time is what you expect. You can also modify the values of any variable manually and resume execution with the blue play button, using those new variables. This is great to test corner cases, to make sure the scene behaves as expected on every scenario, which might otherwise be a lot harder to reproduce.
 
-Make sure you've [installed the Decentraland editor]({{< ref "/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 
 1. Open VSCode in a Decentraland scene project.
