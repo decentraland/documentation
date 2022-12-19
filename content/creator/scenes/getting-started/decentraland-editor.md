@@ -3,6 +3,8 @@ date: 2022-12-19
 title: Decentraland Editor
 description: About the Decentraland Editor
 type: Document
+alias:
+	- /creator/development-guide/editor/editor-beta-testing-guidelines/
 url: /creator/development-guide/editor/
 weight: 3
 ---
@@ -17,11 +19,12 @@ The Decentraland editor is an extension of Visual Studio Code, built for easing 
 
 Ultimately the editor will offer many no-code options for placing items, and setting component parameters via graphical UIs. The first version of the editor aims for simplifying the experience of coding scenes by removing the command line from the list of tools you need to use. It offers UI options for:
 
-- **Create projects**: Scaffold a new project of various types: scene, library, portable experience, and smart item. See [Create a project]({{< ref "/content/creator/development-guide/sdk-101.md" >}}).
-- **Run scenes**: preview your scenes within VSCode, or launch in a browser. See [Run preview]({{< ref "/content/creator/development-guide/preview-scene.md" >}}).
-- **Debug scenes**: Add breakpoints to the code, to pause execution and see current state of all variables at that point in time. See [Debug in preview]({{< ref "/content/creator/development-guide/debug-in-preview.md#add-breakpoints-in-the-decentraland-editor" >}}).
-- **Publish scenes**: publish your scene to the world. See [Publishing]({{< ref "/content/creator/development-guide/publishing.md" >}}).
-- **Manage dependencies**: add, remove, and list the libraries and dependencies that your project is using. See [Manage dependencies]({{< ref "/content/creator/development-guide/scene/libraries/manage-dependencies.md" >}}).
+
+- **Create projects**: Scaffold a new project of various types: scene, library, portable experience, and smart item. See [Create a project]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}).
+- **Run scenes**: preview your scenes within VSCode, or launch in a browser. See [Run preview]({{< ref "/content/creator/scenes/getting-started/preview-scene.md" >}}).
+- **Debug scenes**: Add breakpoints to the code, to pause execution and see current state of all variables at that point in time. See [Debug in preview]({{< ref "/content/creator/scenes/debugging/debug-in-preview.md#add-breakpoints-in-the-decentraland-editor" >}}).
+- **Publish scenes**: publish your scene to the world. See [Publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}).
+- **Manage dependencies**: add, remove, and list the libraries and dependencies that your project is using. See [Manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-dependencies.md" >}}).
 - **Preview models**: Open a gltf or .glb model to see an interactive preview.
 
 ## Reporting issues
