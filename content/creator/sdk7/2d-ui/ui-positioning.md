@@ -62,13 +62,9 @@ By default, child entities are positioned in relation to the top-left corner of 
 - `alignItems`: Describes how to align children along the cross axis of their container. Align items is very similar to justify content but instead of applying to the main axis, align items applies to the cross axis. This property requires a value from the  `YGAlign` enum. The following options are available:
 
 	- `YGAlign.YGA_STRETCH`: (DEFAULT) Stretch children of a container to match the height of the container's cross axis.
-
 	- `YGAlign.YGA_FLEX_START`: Align children of a container to the start of the container's cross axis.
-
 	- `YGAlign.YGA_FLEX_END`: Align children of a container to the end of the container's cross axis.
-
 	- `YGAlign.YGA_CENTER`: Align children of a container in the center of the container's cross axis.
-
 	- `YGAlign.YGA_BASELINE`: Align children of a container along a common baseline. Individual children can be set to be the reference baseline for their parents.
 
 - `alignSelf`: Align self has the same options and effect as `alignItems` but instead of affecting the children within a container, you can apply this property to a single child to change its alignment within its parent. align self overrides any option set by the parent with align items. It takes its value from `YGAlign`, see `alignItems` above for details on these options.
