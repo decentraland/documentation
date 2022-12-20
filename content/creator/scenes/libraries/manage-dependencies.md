@@ -5,6 +5,9 @@ description: How to add libraries to a scene
 categories:
   - development-guide
 type: Document
+aliases:
+  - /creator/development-guide/manage-dependencies
+  - /creator/development-guide/libraries/manage-dependencies
 url: /creator/development-guide/scene/libraries/manage-dependencies
 weight: 1
 ---
