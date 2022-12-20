@@ -4,6 +4,8 @@ title: SDK7 alpha testing guidelines
 description: Play live audio streams in your scene.
 categories:
   - development-guide
+aliases: 
+  - /creator/development-guide/sdk7/beta-testing-guidelines/
 type: Document
 url: /creator/development-guide/sdk7/alpha-testing-guidelines/
 weight: 2000

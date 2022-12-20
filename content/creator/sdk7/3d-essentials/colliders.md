@@ -5,7 +5,7 @@ description: Learn about the different components that give entities their 3D sh
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/sdk7/shape-components/
+url: /creator/development-guide/sdk7/colliders/
 ---
 
 Entities that have colliders occupy space and block a player's path, entities without colliders can be walked through by a player`s avatar. 
