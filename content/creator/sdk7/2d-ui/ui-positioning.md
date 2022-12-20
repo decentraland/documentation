@@ -140,7 +140,6 @@ examples:
 In Flexbox, entity positions are mostly determined by how they are parented, and what arrangement properties are set on the parent and child. You often don't have to set the `position` property at all. But if you do want to tweak that, or completely override the normal flow of Flexbox and set an absolute position, here are the relevant properties:
 
 - `positionType`: Defines how entities are positioned. It uses a value from the `YGPositionType` enum.
-
 	- `YGPositionType.YGPT_RELATIVE`: (DEFAULT) By default an entity is positioned relatively. This means an entity is positioned according to the normal flow of the layout, and then offset relative to that position based on the values of `top`, `right`, `bottom`, and `left`. The offset does not affect the position of any sibling or parent entities.
 	- `YGPositionType.YGPT_ABSOLUTE`: When positioned absolutely, an entity doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values.
 
