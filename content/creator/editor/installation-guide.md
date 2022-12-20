@@ -16,4 +16,4 @@ To install the Decentraland Editor:
 
 1) Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
 
-2) Open Visual Studio Code, and open the extensions marketplace. Search for the **Decentraland** extension and click **Install**. You'll then need to restart Visual Studio to use the extension.
+2) Open Visual Studio Code, and open the extensions marketplace. Search for the **Decentraland Editor** extension and click **Install**. You'll then need to restart Visual Studio to use the extension.
