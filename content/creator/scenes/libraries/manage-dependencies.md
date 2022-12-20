@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 aliases:
-	- /creator/editor/manage-dependencies
+  - /creator/editor/manage-dependencies
   - /creator/development-guide/manage-dependencies
   - /creator/development-guide/libraries/manage-dependencies
 url: /creator/development-guide/scene/libraries/manage-dependencies
