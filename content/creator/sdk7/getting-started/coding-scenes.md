@@ -25,8 +25,10 @@ Our SDK includes the following components:
 - **The Decentraland Editor**: Use it to create and preview Decentraland scenes. You don't need to download any software to your machine, the editor runs entirely on your browser.
 -->
 
-- **The Decentraland CLI** (Command Line Interface): Use it to [generate]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}) new Decentraland scenes locally on your own machine, preview them and upload them to the content server.
+- **The Decentraland Editor**: An extension for Visual Studio Code that allows you to create scenes, preview and debug, and publish. [Read more]({{< ref "/content/creator/sdk7/getting-started/decentraland-editor.md" >}})
 - **The Decentraland ECS**: A TypeScript package containing the library of helper methods that allows you to create interactive experiences. Use it to create and manipulate objects in the scene and also to facilitate in-world transactions between players or other applications. ( [latest ECS reference](https://github.com/decentraland/ecs-reference/blob/master/docs-latest/decentraland-ecs.md))
+- **The Decentraland CLI** (Command Line Interface): Use it to [generate]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}) new Decentraland scenes locally on your own machine, preview them and upload them to the content server.
+
 
 - **Scene examples**: Take inspiration and coding best practices from the [scene examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
 
@@ -36,11 +38,9 @@ To develop a scene locally, you don't need to own LAND tokens. Developing and te
 
 You must have the following:
 
-- **npm** (Node package manager): Used in the terminal to handle scene dependencies, required to install the Decentraland CLI. [Download link](nodejs.org)
+- **Visual Studio Code**: Dowload it [here](https://code.visualstudio.com/). Beyond hosting the Decentraland Editor extension, it helps you create scenes a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
 
-- **The Decentraland CLI**: Used to build, preview and upload scenes. See [Installation guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}})
-
-- **A source code editor**: Helps you create scenes a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports. We recommend [Visual Studio Code](https://code.visualstudio.com/), which is a free tool with a rich ecosystem of helpful extensions.
+- **The Decentraland Editor**: An extension for Visual Studio code that exposes many common functionalities as buttons in the UI. [How to install it]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 
 ## Supported languages and syntax
@@ -252,3 +252,18 @@ We have also abstracted the communication protocol. This allows us to run the sc
 We don't want developers to intervene with the internals of the engine or even need to know what lies inside the engine. We need to ensure a consistent experience for players throughout the Decentraland map, and mistakes are more likely to happen at that "low" level. 
 
 This decoupling is also important to prevent neighbor scenes from interfering with the experience of players while they're on someone else's scene. A player might have multiple nearby scenes loaded at the same time, each running their own code. Some actions (like opening external links, or moving the player) are only permitted when the player is standing on that particular scene, not if the scene is loaded but the player is outside.
+
+
+## SDK Versions
+
+When developing a new scene, you use the `@latest` stable SDK release by default.
+
+You can install the `@next` SDK release if you want to leverage or preview upcoming features that didn't yet make it into the latest stable release.
+
+To do so, open the Decentraland Editor tab, and press the `+` sign to install the following:
+
+`@dcl/skd@next`
+
+See [manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-dependencies.md" >}}) for more details.
+
+> Note: Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.
