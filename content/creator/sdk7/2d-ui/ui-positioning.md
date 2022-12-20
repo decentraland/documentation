@@ -53,15 +53,10 @@ By default, child entities are positioned in relation to the top-left corner of 
 - `justifyContent`: This property describes how to align children within the main axis of their container. For example, you can use this property to center a child horizontally within a container with `flexDirection` set to row or vertically within a container with `flexDirection` set to column. The value of this property must be from the `YGJustify` enum. Possible values are:
 
 	- `YGAlign.FLEX_START` (DEFAULT): Align children of a container to the start of the container's main axis.
-
 	- `YGAlign.FLEX_END`: Align children of a container to the end of the container's main axis.
-
 	- `YGAlign.CENTER`: Align children of a container in the center of the container's main axis.
-
 	- `YGAlign.SPACE_BETWEEN`: Evenly space of children across the container's main axis, distributing remaining space between the children.
-
 	- `YGAlign.SPACE_AROUND`: Evenly space of children across the container's main axis, distributing remaining space around the children. Compared to space between using space around will result in space being distributed to the beginning of the first child and end of the last child.
-
 	- `YGAlign.SPACE_EVENLY`: Evenly distributed within the alignment container along the main axis. The spacing between each pair of adjacent items, the main-start edge and the first item, and the main-end edge and the last item, are all exactly the same.
 
 - `alignItems`: Describes how to align children along the cross axis of their container. Align items is very similar to justify content but instead of applying to the main axis, align items applies to the cross axis. This property requires a value from the  `YGAlign` enum. The following options are available:
