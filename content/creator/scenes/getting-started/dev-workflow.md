@@ -15,7 +15,7 @@ This document outlines the steps recommended for developing a scene for Decentra
 
 <!-- diagram? icons? -->
 
-- [Install the Decentraland Editor](#install-the-decentraland-editorthe Decentraland Editor)
+- [Install the Decentraland Editor](#install-the-decentraland-editor)
 - [Design your experience](#design-your-experience)
 - [Where to publish](#where-to-publish)
 - [Templates and examples](#templates-and-examples)
@@ -26,7 +26,6 @@ This document outlines the steps recommended for developing a scene for Decentra
 - [Promote](#promote)
 - [Iterate](#iterate)
 - [Giving back](#giving-back)
-
 
 
 ## Install the Decentraland Editor
@@ -52,10 +51,8 @@ The following options are available:
 - Rent LAND
 - Purchase LAND
 - Obtain permissions from a land owner
-
-<!-- You can also publish to a World, outside Genesis City. If you own a Decentraland Name token, you can deploy 
-
-> Note: The Worlds feature is still in beta. -->
+- Publish to a Decentraland World, see [worlds]({{< ref "/content/creator/worlds/about.md" >}}) to learn more.
+	> NOTE: The Worlds feature is still in beta.
 
 See [Publishing options]({{< ref "/content/creator/scenes/publishing/publishing-options.md" >}}) for more details.
 
