@@ -134,7 +134,7 @@ And you are all set! you can start working on your LAND, and deploy a scene usin
 Note: after the Rent ends, the Tenant will still have Operator Permissions until the LAND Owner Claims it back, or somebody else rents it. **Make sure you save your content before the end of the rent, otherwise it could be lost.**
 
 <aside>
-💡 Renting LAND does not transfer Voting Power to the Tenant. Voting Power is kept by the LAND Owner
+💡 Renting LAND does not transfer Voting Power to the Tenant. Voting Power is kept by the LAND Owner as defined by the DAO in this [Proposal]([https://market.decentraland.org/](https://governance.decentraland.org/proposal/?id=c98bd010-74b1-11ed-a9bf-f772a12a0556))
 
 </aside>
 

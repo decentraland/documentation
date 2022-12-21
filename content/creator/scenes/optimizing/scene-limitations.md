@@ -6,6 +6,7 @@ aliases:
   - /documentation/scene-limitations/
   - /builder/scene-limitations/
   - /development-guide/scene-limitations/
+  - /creator/builder/scene-limitations
 categories:
   - development-guide
 type: Document
@@ -35,9 +36,11 @@ Below are the maximum number of elements that a scene is allowed to render at th
 
   > Important: Only entities that are currently being rendered in the scene are counted for these limits. If your scene switches between 3D models, what matters is the rendered models at any point in time, not the total sum. Player avatars and any items brought by a player from outside the scene don't count for calculating these limits either.
 
-- **File size:** `15 MB per parcel` Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages.
+- **File size:** `15 MB per parcel - 300 MB max` Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages.
 
 - **File count:** `200 files per parcel` Total count of the files uploaded. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages.
+
+- **Max file size** `50 MB per file` No individual file of any type in the scene can exceed 50 MB, no matter how many parcels the scene has.
 
 ## Optimizing
 
