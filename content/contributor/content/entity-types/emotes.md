@@ -13,13 +13,13 @@ Emotes are the [entities]({{< relref "../entities" >}}) that hold animations for
 | `id` | The [[pointer]] that resolves (or used to resolve) to this emote.
 | `name` | The display title for this emote in a [[collection]].
 | `description` | An extended description for this emote.
-| `image` | The picture for this emote in a [[collection]].
-| `thumbnail` | A smaller version of the `image` !!exact size?.
+| `image` | The [[internal file]] with a picture for this emote in a [[collection]].
+| `thumbnail` | The [[internal file]] for a smaller version of the `image` !!exact size?.
 | `rarity` | One of `common`, `uncommon`, `rare`, `epic`, `legendary`, `mythic` or `unique`.
 | `i18n` | An array of translations for the `name` field.
 | `collectionAddress` | The Ethereum address for the collection that contains this emote.
 | `metrics` | Some useful measurements about the animations (see below).
-| `emoteDataADR74` | The extended metadata for this emote, as defined in [[ADR-74]] (see below).
+| `emoteDataADR74` | The extended metadata for this emote, as defined in [ADR-74](https://adr.decentraland.org/adr/ADR-74) (see below).
 
 
 This is how a typical JSON looks like:
@@ -61,6 +61,8 @@ In the `metadata.metrics` object, you'll find some simple measurements for the a
 ```
 
 ## Emote Data ADR-74
+
+This object contains the fields that World Explorers (or other graphical applications) need to animate models with this emote.
 
 | Field | Value |
 | ----- | --- |
