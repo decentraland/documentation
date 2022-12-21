@@ -50,6 +50,6 @@ On the other hand, NAMEs also work as realms, so you can leverage the existing c
 
 ### Migrating a World to the Genesis City  
 
-If you are a LAND owner and you wish to deploy a World scene to the Genesis city it is completely possible, you just need to re-deploy your scene to the decentralized Catalyst network, the targeted content server for Genesis City
+If you are a LAND owner and you wish to deploy a World scene to the Genesis city, it is completely possible, you just need to re-deploy your scene to the decentralized Catalyst network, the targeted content server for Genesis City
 
 Just remember that the size limitation for Worlds (100 MB, an average of 25MB per parcel) is larger than that for LAND parcels (15MB a parcel), so make sure your scene is sized correctly for deployments to Genesis City!
