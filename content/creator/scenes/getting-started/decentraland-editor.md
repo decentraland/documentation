@@ -6,7 +6,7 @@ type: Document
 aliases:
   - /creator/development-guide/editor/editor-beta-testing-guidelines/
 url: /creator/development-guide/editor/
-weight: 3
+weight: 5
 ---
 
 ## Install the editor

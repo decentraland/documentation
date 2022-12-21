@@ -20,7 +20,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/coding-scenes
-weight: 3
+weight: 10
 ---
 
 ## The development tools

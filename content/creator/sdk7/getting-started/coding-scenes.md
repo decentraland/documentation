@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/sdk7/coding-scenes/
-weight: 1
+weight: 10
 ---
 
 ## The development tools
