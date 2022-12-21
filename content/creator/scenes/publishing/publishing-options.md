@@ -38,5 +38,5 @@ See [Community grants]({{< ref "/content/player/dao/grants/community-grants.md" 
 LAND tokens can manage permissions that allow three different kinds of roles to deploy to a particular parcel or estate.
 
 - **LAND owner**: The person that owns the token in their Ethereum wallet. This user can always deploy, assign other roles, or transfer the token (unless the land is currently rented by someone else).
-- **LAND operator**: The operator's address is referenced but the token, without needing to own anything. The operator is only able to deploy, as long as they hold this role. The owner or manager can assign and revoke operator permissions to any number of addresses. See [Give permissions]({{< ref "/content/player/market/land-manager.md#give-permissions" >}}).
+- **LAND operator**: The operator's address is referenced but the token, without needing to own anything. The operator is only able to deploy, as long as they hold this role. The owner or manager can assign and revoke operator permissions to any number of addresses. See [Give permissions]({{< ref "/content/player/marketplace/land-manager.md#give-permissions" >}}).
 - **LAND manager**: The manager's address is referenced by the token, without needing to own anything. The manager is free to deploy and to assign others as operators. The manager permission can only be assiged via the smart contract.
