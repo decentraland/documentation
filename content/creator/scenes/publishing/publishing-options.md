@@ -8,12 +8,10 @@ type: Document
 url: /creator/development-guide/publishing-permissions
 ---
 
-To invite others to visit a scene you built, you'll need to publish it in Decentraland. To do this, you'll need to have deploy permissions to Decentraland parcels.
+To invite others to visit a scene you built, you'll need to publish it in Decentraland. To do this, you'll need to have deploy permissions to Decentraland parcels or own a Decentraland name in order to deploy to a Decentraland World.
 
 This document gives an overview on the different ways to obtain permissions. 
 See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) for instructions on how to publish once you've obtained these.
-
-<!-- or own a Decentraland name in order to deploy to a world. -->
 
 
 ## LAND permission options
@@ -23,7 +21,7 @@ In order to publish to LAND in Genesis City, you can do the following:
 - **Rent LAND**: Purchase the right to deploy and keep your content on certain parcels for a fixed period of time. See [Rentals]({{< ref "/content/player/marketplace/rentals.md" >}}).
 - **Buy land**: Buy land parcels, and publish your content for as long as you wish. See [marketplace]({{< ref "/content/player/marketplace/marketplace.md" >}}).
 - **Get permissions from an owner**: Several land owners and districts manage large extensions of land and are willing to freely host content from others if it fits their theme and the kind of environment they want to create. Connect with them in the [Decentraland Discord server](https://dcl.gg/discord).
-<!-- - **Worlds (Beta)**: You can also deploy a stand-alone scene as a Decentraland World. Worlds exist outside the grid of Genesis Plaza, and can be accessed by name. See [worlds]({{< ref "/content/creator/worlds/about.md" >}}) -->
+- **Worlds (Beta)**: You can also deploy a stand-alone scene as a Decentraland World. Worlds exist outside the grid of Genesis Plaza, and can be accessed by name. See [worlds]({{< ref "/content/creator/worlds/about.md" >}})
 
 > NOTE: You can also deploy scenes to a test server where players are not around. The same permissions per parcel apply when deploying to the test server, see [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) for more details.
 
