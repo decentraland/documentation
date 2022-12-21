@@ -168,7 +168,7 @@ To preview a scene that uses an authoritative server, you must run both the scen
 
 To start the server, go to the `/server` folder and run `npm start`.
 
-Once the server is running, either remotely or locally, you can run `dcl start` on the scene as you normally do for local scenes.
+Once the server is running, either remotely or locally, you can run the scene preview as you normally do for local scenes.
 
 Once the scene preview is running, you can open multiple browser tabs pointing at the same local address. Each tab will instantiate a separate player in the same scene, these players will share the same scene state as the scene changes.
 
