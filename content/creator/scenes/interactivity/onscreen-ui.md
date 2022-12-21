@@ -288,7 +288,7 @@ playButton.source = imageTexture2
 
 All UI elements have an `isPointerBlocker` property, that determines if they can be clicked. If this value is false, the pointer should ignore them and respond to whatever is behind the element.
 
-Clickable UI elements also have an `OnClick` property, that lets you add a function to execute every time it's clicked.
+Clickable UI elements also have an `OnClick` property, that lets you add a function to execute every time it's clicked. `OnClick` properties must be followed by an `OnPointerDown(()=>{})` function, as seen below.
 
 ```ts
 const canvas = new UICanvas()
@@ -300,7 +300,7 @@ clickableImage.height = "91px"
 clickableImage.sourceWidth = 92
 clickableImage.sourceHeight = 91
 clickableImage.isPointerBlocker = true
-clickableImage.onClick = new OnClick(() => {
+clickableImage.onClick = new OnPointerDown(() => {
   // DO SOMETHING
 })
 ```
@@ -413,10 +413,13 @@ close.sourceWidth = 92
 close.sourceHeight = 91
 close.vAlign = "bottom"
 close.isPointerBlocker = true
-close.onClick = new OnClick(() => {
+close.onClick = new OnPointerDown(() => {
   log("clicked on the close image")
   canvas.visible = false
   canvas.isPointerBlocker = false
 })
 ```
 ````
+
+
+See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.
