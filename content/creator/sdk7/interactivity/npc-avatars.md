@@ -28,21 +28,19 @@ Transform.create(myAvatar, {
 When passing data to generate an `AvatarShape`, the following fields are required:
 
 - `id`: (required) Internal identifier for the Avatar
-- `wearables`:  (required) Array with list of URNs for wearables that the avatar currently has on. If wearables conflict (like two of them are hats), the last one in the list replaces the other.
-- `emotes`:  (required) Array with list of URNs for NFT emotes that the avatar is capable of playing 
-
-<!-- TODO: check if emotes really work like this -->
 
 
 The following optional fields are also available:
 
 - `name`: Name to display over the Avatar's head. Default: "NPC".
-- `talking`: If _true_, it displays a green set of bars next to the name, like when players use voice chat in-world.
 - `bodyShape`: String to define which body shape to use.
+- `wearables`: Array with list of URNs for wearables that the avatar currently has on. If wearables conflict (like two of them are hats), the last one in the list replaces the other.
+- `emotes`: Array with list of URNs for NFT emotes that the avatar is capable of playing 
 - `eyeColor`: _Color3_ for the eye color (any color is valid)
 - `skinColor`: _Color3_ for the skin color (any color is valid)
 - `hairColor`: _Color3_ for the hair color (any color is valid)
-
+- `talking`: If _true_, it displays a green set of bars next to the name, like when players use voice chat in-world.
+- 
 > TIP: See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.
 
 
@@ -66,5 +64,5 @@ Transform.create(myAvatar, {
 })
 ```
 
-<!-- TODO: Should I aso set `expressionTriggerTimestamp`? is it lamport or time? -->
+<!-- TODO: What about `expressionTriggerTimestamp`? is it lamport or time? -->
 
