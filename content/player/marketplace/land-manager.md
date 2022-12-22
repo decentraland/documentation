@@ -6,13 +6,12 @@ categories:
   - market
 type: Document
 aliases:
-   - /market/land-manager/
+  - /market/land-manager/
 url: /player/market/land-manager
 weight: 2
 ---
 
 The Land Manager allows you to manage your LAND and Estate assets.
-
 
 Access the Land manager at [https://builder.decentraland.org/land](https://builder.decentraland.org/land).
 
@@ -77,12 +76,15 @@ The user given permission can also change the name or description in the Marketp
 
 To grant permissions over your LAND:
 
-1. Navigate to the details page of the parcel or Estate and click **Permissions**.
+1. Navigate to the details page of the parcel or Estate and click on the three dots and then `Set Operator`.
+   ![](/images/media/marketplace_give_permissions_set_operator.png)
+
+2. Fill the form with the desired info.
 
    ![](/images/media/marketplace_give_permissions.png)
 
-2. Click **Submit**.
-3. Confirm this transaction on your Ethereum client and wait for the network to verify it.
+3. Click **Submit**.
+4. Confirm this transaction on your Ethereum client and wait for the network to verify it.
 
 ## See your activity history
 
