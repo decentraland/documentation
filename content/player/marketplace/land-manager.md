@@ -76,7 +76,7 @@ The user given permission can also change the name or description in the Marketp
 
 To grant permissions over your LAND:
 
-1. Navigate to the details page of the parcel or Estate and click on the three dots and then `Set Operator`.
+1. Navigate to the details page of the parcel or Estate and click on the three dots and then **Set Operator**.
    ![](/images/media/marketplace_give_permissions_set_operator.png)
 
 2. Fill the form with the desired info.
