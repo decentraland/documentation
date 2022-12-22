@@ -4,7 +4,9 @@ url: /contributor/content/entity-types/emotes
 weight: 4
 ---
 
-Emotes are the [entities]({{< relref "../entities" >}}) that hold animations for player's avatars. They include files in GLB format for different body shapes.
+Emotes are the [entities]({{< relref "../entities" >}}) that hold animations for player's avatars.
+
+They include files in GLB format for different body shapes.
 
 ## Metadata Fields
 
@@ -14,7 +16,7 @@ Emotes are the [entities]({{< relref "../entities" >}}) that hold animations for
 | `name` | The display title for this emote in a [[collection]].
 | `description` | An extended description for this emote.
 | `image` | The [[internal file]] with a picture for this emote in a [[collection]].
-| `thumbnail` | The [[internal file]] for a smaller version of the `image` !!exact size?.
+| `thumbnail` | The [[internal file]] for a 256x256 version of the `image`.
 | `rarity` | One of `common`, `uncommon`, `rare`, `epic`, `legendary`, `mythic` or `unique`.
 | `i18n` | An array of translations for the `name` field.
 | `collectionAddress` | The Ethereum address for the collection that contains this emote.
@@ -35,10 +37,10 @@ This is how a typical JSON looks like:
   "i18n": [
     { "code": "es", "text": "Danza Graciosa" }
   ],
+  "collectionAddress": "0x2d9560df9dd8ba8b2dc3746bc1d217698d258fb5",
   "metrics": {
     // Measurements object (see below).
   },
-  "collectionAddress": "0x2d9560df9dd8ba8b2dc3746bc1d217698d258fb5",
   "emoteDataADR74": {
     // Extended metadata defined in ADR-74 (see below).
   }
