@@ -25,9 +25,9 @@ The Land Manager allows you to:
 
 ## Manage Your LAND
 
-To view your LAND tokens, click **My LAND**. Here you’ll find a list of all of your parcels and Estates, including any parcels that you have listed for sale.
+To view your LAND tokens, click **Manage your LAND**. Here you’ll find a list of all of your parcels and Estates, including any parcels that you have listed for sale.
 
-By clicking on one of the parcels or Estates listed under My Land, you can edit its name, description, put it up for sale, or transfer it directly to another wallet address.
+By clicking on one of the parcels or Estates listed under **Land**, you can edit its name, description, set an operator, or transfer it directly to another wallet address.
 
 ![](/images/media/marketplace_myland.png)
 
