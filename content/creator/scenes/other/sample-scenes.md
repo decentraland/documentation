@@ -9,7 +9,7 @@ type: Document
 
 To get you up and running, and to illustrate what kind of experiences you can build using the SDK, we’ve put together some code and scene examples.
 
-Some of these scenes feature a link to a version of the scene that's deployed on a remote server. There you can interact with it just as if you were running `dcl start` locally.
+Some of these scenes feature a link to a version of the scene that's deployed on a remote server. There you can interact with it just as if you were running the preview locally.
 
 # Clone an example scene
 

@@ -24,11 +24,13 @@ Note that all transactions triggered by a scene will require a player to approve
 
 All blockchain operations also need to be carried out as [asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the timing depends on external events.
 
-When running a preview of a scene that uses one of the ethereum libraries, you must have Metamask open in your browser and you must run the preview with:
+When running a preview of a scene that uses one of the ethereum libraries, you must have Metamask open in your browser. If using the CLI, run the preview with:
 
 ```
 dcl start --web3
 ```
+
+If using the Decentraland Editor, open the scene in a separate browser window, and manually include the string `&ENABLE_WEB3`.
 
 ## Ethereum controller library
 
