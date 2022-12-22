@@ -48,8 +48,8 @@ You don't need land to develop a scene, but you will need access to land once yo
 
 The following options are available:
 
-- Rent LAND
-- Purchase LAND
+- [Rent LAND]({{< ref "/content/player/marketplace/rentals.md" >}})
+- [Purchase LAND]({{< ref "/content/player/marketplace/marketplace.md" >}})
 - Obtain permissions from a land owner
 - Publish to a Decentraland World, see [worlds]({{< ref "/content/creator/worlds/about.md" >}}) to learn more.
 	> NOTE: The Worlds feature is still in beta.
@@ -59,7 +59,7 @@ See [Publishing options]({{< ref "/content/creator/scenes/publishing/publishing-
 
 ## Templates and examples
 
-When creating a new scene, chose amongst several base template scenes that include some basic code and 3d models. Use these to get started faster.
+When creating a new scene, choose amongst several base template scenes that include some basic code and 3d models. Use these to get started faster.
 
 Check out the [awesome repository](https://github.com/decentraland-scenes/Awesome-Repository) for a large collection of example scenes, each showcasing different mechanics that you can borrow. You can also clone any of these scenes and use it as a starting point.
 
@@ -67,7 +67,7 @@ Also check out [helper libraries](https://github.com/decentraland-scenes/Awesome
 
 ## Art assets
 
-If you're an experienced artist or you have access to someone who is, you can cerate custom `.gltf` or `.glb` models for your scene. See [3D model essentials]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for tips on how to create 3D models for Decentraland.
+If you're an experienced artist or you have access to someone who is, you can create custom `.gltf` or `.glb` models for your scene. See [3D model essentials]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for tips on how to create 3D models for Decentraland.
 
 There are many sources to obtain free or paid art assets. For example:
 
@@ -87,7 +87,7 @@ See [Preview your scene]({{< ref "/content/creator/scenes/getting-started/previe
 
 > TIP: If you get stuck trying to debug an issue, visit the [Decentraland Discord server](https://dcl.gg/discord) to get help from other developers.
 
-_Optional_: Your scen`s might mechanics might rely on a 3rd party server to carry out player validations, permanent data storage, or other functionalities. See ...link?
+_Optional_: Your scene`s mechanics might rely on a 3rd party server to carry out player validations, permanent data storage, or other functionalities. See [Use an authoritative server]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md#use-an-authoritative-server" >}}))
 
 ## Publish to the test server
 
@@ -123,10 +123,10 @@ See [Scene analytics]({{< ref "/content/creator/scenes/other/scene-analytics.md"
 
 ## Giving back
 
-Decentraland is a community project, the community of creators learns together and leverag each other's creations. Consider the following:
+Decentraland is a community project, the community of creators learns together and leverage each other's creations. Consider the following:
 
 - Join the [Decentraland Discord server](https://dcl.gg/discord) and help other developers in need of advice.
-- Share your scene's code as an open soruce repo on GitHub.
-- Build a minimal example to share a specific reusable mechanic, as an open soruce repo on GitHub.
+- Share your scene's code as an open source repo on GitHub.
+- Build a minimal example to share a specific reusable mechanic, as an open source repo on GitHub.
 - Make a PR to the Awesome Repository to include your scenes.
 - Write a library that encapsulates the complexity of common challenges, so others can overcome them easily.
