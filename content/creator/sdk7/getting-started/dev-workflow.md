@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/sdk7/dev-workflow/
-weight: 5
+weight: 2
 ---
 
 This document outlines the recommended steps involved in developing a scene for Decentraland, going from testing in the local environment to deploying to production.
