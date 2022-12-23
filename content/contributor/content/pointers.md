@@ -11,7 +11,7 @@ Remember that both [entities]({{< relref "entities" >}}) and their [files]({{< r
 
 Multiple pointers can resolve to the same [entity]({{< relref "entities" >}}), as is often the case with [scenes]({{< relref "entity-types/scenes" >}}).
 
-As you may gather, the most common use of pointers is obtaining the ID for the active version (i.e. latest replacement) of an entity, in order to download it.
+As you may gather, the most common use of pointers is obtaining the ID for the active version (i.e. latest replacement) of an [entity]({{< relref "entities" >}}), in order to download it.
 
 ## Pointer Types
 
