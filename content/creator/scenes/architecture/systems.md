@@ -13,7 +13,7 @@ weight: 2
 
 Decentraland scenes rely on _systems_ to update the information stored in each entity's [components]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}) as the scene changes.
 
-![](/images/media/ecs-big-picture.png)
+![](/images/media/ecs-big-picture-old.png)
 
 _systems_ are what make scenes dynamic, they're able to execute functions periodically on every frame of the scene's game loop, changing what will be rendered.
 
