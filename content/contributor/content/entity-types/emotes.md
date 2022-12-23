@@ -8,15 +8,36 @@ Emotes are the [entities]({{< relref "../entities" >}}) that hold animations for
 
 They include files in GLB format for different body shapes.
 
+## Pointers {#pointers}
+
+Emotes have exactly one associated [pointer]({{< relref "../pointers" >}}), which indicates the collection they belong to and their index inside of it. They are URNs of this form:
+
+```
+urn:decentraland:matic:collections-v2:<collection address>:<item index>
+```
+
+To illustrate, the `pointers` array for an emote looks like this:
+
+```json
+{
+  "pointers": [
+    "urn:decentraland:matic:collections-v2:0x2d9560df9dd8ba8b2dc3746bc1d217698d258fb5:0"
+  ],
+  // ... other entity properties
+}
+```
+
 ## Metadata Fields
+
+Emotes share most of their basic fields with [wearables]({{< relref "./wearables" >}}). The `emoteDataADR74` property is where the emote-specific information is located.
 
 | Field | Value |
 | ----- | --- |
-| `id` | The [[pointer]] that resolves (or used to resolve) to this emote.
-| `name` | The display title for this emote in a [[collection]].
+| `id` | The [pointer]({{< relref "../pointers" >}}) that resolves (or used to resolve) to this emote.
+| `name` | The display title for this emote in a [collection]({{< relref "../collections" >}}).
 | `description` | An extended description for this emote.
-| `image` | The [[internal file]] with a picture for this emote in a [[collection]].
-| `thumbnail` | The [[internal file]] for a 256x256 version of the `image`.
+| `image` | The [internal filename]({{< relref "../entities#files" >}}) with a picture for this emote.
+| `thumbnail` | The [internal filename]({{< relref "../entities#files" >}}) for a 256x256 version of the `image`.
 | `rarity` | One of `common`, `uncommon`, `rare`, `epic`, `legendary`, `mythic` or `unique`.
 | `i18n` | An array of translations for the `name` field.
 | `collectionAddress` | The Ethereum address for the collection that contains this emote.
@@ -92,9 +113,9 @@ Each item in the `metadata.emoteDataADR74.representations` field defines the ani
 
 | Field | Value |
 | ----- | --- |
-| `bodyShapes` | An array of applicable [[body shape URNs]] !!?.
-| `mainFile` | The [[internal name]] for the associated GLB file.
-| `contents` | !!?
+| `bodyShapes` | An array of applicable [[body shape URNs]].
+| `mainFile` | The [internal filename]({{< relref "../entities#files" >}}) for the main GLB file.
+| `contents` | All files, including `mainFile` and any additional ones that it can reference.
 
 For example, a `representation` item:
 

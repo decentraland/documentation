@@ -152,7 +152,7 @@ head -n+2 emotes.snapshot | jq
 
 This is information we could save. We'll use the `entityId` to download the entity's JSON manifest, but persisting the listed [pointer]({{< relref "pointers" >}}) is a good idea if we want to locate this entity and any updated versions in the future.
 
-We also have the [[authentication chain]] used to sign this entity, and we could validate the listed signatures to verify the authenticity of any related files we download.
+We also have the [authentication chain]({{< relref "../entities#ownership" >}}) used to sign this entity, and we could validate the listed signatures to verify the authenticity of any related files we download.
 
 Let's get our hands on the entity manifest. Remember, the `entityId` is the [file identifier](({{< relref "filesystem#identifiers" >}})) we need, and we can use the `/content/contents` endpoint again:
 

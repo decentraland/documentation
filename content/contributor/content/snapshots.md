@@ -25,7 +25,7 @@ After that, each line is a JSON document describing an [entity]({{< relref "enti
 | `entityType` | One of `scene`, `profile`, `wearable`, `emote` or `store`.
 | `pointers` | An array of [pointers]({{< relref "pointers" >}}) that resolve (or used to resolve) to this entity. !!mmm
 | `localTimestamp` | The Unix UTC timestamp when this entity was uploaded. !!why local
-| `authChain` | The [[authentication chain]] for this entity.
+| `authChain` | The [authentication chain]({{< relref "./entities#ownership" >}}) for this entity.
 
 A typical entry looks like this:
 
