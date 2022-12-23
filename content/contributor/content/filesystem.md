@@ -5,7 +5,7 @@ url: "/contributor/content/filesystem"
 weight: 2
 ---
 
-Underlying the different content APIs in the Decentraland protocol is an implementation of a distributed file system. Each content server holds a copy of the entire storage, and synchronizes the updates it receives with other instances.
+Underlying the different content APIs in the Decentraland protocol is an implementation of a distributed file system. Each [[content server]] holds a copy of the entire storage, and synchronizes the updates it receives with other instances.
 
 Files uploaded to the system are **immutable**. Once created and indexed, neither their identifier
 nor their contents change. They can be updated only in the sense that a new version is uploaded and
@@ -32,14 +32,14 @@ In practice, these details are not necessary to discover and download content. M
 
 ## Ownership and Persistence
 
-Most of the files stored in the network are associated to an [entity]({{< relref "entities" >}}) owned by an Ethereum account. The owner is the only one allowed to update the entity, indirectly enforcing permissions for the related files.
+Except for [snapshots]({{< relref "snapshots" >}}), files stored in the network are associated to an [entity]({{< relref "entities" >}}) owned by an Ethereum account. The owner is the only one allowed to update the entity and related files.
 
-Content servers are required by protocol to always store the latest version of an entity, and thus all the associated files, but may choose whether to retain old versions according to their individual configuration.
+Content servers are required by protocol to always store the latest version of an entity and its files, but may choose whether to retain old versions according to their individual configuration.
 
 ## Downloading Files
 
-The [`/contents/<fileId>`](https://decentraland.github.io/catalyst-api-specs/#tag/Content-Server/operation/getContentFile) endpoint of the content server can be used to download any file.
+The [`/contents/<fileId>`](https://decentraland.github.io/catalyst-api-specs/#tag/Content-Server/operation/getContentFile) endpoint of the content server can be used to download any file. Their identifiers are found in the parent [entity's]({{< relref "entities" >}})'s manifest.
 
 ## Uploading Files
 
-Files are uploaded to content servers during the deployment of an [entity]({{< relref "entities" >}}). Only a few special files, such as [snapshots]({{< relref "snapshots" >}}), are independent from any particular entity.
+{{< wip >}}

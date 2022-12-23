@@ -129,4 +129,4 @@ For example, a `representation` item:
 }
 ```
 
-You will commonly find two representation entries, one for `BaseMale` and one for `BaseFemale`. !!?
+You will commonly find two representation entries, one for `BaseMale` and one for `BaseFemale`.

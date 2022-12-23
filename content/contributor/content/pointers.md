@@ -5,7 +5,7 @@ url: "/contributor/content/pointers"
 weight: 4
 ---
 
-Pointers are unique, case-insensitive strings that reference an active [entity]({{< relref "entities" >}}). Content servers can resolve these pointers to obtain its ID.
+Pointers are unique, case-insensitive strings that reference an active [entity]({{< relref "entities" >}}). Content servers can resolve these pointers to obtain the entity's identifier.
 
 Remember that both [entities]({{< relref "entities" >}}) and their [files]({{< relref "filesystem" >}}) are immutable in the Decentraland content system, and their identifiers change when replacement versions are uploaded. Pointers, on the other hand, are stable references that persist across replacements. This is achieved by automatically redirecting the pointer to a new entity when the owner uploads a replacement.
 

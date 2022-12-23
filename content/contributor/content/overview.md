@@ -5,9 +5,9 @@ url: "/contributor/content/overview"
 weight: 1
 ---
 
-Everything you can find inside the virtual world of Decentraland is hosted in a distributed network of servers known as Catalysts, that provide (among other things) the content API. They are the means by which clients upload and download content.
+Everything you can find inside the virtual world of Decentraland is hosted on a distributed network of servers known as Catalysts, that provide (among other things) the content API. They are the means by which clients upload and download content.
 
-The complete API of the Catalyst is available in [its own reference](https://decentraland.github.io/catalyst-api-specs/). Here, we'll focus on understanding how content is organized, and how it can be discovered and downloaded. !!stale paragraph
+The complete API of the Catalyst is available in [its own reference](https://decentraland.github.io/catalyst-api-specs/). Here, we'll focus on understanding how content is organized, and how it can be discovered and downloaded.
 
 All of the important concepts mentioned below are further described in their own pages.
 
@@ -15,7 +15,7 @@ All of the important concepts mentioned below are further described in their own
 
 There are three layers in Decentraland's content system: [files]({{< relref "filesystem" >}}) are packaged inside [entities]({{< relref "entities" >}}), and entities are discovered using [pointers]({{< relref "pointers" >}}).
 
-!!Placeholder GoAT diagram, could be much better
+_!!Placeholder GoAT diagram, this is a necessary complement to the text and needs to be better_
 
 ```goat
 .---------.         .--------.       .---------.
@@ -32,9 +32,9 @@ There are three layers in Decentraland's content system: [files]({{< relref "fil
 ```
 
 
-[Files]({{< relref "filesystem" >}}) are stored in a decentralised file-system resembling IPFS, and automatically synchronized across content servers. They are identified by a unique string ID that is computed from the file's content, and both the identifier and the content are **immutable**. There is no such thing as updating a file. Instead, replacement files are uploaded and stale files are deleted.
+[Files]({{< relref "filesystem" >}}) are stored in a decentralized file system resembling IPFS, and automatically synchronized across content servers. They are identified by a unique string ID that is computed from the file's content, and both the identifier and the content are **immutable**. There is no such thing as updating a file. Instead, replacement files are uploaded and stale files are deleted.
 
-[Entities]({{< relref "entities" >}}) are atomic packages of files and metadata, and represent actual content found in the world, such as scenes and wearable items. Just like the individual files they contain, they are immutable and identified by a unique and deterministic string. All entities have an owner, who possesses the private keys required to manage them.
+[Entities]({{< relref "entities" >}}) are atomic packages of files, and represent actual content found in the world, such as scenes and wearable items. They have at least one file, called _manifest_, with a general description and metadata. Just like the individual files they contain, they are immutable and identified by a unique and deterministic string. All entities have an owner, who possesses the private keys required to manage them.
 
 [Pointers]({{< relref "pointers" >}}) are stable references that can be resolved to the ID of an entity. When the entity is replaced (i.e. the owner uploads a new package, an the old one is deleted), the contained files and metadata are different and so are their identifiers, but pointers stay the same and are redirected to the new version.
 

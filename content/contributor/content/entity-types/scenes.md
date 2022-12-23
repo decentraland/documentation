@@ -35,9 +35,9 @@ There are several special properties for [entities]({{< relref "../entities" >}}
 
 | Field | Value |
 | ----- | --- |
-| `owner` | !!?
+| `owner` | Information about the scene's maintainer.
 | `main` | The [internal filename]({{< relref "../entities#files" >}}) to this scene's main JavaScript file.
-| `tags` | !!?
+| `tags` | An array of string labels descriptive of this scene.
 | `display` | Information about the scene for Explorers to show players (see below).
 | `scene` | The parcels this scene is active on, and its central location (see below).
 | `contact` | Name and email address to reach the scene's creators or maintainers (see below).
@@ -45,7 +45,6 @@ There are several special properties for [entities]({{< relref "../entities" >}}
 | `policy` | Recommended limitations for Explorers to enforce on players (see below).
 | `spawnPoints` | Locations and camera angles for players jumping into this scene (see below).
 | `requiredPermissions` | Recommended permissions for Explorers to ask from players (see below).
-| `source` | Information about how this scene was created and deployed (see below).
 
 ### Display
 
@@ -111,123 +110,19 @@ In JSON:
 
 While the `name` field is filled in every scene, you'll find that in actual practice the `email` field is often an empty string. This is a privacy choice made the scene's creator.
 
-## Policy
+### Policy
 
-"policy": {
-  "contentRating": "E",
-  "fly": false,
-  "voiceEnabled": false,
-  "blacklist": []
-},
+{{< wip >}}
 
 ### Communications
 
-"communications": {
-  "type": "webrtc",
-  "signalling": "https://signalling-01.decentraland.org"
-},
+{{< wip >}}
 
 ### Spawn Points
-"spawnPoints": [
-      {
-        "name": "spawn1",
-        "default": true,
-        "position": {
-          "x": 48,
-          "y": 0,
-          "z": 95
-        },
-        "cameraTarget": {
-          "x": 40,
-          "y": 15,
-          "z": 48
-        }
-      }
-    ],
-    
+
+{{< wip >}}    
 
 ### Required Permissions
-"requiredPermissions": [
-  "ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE"
-]
 
-### Source
+{{< wip >}}
 
-| Field | Value |
-| ----- | --- |
-| `origin` | (!!Optional?) The software used to create this scene.
-| `version` | !!of what?
-| `projectId` | !!of what? builder-only?
-| `point` | !!again?
-| `rotation` | !!related to layout?
-| `layout` | The row/column dimensions of the parcel area running this scene.
-
-A JSON example:
-
-```json
-{
-  "origin": "builder",
-  "version": 1,
-  "projectId": "24eaa2f1-c793-4423-91f1-30d7cb516100",
-  "point": { 
-    "x": 19, 
-    "y": -119 
-  },
-  "rotation": "north",
-  "layout": {
-    "rows": 1,
-    "cols": 1
-  }
-}
-```
-
-
-# Trash
-
-https://github.com/decentraland/common-schemas/blob/main/src/platform/scene/scene.ts
-
-```json
-{
-  "version": "v3", // !!?
-  "type": "scene",
-  "pointers": [
-    "19,-119"
-  ],
-  "timestamp": 1671300007712,
-  "content": [],
-  "metadata": {
-    "display": {
-      "title": "my_cool_scene",
-      "favicon": "favicon.png",
-      "navmapThumbnail": "thumbnail.png"
-    },
-    "owner": "",
-    "contact": {
-      "name": "cool_scene_maker",
-      "email": ""
-    },
-    "main": "bin/game.js",
-    "tags": [],
-    "scene": {
-      "parcels": [
-        "19,-119"
-      ],
-      "base": "19,-119"
-    },
-    "source": {
-      "version": 1,
-      "origin": "builder",
-      "projectId": "24eaa2f1-c793-4423-91f1-30d7cb516100",
-      "point": {
-        "x": 19,
-        "y": -119
-      },
-      "rotation": "north",
-      "layout": {
-        "rows": 1,
-        "cols": 1
-      }
-    }
-  }
-}
-```

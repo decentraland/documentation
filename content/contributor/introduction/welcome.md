@@ -23,6 +23,8 @@ you need to:
 
 If you don't know where to begin, it's a good idea to look at the [architecture]({{< relref "architecture" >}}) of the Decentraland protocol, to learn about the different components and their general purpose before diving into more detailed sections.
 
+_!!Actually, the architecture page is not a good place to start, not in its current state. Revise this or update that page_
+
 ## Other resources
 
 To get additional information and continue learning, you may want to check out:
