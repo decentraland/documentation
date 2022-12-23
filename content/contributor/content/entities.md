@@ -8,7 +8,7 @@ Each individual piece of content in the world (such as a scene or a wearable ite
 
 Entities are immutable packages of [files]({{< relref "filesystem" >}}) with a unique identifier, deterministically derived from the contained data, which can be used to discover and download the related files from the content server.
 
-The main file of an entity is the _manifest_, a JSON document describing the entity's general properties, as well as special attributes for each [type](#types). The identifier for an entity is actually the [file identifier]({{< relref "./filesystem#identifiers" >}}) of this manifest.
+The main file of an entity is the _manifest_, a JSON document describing the entity's general properties, as well as special attributes for each [type](#types). The identifier for an entity is actually the [file identifier]({{< relref "filesystem#identifiers" >}}) of this manifest.
 
 Since they are immutable, entities can't be updated in the traditional sense. Instead, they are replaced by new entities discoverable using the same stable [pointer]({{< relref "pointers" >}}). The newest version of an entity is said to be _active_.
 
@@ -92,7 +92,7 @@ This is how it typically looks inside the `content` field showcased above:
 ]
 ```
 
-As mentioned above, the JSON manifest is a file itself, uploaded by the owner and stored in the distributed file system just like any other. The identifier of the entity is actually the [file identifier]({{< relref "./filesystem#identifiers" >}}) for the manifest.
+As mentioned above, the JSON manifest is a file itself, uploaded by the owner and stored in the distributed file system just like any other. The identifier of the entity is actually the [file identifier]({{< relref "filesystem#identifiers" >}}) for the manifest.
 
 {{< info >}}
 The `file` field value is always in lower-case, to prevent issues when building entities in different operating systems, where filename casing may be important.
@@ -106,10 +106,10 @@ The lifespan of a file is tied to the entity that contains it. For entities curr
 
 ## Discovering and Downloading Entities
 
-Content servers can be used to locate entities using [pointers]({{< relref "./pointers" >}}), and to download their manifests and any additional files. 
+Content servers can be used to locate entities using [pointers]({{< relref "pointers" >}}), and to download their manifests and any additional files. 
 
 - To resolve a pointer into an entity ID, you can use the [`/entities/active`](https://decentraland.github.io/catalyst-api-specs/#tag/Content-Server/operation/getListOfEntities) endpoint. Using the entity ID, you can download the manifest with the [`/contents/<id>`](https://decentraland.github.io/catalyst-api-specs/#tag/Content-Server/operation/getContentFile) endpoint.
 
-- To get all active entities of a certain type, start by downloading a [snapshot]({{< relref "./snapshots" >}}).
+- To get all active entities of a certain type, start by downloading a [snapshot]({{< relref "snapshots" >}}).
 
-Check out the [practice]({{< relref "./practice" >}}) section for examples and guides.
+Check out the [practice]({{< relref "practice" >}}) section for examples and guides.

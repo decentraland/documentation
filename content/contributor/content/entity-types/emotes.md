@@ -29,7 +29,7 @@ To illustrate, the `pointers` array for an emote looks like this:
 
 ## Metadata Fields
 
-Emotes share most of their basic fields with [wearables]({{< relref "./wearables" >}}). The `emoteDataADR74` property is where the emote-specific information is located.
+Emotes share most of their basic fields with [wearables]({{< relref "wearables" >}}). The `emoteDataADR74` property is where the emote-specific information is located.
 
 | Field | Value |
 | ----- | --- |

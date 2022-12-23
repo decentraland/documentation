@@ -17,9 +17,9 @@ As you may gather, the most common use of pointers is obtaining the ID for the a
 
 There are 3 types of pointers that content servers can resolve, each with its own syntax:
 
-- [Scene pointers]({{< relref "./entity-types/scenes#pointers" >}}) are parcel coordinates, such as `"0,0"`.
-- [Profile pointers]({{< relref "./entity-types/profiles#pointers" >}}) are the Ethereum address of the owner
-- [Wearable pointers]({{< relref "./entity-types/wearables#pointers" >}}) and [emote pointers]({{< relref "./entity-types/emotes#pointers" >}}) are [collection]({{< relref "./collections" >}}) URNs with an index suffix
+- [Scene pointers]({{< relref "entity-types/scenes#pointers" >}}) are parcel coordinates, such as `"0,0"`.
+- [Profile pointers]({{< relref "entity-types/profiles#pointers" >}}) are the Ethereum address of the owner
+- [Wearable pointers]({{< relref "entity-types/wearables#pointers" >}}) and [emote pointers]({{< relref "entity-types/emotes#pointers" >}}) are [collection]({{< relref "collections" >}}) URNs with an index suffix
 
 You can find more details in their specific sections.
 

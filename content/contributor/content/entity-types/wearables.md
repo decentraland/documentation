@@ -6,7 +6,7 @@ weight: 3
 
 Wearables are the [entities]({{< relref "../entities" >}}) that contain items for players to wear and customize their avatars.
 
-The `wearables` field in a player's [profile]({{< relref "./profiles" >}}) contains a list of pointers to the items they are currently wearing.
+The `wearables` field in a player's [profile]({{< relref "profiles" >}}) contains a list of pointers to the items they are currently wearing.
 
 Every wearable belongs to a _category_, indicating the spot it takes on the avatar's body, and can hide or replace other categories (for example, a long dress may be worn as top clothing but entirely cover the legs).
 
@@ -35,7 +35,7 @@ To illustrate, the `pointers` array for a wearable looks like this:
 
 ## Metadata Fields
 
-Wearables share most of their basic fields with [emotes]({{< relref "./emotes" >}}). The `data` property is where the wearable-specific information is located.
+Wearables share most of their basic fields with [emotes]({{< relref "emotes" >}}). The `data` property is where the wearable-specific information is located.
 
 | Field | Value |
 | ----- | --- |
