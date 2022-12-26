@@ -18,9 +18,7 @@ weight: 2
 The Decentraland SDK is a collection of tools to allow you to create scenes.
 
 - Follow the [Quick start]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) tutorial for a quick crash course.
-
 - Read the [Development workflow]({{< ref "/content/creator/scenes/getting-started/development-workflow.md" >}}) to understand the full process of creating a scene, publishing and promoting it.
-
 - Check out scene [examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
 
 ### The Decentraland Editor
@@ -34,7 +32,6 @@ The Editor is an all-in-one content creation tool. It's intended for users of an
 There are a number of tools that can help with arranging 3d models into position in a Decentraland scene. You still need to resort to the SDK to add interactivity to these items, but setting positions visually is a big help.
 
 - [**DCL Edit**](https://dcl-edit.com/): A community-built tool that allows you to drag and drop 3d models into your scene. You can then work on adding interactivity to the resulting scene using the SDK.
-
 - [**Legacy Builder**](https://builder.decentraland.org): a simple drag and drop editor. No coding required, some items include built-in functionality. You can start a scene with the Builder, and then export it to continue working on it with the SDK.
 
   Read the [documentation]({{< ref "/content/creator/builder/builder-101.md" >}}).
