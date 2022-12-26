@@ -5,11 +5,7 @@ description: How to add libraries to a scene
 categories:
   - development-guide
 type: Document
-aliases:
-  - /creator/editor/manage-dependencies
-  - /creator/development-guide/manage-dependencies
-  - /creator/development-guide/libraries/manage-dependencies
-url: /creator/development-guide/scene/libraries/manage-dependencies
+url: /creator/development-guide/sdk7/libraries/manage-dependencies
 weight: 1
 ---
 
@@ -22,13 +18,12 @@ You can import external libraries into a Decentraland project and then reference
 Check the [Awesome repository](https://github.com/decentraland-scenes/Awesome-Repository#libraries) to find a series of libraries, both created by the Decentraland Foundation and by community members, that solve common problems.
 
 
-
 ## Via the Editor
-
 
 ### Install a dependency
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 1) Open your scene's folder using Visual Studio Code. 
 

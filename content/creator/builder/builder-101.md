@@ -73,7 +73,7 @@ If an item extends outside the parcels, it will be marked in red. The Builder wo
 
 Note that 3d models have bounding boxes that surround them. Sometimes, even though the actual visible shape of the model is all inside the scene, the corners of this box extend out of bounds. This scenario is also considered out of bounds and must be fixed.
 
-If you imported a custom 3D model that has bounding boxes that extend far beyond the model itself, it's a good practice to edit the model to make sure the bounding boxes extend out as little as possible. See [Meshes]({{< ref "/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
+If you imported a custom 3D model that has bounding boxes that extend far beyond the model itself, it's a good practice to edit the model to make sure the bounding boxes extend out as little as possible. See [Meshes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
 
 To keep scenes in Decentraland lightweight, you are limited to a maximum amount of textures, triangles, etc. See [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}).
 

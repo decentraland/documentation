@@ -35,6 +35,22 @@ You can also add `debugger` commands or use the `sources` tab in the developer t
 
 Once you deploy the scene, you won't be able to see the messages printed to console when you visit the scene in-world. If you need to check these messages on the deployed scene, you can turn the scene's console messages back on adding the following parameter to the URL: `DEBUG_SCENE_LOG`.
 
+## Add breakpoints in the Decentraland Editor
+
+Using the Decentraland Editor, you can add breakpoints to your scene's code. When running a preview, whenever the code passes through these breakpoints, it pauses execution. A **Debug** panel opens, showing the current values of all variables at that point in time.
+
+This is especially useful to validate that the data at a given point in time is what you expect. You can also modify the values of any variable manually and resume execution with the blue play button, using those new variables. This is great to test corner cases, to make sure the scene behaves as expected on every scenario, which might otherwise be a lot harder to reproduce.
+
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+
+
+1. Open VSCode in a Decentraland scene project.
+2. Click on the Debugger icon on the left sidebar.
+3. Click on `Run and Debug` and select `Decentraland` (this step is not necessary if your project already has a `.vscode/launch.json` file).
+4. Click on `Run`. A browser should open.
+5. Try setting a breakpoint and interacting with the scene in a way it will step on that line. 
+
+
 ## View scene stats
 
 The lower-left corner of the preview informs you of the _FPS_ (Frames Per Second) with which your scene is running. Your scene should be able to run above 25 FPS most of the time.

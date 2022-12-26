@@ -43,6 +43,26 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ## To publish the scene
 
+
+### Via the Decentraland Editor
+
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+
+1) Open your scene's folder using Visual Studio Code. 
+
+> Note: The Visual Studio window must be at the root folder of the scene project.
+
+2) Open the Editor's menu, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
+
+	This opens a new tab in Visual Studio, showing what parcels you're deploying to.
+
+3) Approve the transaction
+
+	- If the LAND tokens you own or have permissions are linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
+	- If you need to use Metamask on the browser, click **Open in Browser** to open this same window on a browser tab. Then approve the transaction on the Metamask browser extension.
+
+### Via the CLI
+
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
 2.  Run `dcl deploy` from the scene's folder.
     > Tip: If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying.
@@ -85,6 +105,26 @@ The information on each copy of the server is verifiable, as each scene is signe
 ## The test server
 
 You can deploy content to the test catalyst server to run full tests with multiple users, the sourrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
+
+
+> Note: To deploy to parcels in the test server, you must have the same permissions required to deploy to those parcels in the main network.
+
+### Via the Decentraland Editor
+
+To deploy a scene to the test server:
+
+1. Open VSCode in a Decentraland scene project.
+2. Click on the Decentraland icon on the left sidebar.
+4. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Deploy Scene To Custom Catalyst`
+5. Enter the address of the test server, as `peer-testing.decentraland.org`
+6. Approve the transaction
+
+	- If the LAND tokens you own or have permissions are linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
+	- If you need to use Metamask on the browser, click **Open in Browser** to open this same window on a browser tab. Then approve the transaction on the Metamask browser extension.
+
+
+### Via the CLI
+
 
 To deploy to the test server, run:
 
