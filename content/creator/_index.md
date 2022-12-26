@@ -12,32 +12,24 @@ aliases:
 weight: 2
 ---
 
-Decentraland is made up of _parcels_ of LAND, each 16 meters by 16 meters. A _scene_ is an experience that is built on one or several parcels.
 
-Scenes are displayed one next to the other and players can freely walk from one to the other. Each scene is its own contained little world, items from one scene can't extend out into another scene, and the code for each scene is sandboxed from all others.
+3D content in Decentraland is made up of scenes, each scene occupies a finite amount of space and is displayed one next to the other for players to freely walk through them. 
 
-Each parcel of land is tokenized as an NFT. To be allowed to [publish]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) a scene to a land parcel, you either need to own that NFT or be given permissions by the owner.
+The Decentraland SDK is a collection of tools to allow you to create scenes.
 
-<!--
-You can also create smart wearables, which are wearable items of clothes that come with their own behavior. Players that put on that wearable can access a whole other layer of experiences on top of Decentraland. -->
+- Follow the [Quick start]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) tutorial for a quick crash course.
 
-## The Decentraland SDK
-
-The Decentraland SDK allows you to create your scene by writing in TypeScript (JavaScript + types).
-
-- Follow the [SDK 101]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) tutorial for a quick crash course.
-
-- Read the [documentation]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}) to grasp some of the fundamental concepts.
+- Read the [Development workflow]({{< ref "/content/creator/scenes/getting-started/development-workflow.md" >}}) to understand the full process of creating a scene, publishing and promoting it.
 
 - Check out scene [examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
 
-## The Decentraland Editor
+### The Decentraland Editor
 
 The Editor is an all-in-one content creation tool. It's intended for users of any knowledge level, combining a graphical interface with code editing capabilities. Both technical and non-technical creators will benefit from using it.
 
 [Learn more]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
-## Graphical editing tools
+### Other scene creation tools
 
 There are a number of tools that can help with arranging 3d models into position in a Decentraland scene. You still need to resort to the SDK to add interactivity to these items, but setting positions visually is a big help.
 
@@ -49,12 +41,9 @@ There are a number of tools that can help with arranging 3d models into position
 
   > Note: If a scene is created by or modified by the SDK, you can't import it into the Builder. You can only go from the Builder to the SDK, not in the other direction.
 
-## 3D Modeling
+### 3D Modeling
 
 You can use any 3rd party modeling tool to create 3D models that can be used in Decentraland scenes. It's easy to [import them into the Builder]({{< ref "/content/creator/builder/import-items.md" >}}).
 
 See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for tips and tricks, and information about supported features and formats for 3D models.
 
-## Design your experience
-
-No matter which tools you'll use, it's always recommended that you think carefully about what you want to build before you start building it. Read the [Design experiences]({{< ref "/content/creator/scenes/design-experience/mvp-guidelines.md" >}}) section to better understand the context, limitations and possibilities that you'll have as your design space when creating a scene for Decentraland.

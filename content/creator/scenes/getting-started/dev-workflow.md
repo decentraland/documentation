@@ -11,7 +11,7 @@ url: /creator/development-guide/dev-workflow
 weight: 2
 ---
 
-This document outlines the steps recommended for developing a scene for Decentraland.
+This document outlines the steps recommended for developing a scene for Decentraland, from ideation to publishing and beyond.
 
 <!-- diagram? icons? -->
 
@@ -30,7 +30,9 @@ This document outlines the steps recommended for developing a scene for Decentra
 
 ## Install the Decentraland Editor
 
-Make sure you have the Decentraland Editor installed. See the [Installation Guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}) for more details instructions.
+Make sure you have the Decentraland Editor installed. 
+
+- [Installation Guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}).
 
 
 ## Design your experience
@@ -44,7 +46,9 @@ Think about how much space you need to take up, what kind of distribution, what 
 
 ## Where to publish
 
-You don't need land to develop a scene, but you will need access to land once you're ready to publish.
+In Decentraland, content is published to adjacent plots of land in a finit amount of space. Players can freely walk from one to the other. Each scene is its own contained little world, items from one scene can't extend out into another scene, and the code for each scene is sandboxed from all others.
+
+Permission to publish to each of these is controlled via tokens. You don't need land to develop a scene, but you will need access to land once you're ready to publish. You can also publish to Decentraland Worlds (beta), which are isolated scenes.
 
 The following options are available:
 
@@ -61,9 +65,8 @@ See [Publishing options]({{< ref "/content/creator/scenes/publishing/publishing-
 
 When creating a new scene, choose amongst several base template scenes that include some basic code and 3d models. Use these to get started faster.
 
-Check out the [awesome repository](https://github.com/decentraland-scenes/Awesome-Repository) for a large collection of example scenes, each showcasing different mechanics that you can borrow. You can also clone any of these scenes and use it as a starting point.
-
-Also check out [helper libraries](https://github.com/decentraland-scenes/Awesome-Repository#Libraries) that simplify many common tasks.
+- [Awesome repository](https://github.com/decentraland-scenes/Awesome-Repository): here you can find a large collection of example scenes, each showcasing different mechanics that you can borrow. You can also clone any of these scenes and use it as a starting point.
+- [Helper libraries](https://github.com/decentraland-scenes/Awesome-Repository#Libraries): these can simplify many common tasks.
 
 ## Art assets
 
@@ -83,7 +86,8 @@ There are many sources to obtain free or paid art assets. For example:
 
 To run a preview of your scene, open a Visual Studio Code window on your project's root folder and click the **Preview** button on the Decentraland Editor tab.
 
-See [Preview your scene]({{< ref "/content/creator/scenes/getting-started/preview-scene.md" >}}) ) for more details. Check the [Debug a scene]({{< ref "/content/creator/scenes/getting-started/preview-scene.md#debug-a-scene" >}})) for tips on how to debug any issues.
+- [Preview your scene]({{< ref "/content/creator/scenes/getting-started/preview-scene.md" >}}) ) for more details. 
+- Check the [Debug a scene]({{< ref "/content/creator/scenes/getting-started/preview-scene.md#debug-a-scene" >}}) for tips on how to debug any issues.
 
 > TIP: If you get stuck trying to debug an issue, visit the [Decentraland Discord server](https://dcl.gg/discord) to get help from other developers.
 
@@ -93,13 +97,13 @@ _Optional_: Your scene`s mechanics might rely on a 3rd party server to carry out
 
 Deploy your scene to a test server. This server is not private but only accessible via a specific URL, so players won't bump into your tested scene involuntarily.
 
-See [Publish to the test server]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) for instructions and more info.
+- [Publish to the test server]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}).
 
 ## Publish to Decentraland
 
 Once you're happy with your scene, it's time to publish it to the production environment. There all players will have access to it if they visit the scene's coordinates.
 
-See [Publish to prod]({{< ref "/content/creator/scenes/publishing/publishing.md#to-publish-the-scene" >}}) for instructions and more info.
+- [Publish to prod]({{< ref "/content/creator/scenes/publishing/publishing.md#to-publish-the-scene" >}}).
 
 > NOTE: Before you do, check that your scene has all the necessary metadata: name, description, a preview image, spawn points. See [scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for details.
 
@@ -109,16 +113,17 @@ See [Publish to prod]({{< ref "/content/creator/scenes/publishing/publishing.md#
 Once your scene is out there, you want to give it visibility and have people visit it. There are a number of ways you can shine a spotlight on it:
 
 - Share it on social media
-- Create an event in the [events page](https://events.decentraland.org/en/)
-- Promote that people vote for it in the [Places page](https://places.decentraland.org/)
-- Make a proposal in the DAO to mark your scene as a [Point Of Interest (POI)]({{< ref "/content/player/dao/dao-userguide.md#binding-proposals" >}})
+- [Events page](https://events.decentraland.org/en/): create an event to promote your scene 
+- [Places page](https://places.decentraland.org/): ensure your scene is well positoned here, encourage players to vote your scene to get more visibility 
+
+<!-- - Make a proposal in the DAO to mark your scene as a [Point Of Interest (POI)]({{< ref "/content/player/dao/dao-userguide.md#binding-proposals" >}}) -->
 
 
 ## Iterate
 
 One great advantage of Decentraland is that you can easily iterate over your scenes. Measure your scene's success with players, then keep publishing changes as you perfect the experience for your players.
 
-See [Scene analytics]({{< ref "/content/creator/scenes/other/scene-analytics.md" >}}) for more information.
+- [Scene analytics]({{< ref "/content/creator/scenes/other/scene-analytics.md" >}}).
 
 
 ## Giving back
