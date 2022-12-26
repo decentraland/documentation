@@ -111,7 +111,7 @@ Once your scene is out there, you want to give it visibility and have people vis
 - Share it on social media
 - Create an event in the [events page](https://events.decentraland.org/en/)
 - Promote that people vote for it in the [Places page](https://places.decentraland.org/)
-- Make a proposal in the DAO to mark your scene as a [Point Of Interest (POI)]({{< ref "/content/player/dao/overview/dao-userguide.md#binding-proposals" >}})
+- Make a proposal in the DAO to mark your scene as a [Point Of Interest (POI)]({{< ref "/content/player/dao/dao-userguide.md#binding-proposals" >}})
 
 
 ## Iterate
