@@ -215,7 +215,7 @@ This example combines `getUserData()` and `getCurrentRealm()` to obtain the play
 
 ```ts
 import { getUserData } from "~system/UserIdentity"
-import { getCurrentRealm } from "~system/EnvironmentAPI"
+import { getCurrentRealm } from "~system/EnvironmentApi"
 
 async function fetchPlayerData() {
   const userData = await getUserData({})
@@ -303,7 +303,7 @@ Players in decentraland exist in several separate _realms_. Players in different
 If your scene sends data to a [3rd party server]({{< ref "/content/creator/sdk7/networking/remote-scene-considerations.md" >}}) to sync changes between players in real time, then it's often important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
 
 ```ts
-import { getCurrentRealm } from "~system/EnvironmentAPI"
+import { getCurrentRealm } from "~system/EnvironmentApi"
 
 executeTask(async () => {
   let realm = await getCurrentRealm({})
@@ -382,7 +382,7 @@ This feature could be used together with fetching info about the player, to for 
 
 ```ts
 import { getUserData } from "~system/UserIdentity"
-import { getCurrentRealm } from "~system/EnvironmentAPI"
+import { getCurrentRealm } from "~system/EnvironmentApi"
 
 async function fetchWearablesData() {
   try {
