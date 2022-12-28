@@ -21,6 +21,8 @@ The Decentraland SDK is a collection of tools to allow you to create scenes.
 - Read the [Development workflow]({{< ref "/content/creator/scenes/getting-started/development-workflow.md" >}}) to understand the full process of creating a scene, publishing and promoting it.
 - Check out scene [examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
 
+> Note: The currently stable version of the SDK is 6.x. Everything documented under the **scenes** section refers to that stable version. To try out the new version 7 of the SDK (which is still in Alpha), read the documents under the **SDK7 Scenes (alpha)** section. This section is right below the scenes section, non-expanded by default.
+
 ### The Decentraland Editor
 
 The Editor is an all-in-one content creation tool. It's intended for users of any knowledge level, combining a graphical interface with code editing capabilities. Both technical and non-technical creators will benefit from using it.
