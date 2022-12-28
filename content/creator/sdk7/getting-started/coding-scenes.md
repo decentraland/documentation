@@ -253,6 +253,66 @@ We don't want developers to intervene with the internals of the engine or even n
 
 This decoupling is also important to prevent neighbor scenes from interfering with the experience of players while they're on someone else's scene. A player might have multiple nearby scenes loaded at the same time, each running their own code. Some actions (like opening external links, or moving the player) are only permitted when the player is standing on that particular scene, not if the scene is loaded but the player is outside.
 
+## Tree Shaking
+
+When converting the source code in TypeScript to the compiled code in minified JavaScript, the process performs [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking) to ensure that only the parts of the code that are actually being used get converted. This helps keep the scene's final code as lightweight as possible. It's especially useful when using extenal libraries, since often these libraries include a lot of functionality that is not used that would otherwise bulk up the scene.
+
+As a consecuence of tree shaking, any code that you want your scene to run needs to be referenced one way or another by the entry point of your code, `index.ts`. Any code that is not explicitly or indirectly referenced by this file, will not make it into the scene.
+
+For example, suppose you have a file named `extraContent.ts` with the following content, the entity will not be rendered and the system will not start running:
+
+```ts
+// extraContent.ts
+
+const myEntity = engine.addEntity()
+Transform.create(myEntity, {
+  position: { x: 8, y: 0, z: 8 },
+})
+MeshRenderer.setBox(myEntity)
+
+function mySystem(dt: number) {
+	console.log("system running")
+}
+
+engine.addSystem(mySystem)
+```
+
+To make it run as part of your scene, you can reference from `index.ts` in the following way:
+
+```ts
+// on extraContent.ts
+
+export function addEntities(){
+	const myEntity = engine.addEntity()
+	Transform.create(myEntity, {
+	position: { x: 8, y: 0, z: 8 },
+	})
+	MeshRenderer.setBox(myEntity)
+}
+
+export function mySystem(dt: number) {
+	console.log("system running")
+}
+
+/////////////////////////////
+
+// on index.ts
+
+import {addEntities, mySystem} from "/extraContent"
+
+addEntities()
+
+engine.addSystem(mySystem)
+
+```
+
+In the alpha release of SDK7, all scenes must include the following line in `index.ts`, this imports the essential elements from the SDK, which would otherwise not be imported due to tree shaking.
+
+```ts
+export * from '@dcl/sdk'
+```
+
+
 
 ## SDK Versions
 
