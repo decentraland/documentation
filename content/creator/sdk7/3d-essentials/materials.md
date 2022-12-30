@@ -29,8 +29,8 @@ The following example creates a PBR material and sets some of its fields to give
 ```ts
 //Create entity and assign shape
 const meshEntity = engine.addEntity()
-Transform.create(meshEntity, { 
-	position: Vector3.create(4, 1, 4) 
+Transform.create(meshEntity, {
+	position: Vector3.create(4, 1, 4)
 })
 MeshRenderer.setBox(meshEntity)
 
@@ -47,8 +47,8 @@ To change the material of an entity that already has a `Material` component, run
 ```ts
 //Create entity and assign shape
 const meshEntity = engine.addEntity()
-Transform.create(meshEntity, { 
-	position: Vector3.create(4, 1, 4) 
+Transform.create(meshEntity, {
+	position: Vector3.create(4, 1, 4)
 })
 MeshRenderer.setBox(meshEntity)
 
@@ -87,8 +87,8 @@ Set an image file as a texture on a material by setting the `texture` parameter.
 ```ts
 //Create entity and assign shape
 const meshEntity = engine.addEntity()
-Transform.create(meshEntity, { 
-	position: Vector3.create(4, 1, 4) 
+Transform.create(meshEntity, {
+	position: Vector3.create(4, 1, 4)
 })
 MeshRenderer.setBox(meshEntity)
 
@@ -172,8 +172,8 @@ You set _u_ and _v_ coordinates on the 2D image of the texture to correspond to 
 
 ```ts
 const meshEntity = engine.addEntity()
-Transform.create(meshEntity, { 
-	position: Vector3.create(4, 1, 4) 
+Transform.create(meshEntity, {
+	position: Vector3.create(4, 1, 4)
 })
 MeshRenderer.setPlane(meshEntity, [
 		  	0, 0.75,
@@ -206,7 +206,7 @@ The following example includes a function that simplifies the setting of uvs. Th
 
 ```ts
 const meshEntity = engine.addEntity()
-Transform.create(meshEntity, { 
+Transform.create(meshEntity, {
 	position: Vector3.create(4, 1, 4)
 })
 MeshRenderer.setBox(meshEntity, setUVs(3, 3))
@@ -273,11 +273,11 @@ The example above sets the wrapping mode to `TWM_MIRROR`.
 
 #### Texture scaling
 
-When textures are stretched or shrinked to a different size from the original texture image, this can sometimes create artifacts. In a 3D environment, the effects of perspective cause this naturally. There are various [texture filtering](https://en.wikipedia.org/wiki/Texture_filtering) algorithms that exist to compensate for this in different ways. 
+When textures are stretched or shrinked to a different size from the original texture image, this can sometimes create artifacts. In a 3D environment, the effects of perspective cause this naturally. There are various [texture filtering](https://en.wikipedia.org/wiki/Texture_filtering) algorithms that exist to compensate for this in different ways.
 
 The `Material` object uses the _bilinear_ algorithm by default, but it lets you configure it to use the _nearest neighbor_ or _trilinear_ algorithms instead by setting the `samplingMode` property of the texture. This takes a value from the `TextureFilterMode` enum:
 
-- `TextureFilterMode.TFM_POINT`: Uses a "nearest neighbor" algorithm. This setting is ideal for pixel art style graphics, as the contours will remain sharply marked as the texture is seen larger on screen instead of being blurred. 
+- `TextureFilterMode.TFM_POINT`: Uses a "nearest neighbor" algorithm. This setting is ideal for pixel art style graphics, as the contours will remain sharply marked as the texture is seen larger on screen instead of being blurred.
 - `TextureFilterMode.TFM_BILINEAR`: Uses a bilinear algorithm to estimate the color of each pixel.
 - `TextureFilterMode.TFM_TRILINEAR`: Uses a trilinear algorithm to estimate the color of each pixel.
 
@@ -302,7 +302,7 @@ Material.setPbrMaterial(myEntity, {
   })
 })
 ```
-![](/images/media/avatarTexture.png)
+![](/images/avatarTexture.png)
 
 You can fetch the portrait of any Decentraland player, even if they're not currently connected, and even if they don't have a claimed Decentraland name.
 
@@ -330,7 +330,7 @@ To make a material with a texture only transparent in regions of the texture:
 The `transparencyMode` takes its value from the `MaterialTransparencyMode` enum, that can have the following values:
 
 - `MaterialTransparencyMode.MTM_OPAQUE`: No transparency at all
-- `MaterialTransparencyMode.MTM_ALPHA_TEST`: Each pixel is either completely opaque or completely transparent, based on a threshold. 
+- `MaterialTransparencyMode.MTM_ALPHA_TEST`: Each pixel is either completely opaque or completely transparent, based on a threshold.
 - `MaterialTransparencyMode.MTM_ALPHA_BLEND`: Intermediate values are possible based on the value of each pixel.
 - `MaterialTransparencyMode.MTM_ALPHA_TEST_AND_ALPHA_BLEND`: Uses a combination of both methods.
 - `MaterialTransparencyMode.MTM_AUTO`:  Determines the method based on the provided texture.
@@ -360,7 +360,7 @@ Material.setPbrMaterial(meshEntity1, {
 <!--
 ## Casting no shadows
 
- TODO: not currently working 
+ TODO: not currently working
 
 
 To prevent a material from casting shadows over other objects, use the `castShadows` property set to _false_. This property is always _true_ by default.
@@ -375,7 +375,7 @@ Material.create(meshEntity3, {
 <!--
 ## Video playing
 
- TODO: feature missing 
+ TODO: feature missing
 To stream video from a URL into a material, or play a video from a file stored in the scene, see [video playing]({{< ref "/content/creator/sdk7/media/video-playing.md" >}}).
 
 The video is used as a texture on a material, you can set any of the other properties of materials to alter how the video screen looks.
