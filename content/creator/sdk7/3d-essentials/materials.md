@@ -302,7 +302,7 @@ Material.setPbrMaterial(myEntity, {
   })
 })
 ```
-<img src="/images/media/avatarTexture.png" alt="Avatar Texture" width="300"/>
+![](/images/media/avatarTexture.png)
 
 You can fetch the portrait of any Decentraland player, even if they're not currently connected, and even if they don't have a claimed Decentraland name.
 
