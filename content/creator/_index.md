@@ -18,7 +18,7 @@ weight: 2
 The Decentraland SDK is a collection of tools to allow you to create scenes.
 
 - Follow the [Quick start]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) tutorial for a quick crash course.
-- Read the [Development workflow]({{< ref "/content/creator/scenes/getting-started/development-workflow.md" >}}) to understand the full process of creating a scene, publishing and promoting it.
+- Read the [Development workflow]({{< ref "/content/creator/scenes/getting-started/dev-workflow.md" >}}) to understand the full process of creating a scene, publishing and promoting it.
 - Check out scene [examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
 
 > Note: The currently stable version of the SDK is 6.x. Everything documented under the **scenes** section refers to that stable version. To try out the new version 7 of the SDK (which is still in Alpha), read the documents under the **SDK7 Scenes (alpha)** section. This section is right below the scenes section, non-expanded by default.
