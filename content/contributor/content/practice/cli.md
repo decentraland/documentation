@@ -15,7 +15,7 @@ This is what we'll do:
 1. Query the status of the content server.
 2. Locate and download the [snapshot]({{< relref "snapshots" >}}) for a list of entities.
 3. Obtain the manifest for an entity.
-4. Download some of the entitiy's files.
+4. Download some of the entity's files.
 
 Let's begin by querying the server status using `/about`:
 
