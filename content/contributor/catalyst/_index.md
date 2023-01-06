@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
-weight: 2
+weight: 3
 title: Catalyst Nodes
 ---

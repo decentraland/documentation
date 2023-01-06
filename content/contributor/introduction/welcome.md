@@ -1,12 +1,9 @@
 ---
 title: "Welcome!"
-url: "/contributor"
+sidebartitle: Welcome!
+url: "/contributor/introduction/welcome"
+weight: 1
 ---
-
-<!-- 
-  TODO: this content is duplicated in /welcome. Either the template engine should render the welcome
-  page here, or the welcome page should not be in the sidebar.
- -->
 
 Decentraland is a virtual world owned by its users, developed in the open and ready to grow with
 the contributions of people all around the globe.
@@ -24,7 +21,7 @@ you need to:
 
 ## Where to start?
 
-If you don't know where to begin, it's a good idea to look at the [architecture]({{< relref "introduction/architecture" >}}) of the Decentraland protocol, to learn about the different components and their general purpose before diving into more detailed sections.
+If you don't know where to begin, it's a good idea to look at the [architecture]({{< relref "architecture" >}}) of the Decentraland protocol, to learn about the different components and their general purpose before diving into more detailed sections.
 
 ## Other resources
 
