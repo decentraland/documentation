@@ -91,11 +91,11 @@ To run a preview of your scene, open a Visual Studio Code window on your project
 
 > TIP: If you get stuck trying to debug an issue, visit the [Decentraland Discord server](https://dcl.gg/discord) to get help from other developers.
 
-_Optional_: Your scene`s mechanics might rely on a 3rd party server to carry out player validations, permanent data storage, or other functionalities. See [Use an authoritative server]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md#use-an-authoritative-server" >}}))
+_Optional_: Your scene`s mechanics might rely on a 3rd party server to carry out player validations, permanent data storage, or other functionalities. See [Use an authoritative server]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md#use-an-authoritative-server" >}})
 
 ## Publish to the test server
 
-Deploy your scene to a test server. This server is not private but only accessible via a specific URL, so players won't bump into your tested scene involuntarily.
+Deploy your scene to a test server. This server is not private but only accessible via a specific URL, so players won't bump into what you publish there.
 
 - [Publish to the test server]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}).
 
