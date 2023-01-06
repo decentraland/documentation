@@ -10,10 +10,11 @@ weight: 2
 ---
 
 
-This document describes versioning policy applied to both scripting framework and editor.
+This document describes the versioning policy applied to both the Decentraland Editor and the scripting framework (the `@dcl/sdk` package).
 
-The goal of versioning policy is to forge a contract between the SDK team and content creators: which versions of software are supported by the SDK team and how long the support lasts.
+The goal of this versioning policy is to forge a contract between the Decentraland Foundation's SDK team and content creators: which versions of the SDK are supported and how long the support lasts.
 
+<!-- TODO: What about support from other teams? Do we have a commitment for content with older versions to keep working too? -->
 
 ## Definitions
 
@@ -31,7 +32,12 @@ The goal of versioning policy is to forge a contract between the SDK team and co
 
 ## Support policy
 
-In every stable version family we support only the latest minor version. We should avoid proliferation of major versions, sticking to two supported families at worst. 
+In every stable version family we support only the latest minor version. At any given time there should be at most two supported families.
+
+New features are only going to be added to the latest major version. Any older major versions that remain in support will only receive fixes for major bugs.
+
+## Stable and unstable releases
+
 
 
 ## How long do we support a stable version family?
