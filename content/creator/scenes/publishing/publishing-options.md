@@ -10,6 +10,8 @@ url: /creator/development-guide/publishing-permissions
 
 To invite others to visit a scene you built, you'll need to publish it in Decentraland. To do this, you'll need to have deploy permissions to Decentraland parcels or own a Decentraland name in order to deploy to a Decentraland World.
 
+Decentraland is made up of _parcels_ of LAND, each 16 meters by 16 meters. A _scene_ is an experience that is built on one or several parcels.
+
 This document gives an overview on the different ways to obtain permissions. 
 See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) for instructions on how to publish once you've obtained these.
 

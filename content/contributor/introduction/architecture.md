@@ -1,6 +1,8 @@
 ---
-title: Decentraland Platform
-url: /contributor/architecture/platform
+title: "Architecture"
+sidebartitle: Architecture
+url: "/contributor/introduction/architecture"
+weight: 2
 ---
 
 In this section you will find a representation of the Decentraland Architecture and references to all the Open Source repositories that make part of it. In each repository you will be able to find more details about the component and how to use it.

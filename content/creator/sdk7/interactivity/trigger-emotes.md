@@ -9,7 +9,6 @@ url: /creator/development-guide/sdk7/trigger-emotes/
 weight: 4
 ---
 
-<!-- TODO: all -->
 
 To make a player perform an emote, use the `triggerEmote()` function. Note that only existing default emotes are supported for now. This function takes a single argument:
 
@@ -18,19 +17,17 @@ To make a player perform an emote, use the `triggerEmote()` function. Note that 
 ```ts
 import { triggerEmote } from "~system/RestrictedActions"
 
-const emoter = new Entity()
-emoter.addComponent(new BoxShape())
-emoter.addComponent(new Transform({ position: new Vector3(8, 0, 8) }))
-emoter.addComponent(
-  new OnPointerDown(
-    (e) => {
-      triggerEmote({ predefined: "robot" })
-    },
-    { hoverText: "Dance" }
-  )
+const emoter = engine.addEntity()
+Transform.create(emoter, { position: { 8, 0, 8 } })
+MeshRenderer.setBox(emoter)
+MeshCollider.setBox(emoter)
+pointerEventsSystem.onPointerDown(
+  emoter,
+  () => {
+    triggerEmote({ predefined: "robot" })
+  },
+  { button: InputAction.IA_PRIMARY, hoverText: 'Dance' }
 )
-
-engine.addEntity(emoter)
 ```
 
 There are some default emotes available to all players:
