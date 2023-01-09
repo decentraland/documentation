@@ -40,7 +40,9 @@ myEntity.addComponent(
 )
 ```
 
-> Tip: To keep your code easier to read, the function in the `OnPointerDown` can consist of just a call to a separate function that contains all of the logic.
+{{< hint info >}}
+**💡 Tip**:  To keep your code easier to read, the function in the `OnPointerDown` can consist of just a call to a separate function that contains all of the logic.
+{{< /hint >}}
 
 The `OnPointerDown` component has a second optional parameter, this parameter is an object that can include multiple properties about the event. These properties are explained in greater detail in the next few sub-sections.
 
@@ -123,7 +125,9 @@ In the example above, the second argument of the `OnPointerDown` component has a
 - `showFeedback`: Boolean to turn the feedback on or off. It's _true_ by default.
 - `hoverText`: String to display in the UI while the player points at the entity. By default, this string spells _Interact_, unless `showFeedback` is _false_.
 
-> TIP: The `hoverText` string should describe the action that happens when interacting. For example `Open`, `Activate`, `Grab`, `Select`. These strings should be as short as possible, to avoid stealing too much focus from the player.
+{{< hint info >}}
+**💡 Tip**:  The `hoverText` string should describe the action that happens when interacting. For example `Open`, `Activate`, `Grab`, `Select`. These strings should be as short as possible, to avoid stealing too much focus from the player.
+{{< /hint >}}
 
 The `hoverText` of an `OnPointerUp` component is only displayed while the player is already holding down the corresponding key and pointing at the entity.
 
@@ -240,7 +244,9 @@ To see how the meshes inside the model are named, you must open the 3D model wit
 
 <img src="/images/media/mesh-names.png" alt="Mesh internal names in an editor" width="250"/>
 
-> Tip: You can also learn the name of the clicked mesh by logging it and reading it off console.
+{{< hint info >}}
+**💡 Tip**:  You can also learn the name of the clicked mesh by logging it and reading it off console.
+{{< /hint >}}
 
 You access the `meshName` property as part of the `hit` object, that's returned by the click event.
 
@@ -335,7 +341,9 @@ Raycasting is not available when detecting basic movement keys. It's only availa
 
 The ray of a global button event only detects entities that have a collider mesh. Primitive shapes have a collider mesh on by default, 3D models need to have one built into them.
 
-> Tip: See [Colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}}) for details on how to add collider meshes to a 3D model.
+{{< hint info >}}
+**💡 Tip**:  See [Colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}}) for details on how to add collider meshes to a 3D model.
+{{< /hint >}}
 
 ```ts
 input.subscribe("BUTTON_DOWN", ActionButton.POINTER, true, (e) => {
@@ -410,7 +418,9 @@ myEntity.addComponent(
 )
 ```
 
-> TIP: Note that all entities with an `OnPointerDown` component by default show a UI hint when hovered over. You can disable this UI hint by setting the `showFeeback` property on the `OnPointerDown` component to false.
+{{< hint info >}}
+**💡 Tip**:  Note that all entities with an `OnPointerDown` component by default show a UI hint when hovered over. You can disable this UI hint by setting the `showFeeback` property on the `OnPointerDown` component to false.
+{{< /hint >}}
 
 ## Button state
 

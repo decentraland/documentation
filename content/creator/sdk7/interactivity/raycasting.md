@@ -53,8 +53,9 @@ Raycast.createOrReplace(engine.addEntity(), {
 })
 ```
 
-> Tip: The `Raycast` component must be added to an entity when created. If don't need to reference that entity again, you can do as in the example above, and instance a new entity while creating the component.
-
+{{< hint info >}}
+**💡 Tip**:  The `Raycast` component must be added to an entity when created. If don't need to reference that entity again, you can do as in the example above, and instance a new entity while creating the component.
+{{< /hint >}}
 
 ## Results results
 

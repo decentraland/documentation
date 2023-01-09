@@ -30,7 +30,9 @@ You can also obtain the code of a smart item by using it in a scene in the Build
 
 Every smart item has an `asset.json` file. This is a manifest that exposes how the item can be configured via the Builder UI, and how other items can activate it.
 
-> TIP: We recommend starting the development of your smart item from the manifest. There you can first define the item's interface and configurable parameters, and then develop the supporting backend for that.
+{{< hint info >}}
+**💡 Tip**:  We recommend starting the development of your smart item from the manifest. There you can first define the item's interface and configurable parameters, and then develop the supporting backend for that.
+{{< /hint >}}
 
 #### General item data
 
@@ -351,7 +353,9 @@ channel.handleAction("open", ({ sender }) => {
 
 In the example above, each time an `open` action arrives, the door runs the `toggle` function to play its corresponding animation and sound and to change its state. Then it verifies that the `open` action effectively came from this player instance and not from another player; if so, it will call any actions that were configured to be called on the item's `OnOpen`. If this check isn't done, then the actions would be sent out multiple times, once for every player in the scene. This, besides being inefficient, can be quite disruptive when dealing with toggle-type actions.
 
-> TIP: As your item gets more complex, we recommend keeping the action handlers light, and keep most of the logic in external functions that can be called from these.
+{{< hint info >}}
+**💡 Tip**:  As your item gets more complex, we recommend keeping the action handlers light, and keep most of the logic in external functions that can be called from these.
+{{< /hint >}}
 
 ## Testing your item
 
@@ -406,7 +410,9 @@ The example above uses a list of booleans to represent the open/closed state of 
 
 When instancing an item in the `spawn()` function, you should then add this component to new items.
 
-> TIP: We recommend defining the custom component in a separate file from `item.ts`, to keep your code cleaner.
+{{< hint info >}}
+**💡 Tip**:  We recommend defining the custom component in a separate file from `item.ts`, to keep your code cleaner.
+{{< /hint >}}
 
 It's important that you name your custom components with unique names that shouldn't overlap with names used by other smart items. We recommend including the item name as part of the component name to avoid this. Otherwise, conflicting smart items in a same scene could interfere with each other in unexpected ways.
 
@@ -420,7 +426,9 @@ As with custom components, systems need to have unique names that don't overlap 
 
 Note that besides defining the system, you also need to add an instance of it to the engine. The ideal place for that is in the `init()` function of the smart item, which is executed once when the first item of this type is added.
 
-> TIP: We recommend defining systems in a separate file from `item.ts`, to keep your code cleaner.
+{{< hint info >}}
+**💡 Tip**:  We recommend defining systems in a separate file from `item.ts`, to keep your code cleaner.
+{{< /hint >}}
 
 ## Multiplayer behavior
 

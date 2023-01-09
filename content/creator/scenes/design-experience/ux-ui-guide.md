@@ -113,7 +113,9 @@ When putting together a color palette, start out by selecting a main color, and 
     <figcaption>Strategies for combining colors properly</figcaption>
 </figure>
 
-> Tip: Free color palette generators we recommend: [Coolors](https://coolors.co), [Adobe Color CC](https://color.adobe.com/), [Colour Lovers](http://www.colourlovers.com), [Color Hunt](http://www.colorhunt.co), [Color by Hailpixel](http://color.hailpixel.com), [Colour Code](http://colourco.de), [Sip](https://sipapp.io/), [Color Scheme Designer by Paletton](http://paletton.com), [Cohesive Colors](http://javierbyte.github.io/cohesive-colors), [Colr](http://www.colr.org)
+{{< hint info >}}
+**💡 Tip**:  Free color palette generators we recommend: [Coolors](https://coolors.co), [Adobe Color CC](https://color.adobe.com/), [Colour Lovers](http://www.colourlovers.com), [Color Hunt](http://www.colorhunt.co), [Color by Hailpixel](http://color.hailpixel.com), [Colour Code](http://colourco.de), [Sip](https://sipapp.io/), [Color Scheme Designer by Paletton](http://paletton.com), [Cohesive Colors](http://javierbyte.github.io/cohesive-colors), [Colr](http://www.colr.org)
+{{< /hint >}}
 
 The main color should be the most frequently used across your UI components. If your palette doesn’t have a secondary color, you can accent elements by combining the main color with black or white. Having a secondary color is not mandatory, but it helps emphasize and distinguish your scene UI elements. Secondary colors work best for highlights, selection controls (sliders and switches), links and headlines.
 

@@ -25,10 +25,13 @@ Playing videos is one of the most expensive things for the engine to handle. If 
 
 You should also avoid having videos playing in regions where they can't be seen. For example, if you have a screen indoors, toggle the video using a trigger area based on when the player walks in and out.
 
-> TIP: A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping]({{< ref "/content/creator/scenes/3d-essentials/materials.md#using-textures" >}}) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
+{{< hint info >}}
+**💡 Tip**:  A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping]({{< ref "/content/creator/scenes/3d-essentials/materials.md#using-textures" >}}) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
+{{< /hint >}}
 
-> TIP: When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-enters-or-leaves-scene" >}}) .
-
+{{< hint info >}}
+**💡 Tip**:  When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-enters-or-leaves-scene" >}}) .
+{{< /hint >}}
 #### Lazy loading
 
 If your scene is large, or has indoor areas that are not always visible, you can choose to not load the entire set of entities from the very start. Instead, load the content by region as the player visits different parts of the scene. This can significantly reduce the load time of the scene, and also the amount of textures and 3d content that the engine needs to handle on every frame.
@@ -45,7 +48,9 @@ An alternative is to not add the entities to the engine until needed. This may r
 
 You can also toggle animations on or off for entities that are far or occluded. For example, for an NPC that plays a very subtle idle animation, you could make it only play that animation when the player is at less than 20 meters away. Use a trigger area around the NPC and toggle its animations on or off accordingly.
 
-> TIP: When an entity is far away and small enough, it's culled by the engine. This culling helps at a drawcall level, removing entities from the engine is always better. This culling also doesn't take occlusion by other entities into account, so entities that are not so small but hidden by a wall are still rendered.
+{{< hint info >}}
+**💡 Tip**:  When an entity is far away and small enough, it's culled by the engine. This culling helps at a drawcall level, removing entities from the engine is always better. This culling also doesn't take occlusion by other entities into account, so entities that are not so small but hidden by a wall are still rendered.
+{{< /hint >}}
 
 #### Async blocks
 
@@ -79,13 +84,17 @@ There are several ways in which your 3d models can be optimized to be lighter.
 
 - Avoid skinned meshes. They can drag down the performance significantly.
 
-> TIP: Read more on 3d model best practices in the [3d Modeling Section]({{< ref "/content/creator/3d-modeling/3d-models.md" >}})
+{{< hint info >}}
+**💡 Tip**:  Read more on 3d model best practices in the [3d Modeling Section]({{< ref "/content/creator/3d-modeling/3d-models.md" >}})
+{{< /hint >}}
 
 #### Asset Bundle conversion
 
 About once a day, the Decentraland content servers run a process to compress every _.gltf_ and _.glb_ model in every newly deployed scene to asset bundle format. This format is _significantly_ lighter, making scenes a lot faster to load and smoother to run on the browser.
 
-> Tip: When planning an event in Decentraland, make sure you deploy your scene a day in advance, so that the models are all converted to asset bundles by then. If you don't want to spoil the surprize before the event, you can deploy a version of your scene that includes all the final 3d models in the project folder, but where these are not visible or where their size is set to 0.
+{{< hint info >}}
+**💡 Tip**:  When planning an event in Decentraland, make sure you deploy your scene a day in advance, so that the models are all converted to asset bundles by then. If you don't want to spoil the surprize before the event, you can deploy a version of your scene that includes all the final 3d models in the project folder, but where these are not visible or where their size is set to 0.
+{{< /hint >}}
 
 > Note: If you make _any_ change to a 3d model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
 
@@ -101,7 +110,9 @@ If your scene connects to any 3rd party servers or uses the [messagebus]({{< ref
 
 Scene UIs can become costly to render when they are made up of many individual elements. Keep in mind that each UI element requires a separate drawcall on the engine.
 
-> TIP: Try to merge multiple elements into one single image. For example if you have a menu with multiple text elements, it's ideal to have the text from the tiles and any additional images baked into the background image. That saves the engine from doing one additional drawcall per frame for each text element.
+{{< hint info >}}
+**💡 Tip**:  Try to merge multiple elements into one single image. For example if you have a menu with multiple text elements, it's ideal to have the text from the tiles and any additional images baked into the background image. That saves the engine from doing one additional drawcall per frame for each text element.
+{{< /hint >}}
 
 Avoid making adjustments to the UI on every frame, those are especially costly and can end up getting queued. For example, if there's a health bar in your UI that should shrink over period of time, players would probably not notice a difference between if it updates at 10 FPS instead of at 30 FPS (on every frame). The system that updates this bar can use a brief timer that counts 100 milliseconds, and only affect the UI when this timer reaches 0.
 

@@ -55,7 +55,9 @@ To rotate an item, select the _Rotate tool_ on the top menu. A gizmo appears on 
 
 To make an item larger or smaller, select the _scale_ item on the top menu, then click on the center of the gizmo and drag in or out. This tool also lets you stretch an item in a single axis to change its proportions, to do this click on one of the axis of the gizmo and drag it.
 
-> Tip: To have greater precision while moving, rotating or scaling an item, press and hold the _Shift_ key while making adjustments.
+{{< hint info >}}
+**💡 Tip**:  To have greater precision while moving, rotating or scaling an item, press and hold the _Shift_ key while making adjustments.
+{{< /hint >}}
 
 To delete an item from the scene, select it and click the _Delete_ tool.
 
@@ -99,7 +101,9 @@ Once you're happy with the scene, press _Publish_.
 
 - Select _My Land_ if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed in the map. Parcels where you are allowed to deploy are shown in pink.
 
-> Tip: Use the rotate arrows on the top-left to rotate your scene so that its shape fits the available parcels, or to ensure its front faces the right way.
+{{< hint info >}}
+**💡 Tip**:  Use the rotate arrows on the top-left to rotate your scene so that its shape fits the available parcels, or to ensure its front faces the right way.
+{{< /hint >}}
 
 Once your scene has been published, you can keep making changes to it and then press _Update_ to publish these changes.
 

@@ -87,7 +87,9 @@ To run a preview of your scene, open a Visual Studio Code window on your project
 - [Preview your scene]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md" >}}) ) for more details. 
 - Check the [Debug a scene]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md#debug-a-scene" >}}) for tips on how to debug any issues.
 
-> TIP: If you get stuck trying to debug an issue, visit the [Decentraland Discord server](https://dcl.gg/discord) to get help from other developers.
+{{< hint info >}}
+**💡 Tip**:  If you get stuck trying to debug an issue, visit the [Decentraland Discord server](https://dcl.gg/discord) to get help from other developers.
+{{< /hint >}}
 
 _Optional_: Your scene`s mechanics might rely on a 3rd party server to carry out player validations, permanent data storage, or other functionalities. See [Use an authoritative server]({{< ref "/content/creator/sdk7/networking/remote-scene-considerations.md#use-an-authoritative-server" >}}))
 

@@ -25,7 +25,9 @@ The following fields can be configured:
 what about text align, TextAlignMode not valid either -->
 
 
-> TIP: A single entity can have both `uiText` and `uiBackground` components.
+{{< hint info >}}
+**💡 Tip**:   A single entity can have both `uiText` and `uiBackground` components.
+{{< /hint >}}
 
 > NOTE: The `fontSize` is not affected by the size of its entity or parent entities.
 

@@ -39,7 +39,9 @@ When creating an `AudioSource` component, you need to provide the path to the lo
 
 The sound file must be inside the project folder. In the example above, the audio file is located in a `sounds` folder, which is located at root level of the scene project folder.
 
-> Tip: For more clarity, we recommend keeping your sound files separate in a `/sounds` folder inside your scene.
+{{< hint info >}}
+**💡 Tip**:  For more clarity, we recommend keeping your sound files separate in a `/sounds` folder inside your scene.
+{{< /hint >}}
 
 Each entity can only have a single `AudioSource` component, that can only play a single clip at a time. This limitation can be easily overcome by modifying the audio source at the time of playing a new sound, or by including multiple invisible child entities, each with their own sound.
 

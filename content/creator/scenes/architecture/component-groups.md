@@ -53,7 +53,9 @@ When creating a component group, specify what components need to be present in e
 const myGroup = engine.getComponentGroup(Transform, Physics, NextPosition)
 ```
 
-> Tip: If your scene includes entities that have all the required components but that don't need to be in your component group, create a custom component to act as a [flag]({{< ref "/content/creator/scenes/architecture/entities-components.md#components-as-flags" >}}). This component doesn't need to have any properties in it. Add this component to the entities that you want the component group to handle.
+{{< hint info >}}
+**💡 Tip**:  If your scene includes entities that have all the required components but that don't need to be in your component group, create a custom component to act as a [flag]({{< ref "/content/creator/scenes/architecture/entities-components.md#components-as-flags" >}}). This component doesn't need to have any properties in it. Add this component to the entities that you want the component group to handle.
+{{< /hint >}}
 
 ## Use component groups in a system
 

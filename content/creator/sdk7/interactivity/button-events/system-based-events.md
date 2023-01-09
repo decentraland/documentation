@@ -92,7 +92,9 @@ The `inputSystem.isTriggered` function takes the following arguments:
 
 For an entity to be interactive, it must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). See [obstacles]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#obstacles" >}}) for more details.
 
-> TIP: See [Data from a pointer event](#data-from-a-pointer-event) for ways to obtain more detailed data about a pointer event.
+{{< hint info >}}
+**💡 Tip**:  See [Data from a pointer event](#data-from-a-pointer-event) for ways to obtain more detailed data about a pointer event.
+{{< /hint >}}
 
 ### Input button up
 
@@ -340,7 +342,9 @@ PointerHoverFeedback.create(chest, {
 
 In the example above, the pointer event includes a value for `hoverText`. This field defines the string to display in the UI while the player points at the entity. By default, this string spells _Interact_.
 
-> TIP: The `hoverText` string should describe the action that happens when interacting. For example `Open`, `Activate`, `Grab`, `Select`. These strings should be as short as possible, to avoid stealing too much focus from the player.
+{{< hint info >}}
+**💡 Tip**:  The `hoverText` string should describe the action that happens when interacting. For example `Open`, `Activate`, `Grab`, `Select`. These strings should be as short as possible, to avoid stealing too much focus from the player.
+{{< /hint >}}
 
 If an entity has multiple pointer events on it, the hover hints for each of these are displayed radially around the cursor.
 
@@ -487,7 +491,9 @@ To see how the meshes inside the model are named, you must open the 3D model wit
 
 <img src="/images/media/mesh-names.png" alt="Mesh internal names in an editor" width="250"/>
 
-> Tip: You can also learn the name of the clicked mesh by logging it and reading it off console.
+{{< hint info >}}
+**💡 Tip**:  You can also learn the name of the clicked mesh by logging it and reading it off console.
+{{< /hint >}}
 
 You access the `meshName` property as part of the `hit` object, that's returned by the click event.
 

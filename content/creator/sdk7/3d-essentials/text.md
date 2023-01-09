@@ -92,8 +92,9 @@ TextShape.create(sign,{
   })
 ```
 
-> TIP: If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
-
+{{< hint info >}}
+**💡 Tip**:  If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
+{{< /hint >}}
 
 ## Text alignment and padding properties
 
@@ -108,7 +109,9 @@ The `TextShape` component creates a text box that has a size, padding, etc.
 - `paddingLeft`: _number_. Space between the text and the outline of the text box.
 - `zIndex`: _number_. Useful for when multiple flat entities occupy the same space, it determines which one to show in front.
 
-> Tip: If a text is meant to float in space, it's a good idea to add a [`Billboard` component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#face-the-user">}}) so that the text rotates to always face the player and be legible.
+{{< hint info >}}
+**💡 Tip**:  If a text is meant to float in space, it's a good idea to add a [`Billboard` component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#face-the-user">}}) so that the text rotates to always face the player and be legible.
+{{< /hint >}}
 
 ## Text shadow and outline properties
 

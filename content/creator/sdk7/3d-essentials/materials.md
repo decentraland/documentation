@@ -102,7 +102,9 @@ Material.setPbrMaterial(meshEntity, {
 
 In the example above, the image for the material is located in a `materials` folder, which is located at root level of the scene project folder.
 
-> Tip: We recommend keeping your texture image files separate in a `/materials` folder inside your scene.
+{{< hint info >}}
+**💡 Tip**:  We recommend keeping your texture image files separate in a `/materials` folder inside your scene.
+{{< /hint >}}
 
 While creating a texture, you can also pass additional parameters:
 

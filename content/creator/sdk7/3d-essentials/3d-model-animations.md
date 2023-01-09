@@ -17,7 +17,9 @@ As an alternative, _vertex animations_ animate a model without the need of a ske
 
 See [Animations](/creator/3d-modeling/animations) for details on how to create animations for a 3D model. Read [Shape components]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) for instructions on how to import a 3D model to a scene.
 
-> TIP: Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md" >}}) for more details.
+{{< hint info >}}
+**💡 Tip**:   Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md" >}}) for more details.
+{{< /hint >}}
 
 ## Check a 3D model for animations
 
@@ -27,7 +29,9 @@ Not all _glTF_ files include animations. To see if there are any available, you 
 - Open the [Babylon Sandbox](https://sandbox.babylonjs.com/) site and drag the glTF file (and any _.jpg_ or _.bin_ dependencies) to the browser.
 - Open the _.glTF_ file with a text editor and scroll down till you find _"animations":_.
 
-> TIP: In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
+{{< hint info >}}
+**💡 Tip**:  In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
+{{< /hint >}}
 
 ## Automatic playing
 

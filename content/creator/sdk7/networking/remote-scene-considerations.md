@@ -67,7 +67,9 @@ const sceneMessageBus = new MessageBus()
 sceneMessageBus.emit("spawn", { position: {x: 10, y: 2, z: 10} })
 ```
 
-> Tip: If you need a single message to include data from more than one variable, create a custom type to hold all this data in a single object.
+{{< hint info >}}
+**💡 Tip**:  If you need a single message to include data from more than one variable, create a custom type to hold all this data in a single object.
+{{< /hint >}}
 
 #### Receive messages
 
@@ -163,7 +165,9 @@ An authoritative server may have different levels of involvement with the scene:
 
 - API + DB: This is useful for scenes where changes don't happen constantly and where it's acceptable to have minor delays in syncing. When a player changes something, it sends an HTTP request to a REST API that stores the new scene state in a data base. Changes remained stored for any new player that visits the scene at a later date. The main limitation is that new changes from other players aren't notified to players who are already there, messages can't be pushed from the server to players. Players must regularly send requests the server to get the latest state.
 
-> TIP: It's also possible to opt for a hybrid approach where changes are notified between players via P2P Messagebus messages, but the final state is also stored via an API for future visitors.
+{{< hint info >}}
+**💡 Tip**:  It's also possible to opt for a hybrid approach where changes are notified between players via P2P Messagebus messages, but the final state is also stored via an API for future visitors.
+{{< /hint >}}
 
 - Websockets: This alternative is more robust, as it establishes a two-way communications channel between player and server. Updates can be sent from the server, you could even have game logic run on or validated on the server. This enables real time interaction and makes more fast paced games possible. It's also more secure, as each message between player and server is part of a session that is opened, no need to validate each message.
 

@@ -59,7 +59,9 @@ Note that in several of these sites, you can choose what format to download the 
 
 You might find that when running a preview the player can walk through your imported 3D models. This is likely because the models are missing a _collider mesh_ to define a collision geometry. See [colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}}) for more details and instructions.
 
-> Tip: Instead of editing the model to add a _collider mesh_, a simpler alternative is to an _Invisible wall_ smart item with approximately the same shape to stand in its place.
+{{< hint info >}}
+**💡 Tip**:  Instead of editing the model to add a _collider mesh_, a simpler alternative is to an _Invisible wall_ smart item with approximately the same shape to stand in its place.
+{{< /hint >}}
 
 ## Animations
 

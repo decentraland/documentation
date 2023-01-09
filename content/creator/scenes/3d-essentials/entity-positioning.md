@@ -441,7 +441,9 @@ The position of entities in your scene is constantly being checked as they move,
 
 A grid on the scene's ground shows the limits of the scene, which by default rage from 0 to 16 on the _x_ and _z_ axis, and up to 20 on the _y_ axis. You're free to place entities underground, below 0 on the _y_ axis.
 
-> Tip: If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
+{{< hint info >}}
+**💡 Tip**:  If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
+{{< /hint >}}
 
 It's important to note that the _entire_ 3D model must be within the scene's bounds. This includes the model's _bounding box_. Some 3D models may have bounding boxes that unnecessarily extend beyond the meshes themselves, and it can sometimes be tricky to tell when this happens. When an entity extends beyond the scene's boundaries, in the preview you'll see a cube that marks these bounding boxes. The entire cube must fit within your scene.
 

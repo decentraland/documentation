@@ -65,7 +65,9 @@ Pass two arguments: the South-West and the North-East parcels. The South-West pa
 
 `dcl coords <parcel> <parcel>`
 
-> Tip: The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
+{{< hint info >}}
+**💡 Tip**:  The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
+{{< /hint >}}
 
 For example:
 

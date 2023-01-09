@@ -100,7 +100,9 @@ Transform.create(doorKnob, {
 engine.removeEntityWithChildren(door)
 ```
 
-> TIP: Instead of removing an entity from the engine, in some cases it might be better to make it invisible, in case you want to be able to load it again without any delay. See [Make invisible]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md#make-invisible" >}})
+{{< hint info >}}
+**💡 Tip**:  Instead of removing an entity from the engine, in some cases it might be better to make it invisible, in case you want to be able to load it again without any delay. See [Make invisible]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md#make-invisible" >}})
+{{< /hint >}}
 
 ### Removing entities behind the scenes
 
@@ -264,8 +266,9 @@ const hasTransform = Transform.has(myEntity)
 ```
 
 
-> Tip: You can also [query components]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to fetch a full list of components that hold a specific component, or a specific set of components. Do not iterate over all entities in the scene manually to check each with a `has()`, that approach is a lot less efficient. 
-
+{{< hint info >}}
+**💡 Tip**:  You can also [query components]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to fetch a full list of components that hold a specific component, or a specific set of components. Do not iterate over all entities in the scene manually to check each with a `has()`, that approach is a lot less efficient. 
+{{< /hint >}}
 
 ## Reserved entities
 

@@ -48,7 +48,9 @@ When creating an `AudioClip` object, you need to provide the path to the locatio
 
 The sound file must be inside the project folder. In the example above, the audio file is located in a `sounds` folder, which is located at root level of the scene project folder.
 
-> Tip: We recommend keeping your sound files separate in a `/sounds` folder inside your scene.
+{{< hint info >}}
+**💡 Tip**:  We recommend keeping your sound files separate in a `/sounds` folder inside your scene.
+{{< /hint >}}
 
 Each entity can only have a single `AudioSource` component, that can only have a single `AudioClip`. This limitation can be easily overcome by including multiple invisible entities, each with their own sound.
 

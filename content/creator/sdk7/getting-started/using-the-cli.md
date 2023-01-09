@@ -21,7 +21,9 @@ Although the Editor is easier to use, the CLI allows you more flexibility, and c
 
 > Note: The Editor uses the CLI behind the scenes.
 
-> TIP: See [Instalation guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}) for instructions on how to install the Editor.
+{{< hint info >}}
+**💡 Tip**:  See [Instalation guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}) for instructions on how to install the Editor.
+{{< /hint >}}
 
 The Decentraland CLI is distributed via [npm](https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm).
 

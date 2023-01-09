@@ -166,7 +166,9 @@ The values of the returned property can be:
 
 This event is fired once when the scene first obtains information about the player's current camera mode, and then any time the player changes camera mode while in or around your scene.
 
-> Tip: To encourage players to use a particular camera mode in your scene, display a UI message advising them to switch modes whenever they use the wrong one.
+{{< hint info >}}
+**💡 Tip**:  To encourage players to use a particular camera mode in your scene, display a UI message advising them to switch modes whenever they use the wrong one.
+{{< /hint >}}
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when on 3rd person.
 
@@ -262,7 +264,9 @@ onProfileChanged.add((profileData) => {
 
 Event data includes only the ID of the player and a version number for that avatar's profile, according to the catalyst server. Every time a change is propagated, the version number increases by 1.
 
-> Tip: When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+{{< hint info >}}
+**💡 Tip**:  When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+{{< /hint >}}
 
 When testing in preview, run the scene with `dcl start --web3` so that you connect with your wallet. Otherwise, you will be using a random avatar.
 

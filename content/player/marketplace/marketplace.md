@@ -82,7 +82,9 @@ To buy LAND, Estates, wearables or unique names in Decentraland:
 
 1. Browse offers to find something on same that you'd like to buy and click it to open its details.
 
-> Tip: For LAND and Estates, you can also browse using the _Atlas_ view.
+{{< hint info >}}
+**💡 Tip**:  For LAND and Estates, you can also browse using the _Atlas_ view.
+{{< /hint >}}
 
 2. On it's details page, click **Buy**.
 
@@ -94,7 +96,9 @@ To buy LAND, Estates, wearables or unique names in Decentraland:
 
 If an item isn't listed on sale, you can still place a _bid_ on it and offer to buy it at a specific price. The other steps of the process are just like those of buying an item.
 
-> Tip: View items that aren't for sale by untoggling the _On sale_ option. For LAND and Estates, you can also browse using the _Atlas_ view and select any parcel.
+{{< hint info >}}
+**💡 Tip**:  View items that aren't for sale by untoggling the _On sale_ option. For LAND and Estates, you can also browse using the _Atlas_ view and select any parcel.
+{{< /hint >}}
 
 > Note: If this is your first time placing a bid on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to handle bids.
 

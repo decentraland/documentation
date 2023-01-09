@@ -101,7 +101,9 @@ If you're building a scene to be uploaded to several adjacent parcels, you can e
 
 You can also change the coordinates by running the `dcl coords` command from the command line, this is especially useful on large scenes with many parcels. See [set parcels via the command line]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#set-parcels-via-the-command-line">}}) for more details.
 
-> Tip: While running the preview, the parcel coordinates don't need to match those that your scene will really use, as long as they're adjacent and are arranged into the same shape. You will have to replace these with the actual coordinates later when you [deploy the scene](#upload-a-scene-to-decentraland).
+{{< hint info >}}
+**💡 Tip**:  While running the preview, the parcel coordinates don't need to match those that your scene will really use, as long as they're adjacent and are arranged into the same shape. You will have to replace these with the actual coordinates later when you [deploy the scene](#upload-a-scene-to-decentraland).
+{{< /hint >}}
 
 ## Run preview in Desktop
 

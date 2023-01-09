@@ -89,8 +89,9 @@ let rotationDifference = Quaternion.fromToRotation(myQuaternion1, myQuaternion2,
 
 Since it's a lot easier to think in terms of Euler degrees, the SDK includes a couple of functions to convert to and from Quaternions and Euler.
 
-> Tip: Avoid running these conversions as part of recurrent logic inside a system, that run on every tick, as that can get expensive. These conversions are mostly useful for one-time operations, like setting the rotation of a new entity.
-
+{{< hint info >}}
+**💡 Tip**:  Avoid running these conversions as part of recurrent logic inside a system, that run on every tick, as that can get expensive. These conversions are mostly useful for one-time operations, like setting the rotation of a new entity.
+{{< /hint >}}
 
 ```ts
 // From euler to Quaternion

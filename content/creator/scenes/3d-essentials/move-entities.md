@@ -14,7 +14,9 @@ To move, rotate or resize an entity in your scene, change the _position_, _rotat
 
 You can easily perform these incremental changes by moving entities a small amount each time the `update()` function of a [system]({{< ref "/content/creator/scenes/architecture/systems.md" >}}) is called.
 
-> Tip: You can use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve most of the tasks described in this doc. The code shown in these examples is handled in the background by the library, so in most cases it only takes a single line of code to use them.
+{{< hint info >}}
+**💡 Tip**:  You can use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve most of the tasks described in this doc. The code shown in these examples is handled in the background by the library, so in most cases it only takes a single line of code to use them.
+{{< /hint >}}
 
 ## Move
 
@@ -70,7 +72,9 @@ myEntity.addComponent(new BoxShape())
 engine.addEntity(myEntity)
 ```
 
-> Tip: To make an entity always rotate to face the player, you can add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}).
+{{< hint info >}}
+**💡 Tip**:  To make an entity always rotate to face the player, you can add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}).
+{{< /hint >}}
 
  <img src="/images/media/gifs/rotate.gif" alt="Move entity" width="300"/>
 
@@ -220,7 +224,9 @@ The `slerp()` function takes three parameters:
 - The [quaternion](https://en.wikipedia.org/wiki/Quaternion) angle for the target rotation
 - The amount, a value from 0 to 1 that represents what fraction of the translation to do.
 
-> Tip: You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.Euler()`.
+{{< hint info >}}
+**💡 Tip**:  You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.Euler()`.
+{{< /hint >}}
 
 ```ts
 const originRotation = Quaternion.Euler(0, 90, 0)

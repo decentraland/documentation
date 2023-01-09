@@ -65,7 +65,9 @@ To make a material both emissive and have a texture, you can use two shaders in 
 
 ![](/images/media/apply-emissive.png)
 
-> Tip: By using a color atlas as a texture, you can get away with having various possible colors counted as a single texture. This is useful for making sure you don't exceed the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}).
+{{< hint info >}}
+**💡 Tip**:  By using a color atlas as a texture, you can get away with having various possible colors counted as a single texture. This is useful for making sure you don't exceed the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}).
+{{< /hint >}}
 
 ![](/images/media/neon-texture.png)
 

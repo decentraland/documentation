@@ -34,7 +34,9 @@ for (const [entity] of engine.getEntitiesWith(Transform, Physics, NextPosition))
   }
 ```
 
-> Tip: If your query returns entities that you don't need to deal with, consider creating a custom component to act as a [flag]({{< ref "/content/creator/sdk7/architecture/entities-components.md#components-as-flags">}}). This component doesn't need to have any properties in it, but can be used to mark a specific subgroup of entities that you might want to treat differently.
+{{< hint info >}}
+**💡 Tip**:  If your query returns entities that you don't need to deal with, consider creating a custom component to act as a [flag]({{< ref "/content/creator/sdk7/architecture/entities-components.md#components-as-flags">}}). This component doesn't need to have any properties in it, but can be used to mark a specific subgroup of entities that you might want to treat differently.
+{{< /hint >}}
 
 ## Use queries in a system
 

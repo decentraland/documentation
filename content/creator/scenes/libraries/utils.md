@@ -178,7 +178,9 @@ The curved path is composed of multiple straight line segments put together. You
 - `duration`: The duration (in seconds) of the whole path.
 - `numberOfSegments`: How many straight-line segments to use to construct the curve.
 
-> Tip: Each segment takes at least one frame to complete. Avoid using more than 30 segments per second in the duration of the path, or the entity will move significantly slower while it stops for each segment.
+{{< hint info >}}
+**💡 Tip**:  Each segment takes at least one frame to complete. Avoid using more than 30 segments per second in the duration of the path, or the entity will move significantly slower while it stops for each segment.
+{{< /hint >}}
 
 This example moves an entity over through a curve that's subdivided into 40 segments, over a period of 5 seconds. The curve passes through four key points.
 
@@ -947,7 +949,9 @@ The `addLabel()` function also lets you set the following:
 - `size`: Text font size, 3 by default.
 - `textOffset`: Offset from parent entity's position. By default 1.5 meters above the parent.
 
-> Tip: The `addLabel()` function returns the created entity used for the text. You can then tweak this entity in any way you choose.
+{{< hint info >}}
+**💡 Tip**:  The `addLabel()` function returns the created entity used for the text. You can then tweak this entity in any way you choose.
+{{< /hint >}}
 
 ## Debug helpers
 
@@ -976,7 +980,9 @@ The `addTestCube()` function also lets you set the following:
 - `noCollider`: If true, the cube won't have a collider and will let players walk through it.
 - `keepInProduction`: If true, it will be visible for players in-world once the scene is deployed. Otherwise, the cube is only present when previewing he scene locally.
 
-> Tip: The `addTestCube()` function returns the created entity for the cube. You can then tweak this entity in any way you choose. `addTestCube()` is an async function (because the function first checks if you're in preview or in production). If you need the function to return the cube (instead of a promise of a cube) use it inside an async block of code with an await on the `addTestCube()` function.
+{{< hint info >}}
+**💡 Tip**:  The `addTestCube()` function returns the created entity for the cube. You can then tweak this entity in any way you choose. `addTestCube()` is an async function (because the function first checks if you're in preview or in production). If you need the function to return the cube (instead of a promise of a cube) use it inside an async block of code with an await on the `addTestCube()` function.
+{{< /hint >}}
 
 ```ts
 async function addMyCube() {

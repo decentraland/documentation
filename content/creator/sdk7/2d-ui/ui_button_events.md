@@ -54,7 +54,9 @@ TODO: children of an entity with OnClick aren't clickable too, right?
 
 TODO: is there an euqivalent to isPointerBlocker?
 
-> Tip: If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
+{{< hint info >}}
+**💡 Tip**:  If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
+{{< /hint >}}
  -->
 
 

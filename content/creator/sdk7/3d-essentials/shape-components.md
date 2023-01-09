@@ -98,7 +98,9 @@ GltfContainer.create(houseEntity, {
 
 The `src` field is required, you must give it a value when constructing the component. In the example above, the model is located in a `models` folder at root level of the scene project folder.
 
-> Tip: We recommend keeping your models separate in a `/models` folder inside your scene.
+{{< hint info >}}
+**💡 Tip**:  We recommend keeping your models separate in a `/models` folder inside your scene.
+{{< /hint >}}
 
 glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this.
 

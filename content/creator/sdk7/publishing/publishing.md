@@ -65,13 +65,18 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
 2.  Run `dcl deploy` from the scene's folder.
-    > Tip: If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying.
+    {{< hint info >}}
+**💡 Tip**:  If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying.
 3.  A browser tab will open, showing what parcels you're deploying to. Click **Sign and Deploy**.
 4.  Metamask opens, notifying you that your signature is requested. Click **Sign** to confirm this action.
 
-> Tip: If you're implementing a continuous integration flow, where changes to your scene are deployed automatically, then you can set the `export DCL_PRIVATE_KEY` environment variable to the private key of an account that has deploy permissions.
+{{< hint info >}}
+**💡 Tip**:  If you're implementing a continuous integration flow, where changes to your scene are deployed automatically, then you can set the `export DCL_PRIVATE_KEY` environment variable to the private key of an account that has deploy permissions.
+{{< /hint >}}
 
-> Tip: `dcl deploy` runs a `dcl build`, which checks the scene for type errors more strictly than running `dcl start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `dcl deploy  --skip-build`  to skip the `dcl build` step and deploy the scene as it is.
+{{< hint info >}}
+**💡 Tip**:  `dcl deploy` runs a `dcl build`, which checks the scene for type errors more strictly than running `dcl start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `dcl deploy  --skip-build`  to skip the `dcl build` step and deploy the scene as it is.
+{{< /hint >}}
 
 ## Publish from a hardware wallet
 

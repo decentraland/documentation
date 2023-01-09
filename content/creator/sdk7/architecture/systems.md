@@ -67,7 +67,9 @@ In the example above, the system `MoveSystem` is a function that runs on each ti
 ![](/images/media/ecs-system-new.png)
 
 <!--
-> Tip: As a simpler alternative to create custom systems, you can use the helpers in the [utils library](https://github.com/decentraland/decentraland-ecs-utils). The library creates systems in the background that handle common tasks like moving or rotating entities. In most cases, this library only requires a single line of code to apply these behaviors.
+{{< hint info >}}
+**💡 Tip**:  As a simpler alternative to create custom systems, you can use the helpers in the [utils library](https://github.com/decentraland/decentraland-ecs-utils). The library creates systems in the background that handle common tasks like moving or rotating entities. In most cases, this library only requires a single line of code to apply these behaviors.
+{{< /hint >}}
 -->
 
 You can have multiple systems in your scene to decouple different behaviors, making your code cleaner and easier to scale and reuse. For example, one system might handle physics, another might make an obstacle entity move back and forth continuously, another could handle the AI of characters.

@@ -235,9 +235,11 @@ myEntity.addComponent(myMaterial)
 
 In the example above, the image for the material is located in a `materials` folder, which is located at root level of the scene project folder.
 
-> Tip: We recommend keeping your texture image files separate in a `/materials` folder inside your scene.
+{{< hint info >}}
+**💡 Tip**:  We recommend keeping your texture image files separate in a `/materials` folder inside your scene.
 
-> Tip: A material can have multiple layers of texture, you can see what these are on a source code editor by clicking `.` and letting the autocomplete menu show you the list.
+A material can have multiple layers of texture, you can see what these are on a source code editor by clicking `.` and letting the autocomplete menu show you the list.
+{{< /hint >}}
 
 #### Texture wrapping
 

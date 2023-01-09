@@ -23,7 +23,9 @@ If this occurs, there are several places where you can look for error messages t
 
 If an entity is located or extends beyond the limits of the scene, it will be displayed in red to indicate this, with a red bounding box to mark its boundaries. Nothing in your scene can extend beyond the scene limits. This won't stop the scene from being rendered locally, but it will stop the offending entities form being rendered in Decentraland.
 
-> Tip: Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md#deploy-to-the-test-environment">}})
+{{< hint info >}}
+**💡 Tip**:  Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md#deploy-to-the-test-environment">}})
+{{< /hint >}}
 
 ## Use the console
 
