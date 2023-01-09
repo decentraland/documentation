@@ -38,7 +38,9 @@ There are a number of tools that can help with arranging 3d models into position
 
   Read the [documentation]({{< ref "/content/creator/builder/builder-101.md" >}}).
 
-  > Note: If a scene is created by or modified by the SDK, you can't import it into the Builder. You can only go from the Builder to the SDK, not in the other direction.
+{{< hint warning >}}
+**📔 Note**:  If a scene is created by or modified by the SDK, you can't import it into the Builder. You can only go from the Builder to the SDK, not in the other direction.
+{{< /hint >}}
 
 ### 3D Modeling
 
