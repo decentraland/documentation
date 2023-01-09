@@ -82,7 +82,11 @@ The `avatar` object has the following nested information:
   - `face256`: _string_ The player's face as a 256x256 pixel image.
   - `body`: _string_ The full resolution image of the player standing straight, with 512x1024 pixels.
 
-> WARNING: The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/scenes/3d-essentials/materials.md#avatar-portraits" >}}) ).
+{{< hint danger >}}
+**❗Warning**  
+The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/scenes/3d-essentials/materials.md#avatar-portraits" >}}) ).
+{{< /hint >}}
+
 
 #### Data from current player
 

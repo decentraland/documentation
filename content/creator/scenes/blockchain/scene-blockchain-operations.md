@@ -182,7 +182,11 @@ The function requires that you specify an Ethereum wallet address to receive the
 
 If accepted by the player, the function returns the hash number of the transaction.
 
-> Warning: This function informs you that a transaction was requested, but not that it was confirmed. If the gas price is too low, or it doesn't get mined for any reason, the transaction won't be completed.
+{{< hint danger >}}
+**❗Warning**  
+This function informs you that a transaction was requested, but not that it was confirmed. If the gas price is too low, or it doesn't get mined for any reason, the transaction won't be completed.
+{{< /hint >}}
+
 
 ```ts
 const myWallet = ‘0x0123456789...’

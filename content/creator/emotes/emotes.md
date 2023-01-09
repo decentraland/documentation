@@ -251,7 +251,12 @@ When you are ready, click **Publish** and sign the message when prompted by yo
 
 ![Untitled](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images//emotes/Untitled%208.png)
 
-> Warning: **You will not be able to add or remove items in your collection after beginning the publication process.** You will be able to see your items within the Decentraland Marketplace, but you won’t be able to buy, sell, or transfer them until they have been approved by the Curator Committee.
+{{< hint danger >}}
+**❗Warning**  
+
+**You will not be able to add or remove items in your collection after beginning the publication process.** You will be able to see your items within the Decentraland Marketplace, but you won’t be able to buy, sell, or transfer them until they have been approved by the Curator Committee.
+
+{{< /hint >}}
 
 
 ### Selling Items
