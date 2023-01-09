@@ -51,7 +51,9 @@ If the player’s experience in your scene isn’t meant to be linear, but you s
     <figcaption>Pop-up instructions</figcaption>
 </figure>
 
-> Note: Make sure the popup isn't too intrusive and that it's easy to close by clicking anywhere.
+{{< hint warning >}}
+**📔 Note**   Make sure the popup isn't too intrusive and that it's easy to close by clicking anywhere.
+{{< /hint >}}
 
 A welcome message should communicate the following to the player:
 
@@ -93,7 +95,9 @@ Be careful about placing your UI in screen regions that overlap with the default
 
 There are no restrictions for placing UI elements in the left 25% of the screen, but keep in mind that the explorer is continually making changes and improvements to its design. Any space that is not occluded in that region today could be covered in future versions.
 
-> Note: UI elements from scenes and smart wearables always appear on a layer behind the default Decentraland UI.
+{{< hint warning >}}
+**📔 Note**   UI elements from scenes and smart wearables always appear on a layer behind the default Decentraland UI.
+{{< /hint >}}
 
 Always keep a grid in mind and use it as your main criteria when spatially organizing your UI. If you are working on a scene where a HUD is needed, you can start by putting all the consumables together (e.g. currency, food, life), and on the other side stockables such as tools or weapons. Try to be consistent about the grid metrics and padding. Make the feedback for every player action clear.
 
@@ -113,7 +117,9 @@ When putting together a color palette, start out by selecting a main color, and 
     <figcaption>Strategies for combining colors properly</figcaption>
 </figure>
 
-> Tip: Free color palette generators we recommend: [Coolors](https://coolors.co), [Adobe Color CC](https://color.adobe.com/), [Colour Lovers](http://www.colourlovers.com), [Color Hunt](http://www.colorhunt.co), [Color by Hailpixel](http://color.hailpixel.com), [Colour Code](http://colourco.de), [Sip](https://sipapp.io/), [Color Scheme Designer by Paletton](http://paletton.com), [Cohesive Colors](http://javierbyte.github.io/cohesive-colors), [Colr](http://www.colr.org)
+{{< hint info >}}
+**💡 Tip**:  Free color palette generators we recommend: [Coolors](https://coolors.co), [Adobe Color CC](https://color.adobe.com/), [Colour Lovers](http://www.colourlovers.com), [Color Hunt](http://www.colorhunt.co), [Color by Hailpixel](http://color.hailpixel.com), [Colour Code](http://colourco.de), [Sip](https://sipapp.io/), [Color Scheme Designer by Paletton](http://paletton.com), [Cohesive Colors](http://javierbyte.github.io/cohesive-colors), [Colr](http://www.colr.org)
+{{< /hint >}}
 
 The main color should be the most frequently used across your UI components. If your palette doesn’t have a secondary color, you can accent elements by combining the main color with black or white. Having a secondary color is not mandatory, but it helps emphasize and distinguish your scene UI elements. Secondary colors work best for highlights, selection controls (sliders and switches), links and headlines.
 
@@ -126,7 +132,9 @@ Remember that each color has its own unique expressive qualities, take advantage
 
 You can also use colors strategically to indicate state changes, for example changing the color of an element to indicate if it’s active or inactive.
 
-> Note: States communicate the status of UI elements. The states of an element should maintain a certain continuity, but they must have clear affordances and be easily distinguishable from other states and the surrounding layout.
+{{< hint warning >}}
+**📔 Note**   States communicate the status of UI elements. The states of an element should maintain a certain continuity, but they must have clear affordances and be easily distinguishable from other states and the surrounding layout.
+{{< /hint >}}
 
 <figure>
     <img src="/images/media/ux-active-button.png" alt="Active inactive button" width="300"/>

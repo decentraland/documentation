@@ -31,7 +31,9 @@ The following aspects of a 3D model can either be embedded in a _glTF_ file or r
 - Textures can either be embedded or referenced from an external image file.
 - Binary data about geometry, animations, and other buffer-related aspects of the model can either be embedded or referenced from an external _.bin_ file.
 
-> Note: Animations _must_ be embedded inside the _glTF_ file to use in Decentraland.
+{{< hint warning >}}
+**📔 Note**   Animations _must_ be embedded inside the _glTF_ file to use in Decentraland.
+{{< /hint >}}
 
 #### Export to glTF from Blender
 
@@ -56,7 +58,9 @@ Maya doesn't support exporting to glTF by default, but you can install a plugin 
 1. Install the plugin by following [these instructions](http://doc.babylonjs.com/resources/maya).
 2. Export glTF files using the plugin by following [these instructions](http://doc.babylonjs.com/resources/maya_to_gltf#pbr-materials).
 
-> Note: As an alternative, you can try [this other plugin](https://github.com/WonderMediaProductions/Maya2glTF) too.
+{{< hint warning >}}
+**📔 Note**   As an alternative, you can try [this other plugin](https://github.com/WonderMediaProductions/Maya2glTF) too.
+{{< /hint >}}
 
 #### Export to glTF from Unity
 
@@ -64,7 +68,9 @@ Unity doesn't support exporting to glTF by default, but you can install a plugin
 
 Download the plugin from [this link](https://github.com/sketchfab/Unity-glTF-Exporter).
 
-> Note: As an alternative, you can try [this other plugin](https://assetstore.unity.com/packages/tools/utilities/collada-exporter-for-unity2017-99793) too.
+{{< hint warning >}}
+**📔 Note**   As an alternative, you can try [this other plugin](https://assetstore.unity.com/packages/tools/utilities/collada-exporter-for-unity2017-99793) too.
+{{< /hint >}}
 
 #### Export to glTF from SketchUp
 
@@ -116,7 +122,9 @@ The following tool offers some optimizations that will make 3D models lighter an
 
 Among other things, it converts _.gltf_ format into _.glb_, which is binary and so occupies a lot less. It also places texture files outside the 3D model, which allows you to use the same texture on multiple models.
 
-> Note: _.glb_ format by default always has textures embedded in the file. The engine can't recognize two embedded textures as the same, they need to be external files that share a same hash.
+{{< hint warning >}}
+**📔 Note**   _.glb_ format by default always has textures embedded in the file. The engine can't recognize two embedded textures as the same, they need to be external files that share a same hash.
+{{< /hint >}}
 
 ## See also
 

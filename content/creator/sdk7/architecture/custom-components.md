@@ -28,8 +28,9 @@ export const WheelSpinComponent = engine.defineComponent({
 }, 2000)
 ```
 
-> Tip: Define your scene's custom components in a separate `/components` folder inside `/src`, each in its own file. That way it's easier to reuse these in future projects.
-
+{{< hint info >}}
+**💡 Tip**:  Define your scene's custom components in a separate `/components` folder inside `/src`, each in its own file. That way it's easier to reuse these in future projects.
+{{< /hint >}}
 
 Once you defined a custom component, you can create instances of this component, that reference entities in the scene. When you create an instance of a component, you provide values to each of the fields in the component's schema. The values must comply with the declared types of each field.
 
@@ -82,10 +83,11 @@ enum CustomComponentIds {
 ```
 
 
-> Warning: Component IDs must be created in a deterministic way. Do not give it a random number, or one that may vary based on in what order the scene loads, or the actions taken by the player. This is especially consideration if changes in the scene are synced between players. If two player's local versions of the scene use different ids for a same component, it won't be possible to properly sync them.
+{{< hint danger >}}
+**❗Warning**  
+Component IDs must be created in a deterministic way. Do not give it a random number, or one that may vary based on in what order the scene loads, or the actions taken by the player. This is especially consideration if changes in the scene are synced between players. If two player's local versions of the scene use different ids for a same component, it won't be possible to properly sync them.
+{{< /hint >}}
 
-
-Note that if you're using a library, the creators of the library might have created their own custom components. The range of the IDs of these components in the library should be specified in the library's readme file, so you can avoid overlaps.
 
 
 ## Components as flags
@@ -147,9 +149,13 @@ const mySchema = {
 export const WheelSpinComponent = engine.defineComponent(mySchema, 2000)
 ```
 
-> Tip: When creating an instance of a component, the VS Studio autocomplete options will suggest what fields you can add to the component by pressing _Ctrl + Space_.
+{{< hint info >}}
+**💡 Tip**:  When creating an instance of a component, the VS Studio autocomplete options will suggest what fields you can add to the component by pressing _Ctrl + Space_.
+{{< /hint >}}
 
-> Note: All values in a custom component are optional when instancing a component. There is no mechanism to define default values for these fields when instancing the component, but you can define systems that execute default behaviors if no values are present for a given field.
+{{< hint warning >}}
+**📔 Note**   All values in a custom component are optional when instancing a component. There is no mechanism to define default values for these fields when instancing the component, but you can define systems that execute default behaviors if no values are present for a given field.
+{{< /hint >}}
 
 ### Default Schema types
 
@@ -173,7 +179,9 @@ The following complex types also exist. They each include a series of nested pro
 - `Schemas.Color3`
 - `Schemas.Color4`
 
-> TIP: See [Geometry types]({{< ref "/content/creator/sdk7/3d-essentials/special-types.md" >}}) and [Color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how these types of data are useful.
+{{< hint info >}}
+**💡 Tip**:  See [Geometry types]({{< ref "/content/creator/sdk7/3d-essentials/special-types.md" >}}) and [Color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how these types of data are useful.
+{{< /hint >}}
 
 For example, you can use these schema types in a component like this to track the gradual movement of an entity. This component stores an initial and a final position as Vector3 values, as well as a speed and fraction of the completed path as float numbers. See [Move entities]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md#move-between-two-points" >}}) for the full implementation of this example.
 

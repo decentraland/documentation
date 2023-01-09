@@ -25,7 +25,9 @@ If this occurs, there are several places where you can look for error messages t
 
 If an entity is located or extends beyond the limits of the scene, it will be displayed in red to indicate this, with a red bounding box to mark its boundaries. Nothing in your scene can extend beyond the scene limits. This won't stop the scene from being rendered locally, but it will stop the offending entities form being rendered in Decentraland.
 
-> Tip: Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/scenes/getting-started/dev-workflow.md#deploy-to-the-test-environment" >}})
+{{< hint info >}}
+**💡 Tip**:  Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/scenes/getting-started/dev-workflow.md#deploy-to-the-test-environment" >}})
+{{< /hint >}}
 
 ## Use the console
 
@@ -72,8 +74,9 @@ The processed messages and message queue refer to the messages sent by your scen
 
 The other numbers in the panel refer to the usage of resources, in relation to the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}). Keep in mind that the maximum allowed number for these values is proportional to the amount of parcels in the scene. If your scene tries to render an entity that exceeds these values, for example if it has too many triangles, it won't be rendered in-world once deployed.
 
-> Note: Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
-
+{{< hint warning >}}
+**📔 Note**   Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
+{{< /hint >}}
 
 ## Run code only in preview
 
@@ -93,7 +96,9 @@ executeTask(async () => {
 }
 ```
 
-> Note: `isPreviewMode()` needs to be run as an [async function]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the response may delay in returning data.
+{{< hint warning >}}
+**📔 Note**   `isPreviewMode()` needs to be run as an [async function]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the response may delay in returning data.
+{{< /hint >}}
 
 ## Dependency versions
 
@@ -184,7 +189,9 @@ Any transactions that you accept while viewing the scene in this mode will only 
 
 If you open a second preview window on your machine, you will enter the scene with a different avatar. The avatars on both tabs will be able to see each other and interact, although currently they might have inconsistent names and wearables on.
 
-> Note: You can't open multiple tabs using the same account. So if your URL has a hardcoded `PLAYER` parameter with the same string on multiple tabs, or you're connecting to Metamask on more than one tab, it won't be possible to load them all. Each simultaneous tab should load a different account.
+{{< hint warning >}}
+**📔 Note**   You can't open multiple tabs using the same account. So if your URL has a hardcoded `PLAYER` parameter with the same string on multiple tabs, or you're connecting to Metamask on more than one tab, it won't be possible to load them all. Each simultaneous tab should load a different account.
+{{< /hint >}}
 
 If the scene uses the MessageBus to send messages between players, these will work between the different tabs.
 

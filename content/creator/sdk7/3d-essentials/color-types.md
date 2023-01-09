@@ -33,7 +33,9 @@ const black = Color3.Black()
 ```
 
 
-> Tip: Write `Color3.` or `Color4.` and Visual Studio should suggest all the possible values in an intelligent dropdown.
+{{< hint info >}}
+**💡 Tip**:  Write `Color3.` or `Color4.` and Visual Studio should suggest all the possible values in an intelligent dropdown.
+{{< /hint >}}
 
 You can otherwise pick a random color using the following function:
 

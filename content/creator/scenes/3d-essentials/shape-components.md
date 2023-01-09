@@ -60,7 +60,9 @@ Since the `src` field is required, you must give it a value when constructing th
 
 In the example above, the model is located in a `models` folder at root level of the scene project folder.
 
-> Tip: We recommend keeping your models separate in a `/models` folder inside your scene.
+{{< hint info >}}
+**💡 Tip**:  We recommend keeping your models separate in a `/models` folder inside your scene.
+{{< /hint >}}
 
 glTF models can include their own embedded textures, materials, colliders and animations. See [3D models]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for more information on this.
 
@@ -81,7 +83,9 @@ To get you started, below is a list of libraries that have free or relatively in
 - [ShareCG](https://www.sharecg.com/)
 - [CGTrader](https://www.cgtrader.com/)
 
-> Note: Pay attention to the license restrictions that the content you download has.
+{{< hint warning >}}
+**📔 Note**   Pay attention to the license restrictions that the content you download has.
+{{< /hint >}}
 
 Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _glTF_ before you can use them in a scene. For that, we recommend importing them into Blender.
 
@@ -161,7 +165,9 @@ If multiple entities in your scene use a same primitive or 3D model, there's no 
 
 This keeps your scene lighter to load and prevents you from exceeding the [maximum amount]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}) of _bodies_ per scene.
 
-> Note: Reused shapes are added to the _triangle_ count of the scene. So it is possible to exceed the triangle limit by reusing shapes.
+{{< hint warning >}}
+**📔 Note**   Reused shapes are added to the _triangle_ count of the scene. So it is possible to exceed the triangle limit by reusing shapes.
+{{< /hint >}}
 
 ```ts
 // Create shape component

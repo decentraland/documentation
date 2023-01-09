@@ -72,10 +72,14 @@ The fetch command returns a `response` object with the following data:
 - `json()`: Obtain the body in JSON format.
 - `text()`: Obtain the body as text.
 
-> Note: `json()` and `text()` are mutually exclusive. If you obtain the body of the response in one of the two formats, you can no longer obtain the other from the `response` object.
+{{< hint warning >}}
+**📔 Note**   `json()` and `text()` are mutually exclusive. If you obtain the body of the response in one of the two formats, you can no longer obtain the other from the `response` object.
+{{< /hint >}}
 
-> Note: Each Decentraland scene is only permitted to perform one `fetch` command at a time. This has no effect on how the scene code must be structured, as requests are queued internally. If your scene requires sending multiple requests to different endpoints, keep in mind that each request is only sent when the previous one has been responded.
+{{< hint warning >}}
+**📔 Note**   Each Decentraland scene is only permitted to perform one `fetch` command at a time. This has no effect on how the scene code must be structured, as requests are queued internally. If your scene requires sending multiple requests to different endpoints, keep in mind that each request is only sent when the previous one has been responded.
 
+{{< /hint >}}
 
 ## Signed requests
 
@@ -142,4 +146,6 @@ socket.onmessage = function (event) {
 
 The syntax to use WebSockets is no different from that implemented natively by JavaScript. See the documentation from [Mozilla Web API](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) for details on how to catch and send messages over WebSockets.
 
-> TIP: One library that simplifies the use of websocket connections and has been proven to work very well with Decentraland is [Colyseus](https://colyseus.io/). It builds a layer of abstraction on top of the websocket connections that makes reacting to changes and storing a consistent game state remotely in the server super easy. You can see it in action in [these examples](https://github.com/decentraland-scenes/Awesome-Repository#colyseus). Several other websocket libraries aren't compatible with the Decentraland SDK.
+{{< hint info >}}
+**💡 Tip**:  One library that simplifies the use of websocket connections and has been proven to work very well with Decentraland is [Colyseus](https://colyseus.io/). It builds a layer of abstraction on top of the websocket connections that makes reacting to changes and storing a consistent game state remotely in the server super easy. You can see it in action in [these examples](https://github.com/decentraland-scenes/Awesome-Repository#colyseus). Several other websocket libraries aren't compatible with the Decentraland SDK.
+{{< /hint >}}

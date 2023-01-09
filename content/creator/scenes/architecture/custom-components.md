@@ -74,7 +74,9 @@ const wheel = new Entity()
 wheel.addComponent(new WheelSpin(true, 10))
 ```
 
-> Tip: If you use a source code editor, when instancing a component that has a constructor, you can see what the parameters are by mousing over the expression.
+{{< hint info >}}
+**💡 Tip**:  If you use a source code editor, when instancing a component that has a constructor, you can see what the parameters are by mousing over the expression.
+{{< /hint >}}
 
 <!-- img -->
 

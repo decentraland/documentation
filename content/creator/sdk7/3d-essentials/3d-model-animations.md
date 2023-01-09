@@ -17,7 +17,9 @@ As an alternative, _vertex animations_ animate a model without the need of a ske
 
 See [Animations](/creator/3d-modeling/animations) for details on how to create animations for a 3D model. Read [Shape components]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) for instructions on how to import a 3D model to a scene.
 
-> TIP: Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md" >}}) for more details.
+{{< hint info >}}
+**💡 Tip**:   Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md" >}}) for more details.
+{{< /hint >}}
 
 ## Check a 3D model for animations
 
@@ -27,7 +29,9 @@ Not all _glTF_ files include animations. To see if there are any available, you 
 - Open the [Babylon Sandbox](https://sandbox.babylonjs.com/) site and drag the glTF file (and any _.jpg_ or _.bin_ dependencies) to the browser.
 - Open the _.glTF_ file with a text editor and scroll down till you find _"animations":_.
 
-> TIP: In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
+{{< hint info >}}
+**💡 Tip**:  In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
+{{< /hint >}}
 
 ## Automatic playing
 
@@ -82,7 +86,9 @@ const swimAnim = Animator.getClip(sharkEntity, "swim")
 swimAnim.looping = false 
 ```
 
-> Note: If you attempt to use `Animator.getClip()` to fetch a clip that exists in the 3D model, but is not listed in the `Animator` component, it returns `null`.
+{{< hint warning >}}
+**📔 Note**   If you attempt to use `Animator.getClip()` to fetch a clip that exists in the 3D model, but is not listed in the `Animator` component, it returns `null`.
+{{< /hint >}}
 
 ## Play an animation
 
@@ -150,8 +156,9 @@ Animator.stopAnims(shark)
 - `entity`: The entity of the `Animator` component that you want to affect.
 - `resetCursor`: _(optional)_ If _true_, it returns to the posture in the first frame of the animation. If _false_, stays paused in its current posture. Default: _true_.
 
-> Note: When playing an animation with `Animator.playSingleAnim`, this function handles stopping all other animations behind the scenes. You don't need to explicitly stop other animations in that case.
-
+{{< hint warning >}}
+**📔 Note**   When playing an animation with `Animator.playSingleAnim`, this function handles stopping all other animations behind the scenes. You don't need to explicitly stop other animations in that case.
+{{< /hint >}}
 
 When an animation finishes playing a non-looping animation, by default the 3D model remains in the last posture it had. To change this default behavior so that when the animation ends it goes back to the first posture, set the `shouldReset` property to _true_.
 
@@ -170,7 +177,9 @@ Animator.create(shark, {
 
 You can also use `Animator.stopAnims()`  at any time to explicitly set the posture back to the first frame in the animation.
 
-> Note: Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
+{{< hint warning >}}
+**📔 Note**   Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
+{{< /hint >}}
 
     - apply an animation with a `weight` property of 0 and gradually increase the `weight`
     - create an animation clip that describes a movement from the posture you want to transition from to the default posture you want.
@@ -215,7 +224,9 @@ If one animation only affects a character's legs, and another only affects a cha
 
 If in the above example, the `bite` animation only affects the shark's mouth, and the `swim` animation only affects the bones of the shark's spine, then they can both be played at the same time if they're on separate layers.
 
-> Note: `Animator.playSingleAnim()` stops all other animations that the entity is currently playing. To play multiple animations at the same time, modify the `playing` property in the animation states manually.  
+{{< hint warning >}}
+**📔 Note**   `Animator.playSingleAnim()` stops all other animations that the entity is currently playing. To play multiple animations at the same time, modify the `playing` property in the animation states manually.  
+{{< /hint >}}
 
 ## Animation speed
 
@@ -271,7 +282,9 @@ The `weight` property can be used in interesting ways, for example the `weight` 
 
 You could also change the `weight` value gradually when starting and stopping an animation to give it a more natural transition and to avoid jumps from the default pose to the first pose in the animation.
 
-> Note: The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
+{{< hint warning >}}
+**📔 Note**   The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
+{{< /hint >}}
 
 
 ```ts

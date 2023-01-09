@@ -54,4 +54,7 @@ To do this:
 2. Fill in 'Matic Testnet' as _Network name_ and **https://rpc-mumbai.matic.today** as _New RPC URL_ and the same value as _Block Explorer URL_. For _Symbol_ set **MATIC**
 3. Click 'Save' to add this new network to Metamask.
 
-> Note: Learn more about how to set up Matic on their [Documentation page](https://docs.matic.network/docs/develop/getting-started)
+{{< hint warning >}}
+**📔 Note**   Learn more about how to set up Matic on their [Documentation page](https://docs.matic.network/docs/develop/getting-started)
+{{< /hint >}}
+

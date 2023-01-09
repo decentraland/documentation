@@ -325,7 +325,10 @@ You can “gift” items to anyone you like by entering their address instead of
 
 Remember, these items are minted and transferred to the address entered for free. The price you set for items is only collected in primary sales.
 
-> Note: You can currently only mint 50 items per transaction.
+{{< hint warning >}}
+**📔 Note**   You can currently only mint 50 items per transaction.
+{{< /hint >}}
+
 
 **Are there any fees associated with minting items?**
 No, items are minted on the Matic sidechain, thus removing any fees traditionally associated with minting NFTs on the main Ethereum blockchain.

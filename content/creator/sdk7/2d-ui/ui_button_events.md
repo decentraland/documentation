@@ -16,7 +16,9 @@ The current alpha version of SDK7 does not yet support making UI elements clicka
 Make a UI entity clickable by giving it an `onClick` component. The `onClick` component references a function that runs every time the UI entity is clicked.
 
 
-> Note: To click on a UI component, players must first unlock the cursor from the view control. They do this by pressing the _right mouse button_ and keeping it pressed, or by hitting `Esc`.
+{{< hint warning >}}
+**📔 Note**   To click on a UI component, players must first unlock the cursor from the view control. They do this by pressing the _right mouse button_ and keeping it pressed, or by hitting `Esc`.
+{{< /hint >}}
 
 The following example shows how to create a clickable UI entity. 
 
@@ -54,7 +56,9 @@ TODO: children of an entity with OnClick aren't clickable too, right?
 
 TODO: is there an euqivalent to isPointerBlocker?
 
-> Tip: If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
+{{< hint info >}}
+**💡 Tip**:  If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
+{{< /hint >}}
  -->
 
 

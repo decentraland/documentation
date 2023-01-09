@@ -19,8 +19,9 @@ The following fields can be configured:
 
 - `backgroundColor`: The color to use on the entity, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}) value.
 
-> Tip: Make an entity semi-transparent by setting the 4th value of the `Color4` to less than 1.
-
+{{< hint info >}}
+**💡 Tip**:  Make an entity semi-transparent by setting the 4th value of the `Color4` to less than 1.
+{{< /hint >}}
 
 ```ts
 ReactEcsRenderer.setUiRenderer(() => (

@@ -98,7 +98,9 @@ GltfContainer.create(houseEntity, {
 
 The `src` field is required, you must give it a value when constructing the component. In the example above, the model is located in a `models` folder at root level of the scene project folder.
 
-> Tip: We recommend keeping your models separate in a `/models` folder inside your scene.
+{{< hint info >}}
+**💡 Tip**:  We recommend keeping your models separate in a `/models` folder inside your scene.
+{{< /hint >}}
 
 glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this.
 
@@ -119,7 +121,9 @@ To get you started, below is a list of libraries that have free or relatively in
 - [ShareCG](https://www.sharecg.com/)
 - [CGTrader](https://www.cgtrader.com/)
 
-> Note: Pay attention to the license restrictions that the content you download has.
+{{< hint warning >}}
+**📔 Note**   Pay attention to the license restrictions that the content you download has.
+{{< /hint >}}
 
 Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _glTF_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting as _.glTF_ from there.
 

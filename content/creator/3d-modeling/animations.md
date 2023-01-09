@@ -23,7 +23,9 @@ You can include any number of animations in a _glTF model_. All animations in a 
 
 In a Decentraland scene, you can use `weight` to blend several animations or to make an animation more subtle.
 
-> Tip: Instead of creating your own animations, you can also download generic animations and apply them to your model. For example, for 3D characters with human-like characteristics, you can download free or paid animations from [Mixamo](https://www.mixamo.com/#/).
+{{< hint info >}}
+**💡 Tip**  : Instead of creating your own animations, you can also download generic animations and apply them to your model. For example, for 3D characters with human-like characteristics, you can download free or paid animations from [Mixamo](https://www.mixamo.com/#/).
+{{< /hint >}}
 
 This document covers how to add animations into a 3D model. See [handle animations]({{< ref "/content/creator/scenes/3d-essentials/3d-model-animations.md" >}}) for instructions on how to activate and handle animations in a scene.
 

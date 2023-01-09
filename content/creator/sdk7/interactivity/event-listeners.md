@@ -28,7 +28,10 @@ executeTask(async () => {
 })
 ```
 
-> Note: The `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` events are deprecated on SDK 7.x. Instead, track the list of connected players, from `getConnectedPlayers()`. This is a more [data oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and should result in better performance.
+{{< hint warning >}}
+**📔 Note**   The `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` events are deprecated on SDK 7.x. Instead, track the list of connected players, from `getConnectedPlayers()`. This is a more [data oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and should result in better performance.
+{{< /hint >}}
+
 
 Whenever another player starts or stops being rendered by the local engine, this creates an event you can listen to. Players may or may not be standing on the same scene as you, but must be within visual range (not necessarily in sight). The `onPlayerConnectedObservable` detects both when a player newly connects nearby or comes close enough to be in visual range, likewise the `onPlayerDisconnectedObservable` detects when a player ends their session or or walks far away.
 
@@ -58,7 +61,10 @@ onLeaveSceneObservable.add((player) => {
 })
 ```
 
-> Note: This event only responds to players that are currently being rendered locally. In large scenes where the scene size exceeds the visual range, players entering in the opposite corner may not be registered. If the number of players in the region exceeds the capabilities of an island on Decentraland servers, players that are not sharing a same island aren't visible and are not tracked by these events either.
+{{< hint warning >}}
+**📔 Note**   This event only responds to players that are currently being rendered locally. In large scenes where the scene size exceeds the visual range, players entering in the opposite corner may not be registered. If the number of players in the region exceeds the capabilities of an island on Decentraland servers, players that are not sharing a same island aren't visible and are not tracked by these events either.
+{{< /hint >}}
+
 
 #### Only current player
 
@@ -144,9 +150,15 @@ The event includes the following information:
 
 - expressionId: Name of the emote performed (ie: _wave_, _clap_, _kiss_)
 
-> Note: This event is triggered any time the player makes an emote and the scene is loaded. The player could be standing in a nearby scene when this happens.
+{{< hint warning >}}
+**📔 Note**   This event is triggered any time the player makes an emote and the scene is loaded. The player could be standing in a nearby scene when this happens.
+{{< /hint >}}
 
-> Note: The `onPlayerExpressionObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+
+{{< hint warning >}}
+**📔 Note**   The `onPlayerExpressionObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< /hint >}}
+
 
 ## Player clicks on another player
 
@@ -158,9 +170,15 @@ onPlayerClickedObservable.add((clickEvent) => {
 })
 ```
 
-> Note: The `onPlayerClickedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< hint warning >}}
+**📔 Note**   The `onPlayerClickedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< /hint >}}
 
-> Note: Both the player performing the click and the player being clicked must be standing within the parcels of the scene. This listener only detects events of the current player clicking on other players, not those of clicks performed by other players.
+
+{{< hint warning >}}
+**📔 Note**   Both the player performing the click and the player being clicked must be standing within the parcels of the scene. This listener only detects events of the current player clicking on other players, not those of clicks performed by other players.
+{{< /hint >}}
+
 
 The event includes the following data:
 
@@ -190,9 +208,15 @@ onPointerLockedStateChange.add(({ locked }) => {
 })
 ```
 
-> Note: The `onPointerLockedStateChange` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< hint warning >}}
+**📔 Note**   The `onPointerLockedStateChange` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< /hint >}}
 
-> Note: This event is triggered even if the player is not standing directly inside the scene.
+
+{{< hint warning >}}
+**📔 Note**   This event is triggered even if the player is not standing directly inside the scene.
+{{< /hint >}}
+
 
 The `locked` property from this event is a boolean value that is _true_ when the player locks the cursor and _false_ when the player unlocks the cursor.
 
@@ -210,13 +234,19 @@ onIdleStateChangedObservable.add(({ isIdle }) => {
 })
 ```
 
-> Note: The `onIdleStateChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< hint warning >}}
+**📔 Note**   The `onIdleStateChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< /hint >}}
+
 
 The `isIdle` property is a boolean value that is _true_ when the player enters the idle mode and _false_ when the player leaves the idle mode.
 
 This event is especially useful for multiplayer scenes, when you might want to disconnect from the server players who are likely away from the machine or left Decentraland in a tab in the background.
 
-> Note: The idle state is inferred based on the player not using the keyboard or mouse for a full minute. This can of course produce false positives, for example a player might be watching other players interact or watching a video stream, standing still but fully engaged. Be mindful of these corner cases and what the experience is like for a player who stands still for a while.
+{{< hint warning >}}
+**📔 Note**   The idle state is inferred based on the player not using the keyboard or mouse for a full minute. This can of course produce false positives, for example a player might be watching other players interact or watching a video stream, standing still but fully engaged. Be mindful of these corner cases and what the experience is like for a player who stands still for a while.
+{{< /hint >}}
+
 
 ## Player changes profile
 
@@ -228,15 +258,23 @@ onProfileChanged.add((profileData) => {
 })
 ```
 
-> Note: The `onProfileChanged` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< hint warning >}}
+**📔 Note**   The `onProfileChanged` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< /hint >}}
+
 
 Event data includes only the ID of the player and a version number for that avatar's profile, according to the catalyst server. Every time a change is propagated, the version number increases by 1.
 
-> Tip: When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data">}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+{{< hint info >}}
+**💡 Tip**:  When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data">}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+{{< /hint >}}
 
 When testing in preview, run the scene with `dcl start --web3` so that you connect with your wallet. Otherwise, you will be using a random avatar.
 
-> Note: This event is only triggered by changes to the current player, not by changes on the profiles of other nearby players.
+{{< hint warning >}}
+**📔 Note**   This event is only triggered by changes to the current player, not by changes on the profiles of other nearby players.
+{{< /hint >}}
+
 
 ## Scene finished loading
 
@@ -248,7 +286,10 @@ onSceneReadyObservable.add(() => {
 })
 ```
 
-> Note: The `onSceneReadyObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< hint warning >}}
+**📔 Note**   The `onSceneReadyObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< /hint >}}
+
 
 ## Video playing
 
@@ -260,7 +301,10 @@ onVideoEvent.add((data) => {
 })
 ```
 
-> Note: The `onVideoEvent` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< hint warning >}}
+**📔 Note**   The `onVideoEvent` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< /hint >}}
+
 
 The input of a video event contains the following properties:
 
@@ -291,7 +335,10 @@ onRealmChangedObservable.add((realmChange) => {
 })
 ```
 
-> Note: The `onRealmChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< hint warning >}}
+**📔 Note**   The `onRealmChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< /hint >}}
+
 
 This event includes the following fields:
 

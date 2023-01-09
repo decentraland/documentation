@@ -62,7 +62,11 @@ The example above checks on every tick if a single hard-coded entity was pressed
 
 <!-- TODO: check this outside playground: -->
 
-> Note: The player needs to be standing inside the scene's boundaries for the pointer event to be detected. The player's cursor also needs to be locked, buttons pressed while having the free cursor aren't detected.
+{{< hint warning >}}
+**📔 Note**   The player needs to be standing inside the scene's boundaries for the pointer event to be detected. The player's cursor also needs to be locked, buttons pressed while having the free cursor aren't detected.
+{{< /hint >}}
+
+
 
 The `inputSystem.isTriggered` function takes the following required arguments:
 
@@ -92,7 +96,9 @@ The `inputSystem.isTriggered` function takes the following arguments:
 
 For an entity to be interactive, it must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). See [obstacles]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#obstacles" >}}) for more details.
 
-> TIP: See [Data from a pointer event](#data-from-a-pointer-event) for ways to obtain more detailed data about a pointer event.
+{{< hint info >}}
+**💡 Tip**:  See [Data from a pointer event](#data-from-a-pointer-event) for ways to obtain more detailed data about a pointer event.
+{{< /hint >}}
 
 ### Input button up
 
@@ -106,7 +112,10 @@ engine.addSystem(() => {
 })
 ```
 
-> Note: When checking pointer up events against a specific entity, it doesn't take into consideration where the cursor was pointing at when the button was pushed down. It only considers where the cursor is pointing at when the button is raised.
+{{< hint warning >}}
+**📔 Note**   When checking pointer up events against a specific entity, it doesn't take into consideration where the cursor was pointing at when the button was pushed down. It only considers where the cursor is pointing at when the button is raised.
+{{< /hint >}}
+
 
 
 <!-- 
@@ -128,7 +137,10 @@ The example above checks on every tick if a single hard-coded entity was clicked
 
 If the click event is being checked against a specific entity, both the button down and the button up events must be performed while pointing at the entity's collider to be considered a click.
 
-> Note: If you want to check only for the button down event, and don't care about the button up event, use the `inputSystem.isTriggered()` with `PointerEventType.PET_UP`. See [Check for button presses](#check-for-button-presses)
+{{< hint warning >}}
+**📔 Note**   If you want to check only for the button down event, and don't care about the button up event, use the `inputSystem.isTriggered()` with `PointerEventType.PET_UP`. See [Check for button presses](#check-for-button-presses)
+{{< /hint >}}
+
 
 
 The `inputSystem.wasJustClicked` function takes the following arguments:
@@ -234,7 +246,10 @@ Whenever the player's cursor points at the colliders in this entity, the UI will
 TODO: image -->
 
 
-> Note: The `PointerHoverFeedback` component just handles the displaying of hover feedback. To handle the button events themselves with custom logic, see [Using-a-system](#check-for-events).
+{{< hint warning >}}
+**📔 Note**   The `PointerHoverFeedback` component just handles the displaying of hover feedback. To handle the button events themselves with custom logic, see [Using-a-system](#check-for-events).
+{{< /hint >}}
+
 
 The `PointerHoverFeedback` component requires at least one pointer event. Each pointer event can be configured with the following:
 
@@ -340,7 +355,9 @@ PointerHoverFeedback.create(chest, {
 
 In the example above, the pointer event includes a value for `hoverText`. This field defines the string to display in the UI while the player points at the entity. By default, this string spells _Interact_.
 
-> TIP: The `hoverText` string should describe the action that happens when interacting. For example `Open`, `Activate`, `Grab`, `Select`. These strings should be as short as possible, to avoid stealing too much focus from the player.
+{{< hint info >}}
+**💡 Tip**:  The `hoverText` string should describe the action that happens when interacting. For example `Open`, `Activate`, `Grab`, `Select`. These strings should be as short as possible, to avoid stealing too much focus from the player.
+{{< /hint >}}
 
 If an entity has multiple pointer events on it, the hover hints for each of these are displayed radially around the cursor.
 
@@ -413,7 +430,10 @@ engine.addSystem(() => {
 
 The example above sets the maximum distance for hover hints to _6 meters_. Make sure that the logic for handling the input actions also follows the same rules. See [Data from input action](#data-from-input-action) for how to obtain the distance of an input action.
 
-> Note: The `maxDistance` is measured in meters from meters from the player's camera. Keep in mind that in 3rd person the camera is a bit further away, so make sure the distance you set works well in both modes.
+{{< hint warning >}}
+**📔 Note**   The `maxDistance` is measured in meters from meters from the player's camera. Keep in mind that in 3rd person the camera is a bit further away, so make sure the distance you set works well in both modes.
+{{< /hint >}}
+
 
 
 ## Advanced custom hints
@@ -476,7 +496,10 @@ engine.addSystem(() => {
 })
 ```
 
-> Note: If you ignore any events that are far away,  make sure you set the `maxDistance` parameter on the `PointerHoverFeedback` component to behave consistently. 
+{{< hint warning >}}
+**📔 Note**   If you ignore any events that are far away,  make sure you set the `maxDistance` parameter on the `PointerHoverFeedback` component to behave consistently. 
+{{< /hint >}}
+
 
 
 ### Different meshes inside a model
@@ -487,7 +510,9 @@ To see how the meshes inside the model are named, you must open the 3D model wit
 
 <img src="/images/media/mesh-names.png" alt="Mesh internal names in an editor" width="250"/>
 
-> Tip: You can also learn the name of the clicked mesh by logging it and reading it off console.
+{{< hint info >}}
+**💡 Tip**:  You can also learn the name of the clicked mesh by logging it and reading it off console.
+{{< /hint >}}
 
 You access the `meshName` property as part of the `hit` object, that's returned by the click event.
 
