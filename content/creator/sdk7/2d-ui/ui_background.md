@@ -122,13 +122,64 @@ ReactEcsRenderer.setUiRenderer(() => (
 ))
 ```
 
-<!--
+
+<!-- 
 ## Images from an image atlas
+
+TODO: Wait for textures in UI
 
 You can use an image atlas to store multiple images and icons in a single image file. You then display rectangular parts of this image file in your UI based on pixel positions, pixel width, and pixel height inside the source image.
 
 Below is an example of an image atlas with multiple icons arranged into a single file.
 
 ![](/images/media/UI-atlas.png)
+
+The `UIImage` component has the following fields to crop a sub-section of the original image:
+
+- `sourceTop`: the _y_ coordinate, in pixels, of the top of the selection
+- `sourceLeft`: the _x_ coordinate, in pixels, of the left side of the selection.
+- `sourceWidth`: the width, in pixels, of the selected area
+- `sourceHeight`: the height, in pixels, of the selected area
+
+When constructing a `UIImage` component, you must pass a `Texture` component as an argument. Read more about `Texture` components in [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}).
+
+```ts
+let imageAtlas = "images/image-atlas.jpg"
+let imageTexture = new Texture(imageAtlas)
+
+const canvas = new UICanvas()
+
+const playButton = new UIImage(canvas, imageTexture)
+playButton.sourceLeft = 26
+playButton.sourceTop = 128
+playButton.sourceWidth = 128
+playButton.sourceHeight = 128
+
+const startButton = new UIImage(canvas, imageTexture)
+startButton.sourceLeft = 183
+startButton.sourceTop = 128
+startButton.sourceWidth = 128
+startButton.sourceHeight = 128
+
+const exitButton = new UIImage(canvas, imageTexture)
+exitButton.sourceLeft = 346
+exitButton.sourceTop = 128
+exitButton.sourceWidth = 128
+exitButton.sourceHeight = 128
+
+const expandButton = new UIImage(canvas, imageTexture)
+expandButton.sourceLeft = 496
+expandButton.sourceTop = 128
+expandButton.sourceWidth = 128
+expandButton.sourceHeight = 128
+```
+
+You can change the texture being used by an existing `UIImage` component, set the `source` field.
+
+```ts
+playButton.source = imageTexture2
+``` -->
+
+
 
  TODO -->

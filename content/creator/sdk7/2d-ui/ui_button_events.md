@@ -116,7 +116,57 @@ ReactEcsRenderer.setUiRenderer(() => {
 })
 
 ```
-<!-- 
-## Input box
 
-TODO -->
+<!-- 
+
+
+## Input text
+
+Input boxes can be added to the UI to provide a place to type in text. You add a text box with an `UIInputText` component. Players must first click on this box before they can write into it.
+
+```ts
+const canvas = new UICanvas()
+
+const textInput = new UIInputText(canvas)
+textInput.width = "80%"
+textInput.height = "25px"
+textInput.vAlign = "bottom"
+textInput.hAlign = "center"
+textInput.fontSize = 10
+textInput.placeholder = "Write message here"
+textInput.placeholderColor = Color4.Gray()
+textInput.positionY = "200px"
+textInput.isPointerBlocker = true
+
+textInput.onTextSubmit = new OnTextSubmit((x) => {
+  const text = new UIText(textInput)
+  text.value = "<USER-ID> " + x.text
+  text.width = "100%"
+  text.height = "20px"
+  text.vAlign = "top"
+  text.hAlign = "left"
+})
+```
+
+Here are some of the main properties you can set:
+
+- `focusedBackground`: You can change the background color to indicate that the input box is currently selected. Use this field to set an alternative color.
+
+- `placeholder`: Set placeholder text to display on the box by default.
+
+- `placeholderColor`: Make the placeholder a different color, to tell it apart. You'll usually want to make it a paler shade of the color of text that the player writes.
+
+When the player interacts with the component, you can use the following events to trigger the execution of code:
+
+- `OnFocus()`: The player clicked on the UI component and has a cursor on it.
+- `OnBlur()`: The player clicked away and the cursor is gone.
+- `OnChanged()`: The player typed or deleted something to change the string on the component.
+- `OnTextSubmit()`: The player hit the `Enter` key to submit this string.
+
+```ts
+textInput.onChanged = new OnChanged((data: { value: string }) => {
+  inputTextState = data.value
+})
+``` 
+-->
+
