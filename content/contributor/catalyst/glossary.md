@@ -32,7 +32,7 @@ Instances of Entities created on the Content Server and identified with a unique
 
 ### Failed Deployment
 
-Instance of an Entity deployed to a Content Server that failed to pass the [Content Validations](https://github.com/decentraland/adr/blob/main/docs/ADR-51-catalyst-content-validations.md). Validations are implemented on the [content validator](https://github.com/decentraland/content-validator) library.
+Instance of an Entity deployed to a Content Server that failed to pass the [Content Validations](https://adr.decentraland.org/adr/ADR-51). Validations are implemented on the [content validator](https://github.com/decentraland/content-validator) library.
 
 ### Active Entity
 
