@@ -14,7 +14,9 @@ Add text to a scene using the `TextShape` component. This text sits in a positio
 
 Text in Decentraland supports all _utf8_ characters, this includes oriental and special characters.
 
-> Note: This component is useful for in-world labels and UIs that exist in the 3D space of the scene, not for the player's 2D HUD UI.
+{{< hint warning >}}
+**📔 Note**   This component is useful for in-world labels and UIs that exist in the 3D space of the scene, not for the player's 2D HUD UI.
+{{< /hint >}}
 
 The `TextShape` component is mutually exclusive with other shape components like primitive shapes and glTF 3D models, see [Shape components]({{< ref "/content/creator/scenes/3d-essentials/shape-components.md" >}}) for more details.
 
@@ -30,9 +32,13 @@ const myText = new TextShape("Hello World!")
 myEntity.addComponent(myText)
 ```
 
-> Note: If the entity with the text component is a child of another entity, then it will be affected by the parent's scale. If the parent is scaled unevenly, this will result in the text also being stretched or compressed.
+{{< hint warning >}}
+**📔 Note**   If the entity with the text component is a child of another entity, then it will be affected by the parent's scale. If the parent is scaled unevenly, this will result in the text also being stretched or compressed.
+{{< /hint >}}
 
-> Note: `TextShape` components aren't clickable. `OnPointerDown`, `OnPointerUp`, `OnHoverEnter`, and `OnHoverExit` comopnents aren't activated when used on entites that have a `TextShape` component.
+{{< hint warning >}}
+**📔 Note**   `TextShape` components aren't clickable. `OnPointerDown`, `OnPointerUp`, `OnHoverEnter`, and `OnHoverExit` comopnents aren't activated when used on entites that have a `TextShape` component.
+{{< /hint >}}
 
 ## Change the text value
 

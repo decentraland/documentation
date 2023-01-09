@@ -81,13 +81,19 @@ Pass three arguments: the South-West and the North-East parcels, and the parcel 
 
 `dcl coords <parcel> <parcel> <parcel>`
 
-> Note: The base parcel must be one of the parcels in the scene.
+{{< hint warning >}}
+**📔 Note**   The base parcel must be one of the parcels in the scene.
+{{< /hint >}}
+
 
 **Non-square scenes**
 
 The above commands all generate rectangular-shaped scenes. Decentraland scenes can have L shapes or other configurations. You can generate a larger square with `dcl coords` and then manually remove excess parcels from the `scene.json` file.
 
-> Note: The base parcel must be one of the parcels in the scene.
+{{< hint warning >}}
+**📔 Note**   The base parcel must be one of the parcels in the scene.
+{{< /hint >}}
+
 
 ## Scene title, description, and image
 
@@ -113,7 +119,10 @@ The thumbnail should be a _.png_ or _.jpg_ image of a recommended size of _228x1
 
 The image on `navmapThumbnail` should be a path to an image file in the project folder. It can also be a URL link to an image hosted elsewhere.
 
-> Note: If you host an image elsewhere, make sure this is in a site that has permissive CORS policies for displaying content on other sites.
+{{< hint warning >}}
+**📔 Note**   If you host an image elsewhere, make sure this is in a site that has permissive CORS policies for displaying content on other sites.
+{{< /hint >}}
+
 
 ## Contact information
 
@@ -148,7 +157,10 @@ Your scene might have objects that can block players from moving if they happen 
 
 The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to [position an entity]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md" >}}).
 
-> Note: All spawn points must be within the parcels that make up the scene. You can't spawn a player outside the space of these parcels.
+{{< hint warning >}}
+**📔 Note**   All spawn points must be within the parcels that make up the scene. You can't spawn a player outside the space of these parcels.
+{{< /hint >}}
+
 
 ### Multiple spawn points
 
@@ -252,7 +264,10 @@ Portable experiences and smart wearables are also affected by the following perm
 
 If a `requiredPermissions` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
-> Note: In future releases, when a player enters a scene that has items listed in the `requiredPermissions` property, the scene will prompt the player to grant these permissions. The player will be able to decline these permissions for that scene.
+{{< hint warning >}}
+**📔 Note**   In future releases, when a player enters a scene that has items listed in the `requiredPermissions` property, the scene will prompt the player to grant these permissions. The player will be able to decline these permissions for that scene.
+{{< /hint >}}
+
 
 ## Feature Toggles
 
@@ -325,5 +340,8 @@ async function getSceneData(){
 getSceneData()
 ```
 
-> Note: `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
+{{< hint warning >}}
+**📔 Note**   `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
+{{< /hint >}}
+
 

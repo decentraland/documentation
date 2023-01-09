@@ -22,7 +22,9 @@ The engine automatically updates this list every time that:
 - An entity in the engine adds a new component
 - An entity in the engine removes a component
 
-> Note: Only entities that are added to the engine are eligible for component groups. Entities that have been created but not added to the engine, or that have been removed from the engine, aren't listed in any group.
+{{< hint warning >}}
+**📔 Note**   Only entities that are added to the engine are eligible for component groups. Entities that have been created but not added to the engine, or that have been removed from the engine, aren't listed in any group.
+{{< /hint >}}
 
 After the group is created, you don't need to add or remove entities manually from it, the engine takes care of that.
 
@@ -42,8 +44,9 @@ for (let entity of myGroup.entities) {
 }
 ```
 
-> Note: Keep in mind that component groups take up space in the local memory of the player's machine. Usually, the benefit in speed you get from having a group is a tradeoff that is well worth it. However, for cases where you'd have a large group that you don't access all that often, it might be better to not have one.
-
+{{< hint warning >}}
+**📔 Note**   Keep in mind that component groups take up space in the local memory of the player's machine. Usually, the benefit in speed you get from having a group is a tradeoff that is well worth it. However, for cases where you'd have a large group that you don't access all that often, it might be better to not have one.
+{{< /hint >}}
 
 ## Required components
 
@@ -81,7 +84,9 @@ In the example above, `PhysicsSystem` iterates over the entities in `myGroup` as
 
 - If your scene also has other entities like a _hoop_ and a _scoreBoard_ that only have a `Physics` component, then they won't be in `myGroup` and won't be affected by `PhysicsSystem`.
 
-> Note: The `engine.getComponentGroup()` is an expensive function to process, it should never be used inside the `update` of a system, as that would create a new group on every frame. When regularly checking the entities in a group, refer to an already created group, as in the example above. Once created, component groups are updated as entities and components are added and removed from the engine, so there's no need to redeclare or update these groups.
+{{< hint warning >}}
+**📔 Note**   The `engine.getComponentGroup()` is an expensive function to process, it should never be used inside the `update` of a system, as that would create a new group on every frame. When regularly checking the entities in a group, refer to an already created group, as in the example above. Once created, component groups are updated as entities and components are added and removed from the engine, so there's no need to redeclare or update these groups.
+{{< /hint >}}
 
 ## Dealing with the entities
 

@@ -55,7 +55,9 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 1) Open your scene's folder using Visual Studio Code. 
 
-> Note: The Visual Studio window must be at the root folder of the scene project.
+{{< hint warning >}}
+**📔 Note**   The Visual Studio window must be at the root folder of the scene project.
+{{< /hint >}}
 
 2) Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
 
@@ -63,7 +65,9 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 4) Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `react`.
 
-> Note: If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
+{{< hint warning >}}
+**📔 Note**   If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
+{{< /hint >}}
 
 5) If it is a Decentraland library (ie. `decentraland-ecs-utils`) select `Yes`, otherwise `No`.
 
@@ -632,7 +636,9 @@ box.addComponent(
 engine.addEntity(box)
 ```
 
-> Note: The trigger shape can be positioned or stretched, but it can't be rotated on any axis. This is a design decision taken for performance reasons. To cover a slanted area, we recommend adding multiple triggers if applicable.
+{{< hint warning >}}
+**📔 Note**   The trigger shape can be positioned or stretched, but it can't be rotated on any axis. This is a design decision taken for performance reasons. To cover a slanted area, we recommend adding multiple triggers if applicable.
+{{< /hint >}}
 
 Each trigger area has a shape for its area to check for collisions, which is completely independent of the visible shape of the entity. The shape of the area can either be determined by a `TriggerBoxShape` or a `TriggerSphereShape`. When instancing these, can set the scale and an offset position. By default, the trigger shape starts in the same position as the entity that has the `TriggerComponent`.
 
@@ -902,7 +908,9 @@ async function request() {
 }
 ```
 
-> NOTE: The sendRequest() function is asynchronous, since it must wait for the external server to respond back before it can return a response. If you need your code to access the data on the request's response, you must use the sendRequest() within an `async` block of code, and add an `await` to the function.
+{{< hint warning >}}
+**📔 Note**   The sendRequest() function is asynchronous, since it must wait for the external server to respond back before it can return a response. If you need your code to access the data on the request's response, you must use the sendRequest() within an `async` block of code, and add an `await` to the function.
+{{< /hint >}}
 
 The `sendRequest()` function also lets you use the following arguments, for sending more advanced requests:
 
@@ -959,7 +967,9 @@ The `addLabel()` function also lets you set the following:
 
 Render a simple clickable cube to use as a trigger when debugging a scene with `addTestCube()`.
 
-> NOTE: The test cube is only shown in preview, unless configured to appear also in production.
+{{< hint warning >}}
+**📔 Note**   The test cube is only shown in preview, unless configured to appear also in production.
+{{< /hint >}}
 
 The `addTestCube()` function has just two required arguments:
 

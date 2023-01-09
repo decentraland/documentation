@@ -43,7 +43,10 @@ For the best result in terms of avoiding hiccups, hide entities by switching the
 
 An alternative is to not add the entities to the engine until needed. This may result in some hiccups when the entities appear for the first time, and they might also take a couple of seconds to become visible. The advantage of this approach is that it's a valid way to get around the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}). Keep in mind that the scene limitations count is for the content that is being rendered in the scene at any given time, not for the total content that could be rendered. Loading and unloading parts of the scene should allow you to work around those limitations.
 
-> Note: Entities that are not visible but are added to the engine do count towards the scene limitations.
+{{< hint warning >}}
+**📔 Note**   Entities that are not visible but are added to the engine do count towards the scene limitations.
+{{< /hint >}}
+
 
 You can also toggle animations on or off for entities that are far or occluded. For example, for an NPC that plays a very subtle idle animation, you could make it only play that animation when the player is at less than 20 meters away. Use a trigger area around the NPC and toggle its animations on or off accordingly.
 
@@ -95,7 +98,10 @@ About once a day, the Decentraland content servers run a process to compress eve
 **💡 Tip**:  When planning an event in Decentraland, make sure you deploy your scene a day in advance, so that the models are all converted to asset bundles by then. If you don't want to spoil the surprize before the event, you can deploy a version of your scene that includes all the final 3D models in the project folder, but where these are not visible or where their size is set to 0.
 {{< /hint >}}
 
-> Note: If you make _any_ change to a 3D model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
+{{< hint warning >}}
+**📔 Note**   If you make _any_ change to a 3D model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
+{{< /hint >}}
+
 
 ## Connectivity
 
@@ -129,7 +135,10 @@ When you run a scene in preview, note that on the top-right corner it says “Y 
 
 As you interact with things that involve messages between the SDK and the engine, you’ll notice the ‘Processed Messages’ number grows. You should closely watch the ‘Pending on Queue’ number, it should always be 0 or close to 0. This tells you how many of these messages didn't get to be processed, and got pushed to a queue. If the ‘Pending on Queue’ count starts to grow, then you’ve entered the danger zone and should think about doing more optimizations to your scene.
 
-> Note: Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
+{{< hint warning >}}
+**📔 Note**   Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
+{{< /hint >}}
+
 
 Keep in mind that the performance you experience in preview may differ from that in production:
 

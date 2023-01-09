@@ -238,8 +238,9 @@ The `rotation` value of the entity's `Transform` component doesn't change as the
 
 If an entity has both a `Billboard` component and `Transform` component with `rotation` values, players will see the entity rotating as a billboard. If the billboard doesn't affect all axis, the remaining axis will be rotated according to the `Transform` component.
 
-> Note: If there are multiple players present at the same time, each will see the entities with billboard mode facing them. Billboard rotations are calculated locally for each player, and don't affect what others see.
-
+{{< hint warning >}}
+**📔 Note**   If there are multiple players present at the same time, each will see the entities with billboard mode facing them. Billboard rotations are calculated locally for each player, and don't affect what others see.
+{{< /hint >}}
 
 
 ## Face a set of coordinates
@@ -376,7 +377,9 @@ The following anchor points are available on the player:
 
 Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to other players who are seeing that player. If an entity is attached to the default local player, each player will experience the entity as attached to their own avatar.
 
-> Note: Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
+{{< hint warning >}}
+**📔 Note**   Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
+{{< /hint >}}
 
 The `AvatarAttach` component overwrites the `Transform` component, a single entity can't have both an `AvatarAttach` and a `Transform` component at the same time.
 
@@ -408,7 +411,9 @@ Transform.create(childEntity, {
 
 To attach an entity to the avatar of another player, you must provide the user's ID in the field `avatarId`. There are [various ways]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >}}) to obtain this data.
 
-> Note: For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
+{{< hint warning >}}
+**📔 Note**   For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
+{{< /hint >}}
 
 Fetch the `userId` for all other nearby players via `getConnectedPlayers()`
 

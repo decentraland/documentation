@@ -9,7 +9,10 @@ url: /creator/development-guide/sdk7/video-playing/
 weight: 2
 ---
 
-> Note: Feature not yet supported in SDK7.
+{{< hint warning >}}
+**📔 Note**   Feature not yet supported in SDK7.
+{{< /hint >}}
+
 
 <!-- 
 

@@ -38,7 +38,9 @@ engine.addSystem(new MoveSystem())
 
 In the example above, the system `MoveSystem` executes the `update()` function of each frame of the game loop, changing position of every entity in the scene.
 
-> Note: You must add a _System_ to the engine before its functions can be called.
+{{< hint warning >}}
+**📔 Note**   You must add a _System_ to the engine before its functions can be called.
+{{< /hint >}}
 
 All systems act upon entities, changing the values stored in the entity's components.
 
@@ -131,7 +133,9 @@ engine.addSystem(new UpdateScore(game))
 engine.addSystem(new UpdateScore(score))
 ```
 
-> Note: You could store this data in a custom object instead of an custom component, for more simplicity.
+{{< hint warning >}}
+**📔 Note**   You could store this data in a custom object instead of an custom component, for more simplicity.
+{{< /hint >}}
 
 ## Execute when an entity is added
 

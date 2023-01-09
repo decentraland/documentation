@@ -157,8 +157,9 @@ See [Creating and Exporting Emotes]({{< ref "/content/creator/emotes/creating-an
 
 The Editor is a tool within Decentraland’s [Builder](https://builder.decentraland.org/) that allows you to upload, add metadata, and publish your custom Emotes or Wearables.
 
-> Note: these Docs don’t explain how to animate an Avatar to create an Emote, they explain how to use the Editor to upload and publish your Wearables or Emotes. To create an Emote we recommend using [Blender](https://www.blender.org/).
-
+{{< hint warning >}}
+**📔 Note**   these Docs don’t explain how to animate an Avatar to create an Emote, they explain how to use the Editor to upload and publish your Wearables or Emotes. To create an Emote we recommend using [Blender](https://www.blender.org/).
+{{< /hint >}}
 
 ### Uploading Emotes
 

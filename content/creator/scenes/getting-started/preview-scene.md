@@ -60,7 +60,9 @@ Any dependencies that are missing are installed and then the CLI opens the scene
 
 Every time you make changes to the scene, the preview reloads and updates automatically, so there's no need to run the command again.
 
-> Note: Some scenes depend on an external server to store a shared state for all players in the scene. When previewing one of these scenes, you'll likely have to also run the server locally on another port. Check the scene's readme for instructions on how to launch the server as well as the scene.
+{{< hint warning >}}
+**📔 Note**   Some scenes depend on an external server to store a shared state for all players in the scene. When previewing one of these scenes, you'll likely have to also run the server locally on another port. Check the scene's readme for instructions on how to launch the server as well as the scene.
+{{< /hint >}}
 
 ### Parameters of the preview command
 
@@ -75,7 +77,9 @@ You can add the following flags to the `dcl start` command to change its behavio
 - `--skip-version-checks` Avoids checking if the scene's ECS library version matches your CLI version, and launches the preview anyway.
 - `--desktop-client` Runs the preview in the Decentraland Desktop client
 
-> Note: To preview old scenes that were built for older versions of the SDK, you must set the corresponding version of `decentraland-ecs` in your project's `package.json` file.
+{{< hint warning >}}
+**📔 Note**   To preview old scenes that were built for older versions of the SDK, you must set the corresponding version of `decentraland-ecs` in your project's `package.json` file.
+{{< /hint >}}
 
 
 ## Upload a scene to decentraland

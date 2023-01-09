@@ -133,7 +133,10 @@ This statement requires three parameters:
 
 A same entity can have two different callbacks registered, one for `pointerEventsSystem.onPointerDown` and one for `pointerEventsSystem.onPointerUp`.
 
-> Note: The hover feedback for a button up event is only displayed when the button is currently pushed down. If the player points at the entity without holding the button down, they will see no feedback, or the feedback for the button down event, if any.
+{{< hint warning >}}
+**📔 Note**   The hover feedback for a button up event is only displayed when the button is currently pushed down. If the player points at the entity without holding the button down, they will see no feedback, or the feedback for the button down event, if any.
+{{< /hint >}}
+
 
 
 ## Remove callbacks

@@ -36,7 +36,9 @@ const text = new UIText(canvas)
 text.value = "Hello world!"
 ```
 
-> Note: Create only one `UICanvas` per scene. To have different menus that appear at different times, make them all children of the same `UICanvas`, and set their visibility at that level.
+{{< hint warning >}}
+**📔 Note**   Create only one `UICanvas` per scene. To have different menus that appear at different times, make them all children of the same `UICanvas`, and set their visibility at that level.
+{{< /hint >}}
 
 ## Types of UI content
 
@@ -313,7 +315,9 @@ clickableImage.onClick = new OnPointerDown(() => {
 ![](/images/media/UI-clicks.png)
 -->
 
-> Note: To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
+{{< hint warning >}}
+**📔 Note**   To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
+{{< /hint >}}
 
 {{< hint info >}}
 **💡 Tip**:  If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.

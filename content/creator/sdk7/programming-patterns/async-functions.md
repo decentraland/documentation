@@ -29,7 +29,10 @@ For example:
 - When retrieving data from a REST API
 - When performing a transaction on the blockchain
 
-> Note: Keep in mind that several frames of your scene might be rendered before the task finishes executing. Make sure your scene's code is flexible enough to handle the in-between scenarios while the asynchronous task is being completed.
+{{< hint warning >}}
+**📔 Note**   Keep in mind that several frames of your scene might be rendered before the task finishes executing. Make sure your scene's code is flexible enough to handle the in-between scenarios while the asynchronous task is being completed.
+{{< /hint >}}
+
 
 ## Run an async function
 
@@ -70,7 +73,10 @@ myAsyncTask().then((data) => {
 })
 ```
 
-> Note: It's generally better to use the `executeTask` approach rather than the `then` function. In this example, the scene won't be considered fully loaded by the explorer till the `myAsyncTask()` function is completed, which may affect load times. Also, if relying too much on the `then` function at multiple nested levels, you can end up with what's known as "callback hell", where the code can become very hard to read and maintain.
+{{< hint warning >}}
+**📔 Note**   It's generally better to use the `executeTask` approach rather than the `then` function. In this example, the scene won't be considered fully loaded by the explorer till the `myAsyncTask()` function is completed, which may affect load times. Also, if relying too much on the `then` function at multiple nested levels, you can end up with what's known as "callback hell", where the code can become very hard to read and maintain.
+{{< /hint >}}
+
 
 ## PointerEvents and RayCast functions
 
@@ -78,7 +84,10 @@ When your scene uses a `PointerEvent` or a `RayCast` component, the calculations
 
 You then need to create a system to process these results in the frame when they arrive.
 
-> Note: If you handle clicks via the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach, you don't need to explicitly create a system to handle this, but the same occurs in the background.
+{{< hint warning >}}
+**📔 Note**   If you handle clicks via the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach, you don't need to explicitly create a system to handle this, but the same occurs in the background.
+{{< /hint >}}
+
 
 See [click events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}) and [raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}).
 

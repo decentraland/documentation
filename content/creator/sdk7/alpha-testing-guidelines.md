@@ -39,13 +39,17 @@ To run a scene using SDK7 in preview
    ```
 3. Run previews with `dcl start`, the same as with older versions. Edit or add any additional files you want into the folder structure to build out your scene.
 
-> Note: Notice that scenes that use SDK7 don't have the `decentraland-ecs` package installed. Instead, they have the `@dcl/sdk` package.
+{{< hint warning >}}
+**📔 Note**   Notice that scenes that use SDK7 don't have the `decentraland-ecs` package installed. Instead, they have the `@dcl/sdk` package.
+{{< /hint >}}
 
 ## In production
 
 You can deploy scenes with SDK7 using `dcl deploy` the same as any scene with SDK6.
 
-> Note: Please note that this is not yet a stable version. Breaking changes are possible, so avoid using this version for scenes that are of critical importance.
+{{< hint warning >}}
+**📔 Note**   Please note that this is not yet a stable version. Breaking changes are possible, so avoid using this version for scenes that are of critical importance.
+{{< /hint >}}
 
 ## Example scenes
 

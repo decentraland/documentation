@@ -51,7 +51,9 @@ engine.addSystem(new CubeRotateSystem(cube))
 
 The example above uses the player's rotation to set that of a cube in the scene.
 
-> Note: The `Camera.instance` data is updated at a throttled rate of 10 times per second. Due to this, positions & rotations may lag slightly in relation to the scene that runs at 30 FPS under ideal conditions.
+{{< hint warning >}}
+**📔 Note**   The `Camera.instance` data is updated at a throttled rate of 10 times per second. Due to this, positions & rotations may lag slightly in relation to the scene that runs at 30 FPS under ideal conditions.
+{{< /hint >}}
 
 <!--
 See [Event Listeners](/creator/development-guide/event-listeners #player-moves) for a more efficient approach where updates are only made in the event of the player moving, and not while the player stands still.
@@ -68,7 +70,9 @@ The following data can be fetched from a player:
 - `avatar`: A nested object with data about the player's appearance.
 - `version`: _(number)_ A version number that increases by one every time the player changes any of their settings. Use this if you encounter conflicting data, to know what version is more recent.
 
-> Note: For any Ethereum transactions with the player, always use the `publicKey` field, instead of the `userId`, to avoid dealing with non-existing wallets.
+{{< hint warning >}}
+**📔 Note**   For any Ethereum transactions with the player, always use the `publicKey` field, instead of the `userId`, to avoid dealing with non-existing wallets.
+{{< /hint >}}
 
 The `avatar` object has the following nested information:
 
@@ -109,7 +113,9 @@ The function returns the entire set of data described above, including address, 
 **💡 Tip**:  The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
-> Note: When running a local preview, use `dcl start --web3` to connect with your wallet and fetch your actual data. Otherwise, the preview uses random user data, just as when you enter as a guest.
+{{< hint warning >}}
+**📔 Note**   When running a local preview, use `dcl start --web3` to connect with your wallet and fetch your actual data. Otherwise, the preview uses random user data, just as when you enter as a guest.
+{{< /hint >}}
 
 #### Data from nearby players
 
@@ -132,7 +138,9 @@ The function returns the entire set of data described above, including address, 
 
 `getPlayerData()` can only fetch data from players who are currently nearby. They don't have to be necessarily standing in the same scene, but in visual range, that's because this information is being fetched from the local engine that's rendering these avatars. To try this out in preview, open a second tab and log in with a different account.
 
-> Note: User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
+{{< hint warning >}}
+**📔 Note**   User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
+{{< /hint >}}
 
 To know what players are being rendered in the surroundings, use `getConnectedPlayers()`. This function returns an array with the ids of all the players that are currently being rendered, which are all eligible to call with `getPlayerData()`. You can pair this with listening for new players connecting and disconnecting by using `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable`.
 
@@ -331,7 +339,9 @@ As players move through the map, they may switch islands to be grouped with thos
 
 See [onRealmChangedObservable]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-changes-realm-or-island" >}}) for how to detect changes regarding the player's realm or island.
 
-> Note: When the scene first loads, there might not yet be an island assigned for the player. The explorer will always eventually assign an island to the player, but this can sometimes occur a couple of seconds after the scene is loaded.
+{{< hint warning >}}
+**📔 Note**   When the scene first loads, there might not yet be an island assigned for the player. The explorer will always eventually assign an island to the player, but this can sometimes occur a couple of seconds after the scene is loaded.
+{{< /hint >}}
 
 ## Get player platform
 
@@ -380,7 +390,9 @@ Make a [REST API call]({{< ref "/content/creator/scenes/networking/network-conne
 
 `${playerRealm.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`
 
-> Note: To construct this URL, you must obtain the realm (likely with with `getCurrentRealm()`) and the player's id (likely with `getUserData()`)
+{{< hint warning >}}
+**📔 Note**   To construct this URL, you must obtain the realm (likely with with `getCurrentRealm()`) and the player's id (likely with `getUserData()`)
+{{< /hint >}}
 
 This feature could be used together with fetching info about the player, to for example only allow players to enter a place if they are wearing any wearable from the halloween collection, or any wearable that is of _legendary_ rarity.
 
@@ -419,7 +431,9 @@ executeTask(fetchWearablesData)
 
 ## Check the player's camera mode
 
-> Note: `Camera.instance.cameraMode` is currently deprecated and is not always reliable. The recommended approach is to track camera change events with `onCameraModeChangedObservable`. This event is fired once when the scene first obtains information about the player's current camera mode, and then any time the player changes camera mode while in or around your scene. See [Event Listeners]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-changes-camera-mode" >}}).
+{{< hint warning >}}
+**📔 Note**   `Camera.instance.cameraMode` is currently deprecated and is not always reliable. The recommended approach is to track camera change events with `onCameraModeChangedObservable`. This event is fired once when the scene first obtains information about the player's current camera mode, and then any time the player changes camera mode while in or around your scene. See [Event Listeners]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-changes-camera-mode" >}}).
+{{< /hint >}}
 
 Players can either be using a 1st or 3rd person camera when exploring Decentraland. Check which of these the player is using by checking the value `Camera.instance.cameraMode`.
 

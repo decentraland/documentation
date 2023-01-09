@@ -13,7 +13,9 @@ weight: 4
 
 Sound is a great way to provide feedback to player actions and events, background sounds can also give your scene more context and improve the player's immersion into it.
 
-> Note: Keep in mind that sounds are only heard by players who are standing within the parcels that make up the scene where the sound was generated, even if they would otherwise be in hearing range. Players can also chose to turn off all sounds on their settings.
+{{< hint warning >}}
+**📔 Note**   Keep in mind that sounds are only heard by players who are standing within the parcels that make up the scene where the sound was generated, even if they would otherwise be in hearing range. Players can also chose to turn off all sounds on their settings.
+{{< /hint >}}
 
 Supported sound formats vary depending on the browser, but it's recommended to use _.mp3_.
 
@@ -56,7 +58,9 @@ Each entity can only have a single `AudioSource` component, that can only have a
 
 If you set the `playing` property of an `AudioSource` component to _false_, the file is stopped. This means that if you later set `playing` to _true_ again, the sound file will begin from the start again.
 
-> Note: Sounds are played on each player's local instance. Other nearby players won't hear the same sounds unless their local scene explicitly plays them too.
+{{< hint warning >}}
+**📔 Note**   Sounds are played on each player's local instance. Other nearby players won't hear the same sounds unless their local scene explicitly plays them too.
+{{< /hint >}}
 
 ## Looping
 
@@ -85,7 +89,9 @@ The volume can be a number from _0_ to _1_.
 source.volume = 0.5
 ```
 
-> Note: Of course, the volume of a sound is also affected by the distance from the audio source.
+{{< hint warning >}}
+**📔 Note**   Of course, the volume of a sound is also affected by the distance from the audio source.
+{{< /hint >}}
 
 ## Reuse sound objects
 

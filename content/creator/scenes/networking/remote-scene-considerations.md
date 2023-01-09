@@ -76,7 +76,9 @@ sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
 })
 ```
 
-> Note: Messages that are sent by a player are also picked up by that same player. The `.on` method can't distinguish between a message that was emitted by that same player from a message emitted from other players.
+{{< hint warning >}}
+**📔 Note**   Messages that are sent by a player are also picked up by that same player. The `.on` method can't distinguish between a message that was emitted by that same player from a message emitted from other players.
+{{< /hint >}}
 
 #### Full example
 
@@ -146,7 +148,9 @@ If you launch a scene preview and open it in two (or more) different browser win
 
 Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
 
-> Note: Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
+{{< hint warning >}}
+**📔 Note**   Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
+{{< /hint >}}
 
 ## Use an authoritative server
 

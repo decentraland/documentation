@@ -19,7 +19,9 @@ Clicks can be done either with a mouse, a touch screen, a VR controller or some 
 
 The primary and secondary buttons map respectively to the E and F key on a keyboard.
 
-> Note: Entities that don't have a shape component, or that have their shape's `visible` field set to _false_ don't respond to pointer events.
+{{< hint warning >}}
+**📔 Note**   Entities that don't have a shape component, or that have their shape's `visible` field set to _false_ don't respond to pointer events.
+{{< /hint >}}
 
 ## Pointer event components
 
@@ -267,7 +269,9 @@ houseEntity.addComponent(
 )
 ```
 
-> Note: Since the `OnPointerDown` component belongs to the whole entity, the on-hover feedback would be seen when hovering over any part of the entity. In this case, any part of the house, not just the fireplace. For that reason, we set the `showFeedback` argument of the `OnPointerDown` component to _false_, so that no on-hover feedback is shown. For a better player experience, it's recommended to instead have the fireplace as a separate entity and maintain the on-hover feedback.
+{{< hint warning >}}
+**📔 Note**   Since the `OnPointerDown` component belongs to the whole entity, the on-hover feedback would be seen when hovering over any part of the entity. In this case, any part of the house, not just the fireplace. For that reason, we set the `showFeedback` argument of the `OnPointerDown` component to _false_, so that no on-hover feedback is shown. For a better player experience, it's recommended to instead have the fireplace as a separate entity and maintain the on-hover feedback.
+{{< /hint >}}
 
 ## Global button events
 
@@ -302,7 +306,9 @@ The `subscribe()` method takes four arguments:
 - `useRaycast`: Boolean to define if raycasting will be used. If `false`, the button event will not contain information about any `hit` objects that align with the pointer at the time of the event. Avoid setting this field to `true` when information about hit objects is not required, as it involves extra calculations.
 - `fn`: The function to execute each time the event occurs.
 
-> Note: Other keys on the PC keyboard aren't tracked for future cross-platform compatibility, as this limited set of keys can be mapped to a joystick. For detecting key-strokes when writing text, check the [UIInputBox]({{< ref "/content/creator/scenes/interactivity/onscreen-ui.md" >}}).
+{{< hint warning >}}
+**📔 Note**   Other keys on the PC keyboard aren't tracked for future cross-platform compatibility, as this limited set of keys can be mapped to a joystick. For detecting key-strokes when writing text, check the [UIInputBox]({{< ref "/content/creator/scenes/interactivity/onscreen-ui.md" >}}).
+{{< /hint >}}
 
 ```ts
 // Instance the input object
@@ -323,7 +329,9 @@ The example above logs messages and the contents of the event object every time 
 
 The event objects of both the `BUTTON_DOWN` and the `BUTTON_UP` contain various useful properties. See [Properties of button events](#properties-of-button-events) for more details.
 
-> Note: The code for subscribing an input event only needs to be executed once, the `subscribe()` method keeps polling for the event. Don't add this into a system's `update()` function, as that would register a new listener on every frame.
+{{< hint warning >}}
+**📔 Note**   The code for subscribing an input event only needs to be executed once, the `subscribe()` method keeps polling for the event. Don't add this into a system's `update()` function, as that would register a new listener on every frame.
+{{< /hint >}}
 
 #### Detect hit entities
 
@@ -358,7 +366,9 @@ The example above checks if any entities were hit, and if so it fetches the enti
 
 The event data returns a string for the `entityId`. If you want to reference the actual entity by that ID to affect it in some way, use `engine.entities[e.hit.entityId]`.
 
-> Note: We recommend that when possible you use the approach of adding an `OnPointerDown` component to each entity you want to make interactive, instead of using a global button event. The scene's code isn't able to hint to a player that an entity is interactive when hovering on it unless the entity has an `OnPointerDown`, `OnPointerUp`, or `OnClick` component.
+{{< hint warning >}}
+**📔 Note**   We recommend that when possible you use the approach of adding an `OnPointerDown` component to each entity you want to make interactive, instead of using a global button event. The scene's code isn't able to hint to a player that an entity is interactive when hovering on it unless the entity has an `OnPointerDown`, `OnPointerUp`, or `OnClick` component.
+{{< /hint >}}
 
 #### Tracking player movements
 
@@ -494,5 +504,7 @@ myEntity.addComponent(
 
 -->
 
-> Note: Entities that don't have a shape component, or that have their shape's `visible` field set to _false_ can't be clicked.
+{{< hint warning >}}
+**📔 Note**   Entities that don't have a shape component, or that have their shape's `visible` field set to _false_ can't be clicked.
+{{< /hint >}}
 

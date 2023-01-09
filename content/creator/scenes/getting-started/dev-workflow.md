@@ -107,8 +107,9 @@ Once you're happy with your scene, it's time to publish it to the production env
 
 - [Publish to prod]({{< ref "/content/creator/scenes/publishing/publishing.md#to-publish-the-scene" >}}).
 
-> NOTE: Before you do, check that your scene has all the necessary metadata: name, description, a preview image, spawn points. See [scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for details.
-
+{{< hint warning >}}
+**📔 Note**   Before you do, check that your scene has all the necessary metadata: name, description, a preview image, spawn points. See [scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for details.
+{{< /hint >}}
 
 ## Promote
 

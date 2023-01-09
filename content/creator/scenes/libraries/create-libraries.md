@@ -19,7 +19,9 @@ By using the CLI and following the steps detailed here, you can avoid most of th
 
 ## Create a library
 
-> Note: Make sure you're using Node version 16.x or newer before you build your library.
+{{< hint warning >}}
+**📔 Note**   Make sure you're using Node version 16.x or newer before you build your library.
+{{< /hint >}}
 
 To create your own library and share it via NPM, do the following:
 
@@ -84,7 +86,9 @@ When you're finished testing, remember to unlink the library.
 
 2. Then in the library run`npm unlink`
 
-> Note: The order of these steps is important.
+{{< hint warning >}}
+**📔 Note**   The order of these steps is important.
+{{< /hint >}}
 
 ## Versioning
 

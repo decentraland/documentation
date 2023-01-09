@@ -106,7 +106,10 @@ To transfer a LAND parcel or Estate to another user:
 
 2. Enter the public address of the Ethereum wallet of the recipient.
 
-> Note: Please double check this address, since you cannot cancel the operation. While the recipient could always transfer the LAND back to you, the original owner cannot reverse the action.
+{{< hint warning >}}
+**📔 Note**   Please double check this address, since you cannot cancel the operation. While the recipient could always transfer the LAND back to you, the original owner cannot reverse the action.
+{{< /hint >}}
+
 
 ![](/images/media/marketplace_transfer_land_form.png)
 
