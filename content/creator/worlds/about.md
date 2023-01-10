@@ -6,7 +6,7 @@ weight: 1
 
 In this document you will learn how to use Decentraland Worlds BETA, a new service that lets you deploy isolated scenes that you can access with the Decentraland Explorer and using your digital identity.  
 
-The name **Worlds** was given to scenes that exist outside the Genesis City boundaries. Worlds can be used to do experiments, create new experiences, as scenes portfolio or even as a Scene Preview Service to test the content before uploading it to the Genesis City. Worlds scenes are attached to [Decentraland NAMEs](https://builder.decentraland.org/names) (a 'NAME NFT’ within the DCL ecosystem that can be assigned to your avatar or LAND and costs 100 MANA to create or can be purchased from a previous owner in the Marketplace) and the NAMEs are used to tell Decentraland Explorer which World to load.  
+The name **Worlds** was given to scenes that exist outside the Genesis City boundaries. Worlds can be used to do experiments, create new experiences, as scenes portfolio or even as a Scene Preview Service to test the content before uploading it to the Genesis City. Worlds scenes are attached to [Decentraland NAMEs](https://builder.decentraland.org/names) (a `NAME NFT` within the DCL ecosystem that can be assigned to your avatar or LAND and costs 100 MANA to create or can be purchased from a previous owner in the Marketplace) and the NAMEs are used to tell Decentraland Explorer which World to load.  
 
 ### WARNINGS: The Worlds Service is in BETA state
 
@@ -19,11 +19,9 @@ The BETA is open to anyone to use, to kick-off the product and be able to assess
 
 ### Publish a World 
 
-The starting point for this product is having a scene that meets the size requirements mentioned above, if you wish to know more about how to create a scene, check out the [Decentraland SDK](https://docs.decentraland.org/creator/development-guide/sdk-101/) documentation.
+The starting point for this product is having a scene that meets the size requirements mentioned above. If you wish to know more about how to create a scene, check out the [Decentraland SDK](https://docs.decentraland.org/creator/development-guide/sdk-101/) documentation.
 
-If you are a Content Creator, you may be already familiar with how the [CLI]
-(https://docs.decentraland.org/creator/development-guide/sdk-101/) works, 
-the experience is quite similar, but with two small caveats... 
+If you are a Content Creator, you may be already familiar with how the [CLI](https://docs.decentraland.org/creator/development-guide/sdk-101/) works, the experience is quite similar, but with two small caveats... 
 
 You need to specify under which NAME that deployment is to be made. In your
 `scene.json` you need to add the following section:
@@ -40,7 +38,10 @@ Of course, the NAME specified there needs to be owned by the wallet signing the 
 
 And secondly, you need to specify the target server in the deployment command-line and use the Worlds Content Server URL: 
 
-`dcl deploy --target-content https://worlds-content-server.decentraland.org`
+```bash
+dcl deploy --target-content https://worlds-content-server.decentraland.org`
+```
+
 
 Once you run the command, you will be prompted to sign the deployment with your wallet and a set of validations will be executed to allow or reject the scene: 
 - The wallet signing the deployment must own the Decentraland NAME specified in the scene.json file 
