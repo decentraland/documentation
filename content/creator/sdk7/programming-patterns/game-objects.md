@@ -117,7 +117,9 @@ door.addComponent(
 
 The code above imports the `Door` class, then instances a door, and adds an OnClick behavior to it that simply calls the `toggleDoor` method in the `Door` class.
 
-> Tip: To learn more about using game objects in Decentraland scenes, see this [Tutorial video](https://www.youtube.com/watch?v=_kksSC91DKE)
+{{< hint info >}}
+**💡 Tip**:  To learn more about using game objects in Decentraland scenes, see this [Tutorial video](https://www.youtube.com/watch?v=_kksSC91DKE)
+{{< /hint >}}
 
 ## The Type Object Pattern
 

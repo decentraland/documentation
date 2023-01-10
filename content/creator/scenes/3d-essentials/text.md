@@ -14,7 +14,9 @@ Add text to a scene using the `TextShape` component. This text sits in a positio
 
 Text in Decentraland supports all _utf8_ characters, this includes oriental and special characters.
 
-> Note: This component is useful for in-world labels and UIs that exist in the 3D space of the scene, not for the player's 2D HUD UI.
+{{< hint warning >}}
+**📔 Note**   This component is useful for in-world labels and UIs that exist in the 3D space of the scene, not for the player's 2D HUD UI.
+{{< /hint >}}
 
 The `TextShape` component is mutually exclusive with other shape components like primitive shapes and glTF 3D models, see [Shape components]({{< ref "/content/creator/scenes/3d-essentials/shape-components.md" >}}) for more details.
 
@@ -30,9 +32,13 @@ const myText = new TextShape("Hello World!")
 myEntity.addComponent(myText)
 ```
 
-> Note: If the entity with the text component is a child of another entity, then it will be affected by the parent's scale. If the parent is scaled unevenly, this will result in the text also being stretched or compressed.
+{{< hint warning >}}
+**📔 Note**   If the entity with the text component is a child of another entity, then it will be affected by the parent's scale. If the parent is scaled unevenly, this will result in the text also being stretched or compressed.
+{{< /hint >}}
 
-> Note: `TextShape` components aren't clickable. `OnPointerDown`, `OnPointerUp`, `OnHoverEnter`, and `OnHoverExit` comopnents aren't activated when used on entites that have a `TextShape` component.
+{{< hint warning >}}
+**📔 Note**   `TextShape` components aren't clickable. `OnPointerDown`, `OnPointerUp`, `OnHoverEnter`, and `OnHoverExit` comopnents aren't activated when used on entites that have a `TextShape` component.
+{{< /hint >}}
 
 ## Change the text value
 
@@ -85,7 +91,9 @@ The following fonts are currently supported:
 - SansSerif_Heavy
 - SansSerif_Semibold
 
-> TIP: If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
+{{< hint info >}}
+**💡 Tip**:  If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
+{{< /hint >}}
 
 You can share a same instanced `Font` object accross multiple `TextShape` components.
 
@@ -113,7 +121,9 @@ The `TextShape` component creates a text box that has a size, padding, etc.
 - `paddingLeft`: _number_. Space between the text and the outline of the text box.
 - `zIndex`: _number_. Useful for when multiple flat entities occupy the same space, it determines which one to show in front.
 
-> Tip: If a text is meant to float in space, it's a good idea to add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}) so that the text rotates to always face the player and be legible.
+{{< hint info >}}
+**💡 Tip**:  If a text is meant to float in space, it's a good idea to add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}) so that the text rotates to always face the player and be legible.
+{{< /hint >}}
 
 ## Text shadow and outline properties
 

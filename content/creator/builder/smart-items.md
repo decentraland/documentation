@@ -74,7 +74,9 @@ The _Tools_ smart item is a super versatile collection of tools that can act upo
 
 - _Print Message_: Display a text message on the player's screen for a given amount of seconds. The message can be just for the player that triggered the action, or for all players in the scene.
 
-> Tip: You can call as many actions as you want in succession, using the _When transition finished_ field in the _Move Item_, _Rotate Item_ and _Scale Item_ actions.
+{{< hint info >}}
+**💡 Tip**:  You can call as many actions as you want in succession, using the _When transition finished_ field in the _Move Item_, _Rotate Item_ and _Scale Item_ actions.
+{{< /hint >}}
 
 ## Multiplayer
 

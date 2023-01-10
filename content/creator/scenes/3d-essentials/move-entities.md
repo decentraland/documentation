@@ -14,7 +14,9 @@ To move, rotate or resize an entity in your scene, change the _position_, _rotat
 
 You can easily perform these incremental changes by moving entities a small amount each time the `update()` function of a [system]({{< ref "/content/creator/scenes/architecture/systems.md" >}}) is called.
 
-> Tip: You can use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve most of the tasks described in this doc. The code shown in these examples is handled in the background by the library, so in most cases it only takes a single line of code to use them.
+{{< hint info >}}
+**💡 Tip**:  You can use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve most of the tasks described in this doc. The code shown in these examples is handled in the background by the library, so in most cases it only takes a single line of code to use them.
+{{< /hint >}}
 
 ## Move
 
@@ -70,7 +72,9 @@ myEntity.addComponent(new BoxShape())
 engine.addEntity(myEntity)
 ```
 
-> Tip: To make an entity always rotate to face the player, you can add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}).
+{{< hint info >}}
+**💡 Tip**:  To make an entity always rotate to face the player, you can add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}).
+{{< /hint >}}
 
  <img src="/images/media/gifs/rotate.gif" alt="Move entity" width="300"/>
 
@@ -124,7 +128,9 @@ Note that in this example, the system is rotating the `pivot` entity, that's a p
 
  <img src="/images/media/gifs/pivot-rotate.gif" alt="Move entity" width="300"/>
 
-> Note: Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
+{{< hint warning >}}
+**📔 Note**   Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
+{{< /hint >}}
 
 ## Adjust movement to delay time
 
@@ -220,7 +226,9 @@ The `slerp()` function takes three parameters:
 - The [quaternion](https://en.wikipedia.org/wiki/Quaternion) angle for the target rotation
 - The amount, a value from 0 to 1 that represents what fraction of the translation to do.
 
-> Tip: You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.Euler()`.
+{{< hint info >}}
+**💡 Tip**:  You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.Euler()`.
+{{< /hint >}}
 
 ```ts
 const originRotation = Quaternion.Euler(0, 90, 0)
@@ -270,7 +278,9 @@ myEntity.getComponent(SlerpData).targetRot = Quaternion.Euler(0, 0, 0)
 engine.addEntity(myEntity)
 ```
 
-> Note: You could instead represent the rotation with `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient to work with quaternions.
+{{< hint warning >}}
+**📔 Note**   You could instead represent the rotation with `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient to work with quaternions.
+{{< /hint >}}
 
  <img src="/images/media/gifs/lerp-rotate.gif" alt="Move entity" width="300"/>
 

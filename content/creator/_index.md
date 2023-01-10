@@ -21,7 +21,10 @@ The Decentraland SDK is a collection of tools to allow you to create scenes. The
 - [Development workflow]({{< ref "/content/creator/scenes/getting-started/dev-workflow.md" >}}): read this to understand the full process of creating a scene from start to end, incluing publishing and promoting it.
 - [Examples](https://github.com/decentraland-scenes/Awesome-Repository#examples): dive right into working example scenes.
 
-> Note: The currently stable version of the SDK is 6.x. Everything documented under the **scenes** section refers to that stable version. To try out the new version 7 of the SDK (which is still in Alpha), read the documents under the **SDK7 Scenes (alpha)** section. This section is right below the scenes section, non-expanded by default.
+{{< hint warning >}}
+**📔 Note**: 
+The currently stable version of the SDK is 6.x. Everything documented under the **scenes** section refers to that stable version. To try out the new version 7 of the SDK (which is still in Alpha), read the documents under the **SDK7 Scenes (alpha)** section. This section is right below the scenes section, non-expanded by default.
+{{< /hint >}}
 
 ### The Decentraland Editor
 
@@ -38,7 +41,9 @@ There are a number of tools that can help with arranging 3d models into position
 
   Read the [documentation]({{< ref "/content/creator/builder/builder-101.md" >}}).
 
-  > Note: If a scene is created by or modified by the SDK, you can't import it into the Builder. You can only go from the Builder to the SDK, not in the other direction.
+{{< hint warning >}}
+**📔 Note**:  If a scene is created by or modified by the SDK, you can't import it into the Builder. You can only go from the Builder to the SDK, not in the other direction.
+{{< /hint >}}
 
 ### 3D Modeling
 

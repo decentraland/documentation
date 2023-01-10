@@ -56,7 +56,9 @@ let spawnPos = new Vector3(5, 0, 5)
 sceneMessageBus.emit("spawn", { position: spawnPos })
 ```
 
-> Tip: If you need a single message to include data from more than one variable, create a custom type to hold all this data in a single object.
+{{< hint info >}}
+**💡 Tip**:  If you need a single message to include data from more than one variable, create a custom type to hold all this data in a single object.
+{{< /hint >}}
 
 #### Receive messages
 
@@ -74,7 +76,9 @@ sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
 })
 ```
 
-> Note: Messages that are sent by a player are also picked up by that same player. The `.on` method can't distinguish between a message that was emitted by that same player from a message emitted from other players.
+{{< hint warning >}}
+**📔 Note**   Messages that are sent by a player are also picked up by that same player. The `.on` method can't distinguish between a message that was emitted by that same player from a message emitted from other players.
+{{< /hint >}}
 
 #### Full example
 
@@ -144,7 +148,9 @@ If you launch a scene preview and open it in two (or more) different browser win
 
 Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
 
-> Note: Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
+{{< hint warning >}}
+**📔 Note**   Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
+{{< /hint >}}
 
 ## Use an authoritative server
 
@@ -152,7 +158,9 @@ An authoritative server may have different levels of involvement with the scene:
 
 - API + DB: This is useful for scenes where changes don't happen constantly and where it's acceptable to have minor delays in syncing. When a player changes something, it sends an HTTP request to a REST API that stores the new scene state in a data base. Changes remained stored for any new player that visits the scene at a later date. The main limitation is that new changes from other players aren't notified to players who are already there, messages can't be pushed from the server to players. Players must regularly send requests the server to get the latest state.
 
-> TIP: It's also possible to opt for a hybrid approach where changes are notified between players via P2P Messagebus messages, but the final state is also stored via an API for future visitors.
+{{< hint info >}}
+**💡 Tip**:  It's also possible to opt for a hybrid approach where changes are notified between players via P2P Messagebus messages, but the final state is also stored via an API for future visitors.
+{{< /hint >}}
 
 - Websockets: This alternative is more robust, as it establishes a two-way communications channel between player and server. Updates can be sent from the server, you could even have game logic run on or validated on the server. This enables real time interaction and makes more fast paced games possible. It's also more secure, as each message between player and server is part of a session that is opened, no need to validate each message.
 
