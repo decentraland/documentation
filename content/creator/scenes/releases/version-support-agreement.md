@@ -36,7 +36,7 @@ In every stable version family, the Decentraland Fountation supports only the la
 
 For example, if the latest minor version of the 6.x family is 6.11, and the latest minor version of the 7.x family is 7.3, content creators are expected to develop their scenes on either 6.11 or 7.3. Scenes that were developed and published with version 6.10 or older will most likely keep working and players will be able to enjoy them. However, if these older scenes experience any issue, they must first be updated to a supported version, and the issue will only be investigated if it still occurs in a supported version.
 
-The Decentraland Editor automatically updates the renderer package of all scenes within a same version familiy, so that all developers are using the latest supported version when they develop their scenes.
+The Decentraland Editor automatically updates the scripting package of all scenes within a same version family, so that all developers are using the latest supported version when they develop their scenes.
 
 ## Feature development
 
@@ -44,7 +44,7 @@ New features will only be released into the latest version in development. As so
 
 ## Breaking changes
 
-Breaking changes should only occur in major releases. There will be no breaking changes within the stable minor releases of a same version family. New releases will extend the capabilities of the existing syntax, but never change what the established syntax produces, except when fixing bugs.
+Breaking changes should only occur in major releases. There should be no breaking changes within the stable minor releases of a same version family, except in case of an emergency and absence of any other means to address it. Breaking changes within a minor release are a drastic measure that the developers will avoid at all costs. New minor releases will extend the capabilities of the existing syntax, but should never change what the established syntax produces, except when fixing bugs.
 
 ## Stable and unstable releases
 
