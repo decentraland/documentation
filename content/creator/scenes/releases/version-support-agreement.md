@@ -12,7 +12,7 @@ weight: 2
 
 This document describes the versioning policy applied to both the Decentraland Editor and the scripting framework (the `@dcl/sdk` package).
 
-The goal of this versioning policy is to forge a contract between the Decentraland Foundation's SDK team and content creators, to establish clear expectations and allow content creators to plan their work acoordingly.
+The goal of this versioning policy is to forge a contract between the Decentraland Foundation's SDK team and content creators, to establish clear expectations and allow content creators to plan their work accordingly.
 
 <!-- TODO: What about support from other teams? Do we have a commitment for content with older versions to keep working too? -->
 
@@ -26,7 +26,7 @@ The goal of this versioning policy is to forge a contract between the Decentrala
 
 * *Non-breaking change* -- a change that does not require any action by a user, the behavior and properties of the user's code and assets are unchanged if they migrate their scene.
 
-* *Stable version* -- a version that forbids breaking changes in all its successors (which are all considered as stable too). Any breaking change must be introduced only through creation of a new version family by incrementing the major version number. Non-breaking changes are reflected through incrementing the minor version number.
+* *Stable version* -- a version that forbids breaking changes in all its successors (which are all considered as stable too). Any breaking change must be introduced only through creation of a new version family by incrementing the major version number, however see caveat in the [breaking changes](#breaking-changes) section. Non-breaking changes are reflected through incrementing the minor version number.
 
 * *Unstable version* -- a version that allows breaking changes in its successors. Breaking changes may be introduced by incrementing the minor version number.
 
