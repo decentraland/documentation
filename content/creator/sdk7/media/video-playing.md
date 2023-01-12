@@ -9,17 +9,11 @@ url: /creator/development-guide/sdk7/video-playing/
 weight: 2
 ---
 
-{{< hint warning >}}
-**📔 Note**   Feature not yet supported in SDK7.
-{{< /hint >}}
-
-
-<!-- 
 
 
 There are two different ways you can show a video in a scene. One is to stream the video from an external source, the other is to pack the video file with the scene and play it from there.
 
-In both cases, you assign the video to a `VideoTexture`, which can be used on a [material]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) and then applied to any [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
+In both cases, you use a `VideoPlayer` component to control the state of the video. You also need to create a `VideoTexture`, which can be used on a [material]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) and then applied to any [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
 
 {{< hint info >}}
 **💡 Tip**:  Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
@@ -29,62 +23,55 @@ In both cases, you assign the video to a `VideoTexture`, which can be used on a 
 
 The following instructions apply both to streaming and to showing a video from a file:
 
-1. Create a `VideoClip` object, either referencing a streaming URL or a path to a video file.
+1. Create an entity to serve as the video screen. Give this entity a `MeshRenderer` component so that it has a visible shape.
 
-2. Create a `VideoTexture` object, and assign the `VideoClip` to it.
+2. Create a `VideoPlayer` component, either referencing a streaming URL or a path to a video file. Here you can also set the video's `playing` state, and its volume. This component can be assigned to the video screen entity, or to any other entity in the scene.
 
-3. Create a `Material` or `BasicMaterial`, and set its `albedoTexture` or `texture` to the `VideoTexture` you created.
+3. Create a `VideoTexture` object, and in its `videoPlayerEntity` property assign the entity that owns the `VideoPlayer` component.
 
-4. Then add that `Material` to an entity that has a primitive shape, like a `PlaneShape` or a `BoxShape`.
+4. Create a `Material`, assign it to the screen entity, and set its `texture` to the `VideoTexture` you created.
 
-5. Play the video texture
 
 This example uses a video stream:
 
 ```ts
 // #1
-const myVideoClip = new VideoClip(
-  'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875'
-)
+const screen = engine.addEntity()
+MeshRenderer.setPlane(screen)
+Transform.create(screen, { position: { x: 4, y: 1, z: 4 } })
 
 // #2
-const myVideoTexture = new VideoTexture(myVideoClip)
+VideoPlayer.create(screen, {
+  src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
+  playing: true
+})
 
 // #3
-const myMaterial = new Material()
-myMaterial.albedoTexture = myVideoTexture
-myMaterial.roughness = 1
-myMaterial.specularIntensity = 0
-myMaterial.metallic = 0
-
+const videoTexture = Material.Texture.Video({ videoPlayerEntity: screen })
 
 // #4
-const screen = new Entity()
-screen.addComponent(new PlaneShape())
-screen.addComponent(
-  new Transform({
-    position: new Vector3(8, 1, 8),
-  })
-)
-screen.addComponent(myMaterial)
-screen.addComponent(
-  new OnPointerDown(() => {
-    myVideoTexture.playing = !myVideoTexture.playing
-  })
-)
-engine.addEntity(screen)
-
-// #5
-myVideoTexture.play()
+Material.setPbrMaterial(screen, {
+  texture: videoTexture,
+  emissiveTexture: videoTexture,
+  emissiveIntensity: 0.6,
+  roughness: 1.0,
+})
 ```
 
-To use a video file, just change the first step to reference the path to the file:
+To use a video file, just change step 2 so that the `src` property in the `VideoPlayer` component references the path to the file:
 
 ```ts
-const myVideoClip = new VideoClip("videos/myVideo.mp3")
+// #2
+VideoPlayer.create(screen, {
+  src: "videos/myVideo.mp3",
+  playing: true
+})
 ```
 
+<!-- 
 ## Video Materials
+
+TODO, maybe still relevant!
 
 To many, the default properties of a material make the video look quite opaque for a screen, but you can enhance that by altering other properties of the material.
 
@@ -111,7 +98,7 @@ myMaterial.emissiveColor = Color3.White()
 myMaterial.emissiveIntensity = 0.6
 ```
 
-See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md">}}) for more details.
+See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md">}}) for more details. -->
 
 ## About Streaming
 
@@ -133,6 +120,117 @@ Keep in mind that a video file adds to the total size of the scene, which makes 
 
 We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
 
+
+
+
+## Start pause and stop a video
+
+To start playing the video or pause it, set the `playing` property to _true_ or _false_. If `playing` is set to false, the video is paused at the last frame shown.
+
+You can make a screen toggleable by adding a pointer event to it as shown below:
+
+```ts
+pointerEventsSystem.onPointerDown(screen, () => {
+  	const videoPlayer = VideoPlayer.getMutable(screen)
+  	videoPlayer.playing = !videoPlayer.playing
+}, { 
+	button: InputAction.IA_POINTER,
+	hoverText: "Play/pause" 
+})
+```
+
+To stop the video and send it back to the first frame, set the `position` property to 0. in the following example, clicking on the video stops it.
+
+```ts
+pointerEventsSystem.onPointerDown(screen, () => {
+  	const videoPlayer = VideoPlayer.getMutable(screen)
+  	videoPlayer.playing = false
+	videoPlayer.position = 0
+}, { 
+	button: InputAction.IA_POINTER,
+	hoverText: "STOP" 
+})
+```
+
+## Configure video playing
+
+The following optional properties are available to set on the `VideoPlayer` component:
+
+- `playbackRate`: Changes the speed at which the video is played. _1_ by default.
+
+- `volume`: Lets you change the volume of the audio. _1_ by default.
+
+- `position`: Allows you to set a different starting position on the video. It's expressed in seconds after the video's original beginning. _-1_ by default, which makes it start at the actual start of the video. 
+
+<!-- - `loop`: Boolean that determines if the video is played continuously in a loop, or if it stops after playing once. _false_ by default. 
+TODO: not currently supported
+-->
+
+
+- `playbackRate`: The speed at which the video is played 
+
+<!-- TODO: check if exposed and how it works -->
+
+
+
+## Play multiple videos
+
+To avoid running into performance problems, each scene is only allowed to play one single video texture at a time. However, a scene can play multiple copies of one same video texture in several different screens. That action is not restricted as it impacts performance considerably less than playing separate videos. To play a same video on multiple entities, simply assign the same instance of the video texture object to the `Material` components of each screen entity.
+
+
+```ts
+// #1
+const screen1 = engine.addEntity()
+MeshRenderer.setPlane(screen1)
+Transform.create(screen1, { position: { x: 4, y: 1, z: 4 } })
+
+const screen2 = engine.addEntity()
+MeshRenderer.setPlane(screen2)
+Transform.create(screen2, { position: { x: 6, y: 1, z: 4 } })
+
+// #2
+VideoPlayer.create(screen1, {
+  src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
+  playing: true
+})
+
+// #3
+const videoTexture = Material.Texture.Video({ videoPlayerEntity: screen1 })
+
+// #4
+Material.setPbrMaterial(screen1, {
+  texture: videoTexture,
+  emissiveTexture: videoTexture,
+  emissiveIntensity: 0.6,
+  roughness: 1.0,
+})
+
+Material.setPbrMaterial(screen2, {
+  texture: videoTexture,
+  emissiveTexture: videoTexture,
+  emissiveIntensity: 0.6,
+  roughness: 1.0,
+})
+```
+
+Note that in the example above, it's only necessary to create one `VideoPlayer` component, which controls the state of both video screens. In this case this component is assigned to belong to the `screen1` entity, but it could also be assigned to belong to any other entity on the scene, not necessarily one of the screens.
+
+
+<!-- 
+## Map a video texture
+
+TODO
+in video texture...
+filterMode?: TextureFilterMode | undefined;
+wrapMode?: TextureWrapMode | undefined;
+
+if using a plane or cube...
+use uvs to map parts of the video 
+
+-->
+
+
+<!-- 
 ## Handle a video file
 
 When playing a video from a file, you can perform the following actions:
@@ -147,12 +245,4 @@ When playing a video from a file, you can perform the following actions:
 
 You can also change the following properties:
 
-- `loop`: Boolean that determines if the video is played continuously in a loop, or if it stops after playing once. _false_ by default.
 
-- `playbackRate`: Changes the speed at which the video is played. _1_ by default.
-
-- `volume`: Lets you change the volume of the audio. _1_ by default.
-
-- `seek`: Allows you to set a different starting position on the video. It's expressed in seconds after the video's original beginning. _-1_ by default, which makes it start at the actual start of the video. 
-
--->
