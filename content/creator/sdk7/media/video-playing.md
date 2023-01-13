@@ -152,9 +152,17 @@ pointerEventsSystem.onPointerDown(screen, () => {
 })
 ```
 
-## Configure video playing
+## Configure the video state
+
+
 
 The following optional properties are available to set on the `VideoPlayer` component:
+
+- `playing`: Determines if the video is currently playing. If false, the video is paused.
+
+{{< hint warning >}}
+**📔 Note**:  There can only be one `VideoPlayer` component active at a time in each scene. 
+{{< /hint >}}
 
 - `playbackRate`: Changes the speed at which the video is played. _1_ by default.
 
