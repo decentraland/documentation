@@ -52,7 +52,7 @@ To get you started, below is a list of libraries that have free or relatively in
 - [ShareCG](https://www.sharecg.com/)
 
 {{< hint warning >}}
-**📔 Note**   Pay attention to the license restrictions that the content you download has.
+**📔 Note**:  Pay attention to the license restrictions that the content you download has.
 {{< /hint >}}
 
 Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _.glTF_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting them with one of the available _.glTF_ export add-ons.

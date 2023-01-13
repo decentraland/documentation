@@ -73,11 +73,11 @@ The fetch command returns a `response` object with the following data:
 - `text()`: Obtain the body as text.
 
 {{< hint warning >}}
-**📔 Note**   `json()` and `text()` are mutually exclusive. If you obtain the body of the response in one of the two formats, you can no longer obtain the other from the `response` object.
+**📔 Note**:  `json()` and `text()` are mutually exclusive. If you obtain the body of the response in one of the two formats, you can no longer obtain the other from the `response` object.
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**   Each Decentraland scene is only permitted to perform one `fetch` command at a time. This has no effect on how the scene code must be structured, as requests are queued internally. If your scene requires sending multiple requests to different endpoints, keep in mind that each request is only sent when the previous one has been responded.
+**📔 Note**:  Each Decentraland scene is only permitted to perform one `fetch` command at a time. This has no effect on how the scene code must be structured, as requests are queued internally. If your scene requires sending multiple requests to different endpoints, keep in mind that each request is only sent when the previous one has been responded.
 
 {{< /hint >}}
 

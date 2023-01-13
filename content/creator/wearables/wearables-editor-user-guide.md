@@ -326,7 +326,7 @@ You can “gift” items to anyone you like by entering their address instead of
 Remember, these items are minted and transferred to the address entered for free. The price you set for items is only collected in primary sales.
 
 {{< hint warning >}}
-**📔 Note**   You can currently only mint 50 items per transaction.
+**📔 Note**:  You can currently only mint 50 items per transaction.
 {{< /hint >}}
 
 

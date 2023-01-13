@@ -30,7 +30,7 @@ what about text align, TextAlignMode not valid either -->
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**   The `fontSize` is not affected by the size of its entity or parent entities.
+**📔 Note**:  The `fontSize` is not affected by the size of its entity or parent entities.
 {{< /hint >}}
 
 ```ts

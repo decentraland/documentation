@@ -32,7 +32,7 @@ _Components_ define the traits of an entity. For example, a `transform` componen
 If you're familiar with web development, think of entities as the equivalent of _Elements_ in a _DOM_ tree, and of components as _attributes_ of those elements.
 
 {{< hint warning >}}
-**📔 Note**   In previous versions of the SDK, the _scene state_ was stored in an object that was separate from the entities themselves. As of version 5.0, the _scene state_ is directly embodied by the components that are used by the entities in the scene.
+**📔 Note**:  In previous versions of the SDK, the _scene state_ was stored in an object that was separate from the entities themselves. As of version 5.0, the _scene state_ is directly embodied by the components that are used by the entities in the scene.
 {{< /hint >}}
 
 <img src="/images/media/ecs-components.png" alt="Armature" width="400"/>
@@ -84,7 +84,7 @@ engine.addEntity(box)
 In the example above, the newly created entity isn't viewable by players on your scene until it's added to the engine.
 
 {{< hint warning >}}
-**📔 Note**   Entities aren't added to [Component groups]({{< ref "/content/creator/scenes/architecture/component-groups.md" >}}) either until they are added to the engine.
+**📔 Note**:  Entities aren't added to [Component groups]({{< ref "/content/creator/scenes/architecture/component-groups.md" >}}) either until they are added to the engine.
 {{< /hint >}}
 
 It’s sometimes useful to preemptively create entities and not add them to the engine until they are needed. This is especially true for entities that have elaborate geometries that might otherwise take long to load.
@@ -98,7 +98,7 @@ if (myEntity.alive) {
 ```
 
 {{< hint warning >}}
-**📔 Note**   It's always recommended to add a `Transform` component to an entity before adding it to the engine. Entities that don't have a Transform component are rendered in the _(0, 0, 0)_ position of the scene, so if the entity is added before it has a `Transform`, it will be momentarily rendered in that position, and with its original size and rotation.
+**📔 Note**:  It's always recommended to add a `Transform` component to an entity before adding it to the engine. Entities that don't have a Transform component are rendered in the _(0, 0, 0)_ position of the scene, so if the entity is added before it has a `Transform`, it will be momentarily rendered in that position, and with its original size and rotation.
 {{< /hint >}}
 
 ## Remove entities from the engine
@@ -136,7 +136,7 @@ childEntity.setParent(parentEntity)
 ```
 
 {{< hint warning >}}
-**📔 Note**   Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
+**📔 Note**:  Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
 {{< /hint >}}
 
 Once a parent is assigned, it can be read off the child entity with `.getParent()`.
@@ -158,7 +158,7 @@ for(let id in parent.children){
 ```
 
 {{< hint warning >}}
-**📔 Note**   `.children` returns a library that lists all the child entities.
+**📔 Note**:  `.children` returns a library that lists all the child entities.
 {{< /hint >}}
 -->
 
@@ -224,7 +224,7 @@ box.getComponent(Material).albedoColor = Color3.Red()
 ```
 
 {{< hint warning >}}
-**📔 Note**   In the example above, as you never define a pointer to the entity's material component, you need to refer to it through its parent entity using `.getComponent()`.
+**📔 Note**:  In the example above, as you never define a pointer to the entity's material component, you need to refer to it through its parent entity using `.getComponent()`.
 {{< /hint >}}
 
 #### Add or replace a component

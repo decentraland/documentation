@@ -154,7 +154,7 @@ export const WheelSpinComponent = engine.defineComponent(mySchema, 2000)
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**   All values in a custom component are optional when instancing a component. There is no mechanism to define default values for these fields when instancing the component, but you can define systems that execute default behaviors if no values are present for a given field.
+**📔 Note**:  All values in a custom component are optional when instancing a component. There is no mechanism to define default values for these fields when instancing the component, but you can define systems that execute default behaviors if no values are present for a given field.
 {{< /hint >}}
 
 ### Default Schema types

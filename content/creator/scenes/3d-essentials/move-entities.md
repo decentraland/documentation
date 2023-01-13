@@ -129,7 +129,7 @@ Note that in this example, the system is rotating the `pivot` entity, that's a p
  <img src="/images/media/gifs/pivot-rotate.gif" alt="Move entity" width="300"/>
 
 {{< hint warning >}}
-**📔 Note**   Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
+**📔 Note**:  Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
 {{< /hint >}}
 
 ## Adjust movement to delay time
@@ -279,7 +279,7 @@ engine.addEntity(myEntity)
 ```
 
 {{< hint warning >}}
-**📔 Note**   You could instead represent the rotation with `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient to work with quaternions.
+**📔 Note**:  You could instead represent the rotation with `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient to work with quaternions.
 {{< /hint >}}
 
  <img src="/images/media/gifs/lerp-rotate.gif" alt="Move entity" width="300"/>

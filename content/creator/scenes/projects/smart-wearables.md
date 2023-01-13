@@ -177,7 +177,7 @@ To publish your smart wearable:
 2. Run `dcl pack` on your project folder. This generates a `portable-experience.zip` file in your project folder.
 
 {{< hint warning >}}
-**📔 Note**   The output of `dcl pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
+**📔 Note**:  The output of `dcl pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
 {{< /hint >}}
 
 3. Open the Builder, open the Collections tab, click + to upload a new wearable.
@@ -194,7 +194,7 @@ To publish your smart wearable:
 8. At this point, your wearable is ready to be published. We still don’t encourage creators to publish any smart wearables, as we’re still in experimental stages, reviewers from the committee have been instructed to not approve any smart wearables that don’t come from the foundation.
 
 {{< hint warning >}}
-**📔 Note**   There will be a `dcl deploy` command in the future, to enable you to do this process without navigating the Builder UI.
+**📔 Note**:  There will be a `dcl deploy` command in the future, to enable you to do this process without navigating the Builder UI.
 {{< /hint >}}
 
 ## Restricted actions

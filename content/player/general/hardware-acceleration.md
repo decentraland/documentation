@@ -18,7 +18,7 @@ Since Decentraland runs in a web browser, you might need to configure your brows
 If you see this warning, it means that you are using a sub-optimal set up for rendering 3d graphics. Your experience when playing Decentraland might be laggy and unresponsive because of this. You might notice missing frames as you move around in a jumpy way.
 
 {{< hint warning >}}
-**📔 Note**   Some lower end machines, or machines that are not designed for gaming, may not have a _dedicated_ graphics card at all. If that's your case, then ignore this warning. You might still be able to improve how you experience Decentraland by opening the Settings panel and lowering the graphics quality. See [hardware requirements]({{< ref "/content/player/general/hardware-requirements.md" >}}).
+**📔 Note**:  Some lower end machines, or machines that are not designed for gaming, may not have a _dedicated_ graphics card at all. If that's your case, then ignore this warning. You might still be able to improve how you experience Decentraland by opening the Settings panel and lowering the graphics quality. See [hardware requirements]({{< ref "/content/player/general/hardware-requirements.md" >}}).
 {{< /hint >}}
 
 
@@ -44,7 +44,7 @@ In Chrome or Brave:
 _On other browsers, the steps may vary slightly, but should be essentially the same._
 
 {{< hint warning >}}
-**📔 Note**   If you keep seeing the warning message in Decentraland, you may also need to set up your operating system to allow the browser to access this hardware.
+**📔 Note**:  If you keep seeing the warning message in Decentraland, you may also need to set up your operating system to allow the browser to access this hardware.
 {{< /hint >}}
 
 
@@ -59,6 +59,8 @@ To set up hardware acceleration:
 - Uncheck the box for _Automatic graphics switching_. This will keep the _dedicated_ graphics card always in use when applicable.
 
 > Note: Having this option checked turns off the _dedicated graphics card_ whenever the laptop is unplugged. Another alternative is to always keep the machine plugged to a power outlet.
+{{< /hint >}}
+
 
 ### Windows
 

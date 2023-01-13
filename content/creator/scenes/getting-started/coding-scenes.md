@@ -203,6 +203,6 @@ To do so, open the Decentraland Editor tab, and press the `+` sign to install th
 See [manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-dependencies.md" >}}) for more details.
 
 {{< hint warning >}}
-**📔 Note**   Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.
+**📔 Note**:  Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.
 {{< /hint >}}
 

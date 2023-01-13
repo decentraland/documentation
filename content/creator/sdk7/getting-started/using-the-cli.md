@@ -20,7 +20,7 @@ Both tools allow you to compile and preview your scene in an "off-chain" develop
 Although the Editor is easier to use, the CLI allows you more flexibility, and can be easily used in automated processes.
 
 {{< hint warning >}}
-**📔 Note**   The Editor uses the CLI behind the scenes.
+**📔 Note**:  The Editor uses the CLI behind the scenes.
 {{< /hint >}}
 
 

@@ -67,6 +67,6 @@ This practice follows the principles of [data oriented programming]({{< ref "/co
 
 
 {{< hint warning >}}
-**📔 Note**   In older versions of the SDK (6.x or older), components were always treated as mutable. That pattern may be a bit more straight forward to learn, but was a lot less efficient to run.
+**📔 Note**:  In older versions of the SDK (6.x or older), components were always treated as mutable. That pattern may be a bit more straight forward to learn, but was a lot less efficient to run.
 {{< /hint >}}
 

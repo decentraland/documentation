@@ -24,7 +24,7 @@ _Components_ define the traits of an entity. For example, a `Transform` componen
 If you're familiar with web development, think of entities as the equivalent of _Elements_ in a _DOM_ tree, and of components as _attributes_ of those elements.
 
 {{< hint warning >}}
-**📔 Note**   In previous versions of the SDK, Entities were _objects_ that were instanced, and could be extended to add functions. As of version 7.0 of the SDK, entities are only an ID. This structure better fits the principles of [data oriented programming]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and can help in the scene's performance.
+**📔 Note**:  In previous versions of the SDK, Entities were _objects_ that were instanced, and could be extended to add functions. As of version 7.0 of the SDK, entities are only an ID. This structure better fits the principles of [data oriented programming]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and can help in the scene's performance.
 {{< /hint >}}
 
 <img src="/images/media/ecs-components-new.png" alt="Armature" width="400"/>
@@ -55,7 +55,7 @@ GltfContainer.create(door)
 ```
 
 {{< hint warning >}}
-**📔 Note**   In previous versions of the SDK, it was necessary to manually add an entity to the engine to start rendering it. As of version 7 of the SDK, entities are implicitly added to the engine as soon as they are assigned a component.
+**📔 Note**:  In previous versions of the SDK, it was necessary to manually add an entity to the engine to start rendering it. As of version 7 of the SDK, entities are implicitly added to the engine as soon as they are assigned a component.
 {{< /hint >}}
 
 When a component is created, it's always assigned to a parent entity. The component's values then affect the entity.
@@ -173,7 +173,7 @@ Transform.get(1000 as Entity)
 ```
 
 {{< hint warning >}}
-**📔 Note**   The entity ids between _0_ and _511_ are reserved by the engine for fixed entities, like the player avatar, the base scene, etc.
+**📔 Note**:  The entity ids between _0_ and _511_ are reserved by the engine for fixed entities, like the player avatar, the base scene, etc.
 {{< /hint >}}
 
 For example, if a player's click or a [raycast]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}) hits an entity, this will return the id of the hit entity, and you can use the command above to fetch the Transform component of the entity that matches that id. You can also fetch any other component of that entity in the same way.
@@ -193,7 +193,7 @@ Transform.createOrReplace(door, {
 ```
 
 {{< hint warning >}}
-**📔 Note**   Since `.createOrReplace` runs an additional check before creating the component, it's always more performant to use `.create`. If you're sure that the entity doesn't already have a component like the one you're adding, use `.create`.
+**📔 Note**:  Since `.createOrReplace` runs an additional check before creating the component, it's always more performant to use `.create`. If you're sure that the entity doesn't already have a component like the one you're adding, use `.create`.
 {{< /hint >}}
 
 
@@ -222,7 +222,7 @@ If you wish to change the values of the component, use the `getMutable()` functi
 See [mutable data]({{< ref "/content/creator/sdk7/programming-patterns/mutable-data.md" >}}) for more details.
 
 {{< hint warning >}}
-**📔 Note**   Only use `getMutable()` if you're actually going to make changes to the component's values. Otherwise, always use `get()`. This practice follows the principles of [data oriented programming]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), and can significantly help in the scene's performance.
+**📔 Note**:  Only use `getMutable()` if you're actually going to make changes to the component's values. Otherwise, always use `get()`. This practice follows the principles of [data oriented programming]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), and can significantly help in the scene's performance.
 {{< /hint >}}
 
 ```ts
@@ -238,7 +238,7 @@ The example above directly modifies the value of the _x_ scale on the Transform 
 If you're not entirely sure if the entity does have the component you're trying to retrieve, use `getOrNull()` or `getMutableOrNull()`.
 
 {{< hint warning >}}
-**📔 Note**   Avoid using `getOrNull()` or `getMutableOrNull()` when possible, as these functions involve additional checks that and are therefore less efficient than `.get()` and `getMutable()`.
+**📔 Note**:  Avoid using `getOrNull()` or `getMutableOrNull()` when possible, as these functions involve additional checks that and are therefore less efficient than `.get()` and `getMutable()`.
 {{< /hint >}}
 
 
@@ -267,7 +267,7 @@ Transform.deleteFrom(myEntity)
 If you attempt to remove a component that doesn't exist in the entity, this action won't raise any errors.
 
 {{< hint warning >}}
-**📔 Note**   To remove all the components of an entity at once, see [this section](#remove-entities)
+**📔 Note**:  To remove all the components of an entity at once, see [this section](#remove-entities)
 {{< /hint >}}
 
 ## Check for a component

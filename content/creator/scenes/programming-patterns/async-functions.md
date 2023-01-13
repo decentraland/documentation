@@ -32,7 +32,7 @@ For example:
 - When performing a transaction on the blockchain
 
 {{< hint warning >}}
-**📔 Note**   Keep in mind that several frames of your scene might be rendered before the task finishes executing. Make sure your scene's code is flexible enough to handle the in-between scenarios while the asynchronous task is being completed.
+**📔 Note**:  Keep in mind that several frames of your scene might be rendered before the task finishes executing. Make sure your scene's code is flexible enough to handle the in-between scenarios while the asynchronous task is being completed.
 {{< /hint >}}
 
 ## Run an async function
@@ -75,7 +75,7 @@ myAsyncTask().then((data) => {
 ```
 
 {{< hint warning >}}
-**📔 Note**   It's generally better to use the `executeTask` approach rather than the `then` function. In this example, the scene won't be considered fully loaded by the explorer till the `myAsyncTask()` function is completed, which may affect load times. Also, if relying too much on the `then` function at multiple nested levels, you can end up with what's known as "callback hell", where the code can become very hard to read and maintain.
+**📔 Note**:  It's generally better to use the `executeTask` approach rather than the `then` function. In this example, the scene won't be considered fully loaded by the explorer till the `myAsyncTask()` function is completed, which may affect load times. Also, if relying too much on the `then` function at multiple nested levels, you can end up with what's known as "callback hell", where the code can become very hard to read and maintain.
 {{< /hint >}}
 
 ## OnPointerDown functions

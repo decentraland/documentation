@@ -76,7 +76,7 @@ The following fields are required in `wearable.json`:
 - `id`: The `dcl init` command generates a random value for this ID.
 
 {{< hint warning >}}
-**📔 Note**   If you forked your project from an existing one, make sure the ID value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
+**📔 Note**:  If you forked your project from an existing one, make sure the ID value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
 {{< /hint >}}
 
 
@@ -180,7 +180,7 @@ To publish your smart wearable:
 2. Run `dcl pack` on your project folder. This generates a `portable-experience.zip` file in your project folder.
 
 {{< hint warning >}}
-**📔 Note**   The output of `dcl pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
+**📔 Note**:  The output of `dcl pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
 {{< /hint >}}
 
 
@@ -199,7 +199,7 @@ To publish your smart wearable:
 8. At this point, your wearable is ready to be published. We still don’t encourage creators to publish any smart wearables, as we’re still in experimental stages, reviewers from the committee have been instructed to not approve any smart wearables that don’t come from the foundation.
 
 {{< hint warning >}}
-**📔 Note**   There will be a `dcl deploy` command in the future, to enable you to do this process without navigating the Builder UI.
+**📔 Note**:  There will be a `dcl deploy` command in the future, to enable you to do this process without navigating the Builder UI.
 {{< /hint >}}
 
 
