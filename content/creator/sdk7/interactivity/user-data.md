@@ -179,7 +179,9 @@ onPlayerDisconnectedObservable.add((player) => {
 })
 ```
 
-> Note `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` will be deprecated on future versions of the SDK.
+{{< hint warning >}}
+**📔 Note**  : `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` will be deprecated on future versions of the SDK.
+{{< /hint >}}
 
 As an alternative, you can use `getPlayersInScene()` to only fetch the players that are standing within the scene boundaries and also being rendered. You can pair this with listening to new players entering and leaving the scene by using `onEnterSceneObservable` and `onLeaveSceneObservable`.
 

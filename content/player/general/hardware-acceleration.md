@@ -58,7 +58,8 @@ To set up hardware acceleration:
 - Open **Battery**
 - Uncheck the box for _Automatic graphics switching_. This will keep the _dedicated_ graphics card always in use when applicable.
 
-> Note: Having this option checked turns off the _dedicated graphics card_ whenever the laptop is unplugged. Another alternative is to always keep the machine plugged to a power outlet.
+{{< hint warning >}}
+**📔 Note**  : Having this option checked turns off the _dedicated graphics card_ whenever the laptop is unplugged. Another alternative is to always keep the machine plugged to a power outlet.
 {{< /hint >}}
 
 

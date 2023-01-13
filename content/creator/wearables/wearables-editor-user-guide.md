@@ -67,7 +67,11 @@ Then, in the editor tool, go to properties and add the other one.
 
 The mouth, eyes and eyebrows category have a different behaviour in the tool, because these are just .pngs files. To upload these just drag and drop the png file as a transparent image (256px X 256PX). Mouth is going to be automatically tinted by skin color, same for the eyebrows tinted by the hair color.
 
-If you want the asset to be masked, so a part of the mouth or eyebrows is not affected by the tinting you would need to both zip files and then drag them to the tool. **Note: remember that png name of the mask should end with suffix "\_mask" in order to work.**
+If you want the asset to be masked, so a part of the mouth or eyebrows is not affected by the tinting you would need to both zip files and then drag them to the tool. 
+
+{{< hint warning >}}
+**📔 Note**  : remember that png name of the mask should end with suffix "\_mask" in order to work.**
+{{< /hint >}}
 
 <img width="239" alt="mask" src="/images/media/mouth-wearable.png" />
 

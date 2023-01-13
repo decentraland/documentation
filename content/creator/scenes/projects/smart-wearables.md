@@ -76,7 +76,11 @@ The default `wearable.json` file looks like this:
 The following fields are required in `wearable.json`:
 
 - `id`: The `dcl init` command generates a random value for this ID.
-> NOTE: If you forked your project from an existing one, make sure the ID value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
+
+{{< hint warning >}}
+**📔 Note**  : If you forked your project from an existing one, make sure the ID value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
+{{< /hint >}}
+
 - `name`: The name for the wearable that users will see in the marketplace
 - `description`: The description of the wearable that users will see in the marketplace. Make sure you indicate what the smart wearable can do, as users of the marketplace will have no way to preview its functinality before buying it.
 - `rarity`: The rarity supply of the token. Possible values are:
