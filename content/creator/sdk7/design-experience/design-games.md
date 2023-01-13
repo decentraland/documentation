@@ -44,7 +44,7 @@ In future releases, players will have an inventory they carry everywhere which w
 #### Portable experiences
 
 {{< hint warning >}}
-**📔 Note**   Portable experiences and smart wearables are still in an exploratory stage and not yet available for community creators to make.
+**📔 Note**:  Portable experiences and smart wearables are still in an exploratory stage and not yet available for community creators to make.
 {{< /hint >}}
 
 
@@ -71,7 +71,7 @@ Scenes can share state information between players in a peer to peer manner. Pee
 Hosting your own server is also a recommended safety measure for games that involve transactions with valuable game items, as peer to peer connections place trust in the player that assumes the role of server.
 
 {{< hint warning >}}
-**📔 Note**   In future releases, we will provide out-of-the-box solutions and code examples for how to implement your own server.
+**📔 Note**:  In future releases, we will provide out-of-the-box solutions and code examples for how to implement your own server.
 
 #### Game timing
 

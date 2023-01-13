@@ -87,7 +87,7 @@ swimAnim.looping = false
 ```
 
 {{< hint warning >}}
-**📔 Note**   If you attempt to use `Animator.getClip()` to fetch a clip that exists in the 3D model, but is not listed in the `Animator` component, it returns `null`.
+**📔 Note**:  If you attempt to use `Animator.getClip()` to fetch a clip that exists in the 3D model, but is not listed in the `Animator` component, it returns `null`.
 {{< /hint >}}
 
 ## Play an animation
@@ -157,7 +157,7 @@ Animator.stopAnims(shark)
 - `resetCursor`: _(optional)_ If _true_, it returns to the posture in the first frame of the animation. If _false_, stays paused in its current posture. Default: _true_.
 
 {{< hint warning >}}
-**📔 Note**   When playing an animation with `Animator.playSingleAnim`, this function handles stopping all other animations behind the scenes. You don't need to explicitly stop other animations in that case.
+**📔 Note**:  When playing an animation with `Animator.playSingleAnim`, this function handles stopping all other animations behind the scenes. You don't need to explicitly stop other animations in that case.
 {{< /hint >}}
 
 When an animation finishes playing a non-looping animation, by default the 3D model remains in the last posture it had. To change this default behavior so that when the animation ends it goes back to the first posture, set the `shouldReset` property to _true_.
@@ -178,7 +178,7 @@ Animator.create(shark, {
 You can also use `Animator.stopAnims()`  at any time to explicitly set the posture back to the first frame in the animation.
 
 {{< hint warning >}}
-**📔 Note**   Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
+**📔 Note**:  Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
 {{< /hint >}}
 
     - apply an animation with a `weight` property of 0 and gradually increase the `weight`
@@ -225,7 +225,7 @@ If one animation only affects a character's legs, and another only affects a cha
 If in the above example, the `bite` animation only affects the shark's mouth, and the `swim` animation only affects the bones of the shark's spine, then they can both be played at the same time if they're on separate layers.
 
 {{< hint warning >}}
-**📔 Note**   `Animator.playSingleAnim()` stops all other animations that the entity is currently playing. To play multiple animations at the same time, modify the `playing` property in the animation states manually.  
+**📔 Note**:  `Animator.playSingleAnim()` stops all other animations that the entity is currently playing. To play multiple animations at the same time, modify the `playing` property in the animation states manually.  
 {{< /hint >}}
 
 ## Animation speed
@@ -283,7 +283,7 @@ The `weight` property can be used in interesting ways, for example the `weight` 
 You could also change the `weight` value gradually when starting and stopping an animation to give it a more natural transition and to avoid jumps from the default pose to the first pose in the animation.
 
 {{< hint warning >}}
-**📔 Note**   The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
+**📔 Note**:  The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
 {{< /hint >}}
 
 

@@ -21,7 +21,7 @@ Scenes in Decentraland occupy one or several adjacent LAND parcels. Each LAND pa
 To build something to deploy to LAND parcels you own, make sure the shape of the scene matches the shape of where you want it deployed.
 
 {{< hint warning >}}
-**📔 Note**   The Builder currently can only create rectangular-shaped scenes. To create an irregularly-shaped scene, you must use the SDK.
+**📔 Note**:  The Builder currently can only create rectangular-shaped scenes. To create an irregularly-shaped scene, you must use the SDK.
 {{< /hint >}}
 
 You can edit the size of an existing scene by clicking the _pencil icon_ next to the scene name and then changing the number or rows and columns.

@@ -37,7 +37,7 @@ text.value = "Hello world!"
 ```
 
 {{< hint warning >}}
-**📔 Note**   Create only one `UICanvas` per scene. To have different menus that appear at different times, make them all children of the same `UICanvas`, and set their visibility at that level.
+**📔 Note**:  Create only one `UICanvas` per scene. To have different menus that appear at different times, make them all children of the same `UICanvas`, and set their visibility at that level.
 {{< /hint >}}
 
 ## Types of UI content
@@ -316,7 +316,7 @@ clickableImage.onClick = new OnPointerDown(() => {
 -->
 
 {{< hint warning >}}
-**📔 Note**   To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
+**📔 Note**:  To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
 {{< /hint >}}
 
 {{< hint info >}}

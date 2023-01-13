@@ -31,7 +31,7 @@ If a scene is too large to import, try this:
 3. Import this new _.zip_ file.
 
 {{< hint warning >}}
-**📔 Note**   You can only import scenes that have been built with the Builder. You can't import a scene that was built with the SDK or modified with it.
+**📔 Note**:  You can only import scenes that have been built with the Builder. You can't import a scene that was built with the SDK or modified with it.
 {{< /hint >}}
 
 ## Delete a scene

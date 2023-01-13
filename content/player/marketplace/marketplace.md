@@ -28,7 +28,7 @@ The Marketplace allows you to:
 - **Explore** the world through a map to see who owns what, existing wearables or claimed avatar names.
 
 {{< hint warning >}}
-**📔 Note**   Use [builder.decentraland.org/land](https://builder.decentraland.org/land) to:
+**📔 Note**:  Use [builder.decentraland.org/land](https://builder.decentraland.org/land) to:
 {{< /hint >}}
 
 
@@ -41,7 +41,7 @@ The Marketplace allows you to:
 Before using [market.decentraland.org](https://market.decentraland.org), connect and log into an Ethereum client account that can interact with the web browser. We recommend using [MetaMask](https://metamask.io/). We also support the use of a [Ledger](https://www.ledgerwallet.com/) hardware wallet.
 
 {{< hint warning >}}
-**📔 Note**   If you would like to use your Ledger hardware wallet in the Marketplace, it will require you to connect it towards MetaMask. Please ensure you follow all the [given steps](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet) and updates to allow a seamless Ledger usage.
+**📔 Note**:  If you would like to use your Ledger hardware wallet in the Marketplace, it will require you to connect it towards MetaMask. Please ensure you follow all the [given steps](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet) and updates to allow a seamless Ledger usage.
 {{< /hint >}}
 
 
@@ -97,7 +97,7 @@ To buy LAND, Estates, wearables or unique names in Decentraland:
 3. Confirm this transaction on your Ethereum client and wait for the network to verify it.
 
 {{< hint warning >}}
-**📔 Note**   If this is your first time buying something on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to accept MANA.
+**📔 Note**:  If this is your first time buying something on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to accept MANA.
 {{< /hint >}}
 
 
@@ -110,7 +110,7 @@ If an item isn't listed on sale, you can still place a _bid_ on it and offer to 
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**   If this is your first time placing a bid on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to handle bids.
+**📔 Note**:  If this is your first time placing a bid on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to handle bids.
 {{< /hint >}}
 
 
@@ -128,7 +128,7 @@ To sell one of your items:
 4. Confirm this transaction on your Ethereum client and wait for the network to verify it.
 
 {{< hint warning >}}
-**📔 Note**   If this is your first time selling an item of this asset type on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to accept MANA.
+**📔 Note**:  If this is your first time selling an item of this asset type on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to accept MANA.
 {{< /hint >}}
 
 
@@ -145,7 +145,7 @@ The notifications page displays a list of all the recent transactions that you h
 Click a transaction to see more details about it on Etherscan.
 
 {{< hint warning >}}
-**📔 Note**   This screen only shows transactions that were initiated by you. It doesn't show the sale of tokens, since that action is initiated by the buyer.
+**📔 Note**:  This screen only shows transactions that were initiated by you. It doesn't show the sale of tokens, since that action is initiated by the buyer.
 {{< /hint >}}
 
 
@@ -158,14 +158,14 @@ To transfer a LAND parcel or Estate to another user:
 2. Enter the public address of the Ethereum wallet of the recipient.
 
 {{< hint warning >}}
-**📔 Note**   Please double check this address, since you cannot cancel the operation. While the recipient could always transfer the LAND back to you, the original owner cannot reverse the action.
+**📔 Note**:  Please double check this address, since you cannot cancel the operation. While the recipient could always transfer the LAND back to you, the original owner cannot reverse the action.
 {{< /hint >}}
 
 3. Click **Submit**.
 4. Confirm this transaction on your Ethereum client and wait for the network to verify it.
 
 {{< hint warning >}}
-**📔 Note**   If the LAND parcel or Estate is currently on sale, you won't be able to transfer it. First click **Remove listing** to cancel the sale.
+**📔 Note**:  If the LAND parcel or Estate is currently on sale, you won't be able to transfer it. First click **Remove listing** to cancel the sale.
 {{< /hint >}}
 
 

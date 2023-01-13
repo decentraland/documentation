@@ -46,10 +46,12 @@ So, in slightly more technical terms, a DAO is one or more smart contracts that 
 
 Decentraland’s DAO also owns a sum of MANA and other tokens along with the LAND and Estate smart contracts. [This fund](https://governance.decentraland.org/transparency/) has been set aside to help sponsor community grants and to help grow the Decentraland platform according to the decisions and directions voted on by the community.
 
->**Note:**
+>{{< hint warning >}}
+**📔 Note**  
 >The DAO does not own, and so cannot modify, the [MANA smart contract](https://etherscan.io/address/0x0f5d2fb29fb7d3cfee444a200298f468908cc942#readContract). 
 >
 >The MANA contract’s owner is the [TokenSale contract](https://etherscan.io/address/0xa66d83716c7cfe425b44d0f7ef92de263468fb3d#readContract). The owner of the TokenSale contract is a separate contract that self-destructed on deployment ([as you can see on Etherscan here](https://etherscan.io/address/0xdf861993edbe95bafbfa7760838f8ebbd5afda9f)). This means that there is no other contract or wallet with the permissions to modify or pause the MANA supply.
+{{< /hint >}}
 
 There is other information that the DAO controls as well, such as the list of harmful or offensive names that are not permitted in Decentraland, a list of notable locations (POIs or Points of Interest) to be promoted to new users, and the list of community run servers that host Decentraland’s virtual world.
 

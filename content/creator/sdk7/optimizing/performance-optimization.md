@@ -44,7 +44,7 @@ For the best result in terms of avoiding hiccups, hide entities by switching the
 An alternative is to not add the entities to the engine until needed. This may result in some hiccups when the entities appear for the first time, and they might also take a couple of seconds to become visible. The advantage of this approach is that it's a valid way to get around the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}). Keep in mind that the scene limitations count is for the content that is being rendered in the scene at any given time, not for the total content that could be rendered. Loading and unloading parts of the scene should allow you to work around those limitations.
 
 {{< hint warning >}}
-**📔 Note**   Entities that are not visible but are added to the engine do count towards the scene limitations.
+**📔 Note**:  Entities that are not visible but are added to the engine do count towards the scene limitations.
 {{< /hint >}}
 
 
@@ -99,7 +99,7 @@ About once a day, the Decentraland content servers run a process to compress eve
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**   If you make _any_ change to a 3D model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
+**📔 Note**:  If you make _any_ change to a 3D model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
 {{< /hint >}}
 
 
@@ -136,7 +136,7 @@ When you run a scene in preview, note that on the top-right corner it says “Y 
 As you interact with things that involve messages between the SDK and the engine, you’ll notice the ‘Processed Messages’ number grows. You should closely watch the ‘Pending on Queue’ number, it should always be 0 or close to 0. This tells you how many of these messages didn't get to be processed, and got pushed to a queue. If the ‘Pending on Queue’ count starts to grow, then you’ve entered the danger zone and should think about doing more optimizations to your scene.
 
 {{< hint warning >}}
-**📔 Note**   Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
+**📔 Note**:  Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
 {{< /hint >}}
 
 

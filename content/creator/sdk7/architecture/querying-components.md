@@ -106,7 +106,7 @@ const [entity, component1, component2] of engine.getEntitiesWith(MyCustomCompone
 ```
 
 {{< hint warning >}}
-**📔 Note**   These references are read-only. To fetch mutable versions of those components, you need to use the `.getMutable` function referencing the entity.
+**📔 Note**:  These references are read-only. To fetch mutable versions of those components, you need to use the `.getMutable` function referencing the entity.
 {{< /hint >}}
 
 You can then refer to these references as you iterate over the collection of results, in each entry you'll have access to the entity and its corresponding component references.

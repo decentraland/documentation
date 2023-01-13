@@ -45,7 +45,7 @@ For the best result in terms of avoiding hiccups, hide entities by switching the
 An alternative is to not add the entities to the engine until needed. This may result in some hiccups when the entities appear for the first time, and they might also take a couple of seconds to become visible. The advantage of this approach is that it's a valid way to get around the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}). Keep in mind that the scene limitations count is for the content that is being rendered in the scene at any given time, not for the total content that could be rendered. Loading and unloading parts of the scene should allow you to work around those limitations.
 
 {{< hint warning >}}
-**📔 Note**   Entities that are not visible but are added to the engine do count towards the scene limitations.
+**📔 Note**:  Entities that are not visible but are added to the engine do count towards the scene limitations.
 {{< /hint >}}
 
 You can also toggle animations on or off for entities that are far or occluded. For example, for an NPC that plays a very subtle idle animation, you could make it only play that animation when the player is at less than 20 meters away. Use a trigger area around the NPC and toggle its animations on or off accordingly.
@@ -79,7 +79,7 @@ There are several ways in which your 3d models can be optimized to be lighter.
 - When possible, share textures across 3d models. A good practice is to use a single texture as an atlas map, shared across all models in the scene. It's better to have 1 large shared texture of 1024x1024 pixels instead of several small ones.
 
 {{< hint warning >}}
-**📔 Note**   Avoid using the same image file for both the albedo texture and the normal map or the emissive map of a material. Use separate files, even if identical. Assigning a same image file to different types of texture properties may introduce unwanted visual artifacts when compressed to asset bundles.
+**📔 Note**:  Avoid using the same image file for both the albedo texture and the normal map or the emissive map of a material. Use separate files, even if identical. Assigning a same image file to different types of texture properties may introduce unwanted visual artifacts when compressed to asset bundles.
 {{< /hint >}}
 
 - _.glb_ is a compressed format, it will always weigh less than a _.gltf_. On the other hand, with _.gltf_ it's easy to share texture images by exporting textures as a separate file. You can have the best of both worlds by using the [following pipeline](https://github.com/AnalyticalGraphicsInc/gltf-pipeline), that allows you to have _.glb_ models with external texture files.
@@ -101,7 +101,7 @@ About once a day, the Decentraland content servers run a process to compress eve
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**   If you make _any_ change to a 3d model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
+**📔 Note**:  If you make _any_ change to a 3d model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
 {{< /hint >}}
 
 ## Connectivity
@@ -137,7 +137,7 @@ When you run a scene in preview, note that on the top-right corner it says “Y 
 As you interact with things that involve messages between the SDK and the engine, you’ll notice the ‘Processed Messages’ number grows. You should closely watch the ‘Pending on Queue’ number, it should always be 0 or close to 0. This tells you how many of these messages didn't get to be processed, and got pushed to a queue. If the ‘Pending on Queue’ count starts to grow, then you’ve entered the danger zone and should think about doing more optimizations to your scene.
 
 {{< hint warning >}}
-**📔 Note**   Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
+**📔 Note**:  Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
 {{< /hint >}}
 
 Keep in mind that the performance you experience in preview may differ from that in production:

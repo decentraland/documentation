@@ -50,7 +50,8 @@ If the player’s experience in your scene isn’t meant to be linear, but you s
 </figure>
 
 {{< hint warning >}}
-**📔 Note**   Make sure the popup isn't too intrusive and that it's easy to close by clicking anywhere.
+**📔 Note**:  Make sure the popup isn't too intrusive and that it's easy to close by clicking anywhere.
+{{< /hint >}}
 
 A welcome message should communicate the following to the player:
 
@@ -93,7 +94,8 @@ Be careful about placing your UI in screen regions that overlap with the default
 There are no restrictions for placing UI elements in the left 25% of the screen, but keep in mind that the explorer is continually making changes and improvements to its design. Any space that is not occluded in that region today could be covered in future versions.
 
 {{< hint warning >}}
-**📔 Note**   UI elements from scenes and smart wearables always appear on a layer behind the default Decentraland UI.
+**📔 Note**:  UI elements from scenes and smart wearables always appear on a layer behind the default Decentraland UI.
+{{< /hint >}}
 
 Always keep a grid in mind and use it as your main criteria when spatially organizing your UI. If you are working on a scene where a HUD is needed, you can start by putting all the consumables together (e.g. currency, food, life), and on the other side stockables such as tools or weapons. Try to be consistent about the grid metrics and padding. Make the feedback for every player action clear.
 
@@ -129,7 +131,7 @@ Remember that each color has its own unique expressive qualities, take advantage
 You can also use colors strategically to indicate state changes, for example changing the color of an element to indicate if it’s active or inactive.
 
 {{< hint warning >}}
-**📔 Note**   States communicate the status of UI elements. The states of an element should maintain a certain continuity, but they must have clear affordances and be easily distinguishable from other states and the surrounding layout.
+**📔 Note**:  States communicate the status of UI elements. The states of an element should maintain a certain continuity, but they must have clear affordances and be easily distinguishable from other states and the surrounding layout.
 {{< /hint >}}
 
 

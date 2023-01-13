@@ -14,7 +14,7 @@ A lot of times, your scene might need functionality that is already encapsulated
 You can import external libraries into a Decentraland project and then reference the systems, components, or functions described in these libraries.
 
 {{< hint warning >}}
-**📔 Note**   Not all Typescript or Javascript dependencies are supported in Decentraland projects. Libraries should be tagged with `decentralandLibrary` in their `package.json`.
+**📔 Note**:  Not all Typescript or Javascript dependencies are supported in Decentraland projects. Libraries should be tagged with `decentralandLibrary` in their `package.json`.
 {{< /hint >}}
 
 
@@ -31,7 +31,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 1) Open your scene's folder using Visual Studio Code. 
 
 {{< hint warning >}}
-**📔 Note**   The Visual Studio window must be at the root folder of the scene project.
+**📔 Note**:  The Visual Studio window must be at the root folder of the scene project.
 {{< /hint >}}
 
 
@@ -42,7 +42,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 4) Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `react`.
 
 {{< hint warning >}}
-**📔 Note**   If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
+**📔 Note**:  If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
 {{< /hint >}}
 
 
@@ -74,7 +74,7 @@ To install a library in your project folder, run `npm i` and the library name in
 `npm i @dcl/ecs-scene-utils -B`
 
 {{< hint warning >}}
-**📔 Note**   You may need to run `dcl start` or `dcl build` after installing the library for the library's dependencies to get installed.
+**📔 Note**:  You may need to run `dcl start` or `dcl build` after installing the library for the library's dependencies to get installed.
 {{< /hint >}}
 
 

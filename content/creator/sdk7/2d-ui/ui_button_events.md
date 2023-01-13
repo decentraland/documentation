@@ -17,7 +17,7 @@ Make a UI entity clickable by giving it an `onClick` component. The `onClick` co
 
 
 {{< hint warning >}}
-**📔 Note**   To click on a UI component, players must first unlock the cursor from the view control. They do this by pressing the _right mouse button_ and keeping it pressed, or by hitting `Esc`.
+**📔 Note**:  To click on a UI component, players must first unlock the cursor from the view control. They do this by pressing the _right mouse button_ and keeping it pressed, or by hitting `Esc`.
 {{< /hint >}}
 
 The following example shows how to create a clickable UI entity. 

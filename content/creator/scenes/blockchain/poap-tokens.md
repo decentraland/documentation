@@ -20,7 +20,7 @@ The Decentraland Foundation has set up a free server that you can use to manage 
 The first thing you need to do is to create a POAP event at the [POAP website](https://app.poap.xyz/admin/events/new). When creating the event, provide an event name, date and artwork to use for the token's representation. Fill the field "How many mint links do you need" with the total supply of tokens you need for your event. You can also provide optional imformation like a location, website link, etc.
 
 {{< hint warning >}}
-**📔 Note**   If you set Expiry Date, the token will only be claimable before that date. This is useful if you don't want players to be able to claim tokens after the actual event.
+**📔 Note**:  If you set Expiry Date, the token will only be claimable before that date. This is useful if you don't want players to be able to claim tokens after the actual event.
 {{< /hint >}}
 
 Once you save your event, you'll receive an email to the address you provided in the form. Make sure you take note of the **Event Id** and the **Edit Code**, both shared in the e-mail.
@@ -60,7 +60,7 @@ Send a series of requests to the Decentraland POAP API, at `https://poap-api.dec
 1. Create a reference to the event. The body of this request must include the event's edit code and a list of Decentraland coordinates from where the token can ble claimed.
 
 {{< hint warning >}}
-**📔 Note**   A player **MUST** be in Decentraland standing on one of the provided coordinates to be allowed to claim your POAP.
+**📔 Note**:  A player **MUST** be in Decentraland standing on one of the provided coordinates to be allowed to claim your POAP.
 {{< /hint >}}
 
 ```bash
@@ -120,7 +120,7 @@ $ curl -X POST 'https://poap-api.decentraland.org/addcodes/29107' -d '{"editCode
 ```
 
 {{< hint warning >}}
-**📔 Note**   You don't need to send the actual list of claim codes that POAP sent you via email. The Decentraland POAP server fetches these claim codes on its own when you send this request.
+**📔 Note**:  You don't need to send the actual list of claim codes that POAP sent you via email. The Decentraland POAP server fetches these claim codes on its own when you send this request.
 {{< /hint >}}
 
 #### Run tests
@@ -193,5 +193,5 @@ You need to change the `dcl_event_uuid` to the event id you get from the Decentr
 If you wish to do something more custom, this scene is also a great starting point, as it already handles all of the interactions with the server and UI notifications.
 
 {{< hint warning >}}
-**📔 Note**   The claiming of the POAP will not work when running the scene in preview or on a test server, as the Decentraland POAP server can't validate that the request comes from a player in Decentraland. You will need to deploy the scene to production to test fully.
+**📔 Note**:  The claiming of the POAP will not work when running the scene in preview or on a test server, as the Decentraland POAP server can't validate that the request comes from a player in Decentraland. You will need to deploy the scene to production to test fully.
 {{< /hint >}}
