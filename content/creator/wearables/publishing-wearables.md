@@ -30,13 +30,17 @@ There is a required fee for publishing items. This fee was originally [voted in 
 
 The [most recent vote](https://governance.decentraland.org/proposal/?id=b8075360-e8e7-11ec-82d9-d917cdd158ac) regarding publication fees has pegged them to a fixed amount of 150 United States dollars per item, to be paid in **Polygon MANA**. 
 
-> **Note:** You can move MANA between Ethereum and Polygon using the [Account dApp](https://account.decentraland.org).
+{{< hint warning >}}
+**📔 Note**: You can move MANA between Ethereum and Polygon using the [Account dApp](https://account.decentraland.org).
+{{< /hint >}}
 
 For example, if you publish a collection with two items and the price of MANA at the time is 1.5 USD, you will have to pay a fee of 200 MANA (150 USD for each item divided by the price of MANA in USD) regardless of the rarity (or how many NFTs can be minted) of those items.
 
 These fees are transferred to the curators committee and the Decentraland DAO, where they are used to help fund the growth of the platform through grants and other initiatives voted on by the greater Decentraland community.
 
-> **Note:** Currently, due to the time and resources required to review each collection submitted, **the 150 USD in MANA publication fee is non-refundable**. If your collection is rejected, you will not receive your MANA back. If your collection is not immediately approved, the Curation Committee will provide you with suggestions and feedback on how to improve it, but the final acceptance of your collection cannot be guaranteed.
+{{< hint warning >}}
+**📔 Note**: Currently, due to the time and resources required to review each collection submitted, **the 150 USD in MANA publication fee is non-refundable**. If your collection is rejected, you will not receive your MANA back. If your collection is not immediately approved, the Curation Committee will provide you with suggestions and feedback on how to improve it, but the final acceptance of your collection cannot be guaranteed.
+{{< /hint >}}
 
 ### Acceptance criteria
 

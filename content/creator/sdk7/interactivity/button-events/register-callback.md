@@ -133,7 +133,10 @@ This statement requires three parameters:
 
 A same entity can have two different callbacks registered, one for `pointerEventsSystem.onPointerDown` and one for `pointerEventsSystem.onPointerUp`.
 
-> Note: The hover feedback for a button up event is only displayed when the button is currently pushed down. If the player points at the entity without holding the button down, they will see no feedback, or the feedback for the button down event, if any.
+{{< hint warning >}}
+**📔 Note**:  The hover feedback for a button up event is only displayed when the button is currently pushed down. If the player points at the entity without holding the button down, they will see no feedback, or the feedback for the button down event, if any.
+{{< /hint >}}
+
 
 
 ## Remove callbacks
@@ -210,7 +213,9 @@ To see how the meshes inside the model are named, you must open the 3D model wit
 
 <img src="/images/media/mesh-names.png" alt="Mesh internal names in an editor" width="250"/>
 
-> Tip: You can also learn the name of the clicked mesh by logging it and reading it off console.
+{{< hint info >}}
+**💡 Tip**:  You can also learn the name of the clicked mesh by logging it and reading it off console.
+{{< /hint >}}
 
 You access the `meshName` property as part of the `hit` object, that's returned by the click event.
 

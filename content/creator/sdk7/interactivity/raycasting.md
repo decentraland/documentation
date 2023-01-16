@@ -29,7 +29,10 @@ A Raycast component describes the invisible ray that will be used to query for e
 	- `RaycastQueryType.RQT_QUERY_ALL`: only returns the first hit entity, starting from the origin point.
 	- `RaycastQueryType.RQT_HIT_FIRST`: returns all hit entities, from the origin through to the max distance of the ray.
 
-> Note: The `origin` and `direction` are not affected if the entity that holds the `Raycast` component also has a Transform, or if the entity has a parent entity with a Transform. The ray is traced in scene space, relative to the scene's _0, 0, 0_ point. 
+{{< hint warning >}}
+**📔 Note**:  The `origin` and `direction` are not affected if the entity that holds the `Raycast` component also has a Transform, or if the entity has a parent entity with a Transform. The ray is traced in scene space, relative to the scene's _0, 0, 0_ point. 
+{{< /hint >}}
+
 
 
 ```typescript
@@ -53,8 +56,9 @@ Raycast.createOrReplace(engine.addEntity(), {
 })
 ```
 
-> Tip: The `Raycast` component must be added to an entity when created. If don't need to reference that entity again, you can do as in the example above, and instance a new entity while creating the component.
-
+{{< hint info >}}
+**💡 Tip**:  The `Raycast` component must be added to an entity when created. If don't need to reference that entity again, you can do as in the example above, and instance a new entity while creating the component.
+{{< /hint >}}
 
 ## Results results
 
@@ -117,7 +121,10 @@ engine.addSystem(() => {
 })
 ```
 
-> Note: The results of a raycast do not arrive on the same tick of the game loop that you created the raycast. The results may take one or multiple ticks to arrive.
+{{< hint warning >}}
+**📔 Note**:  The results of a raycast do not arrive on the same tick of the game loop that you created the raycast. The results may take one or multiple ticks to arrive.
+{{< /hint >}}
+
 
 In a scene where you use multiple kinds of rays for different purposes (like for path finding, line-of-sight checking, projectile tracing, etc), you might want to add custom components as flags to each kind of entity that holds `Raycast` components. Then you can query for these separately, and deal with each in a different way.
 

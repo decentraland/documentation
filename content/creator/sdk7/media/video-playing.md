@@ -9,7 +9,10 @@ url: /creator/development-guide/sdk7/video-playing/
 weight: 2
 ---
 
-> Note: Feature not yet supported in SDK7.
+{{< hint warning >}}
+**📔 Note**   Feature not yet supported in SDK7.
+{{< /hint >}}
+
 
 <!-- 
 
@@ -18,7 +21,9 @@ There are two different ways you can show a video in a scene. One is to stream t
 
 In both cases, you assign the video to a `VideoTexture`, which can be used on a [material]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) and then applied to any [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
 
-> TIP: Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
+{{< hint info >}}
+**💡 Tip**:  Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
+{{< /hint >}}
 
 ## Show a video
 

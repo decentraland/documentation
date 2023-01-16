@@ -14,7 +14,9 @@ To move, rotate or resize an entity in your scene over a period of time, change 
 You can easily perform these incremental changes by moving entities a small amount each time the function of [system]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) runs.
 
 <!--
-> Tip: You can use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve most of the tasks described in this doc. The code shown in these examples is handled in the background by the library, so in most cases it only takes a single line of code to use them.
+{{< hint info >}}
+**💡 Tip**:  You can use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve most of the tasks described in this doc. The code shown in these examples is handled in the background by the library, so in most cases it only takes a single line of code to use them.
+{{< /hint >}}
 -->
 
 ## Move
@@ -67,7 +69,9 @@ Note that in order to combine the current rotation with each increment, we're us
 In this example, we're rotating the entity by 1 degree in an upwards direction in each tick of the game loop.
 
 
-> Tip: To make an entity always rotate to face the player, you can add a [`Billboard` component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#face-the-user" >}}).
+{{< hint info >}}
+**💡 Tip**:  To make an entity always rotate to face the player, you can add a [`Billboard` component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#face-the-user" >}}).
+{{< /hint >}}
 
  <img src="/images/media/gifs/rotate.gif" alt="Move entity" width="300"/>
 
@@ -214,8 +218,9 @@ The `slerp()` function takes three parameters:
 - The [quaternion](https://en.wikipedia.org/wiki/Quaternion) angle for the target rotation
 - The amount, a value from 0 to 1 that represents what fraction of the translation to do.
 
-> Tip: You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.fromEulerDegrees()`.
-
+{{< hint info >}}
+**💡 Tip**:  You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.fromEulerDegrees()`.
+{{< /hint >}}
 
 ```ts
 const originRotation = Quaternion.fromEulerDegrees(0, 90, 0)
@@ -271,7 +276,9 @@ SlerpData.create(myEntity, {
 })
 ```
 
-> Note: You could instead represent the rotation with euler angles as `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient for the scene to work with quaternions.
+{{< hint warning >}}
+**📔 Note**:  You could instead represent the rotation with euler angles as `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient for the scene to work with quaternions.
+{{< /hint >}}
 
  <img src="/images/media/gifs/lerp-rotate.gif" alt="Move entity" width="300"/>
 

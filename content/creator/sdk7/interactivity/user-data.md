@@ -80,7 +80,10 @@ The following data can be fetched from a player:
 - `avatar`: A nested object with data about the player's appearance.
 - `version`: _(number)_ A version number that increases by one every time the player changes any of their settings. Use this if you encounter conflicting data, to know what version is more recent.
 
-> Note: For any Ethereum transactions with the player, always use the `publicKey` field, instead of the `userId`, to avoid dealing with non-existing wallets.
+{{< hint warning >}}
+**📔 Note**:  For any Ethereum transactions with the player, always use the `publicKey` field, instead of the `userId`, to avoid dealing with non-existing wallets.
+{{< /hint >}}
+
 
 The `avatar` object has the following nested information:
 
@@ -94,7 +97,11 @@ The `avatar` object has the following nested information:
   - `face256`: _string_ The player's face as a 256x256 pixel image.
   - `body`: _string_ The full resolution image of the player standing straight, with 512x1024 pixels.
 
-> WARNING: The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#avatar-portraits">}}).
+{{< hint danger >}}
+**❗Warning**  
+The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#avatar-portraits">}}).
+{{< /hint >}}
+
 
 #### Data from current player
 
@@ -113,9 +120,14 @@ executeTask(async () => {
 
 The function returns the entire set of data described above, including address, name, wearables, snapshots, etc.
 
-> Tip: The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< hint info >}}
+**💡 Tip**:  The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< /hint >}}
 
-> Note: When running a local preview, use `dcl start --web3` to connect with your wallet and fetch your actual data. Otherwise, the preview uses random user data, just as when you enter as a guest.
+{{< hint warning >}}
+**📔 Note**:  When running a local preview, use `dcl start --web3` to connect with your wallet and fetch your actual data. Otherwise, the preview uses random user data, just as when you enter as a guest.
+{{< /hint >}}
+
 
 #### Data from nearby players
 
@@ -132,11 +144,16 @@ executeTask(async () => {
 
 The function returns the entire set of data described above, including address, name, wearables, snapshots, etc.
 
-> Tip: The `getPlayerData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< hint info >}}
+**💡 Tip**:  The `getPlayerData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< /hint >}}
 
 `getPlayerData()` can only fetch data from players who are currently nearby. They don't have to be necessarily standing in the same scene, but in visual range, that's because this information is being fetched from the local engine that's rendering these avatars. To try this out in preview, open a second tab and log in with a different account.
 
-> Note: User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
+{{< hint warning >}}
+**📔 Note**:  User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
+{{< /hint >}}
+
 
 To know what players are being rendered in the surroundings, use `getConnectedPlayers()`. This function returns an array with the ids of all the players that are currently being rendered, which are all eligible to call with `getPlayerData()`. You can pair this with listening for new players connecting and disconnecting by using `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable`.
 
@@ -162,7 +179,9 @@ onPlayerDisconnectedObservable.add((player) => {
 })
 ```
 
-> Note `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` will be deprecated on future versions of the SDK.
+{{< hint warning >}}
+**📔 Note**  : `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` will be deprecated on future versions of the SDK.
+{{< /hint >}}
 
 As an alternative, you can use `getPlayersInScene()` to only fetch the players that are standing within the scene boundaries and also being rendered. You can pair this with listening to new players entering and leaving the scene by using `onEnterSceneObservable` and `onLeaveSceneObservable`.
 
@@ -188,7 +207,9 @@ onLeaveSceneObservable.add((player) => {
 })
 ```
 
-> TIP: Read more about `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` in [Player connects or disconnects]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-connects-or-disconnects">}}) and about about `onEnterSceneObservable` and `onLeaveSceneObservable` in [Player enters or leaves scene]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene">}}).
+{{< hint info >}}
+**💡 Tip**:  Read more about `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` in [Player connects or disconnects]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-connects-or-disconnects">}}) and about about `onEnterSceneObservable` and `onLeaveSceneObservable` in [Player enters or leaves scene]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene">}}).
+{{< /hint >}}
 
 Listen for events when players connect and disconnect
 As more players connect and disconnect, you can pic
@@ -201,7 +222,9 @@ This information is exposed in the following URL, appending the player's user id
 
 `https://peer.decentraland.org/lambdas/profile/<player user id>`
 
-> Tip: Try the URL out in a browser to see how the response is structured.
+{{< hint info >}}
+**💡 Tip**:  Try the URL out in a browser to see how the response is structured.
+{{< /hint >}}
 
 Unlike `getPlayerData()`, this option is not limited to just the players who are currently being rendered in the surroundings. With this approach you can fetch data from any player that has logged onto the servers in the past.
 
@@ -209,7 +232,9 @@ If you know which server the player you want to query is connected to, you can g
 
 `https://<player server>/lambdas/profile/<player user id>`
 
-> Tip: You can obtain the current player's server by doing `getCurrentRealm().domain`.
+{{< hint info >}}
+**💡 Tip**:  You can obtain the current player's server by doing `getCurrentRealm().domain`.
+{{< /hint >}}
 
 This example combines `getUserData()` and `getCurrentRealm()` to obtain the player's data directly from the server that the player is on:
 
@@ -255,7 +280,9 @@ const publicKeyRequest = executeTask(async () => {
 })
 ```
 
-> Tip: The `getUserPublicKey()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< hint info >}}
+**💡 Tip**:  The `getUserPublicKey()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< /hint >}}
 
 ## Get Decentraland Time
 
@@ -272,7 +299,9 @@ executeTask(async () => {
 })
 ```
 
-> Tip: The `getDecentralandTime()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< hint info >}}
+**💡 Tip**:  The `getDecentralandTime()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< /hint >}}
 
 `getDecentralandTime()` returns an object with a `seconds` property. This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the `seconds` value is _36000_, it corresponds to _10 AM_.
 
@@ -319,13 +348,18 @@ The `getCurrentRealm()` function returns the following information:
 - `domain`: _(string)_ The URL of the server
 - `serverName`: _(string)_ The name of the server
 
-> Tip: The `getCurrentRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< hint info >}}
+**💡 Tip**:  The `getCurrentRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< /hint >}}
 
 As players move through the map, they may switch islands to be grouped with those players who are now closest to them. Islands also shift their borders dynamically to fit a manageable group of people, so even if a player stands still, as players enter and leave the world, the player could find themselves on another island.
 
 See [onRealmChangedObservable]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-changes-realm-or-island">}}) for how to detect changes regarding the player's realm or island.
 
-> Note: When the scene first loads, there might not yet be an island assigned for the player. The explorer will always eventually assign an island to the player, but this can sometimes occur a couple of seconds after the scene is loaded.
+{{< hint warning >}}
+**📔 Note**:  When the scene first loads, there might not yet be an island assigned for the player. The explorer will always eventually assign an island to the player, but this can sometimes occur a couple of seconds after the scene is loaded.
+{{< /hint >}}
+
 
 ## Get player platform
 
@@ -374,11 +408,16 @@ Make a [REST API call]({{< ref "/content/creator/sdk7/networking/network-connect
 
 `${playerRealm.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`
 
-> Note: To construct this URL, you must obtain the realm (likely with with `getCurrentRealm()`) and the player's id (likely with `getUserData()`)
+{{< hint warning >}}
+**📔 Note**:  To construct this URL, you must obtain the realm (likely with with `getCurrentRealm()`) and the player's id (likely with `getUserData()`)
+{{< /hint >}}
+
 
 This feature could be used together with fetching info about the player, to for example only allow players to enter a place if they are wearing any wearable from the halloween collection, or any wearable that is of _legendary_ rarity.
 
-> Tip: Try the URL out in a browser to see how the response is structured.
+{{< hint info >}}
+**💡 Tip**:  Try the URL out in a browser to see how the response is structured.
+{{< /hint >}}
 
 ```ts
 import { getUserData } from "~system/UserIdentity"
@@ -426,6 +465,8 @@ The camera mode uses a value from the `CameraType` enum. The following values ar
 
 The `CameraMode` component of the `engine.CameraEntity` is read-only, you can't force the player to change camera mode through this.
 
-> Tip: To change the player's camera mode, use a [Camera modifier area]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">}}).
+{{< hint info >}}
+**💡 Tip**:  To change the player's camera mode, use a [Camera modifier area]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">}}).
+{{< /hint >}}
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when in 3rd person.

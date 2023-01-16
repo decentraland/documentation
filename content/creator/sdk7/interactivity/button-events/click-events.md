@@ -14,7 +14,10 @@ A Decentraland scene can detect input actions from all of the buttons that are u
 
 You can detect input actions against an entity. This involves pressing a button while the player's cursor is pointing at that entity's collider. You can also detect _global_ input event, that involve pressing activating the input at any time, without consideration for where the pointer is aiming.
 
-> Note: An entity must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) to respond to input actions. If an entity has no collider, you can give it a `MeshCollider` component to make it clickable.
+{{< hint warning >}}
+**📔 Note**:  An entity must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) to respond to input actions. If an entity has no collider, you can give it a `MeshCollider` component to make it clickable.
+{{< /hint >}}
+
 
 There are several different ways to handle input actions, depending on the use case.
 

@@ -19,7 +19,10 @@ Make sure of the following:
 
 - You own the necessary amount of adjacent LAND parcels. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org).
 
-> Note: Multi-parcel scenes can only be deployed to adjacent parcels.
+{{< hint warning >}}
+**📔 Note**:  Multi-parcel scenes can only be deployed to adjacent parcels.
+{{< /hint >}}
+
 
 ## Check scene data
 
@@ -39,7 +42,10 @@ Open your scene's _scene.json_ file and complete the following data:
 
 - **spawnPoints**: A set of coordinates inside the scene (relative to the scene's base parcel) where players spawn into. By default players spawn onto the _0,0,0_ location of the scene (bottom-left corner). Use this to start out in a specific location, set a region to prevent players from overlapping with each other when they first appear.
 
-> Note: See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for more details on how to set these parameters.
+{{< hint warning >}}
+**📔 Note**:  See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for more details on how to set these parameters.
+{{< /hint >}}
+
 
 ## To publish the scene
 
@@ -50,7 +56,10 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 1) Open your scene's folder using Visual Studio Code. 
 
-> Note: The Visual Studio window must be at the root folder of the scene project.
+{{< hint warning >}}
+**📔 Note**:  The Visual Studio window must be at the root folder of the scene project.
+{{< /hint >}}
+
 
 2) Open the Editor's menu, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
 
@@ -65,13 +74,18 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
 2.  Run `dcl deploy` from the scene's folder.
-    > Tip: If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying.
+    {{< hint info >}}
+**💡 Tip**:  If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying.
 3.  A browser tab will open, showing what parcels you're deploying to. Click **Sign and Deploy**.
 4.  Metamask opens, notifying you that your signature is requested. Click **Sign** to confirm this action.
 
-> Tip: If you're implementing a continuous integration flow, where changes to your scene are deployed automatically, then you can set the `export DCL_PRIVATE_KEY` environment variable to the private key of an account that has deploy permissions.
+{{< hint info >}}
+**💡 Tip**:  If you're implementing a continuous integration flow, where changes to your scene are deployed automatically, then you can set the `export DCL_PRIVATE_KEY` environment variable to the private key of an account that has deploy permissions.
+{{< /hint >}}
 
-> Tip: `dcl deploy` runs a `dcl build`, which checks the scene for type errors more strictly than running `dcl start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `dcl deploy  --skip-build`  to skip the `dcl build` step and deploy the scene as it is.
+{{< hint info >}}
+**💡 Tip**:  `dcl deploy` runs a `dcl build`, which checks the scene for type errors more strictly than running `dcl start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `dcl deploy  --skip-build`  to skip the `dcl build` step and deploy the scene as it is.
+{{< /hint >}}
 
 ## Publish from a hardware wallet
 
@@ -107,7 +121,10 @@ The information on each copy of the server is verifiable, as each scene is signe
 You can deploy content to the test catalyst server to run full tests with multiple users, the sourrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
 
 
-> Note: To deploy to parcels in the test server, you must have the same permissions required to deploy to those parcels in the main network.
+{{< hint warning >}}
+**📔 Note**:  To deploy to parcels in the test server, you must have the same permissions required to deploy to those parcels in the main network.
+{{< /hint >}}
+
 
 ### Via the Decentraland Editor
 
@@ -130,7 +147,10 @@ To deploy to the test server, run:
 
 `dcl deploy --target peer-testing.decentraland.org`
 
-> Note: The same permissions apply as in production. You must be owner or have permissions on the parcels that you're deployng to.
+{{< hint warning >}}
+**📔 Note**:  The same permissions apply as in production. You must be owner or have permissions on the parcels that you're deployng to.
+{{< /hint >}}
+
 
 Players are never directed to this server, the only way to access it is to explicitly provide a URL parameter to connect to it. 
 
@@ -154,7 +174,10 @@ You can also obtain this information at any time by running the following comman
 
 `npx @dcl/opscli pointer-consistency --pointer '0,0'`
 
-> Note: Use the coordinates of your scene instead of `0,0`. If your scene has multiple parcels, any one of its parcels will produce the same output. If the coordinates start with a negative number, add a `\` at the start of the coordinates to prevent the `-` character from being misinterpreted by the command line.
+{{< hint warning >}}
+**📔 Note**:  Use the coordinates of your scene instead of `0,0`. If your scene has multiple parcels, any one of its parcels will produce the same output. If the coordinates start with a negative number, add a `\` at the start of the coordinates to prevent the `-` character from being misinterpreted by the command line.
+{{< /hint >}}
+
 
 ## Automatic deployments
 

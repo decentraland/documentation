@@ -13,7 +13,10 @@ A lot of times, your scene might need functionality that is already encapsulated
 
 You can import external libraries into a Decentraland project and then reference the systems, components, or functions described in these libraries.
 
-> Note: Not all Typescript or Javascript dependencies are supported in Decentraland projects. Libraries should be tagged with `decentralandLibrary` in their `package.json`.
+{{< hint warning >}}
+**📔 Note**:  Not all Typescript or Javascript dependencies are supported in Decentraland projects. Libraries should be tagged with `decentralandLibrary` in their `package.json`.
+{{< /hint >}}
+
 
 Check the [Awesome repository](https://github.com/decentraland-scenes/Awesome-Repository#libraries) to find a series of libraries, both created by the Decentraland Foundation and by community members, that solve common problems.
 
@@ -27,7 +30,10 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 1) Open your scene's folder using Visual Studio Code. 
 
-> Note: The Visual Studio window must be at the root folder of the scene project.
+{{< hint warning >}}
+**📔 Note**:  The Visual Studio window must be at the root folder of the scene project.
+{{< /hint >}}
+
 
 2) Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
 
@@ -35,7 +41,10 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 4) Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `react`.
 
-> Note: If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
+{{< hint warning >}}
+**📔 Note**:  If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
+{{< /hint >}}
+
 
 5) If it is a Decentraland library (ie. `decentraland-ecs-utils`) select `Yes`, otherwise `No`.
 
@@ -64,7 +73,10 @@ To install a library in your project folder, run `npm i` and the library name in
 
 `npm i @dcl/ecs-scene-utils -B`
 
-> Note: You may need to run `dcl start` or `dcl build` after installing the library for the library's dependencies to get installed.
+{{< hint warning >}}
+**📔 Note**:  You may need to run `dcl start` or `dcl build` after installing the library for the library's dependencies to get installed.
+{{< /hint >}}
+
 
 ### Update
 

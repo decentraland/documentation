@@ -51,7 +51,9 @@ To get you started, below is a list of libraries that have free or relatively in
 - [Thingiverse](https://www.thingiverse.com/) (3D models made primarily for 3D printing, but adaptable to Virtual Worlds)
 - [ShareCG](https://www.sharecg.com/)
 
-> Note: Pay attention to the license restrictions that the content you download has.
+{{< hint warning >}}
+**📔 Note**:  Pay attention to the license restrictions that the content you download has.
+{{< /hint >}}
 
 Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _.glTF_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting them with one of the available _.glTF_ export add-ons.
 
@@ -59,7 +61,9 @@ Note that in several of these sites, you can choose what format to download the 
 
 You might find that when running a preview the player can walk through your imported 3D models. This is likely because the models are missing a _collider mesh_ to define a collision geometry. See [colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}}) for more details and instructions.
 
-> Tip: Instead of editing the model to add a _collider mesh_, a simpler alternative is to an _Invisible wall_ smart item with approximately the same shape to stand in its place.
+{{< hint info >}}
+**💡 Tip**:  Instead of editing the model to add a _collider mesh_, a simpler alternative is to an _Invisible wall_ smart item with approximately the same shape to stand in its place.
+{{< /hint >}}
 
 ## Animations
 

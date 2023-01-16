@@ -41,8 +41,9 @@ The following optional fields are also available:
 - `hairColor`: _Color3_ for the hair color (any color is valid)
 - `talking`: If _true_, it displays a green set of bars next to the name, like when players use voice chat in-world.
 - 
-> TIP: See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.
-
+{{< hint info >}}
+**💡 Tip**:  See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.
+{{< /hint >}}
 
 ## Animations
 

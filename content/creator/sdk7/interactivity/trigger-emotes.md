@@ -9,7 +9,6 @@ url: /creator/development-guide/sdk7/trigger-emotes/
 weight: 4
 ---
 
-<!-- TODO: all -->
 
 To make a player perform an emote, use the `triggerEmote()` function. Note that only existing default emotes are supported for now. This function takes a single argument:
 
@@ -18,19 +17,17 @@ To make a player perform an emote, use the `triggerEmote()` function. Note that 
 ```ts
 import { triggerEmote } from "~system/RestrictedActions"
 
-const emoter = new Entity()
-emoter.addComponent(new BoxShape())
-emoter.addComponent(new Transform({ position: new Vector3(8, 0, 8) }))
-emoter.addComponent(
-  new OnPointerDown(
-    (e) => {
-      triggerEmote({ predefined: "robot" })
-    },
-    { hoverText: "Dance" }
-  )
+const emoter = engine.addEntity()
+Transform.create(emoter, { position: { 8, 0, 8 } })
+MeshRenderer.setBox(emoter)
+MeshCollider.setBox(emoter)
+pointerEventsSystem.onPointerDown(
+  emoter,
+  () => {
+    triggerEmote({ predefined: "robot" })
+  },
+  { button: InputAction.IA_PRIMARY, hoverText: 'Dance' }
 )
-
-engine.addEntity(emoter)
 ```
 
 There are some default emotes available to all players:
@@ -54,7 +51,10 @@ There are some default emotes available to all players:
 
 The emote animation is seen both by the player (in 3rd person view) and any other players around. If the player walks, runs or jumps, they will interrupt the animation and return to playing the corresponding animations for these actions.
 
-> Note: Players can only be animated if they already are standing inside the scene's bounds, not if they are on a neighboring scene.
+{{< hint warning >}}
+**📔 Note**:  Players can only be animated if they already are standing inside the scene's bounds, not if they are on a neighboring scene.
+{{< /hint >}}
+
 
 Before you can use this feature, you must add the `ALLOW_TO_TRIGGER_AVATAR_EMOTE` permission to the `scene.json` file. If not yet present, create a `requiredPermissions` property at root level in the JSON file to assign it this permission.
 
@@ -66,4 +66,7 @@ Before you can use this feature, you must add the `ALLOW_TO_TRIGGER_AVATAR_EMOTE
 
 See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
 
-> Note: To prevent abusive behavior that might damage a player's experience, the ability to make a player perform an emote is handled as a permission. Currently, this permission has no effect in how the player experiences the scene. In the future, players who walk into a scene with this permission in the `scene.json` file will be requested to grant the scene the ability to play emotes on them.
+{{< hint warning >}}
+**📔 Note**:  To prevent abusive behavior that might damage a player's experience, the ability to make a player perform an emote is handled as a permission. Currently, this permission has no effect in how the player experiences the scene. In the future, players who walk into a scene with this permission in the `scene.json` file will be requested to grant the scene the ability to play emotes on them.
+{{< /hint >}}
+

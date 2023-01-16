@@ -35,7 +35,9 @@ engine.addEntity(respawner)
 
 The player's movement occurs instantly, without any confirmation screens or camera transitions.
 
-> Note: Players can only be moved if they already are standing inside the scene's bounds, and can only be moved to locations that are inside the limits of the scene's bounds. You can't use `movePlayerTo()` to transport a player to another scene. To move a player to another scene, see [Teleports]({{< ref "/content/creator/scenes/interactivity/external-links.md#teleports" >}}).
+{{< hint warning >}}
+**📔 Note**:  Players can only be moved if they already are standing inside the scene's bounds, and can only be moved to locations that are inside the limits of the scene's bounds. You can't use `movePlayerTo()` to transport a player to another scene. To move a player to another scene, see [Teleports]({{< ref "/content/creator/scenes/interactivity/external-links.md#teleports" >}}).
+{{< /hint >}}
 
 You must first add the `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE` permission to the `scene.json` file before you can use this feature. If not yet present, create a `requiredPermissions` property at root level in the JSON file to assign it this permission.
 
@@ -47,4 +49,6 @@ You must first add the `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE` permission to the `sc
 
 See [Required permissions]({{< ref "/content/creator/scenes/projects/scene-metadata.md#required-permissions" >}}) for more details.
 
-> Note: To prevent abusive behavior that might damage a player's experience, the ability to move a player is handled as a permission. Currently, this permission has no effect in how the player experiences the scene. In the future, players who walk into a scene with this permission in the `scene.json` file will be requested to grant the scene the ability to move them.
+{{< hint warning >}}
+**📔 Note**:  To prevent abusive behavior that might damage a player's experience, the ability to move a player is handled as a permission. Currently, this permission has no effect in how the player experiences the scene. In the future, players who walk into a scene with this permission in the `scene.json` file will be requested to grant the scene the ability to move them.
+{{< /hint >}}

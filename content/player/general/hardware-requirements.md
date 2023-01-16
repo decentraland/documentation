@@ -15,7 +15,10 @@ These are the minimum hardware specs required to successfully run the Decentrala
 
 The minimum requirements differ depending on if you're running Decentraland via a web browser, or if you're running a locally installed desktop client. The desktop client has considerably lower requirements, as it's not limited by the browser.  
 
-> Note: Decentraland currently does not run on any mobile devices.
+{{< hint warning >}}
+**📔 Note**:  Decentraland currently does not run on any mobile devices.
+{{< /hint >}}
+
 
 ## Web Client
 

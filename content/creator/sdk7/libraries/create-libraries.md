@@ -17,7 +17,10 @@ By using the CLI and following the steps detailed here, you can avoid most of th
 
 ## Create a library
 
-> Note: Make sure you're using Node version 16.x or newer before you build your library.
+{{< hint warning >}}
+**📔 Note**:  Make sure you're using Node version 16.x or newer before you build your library.
+{{< /hint >}}
+
 
 To create your own library and share it via NPM, do the following:
 
@@ -72,7 +75,9 @@ If you need to continually make small adjustments to your library and test them,
 
 This will keep your scene synced to the version of the library that's directly in your local drive. For any changes to the library that you want to test, just run `npm run build` on the library folder, no need to publish changes to GitHub or NPM.
 
-> Tip: To verify that the linking was successful, check your scene's `package.json` file. On your library's it should show a local folder path instead of a version number.
+{{< hint info >}}
+**💡 Tip**:  To verify that the linking was successful, check your scene's `package.json` file. On your library's it should show a local folder path instead of a version number.
+{{< /hint >}}
 
 When you're finished testing, remember to unlink the library.
 
@@ -80,7 +85,10 @@ When you're finished testing, remember to unlink the library.
 
 2. Then in the library run`npm unlink`
 
-> Note: The order of these steps is important.
+{{< hint warning >}}
+**📔 Note**:  The order of these steps is important.
+{{< /hint >}}
+
 
 ## Versioning
 

@@ -67,7 +67,11 @@ Then, in the editor tool, go to properties and add the other one.
 
 The mouth, eyes and eyebrows category have a different behaviour in the tool, because these are just .pngs files. To upload these just drag and drop the png file as a transparent image (256px X 256PX). Mouth is going to be automatically tinted by skin color, same for the eyebrows tinted by the hair color.
 
-If you want the asset to be masked, so a part of the mouth or eyebrows is not affected by the tinting you would need to both zip files and then drag them to the tool. **Note: remember that png name of the mask should end with suffix "\_mask" in order to work.**
+If you want the asset to be masked, so a part of the mouth or eyebrows is not affected by the tinting you would need to both zip files and then drag them to the tool. 
+
+{{< hint warning >}}
+**📔 Note**  : remember that png name of the mask should end with suffix "\_mask" in order to work.**
+{{< /hint >}}
 
 <img width="239" alt="mask" src="/images/media/mouth-wearable.png" />
 
@@ -325,7 +329,10 @@ You can “gift” items to anyone you like by entering their address instead of
 
 Remember, these items are minted and transferred to the address entered for free. The price you set for items is only collected in primary sales.
 
-> Note: You can currently only mint 50 items per transaction.
+{{< hint warning >}}
+**📔 Note**:  You can currently only mint 50 items per transaction.
+{{< /hint >}}
+
 
 **Are there any fees associated with minting items?**
 No, items are minted on the Matic sidechain, thus removing any fees traditionally associated with minting NFTs on the main Ethereum blockchain.

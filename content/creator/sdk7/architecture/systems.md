@@ -67,7 +67,9 @@ In the example above, the system `MoveSystem` is a function that runs on each ti
 ![](/images/media/ecs-system-new.png)
 
 <!--
-> Tip: As a simpler alternative to create custom systems, you can use the helpers in the [utils library](https://github.com/decentraland/decentraland-ecs-utils). The library creates systems in the background that handle common tasks like moving or rotating entities. In most cases, this library only requires a single line of code to apply these behaviors.
+{{< hint info >}}
+**💡 Tip**:  As a simpler alternative to create custom systems, you can use the helpers in the [utils library](https://github.com/decentraland/decentraland-ecs-utils). The library creates systems in the background that handle common tasks like moving or rotating entities. In most cases, this library only requires a single line of code to apply these behaviors.
+{{< /hint >}}
 -->
 
 You can have multiple systems in your scene to decouple different behaviors, making your code cleaner and easier to scale and reuse. For example, one system might handle physics, another might make an obstacle entity move back and forth continuously, another could handle the AI of characters.
@@ -80,8 +82,9 @@ A system's function is executed periodically, once per every tick of the game lo
 
 In a Decentraland scene, you can think of the game loop as the aggregation of all the system functions in your scene.
 
-> Note: If you add multiple instances of a same system to the engine, the function will be executed multiple times per tick of the game loop. For example, adding a system twice could result in an entity moving at twice the speed as expected, as it advances two increments on each tick.
-
+{{< hint warning >}}
+**📔 Note**:  If you add multiple instances of a same system to the engine, the function will be executed multiple times per tick of the game loop. For example, adding a system twice could result in an entity moving at twice the speed as expected, as it advances two increments on each tick.
+{{< /hint >}}
 
 ## Handle entities by reference
 

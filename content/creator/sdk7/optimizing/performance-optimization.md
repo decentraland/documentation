@@ -23,9 +23,13 @@ Playing videos is one of the most expensive things for the engine to handle. If 
 
 You should also avoid having videos playing in regions where they can't be seen. For example, if you have a screen indoors, toggle the video using a trigger area based on when the player walks in and out.
 
-> TIP: A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#using-textures">}}) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
+{{< hint info >}}
+**💡 Tip**:  A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#using-textures">}}) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
+{{< /hint >}}
 
-> TIP: When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene">}}) .
+{{< hint info >}}
+**💡 Tip**:  When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene">}}) .
+{{< /hint >}}
 
 #### Lazy loading
 
@@ -39,11 +43,16 @@ For the best result in terms of avoiding hiccups, hide entities by switching the
 
 An alternative is to not add the entities to the engine until needed. This may result in some hiccups when the entities appear for the first time, and they might also take a couple of seconds to become visible. The advantage of this approach is that it's a valid way to get around the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}). Keep in mind that the scene limitations count is for the content that is being rendered in the scene at any given time, not for the total content that could be rendered. Loading and unloading parts of the scene should allow you to work around those limitations.
 
-> Note: Entities that are not visible but are added to the engine do count towards the scene limitations.
+{{< hint warning >}}
+**📔 Note**:  Entities that are not visible but are added to the engine do count towards the scene limitations.
+{{< /hint >}}
+
 
 You can also toggle animations on or off for entities that are far or occluded. For example, for an NPC that plays a very subtle idle animation, you could make it only play that animation when the player is at less than 20 meters away. Use a trigger area around the NPC and toggle its animations on or off accordingly.
 
-> TIP: When an entity is far away and small enough, it's culled by the engine. This culling helps at a drawcall level, removing entities from the engine is always better. This culling also doesn't take occlusion by other entities into account, so entities that are not so small but hidden by a wall are still rendered.
+{{< hint info >}}
+**💡 Tip**:  When an entity is far away and small enough, it's culled by the engine. This culling helps at a drawcall level, removing entities from the engine is always better. This culling also doesn't take occlusion by other entities into account, so entities that are not so small but hidden by a wall are still rendered.
+{{< /hint >}}
 
 #### Async blocks
 
@@ -77,15 +86,22 @@ There are several ways in which your 3D models can be optimized to be lighter.
 
 - Avoid skinned meshes. They can drag down the performance significantly.
 
-> TIP: Read more on 3D model best practices in the [3D Modeling Section](/creator/3d-modeling/3d-models
+{{< hint info >}}
+**💡 Tip**:  Read more on 3D model best practices in the [3D Modeling Section](/creator/3d-modeling/3d-models
+{{< /hint >}}
 
 #### Asset Bundle conversion
 
 About once a day, the Decentraland content servers run a process to compress every _.gltf_ and _.glb_ model in every newly deployed scene to asset bundle format. This format is _significantly_ lighter, making scenes a lot faster to load and smoother to run on the browser.
 
-> Tip: When planning an event in Decentraland, make sure you deploy your scene a day in advance, so that the models are all converted to asset bundles by then. If you don't want to spoil the surprize before the event, you can deploy a version of your scene that includes all the final 3D models in the project folder, but where these are not visible or where their size is set to 0.
+{{< hint info >}}
+**💡 Tip**:  When planning an event in Decentraland, make sure you deploy your scene a day in advance, so that the models are all converted to asset bundles by then. If you don't want to spoil the surprize before the event, you can deploy a version of your scene that includes all the final 3D models in the project folder, but where these are not visible or where their size is set to 0.
+{{< /hint >}}
 
-> Note: If you make _any_ change to a 3D model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
+{{< hint warning >}}
+**📔 Note**:  If you make _any_ change to a 3D model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
+{{< /hint >}}
+
 
 ## Connectivity
 
@@ -99,7 +115,9 @@ If your scene connects to any 3rd party servers or uses the [messagebus]({{< ref
 
 Scene UIs can become costly to render when they are made up of many individual elements. Keep in mind that each UI element requires a separate drawcall on the engine.
 
-> TIP: Try to merge multiple elements into one single image. For example if you have a menu with multiple text elements, it's ideal to have the text from the tiles and any additional images baked into the background image. That saves the engine from doing one additional drawcall per frame for each text element.
+{{< hint info >}}
+**💡 Tip**:  Try to merge multiple elements into one single image. For example if you have a menu with multiple text elements, it's ideal to have the text from the tiles and any additional images baked into the background image. That saves the engine from doing one additional drawcall per frame for each text element.
+{{< /hint >}}
 
 Avoid making adjustments to the UI on every frame, those are especially costly and can end up getting queued. For example, if there's a health bar in your UI that should shrink over period of time, players would probably not notice a difference between if it updates at 10 FPS instead of at 30 FPS (on every frame). The system that updates this bar can use a brief timer that counts 100 milliseconds, and only affect the UI when this timer reaches 0.
 
@@ -117,7 +135,10 @@ When you run a scene in preview, note that on the top-right corner it says “Y 
 
 As you interact with things that involve messages between the SDK and the engine, you’ll notice the ‘Processed Messages’ number grows. You should closely watch the ‘Pending on Queue’ number, it should always be 0 or close to 0. This tells you how many of these messages didn't get to be processed, and got pushed to a queue. If the ‘Pending on Queue’ count starts to grow, then you’ve entered the danger zone and should think about doing more optimizations to your scene.
 
-> Note: Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
+{{< hint warning >}}
+**📔 Note**:  Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
+{{< /hint >}}
+
 
 Keep in mind that the performance you experience in preview may differ from that in production:
 

@@ -24,8 +24,10 @@ A `Label` entity has the following fields that can be configured:
 	- `Font.T_MONOSPACE`
 - `textAlign`: How the text will align with its parent. It takes a value from the `TextAlignMode` enum. 
 
-<!-- TODO: what value for font?? (not the same as text)
-what about text align, TextAlignMode not valid either -->
+{{< hint warning >}}
+**📔 Note**:  The `fontSize` is not affected by the size of its entity or parent entities.
+{{< /hint >}}
+
 
 A `Label` entity can also have other common components found on other types of UI entities, like `uiTransform` and `uiBackground`.
 

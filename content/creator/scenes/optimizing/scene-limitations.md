@@ -199,7 +199,9 @@ Examples of other valid sizes:
 512x512
 ```
 
-> Note: Although textures of arbitrary sizes sometimes work, they are also often rendered with bugs and are more unstable. We strongly advise that all your textures match these sizes.
+{{< hint warning >}}
+**📔 Note**:  Although textures of arbitrary sizes sometimes work, they are also often rendered with bugs and are more unstable. We strongly advise that all your textures match these sizes.
+{{< /hint >}}
 
 <!--
 ## File amount limitations

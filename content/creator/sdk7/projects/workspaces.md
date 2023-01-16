@@ -39,7 +39,10 @@ Once a workspace is created, you can add additional projects `dcl workspace add`
 
 You can also add a project that is not inside the workspace folder, by using the absolute path.
 
-> Note: The folder must already contain a decentraland project initatied with `dcl init`. It can't be an empty folder.
+{{< hint warning >}}
+**📔 Note**:  The folder must already contain a decentraland project initatied with `dcl init`. It can't be an empty folder.
+{{< /hint >}}
+
 
 You can also edit the `dcl-workspace.json` file manually to add or remove projects. Modify the file to include the relative paths to each of the projects in the workspace in the `folders` array.
 

@@ -34,13 +34,17 @@ ReactEcsRenderer.setUiRenderer(() => (
 
 The alignment of UI entities is based on the Flexbox alignment model. This is a very powerful model for dynamically organizing nested entities inside modals that may vary in size.
 
-> TIP: Decentraland's UI implementation is based on that of [Yoga](https://yogalayout.com/docs/). Read [this article](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/) for a very approachable and in-depth coverage of the properties available in Flexbox.
+{{< hint info >}}
+**💡 Tip**:   Decentraland's UI implementation is based on that of [Yoga](https://yogalayout.com/docs/). Read [this article](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/) for a very approachable and in-depth coverage of the properties available in Flexbox.
+{{< /hint >}}
 
 ### Arranging child entities
 
 By default, child entities are positioned in relation to the top-left corner of its parent. You can use properties like `justifyContent` and `alignItems` to change this behavior.
 
-> Tip: Any properties that refer to _content_ refer to entities along the main axis (determined by `flexDirection`). Any properties that refer 
+{{< hint info >}}
+**💡 Tip**:   Any properties that refer to _content_ refer to entities along the main axis (determined by `flexDirection`). Any properties that refer 
+{{< /hint >}}
 
 - `flexDirection`: Flex direction controls the direction in which children of a node are laid out. This is also referred to as the main axis. The main axis is the direction in which children are laid out. The cross axis is the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in. It takes its value from the `YGFlexDirection` enum. The following options are available:
 
@@ -145,7 +149,9 @@ In Flexbox, entity positions are mostly determined by how they are parented, and
 
 - `position`: The position values `top`, `right`, `bottom`, and `left` behave differently depending on the `positionType`. For a relative entity they offset the position of the entity in the direction specified. For absolute entity though these properties specify the offset of the entity's side from the same side on the parent.  The expected value is an object that contains the properties `top`, `left`, `bottom`, and `right`.
 
-> Note: When measuring from the top, the numbers for `position` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `position` to 20, -20.
+{{< hint warning >}}
+**📔 Note**  : When measuring from the top, the numbers for `position` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `position` to 20, -20.
+{{< /hint >}}
 
 
 <!-- 

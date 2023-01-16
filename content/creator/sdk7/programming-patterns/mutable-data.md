@@ -66,4 +66,7 @@ In the example above, a system checks the read-only values of an entity's `Trans
 This practice follows the principles of [data oriented programming]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}). It's also gradually being adopted as an industry standard practice in the gaming, because of how much of an improvement it makes.
 
 
-> Note: In older versions of the SDK (6.x or older), components were always treated as mutable. That pattern may be a bit more straight forward to learn, but was a lot less efficient to run.
+{{< hint warning >}}
+**📔 Note**:  In older versions of the SDK (6.x or older), components were always treated as mutable. That pattern may be a bit more straight forward to learn, but was a lot less efficient to run.
+{{< /hint >}}
+

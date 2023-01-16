@@ -45,7 +45,9 @@ In future releases, players will have an inventory they carry everywhere which w
 
 #### Portable experiences
 
-> Note: Portable experiences and smart wearables are still in an exploratory stage and not yet available for community creators to make.
+{{< hint warning >}}
+**📔 Note**:  Portable experiences and smart wearables are still in an exploratory stage and not yet available for community creators to make.
+{{< /hint >}}
 
 Portable experiences are parts of the gameplay that players take with them as they move through the metaverse. These are not tied to parcels of land, they are sometimes tied to tokens, or sometimes launched by the explorer. For example, a player could take a snowball from your scene, walk away to another scene, and throw the snowball to another player who’s also playing the same game.
 
@@ -69,7 +71,9 @@ Scenes can share state information between players in a peer to peer manner. Pee
 
 Hosting your own server is also a recommended safety measure for games that involve transactions with valuable game items, as peer to peer connections place trust in the player that assumes the role of server.
 
-> Note: In future releases, we will provide out-of-the-box solutions and code examples for how to implement your own server.
+{{< hint warning >}}
+**📔 Note**:  In future releases, we will provide out-of-the-box solutions and code examples for how to implement your own server.
+{{< /hint >}}
 
 #### Game timing
 

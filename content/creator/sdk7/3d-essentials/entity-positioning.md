@@ -230,14 +230,17 @@ Billboard.create(textLabel, {
 })
 ```
 
-> Tip: Billboards are very handy to add to _text_ entities, since it makes them always legible. When using a billboard on an entity with a `TextShape` component, set `oppositeDirection` to true, so that you see the text facing the right way.
+{{< hint info >}}
+**💡 Tip**:  Billboards are very handy to add to _text_ entities, since it makes them always legible. When using a billboard on an entity with a `TextShape` component, set `oppositeDirection` to true, so that you see the text facing the right way.
+{{< /hint >}}
 
 The `rotation` value of the entity's `Transform` component doesn't change as the billboard follows players around.
 
 If an entity has both a `Billboard` component and `Transform` component with `rotation` values, players will see the entity rotating as a billboard. If the billboard doesn't affect all axis, the remaining axis will be rotated according to the `Transform` component.
 
-> Note: If there are multiple players present at the same time, each will see the entities with billboard mode facing them. Billboard rotations are calculated locally for each player, and don't affect what others see.
-
+{{< hint warning >}}
+**📔 Note**:  If there are multiple players present at the same time, each will see the entities with billboard mode facing them. Billboard rotations are calculated locally for each player, and don't affect what others see.
+{{< /hint >}}
 
 
 ## Face a set of coordinates
@@ -374,7 +377,9 @@ The following anchor points are available on the player:
 
 Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to other players who are seeing that player. If an entity is attached to the default local player, each player will experience the entity as attached to their own avatar.
 
-> Note: Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
+{{< hint warning >}}
+**📔 Note**:  Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
+{{< /hint >}}
 
 The `AvatarAttach` component overwrites the `Transform` component, a single entity can't have both an `AvatarAttach` and a `Transform` component at the same time.
 
@@ -406,7 +411,9 @@ Transform.create(childEntity, {
 
 To attach an entity to the avatar of another player, you must provide the user's ID in the field `avatarId`. There are [various ways]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >}}) to obtain this data.
 
-> Note: For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
+{{< hint warning >}}
+**📔 Note**:  For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
+{{< /hint >}}
 
 Fetch the `userId` for all other nearby players via `getConnectedPlayers()`
 
@@ -453,7 +460,9 @@ The position of entities in your scene is constantly being checked as they move,
 
 A grid on the scene's ground shows the limits of the scene, which by default rage from 0 to 16 on the _x_ and _z_ axis, and up to 20 on the _y_ axis. You're free to place entities underground, below 0 on the _y_ axis.
 
-> Tip: If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
+{{< hint info >}}
+**💡 Tip**:  If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
+{{< /hint >}}
 
 It's important to note that the _entire_ 3D model must be within the scene's bounds. This includes the model's _bounding box_. Some 3D models may have bounding boxes that unnecessarily extend beyond the meshes themselves, and it can sometimes be tricky to tell when this happens. When an entity extends beyond the scene's boundaries, in the preview you'll see a cube that marks these bounding boxes. The entire cube must fit within your scene.
 

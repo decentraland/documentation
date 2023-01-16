@@ -56,7 +56,9 @@ onLeaveSceneObservable.add((player) => {
 })
 ```
 
-> Note: This event only responds to players that are currently being rendered locally. In large scenes where the scene size exceeds the visual range, players entering in the opposite corner may not be registered. If the number of players in the region exceeds the capabilities of an island on Decentraland servers, players that are not sharing a same island aren't visible and are not tracked by these events either.
+{{< hint warning >}}
+**📔 Note**:  This event only responds to players that are currently being rendered locally. In large scenes where the scene size exceeds the visual range, players entering in the opposite corner may not be registered. If the number of players in the region exceeds the capabilities of an island on Decentraland servers, players that are not sharing a same island aren't visible and are not tracked by these events either.
+{{< /hint >}}
 
 #### Only current player
 
@@ -128,7 +130,9 @@ The event detected by `onRotationChangedObservable` includes the following data:
 - rotation: The camera's rotation in Euler angles
 - quaternion: The camera's rotation in Quaternion angles
 
-> Note: The rotation refers to that of the camera, not to that of the avatar. So if the player is in 3rd person, the avatar may be facing a different direction than the camera.
+{{< hint warning >}}
+**📔 Note**:  The rotation refers to that of the camera, not to that of the avatar. So if the player is in 3rd person, the avatar may be facing a different direction than the camera.
+{{< /hint >}}
 
 Using these events is a lot more efficient than fetching the `Camera.instance.position` and `Camera.instance.rotation` on every frame, as there are no updates when the player stays still. Since this position & rotation data updates 10 times a second, it also means that checking these values on every frame (30 times a second) will result in many repeat readings. This gain in efficiency is especially noticeable when communicating position data to a multiplayer server.
 
@@ -146,7 +150,9 @@ onRotationChangedObservable.add((eventData) => {
 
 The example above uses the player's rotation to set that of a cube in the scene.
 
-> Note: The `onRotationChangedObservable`, `onPositionChangedObservable` data is updated at a throttled rate of 10 times per second. Due to this, positions may lag slightly in relation to the scene that runs at 30 FPS under ideal conditions.
+{{< hint warning >}}
+**📔 Note**:  The `onRotationChangedObservable`, `onPositionChangedObservable` data is updated at a throttled rate of 10 times per second. Due to this, positions may lag slightly in relation to the scene that runs at 30 FPS under ideal conditions.
+{{< /hint >}}
 -->
 
 ## Player changes camera mode
@@ -166,7 +172,9 @@ The values of the returned property can be:
 
 This event is fired once when the scene first obtains information about the player's current camera mode, and then any time the player changes camera mode while in or around your scene.
 
-> Tip: To encourage players to use a particular camera mode in your scene, display a UI message advising them to switch modes whenever they use the wrong one.
+{{< hint info >}}
+**💡 Tip**:  To encourage players to use a particular camera mode in your scene, display a UI message advising them to switch modes whenever they use the wrong one.
+{{< /hint >}}
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when on 3rd person.
 
@@ -226,7 +234,9 @@ onPointerLockedStateChange.add(({ locked }) => {
 })
 ```
 
-> Note: This event is triggered even if the player is not standing directly inside the scene.
+{{< hint warning >}}
+**📔 Note**:  This event is triggered even if the player is not standing directly inside the scene.
+{{< /hint >}}
 
 The `locked` property from this event is a boolean value that is _true_ when the player locks the cursor and _false_ when the player unlocks the cursor.
 
@@ -248,7 +258,9 @@ The `isIdle` property is a boolean value that is _true_ when the player enters t
 
 This event is especially useful for multiplayer scenes, when you might want to disconnect from the server players who are likely away from the machine or left Decentraland in a tab in the background.
 
-> Note: The idle state is inferred based on the player not using the keyboard or mouse for a full minute. This can of course produce false positives, for example a player might be watching other players interact or watching a video stream, standing still but fully engaged. Be mindful of these corner cases and what the experience is like for a player who stands still for a while.
+{{< hint warning >}}
+**📔 Note**:  The idle state is inferred based on the player not using the keyboard or mouse for a full minute. This can of course produce false positives, for example a player might be watching other players interact or watching a video stream, standing still but fully engaged. Be mindful of these corner cases and what the experience is like for a player who stands still for a while.
+{{< /hint >}}
 
 ## Player changes profile
 
@@ -262,11 +274,15 @@ onProfileChanged.add((profileData) => {
 
 Event data includes only the ID of the player and a version number for that avatar's profile, according to the catalyst server. Every time a change is propagated, the version number increases by 1.
 
-> Tip: When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+{{< hint info >}}
+**💡 Tip**:  When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+{{< /hint >}}
 
 When testing in preview, run the scene with `dcl start --web3` so that you connect with your wallet. Otherwise, you will be using a random avatar.
 
-> Note: This event is only triggered by changes to the current player, not by changes on the profiles of other nearby players.
+{{< hint warning >}}
+**📔 Note**:  This event is only triggered by changes to the current player, not by changes on the profiles of other nearby players.
+{{< /hint >}}
 
 ## Scene finished loading
 

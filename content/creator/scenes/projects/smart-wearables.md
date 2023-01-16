@@ -76,7 +76,11 @@ The default `wearable.json` file looks like this:
 The following fields are required in `wearable.json`:
 
 - `id`: The `dcl init` command generates a random value for this ID.
-> NOTE: If you forked your project from an existing one, make sure the ID value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
+
+{{< hint warning >}}
+**📔 Note**  : If you forked your project from an existing one, make sure the ID value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
+{{< /hint >}}
+
 - `name`: The name for the wearable that users will see in the marketplace
 - `description`: The description of the wearable that users will see in the marketplace. Make sure you indicate what the smart wearable can do, as users of the marketplace will have no way to preview its functinality before buying it.
 - `rarity`: The rarity supply of the token. Possible values are:
@@ -176,7 +180,9 @@ To publish your smart wearable:
 
 2. Run `dcl pack` on your project folder. This generates a `portable-experience.zip` file in your project folder.
 
-> NOTE: The output of `dcl pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
+{{< hint warning >}}
+**📔 Note**:  The output of `dcl pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
+{{< /hint >}}
 
 3. Open the Builder, open the Collections tab, click + to upload a new wearable.
 
@@ -191,7 +197,9 @@ To publish your smart wearable:
 7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on ropsten, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
 8. At this point, your wearable is ready to be published. We still don’t encourage creators to publish any smart wearables, as we’re still in experimental stages, reviewers from the committee have been instructed to not approve any smart wearables that don’t come from the foundation.
 
-> Note: There will be a `dcl deploy` command in the future, to enable you to do this process without navigating the Builder UI.
+{{< hint warning >}}
+**📔 Note**:  There will be a `dcl deploy` command in the future, to enable you to do this process without navigating the Builder UI.
+{{< /hint >}}
 
 ## Restricted actions
 

@@ -72,7 +72,7 @@ There is a variable called `CONTENT_SERVER_STORAGE` that defines the local folde
 
 There is another interesting variable `SYNC_IGNORED_ENTITY_TYPES` which allows ignoring certain entity types during the synchronization process. If you are going to use the Catalyst server for development, perhaps you don't need all content type to be synchronized. You can set env var `SYNC_IGNORED_ENTITY_TYPES="profile,store"` so that only scenes and wearables will be brought from the DAO servers. This will save a lot of time, bandwidth and disk storage in your server.
 
->💡 For a more exhaustive list of supported environment variables please have a look at the [Environment variables](https://www.notion.so/Environment-variables-b83dc993bf114f218bf893c0db4a5639) section below.
+>💡 For a more exhaustive list of supported environment variables please have a look at the [Environment variables](#environment-variables) section below.
 
 Once all environment variables have been set up, it is time to start the node. That should be as easy as running the `init.sh` script in the root folder.
 

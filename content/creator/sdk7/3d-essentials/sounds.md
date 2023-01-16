@@ -11,7 +11,9 @@ weight: 4
 
 Sound is a great way to provide feedback to player actions and events, background sounds can also give your scene more context and improve the player's immersion into it.
 
-> Note: Keep in mind that sounds are only heard by players who are standing within the parcels that make up the scene where the sound was generated, even if they would otherwise be in hearing range. Players can also chose to turn off all sounds on their settings.
+{{< hint warning >}}
+**📔 Note**:  Keep in mind that sounds are only heard by players who are standing within the parcels that make up the scene where the sound was generated, even if they would otherwise be in hearing range. Players can also chose to turn off all sounds on their settings.
+{{< /hint >}}
 
 Supported sound formats vary depending on the browser, but it's recommended to use _.mp3_.
 
@@ -39,7 +41,9 @@ When creating an `AudioSource` component, you need to provide the path to the lo
 
 The sound file must be inside the project folder. In the example above, the audio file is located in a `sounds` folder, which is located at root level of the scene project folder.
 
-> Tip: For more clarity, we recommend keeping your sound files separate in a `/sounds` folder inside your scene.
+{{< hint info >}}
+**💡 Tip**:  For more clarity, we recommend keeping your sound files separate in a `/sounds` folder inside your scene.
+{{< /hint >}}
 
 Each entity can only have a single `AudioSource` component, that can only play a single clip at a time. This limitation can be easily overcome by modifying the audio source at the time of playing a new sound, or by including multiple invisible child entities, each with their own sound.
 
@@ -74,7 +78,9 @@ playSound(sourceEntity)
 
 If you set the `playing` property of an `AudioSource` component to _false_, the file is stopped. This means that if you later set `playing` to _true_ again, the sound file will begin from the start again.
 
-> Note: Sounds are played on each player's local instance. Other nearby players won't hear the same sounds unless their local scene explicitly plays them too.
+{{< hint warning >}}
+**📔 Note**:  Sounds are played on each player's local instance. Other nearby players won't hear the same sounds unless their local scene explicitly plays them too.
+{{< /hint >}}
 
 ## Looping
 
@@ -101,7 +107,9 @@ const audioSource = AudioSource.getMutable(entity)
 source.volume = 0.5
 ```
 
-> Note: Of course, the volume of a sound is also affected by the distance of the player from the audio source. As the player walks away, the volume will be lower.
+{{< hint warning >}}
+**📔 Note**:  Of course, the volume of a sound is also affected by the distance of the player from the audio source. As the player walks away, the volume will be lower.
+{{< /hint >}}
 
 
 ## Audio streaming

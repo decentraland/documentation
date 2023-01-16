@@ -20,7 +20,9 @@ Scenes in Decentraland occupy one or several adjacent LAND parcels. Each LAND pa
 
 To build something to deploy to LAND parcels you own, make sure the shape of the scene matches the shape of where you want it deployed.
 
-> Note: The Builder currently can only create rectangular-shaped scenes. To create an irregularly-shaped scene, you must use the SDK.
+{{< hint warning >}}
+**📔 Note**:  The Builder currently can only create rectangular-shaped scenes. To create an irregularly-shaped scene, you must use the SDK.
+{{< /hint >}}
 
 You can edit the size of an existing scene by clicking the _pencil icon_ next to the scene name and then changing the number or rows and columns.
 
@@ -55,7 +57,9 @@ To rotate an item, select the _Rotate tool_ on the top menu. A gizmo appears on 
 
 To make an item larger or smaller, select the _scale_ item on the top menu, then click on the center of the gizmo and drag in or out. This tool also lets you stretch an item in a single axis to change its proportions, to do this click on one of the axis of the gizmo and drag it.
 
-> Tip: To have greater precision while moving, rotating or scaling an item, press and hold the _Shift_ key while making adjustments.
+{{< hint info >}}
+**💡 Tip**:  To have greater precision while moving, rotating or scaling an item, press and hold the _Shift_ key while making adjustments.
+{{< /hint >}}
 
 To delete an item from the scene, select it and click the _Delete_ tool.
 
@@ -99,7 +103,9 @@ Once you're happy with the scene, press _Publish_.
 
 - Select _My Land_ if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed in the map. Parcels where you are allowed to deploy are shown in pink.
 
-> Tip: Use the rotate arrows on the top-left to rotate your scene so that its shape fits the available parcels, or to ensure its front faces the right way.
+{{< hint info >}}
+**💡 Tip**:  Use the rotate arrows on the top-left to rotate your scene so that its shape fits the available parcels, or to ensure its front faces the right way.
+{{< /hint >}}
 
 Once your scene has been published, you can keep making changes to it and then press _Update_ to publish these changes.
 

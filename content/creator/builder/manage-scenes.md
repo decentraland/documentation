@@ -30,7 +30,9 @@ If a scene is too large to import, try this:
 2. Look for the `builder.json` inside the uncompressed folder. Compress that single file into a new _.zip_ file.
 3. Import this new _.zip_ file.
 
-> Note: You can only import scenes that have been built with the Builder. You can't import a scene that was built with the SDK or modified with it.
+{{< hint warning >}}
+**📔 Note**:  You can only import scenes that have been built with the Builder. You can't import a scene that was built with the SDK or modified with it.
+{{< /hint >}}
 
 ## Delete a scene
 

@@ -28,7 +28,9 @@ Start your scene in the Builder, and only export it when you're sure you won't b
 
 Once you modify your scene with the SDK, you can’t import those changes back into the Builder. You can only go from the Builder to the SDK, not in the other direction.
 
-> Note: If you attempt to reimport the scene into the Builder, the only file in the project folder that is considered is the `builder.json` file, that was generated when exporting from the Builder. Any changes you did to other files, like `game.ts`, are ignored when importing.
+{{< hint warning >}}
+**📔 Note**:  If you attempt to reimport the scene into the Builder, the only file in the project folder that is considered is the `builder.json` file, that was generated when exporting from the Builder. Any changes you did to other files, like `game.ts`, are ignored when importing.
+{{< /hint >}}
 
 Alternatively, you can keep all SDK changes in a neat section of your code, and manually paste these into newly exported versions of the Builder scene as you iterate it.
 

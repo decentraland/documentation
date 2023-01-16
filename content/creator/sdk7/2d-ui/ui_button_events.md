@@ -14,7 +14,9 @@ weight: 3
 Make a UI entity clickable by giving it an `onMouseDown` component. The `onMouseDown` component references a function that runs every time the user pushes the pointer button on the entity. There's also a similar `onMouseUp` component, that detects when the button is raised while pointing at the entity.
 
 
-> Note: To click on a UI component, players must first unlock the cursor from the view control. They do this by pressing the _right mouse button_ and keeping it pressed, or by hitting `Esc`.
+{{< hint warning >}}
+**📔 Note**:  To click on a UI component, players must first unlock the cursor from the view control. They do this by pressing the _right mouse button_ and keeping it pressed, or by hitting `Esc`.
+{{< /hint >}}
 
 The following example shows how to create a clickable UI entity. 
 
@@ -52,6 +54,8 @@ TODO: children of an entity with OnClick aren't clickable too, right?
 
 TODO: is there an euqivalent to isPointerBlocker?
 
-> Tip: If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
+{{< hint info >}}
+**💡 Tip**:  If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
+{{< /hint >}}
  -->
 

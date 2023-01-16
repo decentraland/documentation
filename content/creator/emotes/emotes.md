@@ -118,9 +118,10 @@ For example, if you publish a collection with two items and the price of MANA at
 
 These fees are transferred to the Curator Committee and the Decentraland DAO, where they are used to help fund the growth of the Decentraland through grants and other initiatives voted on by the greater Decentraland community.
 
-> **Note:**  
->
-> Currently, due to the time and resources required to review each collection submitted, the 150 USD in MANA publication fee is non-refundable. If your collection is rejected, you will not receive your MANA back. If your collection is not immediately approved, the Curation Committee will provide you with suggestions and feedback on how to improve it, but the final acceptance of your collection cannot be guaranteed.
+{{< hint warning >}}
+**📔 Note:**    
+Currently, due to the time and resources required to review each collection submitted, the 150 USD in MANA publication fee is non-refundable. If your collection is rejected, you will not receive your MANA back. If your collection is not immediately approved, the Curation Committee will provide you with suggestions and feedback on how to improve it, but the final acceptance of your collection cannot be guaranteed.
+{{< /hint >}}
 
 
 ### Acceptance Criteria
@@ -157,8 +158,9 @@ See [Creating and Exporting Emotes]({{< ref "/content/creator/emotes/creating-an
 
 The Editor is a tool within Decentraland’s [Builder](https://builder.decentraland.org/) that allows you to upload, add metadata, and publish your custom Emotes or Wearables.
 
-> Note: these Docs don’t explain how to animate an Avatar to create an Emote, they explain how to use the Editor to upload and publish your Wearables or Emotes. To create an Emote we recommend using [Blender](https://www.blender.org/).
-
+{{< hint warning >}}
+**📔 Note**:  these Docs don’t explain how to animate an Avatar to create an Emote, they explain how to use the Editor to upload and publish your Wearables or Emotes. To create an Emote we recommend using [Blender](https://www.blender.org/).
+{{< /hint >}}
 
 ### Uploading Emotes
 
@@ -251,7 +253,12 @@ When you are ready, click **Publish** and sign the message when prompted by yo
 
 ![Untitled](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images//emotes/Untitled%208.png)
 
-> Warning: **You will not be able to add or remove items in your collection after beginning the publication process.** You will be able to see your items within the Decentraland Marketplace, but you won’t be able to buy, sell, or transfer them until they have been approved by the Curator Committee.
+{{< hint danger >}}
+**❗Warning**  
+
+**You will not be able to add or remove items in your collection after beginning the publication process.** You will be able to see your items within the Decentraland Marketplace, but you won’t be able to buy, sell, or transfer them until they have been approved by the Curator Committee.
+
+{{< /hint >}}
 
 
 ### Selling Items
