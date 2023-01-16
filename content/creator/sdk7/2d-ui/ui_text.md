@@ -18,8 +18,11 @@ A `Label` entity has the following fields that can be configured:
 - `fontSize`: The size of the text, as a number.
 	> NOTE: The `fontSize` is not affected by the size of its entity or parent entities.
 - `color`: The color of the text, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}).
-- `font`: 
-- `textAlign`: 
+- `font`: The font to use, taking a value from the `Font` enum. Supported values are:
+	- `Font.T_SERIF`
+	- `Font.T_SANS_ERIF` _(default)_
+	- `Font.T_MONOSPACE`
+- `textAlign`: How the text will align with its parent. It takes a value from the `TextAlignMode` enum. 
 
 <!-- TODO: what value for font?? (not the same as text)
 what about text align, TextAlignMode not valid either -->
@@ -36,7 +39,12 @@ ReactEcsRenderer.setUiRenderer(() => (
       height: 400
     }}
   >
-	<Label value="This is a label" color={Color4.Red()} fontSize={29} />
+	<Label 
+		value="This is a label" color={Color4.Red()} 
+		fontSize={29} 
+		font={Font.F_SANS_SERIF}
+        textAlign={TextAlignMode.TAM_TOP_LEFT}
+	/>
   </UiEntity>
 ))
 ```
