@@ -5,7 +5,7 @@ description: Version support agreement
 categories:
   - development-guide
 type: Document
-url: /creator/releases/releases
+url: /creator/releases/version-agreement
 weight: 2
 ---
 
@@ -55,6 +55,10 @@ Developers are free to experiment with these alpha versions, but they're not enc
 Once a major release reaches a certain level of maturity, a **beta** release can be made available. As of the release of the first beta version in a version family, the version family is considered **stable** and there should be no further changes to the syntax, other than addition of new features. Content written with the syntax of a beta version should be effortless to migrate to the next versions within that family tree. It's still not adviseable to develop content for major events with a beta version, as testing is still in progress and bugs are still likely.
 
 Once the development of the version family is considered to be ready for production, a **GA** (general availability) release can be made available. From this point onwards, the version is considered the recommended and encouraged option for all developers to use.
+
+### Stable releases with unstable namespaces
+
+In exceptional cases, a stable (beta or GA) version may include specific features grouped into a legacy namespace that is not considered to be part of the supported release and meant to be deprecated in the future. This namespace will be labeled as unstable, and the documentation will make it clear when this is the case. The purpose of leaving these legacy features is to aid in the transition between major versions, without losing any functionality. This can happen when a proper re-implementation of certain features is required, but it would delay the stabe version too much. Creators who make use of these legacy features must be aware that the feature will be replaced in future versions. In these cases the changes will be communicated clearly, including migration guides, and there will be a transition period for creators to make these migrations.
 
 
 ## How long do we support a stable version family?
