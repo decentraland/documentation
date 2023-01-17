@@ -88,20 +88,54 @@ It can also include the following properties, most of them similar to those pres
 
 
 - `placeHolder`: String to display before the player starts inputing anything. It's useful to make this text a hint about what they should write.
-- `placeHolderColor`: The color to use for the placeholder text, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}). 
-Normally use a paler shade of the color of text that the player writes.
+- `placeHolderColor`: The color to use for the placeholder text, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}).
+{{< hint info >}}
+**💡 Tip**:  Use a paler shade of the color of text that the player writes.
+{{< /hint >}}
 - `fontSize`: The size of the text, as a number.
 	> NOTE: The `fontSize` is not affected by the size of its entity or parent entities.
 - `color`: The color of the text the player writes, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}).
- Make sure you use a different color from the `placeHolderColor`.
+{{< hint warning >}}
+**📔 Note**: Make sure you use a different color from the `placeHolderColor`.
+{{< /hint >}}
 - `font`: The font to use, taking a value from the `Font` enum. Supported values are:
 	- `Font.T_SERIF`
 	- `Font.T_SANS_ERIF` _(default)_
 	- `Font.T_MONOSPACE`
 - `textAlign`: How the text will align with its parent. It takes a value from the `TextAlignMode` enum. 
+- `disable`: If _true_, the player won't be able to interact with the input entity.
+
+You can also configure other comopnents of the `Input` entity, like a `uiTransform`, `OnMouseDown` as in other UI entities.
 
 
-You can also configure other comopnents of the `Dropdown` entity, like a `uiTransform`, `OnMouseDown` as in other UI entities.
+```ts
+var currentTextString = ""
 
-
-
+ReactEcsRenderer.setUiRenderer(() => {
+  return (
+    <UiEntity
+      uiTransform={{
+        width: "50%",
+        height: "150px",
+        flexDirection: YGFlexDirection.YGFD_COLUMN,
+        alignContent: YGAlign.YGA_FLEX_START,
+        margin: {left: 20, top: 20},
+        padding: {left: 10, top: 10, right: 10},
+        alignSelf: YGAlign.YGA_CENTER
+      }}
+      uiBackground={{
+        color: Color4.Gray()
+      }}
+    > 
+    <Input
+        onChange={(e) =>{ currentTextString = "you wrote: " + e }}
+        fontSize={35}
+        placeholder={"type something"}
+        placeholderColor={Color4.Gray()}
+    />
+      <Label value= {currentTextString}  fontSize={40} />
+     
+    </UiEntity>
+  )
+})
+```
