@@ -94,6 +94,8 @@ enableGitInfo = true
   # Segment Api Key
   SegmentApiKey = ''
 
+  # Intercom App ID
+  IntercomAppId = ''
 
 
 [outputs]
