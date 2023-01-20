@@ -165,16 +165,9 @@ The following optional properties are available to set on the `VideoPlayer` comp
 {{< /hint >}}
 
 - `playbackRate`: Changes the speed at which the video is played. _1_ by default.
-
 - `volume`: Lets you change the volume of the audio. _1_ by default.
-
 - `position`: Allows you to set a different starting position on the video. It's expressed in seconds after the video's original beginning. _-1_ by default, which makes it start at the actual start of the video. 
-
-<!-- - `loop`: Boolean that determines if the video is played continuously in a loop, or if it stops after playing once. _false_ by default. 
-TODO: not currently supported
--->
-
-
+- `loop`: Boolean that determines if the video is played continuously in a loop, or if it stops after playing once. _false_ by default. 
 - `playbackRate`: The speed at which the video is played 
 
 <!-- TODO: check if exposed and how it works -->
