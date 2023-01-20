@@ -433,16 +433,19 @@ While testing your scene, to avoid transferring real MANA currency, you can use 
 
 To use the test network you must set your Metamask Chrome extension to use the _Goerli test network_ instead of _Main network_.
 
-You must also own MANA in the Goerli blockchain. To obtain free Goerli mana in the test network, go to our [MANA faucet](https://faucet.decentraland.io/).
+You must acquire Goerli Ether, which you can obtain for free from various external faucets like [this one](https://faucet.paradigm.xyz/ ).
+
+If your transactions also involve MANA, you can also obtain free Goerli MANA from our [Goerli MANA faucet](https://faucet-goerli.decentraland.io/).
 
 {{< hint info >}}
-**💡 Tip**:  To run the transaction of transferring Goerli MANA to your wallet, you will need to pay a gas fee in Goerli Ether. If you don't have Goerli Ether, you can obtain it for free from various external faucets like [this one](https://faucet.ropsten.be/).
+**💡 Tip**:  To run the transaction of transferring Goerli MANA to your wallet, you will need to pay a gas fee in Goerli Ether. 
 {{< /hint >}}
 
 To preview your scene using the test network, add the `DEBUG` property to the URL you're using to access the scene preview on your browser. For example, if you're accessing the scene via `http://127.0.0.1:8000/?position=0%2C-1`, you should set the URL to `http://127.0.0.1:8000/?DEBUG&position=0%2C-1`.
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
 
+If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you'll need to swap MANA to that network after acquiring it in Goerli. To bridge Goerli MANA to the Polygon Testnet, visit your [Decentraland account page in Goerli](https://account.decentraland.zone/) and click on ‘swap’ on the Ethereum MANA side. 
 
 ## Send custom RPC messages
 
@@ -452,5 +455,5 @@ Use the function `sendAsync()` to send messages over [RPC protocol](https://en.w
 import { sendAsync } from "~system/EthereumController"
 
 // send a message
-await sendAsync({id:1, method: "", jsonParams:"" })
+await sendAsync({id:1, method: "myMethod", jsonParams:"{ myParam: myValue }" })
 ```
