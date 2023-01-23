@@ -139,7 +139,7 @@ For example:
 ]
 ```
 
-### Required Permissions
+### Required Permissions {#permissions}
 
 In `metadata.requiredPermissions` you'll find an array of well-known strings declaring which permissions should be asked from the player before the World Explorer allows certain actions. This is incumbent on the Explorer, on other clients built for different purposes may choose to ignore this.
 
