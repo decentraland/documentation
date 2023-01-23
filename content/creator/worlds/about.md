@@ -13,7 +13,7 @@ The name **Worlds** was given to scenes that exist outside the Genesis City boun
 Consider that this product is in BETA state before making it a key part of your product road map.  
 
 The BETA is open to anyone to use, to kick-off the product and be able to assess the scaling, a World scene must meet the following limitations: 
-- Scenes can be 4 parcels large of any shape 
+- Scenes have no parcel limitations since January 2023
 - 100 MB is the maximum size for the scene deployment 
 - Up to 100 users will be allowed to join a World scene concurrently  
 
@@ -45,7 +45,7 @@ dcl deploy --target-content https://worlds-content-server.decentraland.org`
 
 Once you run the command, you will be prompted to sign the deployment with your wallet and a set of validations will be executed to allow or reject the scene: 
 - The wallet signing the deployment must own the Decentraland NAME specified in the scene.json file 
-- The scene can occupy a maximum of 4 parcels of any shape
+- The scene has no parcel limitations (since January 2023)
 - The total size of the scene must be less or equal to 100 MB
 
 ### Joining a World 

@@ -5,7 +5,7 @@ description: Version support agreement
 categories:
   - development-guide
 type: Document
-url: /creator/releases/releases
+url: /creator/releases/version-agreement
 weight: 2
 ---
 
@@ -32,7 +32,7 @@ The goal of this versioning policy is to forge a contract between the Decentrala
 
 ## Support policy
 
-In every stable version family, the Decentraland Fountation supports only the latest minor version. At any given time there should be at most two supported families. 
+In every stable version family, the Decentraland Foundation supports only the latest minor version. At any given time there should be at most two supported families. 
 
 For example, if the latest minor version of the 6.x family is 6.11, and the latest minor version of the 7.x family is 7.3, content creators are expected to develop their scenes on either 6.11 or 7.3. Scenes that were developed and published with version 6.10 or older will most likely keep working and players will be able to enjoy them. However, if these older scenes experience any issue, they must first be updated to a supported version, and the issue will only be investigated if it still occurs in a supported version.
 
@@ -52,9 +52,13 @@ Whenever a new major release is introduced, a few initial minor releases may be 
 
 Developers are free to experiment with these alpha versions, but they're not encouraged to publish content built with unstable alpha versions, as there is no guarantee that the content will keep working after subsequent changes. It's also not recommended to begin large complicated migrations at this point, since more changes may be required before the next stable release.
 
-Once a major release reaches a certain level of maturity, a **beta** release can be made available. As of the release of the first beta version in a version family, the version family is considered **stable** and there should be no further changes to the syntax, other than addition of new features. Content written with the syntax of a beta version should be effortless to migrate to the next versions within that family tree. It's still not adviseable to develop content for major events with a beta version, as testing is still in progress and bugs are still likely.
+Once a major release reaches a certain level of maturity, a **beta** release can be made available. As of the release of the first beta version in a version family, the version family is considered **stable** and there should be no further changes to the syntax, other than addition of new features. Content written with the syntax of a beta version should be effortless to migrate to the next versions within that family tree. It's still not advisable to develop content for major events with a beta version, as testing is still in progress and bugs are still likely.
 
 Once the development of the version family is considered to be ready for production, a **GA** (general availability) release can be made available. From this point onwards, the version is considered the recommended and encouraged option for all developers to use.
+
+### Stable releases with unstable namespaces
+
+In exceptional cases, a stable (beta or GA) version may include specific features grouped into a legacy namespace that is not considered to be part of the supported release and is meant to be deprecated in the future. This namespace will be labeled as unstable, and the documentation will make it clear when this is the case. The purpose of leaving these legacy features is to aid in the transition between major versions, without losing any functionality. This can happen when a proper re-implementation of certain features is required, but it would delay releasing the stable version too much. Creators who make use of these legacy features must be aware that the feature will be replaced in future versions. In these cases, the changes will be communicated clearly, including migration guides, and there will be a transition period for creators to adjust their scene's code.
 
 
 ## How long do we support a stable version family?
