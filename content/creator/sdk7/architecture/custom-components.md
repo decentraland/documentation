@@ -18,14 +18,17 @@ If your scene's logic requires storing information about an entity that isn't ha
 
 To define a new component, use `engine.defineComponent`. Each component needs the following:
 
+- An **componentName**: A unique string identifier that the SDK uses internally to identify this component type. This can be any string, as long as it's unique.
 - A **schema**: A class that defines the data structure held by the component.
-- An **ID**: A unique identifier that the SDK uses to identify this component type.
+
 
 ```ts
-export const WheelSpinComponent = engine.defineComponent({
-	spinning: Schemas.Boolean,
-	speed: Schemas.Float
-}, 2000)
+export const WheelSpinComponent = engine.defineComponent(
+	"wheelSpinComponent",
+	{
+		spinning: Schemas.Boolean,
+		speed: Schemas.Float
+	})
 ```
 
 {{< hint info >}}
@@ -68,26 +71,13 @@ const readOnlyInstance MyCustomComponent.deleteFrom(myEntity)
 ```
 
 
-## About the ID
+## About the componentName
 
-Each component must have a unique ID, that differentiates it internally. The Decentraland SDK has the numbers 1000 to 2000 reserved for the base components. Any new component you create must have an id that is a number higher than **2000**.
+Each component must have a unique componentName, that differentiates it internally. You won't need to use this internal identifier anywhere else in your code. A good practice is to use the same name you assign to the component, but starting with a lower case letter, but all that really matters is that this identifier is unique within the project.
 
-A good practice is to list all of the IDs for components in your scene in an enum:
+When creating components that will be shared as part of a library, be mindful that the component names in your library must not overlap with any component names in the project where it's being used, or on other libraries that are also used by that project. To avoid the risk of any overlap, the recommended best practice is to include the name of the library as part of the `componentName` string, for example following this formula `${packageName}::${componentName}`.
 
-```ts
-enum CustomComponentIds {
-  isButton = 2001,
-  isDoor = 2002,
-  pickedUp = 2003
-}
-```
-
-
-{{< hint danger >}}
-**❗Warning**  
-Component IDs must be created in a deterministic way. Do not give it a random number, or one that may vary based on in what order the scene loads, or the actions taken by the player. This is especially consideration if changes in the scene are synced between players. If two player's local versions of the scene use different ids for a same component, it won't be possible to properly sync them.
-{{< /hint >}}
-
+If you build a`MyUtilities` library that includes a `MoveEntity` component, set that `componentName` of that component to `MyUtilities::moveEntity`.
 
 
 ## Components as flags
@@ -97,7 +87,7 @@ You may want to add a component that simply flags an entity to differentiate it 
 This is especially useful when using [querying components]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}). A simple flag component can be used tell entities apart from others, and avoid having the system iterate over more entities than needed.
 
 ```ts
-export const IsEnemyFlag = engine.defineComponent({}, 2000)
+export const IsEnemyFlag = engine.defineComponent("isEnemyFlag", {})
 ```
 
 You can then create a system that iterates over all entities with this component.
@@ -119,10 +109,10 @@ A schema describes the structure of the data inside a component. A component can
 Every field in the schema must include a type declaration. You can only use the special schema types provided by the SDK. For example, use the type `Schemas.Boolean` instead of type `boolean`. Write `Schemas.` and your IDE will display all the available options.
 
 ```ts
-export const WheelSpinComponent = engine.defineComponent({
+export const WheelSpinComponent = engine.defineComponent("wheelSpinComponent", {
 	spinning: Schemas.Boolean,
 	speed: Schemas.Float
-}, 2000)
+})
 ```
 
 The example above defines a component who's schema holds two values, a `spinning` boolean and a `speed` floating point number. 
@@ -132,10 +122,10 @@ You can chose to create the schema inline while defining the component, or for m
 
 ```ts
 // Option 1: Inline definition
-export const WheelSpinComponent = engine.defineComponent({
+export const WheelSpinComponent = engine.defineComponent("wheelSpinComponent", {
 	spinning: Schemas.Boolean,
 	speed: Schemas.Float
-}, 2000)
+})
 
 // Option 2: define schema and component separately
 
@@ -146,7 +136,7 @@ const mySchema = {
 }
 
 //// component
-export const WheelSpinComponent = engine.defineComponent(mySchema, 2000)
+export const WheelSpinComponent = engine.defineComponent("wheelSpinComponent", mySchema)
 ```
 
 {{< hint info >}}
@@ -193,7 +183,7 @@ const MoveTransportData = {
   speed: Schemas.Float,
 }
 
-export const LerpTransformComponent = engine.defineComponent(MoveTransportData, COMPONENT_ID)
+export const LerpTransformComponent = engine.defineComponent("lerpTransformComponent", MoveTransportData)
 ```
 
 
@@ -267,10 +257,10 @@ With your component defined and added to entities in your scene, you can create 
 
 ```ts
 // define component
-export const WheelSpinComponent = engine.defineComponent({
+export const WheelSpinComponent = engine.defineComponent("wheelSpinComponent", {
 	spinning: Schemas.Boolean,
 	speed: Schemas.Float
-}, 2000)
+})
 
 // Create entities
 const wheel = engine.addEntity()
@@ -308,4 +298,4 @@ export function spinSystem(dt: number) {
 engine.addSystem(spinSystem)
 ```
 
-The example above defines a system that iterates over all entities that include the custom `WheelSpinComponent`, and rotates them slightly on every tick of the game loop. The amount of this rotation is proportional to the `speed` value stored on each entity's instance of the component. The example makes use of [component queries]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to obtain only the relevant entities.
+The example above defines a system that iterates over all entities that include the custom `wheelSpinComponent`, and rotates them slightly on every tick of the game loop. The amount of this rotation is proportional to the `speed` value stored on each entity's instance of the component. The example makes use of [component queries]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to obtain only the relevant entities.

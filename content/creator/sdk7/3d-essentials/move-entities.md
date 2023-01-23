@@ -163,8 +163,6 @@ To implement this `lerp()` in your scene, we recommend creating a [custom compon
 ```ts
 
 // define custom component
-const COMPONENT_ID = 2046
-
 const MoveTransportData = {
   start: Schemas.Vector3,
   end: Schemas.Vector3,
@@ -172,7 +170,7 @@ const MoveTransportData = {
   speed: Schemas.Float,
 }
 
-export const LerpTransformComponent = engine.defineComponent(MoveTransportData, COMPONENT_ID)
+export const LerpTransformComponent = engine.defineComponent("lerpTransformComponent", MoveTransportData)
 
 
 // define system
@@ -234,8 +232,6 @@ To implement this in your scene, we recommend storing the data that goes into th
 
 ```ts
 // define custom component
-const COMPONENT_ID = 2046
-
 const RotateSlerpData = {
   start: Schemas.Quaternion,
   end: Schemas.Quaternion,
@@ -244,7 +240,7 @@ const RotateSlerpData = {
 }
 
 
-export const SlerpData = engine.defineComponent(RotateSlerpData, COMPONENT_ID)
+export const SlerpData = engine.defineComponent("SlerpData", RotateSlerpData)
 
 
 // define system
@@ -335,8 +331,6 @@ To implement this lerp in your scene, we recommend creating a custom component t
 ```ts
 
 // define custom component
-const COMPONENT_ID = 2046
-
 const ScaleTransportData = {
   start: Schemas.Number,
   end: Schemas.Number,
@@ -344,7 +338,7 @@ const ScaleTransportData = {
   speed: Schemas.Float,
 }
 
-export const ScaleTransformComponent = engine.defineComponent(ScaleTransportData, COMPONENT_ID)
+export const ScaleTransformComponent = engine.defineComponent("scaleTransformComponent", ScaleTransportData)
 
 
 // define system
@@ -392,8 +386,6 @@ Often these non-linear transitions can breathe a lot of life into a scene. A mov
 
 ```ts
 // define custom component
-const COMPONENT_ID = 2046
-
 const MoveTransportData = {
   start: Schemas.Vector3,
   end: Schemas.Vector3,
@@ -401,7 +393,7 @@ const MoveTransportData = {
   speed: Schemas.Float,
 }
 
-export const LerpTransformComponent = engine.defineComponent(MoveTransportData, COMPONENT_ID)
+export const LerpTransformComponent = engine.defineComponent("lerpTransformComponent", MoveTransportData)
 
 // define system
 function LerpMove(dt: number) {
@@ -452,8 +444,6 @@ You can have an entity loop over an array of vectors, performing a lerp movement
 
 ```ts
 // define custom component
-const COMPONENT_ID = 2046
-
 const PathTransportData = {
   path: Schemas.Array(Schemas.Vector3),
   start: Schemas.Vector3,
@@ -463,7 +453,7 @@ const PathTransportData = {
   pathTargetIndex: Schemas.Int
 }
 
-export const LerpTransformComponent = engine.defineComponent(PathTransportData, COMPONENT_ID)
+export const LerpTransformComponent = engine.defineComponent("lerpTransformComponent", PathTransportData)
 
 
 // define system
