@@ -73,11 +73,9 @@ const readOnlyInstance MyCustomComponent.deleteFrom(myEntity)
 
 ## About the componentName
 
-Each component must have a unique componentName, that differentiates it internally. You won't need to use this internal identifier anywhere else in your code. A good practice is to use the same name you assign to the component, but starting with a lower case letter, but all that really matters is that this identifier is unique within the project.
+Each component must have a unique componentName, that differentiates it internally. You don't need to use this internal identifier anywhere else in your code. A good practice is to use the same name you assign to the component, but starting with a lower case letter. However, any name will work as long as it's not used as a `componentName` by another component in the project.
 
-When creating components that will be shared as part of a library, be mindful that the component names in your library must not overlap with any component names in the project where it's being used, or on other libraries that are also used by that project. To avoid the risk of any overlap, the recommended best practice is to include the name of the library as part of the `componentName` string, for example following this formula `${packageName}::${componentName}`.
-
-If you build a`MyUtilities` library that includes a `MoveEntity` component, set that `componentName` of that component to `MyUtilities::moveEntity`.
+When creating components that will be shared as part of a library, be mindful that the component names in your library must not overlap with any component names in the project where it's being used, or on other libraries that are also used by that project. To avoid the risk of any overlap, the recommended best practice is to include the name of the library as part of the `componentName` string. You can follow this formula: `${packageName}::${componentName}`. For example if you build a`MyUtilities` library that includes a `MoveEntity` component, set the `componentName` of that component to `MyUtilities::moveEntity`.
 
 
 ## Components as flags
