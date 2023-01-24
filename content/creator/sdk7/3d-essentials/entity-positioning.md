@@ -194,10 +194,11 @@ Billboard.create(cube, {})
 You can configure how the billboard behaves with the following parameters:
 
 - `billboardMode`: Uses a value of the `BillboardMode` to set its behavior:
-	- `BillboardMode.BM_ALL_AXES`: The entity rotates to face the player on all of its rotation axis. If the player is high above the entity, the entity will face up.
-	- `BillboardMode.BM_Y_AXE`: The entity has its _y_ rotation axis fixed. It only rotates left and right, not up and down. It stays perpendicular to the ground if the player is above or below the entity.
-- `oppositeDirection`: Switch what side of the entity faces the player. This is useful for `TextShape` components, and for 3D models that may have been built using different conventions of what direction is _forward_.
-
+	- `BillboardMode.BM_ALL`: The entity rotates to face the player on all of its rotation axis. If the player is high above the entity, the entity will face up.
+	- `BillboardMode.BM_NONE`: The entity won't rotate at all.
+	- `BillboardMode.BM_X`:  The entity has its _x_ rotation axis fixed.
+	- `BillboardMode.BM_Y`: The entity has its _y_ rotation axis fixed. It only rotates left and right, not up and down. It stays perpendicular to the ground if the player is above or below the entity.
+	- `BillboardMode.BM_Z`: The entity has its _z_ rotation axis fixed.
 
 
 ```ts
@@ -211,7 +212,7 @@ Transform.create(perpendicularPlane, {
 PlaneShape.create(perpendicularPlane)
 
 Billboard.create(perpendicularPlane, {
-  billboardMode: BillboardMode.BM_Y_AXE,
+  billboardMode: BillboardMode.BM_Y,
 })
 
 // text label
@@ -225,13 +226,11 @@ TextShape.create(textLabel, {
     text: "This text is always readable",
   })
 
-Billboard.create(textLabel, {
-  oppositeDirection: true
-})
+Billboard.create(textLabel)
 ```
 
 {{< hint info >}}
-**💡 Tip**:  Billboards are very handy to add to _text_ entities, since it makes them always legible. When using a billboard on an entity with a `TextShape` component, set `oppositeDirection` to true, so that you see the text facing the right way.
+**💡 Tip**:  Billboards are very handy to add to _text_ entities, since it makes them always legible.
 {{< /hint >}}
 
 The `rotation` value of the entity's `Transform` component doesn't change as the billboard follows players around.
