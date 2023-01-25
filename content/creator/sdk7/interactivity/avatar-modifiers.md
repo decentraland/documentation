@@ -13,6 +13,11 @@ weight: 3
 
 Avatars behave and look consistently throughout Decentraland as they walk across scenes. However, you can add an `AvatarModifierArea` to a region of your scene to affect how player avatars behave when they enter that area.
 
+{{< hint danger >}}
+**❗Warning**  
+Please limit the amount of `AvatarModifierAreas` you use in your scene to just a couple. If you use too many of them, it may have a significant impact on performance.
+{{< /hint >}}
+
 #### Placing Avatar Modifier Areas
 
 Add an entity with an `AvatarModifierArea` component and position this entity by using a `Transform` component.
@@ -174,6 +179,20 @@ executeTask(async () => {
   })
 })
 ```
+
+{{< hint danger >}}
+**❗Warning**  
+If the list of excluded IDs is going to be periodically changed (for example based on players entering or leaving an area), make sure that the list is kept in order. Perform a `.sort()` on the array, so that the list remains in the same order each time it's passed. In that way, only the changes to the list are be computed. This can otherwise have a significant impact on the scene's performance.
+
+```ts
+  AvatarModifierArea.create(entity, {
+    area: Vector3.create(16, 5, 16),
+    modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+    excludeIds: [myAvatarList.sort()],
+  })
+```
+
+{{< /hint >}}
 
 ## Debug modifier areas
 
