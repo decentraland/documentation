@@ -10,27 +10,27 @@ weight: 4
 ---
 
 
-To make a player perform an emote, use the `triggerEmote()` function. Note that only existing default emotes are supported for now. This function takes a single argument:
+To make a player perform an emote, use the `triggerEmote()` function. Note that only existing default emotes are supported for now. This function takes a an object as an argument, this object only needs to have one property in it:
 
-- `emote`: An emote from the `PredefinedEmote` enum.
+- `predefinedEmote`: A string name for an existing emote.
 
 ```ts
 import { triggerEmote } from "~system/RestrictedActions"
 
 const emoter = engine.addEntity()
-Transform.create(emoter, { position: { 8, 0, 8 } })
+Transform.create(emoter, { position: Vector3.create(8, 0, 8) })
 MeshRenderer.setBox(emoter)
 MeshCollider.setBox(emoter)
 pointerEventsSystem.onPointerDown(
   emoter,
   () => {
-    triggerEmote({ predefined: "robot" })
+    triggerEmote({ predefinedEmote: "robot" })
   },
   { button: InputAction.IA_PRIMARY, hoverText: 'Dance' }
 )
 ```
 
-There are some default emotes available to all players:
+The following list covers some of the default emotes that are available to all players, all of these are valid values for the `predefinedEmote` field:
 
 - `wave`
 - `fist_pump`
