@@ -83,7 +83,7 @@ A system's function is executed periodically, once per every tick of the game lo
 In a Decentraland scene, you can think of the game loop as the aggregation of all the system functions in your scene.
 
 {{< hint warning >}}
-**📔 Note**   If you add multiple instances of a same system to the engine, the function will be executed multiple times per tick of the game loop. For example, adding a system twice could result in an entity moving at twice the speed as expected, as it advances two increments on each tick.
+**📔 Note**:  If you add multiple instances of a same system to the engine, the function will be executed multiple times per tick of the game loop. For example, adding a system twice could result in an entity moving at twice the speed as expected, as it advances two increments on each tick.
 {{< /hint >}}
 
 ## Handle entities by reference

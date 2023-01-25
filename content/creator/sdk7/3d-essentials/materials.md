@@ -71,7 +71,7 @@ Give a material a plain color. In a PBR Material, you set the `albedoColor` fiel
 Color values are of type `Color4`, composed of _r_, _g_ and _b_ values (red, green, and blue). Each of these takes values between 0 and 1. By setting different values for these, you can compose any visible color. For black, set all three to 0. For white, set all to 1.
 
 {{< hint warning >}}
-**📔 Note**   If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `{r: 15, g: 0, b: 0}` produces a very bright red glow.
+**📔 Note**:  If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `{r: 15, g: 0, b: 0}` produces a very bright red glow.
 {{< /hint >}}
 
 See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.
@@ -274,7 +274,7 @@ Material.setPbrMaterial(myEntity, {
 The example above sets the wrapping mode to `TWM_MIRROR`.
 
 {{< hint warning >}}
-**📔 Note**   Uv properties are currently only available on `plane` and on `box` shapes.
+**📔 Note**:  Uv properties are currently only available on `plane` and on `box` shapes.
 {{< /hint >}}
 
 #### Texture scaling

@@ -105,7 +105,7 @@ shark.getComponent(Animator).getClip("swim")
 ... which one is true?
 
 {{< hint warning >}}
-**📔 Note**   If you attempt to use `getClip()` to fetch a clip that doesn't exist in the Animator component, it returns `null`.
+**📔 Note**:  If you attempt to use `getClip()` to fetch a clip that doesn't exist in the Animator component, it returns `null`.
 {{< /hint >}}
 
 If you try to get an `AnimationState` that was never added to the `Animator` component, the clip is created and added automatically.
@@ -191,7 +191,7 @@ clipSwim.play(true)
 ```
 
 {{< hint warning >}}
-**📔 Note**   Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
+**📔 Note**:  Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
 {{< /hint >}}
 
     - apply an animation with a `weight` property of 0 and gradually increase the `weight`
@@ -230,7 +230,7 @@ engine.addEntity(shark)
 In the example above, two animations are handled by separate `AnimationState` objects, and they are then both assigned to the same `Animator` component.
 
 {{< hint warning >}}
-**📔 Note**   If the layer of an animation isn't specified, it's assigned to layer 0.
+**📔 Note**:  If the layer of an animation isn't specified, it's assigned to layer 0.
 {{< /hint >}}
 
 Each bone in an animation can only be affected by one animation at a time, unless these animations have a `weight` that adds up to a value of 1 or less.
@@ -291,7 +291,7 @@ The `weight` property can be used in interesting ways, for example the `weight` 
 You could also change the `weight` value gradually when starting and stopping an animation to give it a more natural transition and to avoid jumps from the default pose to the first pose in the animation.
 
 {{< hint warning >}}
-**📔 Note**   The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
+**📔 Note**:  The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
 {{< /hint >}}
 
 ## Set clip parameters in bulk
@@ -353,5 +353,5 @@ engine.addEntity(shark2)
 ```
 
 {{< hint warning >}}
-**📔 Note**   If you define a single `AnimationState` object instance and add it to multiple `Animator` components from different entities, all entities using the `AnimationState` instance will be animated together at the same time.
+**📔 Note**:  If you define a single `AnimationState` object instance and add it to multiple `Animator` components from different entities, all entities using the `AnimationState` instance will be animated together at the same time.
 {{< /hint >}}

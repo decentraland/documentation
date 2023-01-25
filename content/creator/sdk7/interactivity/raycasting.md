@@ -30,7 +30,7 @@ A Raycast component describes the invisible ray that will be used to query for e
 	- `RaycastQueryType.RQT_HIT_FIRST`: returns all hit entities, from the origin through to the max distance of the ray.
 
 {{< hint warning >}}
-**📔 Note**   The `origin` and `direction` are not affected if the entity that holds the `Raycast` component also has a Transform, or if the entity has a parent entity with a Transform. The ray is traced in scene space, relative to the scene's _0, 0, 0_ point. 
+**📔 Note**:  The `origin` and `direction` are not affected if the entity that holds the `Raycast` component also has a Transform, or if the entity has a parent entity with a Transform. The ray is traced in scene space, relative to the scene's _0, 0, 0_ point. 
 {{< /hint >}}
 
 
@@ -122,7 +122,7 @@ engine.addSystem(() => {
 ```
 
 {{< hint warning >}}
-**📔 Note**   The results of a raycast do not arrive on the same tick of the game loop that you created the raycast. The results may take one or multiple ticks to arrive.
+**📔 Note**:  The results of a raycast do not arrive on the same tick of the game loop that you created the raycast. The results may take one or multiple ticks to arrive.
 {{< /hint >}}
 
 

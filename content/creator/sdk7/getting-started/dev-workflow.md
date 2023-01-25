@@ -54,8 +54,10 @@ The following options are available:
 - [Purchase LAND]({{< ref "/content/player/marketplace/marketplace.md" >}})
 - Obtain permissions from a land owner
 - Publish to a Decentraland World, see [worlds]({{< ref "/content/creator/worlds/about.md" >}}) to learn more.
-	{{< hint warning >}}
-**📔 Note**   The Worlds feature is still in beta.
+
+{{< hint warning >}}
+**📔 Note**:  The Worlds feature is still in beta.
+{{< /hint >}}
 
 See [Publishing options]({{< ref "/content/creator/sdk7/publishing/publishing-options.md" >}}) for more details.
 
@@ -107,7 +109,7 @@ Once you're happy with your scene, it's time to publish it to the production env
 - [Publish to prod]({{< ref "/content/creator/sdk7/publishing/publishing.md#to-publish-the-scene" >}}).
 
 {{< hint warning >}}
-**📔 Note**   Before you do, check that your scene has all the necessary metadata: name, description, a preview image, spawn points. See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for details.
+**📔 Note**:  Before you do, check that your scene has all the necessary metadata: name, description, a preview image, spawn points. See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for details.
 {{< /hint >}}
 
 

@@ -88,7 +88,7 @@ executeTask(async () => {
 ```
 
 {{< hint warning >}}
-**📔 Note**   Even though the eth address may contain upper case characters, some browsers convert the returned string to lower case automatically. If you wish compare address values and have it work on all browsers, use the `.toLowerCase()` method to convert the value into lower case.
+**📔 Note**:  Even though the eth address may contain upper case characters, some browsers convert the returned string to lower case automatically. If you wish compare address values and have it work on all browsers, use the `.toLowerCase()` method to convert the value into lower case.
 {{< /hint >}}
 
 ## Sign messages
@@ -247,7 +247,7 @@ This controller operates at a lower level than the _Ethereum controller_ (in fac
 It's main use is to call functions in a contract, it also offers a number of helper functions for various tasks. Check it out on [GitHub](https://github.com/decentraland/eth-connect).
 
 {{< hint warning >}}
-**📔 Note**   The eth-connect library is currently lacking more in-depth documentation. Since this library is mostly based on the Web3.js library and most of the function names are intentionally kept identical to those in Web3.js, it can often help to refer to [Web3's documentation](https://web3js.readthedocs.io/en/1.0/).
+**📔 Note**:  The eth-connect library is currently lacking more in-depth documentation. Since this library is mostly based on the Web3.js library and most of the function names are intentionally kept identical to those in Web3.js, it can often help to refer to [Web3's documentation](https://web3js.readthedocs.io/en/1.0/).
 {{< /hint >}}
 
 
@@ -260,12 +260,12 @@ npm install eth-connect -B
 ```
 
 {{< hint warning >}}
-**📔 Note**   Decentraland scenes don't support older versions than 4.0 of the eth-connect library.
+**📔 Note**:  Decentraland scenes don't support older versions than 4.0 of the eth-connect library.
 {{< /hint >}}
 
 
 {{< hint warning >}}
-**📔 Note**   Currently, we don't allow installing other dependencies via npm that are not created by Decentraland. This is to keep scenes well sandboxed and prevent malicious code.
+**📔 Note**:  Currently, we don't allow installing other dependencies via npm that are not created by Decentraland. This is to keep scenes well sandboxed and prevent malicious code.
 {{< /hint >}}
 
 

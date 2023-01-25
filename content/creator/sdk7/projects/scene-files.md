@@ -30,7 +30,7 @@ In most cases, you'll only need to edit this and other .ts files to create your 
 When running the scene, the contents of your `.ts` files are compiled to a single minified `.js` file, `bin/scene.js`. 
 
 {{< hint warning >}}
-**📔 Note**   You can use another tool or language instead of TypeScript, so long as your scripts are contained within a single Javascript file (bin/scene.js). All provided type declarations are made in TypeScript, and other languages and transpilers are not officially supported.
+**📔 Note**:  You can use another tool or language instead of TypeScript, so long as your scripts are contained within a single Javascript file (bin/scene.js). All provided type declarations are made in TypeScript, and other languages and transpilers are not officially supported.
 {{< /hint >}}
 
 
@@ -79,12 +79,12 @@ We suggest using these folder names consistently for storing the different types
 - _.ts_ definitions for systems `/src/systems`
 
 {{< hint warning >}}
-**📔 Note**   Supporting files for glTF models, like their texture image files or _.bin_ files, should always be placed in the same folder as the model's _.gltf_ or _.glb_ file.
+**📔 Note**:  Supporting files for glTF models, like their texture image files or _.bin_ files, should always be placed in the same folder as the model's _.gltf_ or _.glb_ file.
 {{< /hint >}}
 
 
 {{< hint warning >}}
-**📔 Note**   We recommend using always lower case names for all folders and file names, to avoid possible issues.
+**📔 Note**:  We recommend using always lower case names for all folders and file names, to avoid possible issues.
 {{< /hint >}}
 
 

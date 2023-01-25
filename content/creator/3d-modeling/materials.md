@@ -16,7 +16,7 @@ Materials are embedded into a _.gltf_ or _.glb_ file.
 This document refers to materials that are imported in a 3D model. For materials defined via code to apply onto primitive shapes, see [materials]({{< ref "/content/creator/scenes/3d-essentials/materials.md" >}}).
 
 {{< hint warning >}}
-**📔 Note**   You can't currently dynamically change the materials of a 3D model from your scene's code, unless this is a primitive shape.
+**📔 Note**:  You can't currently dynamically change the materials of a 3D model from your scene's code, unless this is a primitive shape.
 {{< /hint >}}
 
 ## Shader support
@@ -169,7 +169,7 @@ The colors on the normal map are not to be taken literally, but instead map to w
 For example in this brick wall can be overlayed on a texture that matches the same brick positions. The different color mapping implies that the blue bricks will bounce light forward. The green margins on the top bounce light upwards. The cracks between the bricks reflect a lot less light. This is a great way to get the lighting on the wall behave more realistically, without having to spend geometry on each individual brick.
 
 {{< hint warning >}}
-**📔 Note**   Never use the same texture file for both the texture of an object and its normal map. Create a separate file and name it differently. Models in deployed scenes are compressed by the content servers, and normal maps are compressed differently to other textures. The compressed model might end up looking very different if the server compresses a texture as a normal map or viceversa.
+**📔 Note**:  Never use the same texture file for both the texture of an object and its normal map. Create a separate file and name it differently. Models in deployed scenes are compressed by the content servers, and normal maps are compressed differently to other textures. The compressed model might end up looking very different if the server compresses a texture as a normal map or viceversa.
 {{< /hint >}}
 
 

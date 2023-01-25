@@ -13,7 +13,7 @@ Entities that have colliders occupy space and block a player's path, entities wi
 Colliders are also needed to make an entity clickable. Button events are based on the collider shape of an entity, not on its visible shape. 
 
 {{< hint warning >}}
-**📔 Note**   Colliders don't affect how other entities interact with each other, entities can always overlap. Collision settings only affect how the entity interacts with the player's avatar and button events. Decentraland doesn't have a native physics engine, so if you want entities to fall, crash or bounce, you must code this behavior into the scene, or import a library to handle that.
+**📔 Note**:  Colliders don't affect how other entities interact with each other, entities can always overlap. Collision settings only affect how the entity interacts with the player's avatar and button events. Decentraland doesn't have a native physics engine, so if you want entities to fall, crash or bounce, you must code this behavior into the scene, or import a library to handle that.
 {{< /hint >}}
 
 ## Colliders on primitive shapes

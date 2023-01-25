@@ -12,7 +12,7 @@ weight: 5
 ---
 
 {{< hint warning >}}
-**📔 Note**   The creation of new Smart items is no longer supported with the latest versions of the SDK.
+**📔 Note**:  The creation of new Smart items is no longer supported with the latest versions of the SDK.
 {{< /hint >}}
 
 Through the Builder, you can drag and drop smart items into a scene. These are items that have configurable parameters and actions that can be triggered, like doors that can be opened or levers that can be activated. There is a default collection of smart items in the Builder, but you can also create your own and import them.
@@ -95,7 +95,7 @@ Type _actions_ refers to an action in this or another smart item. When this type
 ```
 
 {{< hint warning >}}
-**📔 Note**   Decorators can use the plus sign to add as many actions as they want to one single _actions_ field.
+**📔 Note**:  Decorators can use the plus sign to add as many actions as they want to one single _actions_ field.
 {{< /hint >}}
 
 ![](/images/media/smart-item-actions.png)
@@ -111,7 +111,7 @@ Type `entity` refers to another item. When this type is used, the field will pre
 ```
 
 {{< hint warning >}}
-**📔 Note**   Decorators can add a single entity in fields of type _entity_.
+**📔 Note**:  Decorators can add a single entity in fields of type _entity_.
 {{< /hint >}}
 
 ![](/images/media/smart-item-entity-field.png)
@@ -322,7 +322,7 @@ export default class Door implements IScript<Props> {
 ```
 
 {{< hint warning >}}
-**📔 Note**   Keep in mind that external libraries aren't supported in smart items, not even the `decentraland-esc-utils` library, so all of your item's logic should be written using the SDK directly.
+**📔 Note**:  Keep in mind that external libraries aren't supported in smart items, not even the `decentraland-esc-utils` library, so all of your item's logic should be written using the SDK directly.
 {{< /hint >}}
 
 #### Item class setup
@@ -429,7 +429,7 @@ It's important that you name your custom components with unique names that shoul
 If you need your item to perform a gradual action that is executed frame by frame, like moving or rotating (not by animation), then you need to define [systems]({{< ref "/content/creator/scenes/architecture/systems.md" >}}) to carry this out. Delaying an action also requires creating a system that waits x milliseconds.
 
 {{< hint warning >}}
-**📔 Note**   The `decentraland-ecs-utils` library can perform many of these actions in a scene's code, but this library is not supported in smart items. Any transition needs to be explicitly written as a system.
+**📔 Note**:  The `decentraland-ecs-utils` library can perform many of these actions in a scene's code, but this library is not supported in smart items. Any transition needs to be explicitly written as a system.
 {{< /hint >}}
 
 As with custom components, systems need to have unique names that don't overlap with those of other smart items used in the same scene. Again, we recommend using the item name as part of the system name to avoid this.

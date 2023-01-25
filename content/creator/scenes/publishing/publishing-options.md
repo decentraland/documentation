@@ -26,7 +26,7 @@ In order to publish to LAND in Genesis City, you can do the following:
 - **Worlds (Beta)**: You can also deploy a stand-alone scene as a Decentraland World. Worlds exist outside the grid of Genesis Plaza, and can be accessed by name. See [worlds]({{< ref "/content/creator/worlds/about.md" >}})
 
 {{< hint warning >}}
-**📔 Note**   You can also deploy scenes to a test server where players are not around. The same permissions per parcel apply when deploying to the test server, see [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) for more details.
+**📔 Note**:  You can also deploy scenes to a test server where players are not around. The same permissions per parcel apply when deploying to the test server, see [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) for more details.
 {{< /hint >}}
 
 ## Get DAO funding

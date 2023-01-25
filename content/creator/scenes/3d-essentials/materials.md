@@ -51,7 +51,7 @@ const myMaterial = new BasicMaterial()
 ```
 
 {{< hint warning >}}
-**📔 Note**   Basic materials have some property names that are different from those in normal materials. For example it uses `texture` instead of `albedoTexture`.
+**📔 Note**:  Basic materials have some property names that are different from those in normal materials. For example it uses `texture` instead of `albedoTexture`.
 {{< /hint >}}
 
 ## Material colors
@@ -65,7 +65,7 @@ myMaterial.albedoColor = new Color3(0.5, 0, 0.5)
 ```
 
 {{< hint warning >}}
-**📔 Note**   If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `new Color3(15, 0, 0)` produces a very bright red glowing color.
+**📔 Note**:  If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `new Color3(15, 0, 0)` produces a very bright red glowing color.
 {{< /hint >}}
 
 You can also pick predetermined colors using the following functions of the `Color3` object:
@@ -340,7 +340,7 @@ You can also define how the texture is tiled if the mapping spans more than the 
 - `MIRROR`: As in wrap, the texture is repeated as many times as it fits, but the orientation of these repetitions is mirrored.
 
 {{< hint warning >}}
-**📔 Note**   The `wrap` property must be set when instancing the texture, after that it's a read-only property.
+**📔 Note**:  The `wrap` property must be set when instancing the texture, after that it's a read-only property.
 {{< /hint >}}
 
 ```ts
@@ -350,7 +350,7 @@ let myTexture = new Texture("materials/atlas.png", { wrap: 2 })
 The example above sets the wrapping mode to `MIRROR`.
 
 {{< hint warning >}}
-**📔 Note**   Uv properties are currently only available on `PlaneShape` and on `BoxShape` components.
+**📔 Note**:  Uv properties are currently only available on `PlaneShape` and on `BoxShape` components.
 {{< /hint >}}
 
 #### Texture scaling
@@ -386,7 +386,7 @@ To make a material with texture transparent:
 - Set an image in `alphaTexture`.
 
 {{< hint warning >}}
-**📔 Note**   This must be a single-channel image. In this image use the color red to determine what parts of the real texture should be transparent.
+**📔 Note**:  This must be a single-channel image. In this image use the color red to determine what parts of the real texture should be transparent.
 {{< /hint >}}
 
 - Optionally set the `transparencyMode` to: - `OPAQUE`: No transparency at all - `ALPHATEST`: Each pixel is either completely opaque or completely transparent, based on a threshold. - `ALPHABLEND`: Intermediate values are possible based on the value of each pixel.

@@ -149,7 +149,9 @@ In Flexbox, entity positions are mostly determined by how they are parented, and
 
 - `position`: The position values `top`, `right`, `bottom`, and `left` behave differently depending on the `positionType`. For a relative entity they offset the position of the entity in the direction specified. For absolute entity though these properties specify the offset of the entity's side from the same side on the parent.  The expected value is an object that contains the properties `top`, `left`, `bottom`, and `right`.
 
-> Note: When measuring from the top, the numbers for `position` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `position` to 20, -20.
+{{< hint warning >}}
+**📔 Note**  : When measuring from the top, the numbers for `position` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `position` to 20, -20.
+{{< /hint >}}
 
 
 <!-- 

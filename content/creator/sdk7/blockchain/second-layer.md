@@ -55,6 +55,6 @@ To do this:
 3. Click 'Save' to add this new network to Metamask.
 
 {{< hint warning >}}
-**📔 Note**   Learn more about how to set up Matic on their [Documentation page](https://docs.matic.network/docs/develop/getting-started)
+**📔 Note**:  Learn more about how to set up Matic on their [Documentation page](https://docs.matic.network/docs/develop/getting-started)
 {{< /hint >}}
 
