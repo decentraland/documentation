@@ -334,7 +334,7 @@ The `getCurrentRealm()` function returns the following information:
 - `displayName`: _(string)_ The full address of the realm, composed of the server + the room
 - `domain`: _(string)_ The URL of the server the player is connected to
 - `serverName`: _(string)_ The name of the server the player is connected to
-- `room`: _(string)_  The name of the room the player is connected to
+- `room`: _(string)_  The name of the room the player is connected to, in some versions of comms, this is a 1-to-1 map to the island name
 
 {{< hint warning >}}
 **📔 Note**:  The `layer` property is deprecated, and should be avoided.
