@@ -12,9 +12,11 @@ weight: 7
 
 Data Oriented Programming is a powerful approach to programming that results in big improvements to performance. It focuses on treating _data_ as the cental element, all else is organized around it, to either access or modify that data. This approach is also very multiplayer friendly, as it makes the data that needs to be synchronized between players easier and faster to access.
 
-Data Oriented Programming encourages you to think about everything in your scene as data that needs to be copied and mutated throughout the various systems. The main benefit of this approach is on optimizing the speed at which data can be read from memory, which is often the main bottleneck while running modern applications and games. Adopting this approach very often results in improvements that are very noticeable.
+Data Oriented Programming encourages you to think about everything in your scene as data that needs to be copied and mutated throughout the various systems. The main benefit of this approach is on optimizing the speed at which data can be read from memory, which is often the main bottleneck while running modern applications and games.
 
 Because of this remarkable improvement in performance, much of the game making industry has been shifting towards adopting this approach over the last few years.
+
+Decentraland's SDK executes scenes in JavaScript, and one drawback of this language is that it offers no control over memory allocation. The engine that runs Decentraland, however, uses C#, which does benefit a lot by following data oriented principles. The SDK and the engine are constantly sending messages between each other. To make this communication as efficient as possible, it makes sense to keep the data structures on both sides as similar as possible, to avoid having to constantly reorganize this data.
 
 ## How it looks
 
