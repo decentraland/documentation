@@ -62,3 +62,22 @@ If you are a LAND owner and you wish to deploy a World scene to the Genesis City
 Things to remember:
 * remove the `worldConfiguration` section from `scene.json`
 * the size limitation for Worlds (100 MB, an average of 25MB per parcel) is larger than that for LAND parcels (15MB a parcel), so make sure your scene is sized correctly for deployments to Genesis City!
+
+### World defaults 
+
+A couple of optional custom settings can be specified in the `scene.json` when deploying a world scene:
+
+**skybox**: This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the seconds value is 36000, it corresponds to 10. 
+
+**fixedAdapter**: indicates which Communication Service should by used by the scene. For the time being only the `offline:offiline` value is allowed and when set, the scene will have no Communication Service and each user joining that world will always be alone. If not set, the Worlds content server comms-fixedAdapter will be used: https://worlds-content-server.decentraland.org/about
+
+**Example:**
+```json
+{
+  "worldConfiguration" : {
+    "name": "my-name.dcl.eth",
+    "skybox": 36000,
+    "fixedAdapter": "offline:offline"
+  }
+}
+```
