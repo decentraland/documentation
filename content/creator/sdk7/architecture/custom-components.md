@@ -181,7 +181,7 @@ const MoveTransportData = {
   speed: Schemas.Float,
 }
 
-export const LerpTransformComponent = engine.defineComponent("lerpTransformComponent", MoveTransportData)
+export const LerpTransformComponent = engine.defineComponent("LerpTransformComponent", MoveTransportData)
 ```
 
 
