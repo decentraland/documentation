@@ -134,7 +134,7 @@ const mySchema = {
 }
 
 //// component
-export const WheelSpinComponent = engine.defineComponent("wheelSpinComponent", mySchema)
+export const WheelSpinComponent = engine.defineComponent("WheelSpinComponent", mySchema)
 ```
 
 {{< hint info >}}
