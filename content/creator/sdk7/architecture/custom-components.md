@@ -255,7 +255,7 @@ With your component defined and added to entities in your scene, you can create 
 
 ```ts
 // define component
-export const WheelSpinComponent = engine.defineComponent("wheelSpinComponent", {
+export const WheelSpinComponent = engine.defineComponent("WheelSpinComponent", {
 	spinning: Schemas.Boolean,
 	speed: Schemas.Float
 })
