@@ -120,7 +120,7 @@ You can chose to create the schema inline while defining the component, or for m
 
 ```ts
 // Option 1: Inline definition
-export const WheelSpinComponent = engine.defineComponent("wheelSpinComponent", {
+export const WheelSpinComponent = engine.defineComponent("WheelSpinComponent", {
 	spinning: Schemas.Boolean,
 	speed: Schemas.Float
 })
