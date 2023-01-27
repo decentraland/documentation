@@ -109,12 +109,14 @@ executeTask(async () => {
 
 The function returns the entire set of data described above, including address, name, wearables, snapshots, etc.
 
+
+
 {{< hint info >}}
-**💡 Tip**:  The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**💡 Tip**: When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**:  When running a local preview, use `dcl start --web3` to connect with your wallet and fetch your actual data. Otherwise, the preview uses random user data, just as when you enter as a guest.
+**📔 Note**: The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
 #### Data from nearby players
