@@ -9,18 +9,10 @@ url: /creator/development-guide/sdk7/scene-blockchain-operations/
 weight: 1
 ---
 
-# 🚨 Ethereum interactions are not yet working for the SDK7 https://github.com/decentraland/sdk/issues/497
-
 
 A Decentraland scene can interface with the Ethereum blockchain. This can serve to obtain data about the user's wallet and the tokens in it, or to trigger transactions that could involve any Ethereum token, fungible or non-fungible. This can be used in many ways, for example to sell tokens, to reward tokens as part of a game-mechanic, to change how a player interacts with a scene if they own certain tokens, etc.
 
 You use the **Ethers.js** library in Decentraland scenes, this is a popular 3rd party library to interact with the Ethereum blockchain.
-
-The following alternative tools also exist, provided as part of the Decentraland SDK:
-
-- The `Ethereum controller`: A basic library that offers some limited but simple functionality.
-- The `eth-connect` library: A lower level library to interface with Ethereum contracts and call their functions, for example to trigger transactions or check balances.
-
 
 Note that all transactions in the Ethereum mainnet that are triggered by a scene will require a player to approve and pay a gas fee.
 
@@ -35,6 +27,17 @@ If using the CLI, run the preview with:
 dcl start --web3
 ```
 
+## Download and import the ethers.js library
+
+To use ethers.js library, you must manually install the package in your scene's project. To do so, follow the steps in [Manage dependencies]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md" >}}), typing the library name `ethers`.
+
+Once installed, you can import whatever you need from `ethers` to the scene's code:
+
+```ts
+import { ethers } from 'ethers'
+```
+<!-- 
+
 ## Ethereum controller library
 
 The simplest way to perform operations on the Ethereum blockchain is through the _ethereum controller_ library. This controller is packaged with the SDK, so you don't need to run any manual installations.
@@ -45,52 +48,29 @@ To import the Ethereum controller into your scene file:
 import * as EthereumController from "~system/EthereumController"
 ```
 
-Below we explain some of the things you can do with this controller.
+Below we explain some of the things you can do with this controller. -->
 
 ## Get a player's ethereum account
 
-Use the `getUserAccount()` function from the EthereumController to find a player's Ethereum public key.
+To get a player's Ethereum account, use the `getUserData()` function. 
 
 ```ts
-import { getUserAccount } from "~system/EthereumController"
+import { getUserData } from "~system/UserIdentity"
+
 
 executeTask(async () => {
-  try {
-    const address = await getUserAccount({})
-    console.log(address)
-  } catch (error:any) {
-    console.log(error.toString())
+  let userData = await getUserData({})
+  if(userData.data.hasConnectedWeb3){
+	console.log(userData.data.publicKey)
+  } else {
+	log("Player is not connected with Web3")
   }
 })
 ```
 
-As shown in the example above, you should wrap the function in an `async()` function, learn more about this in [async functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}})
+Note that if a player has entered Decentraland as a guest, they will not have a connected ethereum wallet. If they are connected as guests, the `hasConnectedWeb3` field in the response from `getUserData` will be false. If `hasConnectedWeb3` is true, then you can obtain the player's address from the field `publicKey`. Learn more about the data you can obtain from a player in [get player data]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >}})
 
-The following example keeps track of provided addresses.
-
-```ts
-import { getUserAccount } from "@decentraland/EthereumController"
-
-let registeredAddresses: String[] = []
-
-executeTask(async () => {
-  try {
-    const address = await getUserAccount({})
-	if(address.address){
-		let lowerCaseAddress = address.address.toLowerCase()
-		for (let i = 0; i < registeredAddresses.length; i++) {
-		  if (lowerCaseAddress == registeredAddresses[i]) {
-			console.log("already registered")
-		  } else {
-			registeredAddresses.push(lowerCaseAddress)
-		  }
-		}
-	}
-  } catch (error:any) {
-    console.log(error.toString())
-  }
-})
-```
+You should wrap the function in an `async()` function, learn more about this in [async functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}})
 
 {{< hint warning >}}
 **📔 Note**:  Even though the eth address may contain upper case characters, some browsers convert the returned string to lower case automatically. If you wish compare address values and have it work on all browsers, use the `.toLowerCase()` method to convert the value into lower case.
@@ -239,28 +219,8 @@ The example above listens for clicks on a _button_ entity. When clicked, the pla
 
 ## Lower level operations
 
-The eth-connect library is made and maintained by Decentraland. It's based on the popular [Web3.js](https://github.com/ethereum/web3.js/) library, but it's fully written in TypeScript and features a few security improvements.
 
-This controller operates at a lower level than the _Ethereum controller_ (in fact the _Ethereum controller_ is built upon it) so it's tougher to use but more flexible.
-
-It's main use is to call functions in a contract, it also offers a number of helper functions for various tasks. Check it out on [GitHub](https://github.com/decentraland/eth-connect).
-
-{{< hint warning >}}
-**📔 Note**:  The eth-connect library is currently lacking more in-depth documentation. Since this library is mostly based on the Web3.js library and most of the function names are intentionally kept identical to those in Web3.js, it can often help to refer to [Web3's documentation](https://web3js.readthedocs.io/en/1.0/).
-{{< /hint >}}
-
-
-#### Download and import the eth-connect library
-
-To use eth-connect library, you must manually install the package in your scene's project. To do so, follow the steps in [Manage dependencies]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md" >}}), typing the library name `eth-connect`.
-
-Once installed, you can import whatever you need from `eth-connect` to the scene's code:
-
-```ts
-import { toHex } from "eth-connect"
-```
-
-#### Check gas price
+### Check gas price
 
 After importing the `eth-connect` library, you must instance a web3 provider and a request manager, which will will allow you to connect via web3 to Metamask in the player's browser.
 
