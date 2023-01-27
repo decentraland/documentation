@@ -159,7 +159,7 @@ To deploy to the test server, run:
 
 To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
 
-_play.decentraland.org/&CATALYST=peer-testing.decentraland.org_
+_https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
 
 
 ## Verify deployment success

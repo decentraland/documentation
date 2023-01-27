@@ -159,7 +159,7 @@ To deploy to the test server, run:
 
 To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
 
-_play.decentraland.org/&CATALYST=peer-testing.decentraland.org_
+_https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
 
 
 
@@ -217,3 +217,4 @@ jobs:
 ```
 
 > Important: For this process to run, you must set a wallet's private key as an environment variable in GitHub, this is used to sign the deployment. As always, be very careful with keeping public keys secure. Do NOT use the public key of the account that actually owns the land tokens, as that would have very big risks. Instead, delegate operator rights to a disposable wallet that owns no valuable tokens. If this private key is ever leaked somehow, you can easily revoke those operator rights from the account and set up a new wallet.
+
