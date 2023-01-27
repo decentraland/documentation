@@ -151,7 +151,7 @@ In some cases you may want to have several separate raycast queries running at t
 ```typescript
 // custom components
 const CubeOscilator = engine.defineComponent(
-  "cubeOscilator",
+  "CubeOscilator",
   {
     t: Schemas.Float
   }
