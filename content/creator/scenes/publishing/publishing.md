@@ -147,7 +147,7 @@ To deploy a scene to the test server:
 
 To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
 
-_play.decentraland.org/&CATALYST=peer-testing.decentraland.org_
+_play.decentraland.org/?&CATALYST=peer-testing.decentraland.org_
 
 
 ### Via the CLI
