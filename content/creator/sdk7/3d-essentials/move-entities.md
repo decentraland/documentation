@@ -453,7 +453,7 @@ const PathTransportData = {
   pathTargetIndex: Schemas.Int
 }
 
-export const LerpTransformComponent = engine.defineComponent("lerpTransformComponent", PathTransportData)
+export const LerpTransformComponent = engine.defineComponent("LerpTransformComponent", PathTransportData)
 
 
 // define system
