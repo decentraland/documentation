@@ -107,7 +107,7 @@ A schema describes the structure of the data inside a component. A component can
 Every field in the schema must include a type declaration. You can only use the special schema types provided by the SDK. For example, use the type `Schemas.Boolean` instead of type `boolean`. Write `Schemas.` and your IDE will display all the available options.
 
 ```ts
-export const WheelSpinComponent = engine.defineComponent("wheelSpinComponent", {
+export const WheelSpinComponent = engine.defineComponent("WheelSpinComponent", {
 	spinning: Schemas.Boolean,
 	speed: Schemas.Float
 })
