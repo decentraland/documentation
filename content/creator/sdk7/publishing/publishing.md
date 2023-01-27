@@ -74,8 +74,9 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
 2.  Run `dcl deploy` from the scene's folder.
-    {{< hint info >}}
+{{< hint info >}}
 **💡 Tip**:  If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying.
+{{< /hint >}}
 3.  A browser tab will open, showing what parcels you're deploying to. Click **Sign and Deploy**.
 4.  Metamask opens, notifying you that your signature is requested. Click **Sign** to confirm this action.
 
@@ -126,6 +127,10 @@ You can deploy content to the test catalyst server to run full tests with multip
 {{< /hint >}}
 
 
+Players are never directed to this server, the only way to access it is to explicitly provide a URL parameter to connect to it. 
+
+If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
+
 ### Via the Decentraland Editor
 
 To deploy a scene to the test server:
@@ -139,6 +144,10 @@ To deploy a scene to the test server:
 	- If you need to use Metamask on the browser, click **Open in Browser** to open this same window on a browser tab. Then approve the transaction on the Metamask browser extension.
 
 
+To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
+
+_play.decentraland.org/&CATALYST=peer-testing.decentraland.org_
+
 ### Via the CLI
 
 
@@ -146,19 +155,12 @@ To deploy to the test server, run:
 
 `dcl deploy --target peer-testing.decentraland.org`
 
-{{< hint warning >}}
-**📔 Note**:  The same permissions apply as in production. You must be owner or have permissions on the parcels that you're deployng to.
-{{< /hint >}}
-
-
-Players are never directed to this server, the only way to access it is to explicitly provide a URL parameter to connect to it. 
 
 To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
 
-play.decentraland.org/&CATALYST=peer-testing.decentraland.org
+_https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
 
 
-If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
 
 ## Verify deployment success
 
@@ -214,3 +216,4 @@ jobs:
 ```
 
 > Important: For this process to run, you must set a wallet's private key as an environment variable in GitHub, this is used to sign the deployment. As always, be very careful with keeping public keys secure. Do NOT use the public key of the account that actually owns the land tokens, as that would have very big risks. Instead, delegate operator rights to a disposable wallet that owns no valuable tokens. If this private key is ever leaked somehow, you can easily revoke those operator rights from the account and set up a new wallet.
+
