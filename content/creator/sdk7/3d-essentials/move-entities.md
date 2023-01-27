@@ -338,7 +338,7 @@ const ScaleTransportData = {
   speed: Schemas.Float,
 }
 
-export const ScaleTransformComponent = engine.defineComponent("scaleTransformComponent", ScaleTransportData)
+export const ScaleTransformComponent = engine.defineComponent("ScaleTransformComponent", ScaleTransportData)
 
 
 // define system
