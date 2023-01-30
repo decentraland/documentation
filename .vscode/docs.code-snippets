@@ -1,0 +1,49 @@
+{
+	"Code Symbol": {
+		"scope": "markdown",
+		"prefix": "cs",
+		"body": [
+			"###### `$1` {#$1}"
+		],
+	},
+
+	"Info Box": {
+		"scope": "markdown",
+		"prefix": "ib",
+		"body": [
+			"{{< info >}}\n$1\n{{< /info >}}"
+		]
+	},
+
+	"Relative Reference": {
+		"scope": "markdown",
+		"prefix": "rr",
+		"body": [
+			"[$1]({{< relref \"$2\" >}})"
+		]
+	},
+	
+	"Absolute Reference": {
+		"scope": "markdown",
+		"prefix": "ar",
+		"body": [
+			"[$1]({{< ref \"/contributor/$2\" >}})"
+		]
+	},
+	"Def RPC Typescript": {
+		"scope": "markdown",
+		"prefix": "drpc",
+		"body": [
+			"###### `$1` {#$1}\n",
+			"```ts\ninterface Request {\n}\n\ninterface Response {\n}\n\nfunction $1(Request): Promise<Response>\n```"
+		]
+	},
+	"Def RPC List": {
+		"scope": "markdown",
+		"prefix": "drpcl",
+		"body": [
+			"* [`function someFunc`](#someFunc)",
+			"* [`interface someType`](#someType)",
+		]
+	}
+}

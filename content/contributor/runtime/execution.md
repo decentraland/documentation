@@ -5,9 +5,9 @@ url: "/contributor/runtime/execution"
 weight: 3
 ---
 
-The runtime treats [[scenes]] like modules. Once the sandbox is set up (i.e. all [[globals]] are injected and [[modules]] are ready to be loaded), the code of the scene will be evaluated so it can populate the [[`exports`]] object.
+The runtime treats [scenes]({{< ref "/contributor/content/entity-types/scenes" >}}) like typical Node modules. Once the sandbox is set up (i.e. all [globals]({{< relref "" >}}) are injected and [modules]({{< relref "modules" >}}) are ready to be loaded), the code of the scene will be evaluated so it can populate the [exports]({{< relref "globals#module" >}}) object.
 
-Two methods will be picked up by the host from `exports`: [[`onStart`]] (optional) and [[`onUpdate`]] (mandatory).
+Two methods will be picked up by the host from `exports`: [`onStart`](#onStart) (optional) and [`onUpdate`](#onUpdate) (mandatory).
 
 ```ts
 type Exports = {
@@ -17,7 +17,7 @@ type Exports = {
 ```
 
 {{< info >}}
-Most scenes use the [[Decentraland SDK]], which provides a higher-level interface and automatically exports these methods. However, the SDK is _not_ part of the protocol, and scene developers can decide not to use it.
+Most scenes use the [Decentraland SDK]({{< ref "/creator/sdk7/getting-started/sdk-101" >}}), which provides a higher-level interface and automatically exports these methods. However, the SDK is _not_ part of the protocol, and scene developers can decide not to use it.
 {{< /info >}}
 
 !!add nice diagram, light on detail
@@ -27,7 +27,7 @@ During the life-cycle of a scene, the runtime will ensure that calls to these me
 
 ###### `onStart` {#onStart}
 
-The life-cycle of a [[scene]] begins with the asynchronous `onStart` method. It's the place to make one-time initializations that must complete before the first call to [[`onUpdate`]] is made.
+The life-cycle of a scene begins with the asynchronous `onStart` method. It's the place to make one-time initializations that must complete before the first call to [`onUpdate`](#onUpdate) is made.
 
 ```ts
 onStart(): Promise<void>

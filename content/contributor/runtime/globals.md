@@ -13,15 +13,15 @@ Most of them are implementations of familiar browser and/or Node concepts, such 
 
 The runtime injects 7 definitions in the scene's global scope:
 
-1. [[`console`]]: a subset of the Node/browser `console` object.
-2. [[`module`]]: a subset of Node's `module` object.
-3. [[`exports`]]: a shortcut to `module.exports`, as in Node.
-4. [[`require`]]: an implementation of Node's `require` for a curated list of modules.
-5. [[`setImmediate`]]: an implementation of Node's `setImmediate`.
-6. [[`fetch`]]: a restricted implementation of the browser `fetch` function.
-7. [[`WebSocket`]]: a restricted implementation of the browser `WebSocket` class.
+1. [`console`](#console): a subset of the Node/browser `console` object.
+2. [`module`](#module): a subset of Node's `module` object.
+3. [`exports`](#module): a shortcut to `module.exports`, as in Node.
+4. [`require`](#module): an implementation of Node's `require` for a curated list of modules.
+5. [`setImmediate`](#scheduling): an implementation of Node's `setImmediate`.
+6. [`fetch`](#http): a restricted implementation of the browser `fetch` function.
+7. [`WebSocket`](#http): a restricted implementation of the browser `WebSocket` class.
 
-All of these are defined as read-only properties, so they cannot be reassigned. Some will throw exceptions when used unless certain [[permissions]] are granted to the scene.
+All of these are defined as read-only properties, so they cannot be reassigned. Some will throw exceptions when used unless certain [permissions]({{< ref "/contributor/content/entity-types/scenes#permissions" >}}) are granted to the scene.
 
 
 ## Console {#console}
@@ -57,13 +57,13 @@ Scenes can import and export objects using a Node-like interface.
 
 The `require` function provides access to optional modules that scenes can leverage. Since the `require` function is injected by the runtime, so are the module definitions and their import paths.
 
-```
-declare function require(moduleName: string): { exports: Object }
+```ts
+require(moduleName: string): { exports: Object }
 ```
 
-Scenes can ([[and must]]) export objects by setting keys in `module.exports`, or the `exports` shortcut.
+Scenes can (and must]]) export objects by setting keys in `module.exports`, or the `exports` shortcut.
 
-See [[modules]] and [[exports]] for more information.
+See the [execution]({{< relref "execution" >}}) page for more information.
 
 
 ## Scheduling {#scheduling}
@@ -73,28 +73,29 @@ When a scene needs to schedule callbacks with their execution controlled by the 
 !!Is this correct? What are the scheduling guarantees? Does it behave like Node, in the sense that callbacks are invoked on the next round of the event loop? Document exact behavior.
 
 ```ts
-declare function setImmediate(fn: Function): void
+setImmediate(fn: Function): void
 ```
 
 {{< info >}}
 In the Foundation's World Explorer, scenes have a CPU quota they cannot exceed. Callbacks will run when there's computing time to spare.
+!! i need to know all about this, and know very little
 {{< /info >}}
 
 
 ## HTTP and WebSockets {#http}
 
-The `fetch` and `WebSocket` globals work exactly like their well-known counterparts, but with some restrictions enforced by the runtime.
+The `fetch` and `WebSocket` globals work exactly like their well-known counterparts (see [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) and [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) in MDN), but with some restrictions enforced by the runtime.
 
 When calling the `fetch` function:
 
 - An error is thrown if the URL doesn't begin with `https://`.
-- An error is thrown if the scene doesn't have the [[`USE_FETCH` permission]].
+- An error is thrown if the scene doesn't have the [`USE_FETCH` permission]({{< ref "/contributor/content/entity-types/scenes#permissions" >}}).
 - An implementation-defined timeout can abort the request.
 
 When using the `WebSocket` class:
 
 - An error is thrown if the URL doesn't begin with `wss:`
-- An error is thrown if the scene doesn't have the [[`USE_WEBSOCKET` permission]].
+- An error is thrown if the scene doesn't have the [`USE_WEBSOCKET` permission]({{< ref "/contributor/content/entity-types/scenes#permissions" >}}).
 
 Apart from these differences, both cases follow standard behavior.
 
