@@ -19,6 +19,23 @@ The API is designed around synchronizing the state of the world between the Expl
 * Cast rays in the 3D environment and detect hits.
 * Receive input from the player.
 
+```goat
+.------------------------------------------------------.
+| World Explorer                                       |
+|                                                      |
+|                   [Engine API]                       |
+|                        |                             |
+|  .--------.            |              .------------. |
+|  |        |<-----------+<-------------+  Runtime   | |
+|  |  Game  |            |   Commands   |  .------.  | |
+|  |        |   Events   |              |  | Scene | | |
+|  | Engine +----------->+------------->|  |       | | |
+|  |        |            |              |  '-------' | |
+|  '--------'            |              '------------' |
+|                                                      |
+'------------------------------------------------------'
+```
+
 {{< info >}}
 The `EngineApi` module is undergoing renovations. If you go to the source definitions, you will find legacy methods that are no longer used or can be implemented as no-ops in the latest version (more [[on this later nono put link]]).
 {{< /info >}}
@@ -28,25 +45,18 @@ The `EngineApi` module is undergoing renovations. If you go to the source defini
 * [`function crdtSendToRenderer`](#crdtSendToRenderer)
 * [`function crdtGetState`](#crdtGetState)
 
-And the following types:
-
-* [`interface CrdtSendToRendererRequest`](#CrdtSendToRendererRequest)
-* [`interface CrdtSendToResponse`](#CrdtSendToResponse)
-* [`interface CrdtGetStateRequest`](#CrdtGetStateRequest)
-* [`interface CrdtGetStateResponse`](#CrdtGetStateResponse)
-
 
 ## ECS Framework
 
-With the `EngineApi` module comes a generic and extensible implementation of a shared ECS framework, which allows both scenes and the Explorer itself to create entities, attach components and update their states.
+With the `EngineApi` module comes a generic and extensible implementation of a shared ECS framework, which allows both scenes and the game engine itself to create entities, attach components and update their states.
 
 Changes made from either side are reflected in the other by exchanging messages, [[serialized]] to a compact binary representation. The mechanism used ([[see below]]) ensures that both parties agree on the order of any updates and reach eventual consistency about the state of the world.
+
+The World Explorer implements a well-known set of basic components (positions, shapes, textures, multimedia and more), and knows how to deserialize and apply changes to their state when it receives an update. Scenes using the [[SDK]] also have utilities to create custom components, but those are entirely managed by the scene (not synchronized) and thus outside the scope of the protocol.
 
 {{< info >}}
 Most scenes use the [[Decentraland SDK]], which encapsulates the `EngineApi` module and offers a much nicer, higher-level interface for content developers. Scenes that directly access the messaging protocol in this module are extremely rare.
 {{< /info >}}
-
-The World Explorer implements a well-known set of basic components (positions, shapes, textures, multimedia and more), and knows how to deserialize and apply changes to their state when it receives an update. Scenes using the [[SDK]] also have utilities to create custom components, but those are entirely managed by the scene (not synchronized) and thus outside the scope of the protocol.
 
 ### Synchronization
 
@@ -59,23 +69,27 @@ To prevent this, a CRDT ([conflict-free replicated data type](https://en.wikiped
 * Both parties are guaranteed to converge to a shared, identical state.
 * Besides a small overhead in message size, no additional coordination or messaging round-trips are required.
 
+For this to work, all messages must be idempotent. Out-of-order messages can be applied even if a supposedly intermediate update was not received yet, and equal messages can be re-processed without breaking consistency.
+
+Let's revisit the architectural diagram above, now introducing the CRDT:
+
 ```goat
-.------------------------------------------------------.
-| World Explorer                                       |
-| .-------------.                       .------------. |
-| | Game Engine |                       |  Runtime   | |
-| |  .-------.  |                       |  .------.  | |
-| |  |       +--+-----------------------+->|      |  | |
-| |  | CRDT  |  |   Messsage Protocol   |  | CRDT |  | |
-| |  |       |<-+-----------------------+--+      |  | |
-| |  '-------'  |                       |  '------'  | |
-| |             |                       |            | |
-| '-------------'                       '------------' |
-'------------------------------------------------------'
+.-------------------------------------------------------.
+| World Explorer                                        |
+| .-------------.                       .------------.  |
+| | Game Engine |                       |   Scene     | |
+| |  .-------.  |                       |  .-------.  | |
+| |  |       +--+-----------------------+->|       |  | |
+| |  | CRDT  |  |   Messsage Protocol   |  | CRDT  |  | |
+| |  |       |<-+-----------------------+--+       |  | |
+| |  '-------'  |                       |  '-------'  | |
+| |             |                       |             | |
+| '-------------'                       '-------------' |
+'-------------------------------------------------------'
 ```
 
 {{< info >}}
-As a World Explorer developer, you are under no obligation to use the same synchronization strategy employed by the Foundation's implementation as long as you preserve API compatibility -- but the design described here is the product of accumulated insights and lessons, and we recommend it.
+As a World Explorer developer, you are under no obligation to use the same synchronization strategy employed by the Foundation's implementation as long as you preserve API compatibility --- it does have tradeoffs, such as increasing the length of some  messages to support idempotency --- but the design described here is the product of accumulated insights and lessons, and we recommend it.
 {{< /info >}}
 
 The implementation of the CRDT synchronization mechanism consists of three parts:
@@ -99,7 +113,7 @@ type ComponentState = Map<EntityId, EntityComponentState>
 type CRDTState = Map<ComponentId, ComponentState>
 ```
 
-Timestamps aren't actually Unix-style timestamps, and don't refer to a point in real time. They are a type of shared incremental counter to sequence updates, with no relation to clock time. More on this [[below]].
+Timestamps aren't actually Unix-style timestamps. They are a type of shared incremental counter to sequence updates, with no relation to clock time. More on this [[below]].
 
 <div id="crdtStateAutoCreate"><!-- just an invisible anchor to link --></div>
 
@@ -108,7 +122,7 @@ Since the CRDT layer doesn't know (or need to know) all available components, th
 Let's illustrate this with some more pseudocode.
 
 ```ts
-const crdtState = new Map()
+const crdtState = new Map() // empty, we'll automatically make room for new components and entities
 ```
 
 ```ts
@@ -118,14 +132,14 @@ function putEntityComponentState(componentId, entityId, entityComponentState) {
     crdtState[componentId] = new Map()
   }
 
-  // If this entity has no state for this component, set it and be done:
-  if (!crdtState[componentId][entityId]) {
+  // If this entity has no state for this component, add it and be done:
+  if (!crdtState[componentId][entityId] && shouldCreate(entityId)) {
     crdtState[componentId][entityId] = entityComponentState
     return
   }
 
-  // At this point, we have two competing states. The one we received is not necessarily the one
-  // that should be kept. We need to decide.
+  // At this point, we have two competing states. The one we just received is not necessarily the
+  // one that should be kept. We need to decide.
   const existingEntityComponentState = crdtState[componentId][entityId]
 
   // Only if the rules of conflict resolution say so (more on this later), replace the state:
@@ -135,8 +149,26 @@ function putEntityComponentState(componentId, entityId, entityComponentState) {
 }
 ```
 
+!! This example code has a glaring problem with deleted entities unless care is taken when calling put. In current code, the handling of deleted entities is this layer. Adding that here may not be the best way to explain it. Address this in either code or text.
+
+The pseudocode above (if translated to actual code) is obviously incomplete and sub-optimal. In particular, it's missing the definition of `shouldCreate` and `shouldReplace`, which encapsulate the conflict resolution strategy. These have requirements:
+
+* `shouldCreate` must add new entities, but refuse to re-create deleted entities.
+* `shouldReplace` must prefer to keep states that have greater timestamps (with some edge cases).
+
+To support the `shouldCreate` requirement, you'll want to keep track of deleted entity IDs, in order to ignore any future state updates for those. Let's see this in more pseudocode:
+
 ```ts
+const crdtDeletedEntities = new Set()
+
+function shouldCreate(entityId) {
+  return !crdtDeletedEntities.contains(entityId)
+}
+
 function deleteEntity(entityId) {
+  // Mark this entity as deleted, so we never handle it again:
+  crdtDeletedEntities.add(entityId)
+
   // Delete the state for this entity in every component:
   for (componentState of crdtState) {
     delete componentState[entityId]
@@ -144,12 +176,11 @@ function deleteEntity(entityId) {
 }
 ```
 
-!! This example code has a glaring problem with deleted entities unless care is taken when calling put. In current code, the handling of deleted entities is this layer. Adding that here may not be the best way to explain it. Address this in either code or text.
-
-The pseudocode above (if translated to actual code) is obviously incomplete and sub-optimal. In particular, it's missing the definition of `shouldReplace`, the function that encapsulates a conflict resolution strategy.
+As for the `shouldReplace` requirement, see [[conflict resolution]] below.
 
 !!ask about the memory usage of the deletedEntities grow-only set (curiosity)
 !!ask about the reconstruction of state
+
 
 #### Timestamps
 
@@ -180,12 +211,13 @@ function receiveState() {
 
 When the CRDT encounters two competing states, it needs a shared resolution strategy that all parties apply identically, ensuring the same decision is reached by everyone. The Decentraland protocol uses very simple rules:
 
-1. If there was no prior state, keep the new state.
-2. If the new state has a greater timestamp, keep the new state.
-3. If the new state has a lesser timestamp, keep the old state.
-4. If both timestamps are equal, compare the states byte-by-byte and keep the lower value.
+1. If the entity was deleted, ignore new state.
+2. If there was no prior state, keep the new state.
+3. If the new state has a greater timestamp, keep the new state.
+4. If the new state has a lesser timestamp, keep the old state.
+5. If both timestamps are equal, compare the states byte-by-byte and keep the lower value.
 
-Most cases will be resolved by rules `1` and `2`. Rule `3` applies when both parties perform an update before they can exchange messages about it !!ugh. Rule `4` should rarely be used, but it may happen !!detail pl0x.
+Most cases will be resolved by rules `1`, `2` and `3`. Rule `4` applies when both parties perform an update before they can exchange messages about it, where the latest wins. Rule `5` should rarely be applied, but it may happen !!detail pl0x.
 
 
 #### Messaging Protocol
@@ -207,7 +239,7 @@ There are three message types in the CRDT protocol:
 
 Note that there are no `CreateComponent` or `CreateEntity` messages. The CRDT rules auto-create entities and components that weren't previously known, as [explained above](#crdtStateAutoCreate).
 
-###### `PutComponent` {#PutComponent}
+###### `PutComponentMessage` {#PutComponentMessage}
 
 Update the `state` of a `component` for a particular `entity`, creating unknown components and entities in the CRDT if necessary. [Resolve conflicts](#crdtConflicts) according to `timestamp`.
 
@@ -227,7 +259,7 @@ This additional layer of serialization has an important advantage: the CRDT prot
 If the update contained in this message is applied to the CRDT, the `state` field is copied as-is into the structure.
 
 
-###### `DeleteComponent` {#DeleteComponent}
+###### `DeleteComponentMessage` {#DeleteComponentMessage}
 
 Remove the state of `component` for an `entity`. [Resolve conflicts](#crdtConflicts) according to `timestamp`.
 
@@ -237,7 +269,7 @@ Remove the state of `component` for an `entity`. [Resolve conflicts](#crdtConfli
 '----------------'-------------------'-------------------'                
 ```
 
-###### `DeleteEntity` {#DeleteEntity}
+###### `DeleteEntityMessage` {#DeleteEntityMessage}
 
 Delete `entity` (i.e. all associated component state), expecting the identifier to never be reused for a different entity.
 
@@ -250,6 +282,30 @@ Delete `entity` (i.e. all associated component state), expecting the identifier 
 Note that there is no `timestamp` field. Since the lifespan of `entity` is over, the conflict resolution strategy for any out-of-order updates is to simply ignore them.
 
 
-## Methods and Types
+## Methods
 
-!!
+The set of methods in `EngineApi` provide the interface to exchange messages and reconstruct the state of the world from scratch.
+
+
+###### `crdtSendToRenderer` {#crdtSendToRenderer}
+
+```ts
+interface Request {
+}
+
+interface Response {
+}
+
+function crdtSendToRenderer(Request): Promise<Response>
+```
+
+function crdtSendToRenderer
+function crdtGetState
+And the following types:
+
+## Types
+
+interface CrdtSendToRendererRequest
+interface CrdtSendToResponse
+interface CrdtGetStateRequest
+interface CrdtGetStateResponse
