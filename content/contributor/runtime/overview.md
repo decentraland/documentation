@@ -68,4 +68,4 @@ See [modules]({{< relref "modules" >}}) for a comprehensive list.
 
 Sensitive functionality, such as making HTTP requests to 3rd party services, is restricted by the runtime unless certain permissions are requested by the [scene]({{< relref "../content/entity-types/scenes" >}}), and granted by the player.
 
-See the [permissions]({{< relref "modules/permissions" >}}) module to learn more.
+See the [[RestrictedActions]] module to learn more.

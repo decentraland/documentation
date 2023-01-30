@@ -1,7 +1,6 @@
 ---
 title: "Modules"
-sidebartitle: "Modules"
-url: "/contributor/runtime/rpc"
+bookCollapseSection: true
 weight: 2
 ---
 
