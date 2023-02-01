@@ -264,26 +264,6 @@ async function fetchPlayerData() {
 fetchPlayerData()
 ```
 
-## Get player's public Ethereum key
-
-As an alternative to `getUserData()`, you can obtain a player's public Ethereum key by using `getUserPublicKey()`. You can then use this information to send payments to the player, or as a way to recognize players.
-
-The example below imports the `~system/UserIdentity` library and runs `getUserPublicKey()` to get the public key of the player's Ethereum account and log it to console. The player must be logged into their Metamask account on their browser for this to work.
-
-```ts
-import { getUserPublicKey } from "~system/UserIdentity"
-
-const publicKeyRequest = executeTask(async () => {
-  const publicKey = await getUserPublicKey({})
-  console.log("public key: ", publicKey.address)
-  return publicKey
-})
-```
-
-{{< hint info >}}
-**💡 Tip**:  The `getUserPublicKey()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
-{{< /hint >}}
-
 ## Get Decentraland Time
 
 Decentraland follows a day/night cycle that takes 2 hours to be completed, so there are 12 full cycles every day. Players can also change the settings to experience a specific fixed time of day, for example to always see Decentraland with a 10pm night sky. For this reason, Decentraland time may vary from one player to another.
