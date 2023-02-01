@@ -75,7 +75,7 @@ You should wrap the function in an `async()` function, learn more about this in 
 {{< hint warning >}}
 **📔 Note**:  Even though the eth address may contain upper case characters, some browsers convert the returned string to lower case automatically. If you wish compare address values and have it work on all browsers, use the `.toLowerCase()` method to convert the value into lower case.
 {{< /hint >}}
-
+<!-- 
 ## Sign messages
 
 A player can sign a message using their Ethereum private key. This signature is a secure way to give consent or to register an accomplishment or action that is registered with the block chain. The message can be verified with the player's public key.
@@ -124,7 +124,7 @@ executeTask(async () => {
 ## Check if a message is correct
 
 To verify that the message that the player signed is in fact the one that you want to send, you can use the `toHex()` function from `eth-connect` library, to convert it and easily compare it. See further below for instructions on how to import the `eth-connect` library. -->
-
+<!-- 
 ```ts
 import { toHex } from "eth-connect"
 import { signMessage, convertMessageToObject } from "~system/EthereumController"
@@ -214,13 +214,10 @@ The example above listens for clicks on a _button_ entity. When clicked, the pla
 
 {{< hint info >}}
 **💡 Tip**:  We recommend defining the wallet address and the amount to pay as global constants at the start of the _.ts_ file. These are values you might need to change in the future, setting them as constants makes it easier to update the code.
-{{< /hint >}}
+{{< /hint >}} --> -->
 
-
-## Lower level operations
-
-
-### Check gas price
+<!-- 
+## Check gas price
 
 After importing the `eth-connect` library, you must instance a web3 provider and a request manager, which will will allow you to connect via web3 to Metamask in the player's browser.
 
@@ -244,9 +241,9 @@ executeTask(async function () {
 
 {{< hint info >}}
 **💡 Tip**: Note that the functions handled by the `requestManager` must be called using `await`, since they rely on fetching external data and can take some time to be completed.
-{{< /hint >}}
+{{< /hint >}} -->
 
-#### Import a contract ABI
+## Import a contract ABI
 
 An ABI (Application Binary Interface) describes how to interact with an Ethereum contract, determining what functions are available, what inputs they take and what they output. Each Ethereum contract has its own ABI, you should import the ABIs of all the contracts you wish to use in your project.
 
@@ -306,7 +303,8 @@ Configuring TypeScript to be able to import from a JSON file has its difficultie
 
 For example, if the ABI file's contents starts with `[{"constant":true,"inputs":[{"internalType":"bytes4" ...etc`, modify it so that it starts with `export default [{"constant":true,"inputs":[{"internalType":"bytes4" ...etc`.
 
-#### Instance a contract
+
+### Instance a contract
 
 After importing the `eth-connect` library and a contract's _abi_, you must instance several objects that will allow you to use the functions in the contract and connect to Metamask in the player's browser.
 
@@ -336,12 +334,12 @@ executeTask(async () => {
 **💡 Tip**:  For contracts that follow a same standard, such as ERC20 or ERC721, you can import a single generic ABI for all. You then generate a single `ContractFactory` object with that ABI and use that same factory to instance interfaces for each contract.
 {{< /hint >}}
 
-#### Call the methods in a contract
+### Call the methods in a contract
 
 Once you've created a `contract` object, you can easily call the functions that are defined in its ABI, passing it the specified input parameters.
 
 ```ts
-import { getUserAccount } from "~system/EthereumController"
+import { getUserData } from "~system/UserIdentity"
 import { createEthereumProvider } from '@dcl/sdk/ethereum-provider'
 import { RequestManager, ContractFactory } from "eth-connect"
 import { abi } from "../contracts/mana"
@@ -355,15 +353,15 @@ executeTask(async () => {
     const contract = (await factory.at(
       "0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb"
     )) as any
-    const address = await getUserAccount({})
-    console.log(address)
+	let userData = await getUserData({})
+	if(!userData.data.hasConnectedWeb3){return}
 
     // Perform a function from the contract
     const res = await contract.setBalance(
       "0xaFA48Fad27C7cAB28dC6E970E4BFda7F7c8D60Fb",
       100,
       {
-        from: address,
+        from: userData.data.publicKey,
       }
     )
     // Log response
@@ -375,8 +373,8 @@ executeTask(async () => {
 ```
 
 The example above uses the abi for the Ropsten MANA contract and transfers 100 _fake MANA_ to your account in the Ropsten test network.
-
-#### Other functions
+<!-- 
+### Other functions
 
 The eth-connect library includes a number of other helpers you can use. For example to:
 
@@ -384,7 +382,7 @@ The eth-connect library includes a number of other helpers you can use. For exam
 - Get the balance of a given address
 - Get a transaction receipt
 - Get the number of transactions sent from an address
-- Convert between various formats including hexadecimal, binary, utf8, etc.
+- Convert between various formats including hexadecimal, binary, utf8, etc. -->
 
 
 ## Using the Ethereum test network
