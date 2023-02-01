@@ -96,7 +96,7 @@ The other numbers in the panel refer to the usage of resources, they display the
 {{< /hint >}}
 
 
-
+<!-- 
 ## Run code only in preview
 
 You can detect if a scene is running as a preview or is already deployed in production, so that the same code behaves differently depending on the case. You can use this to add debugging logic to your code without the risk of forgetting to remove it and having it show in production.
@@ -118,7 +118,7 @@ executeTask(async () => {
 
 {{< hint warning >}}
 **📔 Note**:  `isPreviewMode()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay in returning data.
-{{< /hint >}}
+{{< /hint >}} -->
 
 
 ## Dependency versions
