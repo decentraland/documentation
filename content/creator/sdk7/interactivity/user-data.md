@@ -98,7 +98,7 @@ The `avatar` object has the following nested information:
   - `body`: _string_ The full resolution image of the player standing straight, with 512x1024 pixels.
 
 {{< hint danger >}}
-**❗Warning**  
+**❗Warning**
 The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#avatar-portraits">}}).
 {{< /hint >}}
 
@@ -233,25 +233,24 @@ If you know which server the player you want to query is connected to, you can g
 `https://<player server>/lambdas/profile/<player user id>`
 
 {{< hint info >}}
-**💡 Tip**:  You can obtain the current player's server by doing `getCurrentRealm().domain`.
+**💡 Tip**:  You can obtain the current player's server by doing `getRealm().domain`.
 {{< /hint >}}
 
-This example combines `getUserData()` and `getCurrentRealm()` to obtain the player's data directly from the server that the player is on:
+This example combines `getUserData()` and `getRealm()` to obtain the player's data directly from the server that the player is on:
 
 ```ts
 import { getUserData } from "~system/UserIdentity"
-import { getCurrentRealm } from "~system/EnvironmentApi"
+import { getRealm } from "~system/Runtime"
 
 async function fetchPlayerData() {
   const userData = await getUserData({})
-  const playerRealm = await getCurrentRealm({})
+  const { realmInfo } = await getRealm({})
 
-  let url = `{playerRealm.currentRealm.domain}/lambdas/profile/{userData.userId}`.toString()
+  const url = `${realmInfo.baseUrl}/lambdas/profile/${userData.userId}`
   console.log("using URL: ", url)
 
   try {
-    let response = await fetch(url)
-    let json = await response.json()
+    const json = (await fetch(url)).json()
 
     console.log("full response: ", json)
     console.log("player is wearing :", json[0].metadata.avatars[0].avatar.wearables)
@@ -288,32 +287,32 @@ const publicKeyRequest = executeTask(async () => {
 
 Decentraland follows a day/night cycle that takes 2 hours to be completed, so there are 12 full cycles every day. Players can also change the settings to experience a specific fixed time of day, for example to always see Decentraland with a 10pm night sky. For this reason, Decentraland time may vary from one player to another.
 
-Use `getDecentralandTime()` to fetch the time of day that the player is experiencing inside Decentraland.
+Use `GetWorldTime()` to fetch the time of day that the player is experiencing inside Decentraland.
 
 ```ts
-import { getDecentralandTime } from "~system/EnvironmentAPI"
+import { GetWorldTime } from "~system/Runtime"
 
 executeTask(async () => {
-  let time = await getDecentralandTime({})
+  let time = await GetWorldTime({})
   console.log(time.seconds)
 })
 ```
 
 {{< hint info >}}
-**💡 Tip**:  The `getDecentralandTime()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**💡 Tip**:  The `GetWorldTime()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
-`getDecentralandTime()` returns an object with a `seconds` property. This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the `seconds` value is _36000_, it corresponds to _10 AM_.
+`GetWorldTime()` returns an object with a `seconds` property. This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the `seconds` value is _36000_, it corresponds to _10 AM_.
 
 In Decentraland time, the sun always rises at 6:15 and sets at 19:50.
 
 You could use this information to change the scene accordingly, for example to play bird sounds when there's daylight and crickets when it's dark, or to turn the emissive materials on street lamps when it's dark.
 
 ```ts
-import { getDecentralandTime } from "~system/EnvironmentAPI"
+import { GetWorldTime } from "~system/Runtime"
 
 executeTask(async () => {
-  let time = await getDecentralandTime({})
+  let time = await GetWorldTime({})
   console.log(time.seconds)
   if (time.seconds < 6.25 * 60 * 60 || time.seconds > 19.85 * 60 * 60) {
     // night time
@@ -332,24 +331,31 @@ Players in decentraland exist in several separate _realms_. Players in different
 If your scene sends data to a [3rd party server]({{< ref "/content/creator/sdk7/networking/remote-scene-considerations.md" >}}) to sync changes between players in real time, then it's often important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
 
 ```ts
-import { getCurrentRealm } from "~system/EnvironmentApi"
+import { getRealm } from "~system/Runtime"
 
 executeTask(async () => {
-  let realm = await getCurrentRealm({})
-  console.log(`You are in the realm: `, realm.currentRealm.displayName)
+  const { realmInfo } = await getRealm({})
+  console.log(`You are in the realm: `, realmInfo.realmName)
 })
 ```
 
 Decentraland handles its communications between players (including player positions, chat, messageBus messages and smart item state changes) through a decentralized network of communication servers. Each one of these servers can support multiple separate `islands`, each grouping a different set of players that are near each other on the Decentraland map.
 
-The `getCurrentRealm()` function returns the following information:
-
-- `displayName`: _(string)_ The full address of the realm, composed of the server + the layer
-- `domain`: _(string)_ The URL of the server
-- `serverName`: _(string)_ The name of the server
-
+The `getRealm()` function returns the following information:
+```
+  // URL of the realm without the last "/about" endpoint
+  baseUrl: string
+  // Realm name
+  realmName: string
+  // Ethereum network
+  networkId: number
+  // Comms adapter, removing all query parameters (credentials)
+  commsAdapter?: string
+  // If you are in preview mode or not
+  preview?: boolean
+```
 {{< hint info >}}
-**💡 Tip**:  The `getCurrentRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**💡 Tip**:  The `getRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
 As players move through the map, they may switch islands to be grouped with those players who are now closest to them. Islands also shift their borders dynamically to fit a manageable group of people, so even if a player stands still, as players enter and leave the world, the player could find themselves on another island.
@@ -409,7 +415,7 @@ Make a [REST API call]({{< ref "/content/creator/sdk7/networking/network-connect
 `${playerRealm.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`
 
 {{< hint warning >}}
-**📔 Note**:  To construct this URL, you must obtain the realm (likely with with `getCurrentRealm()`) and the player's id (likely with `getUserData()`)
+**📔 Note**:  To construct this URL, you must obtain the realm (likely with with `getRealm()`) and the player's id (likely with `getUserData()`)
 {{< /hint >}}
 
 
@@ -421,15 +427,15 @@ This feature could be used together with fetching info about the player, to for 
 
 ```ts
 import { getUserData } from "~system/UserIdentity"
-import { getCurrentRealm } from "~system/EnvironmentApi"
+import { getRealm } from "~system/Runtime"
 
 async function fetchWearablesData() {
   try {
     let player = await getUserData({})
-    const playerRealm = await getCurrentRealm({})
+    const realm = await getRealm({})
 
-    let url =
-      `${playerRealm.currentRealm?.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`.toString()
+    const url =
+      `${realm.realmInfo?.baseUrl}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`.toString()
     console.log("using URL: ", url)
 
     let response = await fetch(url)

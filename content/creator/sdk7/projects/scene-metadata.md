@@ -289,59 +289,50 @@ If a `featureToggles` property doesn't exist in your `scene.json` file, create i
 
 ## Fetch metadata from scene code
 
+[Scene API Reference](https://js-sdk-toolchain.pages.dev/modules/js_runtime_apis.__system_Scene_)
+
 You may need a scene's code to access the fields from the scene metadata, like the parcels that the scene is deployed to, or the spawn point positions. This is especially useful for scenes that are meant to be replicated, or for code that is meant to be reused in other scenes. It's also very useful for libraries, where the library might for example need to know where the scene limits are.
 
-To access this data, first import the `ParcelIdentity` library to your scene:
+To access this data, first import the `Scene` library to your scene:
 
 ```ts
-import { getParcel } from "~system/ParcelIdentity"
+import { getSceneInfo } from "~system/Scene"
 ```
 
-Then you can call the `getParcel()` function from this library, which returns a json object that includes much of the contents of the scene.json file.
+Then you can call the `getSceneInfo()` function from this library, which returns a json object that includes much of the contents of the scene.json file.
+The example below shows the path to obtain several of the more common fields you might need from this function's response:
 
-The example bleow shows the path to obtain several of the more common fields you might need from this function's response:
 
 ```ts
 
-import { getParcel } from "~system/ParcelIdentity"
+import { getSceneInfo } from "~system/Scene"
 
-async function getSceneData(){
-	const parcel = await getParcel({})
-
-	if(parcel){
-
-		// full scene json
-		console.log("full json: ",  parcel.land!.sceneJsonData)
-
-		const sceneJson = JSON.parse(parcel.land!.sceneJsonData)
-
-		// parcels
-		console.log("parcels: ", sceneJson.scene.parcels)
-		console.log("base parcel: ", sceneJson.scene.base)
-
-		// spawn points
-		console.log("spawnpoints: ", sceneJson.spawnPoints)
-
-		// general scene data
-		console.log("title: ", sceneJson.display?.title)
-		console.log("author: ", sceneJson.contact?.name)
-		console.log("email: ", sceneJson.contact?.email)
-
-		// required permissions
-		console.log("email: ", sceneJson.requiredPermissions)
-
-		// other info
-		console.log("tags: ", sceneJson.sceneJsonData.tags)
-	}
-  
-	
-}
-  
-getSceneData()
+executeTask(async () => {
+	const sceneInfo = await getSceneInfo({})
+  /**
+   * You need to parse the metadata in order to access the properties.
+   * If you deployed a scene you can get the types from here https://github.com/decentraland/common-schemas/blob/main/src/platform/scene/scene.ts#L17-L40
+   * For more info of this metadata see: https://docs.decentraland.org/contributor/content/entities/
+   */
+  if (!sceneInfo) return
+  const {
+    // scene.json deployed as string
+    metadata,
+    // scene id
+    cid,
+    // baseUrl where its deployed
+    baseUrl,
+    // content mapping of files deployed.
+    contents
+  } = sceneInfo
+  const sceneJson: Scene = JSON.parse(sceneInfo.metadata)
+  const spawnPoints = sceneJson.spawnPoints;
+  console.log({ sceneJson, cid, baseUrl, contents })
+})
 ```
 
 {{< hint warning >}}
-**📔 Note**:  `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
+**📔 Note**:  `getSceneInfo()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
 {{< /hint >}}
 
 

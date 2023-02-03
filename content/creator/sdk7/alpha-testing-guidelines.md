@@ -4,7 +4,7 @@ title: SDK7 alpha testing guidelines
 description: Play live audio streams in your scene.
 categories:
   - development-guide
-aliases: 
+aliases:
   - /creator/development-guide/sdk7/beta-testing-guidelines/
 type: Document
 url: /creator/development-guide/sdk7/alpha-testing-guidelines/
@@ -71,7 +71,7 @@ The SDK7 alpha includes almost complete feature parity with everything that's po
 A couple of features are intended to be re-implemented in future releases following Data Oriented Programming principles. These for now are still exposed as legacy functions that are marked as deprecated.
 
 - Functions to get player data, like `getUserData`, `getPlayersInScene`, or
-- Functions to get data about the context, like `getDecentralandTime`, `getCurrentRealm`, `getPlatform`, `getPortableExperiencesLoaded`
+- Functions to get data about the context, like `getDecentralandTime`, `getRealm`, `getPlatform`, `getPortableExperiencesLoaded`
 - Observables for player events like `onEnterSceneObservable`, `onLeaveSceneObservable`, `onPlayerExpressionObservable`, `onPlayerClickedObservable`, `onPointerLockedStateChange`, `onIdleStateChangedObservable`, or `onProfileChanged`
 - Observables for other events like `onSceneReadyObservable`, `onRealmChangedObservable`
 - The MessageBus
