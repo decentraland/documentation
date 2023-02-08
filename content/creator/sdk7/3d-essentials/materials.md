@@ -82,6 +82,14 @@ You can also edit the following fields in a PBR Material to fine-tune how its co
 - _emissiveColor_: The color emitted from the material.
 - _reflectivityColor_: AKA _Specular Color_ in other nomenclature.
 
+To create a plain color material that is not affected by light and shadows in the environment, create a basic material instead of a PBR material.
+
+```ts
+Material.setBasicMaterial(myEntity, {
+  diffuseColor: Color4.Black()
+})
+```
+
 ## Using textures
 
 Set an image file as a texture on a material by setting the `texture` parameter.
