@@ -233,7 +233,7 @@ If you know which server the player you want to query is connected to, you can g
 `https://<player server>/lambdas/profile/<player user id>`
 
 {{< hint info >}}
-**💡 Tip**:  You can obtain the current player's server by doing `getRealm().domain`.
+**💡 Tip**:  You can obtain the current player's server by fetching `getRealm().domain`.
 {{< /hint >}}
 
 This example combines `getUserData()` and `getRealm()` to obtain the player's data directly from the server that the player is on:
