@@ -98,7 +98,7 @@ The `avatar` object has the following nested information:
   - `body`: _string_ The full resolution image of the player standing straight, with 512x1024 pixels.
 
 {{< hint danger >}}
-**❗Warning**  
+**❗Warning**
 The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#avatar-portraits">}}).
 {{< /hint >}}
 
@@ -244,14 +244,13 @@ import { getRealm } from "~system/Runtime"
 
 async function fetchPlayerData() {
   const userData = await getUserData({})
-  const playerRealm = await getRealm({})
+  const { realmInfo } = await getRealm({})
 
-  let url = `{playerRealm.realmInfo.baseUrl}/lambdas/profile/{userData.userId}`.toString()
+  const url = `${realmInfo.baseUrl}/lambdas/profile/${userData.userId}`
   console.log("using URL: ", url)
 
   try {
-    let response = await fetch(url)
-    let json = await response.json()
+    const json = (await fetch(url)).json()
 
     console.log("full response: ", json)
     console.log("player is wearing :", json[0].metadata.avatars[0].avatar.wearables)
@@ -315,11 +314,26 @@ If your scene sends data to a [3rd party server]({{< ref "/content/creator/sdk7/
 import { getRealm } from "~system/Runtime"
 
 executeTask(async () => {
-  let realm = await getRealm({})
-  console.log(`You are in the realm: `, realm.realmInfo.realmName)
+  const { realmInfo } = await getRealm({})
+  console.log(`You are in the realm: `, realmInfo.realmName)
 })
 ```
 
+Decentraland handles its communications between players (including player positions, chat, messageBus messages and smart item state changes) through a decentralized network of communication servers. Each one of these servers can support multiple separate `islands`, each grouping a different set of players that are near each other on the Decentraland map.
+
+The `getRealm()` function returns the following information:
+```
+  // URL of the realm without the last "/about" endpoint
+  baseUrl: string
+  // Realm name
+  realmName: string
+  // Ethereum network
+  networkId: number
+  // Comms adapter, removing all query parameters (credentials)
+  commsAdapter?: string
+  // If you are in preview mode or not
+  preview?: boolean
+```
 {{< hint info >}}
 **💡 Tip**:  The `getRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
@@ -414,10 +428,10 @@ import { getRealm } from "~system/Runtime"
 async function fetchWearablesData() {
   try {
     let player = await getUserData({})
-    const playerRealm = await getRealm({})
+    const realm = await getRealm({})
 
-    let url =
-      `${playerRealm.currentRealm?.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`.toString()
+    const url =
+      `${realm.realmInfo?.baseUrl}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`.toString()
     console.log("using URL: ", url)
 
     let response = await fetch(url)

@@ -1,10 +1,10 @@
 ---
 date: 2022-11-04
-title: SDK7 alpha testing guidelines
+title: SDK7 beta testing guidelines
 description: Play live audio streams in your scene.
 categories:
   - development-guide
-aliases: 
+aliases:
   - /creator/development-guide/sdk7/beta-testing-guidelines/
 type: Document
 url: /creator/development-guide/sdk7/alpha-testing-guidelines/
@@ -58,6 +58,15 @@ You can find more example scenes written with SDK7 here:
 - [SDK7 Scene Template](https://github.com/decentraland/sdk7-scene-template)
 - [Goerli Plaza](https://github.com/decentraland-scenes/sdk7-goerli-plaza)
 
+## Pending features
+
+A couple of features are intended to be re-implemented in future releases following Data Oriented Programming principles. These for now are still exposed as legacy functions that are marked as deprecated.
+
+- Functions to get player data, like `getUserData`, `getPlayersInScene`, or
+- Functions to get data about the context, like `getDecentralandTime`, `getRealm`, `getPlatform`, `getPortableExperiencesLoaded`
+- Observables for player events like `onEnterSceneObservable`, `onLeaveSceneObservable`, `onPlayerExpressionObservable`, `onPlayerClickedObservable`, `onPointerLockedStateChange`, `onIdleStateChangedObservable`, or `onProfileChanged`
+- Observables for other events like `onSceneReadyObservable`, `onRealmChangedObservable`
+- The MessageBus
 
 ## Reporting issues
 
