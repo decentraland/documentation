@@ -19,8 +19,6 @@ const playerTransform = Transform.getMutable(engine.PlayerEntity)
 playerTransform.position = {x: 1, y: 10, z: 1}
 ```
 
-The `engine.PlayerEntity` entity may not be available to modify while the scene is being loaded. The example below performs the player's movement after the scene is loaded, each time an entity is clicked.
-
 ```ts
 // create entity
 const myEntity = engine.addEntity()
@@ -50,6 +48,11 @@ function respawnPlayer(){
 }
 ```
 
+{{< hint warning >}}
+**📔 Note**: Avoid referring to the `engine.PlayerEntity` on the initial scene loading, because that can result in errors if the entity is not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+
+If you refer to this entity in a system, it will always be available, because the first execution of the system is called once the scene is already properly initialized.
+{{< /hint >}}
 
 
 The player's movement occurs instantly, without any confirmation screens or camera transitions.

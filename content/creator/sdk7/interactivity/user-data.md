@@ -14,22 +14,32 @@ weight: 5
 Use the `PlayerEntity` and the `CameraEntity` to know the player's position and rotation, by checking their `Transform` components.
 
 ```ts
-//player position
-const playerPos = Transform.get(engine.PlayerEntity).position
 
-//player rotation
-const playerRot = Transform.get(engine.PlayerEntity).rotation
+function getPlayerPosition() {
 
-//camera position
-const CameraPos = Transform.get(engine.CameraEntity).position
+	if (!Transform.has(engine.PlayerEntity)) return
+	if (!Transform.has(engine.CameraEntity)) return
 
-//camera rotation
-const CameraRot = Transform.get(engine.CameraEntity).rotation
+	//player position
+	const playerPos = Transform.get(engine.PlayerEntity).position
 
-console.log("playerPos: ", playerPos)
-console.log("playerRot: ", playerRot)
-console.log("cameraPos: ", CameraPos)
-console.log("cameraRot: ", CameraRot)
+	//player rotation
+	const playerRot = Transform.get(engine.PlayerEntity).rotation
+
+	//camera position
+	const CameraPos = Transform.get(engine.CameraEntity).position
+
+	//camera rotation
+	const CameraRot = Transform.get(engine.CameraEntity).rotation
+
+	console.log("playerPos: ", playerPos)
+	console.log("playerRot: ", playerRot)
+	console.log("cameraPos: ", CameraPos)
+	console.log("cameraRot: ", CameraRot)
+}
+
+
+engine.addSystem(getPlayerPosition)
 ```
 
 - **PlayerEntity position**: The avatar's position, at chest height. Approximately at 0.88 cm above the ground.
@@ -40,6 +50,8 @@ console.log("cameraRot: ", CameraRot)
 - **PlayerEntity rotation**:
   - In 1st person: Similar to the direction in which the avatar is facing, expressed as a quaternion. May be rounded slightly differently from the player's rotation.
   - In 3rd person: May vary depending on camera movements.
+
+
 
 The `Camera` object exposes information about the player's point of view in your scene.
 
@@ -68,6 +80,12 @@ engine.addSystem(CubeRotateSystem)
 ```
 
 The example above uses the player's rotation to set that of a cube in the scene.
+
+{{< hint warning >}}
+**📔 Note**: Avoid referring to the `engine.PlayerEntity` or the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+
+If you refer to these entities in a system, they will always be available, because the first execution of the system is called once the scene is already properly initialized.
+{{< /hint >}}
 
 ## Get player data
 
@@ -451,13 +469,20 @@ executeTask(fetchWearablesData)
 Players can either be using a 1st or 3rd person camera when exploring Decentraland. Check which of these the player is using by checking the value `CameraMode` component of the `engine.CameraEntity` entity.
 
 ```ts
-let cameraEntity = CameraMode.get(engine.CameraEntity)
+function checkCameraMode() {
+  
+  	if (!Transform.has(engine.CameraEntity)) return
 
-if (cameraEntity.mode == CameraType.CT_THIRD_PERSON) {
-  console.log("The player is using the 3rd person camera")
-} else {
-  console.log("The player is using the 1st person camera")
+	let cameraEntity = CameraMode.get(engine.CameraEntity)
+
+	if (cameraEntity.mode == CameraType.CT_THIRD_PERSON) {
+		console.log("The player is using the 3rd person camera")
+	} else {
+		console.log("The player is using the 1st person camera")
+	}
 }
+
+engine.addSystem(checkCameraMode)
 ```
 
 The camera mode uses a value from the `CameraType` enum. The following values are possible:
@@ -474,6 +499,11 @@ The `CameraMode` component of the `engine.CameraEntity` is read-only, you can't 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when in 3rd person.
 
 
+{{< hint warning >}}
+**📔 Note**: Avoid referring to the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entity is not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+
+If you refer to this entity in a system, it will always be available, because the first execution of the system is called once the scene is already properly initialized.
+{{< /hint >}}
 
 ## Check if the player has the cursor locked
 
@@ -494,3 +524,8 @@ executeTask(async () => {
 
 The `PointerLock` component of the `engine.RootEntity` is read-only, you can't force the player to lock or unlock the cursor.
 
+{{< hint warning >}}
+**📔 Note**: Avoid referring to the `engine.RootEntity` on the initial scene loading, because that can result in errors if the entity is not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+
+If you refer to this entity in a system, it will always be available, because the first execution of the system is called once the scene is already properly initialized.
+{{< /hint >}}
