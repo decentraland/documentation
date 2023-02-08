@@ -119,7 +119,7 @@ In the example above, the image for the material is located in a `materials` fol
 While creating a texture, you can also pass additional parameters:
 
 - `filterMode`: Determines how pixels in the texture are stretched or compressed when rendered. This takes a value from the `TextureFilterMode` enum. See [Texture Scaling](#texture-scaling).
-- `wrapMode`: Determines how a texture is tiled onto an object. This takes a value from the `TextureWrapMode` emote. See [Texture Wrapping](#texture-wrapping).
+- `wrapMode`: Determines how a texture is tiled onto an object. This takes a value from the `TextureWrapMode` enum. See [Texture Wrapping](#texture-wrapping).
 
 ```ts
 Material.setPbrMaterial(myEntity, {
@@ -319,6 +319,12 @@ Material.setPbrMaterial(myEntity, {
 ![](/images/avatarTexture.png)
 
 You can fetch the portrait of any Decentraland player, even if they're not currently connected, and even if they don't have a claimed Decentraland name.
+
+The following properties are supported within the object you pass as an argument:
+
+- `userId`: ID of the user who's profile you want to display
+- `filterMode`: Determines how pixels in the texture are stretched or compressed when rendered. This takes a value from the `TextureFilterMode` enum. See [Texture Scaling](#texture-scaling).
+- `wrapMode`: Determines how a texture is tiled onto an object. This takes a value from the `TextureWrapMode` enum. See [Texture Wrapping](#texture-wrapping).
 
 
 ## Transparent materials
