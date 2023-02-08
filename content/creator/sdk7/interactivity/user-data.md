@@ -472,3 +472,25 @@ The `CameraMode` component of the `engine.CameraEntity` is read-only, you can't 
 {{< /hint >}}
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when in 3rd person.
+
+
+
+## Check if the player has the cursor locked
+
+
+Players can switch between two cursor modes: _locked cursor_ mode to control the camera or _unlocked cursor_ mode for moving the cursor freely over the UI.
+
+Players unlock the cursor by clicking the _Right mouse button_ or pressing the _Esc_ key, and lock the cursor back by clicking anywhere in the screen.
+
+Check the `PointerLock` component of the scene's root entity to find out what the current cursor mode is.
+
+
+```ts
+executeTask(async () => {
+ const isLocked = PointerLock.get(engine.RootEntity).isPointerLocked
+ console.log(isLocked)
+})
+```
+
+The `PointerLock` component of the `engine.RootEntity` is read-only, you can't force the player to lock or unlock the cursor.
+
