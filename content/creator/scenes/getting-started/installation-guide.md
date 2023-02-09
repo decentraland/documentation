@@ -18,6 +18,10 @@ The Decentraland Editor is a Visual Studio extension, that allows you to build, 
 
 <img src="/images/editor/editor-header.png" alt="Header" width="100%"/>
 
+{{< hint warning >}}
+**📔 Note**: There are two versions of the editor, the **Decentraland Editor SDK6** and the **Decentraland Editor SDK7**. As their names suggest, each version of the editor is meant for working on Decentraland scenes built with different SDK versions. You can have both extensions installed in your same instance of Visual Studio Code, and use them accordingly depending on what project you're working with.
+{{< /hint >}}
+
 To install the Decentraland Editor:
 
 1) Install  <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
