@@ -29,7 +29,7 @@ There are several different ways to handle input actions, depending on the use c
 
 Whichever method you use, it's important to make players aware that an entity is interactive. Otherwise, they might completely miss out on the experience you built. It's not a good experience to be clicking on every object hoping for one to respond. Users of Decentraland are used to the pattern that any interactive items offer feedback on hover, so they will discard an item with no feedback as non-interactive.
 
-The default way to add feedback is to display a hover hint on the UI whenever the player passes their cursor over the entity.  You can implement this behavior by adding a `PointerHoverFeedback` component to an entity.  The [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach makes this even easier, as you don't have to explicitly create this component.
+The default way to add feedback is to display a hover hint on the UI whenever the player passes their cursor over the entity.  You can implement this behavior by adding a `PointerEvents` component to an entity.  The [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach makes this even easier, as you don't have to explicitly create this component.
 
 You could also implement [custom] ways of feedback, for example you could play a sound, making the entity change color, spin or or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
 
