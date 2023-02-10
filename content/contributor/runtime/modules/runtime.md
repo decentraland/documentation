@@ -1,3 +1,10 @@
+---
+draft: true
+---
+
+{{< wip >}}
+
+<!--
 declare module "~system/Runtime" {
 
     export interface RealmInfo {
@@ -21,4 +28,4 @@ declare module "~system/Runtime" {
         export function getRealm(body: GetRealmRequest): Promise<GetRealmResponse>;
     export function getWorldTime(body: GetWorldTimeRequest): Promise<GetWorldTimeResponse>;
 
-}
+}-->
