@@ -12,7 +12,7 @@ Each scene runs inside its own isolated runtime. Within it, it has access to cer
  
 ```goat
 .-----------------------------------------------------'
-.                                                     '
+.                                                     '                   
 |                   World Explorer                    |
 |                                                     |
 |  .---------+---.  .---------+---.  .---------+---.  | 
