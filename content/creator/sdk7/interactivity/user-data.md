@@ -143,7 +143,7 @@ The function returns the entire set of data described above, including address, 
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**:  When running a local preview, use `dcl start --web3` to connect with your wallet and fetch your actual data. Otherwise, the preview uses random user data, just as when you enter as a guest.
+**📔 Note**:  When running a local preview, use `npm start --web3` to connect with your wallet and fetch your actual data. Otherwise, the preview uses random user data, just as when you enter as a guest.
 {{< /hint >}}
 
 

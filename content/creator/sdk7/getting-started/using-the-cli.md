@@ -76,23 +76,23 @@ You can confirm that it worked by checking the `package.json` file for the scene
 
 ## Initiate a new project
 
-Run `dcl init` on an empty folder to populate it with the default files of a Decentraland project.
+Run `npx sdk-commands init` on an empty folder to populate it with the default files of a Decentraland project.
 
 The CLI then prompts you to chose what kind of project, if you want to build a [scene]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}), a [workspace]({{< ref "/content/creator/sdk7/projects/workspaces.md" >}}) or a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). If selecting a scene, the CLI prompts you about what base project to use as a starting point.
 
 ## Run a preview
 
-Run `dcl start` on the root level of a scene, workspace, or smart wearable project to open a preview in a browser window.
+Run `npm start` on the root level of a scene, workspace, or smart wearable project to open a preview in a browser window.
 
 See [preview scenes]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md" >}}) for details and special options when running a preview.
 
 ## Build
 
-Run `dcl build` to build your project. Decentraland scenes are written in TypeScript, but they are built to minified JavaScript when published. See [coding scenes]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}) for more details.
+Run `npm build` to build your project. Decentraland scenes are written in TypeScript, but they are built to minified JavaScript when published. See [coding scenes]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}) for more details.
 
 The build command is optional, as it also runs in the background before deploying (although you can add a flag to skip it).
 
-The build command runs more rigurous type checks than those that run with `dcl start`, running it can sometimes be helpful to debug a scene.
+The build command runs more rigurous type checks than those that run with `npm start`, running it can sometimes be helpful to debug a scene.
 
 ## Deploy a scene
 

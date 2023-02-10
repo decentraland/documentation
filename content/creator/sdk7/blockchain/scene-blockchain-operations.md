@@ -27,7 +27,7 @@ All blockchain operations also need to be carried out as [asynchronous functions
 When running a preview of a scene that uses one of the ethereum libraries, you must have Metamask open in your browser. If using the CLI, run the preview with:
 
 ```
-dcl start --web3
+npm start --web3
 ```
 
 If using the Decentraland Editor, open the scene in a separate browser window, and manually include the string `&ENABLE_WEB3`.

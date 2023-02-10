@@ -17,7 +17,7 @@ If the scene can't be compiled, you'll just see the grid on the ground, with not
 If this occurs, there are several places where you can look for error messages to help you understand what went wrong:
 
 1.  Check your code editor to make sure that it didn't mark any syntax or logic errors.
-2.  Check the output of the command line where you ran `dcl start`
+2.  Check the output of the command line where you ran `npm start`
 3.  Check the JavaScript console in the browser for any other error messages. For example, when using Chrome you access this through `View > Developer > JavaScript console`.
 4.  If you're running a preview of a multiplayer scene that runs together with a local server, check the output of the command line window where you run the local server.
 
@@ -187,7 +187,7 @@ To use a consist avatar across your sessions, you can store an avatar profile by
 To use the avatar that's linked to your active Metamask account, with access to all of your owned wearables, start the preview with:
 
 ```
-dcl start --web3
+npm start --web3
 ```
 
 ## Connecting to Ethereum network
@@ -195,7 +195,7 @@ dcl start --web3
 If your scene makes use of transactions over the Ethereum network, for example if it prompts you to pay a sum in MANA to open a door, you must add an additional parameter to the command when launching the preview:
 
 ```
-dcl start --web3
+npm start --web3
 ```
 
 Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL in the browser window.

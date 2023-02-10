@@ -47,23 +47,23 @@ To display multiple parcels in the scene preview, list as many parcels as you in
 
 ### Set parcels via the command line
 
-You can set the parcels in your scene by running the `dcl coords` command in your scene folder. This is especially useful for large scenes, as you don't need to list every parcel involved.
+You can set the parcels in your scene by running the `npx update-parcels` command in your scene folder. This is especially useful for large scenes, as you don't need to list every parcel involved.
 
 **Single parcel**
 
 Pass a single argument with the scene coords. This coordinate is also set as the base parcel.
 
-`dcl coords <parcel>`
+`npx update-parcels <parcel>`
 
 For example:
 
-`dcl coords 15,-26`
+`npx update-parcels 15,-26`
 
 **Multiple parcels**
 
 Pass two arguments: the South-West and the North-East parcels. The South-West parcel is also set as the base parcel.
 
-`dcl coords <parcel> <parcel>`
+`npx update-parcels <parcel> <parcel>`
 
 {{< hint info >}}
 **💡 Tip**:  The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
@@ -71,7 +71,7 @@ Pass two arguments: the South-West and the North-East parcels. The South-West pa
 
 For example:
 
-`dcl coords 15,-26 17,-24`
+`npx update-parcels 15,-26 17,-24`
 
 This command generates a 3x3 scene, with its base parcel in `15,-26`.
 
@@ -79,7 +79,7 @@ This command generates a 3x3 scene, with its base parcel in `15,-26`.
 
 Pass three arguments: the South-West and the North-East parcels, and the parcel to use as a base parcel.
 
-`dcl coords <parcel> <parcel> <parcel>`
+`npx update-parcels <parcel> <parcel> <parcel>`
 
 {{< hint warning >}}
 **📔 Note**:  The base parcel must be one of the parcels in the scene.
@@ -88,7 +88,7 @@ Pass three arguments: the South-West and the North-East parcels, and the parcel 
 
 **Non-square scenes**
 
-The above commands all generate rectangular-shaped scenes. Decentraland scenes can have L shapes or other configurations. You can generate a larger square with `dcl coords` and then manually remove excess parcels from the `scene.json` file.
+The above commands all generate rectangular-shaped scenes. Decentraland scenes can have L shapes or other configurations. You can generate a larger square with `npx update-parcels` and then manually remove excess parcels from the `scene.json` file.
 
 {{< hint warning >}}
 **📔 Note**:  The base parcel must be one of the parcels in the scene.

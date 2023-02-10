@@ -42,7 +42,7 @@ Follow the steps below to upload your scenes to a free Heroku server:
    ```
    > Note: Make sure your Decentraland project uses the latest SDK version, do `npm i decentraland-ecs@latest`. Projects uploaded to Heroku or similar platformas and built with versions older than 6.10.0 will not be supported and will not be allowed to fech avatar data from content servers.
    
-   > Note: If you're deploying a project that was created using `dcl init`, you would need to remove the line `"yarn": "please use npm"` from your `package.json` file otherwise you're going to get an error while deploying.
+   > Note: If you're deploying a project that was created using `npx sdk-commands init`, you would need to remove the line `"yarn": "please use npm"` from your `package.json` file otherwise you're going to get an error while deploying.
 
 5. Use the Heroku CLI to log into your Heroku account with `heroku login`. This opens a browser window to provide your user and password.
 
@@ -50,7 +50,7 @@ Follow the steps below to upload your scenes to a free Heroku server:
 
 7. Link your Decentraland project to your Heroku application. On the project folder run `heroku git:remote -a example-dcl-scene` (using the name you created you heroku application with)
 
-8. Edit `package.json` in your scene to change the `start` script to `CI=true dcl start -p ${PORT:=8000}`
+8. Edit `package.json` in your scene to change the `start` script to `CI=true npm start -p ${PORT:=8000}`
 
 9. Explicitly install the Decentraland CLI as a dependency of your project, running `npm i --save decentraland`
 

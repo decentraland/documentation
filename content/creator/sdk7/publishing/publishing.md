@@ -85,7 +85,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 {{< /hint >}}
 
 {{< hint info >}}
-**💡 Tip**:  `dcl deploy` runs a `dcl build`, which checks the scene for type errors more strictly than running `dcl start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `dcl deploy  --skip-build`  to skip the `dcl build` step and deploy the scene as it is.
+**💡 Tip**:  `dcl deploy` runs a `npm build`, which checks the scene for type errors more strictly than running `npm start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `dcl deploy  --skip-build`  to skip the `npm build` step and deploy the scene as it is.
 {{< /hint >}}
 
 ## Publish from a hardware wallet

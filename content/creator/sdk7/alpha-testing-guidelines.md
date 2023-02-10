@@ -11,9 +11,6 @@ url: /creator/development-guide/sdk7/alpha-testing-guidelines/
 weight: 2000
 ---
 
-SDK version 7 is currently being tested as an alpha release. We're gathering feedback from the community, to ensure the release doesn't present any major issues and that the experience of using it is good.
-
-We encourage you to test and experiment with this new SDK as much as possible, but please don't build any events or important scenes that rely on content written with SDK7. As things are still in a alpha stage, breaking changes are still possible.
 
 ## Documentation
 
@@ -21,23 +18,13 @@ Find the full documentation for SDK7 in under the **SDK7** section of the docume
 
 ## Using the playground
 
-To try out SDK7, visit [the playground](https://playground.decentraland.org/). Write SDK7 code on the left of the screen, and see the resulting scene on the right. As you change the code, the scene is updated automatically.
+To easily try out SDK7, visit [the playground](https://playground.decentraland.org/). Write SDK7 code on the left of the screen, and see the resulting scene on the right. As you change the code, the scene is updated automatically.
 
 If you run into any issues, please copy a URL to the current setup of your scene with the **Share** button, and [report an issue](#reporting-issues) including that link to your code.
 
-## Running in preview
+## Using SDK 7
 
-To run a scene using SDK7 in preview
-
-1. Make sure you have the latest version of the Decentraland command line
-   ```bash
-   npm i -g decentraland@latest
-   ```
-2. In a new directory, create a new SDK7 project
-   ```bash
-   dcl init --template https://github.com/decentraland/sdk7-scene-template/archive/refs/heads/main.zip
-   ```
-3. Run previews with `dcl start`, the same as with older versions. Edit or add any additional files you want into the folder structure to build out your scene.
+Install the SDK 7 version of the editor on VS Studio Code. To install it, simply search in the extension market for **Decentraland Editor SDK7**.
 
 {{< hint warning >}}
 **📔 Note**:  Notice that scenes that use SDK7 don't have the `decentraland-ecs` package installed. Instead, they have the `@dcl/sdk` package.
@@ -45,11 +32,8 @@ To run a scene using SDK7 in preview
 
 ## In production
 
-You can deploy scenes with SDK7 using `dcl deploy` the same as any scene with SDK6.
+You can deploy scenes with SDK7 via the **Publish Scene** button on the Editor.
 
-{{< hint warning >}}
-**📔 Note**:  Please note that this is not yet a stable version. Breaking changes are possible, so avoid using this version for scenes that are of critical importance.
-{{< /hint >}}
 
 ## Example scenes
 
