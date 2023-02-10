@@ -121,11 +121,6 @@ Stopping nginx ... done
 ## Using HTTP because CATALYST_URL is set to http://localhost
 ## Replacing value $katalyst_host on nginx server file... [ OK ]
 ## Restarting containers...
-WARNING: The LIVEKIT_URL variable is not set. Defaulting to a blank string.
-WARNING: The LIVEKIT_API_KEY variable is not set. Defaulting to a blank string.
-WARNING: The LIVEKIT_API_SECRET variable is not set. Defaulting to a blank string.
-WARNING: The WS_ROOM_SERVICE_URL variable is not set. Defaulting to a blank string.
-WARNING: The WS_ROOM_SERVICE_SECRET variable is not set. Defaulting to a blank string.
 Creating network "catalyst-owner_default" with the default driver
 Creating catalyst-owner_comms-server_1 ... done
 Creating node-exporter                   ... done
