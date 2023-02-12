@@ -1,6 +1,6 @@
 ---
 date: 2023-31-01
-title: DecntralandVR Client
+title: DecentralandVR Client
 section: "_index"
 aliases:
 description: Intro to the DCL VR Client.
@@ -8,7 +8,7 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/DCL-VR-Client
-weight: 31
+weight: 1
 ---
 
 #### Introduction
