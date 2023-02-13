@@ -85,7 +85,7 @@ When delegates are acting on the user's behalf, an item is added to the middle o
 1. The type is [`ECDSA_EPHEMERAL`](#ECDSA_EPHEMERAL)
 2. The `payload` is a specially crafted text (see below).
 
-The `payload` is designed to be both easy to read and easy to parse, since both humans (when using their wallet UI) and programs (when crafting and validating) must work with it. It contains exactly 3 lines of case-sensitive plain text:
+The `payload` is designed to be easy to read and easy to parse, since both humans (when using their wallet UI) and programs (when crafting and validating) must work with it. It contains exactly 3 lines of case-sensitive plain text:
 
 ```md
 <purpose>
@@ -137,7 +137,7 @@ The `payload` is dependent on the `type` of the step. For example, if a user is 
   "type": "ECDSA_SIGNED_ENTITY",
 
   // The payload is the raw ID string:
-  "payload": "QmbuTc3mFdeyCv6gFqdtc1o7m3oCEu7Gqmh5zLUQy5fYpk",
+  "payload": "bafkreicfbg7ybpuoslkcf6x2vfnvzl5vwgqtb2pnheqiut2i4sgpblicqi",
 
   // The signature is produced by the account in the previous step (user or delegate):
   "signature": "0x7e71dbbab..."
@@ -156,7 +156,7 @@ An example of alternative serialization from within the protocol itself can be f
 
 ### Choosing an Expiration Date
 
-When selecting the valid duration for a delegate key, there's a tradeoff: shorter expirations increase security, but longer expirations improve user experience (since delegates have to be renewd with human interaction at a lower frequency).
+When selecting the valid duration for a delegate key, there's a tradeoff: shorter expirations increase security, but longer expirations improve user experience (since delegates have to be renewed with human interaction at a lower frequency).
 
 There is no universal strategy to decide what the valid time window should be. The Foundation's World Explorer, for reference, requests authorization for its delegate key for one month.
 
