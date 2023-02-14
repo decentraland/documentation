@@ -48,7 +48,7 @@ To publish a scene to a world via the Decentraland Editor:
 To deploy a scene to a world via the CLI, you need to specify the target server in the deployment command-line and use the Worlds Content Server URL: 
 
 ```bash
-dcl deploy --target-content https://worlds-content-server.decentraland.org`
+dcl deploy --target-content https://worlds-content-server.decentraland.org
 ```
 
 

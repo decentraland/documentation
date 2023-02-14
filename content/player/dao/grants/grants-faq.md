@@ -80,7 +80,7 @@ Grant owners must provide one [update](#how-to-post-updates-on-my-proposal-page)
 
 When your [vesting contract](#where-can-i-find-my-vesting-contract) period is finalized, you will receive an email from the Grant Support Squad asking you to submit a Final Report.
 
-You can also share updates on your dedicated discord channel on the [DAO Decentraland server](https://discord.gg/hQ9vyuHsRg). These progress reports should be clear and concise, while still giving the community an accurate sense of how your project is progressing.
+You can also share updates on your dedicated discord channel on the [DAO Decentraland server](https://dcl.gg/daodiscord). These progress reports should be clear and concise, while still giving the community an accurate sense of how your project is progressing.
 
 It is also expected that members of the Grant team attends to the [monthly TownHalls](https://events.decentraland.org/event/?id=cca6c7e2-8235-450c-b14e-e64691c136ba) to report progress.
 
@@ -96,7 +96,7 @@ Missing an update is an alarm for us and may trigger the  [Grant revocation proc
 
 Every Grant will be supported by the Grant Support Squad and by the rest of the community, so you can :
 
-1.  Search for your dedicated discord channel on the [DAO Decentraland server](https://discord.gg/hQ9vyuHsRg) and ask the community for help.  
+1.  Search for your dedicated discord channel on the [DAO Decentraland server](https://dcl.gg/daodiscord) and ask the community for help.  
 2. Send an email to Grant Support Squad ([Pablo](mailto:pablo.lewin@decentraland.org) / [Zino](mailto:juan.cassinelli@decentraland.org))
 
 

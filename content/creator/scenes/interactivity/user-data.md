@@ -325,24 +325,29 @@ executeTask(async () => {
 })
 ```
 
-Decentraland handles its communications between players (including player positions, chat, messageBus messages and smart item state changes) through a decentralized network of communication servers. Each one of these servers can support multiple separate `islands`, each grouping a different set of players that are near each other on the Decentraland map.
+{{< hint warning >}}
+**📔 Note**:  The `getCurrentRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< /hint >}}
+
+Decentraland handles its communications between players (including player positions, chat, messageBus messages and smart item state changes) through a decentralized network of communication servers, each of these servers is called a **Realm**. Each one of these servers can support multiple separate **rooms** (also called **islands**), each grouping a different set of players that are near each other on the Decentraland map.
 
 The `getCurrentRealm()` function returns the following information:
 
-- `displayName`: _(string)_ The full address of the realm, composed of the server + the layer
-- `domain`: _(string)_ The URL of the server
-- `serverName`: _(string)_ The name of the server
+- `displayName`: _(string)_ The full address of the realm, composed of the server + the room
+- `domain`: _(string)_ The URL of the server the player is connected to
+- `serverName`: _(string)_ The name of the server the player is connected to
+- `room`: _(string)_  The name of the room the player is connected to, in some versions of comms, this is a 1-to-1 map to the island name
 
-{{< hint info >}}
-**💡 Tip**:  The `getCurrentRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+{{< hint warning >}}
+**📔 Note**:  The `layer` property is deprecated, and should be avoided.
 {{< /hint >}}
 
-As players move through the map, they may switch islands to be grouped with those players who are now closest to them. Islands also shift their borders dynamically to fit a manageable group of people, so even if a player stands still, as players enter and leave the world, the player could find themselves on another island.
+As players move through the map, they may switch rooms to be grouped with those players who are now closest to them. Rooms also shift their borders dynamically to fit a manageable group of people, so even if a player stands still, as players enter and leave the world, the player could find themselves on another room. Players in a same `room` are communicated, and will share messages across the MessageBus even if they;re too far to see each other. Players in a same server but in different rooms are not currently communicating, but they might get communicated as they move around the map and change rooms.
 
 See [onRealmChangedObservable]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-changes-realm-or-island" >}}) for how to detect changes regarding the player's realm or island.
 
 {{< hint warning >}}
-**📔 Note**:  When the scene first loads, there might not yet be an island assigned for the player. The explorer will always eventually assign an island to the player, but this can sometimes occur a couple of seconds after the scene is loaded.
+**📔 Note**:  When the scene first loads, there might not yet be a room assigned for the player. The explorer will eventually assign a room to the player, but this can sometimes occur a couple of seconds after the scene is loaded.
 {{< /hint >}}
 
 ## Get player platform

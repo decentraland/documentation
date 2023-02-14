@@ -118,7 +118,7 @@ As an alternative, you can run `dcl deploy --skip-build` to skip the running of 
 
 	To validate this, try running the scene with the URL parameter `&DISABLE_ASSET_BUNDLES`. If the models look fine with this flag, the issue must be related to a bug in the conversion of the model.
 
-	Note that the generation of compressed asset-bundle versions of your models is a process that takes the servers time (about an hour). You can check if the models are being loaded as compressed asset bundles or not by accessing the scene via the following URL:  `https://play.decentraland.zone/?renderer-branch=feat%2Fab-view`. Compressed models are tinted green, non-compressed are tinted red.
+	Note that the generation of compressed asset-bundle versions of your models is a process that takes the servers time (about an hour). You can check if the models are being loaded as compressed asset bundles or not by writing the following command into the chat window `/detectabs`. Compressed models are tinted green, non-compressed are tinted red.
 
 ### Issue: My scene has poor FPS in production, even though it runs smoothly in preview.
 
@@ -126,4 +126,4 @@ Your scene's performance could be affected by neighboring scenes that follow bad
 
 You can reduce the line of sight even further by running your scene with the parameter `&LOS=0`, to not load any surrounding scenes at all.
 
-If you just deployed your scene, the burden when loading the scene might also be reduced once the servers convert the 3D models in the scene to compressed asset bundles. You can check if the models are being loaded as compressed asset bundles or not by accessing the scene via the following URL:  `https://play.decentraland.zone/?renderer-branch=feat%2Fab-view`. Compressed models are tinted green, non-compressed are tinted red.
+If you just deployed your scene, the burden when loading the scene might also be reduced once the servers convert the 3D models in the scene to compressed asset bundles. You can check if the models are being loaded as compressed asset bundles or not by writing the following command into the chat window `/detectabs`. Compressed models are tinted green, non-compressed are tinted red.
