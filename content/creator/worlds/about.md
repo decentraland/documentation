@@ -39,7 +39,7 @@ Of course, the NAME specified there needs to be owned by the wallet signing the 
 And secondly, you need to specify the target server in the deployment command-line and use the Worlds Content Server URL: 
 
 ```bash
-dcl deploy --target-content https://worlds-content-server.decentraland.org`
+dcl deploy --target-content https://worlds-content-server.decentraland.org
 ```
 
 
