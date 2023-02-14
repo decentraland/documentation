@@ -139,11 +139,11 @@ executeTask(async () => {
 The function returns the entire set of data described above, including address, name, wearables, snapshots, etc.
 
 {{< hint info >}}
-**💡 Tip**:  The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**💡 Tip**:  When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**:  When running a local preview, use `npm start --web3` to connect with your wallet and fetch your actual data. Otherwise, the preview uses random user data, just as when you enter as a guest.
+**📔 Note**: The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
 
@@ -337,39 +337,25 @@ executeTask(async () => {
 })
 ```
 
-Decentraland handles its communications between players (including player positions, chat, messageBus messages and smart item state changes) through a decentralized network of communication servers. Each one of these servers can support multiple separate `islands`, each grouping a different set of players that are near each other on the Decentraland map.
-
-The `getRealm()` function returns the following information:
-```
-  // URL of the realm without the last "/about" endpoint
-  baseUrl: string
-  // Realm name
-  realmName: string
-  // Ethereum network
-  networkId: number
-  // Comms adapter, removing all query parameters (credentials)
-  commsAdapter?: string
-  // If you are in preview mode or not
-  preview?: boolean
-```
 {{< hint info >}}
 **💡 Tip**:  The `getRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
+Decentraland handles its communications between players (including player positions, chat, messageBus messages and smart item state changes) through a decentralized network of communication servers, each of these servers is called a **Realm**. Each one of these servers can support multiple separate **rooms** (also called **islands**), each grouping a different set of players that are near each other on the Decentraland map.
 
 The `getRealm()` function returns the following information:
 
-- `baseUrl`: _(string)_ The full address of the realm, composed of the server + the layer
-- `realmName`: _(string)_ The name of the server
-- `networkId`: _(number)_
-- `commsAdapter`: _(string)_
+- `baseUrl`: _(string)_ The domain of the realm server
+- `realmName`: _(string)_ The name of the realm server
+- `networkId`: _(number)_ The Ethereum network
+- `commsAdapter`: _(string)_ Comms adapter, removing all query parameters (credentials)
+- `preview`: _(boolean)_ True if the scene is running as a local preview, instead of published in Decentraland.
+
+
 
 {{< hint warning >}}
 **📔 Note**:  The `layer` property is deprecated, and should be avoided.
 {{< /hint >}}
-
-
-Decentraland handles its communications between players (including player positions, chat, messageBus messages and smart item state changes) through a decentralized network of communication servers, each of these servers is called a **Realm**. Each one of these servers can support multiple separate **rooms** (also called **islands**), each grouping a different set of players that are near each other on the Decentraland map.
 
 
 As players move through the map, they may switch rooms to be grouped with those players who are now closest to them. Rooms also shift their borders dynamically to fit a manageable group of people, so even if a player stands still, as players enter and leave the world, the player could find themselves on another room. Players in a same `room` are communicated, and will share messages across the MessageBus even if they;re too far to see each other. Players in a same server but in different rooms are not currently communicating, but they might get communicated as they move around the map and change rooms.

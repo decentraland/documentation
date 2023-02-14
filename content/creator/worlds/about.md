@@ -19,12 +19,12 @@ The BETA is open to anyone to use, to kick-off the product and be able to assess
 
 ### Publish a World 
 
-The starting point for this product is having a scene that meets the size requirements mentioned above. If you wish to know more about how to create a scene, check out the [Decentraland SDK](https://docs.decentraland.org/creator/development-guide/sdk-101/) documentation.
+The starting point for this product is having a scene that meets the size requirements mentioned above. If you wish to know more about how to create a scene, check out the [Decentraland SDK]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) documentation.
 
-If you are a Content Creator, you may be already familiar with how the [CLI](https://docs.decentraland.org/creator/development-guide/sdk-101/) works, the experience is quite similar, but with two small caveats... 
+If you are a Content Creator, you may be already familiar with how the [publishing of a scene]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) works, the experience is quite similar, but with a small caveat: 
 
-You need to specify under which NAME that deployment is to be made. In your
-`scene.json` you need to add the following section:
+You need to specify under what **name** your deployment is to be made. Add the following section in your
+`scene.json`:
 
 ```json
 {
@@ -34,12 +34,21 @@ You need to specify under which NAME that deployment is to be made. In your
 }
 ```
 
-Of course, the NAME specified there needs to be owned by the wallet signing the deployment.
+Of course, the **name** specified there needs to be owned as a Decentraland NAME token by the wallet signing the deployment.
 
-And secondly, you need to specify the target server in the deployment command-line and use the Worlds Content Server URL: 
+To publish a scene to a world via the Decentraland Editor:
+
+1. Open VSCode in a Decentraland scene project.
+2. Click on the Decentraland icon on the left sidebar.
+3. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select **Publish Scene To Your World**
+4. Approve the transaction
+	- If you need to use Metamask on the browser, click **Open in Browser** to open this same window on a browser tab. Then approve the transaction on the Metamask browser extension.
+
+
+To deploy a scene to a world via the CLI, you need to specify the target server in the deployment command-line and use the Worlds Content Server URL: 
 
 ```bash
-dcl deploy --target-content https://worlds-content-server.decentraland.org`
+dcl deploy --target-content https://worlds-content-server.decentraland.org
 ```
 
 

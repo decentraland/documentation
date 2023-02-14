@@ -31,7 +31,7 @@ Transform.create(myEntity, {
 
 // give entity behavior
 pointerEventsSystem.onPointerDown(
-  entity,
+  myEntity,
   function () {
      respawnPlayer()
   },
