@@ -62,24 +62,30 @@ To fix these dependencies, you often must resort to calling functions or object 
 
 - Check the spawn points of your scene, all three x,y,z coordinates of a spawn point must either be a number or a range. Either all three are numbers or all three are ranges. It's not supported to have ranges for some but numbers for others. 
 
-For example this is not supported:
+	For example this is not supported:
 
-`"position": {"x": [1,4], "y": 0, "z": [1,4]}`
+	`"position": {"x": [1,4], "y": 0, "z": [1,4]}`
 
-This is supported:
+	This is supported:
 
-`"position": {"x": [1,4], "y": [0,0], "z": [1,4]}`
+	`"position": {"x": [1,4], "y": [0,0], "z": [1,4]}`
 
 
-- The default catalyst server that you're assigned to deploy to might be down or having issues. You can force the `dcl deploy` command to deploy to a specific catalyst server instead. To deploy to a specific server, do:
+- The default catalyst server that you're assigned to deploy to might be down or having issues. You can force the `dcl deploy` command to deploy to a specific catalyst server instead. To deploy to a specific server, on the Decentraland Editor: 
+	1. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Deploy Scene To Custom Catalyst`
+	2. Enter the address of the server, for example `peer-testing.decentraland.org`
+	3. Approve the transaction
 
-`dcl deploy --target-content <server-name>`
 
-For example:
+	To do this via the CLI:
 
-`dcl deploy --target-content peer-ec1.decentraland.org`
+	`dcl deploy --target-content <server-name>`
 
-See [catalyst-monitor](https://decentraland.github.io/catalyst-monitor/) for a status check of all the servers in the catalyst network. You can also copy the addresses of each one, from the top of each card.
+	For example:
+
+	`dcl deploy --target-content peer-ec1.decentraland.org`
+
+	See [catalyst-monitor](https://decentraland.github.io/catalyst-monitor/) for a status check of all the servers in the catalyst network. You can also copy the addresses of each one, from the top of each card.
 
 - Check your scene's `package.json`. A common problem is that there's a `bundleDependencies` and also a `bundledDependencies` (extra d) section. This can sometimes result from running different Node versions on the same project. Delete `bundleDependencies`, which relates to older Node versions.
  
