@@ -153,20 +153,14 @@ Your scene might have objects that can block players from moving if they happen 
 
 The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to [position an entity]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md" >}}).
 
-{{< hint >}}
-Define a range for the **x** and **z** locations to prevent users spawning all together in the same spot. In this example, users might appear anywhere between the position `{ x: 1, y: 1, z: 0 }` and `{ x: 10, y: 1, z: 2 }`, relative to the base parcel position:
+{{< hint info >}}
+**💡 Tip**: Define a range for the **x** and **z** locations to prevent users spawning all together in the same spot. In this example, users might appear anywhere between the position `{ x: 1, y: 1, z: 0 }` and `{ x: 10, y: 1, z: 2 }`, relative to the base parcel position:
 ```json
-  "spawnPoints": [
-    {
-      "name": "spawn1",
-      "default": true,
-      "position": {
-        "x": [1, 10]
-        "y": 1,
-        "z": [0, 2]
-      }
-    }
-  ],
+"position": {
+  "x": [1, 10]
+  "y": 1,
+  "z": [0, 2]
+}
 ```
 {{< /hint >}}
 
