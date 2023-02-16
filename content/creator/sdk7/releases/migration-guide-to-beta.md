@@ -1,6 +1,6 @@
 ---
 title: "Migration guide 7.1"
-url: "/creator/sdk7/releases/migration-guide-7.1"
+url: "/creator/sdk7/releases/migration-guide-to-beta"
 weight: 3
 ---
 
