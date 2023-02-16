@@ -29,7 +29,7 @@ By using the Polygon network, and thanks to Decentraland’s DAO, users can list
 In order to enjoy costless transactions there are three conditions that need to be met:
 
 - You need to be connected to Ethereum Mainnet.
-- The item you are intending to buy need to have a price of 1 MANA or higher.
+- The item you are intending to buy needs to have a price of 1 MANA or higher.
 - You didn’t reach your free transaction limit.
 
 The Decentraland DAO reserves itself the rights to consume or pause the meta-transactions services when the network’s gas fees are high to prevent the consumption of the gas tanks so they can last longer and be used by as many people as possible.
