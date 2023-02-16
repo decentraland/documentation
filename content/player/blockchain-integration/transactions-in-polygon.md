@@ -34,7 +34,7 @@ In order to enjoy costless transactions there are three conditions that need to 
 
 The Decentraland DAO reserves itself the rights to consume or pause the meta-transactions services when the network’s gas fees are high to prevent the consumption of the gas tanks so they can last longer and be used by as many people as possible.
 
-## **Why do I have to cover the transaction fees for items that cost less than 1 MANA?
+## Why do I have to cover the transaction fees for items that cost less than 1 MANA?
 
 In order to avoid exploitation and protect the free gas service, items that cost less than 1 MANA are not included in the costless transactions. You can buy these items by connecting to the Polygon network with MATIC in your wallet.
 
