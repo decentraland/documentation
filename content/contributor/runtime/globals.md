@@ -7,18 +7,19 @@ weight: 2
 
 The scene runtime ensures the existence of certain objects and functions inside the sandboxed Javascript environment, in addition to the standard utilities such as `Promise`, `Date` or `Math`.
 
-These are adapted implementations of familiar browser and/or Node concepts.
-
+{{< info >}}
+The globals described below are typical JavaScript concepts, but they are tailored to the Decentrland scene runtime and may not behave identically to their counterparts in browser or Node environments.
+{{< /info >}}
 
 ## Globals
 
 The runtime injects 7 definitions in the scene's global scope:
 
-1. [`console`](#console): a subset of the Node/browser `console` object.
-2. [`module`](#module): a subset of Node's `module` object.
-3. [`exports`](#module): a shortcut to `module.exports`, as in Node.
-4. [`require`](#module): an implementation of Node's `require` for a curated list of modules.
-5. [`setImmediate`](#scheduling): an implementation of Node's `setImmediate`.
+1. [`console`](#console): a simplified version of the typical `console` object.
+2. [`exports`](#module): an object where the scene can add its [public interface]({{< relref "execution" >}}).
+3. [`module`](#module): a container for the `exports` object.
+4. [`require`](#module): a function to load runtime-provided modules by name.
+5. [`setImmediate`](#scheduling): a function to schedule calls after all pending callbacks run.
 6. [`fetch`](#http): a restricted implementation of the browser `fetch` function.
 7. [`WebSocket`](#http): a restricted implementation of the browser `WebSocket` class.
 
@@ -27,7 +28,7 @@ All of these are defined as read-only properties, so they cannot be reassigned. 
 
 ## Console {#console}
 
-Scenes have access to a `console` object, much like the one provided by a browser or Node environment, though limited to the some of the methods you would normally find.
+Scenes have access to a `console` object, much like the one provided by a browser or Node environment, though limited to only some of the methods you would normally find.
 
 ```ts
 type Console = {
@@ -54,26 +55,33 @@ In the Foundation's browser-based World Explorer, log messages appear in the dev
 
 ## Imports and Exports {#module}
 
-Scenes can import and export objects using a Node-like interface.
-
-The `require` function provides access to optional modules that scenes can leverage. Since the `require` function is injected by the runtime, so are the module definitions and their import paths.
+Scenes can import and export objects using the traditional [CommonJS](https://wiki.commonjs.org/wiki/Modules/1.0) module interface.
 
 ```ts
-require(moduleName: string): { exports: Object }
+exports: Object
+require(moduleName: string): Object
 ```
 
-Scenes can (and must]]) export objects by setting keys in `module.exports`, or the `exports` shortcut.
+The `require` function allows scenes to access runtime-provided modules (such as [EngineApi]({{< relref "modules/engine_api" >}}) or [RestrictedActions]({{< relref "modules/restricted_actions" >}})), and nothing else (it **does not** access NPM packages or modules by path).
 
-See the [execution]({{< relref "execution" >}}) page for more information.
+Properties added to the `exports` object are the scene's public interface and will be exposed to the runtime. In fact, scenes _must_ expose at least one method to run properly (see [execution]({{< relref "execution" >}})).
+
+{{< info >}}
+Scenes written in languages such as TypeScript use the more modern `import` and `export` statements, which can be transpiled into CommonJS-compatible uses of `require` and `exports`.
+{{< /info >}}
 
 
 ## Scheduling {#scheduling}
 
-When a scene needs to schedule callbacks with their execution controlled by the sandbox host, it can use the Node-like `setImmediate` global. These callbacks will queue up and be invoked at some implementation-dependent point in the future, usually within one tick of the game loop.
+When a scene needs to schedule callbacks and have their execution controlled by the sandbox host, it can use the `setImmediate` global. 
 
 ```ts
 setImmediate(fn: Function): void
 ```
+
+These callbacks will be invoked immediately after all the currently pending tasks in the event loop are processed, and before the next round begins.
+
+In a World Explorer, the `setImmediate` implementation is usually synchronized with the game engine, to execute after the [game loop tick](https://adr.decentraland.org/adr/ADR-148).
 
 
 ## HTTP and WebSockets {#http}

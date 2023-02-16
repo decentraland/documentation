@@ -27,8 +27,9 @@ During the life-cycle of a scene, the runtime will ensure that calls to these me
 ```
 
 {{< info >}}
-Most scenes use the [Decentraland SDK]({{< ref "/creator/sdk7/getting-started/sdk-101" >}}), which provides a higher-level interface and automatically exports these methods. However, the SDK is _not_ part of the protocol, and scene developers can decide not to use it.
+Effective and performant synchronization between individual scenes and the game rendering engine is a complicated matter. You can find lessons from the Foundation's implementation in [ADR-148](https://adr.decentraland.org/adr/ADR-148).
 {{< /info >}}
+
 
 ###### `onStart` {#onStart}
 
@@ -38,11 +39,9 @@ The life-cycle of a scene begins with the asynchronous `onStart` method. It's th
 onStart(): Promise<void>
 ```
 
-Exporting `onStart` is not required, and scenes are not expected to do anything in particular if they do. The method can be missing or do nothing and return an immediately resolved `Promise`.
+Scenes should use this call to request any pre-existing state from the runtime (such as the [basic entities]({{< relref "entities" >}})) and perform their own initial setup.
 
-{{< info >}}
-Scenes using the Decentraland SDK export a default `onStart` method that obtains the initial state of the [basic entities]({{< relref "entities" >}}).
-{{< /info >}}
+Exporting `onStart` is recommended for all scenes (and done automatically when using the SDK), but it's not required by protocol. The method may be missing, or return an immediately resolved `Promise`.
 
 
 ###### `onUpdate` {#onUpdate}

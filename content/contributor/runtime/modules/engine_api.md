@@ -129,7 +129,7 @@ type ComponentState = Map<EntityId, EntityComponentState>
 type CRDTState = Map<ComponentId, ComponentState>
 ```
 
-Timestamps aren't actually Unix-style timestamps. They are a type of shared incremental counter to sequence updates, with no relation to clock time. More on this [below](#timestamps).
+Timestamps aren't actually Unix-style timestamps. They are a type of incremental counter to sequence updates, with no relation to clock time. More on this [below](#timestamps).
 
 <div id="crdtStateAutoCreate"><!-- just an invisible anchor to link --></div>
 
@@ -347,8 +347,8 @@ function crdtGetState(Request): Promise<Response>
 ```
 
 
-## Supporting Legacy Scenes
+## Legacy Scenes
 
-Old-style scenes, which don't use the modern CRDT mechanism, require that some methods exist in order to avoid failing immediately.
+Old-style scenes (i.e. those built using the SDK version 6 or older) don't use the modern CRDT mechanism, instead calling methods in `EngineApi` that are now deprecated.
 
-_!! what about sendBatch, subscribe and friends?_
+Support for these scenes is not a requirement for a protocol-compliant Decentraland application.

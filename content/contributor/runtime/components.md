@@ -53,9 +53,7 @@ Since the null-value for `parent` is also the [`RootEntity`]({{< ref "/contribut
 
 Provides basic rendering behavior for an Entity.
 
-It can be set to render a plane, a sphere, a cube or cylinder.
-
-Entities with a [`GltfContainer`](#GltfContainer) are rendered according to the referenced model, and ignore this component.
+It can be set to render a plane, a sphere, a cube or cylinder. To render arbitrary 3D shapes, use [`GltfContainer`](#GltfContainer).
 
 
 ---
@@ -63,9 +61,7 @@ Entities with a [`GltfContainer`](#GltfContainer) are rendered according to the 
 
 Provides basic collision behavior and mouse pointer detection for an Entity.
 
-It can be set to behave like a plane, a sphere, a cube or cylinder.
-
-Entities with a [`GltfContainer`](#GltfContainer) detect collisions according to meshes defined in the 3D model, and ignore this component.
+It can be set to behave like a plane, a sphere, a cube or cylinder. To have a custom collision mesh, use [`GltfContainer`](#GltfContainer).
 
 
 ---
@@ -73,9 +69,9 @@ Entities with a [`GltfContainer`](#GltfContainer) detect collisions according to
 
 Sets the texture, lighting, color and transparency properties of an Entity that also has the [`MeshRenderer`](#MeshRenderer) component.
 
-It's a complex structure, but all fields have default values that can be left as they are, in order to only change a subset of the properties.
+It's a complex structure designed to cover all common cases, but every field has a reasonable default value and can be left unspecified.
 
-Entities with a [`GltfContainer`](#GltfContainer) are rendered according to the referenced model, and ignore this component.
+To completely customize the visual properties of an Entity, use [`GltfContainer`](#GltfContainer).
 
 
 ---

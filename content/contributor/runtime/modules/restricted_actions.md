@@ -118,6 +118,27 @@ interface Response {
 function openNftDialog(Request): Promise<Response>
 ```
 
+###### `changeRealm` {#changeRealm}
+
+Switch the World Explorer to another content server, using its base URL.
+
+```ts
+interface Request {
+  // The URL of the new realm.
+  realm: string
+
+  // An optional message to show users when they have to approve the change.
+  message?: string 
+}
+
+interface Response {
+  // Whether the realm change was authorized and successful.
+  success: boolean
+}
+
+function changeRealm(Request): Promise<Response>
+```
+
 ## Types
 
 The only additional type used by methods in this module is the `Vector3`.
