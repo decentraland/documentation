@@ -154,7 +154,7 @@ Your scene might have objects that can block players from moving if they happen 
 The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to [position an entity]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md" >}}).
 
 {{< hint info >}}
-**💡 Tip**: Define a [range]({{< ref #spawn-regions >}}) for the **x** and **z** locations to prevent users spawning all together in the same spot.
+**💡 Tip**: Define a [range](#spawn-regions) for the **x** and **z** locations to prevent users spawning all together in the same spot.
 {{< /hint >}}
 
 If your scene does not define any spawn points, users might appear at any random location within the base parcel. In the past, the reference client always spawned users in the **0,0** position. Make sure you update your scene.json if this is not the behavior you expect.
@@ -196,7 +196,7 @@ Spawn points marked as `default` are given preference. When there are multiple s
 **📔 Note**:  In future releases, when a player tries to spawn into a scene and the default spawn points are occupied by other players, the player will be sent to another of the listed locations. This will open the door to allowing players to teleport to a spawn point based on the spawn point's name, as described in the `scene.json`.
 {{< /hint >}}
 
-### Spawn regions
+### Spawn regions {#spawn-regions}
 
 You can set a whole region in the scene to act as a spawn point. By specifying an array of two numbers on any of the dimensions of the position, players will appear in a random location within this range of numbers. This helps prevent the overlapping of entering players.
 
