@@ -58,5 +58,5 @@ Another way is through Decentralized or Centralized exchanges. You can check [ht
 
 If you have MATIC in the Ethereum network, you can always use the [Polygon Bridge](https://wallet.polygon.technology/bridge/) to deposit that MATIC to the Polygon network.
 
-> **Warning**
+> **Warning:**
 > After completing a transaction in Polygon, remember to switch back to Ethereum Mainnet to enjoy all the features in the Marketplace and the Builder that are not supported in the Polygon network.
