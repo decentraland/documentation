@@ -16,7 +16,7 @@ There are two different ways you can show a video in a scene. One is to stream t
 In both cases, you use a `VideoPlayer` component to control the state of the video. You also need to create a `VideoTexture`, which can be used on a [material]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) and then applied to any [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
 
 {{< hint warning >}}
-**📔 Note**:  Keep in mind that streaming video demands a significant effort from the player's machine. For this reason, it's not allowed to have more than one video stream displayed at a time per scene, videos are also not played if the player is standing on a different scene. Also avoid streaming videos that are in very high resolution, don't use anything above _HD_.
+**📔 Note**:  Keep in mind that streaming video demands a significant effort from the player's machine. For this reason, we recommend never having more than one video stream displayed at a time per scene. Videos are also not played if the player is standing on a different scene. Also avoid streaming videos that are in very high resolution, don't use anything above _HD_.
 {{< /hint >}}
 
 ## Show a video
