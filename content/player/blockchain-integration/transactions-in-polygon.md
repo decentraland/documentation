@@ -22,7 +22,7 @@ You can buy MATIC in most cryptocurrency exchanges.
 
 ## Polygon in Decentraland’s Marketplace and Builder
 
-By using the Polygon network, and thanks to Decentraland’s DAO, users can list, sell and buy wearables in the Marketplace or publish their collections in the Builder without paying for the transaction gas. 
+By using the Polygon network, and thanks to Decentraland’s DAO, users can list, sell and buy wearables in the Marketplace or publish their collections in the Builder without paying for the transaction gas using the meta-transactions services. 
 
 **Transactions in Polygon are not free**. The Decentraland DAO covers the cost of the transactions in Polygon so that users can enjoy many costless transactions in the Marketplace.  
 
