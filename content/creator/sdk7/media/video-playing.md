@@ -15,8 +15,8 @@ There are two different ways you can show a video in a scene. One is to stream t
 
 In both cases, you use a `VideoPlayer` component to control the state of the video. You also need to create a `VideoTexture`, which can be used on a [material]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) and then applied to any [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
 
-{{< hint info >}}
-**💡 Tip**:  Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
+{{< hint warning >}}
+**📔 Note**:  Keep in mind that streaming video demands a significant effort from the player's machine. For this reason, it's not allowed to have more than one video stream displayed at a time per scene, videos are also not played if the player is standing on a different scene. Also avoid streaming videos that are in very high resolution, don't use anything above _HD_.
 {{< /hint >}}
 
 ## Show a video
@@ -32,7 +32,8 @@ The following instructions apply both to streaming and to showing a video from a
 4. Create a `Material`, assign it to the screen entity, and set its `texture` to the `VideoTexture` you created.
 
 
-This example uses a video stream:
+This example uses a video that's locally stored in a `/videos` folder in the scene project:
+
 
 ```ts
 // #1
@@ -42,7 +43,7 @@ Transform.create(screen, { position: { x: 4, y: 1, z: 4 } })
 
 // #2
 VideoPlayer.create(screen, {
-  src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
+  src: "videos/myVideo.mp3",
   playing: true
 })
 
@@ -52,61 +53,85 @@ const videoTexture = Material.Texture.Video({ videoPlayerEntity: screen })
 // #4
 Material.setPbrMaterial(screen, {
   texture: videoTexture,
-  emissiveTexture: videoTexture,
-  emissiveIntensity: 0.6,
   roughness: 1.0,
+  specularIntensity: 0,
+  metallic: 0,
 })
 ```
 
-To use a video file, just change step 2 so that the `src` property in the `VideoPlayer` component references the path to the file:
+To use a video from an external streaming URL, just change step 2 so that the `src` property in the `VideoPlayer` component references the path to the file.
+
+{{< hint warning >}}
+**📔 Note**:  For a video stream to work in your scene, you must also edit the `scene.json` to allow streaming, and add the domains you want to stream from to the allowlist. See [About streaming](#about-streaming).
+{{< /hint >}}
 
 ```ts
 // #2
 VideoPlayer.create(screen, {
-  src: "videos/myVideo.mp3",
+  src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
   playing: true
 })
 ```
 
-<!-- 
-## Video Materials
 
-TODO, maybe still relevant!
-
-To many, the default properties of a material make the video look quite opaque for a screen, but you can enhance that by altering other properties of the material.
-
-
-```ts
-const myMaterial = new Material()
-myMaterial.albedoTexture = videoTexture
-myMaterial.roughness = 1
-myMaterial.specularIntensity = 0
-myMaterial.metallic = 0
-```
-
-If you want the screen to glow a little, you can even set the `emissiveTexture` of the material to the same `VideoTexture` as the `albedoTexture`.
-
-
-```ts
-const myMaterial = new Material()
-myMaterial.albedoTexture = videoTexture
-myMaterial.roughness = 1.0
-myMaterial.specularIntensity = 0
-myMaterial.metallic = 0
-myMaterial.emissiveTexture = videoTexture
-myMaterial.emissiveColor = Color3.White()
-myMaterial.emissiveIntensity = 0.6
-```
-
-See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md">}}) for more details. -->
 
 ## About Streaming
 
 The source of the streaming must be an _https_ URL (_http_ URLs aren't supported), and the source should have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it. If this is not the case, you might need to set up a server to act as a proxy and expose the stream in a valid way.
 
-To launch your own video streaming server, we recommend using a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box.
+To stream videos from an external URL, you must add the `ALLOW_MEDIA_HOSTNAMES` permission to the `requiredPermissions` list in the `scene.json` file. You must also include the list of high-level domains where you'll be streaming from under `allowedMediaHostnames`.
 
-Keep in mind that streaming video demands a significant effort from the player's machine. We recommend not having more than one video stream displayed at a time per scene. Also avoid streaming videos that are in very high resolution, don't use anything above _HD_. We also recommend activating the stream only once the player performs an action or approaches the screen, to avoid affecting neighbouring scenes.
+```json
+"requiredPermissions": [
+    "ALLOW_MEDIA_HOSTNAMES"
+  ],
+   "allowedMediaHostnames": [
+    "somehost.com",
+    "otherhost.xyz"
+  ]
+```
+
+See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
+
+
+To launch your own video streaming server, we recommend using a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box. See 
+
+
+## Video Materials
+
+The default properties of a material make the video look rather opaque for a screen, but you can enhance that by altering other properties of the material.
+
+Here are some recommended settings for the video to stand out more:
+
+```ts
+Material.setPbrMaterial(screen, {
+  texture: videoTexture,
+  roughness: 1.0,
+  specularIntensity: 0,
+  metallic: 0,
+})
+```
+
+If you want the screen to glow a little, more like a LED screen, you can also add some emissive properties. You can even set the `emissiveTexture` of the material to the same `VideoTexture` as the `texture`.
+
+
+```ts
+Material.setPbrMaterial(screen, {
+  texture: videoTexture,
+  roughness: 1.0,
+  specularIntensity: 0,
+  metallic: 0,
+  emissiveTexture: videoTexture,
+  emissiveIntensity: 0.6,
+  emissiveColor: Color3.White()
+})
+```
+
+See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md">}}) for more details. 
+
+{{< hint info >}}
+**💡 Tip**:  Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
+{{< /hint >}}
 
 ## About Video Files
 
