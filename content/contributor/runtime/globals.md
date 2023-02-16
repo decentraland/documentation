@@ -14,7 +14,7 @@ The globals described below are typical JavaScript concepts, but they are tailor
 
 ## Globals
 
-The runtime injects 7 definitions in the scene's global scope:
+The runtime injects 6 definitions in the scene's global scope:
 
 1. [`console`](#console): a simplified version of the typical `console` object.
 2. [`exports`](#module): an object where the scene can add its [public interface]({{< relref "execution" >}}).
