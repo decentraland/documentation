@@ -34,7 +34,7 @@ You need to specify under what **name** your deployment is to be made. Add the f
 }
 ```
 
-Of course, the **name** specified there needs to be owned as a Decentraland NAME token by the wallet signing the deployment.
+Of course, the **name** specified there needs to be owned as a Decentraland NAME token by the wallet signing the deployment (or by any wallet that has been given permission explicitly via Access Control Lists (ACL), as explained further down.
 
 To publish a scene to a world via the Decentraland Editor:
 
@@ -90,3 +90,15 @@ A couple of optional custom settings can be specified in the `scene.json` when d
   }
 }
 ```
+
+### Access Control Lists (ACL)
+
+When a team (more than one person) are contributing to the development of a scene, it may be beneficial to have each contributor have the ability to publish the scene under a single NAME. As stated above, the NAME owner is the only one allowed to run such deployment.
+
+So we have introduced the concept of Access Control List (or ACL for short). The idea is that the owner of the NAME can grant other wallets permission to run deployment under his name. This way the whole team (or a group of selected members) can be added to the world ACL and those will be able to publish the scene.
+
+This ACL is stored in the World Content Server where the world is deployed. It is not stored on the blockchain. This makes it much more flexible, giving more granular control. For e.g. if you want to deploy a scene under the same NAME in two different World Content Server hosting providers, then you can have different sets of permissions in each server. And also, there is no transaction fees involved in maintaining the ACL (granting or revoking permissions).
+
+A new command has been added to Decentraland CLI that allows to show the current ACL stored in the Worlds Content Server for a given NAME, and it allows also granting access to more wallets or revoking access to wallets that are already in the ACL. 
+
+![world-acl help screen](/images/worlds/world-acl-help.png)
