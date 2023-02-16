@@ -11,6 +11,7 @@ The scene runtime ensures the existence of certain objects and functions inside 
 The globals described below are typical JavaScript concepts, but they are tailored to the Decentrland scene runtime and may not behave identically to their counterparts in browser or Node environments.
 {{< /info >}}
 
+
 ## Globals
 
 The runtime injects 7 definitions in the scene's global scope:
@@ -19,9 +20,8 @@ The runtime injects 7 definitions in the scene's global scope:
 2. [`exports`](#module): an object where the scene can add its [public interface]({{< relref "execution" >}}).
 3. [`module`](#module): a container for the `exports` object.
 4. [`require`](#module): a function to load runtime-provided modules by name.
-5. [`setImmediate`](#scheduling): a function to schedule calls after all pending callbacks run.
-6. [`fetch`](#http): a restricted implementation of the browser `fetch` function.
-7. [`WebSocket`](#http): a restricted implementation of the browser `WebSocket` class.
+5. [`fetch`](#http): a restricted implementation of the browser `fetch` function.
+6. [`WebSocket`](#http): a restricted implementation of the browser `WebSocket` class.
 
 All of these are defined as read-only properties, so they cannot be reassigned. Some will throw exceptions when used unless certain [permissions]({{< ref "/contributor/content/entity-types/scenes#permissions" >}}) are granted to the scene.
 
@@ -69,19 +69,6 @@ Properties added to the `exports` object are the scene's public interface and wi
 {{< info >}}
 Scenes written in languages such as TypeScript use the more modern `import` and `export` statements, which can be transpiled into CommonJS-compatible uses of `require` and `exports`.
 {{< /info >}}
-
-
-## Scheduling {#scheduling}
-
-When a scene needs to schedule callbacks and have their execution controlled by the sandbox host, it can use the `setImmediate` global. 
-
-```ts
-setImmediate(fn: Function): void
-```
-
-These callbacks will be invoked immediately after all the currently pending tasks in the event loop are processed, and before the next round begins.
-
-In a World Explorer, the `setImmediate` implementation is usually synchronized with the game engine, to execute after the [game loop tick](https://adr.decentraland.org/adr/ADR-148).
 
 
 ## HTTP and WebSockets {#http}
