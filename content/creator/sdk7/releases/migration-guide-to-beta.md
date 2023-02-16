@@ -5,7 +5,7 @@ weight: 3
 ---
 
 
-Between the _Alpha_ version 7.0.5 and the _Beta_ version 7.1.0 of the `@dcl/sdk` framework there have been multiple breaking changes. A scene written using 7.0.5 will need some minor adjustments when migrated to 7.1.0. Below are the changes that need to be considered:
+Between the _Alpha_ version 7.0.5 and the _Alpha_ version 7.0.6 of the `@dcl/sdk` framework there have been multiple breaking changes. A scene written using 7.0.5 will need some minor adjustments when migrated to 7.0.6. Below are the changes that need to be considered:
 
 
 - Component ids are now a string, instead of a number. Also when defining a component, the order of parameters has been reversed. Now the ID goes first, then the schema.
