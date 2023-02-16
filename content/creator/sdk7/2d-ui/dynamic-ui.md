@@ -21,6 +21,8 @@ You can simply reference a variable in any property of one of the components in 
 The example below defines a variable `playerCurrentPosition` and references it as part of a string in a `uiText` component. A system then updates the value of this variable on every tick, using the player's current position. As the value of the variable changes, the UI updates accordingly, without ever needing to explicitly modify the UI.
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 // define variable
 let playerCurrentPosition: string = ""
 
@@ -71,6 +73,8 @@ This example is similar to the one in the previous section, but by calling a fun
 
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
       <UiEntity
        uiTransform={{
@@ -100,6 +104,8 @@ The easiest way to toggle a UI on and off is to use a variable for the value of 
 The following example uses a variable to set the `display` field of a part of the UI. The value of this variable can be toggled by clicking on another UI element.
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 // Variable to reflect current state of menu visibility
 var isMenuVisible: boolean = false
 
@@ -157,6 +163,8 @@ The examples in the sections above show how to dynamically change a single prope
 The following example lists the ids of all entities in the scene that have a `MeshRenderer` and `Transform`. It creates a `uiText` for each. As the scene's content changes, the list of UI entities also adapts on every tick.
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiTransform={{

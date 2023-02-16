@@ -34,6 +34,8 @@ A `Label` entity can also have other common components found on other types of U
 
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiTransform={{
@@ -58,6 +60,8 @@ ReactEcsRenderer.setUiRenderer(() => (
 For multi-line text, you can add line breaks into the string, using `\n`.
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiTransform={{

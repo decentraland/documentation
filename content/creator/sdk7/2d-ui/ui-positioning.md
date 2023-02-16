@@ -17,6 +17,8 @@ The `uiTransform` component works in the screen's 2d space very much like the `T
 
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
       <UiEntity
        uiTransform={{

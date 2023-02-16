@@ -23,6 +23,8 @@ A `Dropdown` entity must have at least the following properties:
 You can also configure other comopnents of the `Dropdown` entity, like a `uiTransform`, as in other UI entities.
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 function selectOption(index: number) {
   switch(index){
     case 0:
@@ -109,6 +111,8 @@ You can also configure other comopnents of the `Input` entity, like a `uiTransfo
 
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 var currentTextString = ""
 
 ReactEcsRenderer.setUiRenderer(() => {

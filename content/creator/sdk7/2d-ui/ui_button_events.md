@@ -21,6 +21,8 @@ Make a UI entity clickable by giving it an `onMouseDown` component. The `onMouse
 The following example shows how to create a clickable UI entity. 
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
 	<UiEntity 
 		uiTransform = {{ width: 100, height: 100 }} 

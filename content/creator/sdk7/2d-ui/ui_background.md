@@ -45,6 +45,8 @@ The following fields can be configured, all of them are optional:
 Simple color:
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiTransform={{
@@ -61,6 +63,8 @@ ReactEcsRenderer.setUiRenderer(() => (
 Repeated texture pattern:
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiTransform={{
@@ -101,6 +105,8 @@ Here's how each segment is affected, using the above image as reference.
 To use nine-slice stretching on an entity, set the `textureMode` to `BackgroundTextureMode.NINE_SLICES`. You can optionally also set a width for the margin on each side in `textureSlices`.
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiTransform={{
