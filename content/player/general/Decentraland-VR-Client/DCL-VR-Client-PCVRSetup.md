@@ -65,7 +65,7 @@ This section will help you get set to play Decentraland using PC/VR! We will wal
 
   </b>
 
-You should now be able to play Decentraland in your Oculus Quest! You will be able to sign in with your Wallet or opt to play as a Guest. See some of the other sections in the documentation for more information on how to play Decentraland in VR. 
+You should now be able to play Decentraland in your Oculus Quest! You will be able to sign in with your Wallet or opt to play as a Guest. Refer to other sections in the documentation for more information on how to play Decentraland in VR. 
 
 
 
