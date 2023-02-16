@@ -47,6 +47,8 @@ The `parent` field indicates that this Entity should be positioned relative to a
 
 Since the null-value for `parent` is also the [`RootEntity`]({{< ref "/contributor/runtime/entities#RootEntity" >}}) ID (`0`), any `Transform` is relative to it by default.
 
+By protocol, `Transform` must be serialized in big-endian byte order.
+
 
 ---
 ###### `MeshRenderer` <small>[↗ source](https://github.com/decentraland/protocol/blob/ccb88d679f20c0e22840c324879d7b2535f6c9a6/proto/decentraland/sdk/components/mesh_renderer.proto#L7)</small> {#MeshRenderer}
