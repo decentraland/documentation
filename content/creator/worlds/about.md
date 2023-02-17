@@ -34,7 +34,7 @@ You need to specify under what **name** your deployment is to be made. Add the f
 }
 ```
 
-Of course, the **name** specified there needs to be owned as a Decentraland NAME token by the wallet signing the deployment (or by any wallet that has been given permission explicitly via Access Control Lists (ACL), as explained further down.
+Of course, the **name** specified there needs to be owned as a Decentraland NAME token by the wallet signing the deployment (or by any wallet that has been given permission explicitly via Access Control Lists (ACL), as explained further down).
 
 To publish a scene to a world via the Decentraland Editor:
 
