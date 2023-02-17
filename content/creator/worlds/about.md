@@ -95,7 +95,7 @@ A couple of optional custom settings can be specified in the `scene.json` when d
 
 When a team (more than one person) are contributing to the development of a scene, it may be beneficial to have each contributor have the ability to publish the scene under a single NAME. As stated above, the NAME owner is the only one allowed to run such deployment.
 
-So we have introduced the concept of Access Control List (or ACL for short). The idea is that the owner of the NAME can grant other wallets permission to publish a scene under his NAME. This way the whole team (or a group of selected members) can be added to the world ACL and those will be able to publish the scene.
+So the concept of Access Control List (or ACL for short) was introduced. The idea is that the owner of the NAME can grant other wallets permission to publish a scene under his NAME. This way the whole team (or a group of selected members) can be added to the world ACL and those will be able to publish the scene.
 
 This ACL is stored in the World Content Server where the world is deployed. It is not stored on the blockchain. This makes it much more flexible, giving more granular control. For e.g. if you want to deploy a scene under the same NAME in two different World Content Server hosting providers, then you can have different sets of permissions in each server. And also, there is no transaction fees involved in maintaining the ACL (granting or revoking permissions).
 
