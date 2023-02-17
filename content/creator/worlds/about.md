@@ -105,6 +105,7 @@ A new command has been added to Decentraland CLI that allows to show the current
 
 In order to grant permission for publishing a scene to another wallet you have to:
 
+* Make sure to have the latest version of Decentraland CLI (v3.16.0 or later).
 * Make sure some scene has been deployed to the server at least once (otherwise the service won't be able to store the ACL).
 * Use command `dcl deploy NAME.dcl.eth grant 0x1 0x2 ... 0xn` where those `0xn` are a list of addresses separated by spaces.
 
