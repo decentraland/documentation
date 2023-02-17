@@ -70,7 +70,7 @@ If you are a LAND owner and you wish to deploy a World scene to the Genesis City
 
 Things to remember:
 * remove the `worldConfiguration` section from `scene.json`
-* the size limitation for Worlds (100 MB, an average of 25MB per parcel) is larger than that for LAND parcels (15MB a parcel), so make sure your scene is sized correctly for deployments to Genesis City!
+* the size limitation for Worlds (100 MB total size) is different from that for LAND parcels (15MB per parcel), so make sure your scene is sized correctly for deployments to Genesis City!
 
 ### World defaults 
 
@@ -78,7 +78,7 @@ A couple of optional custom settings can be specified in the `scene.json` when d
 
 **skybox**: This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the seconds value is 36000, it corresponds to 10:00 am. If no value is set for this field, the world will follow the same day/night cycle as Genesis City.
 
-**fixedAdapter**: indicates which Communication Service should by used by the scene. For the time being only the `offline:offline` value is allowed and when set, the scene will have no Communication Service at all and each user joining that world will always be alone. If not set, the Worlds content server will generate a proper value based on how it is configured.
+**fixedAdapter**: indicates which Communication Service should be used by the scene. For the time being only the `offline:offline` value is allowed and when set, the scene will have no Communication Service at all and each user joining that world will always be alone. If not set, the Worlds content server will generate a proper value based on how it is configured.
 
 **Example:**
 ```json
@@ -95,10 +95,17 @@ A couple of optional custom settings can be specified in the `scene.json` when d
 
 When a team (more than one person) are contributing to the development of a scene, it may be beneficial to have each contributor have the ability to publish the scene under a single NAME. As stated above, the NAME owner is the only one allowed to run such deployment.
 
-So we have introduced the concept of Access Control List (or ACL for short). The idea is that the owner of the NAME can grant other wallets permission to run deployment under his name. This way the whole team (or a group of selected members) can be added to the world ACL and those will be able to publish the scene.
+So we have introduced the concept of Access Control List (or ACL for short). The idea is that the owner of the NAME can grant other wallets permission to publish a scene under his NAME. This way the whole team (or a group of selected members) can be added to the world ACL and those will be able to publish the scene.
 
 This ACL is stored in the World Content Server where the world is deployed. It is not stored on the blockchain. This makes it much more flexible, giving more granular control. For e.g. if you want to deploy a scene under the same NAME in two different World Content Server hosting providers, then you can have different sets of permissions in each server. And also, there is no transaction fees involved in maintaining the ACL (granting or revoking permissions).
 
-A new command has been added to Decentraland CLI that allows to show the current ACL stored in the Worlds Content Server for a given NAME, and it allows also granting access to more wallets or revoking access to wallets that are already in the ACL. 
+A new command has been added to Decentraland CLI that allows to show the current ACL stored in the Worlds Content Server for a given NAME, and it also allows granting access to more wallets or revoking access to wallets that are already in the ACL. 
 
 ![world-acl help screen](/images/worlds/world-acl-help.png)
+
+In order to grant permission for publishing a scene to another wallet you have to:
+
+* Make sure some scene has been deployed to the server at least once (otherwise the service won't be able to store the ACL).
+* Use command `dcl deploy NAME.dcl.eth grant 0x1 0x2 ... 0xn` where those `0xn` are a list of addresses separated by spaces.
+
+By default, ACL will be stored on `worlds-content-server.decentraland.org`. If you are using a different hosting provider, make sure to add `--target-content https://your-hosting.com` to each of the commands (`show`, `grant` and `revoke`).
