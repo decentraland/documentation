@@ -7,7 +7,7 @@ weight: 2
 
 Many actions in the Decentraland protocol either require or benefit from authorization with a signature from the user's Ethereum account. For example:
 
-1. Upload a new version of any entity they own (such as their profile).
+1. Upload a new version of any [Entity]({{< ref "/contributor/content/entities" >}}) they own (such as their profile).
 2. Authenticate themselves to 3rd-party services.
 3. Authorize delegates to act on their behalf.
 
@@ -103,7 +103,7 @@ Expiration: 2023-02-25T13:00:19.730Z
 
 Note that:
 
-1. The `Ephemeral address` doesn't need to be an actual Ethereum account with funds in the blockchain. The field only represents a temporary public key.
+1. The `Ephemeral address` doesn't need to be an actual Ethereum account with funds in the blockchain. The field may only represent a temporary public key.
 
 2. The `Expiration` is a serialized datetime in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) form. It doesn't need to be UTC.
 
@@ -159,6 +159,11 @@ An example of alternative serialization from within the protocol itself can be f
 When selecting the valid duration for a delegate key, there's a tradeoff: shorter expirations increase security, but longer expirations improve user experience (since delegates have to be renewed with human interaction at a lower frequency).
 
 There is no universal strategy to decide what the valid time window should be. The Foundation's World Explorer, for reference, requests authorization for its delegate key for one month.
+
+{{< info >}}
+Ephemeral keys should never hold funds or possess the ability to transfer digital assets. It's much safer for end-users if the leak of an ephemeral key cannot result in financial losses.
+{{< /info >}}
+
 
 ## Formalization
 

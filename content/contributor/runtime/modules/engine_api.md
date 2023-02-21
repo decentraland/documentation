@@ -84,7 +84,7 @@ To prevent this, a CRDT ([conflict-free replicated data type](https://en.wikiped
 * Besides a small overhead in message size, no additional coordination or messaging round-trips are required.
 
 {{< info >}}
-This page explains the use of the CRDT to synchronize state between a locally running scene and the game engine, but the real potential of this mechanism lies in multiplayer scenarios. Using this protocol, players can coordinate their game state and share experiences.
+This page explains the use of the CRDT to synchronize state between a locally running scene and the game engine, but the real potential of this mechanism lies in multiplayer scenarios. Using this protocol, players can coordinate their game state and share the same experience.
 {{< /info >}}
 
 For this to work, all messages must be commutative and idempotent. Out-of-order messages can be applied even if a supposedly intermediate update was not received yet, and equal messages can be re-processed without breaking consistency.
