@@ -67,7 +67,7 @@ function teleportTo(Request): Promise<Response>
 
 ###### `triggerEmote` {#triggerEmote}
 
-Make the player's avatar display an emote animation, using one of the [[predefined names]].
+Make the player's avatar display an emote animation, using one of the predefined names.
 
 Requires the [`ALLOW_TO_TRIGGER_AVATAR_EMOTE`]({{< ref "/contributor/content/entity-types/scenes#permissions" >}}) permission.
 

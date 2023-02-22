@@ -45,7 +45,7 @@ The `EngineApi` module is designed to synchronize the state of the world between
 ```
 
 {{< info >}}
-The `EngineApi` module is undergoing renovations. If you go to the source definitions, you will find legacy methods that are no longer used or can be implemented as no-ops in the latest version ([[more on this below]]).
+The `EngineApi` module is undergoing renovations. If you go to the source definitions, you will find legacy methods that are no longer used or can be implemented as no-ops in the latest version (more on this below).
 {{< /info >}}
 
 ## ECS Framework
