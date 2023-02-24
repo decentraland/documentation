@@ -25,17 +25,21 @@ And for file storage + DB storage, an SSD / HDD with 2 Tb capacity should be mor
 
 An external LiveKit cluster is required. For that, there are two options: use Livekit Cloud or run your own Livekit cluster.
 
-The Decentraland Foundation’s recommendation is to setup Livekit Cloud account (https://cloud.livekit.io/) which comes with a free tier that can manage 100 users, or paying the service according to the traffic. This approach is easier as it doesn’t require to provision extra infrastructure and the service can manage the scaling.
+The Decentraland Foundation’s recommendation is to setup [Livekit Cloud account](https://cloud.livekit.io/) which comes with a free tier that can manage 100 users, or paying the service according to the traffic. This approach is easier as it doesn’t require to provision extra infrastructure and the service can manage the scaling.
 Otherwise a Livekit cluster will need to be provisioned. LiveKit does a very good job with their documentation:
-Deployment: https://docs.livekit.io/oss/deployment/
-Distributed Setup: https://docs.livekit.io/oss/deployment/distributed/
+- [Deployment](https://docs.livekit.io/oss/deployment/)
+- [Distributed Setup](https://docs.livekit.io/oss/deployment/distributed/)
+
 Once a LiveKit cluster is available, these variables should be setup in the .env file:
+
+```
 LIVEKIT_HOST=
 LIVEKIT_API_KEY=
 LIVEKIT_API_SECRET=
+```
 
-Optionally, a ROOM_PREFIX can be configured, that’s used to identify livekit rooms created by the catalyst. This is useful if more than one catalyst is using the same Livekit Cluster.
-In case you would like to deep dive on the technical details needed to support LiveKit transport based communications, check out the ADR-70 New Communications Architecture (https://adr.decentraland.org/adr/ADR-70).
+Optionally, a `ROOM_PREFIX` can be configured, that’s used to identify livekit rooms created by the catalyst. This is useful if more than one catalyst is using the same Livekit Cluster.
+In case you would like to deep dive on the technical details needed to support LiveKit transport based communications, check out the [ADR-70 New Communications Architecture](https://adr.decentraland.org/adr/ADR-70).
 
 ## Software pre-requisites
 
