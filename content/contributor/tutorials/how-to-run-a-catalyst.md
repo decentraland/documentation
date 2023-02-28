@@ -83,7 +83,7 @@ Once the LiveKit cluster is available you will need to set the specific LiveKit 
 LIVEKIT_HOST=wss://livekit-1.mydomain.org
 LIVEKIT_API_KEY=API-JjHuvM
 LIVEKIT_API_SECRET=J7YSHmNzkNCEfT2
-ROOM_PREFIX=node-east-cost1
+ROOM_PREFIX=my-prefix
 ```
 
 The `ROOM_PREFIX` variable is optional and can be configured to identify livekit rooms created by the catalyst. This is useful if more than one catalyst is using the same Livekit Cluster.
