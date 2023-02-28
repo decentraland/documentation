@@ -86,7 +86,7 @@ LIVEKIT_API_SECRET=J7YSHmNzkNCEfT2
 ROOM_PREFIX=my-prefix
 ```
 
-The `ROOM_PREFIX` variable is optional and can be configured to identify livekit rooms created by the catalyst. This is useful if more than one catalyst is using the same Livekit Cluster.
+The `ROOM_PREFIX` variable is optional and can be configured to identify LiveKit rooms created by the Catalyst. This is useful if more than one Catalyst is using the same LiveKit Cluster.
 
 #### Content Server 
 
