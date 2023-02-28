@@ -18,21 +18,21 @@ Make a UI entity clickable by giving it an `onMouseDown` component. The `onMouse
 **📔 Note**:  To click on a UI component, players must first unlock the cursor from the view control. They do this by pressing the _right mouse button_ and keeping it pressed, or by hitting `Esc`.
 {{< /hint >}}
 
-The following example shows how to create a clickable UI entity. 
+The following example shows how to create a clickable UI entity.
 
 ```ts
 import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
 
 ReactEcsRenderer.setUiRenderer(() => (
-	<UiEntity 
-		uiTransform = {{ width: 100, height: 100 }} 
-		uiBackground={{ backgroundColor: Color4.Green() }}
-		onMouseDown = { ()=>{ console.log("Clicked on the UI")} } 
+	<UiEntity
+		uiTransform={{ width: 100, height: 100 }}
+		uiBackground={{ color: Color4.Green() }}
+		onMouseDown={() => { console.log("Clicked on the UI") } }
 	/>
 ))
 ```
 
-You can also write the function that is executed by the click outside the UI definition, and reference it by name. This helps keep the UI code more readable, and is also useful if multiple clickable UI entities need to call the same function. 
+You can also write the function that is executed by the click outside the UI definition, and reference it by name. This helps keep the UI code more readable, and is also useful if multiple clickable UI entities need to call the same function.
 
 ```ts
 function handleClick() {
@@ -40,9 +40,9 @@ function handleClick() {
 	console.log("Clicked on the UI")
 }
 ReactEcsRenderer.setUiRenderer(() => (
-	<UiEntity 
-		uiTransform = {{ width: 100 }} 
-		onClick = {{handleClick}} 
+	<UiEntity
+		uiTransform={{ width: 100 }}
+		onClick={{ handleClick }}
 	/>
 ))
 ```

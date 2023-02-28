@@ -19,10 +19,10 @@ A `Label` entity has the following fields that can be configured:
 	> NOTE: The `fontSize` is not affected by the size of its entity or parent entities.
 - `color`: The color of the text, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}).
 - `font`: The font to use, taking a value from the `Font` enum. Supported values are:
-	- `Font.T_SERIF`
-	- `Font.T_SANS_ERIF` _(default)_
-	- `Font.T_MONOSPACE`
-- `textAlign`: How the text will align with its parent. It takes a value from the `TextAlignMode` enum. 
+	- `serif`
+	- `sans-serif` _(default)_
+	- `monospace`
+- `textAlign`: How the text will align with its parent. It takes a value from the `TextAlingType` type. TextAlignType = 'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center' | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
 
 {{< hint warning >}}
 **📔 Note**:  The `fontSize` is not affected by the size of its entity or parent entities.
@@ -37,18 +37,14 @@ A `Label` entity can also have other common components found on other types of U
 import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
 
 ReactEcsRenderer.setUiRenderer(() => (
-  <UiEntity
-    uiTransform={{
-      width: 700,
-      height: 400
-    }}
-  >
-	<Label 
-		value="This is a label" color={Color4.Red()} 
-		fontSize={29} 
-		font={Font.F_SANS_SERIF}
-        textAlign={TextAlignMode.TAM_TOP_LEFT}
-	/>
+  <UiEntity uiTransform={{ width: 700, height: 400 }} >
+    <Label
+      value="This is a label"
+      color={Color4.Red()}
+      fontSize={29}
+      font="serif"
+      textAlign="top-left"
+    />
   </UiEntity>
 ))
 ```
@@ -63,15 +59,10 @@ For multi-line text, you can add line breaks into the string, using `\n`.
 import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
 
 ReactEcsRenderer.setUiRenderer(() => (
-  <UiEntity
-    uiTransform={{
-      width: 700,
-      height: 400
-    }}
-  >
-	<Label
-		value:  "Hello World,\nthis message is quite long and won't fit in a single line.\nI hope that's not a problem."
-	/>
-  </UiEntity> 
+  <UiEntity uiTransform={{ width: 700, height: 400 }}>
+    <Label
+      value="Hello World,\nthis message is quite long and won't fit in a single line.\nI hope that's not a problem."
+    />
+  </UiEntity>
 ))
 ```

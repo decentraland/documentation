@@ -18,7 +18,7 @@ Create a `Dropdown` entity to allow users to expand and select an item from a li
 A `Dropdown` entity must have at least the following properties:
 
 - `options`: What values to display when the dropdown is expanded. Provide an object containting an arraw with a string value for each option. The first value in the array is displayed as the default option.
-- `onChange`: A function that is executed every time that a value is selected in the dropdown, using 
+- `onChange`: A function that is executed every time that a value is selected in the dropdown, using
 
 You can also configure other comopnents of the `Dropdown` entity, like a `uiTransform`, as in other UI entities.
 
@@ -36,7 +36,7 @@ function selectOption(index: number) {
     case 2:
       textColor = Color4.Green()
       break
-  } 
+  }
 }
 
 let textColor: Color4Type = Color4.Red()
@@ -47,23 +47,23 @@ ReactEcsRenderer.setUiRenderer(() => {
       uiTransform={{
         width: "200px",
         height: "100px",
-        alignContent: YGAlign.YGA_AUTO,
-        flexDirection: YGFlexDirection.YGFD_COLUMN,
-        alignSelf: YGAlign.YGA_CENTER
+        alignContent: 'auto',
+        flexDirection: 'column',
+        alignSelf: 'center'
 
       }}
     >
-      <Label value="Select a color"  
-        fontSize={18} 
+      <Label value="Select a color"
+        fontSize={18}
         color={textColor}
         uiTransform={{
           width: "140px",
           height: "40px",
         }}
       />
-      <Dropdown 
+      <Dropdown
         options= {[`Red`, `Blue`, `Green`]}
-        onChange={selectOption} 
+        onChange={selectOption}
         uiTransform={{
           width: "100px",
           height: "40px",
@@ -101,10 +101,10 @@ It can also include the following properties, most of them similar to those pres
 **📔 Note**: Make sure you use a different color from the `placeHolderColor`.
 {{< /hint >}}
 - `font`: The font to use, taking a value from the `Font` enum. Supported values are:
-	- `Font.T_SERIF`
-	- `Font.T_SANS_ERIF` _(default)_
-	- `Font.T_MONOSPACE`
-- `textAlign`: How the text will align with its parent. It takes a value from the `TextAlignMode` enum. 
+	- `serif`
+	- `sans-serif` _(default)_
+	- `monospace`
+- `textAlign`: How the text will align with its parent. It takes a value from the `TextAlignType`. TextAlignType = 'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center' | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
 - `disable`: If _true_, the player won't be able to interact with the input entity.
 
 You can also configure other comopnents of the `Input` entity, like a `uiTransform`, `OnMouseDown` as in other UI entities.
@@ -120,25 +120,22 @@ ReactEcsRenderer.setUiRenderer(() => {
     <UiEntity
       uiTransform={{
         width: "50%",
-        height: "150px",
-        flexDirection: YGFlexDirection.YGFD_COLUMN,
-        alignContent: YGAlign.YGA_FLEX_START,
-        margin: {left: 20, top: 20},
-        padding: {left: 10, top: 10, right: 10},
-        alignSelf: YGAlign.YGA_CENTER
+        height: 150,
+        flexDirection: 'column',
+        alignContent: 'flex-start',
+        margin: { left: 20, top: 20 },
+        padding: { left: 10, top: 10, right: 10 },
+        alignSelf: 'center'
       }}
-      uiBackground={{
-        color: Color4.Gray()
-      }}
-    > 
-    <Input
+      uiBackground={{ color: Color4.Gray() }}
+    >
+      <Input
         onChange={(e) =>{ currentTextString = "you wrote: " + e }}
         fontSize={35}
         placeholder={"type something"}
         placeholderColor={Color4.Gray()}
-    />
-      <Label value= {currentTextString}  fontSize={40} />
-     
+      />
+      <Label value={currentTextString} fontSize={40} />
     </UiEntity>
   )
 })
