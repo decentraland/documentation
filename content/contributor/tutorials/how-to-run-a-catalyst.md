@@ -75,7 +75,7 @@ Now using your favorite text editor, make any needed changes in these files. For
 
 Also setting up your particular value for `CATALYST_URL` may be required, especially if your server is going to be exposed publicly on the Internet. For use in your local machine, the default of `http://localhost` will do.
 
-#### Comms Serivce
+#### Comms Service
 
 Once the LiveKit cluster is available you will need to set the specific LiveKit variables for the Comms service to work, e.g.:
 
