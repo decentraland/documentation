@@ -38,7 +38,7 @@ The following are required for running catalyst-owner:
 
 ## LiveKit
 
-An external LiveKit cluster is in needed by the Catalyst's Comms service to orchestrate the communications between players. For that, there are two options: use a Livekit Cloud account or run your own Livekit cluster.
+An external LiveKit cluster is in needed by the Catalyst's Comms service to orchestrate the communications between players. For that, there are two options: use a LiveKit Cloud account or run your own LiveKit cluster.
 
 The Decentraland Foundation’s recommendation is to setup [Livekit Cloud account](https://cloud.livekit.io/) which comes with a free tier that can manage 100 users, or paying the service according to the traffic. This approach is easier as it doesn’t require to provision extra infrastructure and the service can manage the scaling.
 Otherwise a Livekit cluster will need to be provisioned. LiveKit does a very good job with their documentation:
