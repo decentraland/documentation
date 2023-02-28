@@ -21,33 +21,14 @@ An AWS EC2 `t2.xlarge` has the following hardware:
 
 And for file storage + DB storage, an SSD / HDD with 2 Tb capacity should be more than sufficient. At the time of this writing the foundation servers are using a little over 1 Tb for all storage.
 
-## Livekit
-
-An external LiveKit cluster is required. For that, there are two options: use Livekit Cloud or run your own Livekit cluster.
-
-The Decentraland Foundation’s recommendation is to setup [Livekit Cloud account](https://cloud.livekit.io/) which comes with a free tier that can manage 100 users, or paying the service according to the traffic. This approach is easier as it doesn’t require to provision extra infrastructure and the service can manage the scaling.
-Otherwise a Livekit cluster will need to be provisioned. LiveKit does a very good job with their documentation:
-- [Deployment](https://docs.livekit.io/oss/deployment/)
-- [Distributed Setup](https://docs.livekit.io/oss/deployment/distributed/)
-
-Once a LiveKit cluster is available, these variables should be setup in the .env file:
-
-```
-LIVEKIT_HOST=
-LIVEKIT_API_KEY=
-LIVEKIT_API_SECRET=
-```
-
-Optionally, a `ROOM_PREFIX` can be configured, that’s used to identify livekit rooms created by the catalyst. This is useful if more than one catalyst is using the same Livekit Cluster.
-In case you would like to deep dive on the technical details needed to support LiveKit transport based communications, check out the [ADR-70 New Communications Architecture](https://adr.decentraland.org/adr/ADR-70).
-
 ## Software pre-requisites
 
 The following are required for running catalyst-owner:
 
-- Linux / MacOS operating system.
-- Docker / docker-compose.
-- Git.
+- Linux / MacOS operating system
+- Docker / docker-compose
+- Git
+- LiveKit Cluster 
 
 ## Some options to consider before we start
 
@@ -55,9 +36,20 @@ The following are required for running catalyst-owner:
 - Is the node going to be used for the development of scenes, wearables, etc? In this case, the hardware specs can be a lot smaller, as it will probably be one or two people accessing it, not hundreds of users.
 - Do you want to sync all entity types? If you are using this for developing scenes, probably you want to skip synchronization of profiles, as they take a lot of time, bandwidth and most importantly disk space and won’t benefit you for your goal.
 
+## Livekit
+
+An external LiveKit cluster is in needed by the Catalyst's Comms service to orchestrate the communications between players. For that, there are two options: use a Livekit Cloud account or run your own Livekit cluster.
+
+The Decentraland Foundation’s recommendation is to setup [Livekit Cloud account](https://cloud.livekit.io/) which comes with a free tier that can manage 100 users, or paying the service according to the traffic. This approach is easier as it doesn’t require to provision extra infrastructure and the service can manage the scaling.
+Otherwise a Livekit cluster will need to be provisioned. LiveKit does a very good job with their documentation:
+- [Deployment](https://docs.livekit.io/oss/deployment/)
+- [Distributed Setup](https://docs.livekit.io/oss/deployment/distributed/)
+
+*In case you would like to deep dive on the technical details needed to support LiveKit transport based communications, check out the [ADR-70 New Communications Architecture](https://adr.decentraland.org/adr/ADR-70).*
+
 ## Step by step guide
 
-First thing to do is clone `catalyst-owner` the repository from GitHub
+First thing to do is clone the [catalyst-owner](github.com/decentraland/catalyst-owner) repository from GitHub
 
 ```bash
 > git clone https://github.com/decentraland/catalyst-owner.git
@@ -79,9 +71,24 @@ Once that’s done, it’s time to configure the environment variables for the n
 > cp .env-advanced.example .env-advanced
 ```
 
-Now using your favorite text editor, make any needed changes in these files. For e.g., setting up the `EMAIL` environment variable with valid email is required so that we can receive updates about Certbot certificate expiration.
+Now using your favorite text editor, make any needed changes in these files. For e.g., setting up the `EMAIL` environment variable with valid email is required so that you can receive updates about Certbot certificate expiration.
 
 Also setting up your particular value for `CATALYST_URL` may be required, especially if your server is going to be exposed publicly on the Internet. For use in your local machine, the default of `http://localhost` will do.
+
+#### Comms Serivce
+
+Once the LiveKit cluster is available you will need to set the specific LiveKit variables for the Comms service to work, e.g.:
+
+```
+LIVEKIT_HOST=wss://livekit-1.mydomain.org
+LIVEKIT_API_KEY=API-JjHuvM
+LIVEKIT_API_SECRET=J7YSHmNzkNCEfT2
+ROOM_PREFIX=node-east-cost1
+```
+
+The `ROOM_PREFIX` variable is optional and can be configured to identify livekit rooms created by the catalyst. This is useful if more than one catalyst is using the same Livekit Cluster.
+
+#### Content Server 
 
 There is a variable called `CONTENT_SERVER_STORAGE` that defines the local folder that the content server will use for storage. This defaults to `CONTENT_SERVER_STORAGE=./storage`. You may change this value to store files somewhere else, or at least make sure that the referenced folder exists. You may need to create it like this:
 
@@ -93,6 +100,8 @@ There is a variable called `CONTENT_SERVER_STORAGE` that defines the local folde
 There is another interesting variable `SYNC_IGNORED_ENTITY_TYPES` which allows ignoring certain entity types during the synchronization process. If you are going to use the Catalyst server for development, perhaps you don't need all content type to be synchronized. You can set env var `SYNC_IGNORED_ENTITY_TYPES="profile,store"` so that only scenes and wearables will be brought from the DAO servers. This will save a lot of time, bandwidth and disk storage in your server.
 
 >💡 For a more exhaustive list of supported environment variables please have a look at the [Environment variables](#environment-variables) section below.
+
+### Launch the Catalyst node 
 
 Once all environment variables have been set up, it is time to start the node. That should be as easy as running the `init.sh` script in the root folder.
 
@@ -271,24 +280,11 @@ VALIDATE_API: false
 RETRY_FAILED_DEPLOYMENTS_DELAY_TIME: 900000
 ```
 
-## Using your node for scene development
-
-One of the main reasons for willing to have your own private development environment may be for development of scenes (or wearables, emotes, etc). So you might want to have an easy way to deploy different versions of the scene, test them locally, iterating until you come up with a final version for deploying into one of the [DAO servers](https://decentraland.github.io/catalyst-monitor) for everyone to use.
-
-This node is not part of the DAO, it’s just your own node for your own purposes. It will pull new content continuously from the other servers in the DAO, but the content you deploy locally will never be pushed to the DAO-approved nodes. So it works as a sandbox where nothing you do here can really harm or affect anything for Decentraland users.
-
-In order to use it for this purpose, you deploy a node and perhaps use it with ownership validations disabled, to do this you just need to add the property `IGNORE_BLOCKCHAIN_ACCESS_CHECKS=true` to your `.env` file. This way you can deploy your scene in any parcel (no need to be owner), then you can explore the world in order to test the new scene, share it with your QA team or a selected group of users.
-
-For testing your new scene, you can enter explorer by specifying the URL for your Catalyst node. For e.g.
-
-- [https://play.decentraland.org/?CATALYST=catalyst.my-domain.com](https://play.decentraland.org/?CATALYST=peer-uw-1.decentraland.zone&island=Iyu&position=39%2C12&realm=testing) (if you have a publicly exposed server)
-- [https://play.decentraland.org/?CATALYST=localhost](https://play.decentraland.org/?CATALYST=localhost) (if you run it on your own machine).
-
 ## Using your node for production
 
-If, on the other hand, you want to run your own server and help scale the network, first of all that’s awesome, the community and the foundation really appreciate you doing so.
+If you want to run your own server and help scale the network, first of all that’s awesome, the community and the foundation really appreciate you doing so.
 
-In this case, you’ll have to go through the process of requesting the DAO for approval to join the network by visiting [this link](https://governance.decentraland.org/submit/catalyst/). You may also ask for a MANA grant in order to cover the expenses.
+In this case, you’ll have to go through the process of requesting the DAO for approval to join the network by visiting [this link](https://governance.decentraland.org/submit/catalyst/). You may also ask for a MANA grant in order to cover the infrastructure and management expenses.
 
 It is important that your hardware specs are more inline with what is suggested above in the hardware requirements, as the server will be used by any members of the community to enter Decentraland.
 
