@@ -49,7 +49,7 @@ Otherwise a LiveKit cluster will need to be provisioned. LiveKit does a very goo
 
 ## Step by step guide
 
-First thing to do is clone the [catalyst-owner](github.com/decentraland/catalyst-owner) repository from GitHub
+First thing to do is clone the [catalyst-owner](https://github.com/decentraland/catalyst-owner) repository from GitHub
 
 ```bash
 > git clone https://github.com/decentraland/catalyst-owner.git
