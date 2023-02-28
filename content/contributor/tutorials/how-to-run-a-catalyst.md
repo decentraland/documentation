@@ -36,7 +36,7 @@ The following are required for running catalyst-owner:
 - Is the node going to be used for the development of scenes, wearables, etc? In this case, the hardware specs can be a lot smaller, as it will probably be one or two people accessing it, not hundreds of users.
 - Do you want to sync all entity types? If you are using this for developing scenes, probably you want to skip synchronization of profiles, as they take a lot of time, bandwidth and most importantly disk space and won’t benefit you for your goal.
 
-## Livekit
+## LiveKit
 
 An external LiveKit cluster is in needed by the Catalyst's Comms service to orchestrate the communications between players. For that, there are two options: use a Livekit Cloud account or run your own Livekit cluster.
 
