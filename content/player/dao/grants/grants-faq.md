@@ -13,7 +13,7 @@ weight: 4
 ---
 
 ## Where can I see my grant proposal?
-Go to [ https://governance.decentraland.org/](https://governance.decentraland.org/)  and make a search writing the proposal name on the search box.
+Go to [https://governance.decentraland.org/](https://governance.decentraland.org/)  and make a search writing the proposal name on the search box.
 
 ## Where can I find my vesting contract?
 The DAO Committee has to prepare the Vesting Contract, which will be available in a few days after the Grant was approved by the DAO and you will be able to see it in your Grant Proposal Page when your Grant turns into ENACTED. 
@@ -52,11 +52,11 @@ There are two differents ways to change the beneficiary address:
 
 ## How frequently do I have to post updates?
 
-Grant owners must provide one [ update](https://docs.decentraland.org/player/general/dao/overview/grants-faq/#how-to-post-updates-on-my-proposal-page)  on their grant proposal page every 30 days from the moment their Grant passed. This is the official way to report your progress. Sharing screenshots or demos of your work goes a long way toward maintaining the trust of the community.
-When your [ vesting contract](https://docs.decentraland.org/player/general/dao/overview/grants-faq/#where-can-i-find-my-vesting-contract)  period is finalized, you will receive an email from the Grant Support Squad asking you to submit a Final Report.
+Grant owners must provide one [update](#how-to-post-updates-on-my-proposal-page)  on their grant proposal page every 30 days from the moment their Grant passed. This is the official way to report your progress. Sharing screenshots or demos of your work goes a long way toward maintaining the trust of the community.
+When your [vesting contract](#where-can-i-find-my-vesting-contract)  period is finalized, you will receive an email from the Grant Support Squad asking you to submit a Final Report.
 
 These progress reports should be clear and concise, while still giving the community an accurate sense of how your project is progressing.
-It is also expected that members of the Grant team attend the [ monthly TownHalls](https://events.decentraland.org/event/?id=cca6c7e2-8235-450c-b14e-e64691c136ba)  to report progress.
+It is also expected that members of the Grant team attend the [monthly TownHalls](https://events.decentraland.org/event/?id=cca6c7e2-8235-450c-b14e-e64691c136ba)  to report progress.
 
 ## What happens if you miss an update?
 Missing an update is an alarm for the community and may trigger the Grant revocation process.

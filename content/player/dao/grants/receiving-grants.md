@@ -48,7 +48,8 @@ It is also expected that members of the team who requested the grant attend the 
 Conditions or behaviors that might lead to a grant being paused or revoked include:
 * Failure to provide progress reports according to the roadmap and milestones listed in your grant proposal
 * Providing progress reports showing work that does not meet the expectations set by your original grant proposal
-* Violating either the [ Content Policy](https://decentraland.org/content) , [ Terms of Use](https://decentraland.org/terms) , or [ Code of Ethics](https://decentraland.org/ethics) 
+* Violating either the [Content Policy](https://decentraland.org/content), [Terms of Use](https://decentraland.org/terms), or [Code of Ethics](https://decentraland.org/ethics)
+
 Pauses and revocations are  [processes](https://governance.decentraland.org/proposal/?id=ce104d00-7d94-11ed-8456-a323c09ee17e)  initiated by a member of the community through  [this form](https://docs.google.com/forms/d/e/1FAIpQLSd63qjesnGcUa-m6HxHJfgouJhX46AT0UfQs7oszQIxdikA3A/viewform)  to the Grant Support Squad, who starts a formal revocation case. Later the Revocations Committee decides if a grant should or should not be revoked, and the DAO Committee executes that decision. 
 
 ## What happens if your grant is revoked?

@@ -19,7 +19,7 @@ Click **Submit a proposal** and choose **Grant request** from the list of propos
 
 ## Grant proposal form
 
-Decentraland Grants allow MANA owned by the DAO to fund the creation of features or content beneficial to the Decentraland platform and its growth. Either individuals or teams may request grant funding through the DAO, and there are no constraints on the content or features that may be funded (within the bounds of Decentraland’s [ Content Policy](https://decentraland.org/content)).
+Decentraland Grants allow MANA owned by the DAO to fund the creation of features or content beneficial to the Decentraland platform and its growth. Either individuals or teams may request grant funding through the DAO, and there are no constraints on the content or features that may be funded (within the bounds of Decentraland’s [Content Policy](https://decentraland.org/content)).
 Following is an overview of the proposal form:
 
 ## Category
@@ -50,7 +50,7 @@ Enter the time of the month you’d like the funds to be released. This could ei
 ## General Information
 
 **Title**  
-Provide a title that is concise and descriptive for your grant request. This title will appear as the header of your proposal’s detail page on [ governance.decentraland.org](https://governance.decentraland.org/) , the proposal in Snapshot, and the Forum thread generated for your proposal.
+Provide a title that is concise and descriptive for your grant request. This title will appear as the header of your proposal’s detail page on [governance.decentraland.org](https://governance.decentraland.org/) , the proposal in Snapshot, and the Forum thread generated for your proposal.
 
 **Abstract**  
 Please explain the key components of your project. This should include a description of the feature or content you want to create, what needs or goals your work may satisfy, and the skills or experience you have that will contribute to your success. This is your chance to make a good first impression on the community.
