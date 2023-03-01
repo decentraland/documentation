@@ -1,6 +1,6 @@
 ---
 date: 2022-11-04
-title: SDK7 alpha testing guidelines
+title: SDK7 beta testing guidelines
 description: Play live audio streams in your scene.
 categories:
   - development-guide
