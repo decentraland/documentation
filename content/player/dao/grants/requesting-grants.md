@@ -9,6 +9,7 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/dao/overview/requesting-grants
+weight: 3
 ---
 
 To [request a grant]({{< ref "/content/player/dao/grants/community-grants.md" >}}) from the Decentraland DAO, begin by navigating to **[governance.decentraland.org](https://governance.decentraland.org)** and signing in with your wallet.
@@ -16,85 +17,136 @@ To [request a grant]({{< ref "/content/player/dao/grants/community-grants.md" >}
 
 Click **Submit a proposal** and choose **Grant request** from the list of proposal categories. You will be presented with a form that you must complete before submitting your request.
 
-## Grant proposal forms
+## Grant proposal form
 
-When you submit a grant request, you are expected to complete the proposal form to the best of your ability. Particular attention should be given to the abstract, description, specification, personnel, and roadmap sections. Failure to provide clear and relevant information may result in the rejection of your proposal by the community.
-
+Decentraland Grants allow MANA owned by the DAO to fund the creation of features or content beneficial to the Decentraland platform and its growth. Either individuals or teams may request grant funding through the DAO, and there are no constraints on the content or features that may be funded (within the bounds of Decentraland’s [ Content Policy](https://decentraland.org/content)).
 Following is an overview of the proposal form:
 
-#### Category
+## Category
+Select the category that best suits your project. Currently, DAO grants will fund projects within seven categories:
+* **Core Unit:** Provide core infrastructure and operations for the DAO
+* **Platform:** Creation of tools and applications extending our platform and ecosystem
+* **Documentation:** Production of free educational content related to Decentraland’s dynamics
+* **In-world Content:** Development of experiences aiming to improve user retention
+* **Social Media Content:** Marketing efforts aiming to reach new users and keeping them engaged
+* **Sponsorship:** Supporting In-Real-Life initiatives targeting audiences relevant to Decentraland
+* **Accelerator:** A private company of for-profit initiative in need of funding
 
-Select the category that best describes your project. Currency, DAO grants will fund projects within four categories:
 
-*   Community
-*   Content Creator
-*   Platform Contributor
-*   Gaming
+## Funding
+Every grant category has its own category budget, which is renewed every three months. You will see the remaining category budget based on the category that you had previously selected. 
 
-#### Tier
-
-Select the most appropriate tier for your grant request. Tiers enable the Decentraland Community to limit the size and scope of the grants that are funded by the DAO. The initial possible tiers are:
-
-*   **Tier 1:** $500 - $1500 USD in MANA
-*   **Tier 2:** $1500 - $3000 USD in MANA
-*   **Tier 3:** $3000 - $5000 USD in MANA
-*   **Tier 4:** $5,000 - $60,000 USD
-*   **Tier 5:** $60,000 - $120,000 USD
-*   **Tier 6:** $120,000 - $240,000 USD
-
-Tiers 1 and 2 Grants are paid via a direct transfer to the beneficiary address provided within 7 days of a grant receiving approval from the DAO.
-
-The rest of the Tiers Grants are paid via a vesting contract (3 or 6 months depending on the Tier) with a one month cliff in MANA or stablecoin.
-
-#### Title
-
-Provide a title that is concise and descriptive for your grant request. This title will appear as the header of your proposal’s detail page on [governance.decentraland.org](https://governance.decentraland.org), the proposal in Snapshot, and the Forum thread generated for your proposal.
-
-#### Abstract
-
-Use this space to provide a quick and easy to understand overview of your project. Your abstract should explain what problems your grant might solve, or what value it might provide to the greater community.
-
-#### Grant size
-
+**Desired Funding**  
 Enter the exact amount of funding you are requesting for your grant in USD. This amount should be within range for the Tier you’ve selected. If your grant is approved, it will be paid in MANA according to the current exchange rate between USD and MANA.
 
-#### Beneficiary address
+**Estimated project duration**  
+Enter the amount of months your project will take to be developed. It will be used to create the vesting contract issuing monthly payments. Make sure to provide a detaild roadmap for the project duration below.
 
-Enter an Ethereum address that you can use to receive the funds if your grant is approved.
+**Time of payments**  
+Enter the time of the month you’d like the funds to be released. This could either be: 
+* 1st day of the month
+* 15th day of the month
 
-#### Description
+## General Information
 
-This is where you can provide a longer and more detailed description of your project.
+**Title**  
+Provide a title that is concise and descriptive for your grant request. This title will appear as the header of your proposal’s detail page on [ governance.decentraland.org](https://governance.decentraland.org/) , the proposal in Snapshot, and the Forum thread generated for your proposal.
 
-#### Specification
+**Abstract**  
+Please explain the key components of your project. This should include a description of the feature or content you want to create, what needs or goals your work may satisfy, and the skills or experience you have that will contribute to your success. This is your chance to make a good first impression on the community.
 
-Here you can share a more detailed plan for what you would like to create or build. If there are any supporting assets or preliminary work, please share them here.
+**Description**  
+Elaborate on why your project should receive funding, the problems that your project will solve, or the benefits it will bring to the Decentraland platform.
 
-#### Personnel
+**Budget Specification**  
+The community values budget transparency. Please provide a detailed description on how you are planning to use your budget.
 
-If you are the only contributor to the project you would like to fund, enter some biographical information, making sure to include an overview of your skills and experience and why they are uniquely suited for your project. You are also strongly encouraged to provide links to a portfolio of previous work that is relevant to your proposed project.
+**Beneficiary Address**  
+The address that will receive the grant funds. This must be an Ethereum address! Entering a non-Ethereum address that cannot receive MANA may result in a permanent loss of funds.
 
-If multiple people would contribute to your project, please share these details for each.
+**Contact Email Address**  
+This email address will be used by the Grant Support teams to contact you to check the progress of the grant, set up meetings and maintain an open communication channel.
 
-#### Roadmap and milestones
+**Personnel**  
+Please list who will be working on this project, along with an explicit overview of their relevant skill sets and experience. You may provide links to portfolios or profiles to help the Decentraland community get to know who the DAO will be funding and how their backgrounds will contribute to your project’s success.
 
-Please share a realistic and achievable timeline for your project with discrete milestones. It is important that you publicly share progress toward each milestone in the Forum thread or Discord channel generated for your grant. Milestones should include concrete deliverables and dates, to make it easy for the community to compare your actual progress with your initial proposal.
+**Roadmap and milestones**  
+Describe the roadmap of your project, making sure to include any relevant milestones that the community should be aware of and how you will share progress you have made. Clearly communicating progress for long-term projects funded by vesting contracts will help prevent the removal of your funding.
+
+**Co-authors** (optional)  
+If you co-authored this proposal with someone else, you can add their wallet addresses to acknowledge their work. After you publish the proposal, co-authors will be asked to confirm or reject the request. Only if they confirm, they will be listed publicly on the proposal page.
+
+
+## Category-Specific Assessment
+Depending on the category you have applied to, you will have different performance metrics to measure the impact of your grant. These could be, but are not limited to:
+
+**1- Core Unit** performance metrics
+* How will your team provide strategic value to the Decentraland DAO?
+* List your impact metrics
+
+**2- Platform**performance metrics:
+* Publish the source code and its derivatives developed under the budget provided by the DAO under an open-source license and in a public repository. 
+* Commit to publishing documentation for the community to understand and contribute to the codebase.
+
+**3- Documentation**performance metrics:
+* What type of content are you planning to produce?
+	* Documentation Article
+	* Scene Example
+	* Videos
+	* Code examples
+	* Other
+* How many pieces of content are you planning to publish under the duration of this Grant?
+
+**4- In-World Content** performance metrics:
+* How many pieces of content (i.e. number of events, scenes, or games) are you planning to produce under the duration of this Grant?
+* How many users do you expect to engage with this content?
+* How are you going to measure the engagement with your content? (I.e. newly populated land, Active Users, Returning Users, Time on Scene)
+
+**5- Social Media Content** performance metrics:
+* Please select the social media platforms where you will publish this content:
+	* Instagram
+	* Facebook
+	* TikTok
+	* Discord
+	* YouTube
+	* Twitter
+	* Twitch
+	* Other
+* Tell us how your audience is relevant to Decentraland.
+* How many pieces of content are you planning to generate?
+* How many people do you plan to impact with this content?
+* Please provide links to your current social media channels
+
+**6- Sponsorship** performance metrics:
+* Event type (Online, Offline)
+* Please select the Event category:
+	* Conference
+	* Side event
+	* Community meetups
+	* Hackathon
+	* Other
+* Is this grant the primary source of funding for this event?
+* How many events are you planning to organize?
+* How many people are you expecting to attend?
+* How is your audience relevant to Decentraland?
+* How is the Decentraland brand going to be showcased?
+
+**7- Accelerator** performance metrics:
+* Please describe your revenue generation model
+* What’s your plan for returning the investment to the DAO?
+* How many months will it take the DAO to recover the investment made on your project based on your estimations?
+
+## Final Consent
+Here you are asked to review and check the following:
+* [Grants Framework]({{< ref "/content/player/dao/grants/community-grants.md" >}})
+* [Content Policy](https://decentraland.org/content) 
+* [Terms of Use](https://decentraland.org/terms) 
+* [Code of Ethics](https://decentraland.org/ethics) 
 
 ## Submitting your proposal
-
 After filling out every field in the proposal form to the best of your abilities, click **Submit proposal**.
 
-After submitting your proposal, a Forum thread will be generated automatically where the community can provide feedback on, or ask questions about, your project.
+After submitting your proposal, a Forum thread will be generated automatically where the community can provide feedback or ask questions about your project.
 
-Grant requests remain open on the DAO for 7 days, during which the community can review and vote on your proposal.
+Grant requests remain open on the DAO for 14 days, during which the community can review and vote on your proposal.
 
-## Minimum acceptance thresholds and voting period duration
-
-*   **Tier 1:** 1M VP - 7 days
-*   **Tier 2:** 1M VP - 7 days
-*   **Tier 3:** 1M VP - 7 days
-*   **Tier 4:** 2M VP - 14 days
-*   **Tier 5:** 4M VP - 14 days
-*   **Tier 6:** 8M VP - 14 days
-
-Failure to reach the minimum acceptance threshold defined for the Tier the Grant falls into, even if the **For** votes are in the majority, results in the rejection of the proposal. Grant requests may be resubmitted, so if you fail to obtain approval, you may revise and resubmit your proposal at a later date.

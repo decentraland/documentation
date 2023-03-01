@@ -1,113 +1,117 @@
 ---
 date: 2021-06-18
-title: Community Grants
+title: Grants Program
 aliases:
  - /decentraland/community-grants/
  - /player/dao/grants/community-grants
-description: An overview of community grants
+ - /player/general/dao/overview/community-grants
+description: An overview of DAO's grant program
 categories:
   - Decentraland
 type: Document
-url: /player/general/dao/overview/community-grants
+url: /player/general/dao/overview/grants-program
+weight: 1
 ---
 
 
-The Decentraland DAO possesses a [MANA fund]({{< ref "/content/player/dao/overview/the-dao-fund.md" >}}) that has been set aside to help sponsor and facilitate the continual growth of the Decentraland platform. One avenue used by the DAO to achieve these goals is a grants program that was [voted in place by the community](https://governance.decentraland.org/proposal/?id=b265e3e0-bcb0-11eb-a871-a927ffd81f49).
+The Decentraland DAO possesses a [ MANA fund](https://docs.decentraland.org/player/general/dao/overview/the-dao-fund/)  that has been set aside to help sponsor and facilitate the continual growth of the Decentraland platform. One avenue used by the DAO to achieve these goals is a grants program that was voted in place by the community.
 
 This grants program allows any member of the community to request funding to help reimburse their efforts in community building and education, creating 3D content for the world, or implementing new features and improvements to the platform.
 
-Grants can be requested by [completing a proposal]({{< ref "/content/player/dao/grants/requesting-grants.md" >}}) form within the [DAO](https://governance.decentraland.org). If approved by the community, then the [DAO Committee]({{< ref "/content/player/dao/overview/how-does-the-dao-work.md#dao-committee" >}}) will execute the [transfer of funds]({{< ref "/content/player/dao/grants/receiving-grants.md" >}}) to the grant beneficiary by means of a one-time transfer, or a vesting contract.
+Grants can be requested bycompleting a proposal form within the [ DAO](https://governance.decentraland.org/). If approved by the community, then the [ DAO Committee](https://docs.decentraland.org/player/general/dao/overview/how-does-the-dao-work/#dao-committee)  will execute the transfer of funds to the grant beneficiary by means of a one-time transfer, or a vesting contract.
 
-## Grant categories
+## Grant categories and requirements
 
-Grant requests can fall under one of four broad categories: **Community**, **Content Creator**, **Platform Contributor**, or **Gaming**. These four categories represent areas of Decentraland that benefit most from community contributions.
+Grant requests can fall under one of seven broad categories: **Core Unit, Platform, Documentation, In-world Content, Social Media Content, Sponsorship, and Accelerator.**These four categories represent areas of Decentraland that benefit most from community contributions.
 
-## Community
+Every active grant must:
+* Comply with Decentraland’s  [Content Policy](https://decentraland.org/content) ,  [Terms of Use](https://decentraland.org/terms) , and  [Code of Ethics](https://decentraland.org/ethics) .
+* Provide monthly updates on the  [Governance dApp](https://governance.decentraland.org/) .
+* Provide a presentation in a video format to be shared publicly.
+* Be responsive to the DAO Committee and Core Unit communications.
+* Be ready to summarize how the grant funds were used every month.
 
-Growing, educating, moderating, and maintaining a healthy community of players, creators, and developers is important to Decentraland’s success. Grants under this category may fund activity such as:
+**1- Core Unit**  
+A Core Unit is a team that provides core infrastructure and operations for the DAO. The work done is essential for the organization and grantees from this category may be considered official representatives of the DAO.
+* Requirements:
+	* Provide an essential or strategic value to the DAO.
+	* Build in the public, publishing open source code and documentation.
+* Performance metrics
+	* Define their own performance metrics based on their goals. These must be clear measurable metrics.
 
-*   Community education
-*   Outreach and event organization
-*   Moderation
+**2- Platform**  
+Platform grantees create tools and applications that extend the power of the Decentraland platform or provide alternative ways to explore Decentraland’s ecosystem.
+* Requirements:
+	* Build in the public, publishing open source code and documentation.
+* Performance Metrics:
+	* The number of contributions made to the main repository of code.
+	* Publish the tool or application to the production environment and provide usage metrics.
 
-Projects might also include creating documentation, tutorials, videos, or other forms of content intended to educate and support the community.
+**3- Documentation**  
+Documentation grantees focus on the creation of free educational content about how to contribute, build and play on Decentraland. The content should be published on official mediums to be found and preserved for posterity.
+* Requirements:
+	* The topic shouldn’t be already well-covered in the official documentation.
+	* Provide examples of documentation done in the past.
+	* Describe the format of documentation to be produced.
+	* Productions thought to be published in official mediums.
+* Performance Metrics:
+	* The number of contributions to Decentraland Documentation
+	* The number of contributions to the Awesome Repository.
 
-## Content Creator
-
-Filling the metaverse with engaging and immersive content takes time and effort from skilled, independent technical artists. Grants in this category help to support artists to create scenes and models for Decentraland. Applicants to this category must provide portfolios of related work within their grant requests for the community to review.
-
-## Platform Contributor
-
-Decentraland is an open source platform with many moving parts. Grants within the Builder category should motivate and reward impactful contributions from developers and engineers in the form of:
-
-*   New features
-*   Bug or vulnerability fixes
-*   Other improvements to existing code
-
-## Gaming
-
-Engaging experiences in Decentraland often take the form of games, especially multiplayer games. This category bridges the Creator and Platform Contributor categories by funding individuals and teams committed to building complete games for Decentraland.
+**4- In-World Content**  
+In-World Content granteesdevelop attractive experiences in Decentraland that generate retention of users. The experiences can take the form of scenes, games, and events, in any case, consumed by players through the reference client.
+* Requirements:
+	* Deploy content or host events in Decentraland.
+* Performance Metrics:
+	* Newley populated land, Active Users, Returning Users, Time on Scene.
+	* Events created and number of attendees to the event.
+	
+**5- Social Media Content**  
+Grantees from this category produce content on social media platforms such as Twitch, Twitter, Youtube, Tik Tok, and Discord. The grant aims to reach new users and keep them engaged.
+* Requirements:
+	* Explain audience size and relevancy to Decentraland.
+* Performance Metrics:
+	* Number of pieces to be produced
+	* Total of views and interactions of the created content.
+	* Engagement metrics (likes, retweets, reach, retention)
+	* Mentions in other media outlets.
+	
+**6- Sponsorship**  
+Grantees applying to this category hold conferences, side events, community meetups, hackathons, and contest prices that target audiences relevant to Decentraland.
+* Requirements:
+	* The event is happening IRL or online but outside of Decentraland.
+	* Ensure Decentraland DAO brand awareness during the event.
+* Performance Metrics:
+	* Number of attendees and level of brand awareness.
+	* Evidence of the project execution (photos, videos, publications).
+	* Mentions in media outlets.
+	
+**7- Accelerator**  
+A private company or revenue-generating initiative looking forward to receiving an investment from the DAO.
+* Requirement:
+	* Revenue share with the DAO or alternative value proposition.
+* Performance Metrics:
+	* Return of Investment.
 
 ## Grant tiers
 
-Grants may be requested for any amount within one of three possible tiers, regardless of the grant category. For example, you may request a Content Creator grant in either Tier 1, Tier 2, or Tier 3.
-
+Grants may be requested for any amount within one of two possible tiers, regardless of the grant category. For example, you may request a Content Creator grant in either of both tiers.
 The specific tiers, and their ranges, are:
 
-#### Tier 1
+**Lower Tier:**  
+* Up to $20,000 USD, payable in stablecoins or MANA using a Vesting Contract, or a one-time payment (after 30 days).
+* Vesting duration can range from 1 to 6 months.
+* Votation period: 2 weeks.
+* Votation threshold: 2M VP.
 
-*   Up to $1,500 USD in MANA
-*   One-time payment
-*   VP Threshold: 1M VP
+**Higher Tier:**  
+* From $20,000 to $240,000 USD, payable in stablecoins using a Vesting Contract.
+* Vesting duration can range from 3 to 12 months.
+* Votation Period: 2 weeks.
+* Variable votation threshold, using the formula: [1.2M + TOTAL_BUDGET * 40VP/USD](https://docs.google.com/spreadsheets/d/1VAVGZYbhV98hHxc2M39d-6XqeVG8ov2kvS9Yaxp0TyY/edit#gid=1241323121).
+	* E.g. $60,000 USD requires 3,600,000 VP
+	* E.g. $120,000 USD requires 6,000,000 VP
+	* E.g. $240,000 USD requires 10,800,000 VP
 
-#### Tier 2
-
-*   $1,500 - $3,000 USD in MANA
-*   One-time payment
-*   VP Threshold: 1M VP
-
-#### Tier 3
-
-*   $3,000 - $5,000 USD in MANA
-*   3 months vesting contract (1 month cliff)
-*   VP Threshold: 1M VP
-
-#### Tier 4
-
-*   $5,000 - $60,000 USD
-*   6 months vesting contract (1 month cliff)
-*   VP Threshold: 2M VP
-
-#### Tier 5
-
-*   $60,000 - $120,000 USD
-*   6 months vesting contract (1 month cliff)
-*   VP Threshold: 4M VP
-
-#### Tier 6
-
-*   $120,000 - $240,000 USD
-*   6 months vesting contract (1 month cliff)
-*   VP Threshold: 8M VP
-
-
-## When are payments made for each tier?
-
-#### Tier 1 and Tier 2
-
-Funds for grants in Tiers 1 or 2 are transferred directly to the beneficiary address within a week of the grant’s approval from the DAO.
-
-#### Tier 3, 4, 5, and 6
-
-Funds for grants in those Tiers are made available to the beneficiary address via vesting contracts. These contracts vest every second, and have a one month cliff. After the cliff, the owner of the beneficiary address may withdraw the vested funds. Past the cliff, the beneficiary may withdraw any newly vested funds.
-
-
-## Grant requirements
-
-*   Every Grant must be approved by the DAO community through an open proposal on the [Governance dApp](https://governance.decentraland.org/) under the Grants category.
-*   Any work funded by the DAO must comply with the Decentraland [Content Policy](https://decentraland.org/content), [Terms of Use](https://decentraland.org/terms), and [Code of Ethics](https://decentraland.org/ethics).
-*   Regardless of category, each grant proposal must include clearly defined and measurable outcomes.
-*   Grant recipients must provide regular and thorough reports on their project’s progress for the community to review. These reports may be shared through the Discord server, the Governance dApp or the Forum. Failure to provide these reports may result in the revocation of grant funding.
-*   Failure to provide the pre-established outcomes, as well as to provide clear reports on the advances and milestones will result in the removal of the grant funding.
-*   Grants with one-time payments are to be transferred upon the DAO’s approval of the grant.
-*   Grants with vesting contracts have a one month cliff beginning 7 days after the grant’s approval in the DAO.
+## When are payments made for each tier? 
+Funds for grants are made available to the beneficiary address via vesting contracts. The grantee picks the starting date when they request the grant and it can be either the 1st or 15th of each month. These contracts vest every 30 days from the starting date. After this period, the owner of the beneficiary address may withdraw the vested funds on a monthly basis.
