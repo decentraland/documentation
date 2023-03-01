@@ -9,7 +9,7 @@ url: /player/general/dao/overview/security-recommendations
 weight: 5
 ---
 
-This  guide was created for Decentraland DAO grantees, to help them protect their data and assets.  It is important to acknowledge that digital security is an ongoing process, and not an isolated activity.  There is no single tool that mitigates all attacks, so incorporating protection mechanisms gradually is the recommended way to do it, and the more layers we add to our security over time, the harder it is for malicious actors to intrude in our assets. 
+This guide was created for Decentraland DAO grantees, to help them protect their data and assets. It is important to acknowledge that digital security is an ongoing process, and not an isolated activity. There is no single tool that mitigates all attacks, so incorporating protection mechanisms gradually is the recommended way to do it, and the more layers we add to our security over time, the harder it is for malicious actors to intrude in our assets. 
 
 
 ## 1. Work on your digital hygiene
@@ -34,7 +34,7 @@ If you become unreachable, let someone you trust know how to access your wallets
 
 ## 5. Use non- custodial wallets
 
-Non-custodial wallets (also named self-custody wallets) are the type of wallets in which you are in control of your private keys and you own your cryptoassets. This means that you are responsible for remembering your private keys and maintaining security measures to protect your funds. Some examples recommended of non-custodial wallets include [ MetaMask](https://metamask.io/) .
+Non-custodial wallets (also named self-custody wallets) are the type of wallets in which you are in control of your private keys and you own your cryptoassets. This means that you are responsible for remembering your private keys and maintaining security measures to protect your funds. Some examples recommended of non-custodial wallets include [MetaMask](https://metamask.io/) .
 
 
 ## 6. Use Multi-Factor Authentication
@@ -83,4 +83,4 @@ Once you have mapped them, start working on your security measures from mitigati
 5. Use different browsers/Virtual machines if possible to have the least attack vectors as possible.
 
 
-If you have any valuable recommendations for our community, please share them to  [gia@decentraland.org](mailto:gia@decentraland.org)  so we can add them to this list.
+If you have any valuable recommendations for our community, please share them to [gia@decentraland.org](mailto:gia@decentraland.org) so we can add them to this list.
