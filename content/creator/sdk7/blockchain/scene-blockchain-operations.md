@@ -75,6 +75,8 @@ You should wrap the function in an `async()` function, learn more about this in 
 {{< hint warning >}}
 **📔 Note**:  Even though the eth address may contain upper case characters, some browsers convert the returned string to lower case automatically. If you wish compare address values and have it work on all browsers, use the `.toLowerCase()` method to convert the value into lower case.
 {{< /hint >}}
+
+
 <!-- 
 ## Sign messages
 
@@ -216,7 +218,7 @@ The example above listens for clicks on a _button_ entity. When clicked, the pla
 **💡 Tip**:  We recommend defining the wallet address and the amount to pay as global constants at the start of the _.ts_ file. These are values you might need to change in the future, setting them as constants makes it easier to update the code.
 {{< /hint >}} --> -->
 
-<!-- 
+
 ## Check gas price
 
 After importing the `eth-connect` library, you must instance a web3 provider and a request manager, which will will allow you to connect via web3 to Metamask in the player's browser.
@@ -241,7 +243,7 @@ executeTask(async function () {
 
 {{< hint info >}}
 **💡 Tip**: Note that the functions handled by the `requestManager` must be called using `await`, since they rely on fetching external data and can take some time to be completed.
-{{< /hint >}} -->
+{{< /hint >}}
 
 ## Import a contract ABI
 
@@ -373,7 +375,7 @@ executeTask(async () => {
 ```
 
 The example above uses the abi for the Ropsten MANA contract and transfers 100 _fake MANA_ to your account in the Ropsten test network.
-<!-- 
+
 ### Other functions
 
 The eth-connect library includes a number of other helpers you can use. For example to:
@@ -382,7 +384,7 @@ The eth-connect library includes a number of other helpers you can use. For exam
 - Get the balance of a given address
 - Get a transaction receipt
 - Get the number of transactions sent from an address
-- Convert between various formats including hexadecimal, binary, utf8, etc. -->
+- Convert between various formats including hexadecimal, binary, utf8, etc.
 
 
 ## Using the Ethereum test network
