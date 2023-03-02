@@ -29,7 +29,7 @@ You can confirm that the projects are part of the workspace by running `dcl work
 
 ## Run a workspace
 
-Run `npm start` on the root folder of the workspace. This runs all of the projects at the same time, viewable in a single preview window. This preview behaves just like when previewing a single scene.
+Run `npm run start` on the root folder of the workspace. This runs all of the projects at the same time, viewable in a single preview window. This preview behaves just like when previewing a single scene.
 
 Any smart wearables in the workspace are available to try on by looking for them in the backpack.
 

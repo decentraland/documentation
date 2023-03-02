@@ -46,7 +46,7 @@ Between the _Alpha_ version 7.0.5 and the _Beta_ version 7.1.0 of the `@dcl/sdk`
 		},
 	```
 - Loading of texture images from external sources requires adding domain to an allowlist on the scene’s scene.json file. <SNIPPET>
-- When running a preview of an SDK7 scene via the command line, use `npm start` and `npm build`. Don't use `dcl start` or `dcl build`. The Decentraland Editor is encouraged as the defacto way to run scene previews.
+- When running a preview of an SDK7 scene via the command line, use `npm run start` and `npm run build`. Don't use `dcl start` or `dcl build`. The Decentraland Editor is encouraged as the defacto way to run scene previews.
 - The orientation of Textures is now flipped on plane and cube primitives. This results in a more intuitive result, as the default orientation of a plane now exhibits an image facing the right way. It is also consistent with how video textures are oriented.
 - Fixed bug with rotating platforms, they now move players that are standing on them.
 

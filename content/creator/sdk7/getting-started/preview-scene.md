@@ -49,7 +49,7 @@ See the [Installation Guide]({{< ref "/content/creator/sdk7/getting-started/inst
 To preview a scene run the following command on the scene's main folder:
 
 ```bash
-npm start
+npm run start
 ```
 
 Any dependencies that are missing are installed and then the CLI opens the scene in a new browser tab automatically. It creates a local web server in your system and points the web browser tab to this local address.
@@ -63,7 +63,7 @@ Every time you make changes to the scene, the preview reloads and updates automa
 
 ### Parameters of the preview command
 
-You can add the following flags to the `npm start` command to change its behavior:
+You can add the following flags to the `npm run start` command to change its behavior:
 
 - `--web3` Connects preview to browser wallet to use the associated avatar and account.
 - `--skip-version-checks` Avoids checking if the scene's ECS library version matches your CLI version, and launches the preview anyway.
@@ -119,7 +119,7 @@ To run a preview scene in the Desktop native client, instead of in the web brows
 
 2) Run the preview with:
 
-	`npm start --desktop-client`
+	`npm run start --desktop-client`
 
 3) Copy the URL provided by the console output under **Desktop Client** and paste in your browser.
 

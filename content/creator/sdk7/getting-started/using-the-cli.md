@@ -82,21 +82,21 @@ The CLI then prompts you to chose what kind of project, if you want to build a [
 
 ## Run a preview
 
-Run `npm start` on the root level of a scene, workspace, or smart wearable project to open a preview in a browser window.
+Run `npm run start` on the root level of a scene, workspace, or smart wearable project to open a preview in a browser window.
 
 See [preview scenes]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md" >}}) for details and special options when running a preview.
 
 ## Build
 
-Run `npm build` to build your project. Decentraland scenes are written in TypeScript, but they are built to minified JavaScript when published. See [coding scenes]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}) for more details.
+Run `npm run build` to build your project. Decentraland scenes are written in TypeScript, but they are built to minified JavaScript when published. See [coding scenes]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}) for more details.
 
 The build command is optional, as it also runs in the background before deploying (although you can add a flag to skip it).
 
-The build command runs more rigurous type checks than those that run with `npm start`, running it can sometimes be helpful to debug a scene.
+The build command runs more rigurous type checks than those that run with `npm run start`, running it can sometimes be helpful to debug a scene.
 
 ## Deploy a scene
 
-Run `dcl deploy` to publish your scene to Decentraland. This command opens a browser window where you can sign with your wallet to authorize the deployment.
+Run `npm run deploy` to publish your scene to Decentraland. This command opens a browser window where you can sign with your wallet to authorize the deployment.
 
 See [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for details and special options when publishing a scene.
 

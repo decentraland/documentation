@@ -50,7 +50,7 @@ Follow the steps below to upload your scenes to a free Heroku server:
 
 7. Link your Decentraland project to your Heroku application. On the project folder run `heroku git:remote -a example-dcl-scene` (using the name you created you heroku application with)
 
-8. Edit `package.json` in your scene to change the `start` script to `CI=true npm start -p ${PORT:=8000}`
+8. Edit `package.json` in your scene to change the `start` script to `CI=true npm run start -p ${PORT:=8000}`
 
 9. Explicitly install the Decentraland CLI as a dependency of your project, running `npm i --save decentraland`
 
