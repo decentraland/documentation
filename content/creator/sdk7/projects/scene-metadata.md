@@ -307,13 +307,13 @@ If a `featureToggles` property doesn't exist in your `scene.json` file, create i
 
 You may need a scene's code to access the fields from the scene metadata, like the parcels that the scene is deployed to, or the spawn point positions. This is especially useful for scenes that are meant to be replicated, or for code that is meant to be reused in other scenes. It's also very useful for libraries, where the library might for example need to know where the scene limits are.
 
-To access this data, first import the `Scene` library to your scene:
+To access this data, first import the `Scene` namespace to your scene:
 
 ```ts
 import { getSceneInfo } from "~system/Scene"
 ```
 
-Then you can call the `getSceneInfo()` function from this library, which returns a json object that includes much of the contents of the scene.json file.
+Then you can call the `getSceneInfo()` function from this namespace, which returns a json object that includes much of the contents of the scene.json file.
 The example below shows the path to obtain several of the more common fields you might need from this function's response:
 
 

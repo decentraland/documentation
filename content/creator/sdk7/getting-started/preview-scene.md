@@ -66,7 +66,7 @@ Every time you make changes to the scene, the preview reloads and updates automa
 You can add the following flags to the `npm run start` command to change its behavior:
 
 - `--web3` Connects preview to browser wallet to use the associated avatar and account.
-- `--skip-version-checks` Avoids checking if the scene's ECS library version matches your CLI version, and launches the preview anyway.
+- `--skip-version-checks` Avoids checking if the scene's SDK framework version matches your CLI version, and launches the preview anyway.
 - `--desktop-client` Runs the preview in the Decentraland Desktop client.
 - `--port` to assign a specific port to run the scene. Otherwise it will use whatever port is available.
 - `--no-debug` Disable the debug panel, that shows scene and performance stats.

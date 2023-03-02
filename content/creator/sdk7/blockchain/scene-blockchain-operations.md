@@ -26,7 +26,7 @@ If using the CLI, run the preview with:
 ```
 npm run start --web3
 ```
-
+<!-- 
 ## Download and import the ethers.js library
 
 To use ethers.js library, you must manually install the package in your scene's project. To do so, follow the steps in [Manage dependencies]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md" >}}), typing the library name `ethers`.
@@ -35,7 +35,8 @@ Once installed, you can import whatever you need from `ethers` to the scene's co
 
 ```ts
 import { ethers } from 'ethers'
-```
+``` -->
+
 <!-- 
 
 ## Ethereum controller library

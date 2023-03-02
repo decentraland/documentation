@@ -125,7 +125,7 @@ The snapshots of the avatar will be deprecated in the future and will no longer 
 
 To obtain information from the current player that's running the scene, use `getUserData()`.
 
-The example below imports the `~system/UserIdentity` library and runs `getUserData()`.
+The example below imports the `~system/UserIdentity` namespace and runs `getUserData()`.
 
 ```ts
 import { getUserData } from "~system/UserIdentity"
