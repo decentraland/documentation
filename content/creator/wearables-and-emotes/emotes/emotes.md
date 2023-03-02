@@ -45,6 +45,18 @@ return false
 
 <a onclick="changeProfile()" style="cursor: pointer">Change avatar ↺</a> - <a onclick="changeEmote()" style="cursor: pointer">Change emote ↺</a>
 
+### **Animation Specs Chart [#](https://docs.decentraland.org/creator/emotes/creating-and-exporting-emotes/#animation-specs-chart)**
+
+| Frame Rate | 30 fps |
+| --- | --- |
+| Max Length | 10 seconds (300 frames) |
+| Animations per File | 1 |
+| Export Format | .glb |
+| Sampling Rate | 2 or 3 (if needed) |
+| Max File Size | 1 MB |
+| Max Animation Distance | 1 meter (in any direction) |
+| Max Animation Height | 1 meter |
+
 Emotes are animation sequences for avatars’ skeleton bones, which are defined in a transport file, usually in `.glb`, or `.gltf` formats.
 
 There are a selection of free default Emotes that are available to any user, but Decentraland also supports the creation and use of custom Emotes that are represented by non-fungible tokens ( NFTs). This allows a finite amount of different Emotes to be created, or minted, on the blockchain, similar to [Wearables]({{< ref "/content/creator/wearables/wearables-overview.md" >}}).

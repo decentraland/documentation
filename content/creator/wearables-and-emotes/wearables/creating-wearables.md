@@ -59,7 +59,7 @@ The Eye mesh functions as a transparency mask, and is used to create different e
 **Mouth**  
 The mouth mesh functions as a transparency mask, and is used to create different mouth styles.
 
-![](/images/media/creating-wearables-images/creating-wearables-2.png)
+![](/images/media/head.png)
 
 #### Upper Body
 
