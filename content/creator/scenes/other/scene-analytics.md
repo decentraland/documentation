@@ -13,6 +13,21 @@ url: /creator/development-guide/scene-analytics
 
 As a creator, it's very valuable to track player visits and the way in which players interact with your scene. Instead of assuming, you can obtain real data and make informed decisions while iterating on your designs.
 
+- The [Atlas Corporation](https://atlascorp.io) built an analytics platform for use in Decentraland scenes. This solution is built by Decentraland builders, for Decentraland builders.
+
+	Through adding a [single file](https://gitlab.com/atlas-corporation/atlas-analytics) to your scene, you can access your scene's analytics dashboard [which you can find here](https://analytics-app.atlascorp.io). You can use your scene.json file to govern access to your scene's analytics dashboards. By default, the owner of the land will have access. To grant access to another user, assign their wallet in the tags field of your scene.json file with an "atlas" tag as follows:
+	
+	`"tags": [
+	    "atlas:0xE400A85a6169bd8BE439bB0DC9eac81f19f26843",
+	    "atlas:0x3fB38CEe8d0BA7Dcf59403a8C397626dC9c7A13B"
+	 ]`,
+	 
+	Alternatively, you may opt to grant public access to your scenes using the following in your tags field:
+
+	`"tags" = ["atlas:*"]`
+	
+	Check out the [Atlas Analytics documentation](https://atlas-corporation.gitbook.io/atlas-analytics/) for detailed instructions about how to 		implement it in your scenes.
+
 - The [WeMeta team](https://wemeta.world/about) produced a powerful analytics tool that is specially designed for using in Decentraland scenes. It was originally funded by [a grant in the Decentraland DAO](https://forum.decentraland.org/t/dao-qmdxcqc-wemeta-builder-tag/8194). 
 
 	Through a one-line code snippet (the 'Builder Tag'), you can expose/access (via API or dashboard) a myriad of interesting scene data including unique visitors, heat maps of visitor foot traffic, visitor activity, your scene rank and more. 
