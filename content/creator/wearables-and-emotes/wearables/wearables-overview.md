@@ -12,6 +12,25 @@ url: /creator/wearables/wearables-overview
 weight: 1
 ---
 
+<iframe id="emote-preview" style="width:100%;border:0;height:60vh;"></iframe>
+
+<script>
+  const profile = Math.ceil(Math.random() * 120)
+document.getElementById("emote-preview").src = "https://wearable-preview.decentraland.org/?profile=default"+profile+"&transparentBackground&loop=true"
+
+  function changeProfile() {
+document.getElementById("emote-preview").contentWindow.postMessage({
+  type: 'update',
+  payload: { options: {
+    profile: `default${Math.ceil(Math.random() * 120)}`
+  } }
+},'*')
+return false
+  }
+</script>
+
+<a onclick="changeProfile()" style="cursor: pointer">Refresh wearables ↺</a>
+
 # **Wearables overview**
 
 ### **What are wearables?**
@@ -25,19 +44,19 @@ By default, Decentraland Wearables are minted on the Polygon/Matic side-chain so
 **Wearables are organized into different categories, depending on what part of an avatar they modify:**
 
 - Body shape (the shape of the entire avatar)
-- Hat
-- Helmet
 - Hair
 - Facial hair
 - Head
-- Upper body (e.g. jacket or shirt)
-- Lower body (e.g. pants or shorts)
+- Upper body 
+- Lower body 
 - Feet
 - Skin
 
 **Wearables can also include accessories that are applied to different parts of an avatar’s body:**
 
 - Mask
+- Hat
+- Helmet
 - Eyewear
 - Earring
 - Tiara (a crown, or other accessory that sits on top of the head)
