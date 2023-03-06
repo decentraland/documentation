@@ -95,3 +95,59 @@ There are also accessories that can be applied to different areas of an avatar. 
 - **Top Head:** This is rendered on the top of an avatar’s hard. For example, an angel’s halo.
 - **Hat:** Replaces the avatar’s hat. For hats that leave some hair exposed, it must be attached to the hair in the mesh to prevent the avatar from going bald whenever they put on their hat.
 - **Helmet:** Overrides the avatar’s entire head, replacing both hair and facial_hair.
+
+## **Building 3D models for wearables [#](https://docs.decentraland.org/creator/wearables/creating-wearables/#building-3d-models-for-wearables)**
+
+Let’s start to create some wearables!
+
+### Tris, materials and texture limitations
+
+To ensure that Decentraland runs smoothly for all users, it is important to create wearable models without using too many triangles. The goal is to keep models as simple as possible so that they can easily be rendered, without sacrificing too much detail.
+
+The same goes for textures. It’s critical that we use as few textures as possible.
+
+There are limits for the number of triangles and textures that can be used for each wearable or accessory:
+
+- No more than 1.5K triangles per wearable slot: upper body, lower body, feet and hair.
+- No more than 500 triangles per these accessories slots: mask, eyewear, earring, tiara, top_head and facial hair.
+- No more than 1k triangles per these accessories slots: hat, helmet.
+- No more than 2 textures (at a resolution of 512x512px or lower) per wearable. All textures must be square.
+- No more than 2 materials (without counting the AvatarSkin_MAT)
+- In the case of skin wearable, the amount of tris allowed are 5k and 5 textures.
+
+{{< hint warning >}} **Wearable Tris Combiner:**
+
+*If the wearable hide other wearables the creator is allowed to combine the tris per slot. For example: if you want to do a jumpsuit you could create it using the upper body category hiding lower body; in that case you could have 1.5K*2= 3K triangles.*
+
+In the case of the helmet, if you hide all the wearables from the head (head, earrings, eyewear, tiara, hat, facial_hair, hair and top_head you can reach the 4k tris and 2 materials and 2 textures) 
+{{< /hint >}}
+
+### **Maps**
+
+Decentraland supports 3 types of maps to texture your **Avatars/Wearables** Which are:
+
+1. **Base Color**: This is the main texture with the colors and details of your model.
+2. **Emission**: This map is for the parts that are glowing in your model. The emission map goes in a separated material specifically for emission.
+3. **Alpha**: This map is to handle transparency. It uses the opacity channel of the texture.
+
+Since Image textures in blender have a Color and Alpha output you can use the color texture and the opacity texture in the same material.
+
+### **Don’t allowed maps**
+
+Because Decentraland reference client uses of a Toon shader for the avatar materials, some maps are **not necessary** like:
+
+- **Normal maps:** Normal maps are maps used to simulate height on a surface.
+- **Roughness maps:** Roughness is used to determine which part of the surface will receive more or less roughness based on the amount of darkness on the map**.**
+
+To use these maps in Decentraland the workaround is to bake them in one texture. You can find more info about baking textures here: [https://docs.blender.org/manual/en/latest/render/cycles/baking.html](https://docs.blender.org/manual/en/latest/render/cycles/baking.html)
+
+### Normals
+
+Decentraland engine render only one side normals. (That means that a plane only will be visible from one side, the other side won’t be rendered) So, to ensure that your 3D is absolutely correct with the normals we can check that in two different ways.
+
+The first one is to toggle the “Backface culling” on the Material properties settings, this is a good practice for spot inverted normals, like in this image:
+
+
+
+The second way to check if the normals are right is by toggling “Face orientation” on the viewport overlay options. It will turn your model blue, but don’t worry. The blue faces are the correct ones and the red ones are the ones that needs to be corrected, you can find this option here:
+
