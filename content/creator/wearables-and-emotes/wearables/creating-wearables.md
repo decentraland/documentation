@@ -20,8 +20,6 @@ This guide introduces the basics of creating custom 3D models for Decentraland w
 
 *Note: this guide assumes that you already have some basic to intermediate knowledge of 3D modeling. If you’re new to 3D modeling, [start here](https://docs.decentraland.org/creator/3d-modeling/3d-models/).*
 
-https://github.dev/decentraland/documentation/blob/testing-new-order-wearables/static/images/wearables/1_creating_wearables.png
-
 
 ## **The Decentraland Avatar System [#](https://docs.decentraland.org/creator/wearables/creating-wearables/#the-decentraland-avatar-system)**
 
@@ -42,7 +40,9 @@ The Decentraland “avatar system” is the broad collection of different body c
 
 The basic form of an avatar. Wearables can be assigned to one, or both, body shapes. Currently, there are two body shapes: A or B.
 
-[Head]({{< ref “/images/media/blender-export-settings-animations.png”>}})
+[Creating]({{< ref “/images/wearables/1_creating_wearables.png”>}})
+
+[Creating]({{< ref “/images/deploy.svg”>}})
 
 ### **Head** **[#](https://docs.decentraland.org/creator/wearables/creating-wearables/#head)**
 
