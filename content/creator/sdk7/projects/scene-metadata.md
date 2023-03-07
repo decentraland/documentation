@@ -47,23 +47,23 @@ To display multiple parcels in the scene preview, list as many parcels as you in
 
 ### Set parcels via the command line
 
-You can set the parcels in your scene by running the `dcl coords` command in your scene folder. This is especially useful for large scenes, as you don't need to list every parcel involved.
+You can set the parcels in your scene by running the `npx update-parcels` command in your scene folder. This is especially useful for large scenes, as you don't need to list every parcel involved.
 
 **Single parcel**
 
 Pass a single argument with the scene coords. This coordinate is also set as the base parcel.
 
-`dcl coords <parcel>`
+`npx update-parcels <parcel>`
 
 For example:
 
-`dcl coords 15,-26`
+`npx update-parcels 15,-26`
 
 **Multiple parcels**
 
 Pass two arguments: the South-West and the North-East parcels. The South-West parcel is also set as the base parcel.
 
-`dcl coords <parcel> <parcel>`
+`npx update-parcels <parcel> <parcel>`
 
 {{< hint info >}}
 **💡 Tip**:  The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
@@ -71,7 +71,7 @@ Pass two arguments: the South-West and the North-East parcels. The South-West pa
 
 For example:
 
-`dcl coords 15,-26 17,-24`
+`npx update-parcels 15,-26 17,-24`
 
 This command generates a 3x3 scene, with its base parcel in `15,-26`.
 
@@ -79,7 +79,7 @@ This command generates a 3x3 scene, with its base parcel in `15,-26`.
 
 Pass three arguments: the South-West and the North-East parcels, and the parcel to use as a base parcel.
 
-`dcl coords <parcel> <parcel> <parcel>`
+`npx update-parcels <parcel> <parcel> <parcel>`
 
 {{< hint warning >}}
 **📔 Note**:  The base parcel must be one of the parcels in the scene.
@@ -88,7 +88,7 @@ Pass three arguments: the South-West and the North-East parcels, and the parcel 
 
 **Non-square scenes**
 
-The above commands all generate rectangular-shaped scenes. Decentraland scenes can have L shapes or other configurations. You can generate a larger square with `dcl coords` and then manually remove excess parcels from the `scene.json` file.
+The above commands all generate rectangular-shaped scenes. Decentraland scenes can have L shapes or other configurations. You can generate a larger square with `npx update-parcels` and then manually remove excess parcels from the `scene.json` file.
 
 {{< hint warning >}}
 **📔 Note**:  The base parcel must be one of the parcels in the scene.
@@ -254,6 +254,20 @@ Currently, the following permissions are managed on all content:
 
 - `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}})
 - `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >}})
+- `ALLOW_MEDIA_HOSTNAMES`: Refers to fetching resources (including images, video streams, and audio streams) from external sources rather than being limited to the files stored in the scene folder. You must also list the allowlisted high-level domains you will be fetching resources from.
+	```json
+	"requiredPermissions": [
+		"ALLOW_MEDIA_HOSTNAMES"
+	],
+	"allowedMediaHostnames": [
+		"somehost.com",
+		"otherhost.xyz"
+	]
+	```
+{{< hint warning >}}
+**📔 Note**:  The `allowedMediaHostnames` lists only the high-level domains from where your assets are being requested. If there are any chained requests, these don't need to be explicitly listed. For example, if a video streaming service forwards content from a network of alternative servers, you only need to list the original URL you'll be explicitly calling from your code, not those other servers. 
+{{< /hint >}}
+
 
 Portable experiences and smart wearables are also affected by the following permissions:
 
@@ -289,59 +303,50 @@ If a `featureToggles` property doesn't exist in your `scene.json` file, create i
 
 ## Fetch metadata from scene code
 
+[Scene API Reference](https://js-sdk-toolchain.pages.dev/modules/js_runtime_apis.__system_Scene_)
+
 You may need a scene's code to access the fields from the scene metadata, like the parcels that the scene is deployed to, or the spawn point positions. This is especially useful for scenes that are meant to be replicated, or for code that is meant to be reused in other scenes. It's also very useful for libraries, where the library might for example need to know where the scene limits are.
 
-To access this data, first import the `ParcelIdentity` library to your scene:
+To access this data, first import the `Scene` namespace to your scene:
 
 ```ts
-import { getParcel } from "~system/ParcelIdentity"
+import { getSceneInfo } from "~system/Scene"
 ```
 
-Then you can call the `getParcel()` function from this library, which returns a json object that includes much of the contents of the scene.json file.
+Then you can call the `getSceneInfo()` function from this namespace, which returns a json object that includes much of the contents of the scene.json file.
+The example below shows the path to obtain several of the more common fields you might need from this function's response:
 
-The example bleow shows the path to obtain several of the more common fields you might need from this function's response:
 
 ```ts
 
-import { getParcel } from "~system/ParcelIdentity"
+import { getSceneInfo } from "~system/Scene"
 
-async function getSceneData(){
-	const parcel = await getParcel({})
-
-	if(parcel){
-
-		// full scene json
-		console.log("full json: ",  parcel.land!.sceneJsonData)
-
-		const sceneJson = JSON.parse(parcel.land!.sceneJsonData)
-
-		// parcels
-		console.log("parcels: ", sceneJson.scene.parcels)
-		console.log("base parcel: ", sceneJson.scene.base)
-
-		// spawn points
-		console.log("spawnpoints: ", sceneJson.spawnPoints)
-
-		// general scene data
-		console.log("title: ", sceneJson.display?.title)
-		console.log("author: ", sceneJson.contact?.name)
-		console.log("email: ", sceneJson.contact?.email)
-
-		// required permissions
-		console.log("email: ", sceneJson.requiredPermissions)
-
-		// other info
-		console.log("tags: ", sceneJson.sceneJsonData.tags)
-	}
-  
-	
-}
-  
-getSceneData()
+executeTask(async () => {
+	const sceneInfo = await getSceneInfo({})
+  /**
+   * You need to parse the metadata in order to access the properties.
+   * If you deployed a scene you can get the types from here https://github.com/decentraland/common-schemas/blob/main/src/platform/scene/scene.ts#L17-L40
+   * For more info of this metadata see: https://docs.decentraland.org/contributor/content/entities/
+   */
+  if (!sceneInfo) return
+  const {
+    // scene.json deployed as string
+    metadata,
+    // scene id
+    cid,
+    // baseUrl where its deployed
+    baseUrl,
+    // content mapping of files deployed.
+    contents
+  } = sceneInfo
+  const sceneJson: Scene = JSON.parse(sceneInfo.metadata)
+  const spawnPoints = sceneJson.spawnPoints;
+  console.log({ sceneJson, cid, baseUrl, contents })
+})
 ```
 
 {{< hint warning >}}
-**📔 Note**:  `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
+**📔 Note**:  `getSceneInfo()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
 {{< /hint >}}
 
 

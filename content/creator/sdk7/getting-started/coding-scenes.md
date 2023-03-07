@@ -306,7 +306,7 @@ engine.addSystem(mySystem)
 
 ```
 
-In the alpha release of SDK7, all scenes must include the following line in `index.ts`, this imports the essential elements from the SDK, which would otherwise not be imported due to tree shaking.
+In the beta release of SDK7, all scenes must include the following line in `index.ts`, this imports the essential elements from the SDK, which would otherwise not be imported due to tree shaking.
 
 ```ts
 export * from '@dcl/sdk'

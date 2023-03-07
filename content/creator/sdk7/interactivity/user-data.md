@@ -14,22 +14,32 @@ weight: 5
 Use the `PlayerEntity` and the `CameraEntity` to know the player's position and rotation, by checking their `Transform` components.
 
 ```ts
-//player position
-const playerPos = Transform.get(engine.PlayerEntity).position
 
-//player rotation
-const playerRot = Transform.get(engine.PlayerEntity).rotation
+function getPlayerPosition() {
 
-//camera position
-const CameraPos = Transform.get(engine.CameraEntity).position
+	if (!Transform.has(engine.PlayerEntity)) return
+	if (!Transform.has(engine.CameraEntity)) return
 
-//camera rotation
-const CameraRot = Transform.get(engine.CameraEntity).rotation
+	//player position
+	const playerPos = Transform.get(engine.PlayerEntity).position
 
-console.log("playerPos: ", playerPos)
-console.log("playerRot: ", playerRot)
-console.log("cameraPos: ", CameraPos)
-console.log("cameraRot: ", CameraRot)
+	//player rotation
+	const playerRot = Transform.get(engine.PlayerEntity).rotation
+
+	//camera position
+	const CameraPos = Transform.get(engine.CameraEntity).position
+
+	//camera rotation
+	const CameraRot = Transform.get(engine.CameraEntity).rotation
+
+	console.log("playerPos: ", playerPos)
+	console.log("playerRot: ", playerRot)
+	console.log("cameraPos: ", CameraPos)
+	console.log("cameraRot: ", CameraRot)
+}
+
+
+engine.addSystem(getPlayerPosition)
 ```
 
 - **PlayerEntity position**: The avatar's position, at chest height. Approximately at 0.88 cm above the ground.
@@ -40,6 +50,8 @@ console.log("cameraRot: ", CameraRot)
 - **PlayerEntity rotation**:
   - In 1st person: Similar to the direction in which the avatar is facing, expressed as a quaternion. May be rounded slightly differently from the player's rotation.
   - In 3rd person: May vary depending on camera movements.
+
+
 
 The `Camera` object exposes information about the player's point of view in your scene.
 
@@ -68,6 +80,12 @@ engine.addSystem(CubeRotateSystem)
 ```
 
 The example above uses the player's rotation to set that of a cube in the scene.
+
+{{< hint warning >}}
+**📔 Note**: Avoid referring to the `engine.PlayerEntity` or the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+
+If you refer to these entities in a system, they will always be available, because the first execution of the system is called once the scene is already properly initialized.
+{{< /hint >}}
 
 ## Get player data
 
@@ -98,7 +116,7 @@ The `avatar` object has the following nested information:
   - `body`: _string_ The full resolution image of the player standing straight, with 512x1024 pixels.
 
 {{< hint danger >}}
-**❗Warning**  
+**❗Warning**
 The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#avatar-portraits">}}).
 {{< /hint >}}
 
@@ -107,7 +125,7 @@ The snapshots of the avatar will be deprecated in the future and will no longer 
 
 To obtain information from the current player that's running the scene, use `getUserData()`.
 
-The example below imports the `~system/UserIdentity` library and runs `getUserData()`.
+The example below imports the `~system/UserIdentity` namespace and runs `getUserData()`.
 
 ```ts
 import { getUserData } from "~system/UserIdentity"
@@ -233,25 +251,24 @@ If you know which server the player you want to query is connected to, you can g
 `https://<player server>/lambdas/profile/<player user id>`
 
 {{< hint info >}}
-**💡 Tip**:  You can obtain the current player's server by doing `getCurrentRealm().domain`.
+**💡 Tip**:  You can obtain the current player's server by fetching `getRealm().domain`.
 {{< /hint >}}
 
-This example combines `getUserData()` and `getCurrentRealm()` to obtain the player's data directly from the server that the player is on:
+This example combines `getUserData()` and `getRealm()` to obtain the player's data directly from the server that the player is on:
 
 ```ts
 import { getUserData } from "~system/UserIdentity"
-import { getCurrentRealm } from "~system/EnvironmentApi"
+import { getRealm } from "~system/Runtime"
 
 async function fetchPlayerData() {
   const userData = await getUserData({})
-  const playerRealm = await getCurrentRealm({})
+  const { realmInfo } = await getRealm({})
 
-  let url = `{playerRealm.currentRealm.domain}/lambdas/profile/{userData.userId}`.toString()
+  const url = `${realmInfo.baseUrl}/lambdas/profile/${userData.userId}`
   console.log("using URL: ", url)
 
   try {
-    let response = await fetch(url)
-    let json = await response.json()
+    const json = (await fetch(url)).json()
 
     console.log("full response: ", json)
     console.log("player is wearing :", json[0].metadata.avatars[0].avatar.wearables)
@@ -264,56 +281,36 @@ async function fetchPlayerData() {
 fetchPlayerData()
 ```
 
-## Get player's public Ethereum key
-
-As an alternative to `getUserData()`, you can obtain a player's public Ethereum key by using `getUserPublicKey()`. You can then use this information to send payments to the player, or as a way to recognize players.
-
-The example below imports the `~system/UserIdentity` library and runs `getUserPublicKey()` to get the public key of the player's Ethereum account and log it to console. The player must be logged into their Metamask account on their browser for this to work.
-
-```ts
-import { getUserPublicKey } from "~system/UserIdentity"
-
-const publicKeyRequest = executeTask(async () => {
-  const publicKey = await getUserPublicKey({})
-  console.log("public key: ", publicKey.address)
-  return publicKey
-})
-```
-
-{{< hint info >}}
-**💡 Tip**:  The `getUserPublicKey()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
-{{< /hint >}}
-
 ## Get Decentraland Time
 
 Decentraland follows a day/night cycle that takes 2 hours to be completed, so there are 12 full cycles every day. Players can also change the settings to experience a specific fixed time of day, for example to always see Decentraland with a 10pm night sky. For this reason, Decentraland time may vary from one player to another.
 
-Use `getDecentralandTime()` to fetch the time of day that the player is experiencing inside Decentraland.
+Use `getWorldTime()` to fetch the time of day that the player is experiencing inside Decentraland.
 
 ```ts
-import { getDecentralandTime } from "~system/EnvironmentAPI"
+import { getWorldTime } from "~system/Runtime"
 
 executeTask(async () => {
-  let time = await getDecentralandTime({})
+  let time = await getWorldTime({})
   console.log(time.seconds)
 })
 ```
 
 {{< hint info >}}
-**💡 Tip**:  The `getDecentralandTime()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**💡 Tip**:  The `getWorldTime()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
-`getDecentralandTime()` returns an object with a `seconds` property. This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the `seconds` value is _36000_, it corresponds to _10 AM_.
+`getWorldTime()` returns an object with a `seconds` property. This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the `seconds` value is _36000_, it corresponds to _10 AM_.
 
 In Decentraland time, the sun always rises at 6:15 and sets at 19:50.
 
 You could use this information to change the scene accordingly, for example to play bird sounds when there's daylight and crickets when it's dark, or to turn the emissive materials on street lamps when it's dark.
 
 ```ts
-import { getDecentralandTime } from "~system/EnvironmentAPI"
+import { getWorldTime } from "~system/Runtime"
 
 executeTask(async () => {
-  let time = await getDecentralandTime({})
+  let time = await getWorldTime({})
   console.log(time.seconds)
   if (time.seconds < 6.25 * 60 * 60 || time.seconds > 19.85 * 60 * 60) {
     // night time
@@ -332,26 +329,29 @@ Players in decentraland exist in several separate _realms_. Players in different
 If your scene sends data to a [3rd party server]({{< ref "/content/creator/sdk7/networking/remote-scene-considerations.md" >}}) to sync changes between players in real time, then it's often important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
 
 ```ts
-import { getCurrentRealm } from "~system/EnvironmentApi"
+import { getRealm } from "~system/Runtime"
 
 executeTask(async () => {
-  let realm = await getCurrentRealm({})
-  console.log(`You are in the realm: `, realm.currentRealm.displayName)
+  const { realmInfo } = await getRealm({})
+  console.log(`You are in the realm: `, realmInfo.realmName)
 })
 ```
 
 {{< hint info >}}
-**💡 Tip**:  The `getCurrentRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**💡 Tip**:  The `getRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
 Decentraland handles its communications between players (including player positions, chat, messageBus messages and smart item state changes) through a decentralized network of communication servers, each of these servers is called a **Realm**. Each one of these servers can support multiple separate **rooms** (also called **islands**), each grouping a different set of players that are near each other on the Decentraland map.
 
-The `getCurrentRealm()` function returns the following information:
+The `getRealm()` function returns the following information:
 
-- `displayName`: _(string)_ The full address of the realm, composed of the server + the room.
-- `domain`: _(string)_ The URL of the server the player is connected to.
-- `serverName`: _(string)_ The name of the server the player is connected to.
-- `room`: _(string)_  The name of the room the player is connected to.
+- `baseUrl`: _(string)_ The domain of the realm server
+- `realmName`: _(string)_ The name of the realm server
+- `networkId`: _(number)_ The Ethereum network
+- `commsAdapter`: _(string)_ Comms adapter, removing all query parameters (credentials)
+- `preview`: _(boolean)_ True if the scene is running as a local preview, instead of published in Decentraland.
+
+
 
 {{< hint warning >}}
 **📔 Note**:  The `layer` property is deprecated, and should be avoided.
@@ -412,10 +412,10 @@ The `getUserData()` and `getPlayerData()` return only a list of wearable ids, wi
 
 Make a [REST API call]({{< ref "/content/creator/sdk7/networking/network-connections.md#call-a-rest-api">}}) to the following URL, to obtain a full updated list of all wearables that are currently usable, with details about each.
 
-`${playerRealm.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`
+`${playerRealm.realmInfo.baseUrl}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`
 
 {{< hint warning >}}
-**📔 Note**:  To construct this URL, you must obtain the realm (likely with with `getCurrentRealm()`) and the player's id (likely with `getUserData()`)
+**📔 Note**:  To construct this URL, you must obtain the realm (likely with with `getRealm()`) and the player's id (likely with `getUserData()`)
 {{< /hint >}}
 
 
@@ -427,15 +427,15 @@ This feature could be used together with fetching info about the player, to for 
 
 ```ts
 import { getUserData } from "~system/UserIdentity"
-import { getCurrentRealm } from "~system/EnvironmentApi"
+import { getRealm } from "~system/Runtime"
 
 async function fetchWearablesData() {
   try {
     let player = await getUserData({})
-    const playerRealm = await getCurrentRealm({})
+    const realm = await getRealm({})
 
-    let url =
-      `${playerRealm.currentRealm?.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`.toString()
+    const url =
+      `${realm.realmInfo?.baseUrl}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`.toString()
     console.log("using URL: ", url)
 
     let response = await fetch(url)
@@ -455,13 +455,20 @@ executeTask(fetchWearablesData)
 Players can either be using a 1st or 3rd person camera when exploring Decentraland. Check which of these the player is using by checking the value `CameraMode` component of the `engine.CameraEntity` entity.
 
 ```ts
-let cameraEntity = CameraMode.get(engine.CameraEntity)
+function checkCameraMode() {
+  
+  	if (!Transform.has(engine.CameraEntity)) return
 
-if (cameraEntity.mode == CameraType.CT_THIRD_PERSON) {
-  console.log("The player is using the 3rd person camera")
-} else {
-  console.log("The player is using the 1st person camera")
+	let cameraEntity = CameraMode.get(engine.CameraEntity)
+
+	if (cameraEntity.mode == CameraType.CT_THIRD_PERSON) {
+		console.log("The player is using the 3rd person camera")
+	} else {
+		console.log("The player is using the 1st person camera")
+	}
 }
+
+engine.addSystem(checkCameraMode)
 ```
 
 The camera mode uses a value from the `CameraType` enum. The following values are possible:
@@ -476,3 +483,35 @@ The `CameraMode` component of the `engine.CameraEntity` is read-only, you can't 
 {{< /hint >}}
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when in 3rd person.
+
+
+{{< hint warning >}}
+**📔 Note**: Avoid referring to the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entity is not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+
+If you refer to this entity in a system, it will always be available, because the first execution of the system is called once the scene is already properly initialized.
+{{< /hint >}}
+
+## Check if the player has the cursor locked
+
+
+Players can switch between two cursor modes: _locked cursor_ mode to control the camera or _unlocked cursor_ mode for moving the cursor freely over the UI.
+
+Players unlock the cursor by clicking the _Right mouse button_ or pressing the _Esc_ key, and lock the cursor back by clicking anywhere in the screen.
+
+Check the `PointerLock` component of the scene's root entity to find out what the current cursor mode is.
+
+
+```ts
+executeTask(async () => {
+ const isLocked = PointerLock.get(engine.RootEntity).isPointerLocked
+ console.log(isLocked)
+})
+```
+
+The `PointerLock` component of the `engine.RootEntity` is read-only, you can't force the player to lock or unlock the cursor.
+
+{{< hint warning >}}
+**📔 Note**: Avoid referring to the `engine.RootEntity` on the initial scene loading, because that can result in errors if the entity is not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+
+If you refer to this entity in a system, it will always be available, because the first execution of the system is called once the scene is already properly initialized.
+{{< /hint >}}
