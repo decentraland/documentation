@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
-weight: 3
-title: Manage Collections
+weight: 4
+title: Publishing Collections
 ---

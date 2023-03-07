@@ -12,8 +12,6 @@ url: /creator/wearables/creating-wearables
 weight: 2
 ---
 
-# **How To Create Wearables**
-
 ## **Intro**
 
 This guide introduces the basics of creating custom 3D models for Decentraland wearables. It explains how the Decentraland avatar system works, and it illustrates how to properly model your own wearables.
