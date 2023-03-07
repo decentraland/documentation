@@ -5,9 +5,23 @@ url: "/contributor/introduction/architecture"
 weight: 2
 ---
 
-In this section you will find a representation of the Decentraland Architecture and references to all the Open Source repositories that make part of it. In each repository you will be able to find more details about the component and how to use it.
+The general architecture of Decentraland can be divided into three main components:
 
-![platform](/images/contributor/architecture.png)
+* **The DCL services network**: distributed peers that host content and provide the core APIs.
+* **The World Explorer**: app for players to log into Decentraland and explore the land.
+* **The CLI**: a command-line interface for creators to develop and deploy content.
+
+The interactive diagram below captures the most important sub-components of the protocol, and can take you to the relevant documentation to learn more.
+
+<iframe
+  id="archdiag"
+  src="/frames/archdiag"
+  title="Interactive Architecture Diagram" 
+  style="border: 0;">
+</iframe>
+
+<script src="/frames/archdiag/parent.js" data-iframe-id="archdiag"></script>
+
 
 ## Index
 - [Catalyst](#catalyst)
@@ -77,12 +91,17 @@ LiveKit is an open source project that provides scalable, multi-user conferencin
 **Learn more:** [https://livekit.io/](https://livekit.io/)
 **Repository:** [https://github.com/decentraland/livekit-adapter](https://github.com/decentraland/livekit-adapter)
 
+<div id="catalyst:lambdas"></div>
+
 ### Lambdas
 
 This service provides a set of utilities required by the Catalyst Server Clients/Consumers in order to retrieve or validate data.
 Some of the validations run in these functions are ownership related and for that it uses [The Graph](https://thegraph.com/hosted-service/subgraph/decentraland/collections-matic-mainnet) to query the blockchain.
 
 **Repository:** https://github.com/decentraland/catalyst
+
+
+<div id="catalyst:ipfs"></div>
 
 ### Content Server
 
@@ -94,6 +113,9 @@ The Content Server currently stores all the [Entities](https://github.com/decent
 [Nginx](https://nginx.org/en/docs/) is the reverse proxy used to route traffic to the Catalysts Services.
 
 **Repository:** https://github.com/decentraland/catalyst-owner
+
+<div id="cli:compiler"></div>
+<div id="cli:uploader"></div>
 
 ## CLI
 
@@ -108,6 +130,10 @@ This [CLI](https://github.com/decentraland/cli) provides tooling/commands to ass
 This client [library](https://github.com/decentraland/catalyst-client) can be used to interact with Decentraland's Catalyst servers. You can both fetch data, or deploy new entities to the server you specify.
 
 **Repository**: https://github.com/decentraland/catalyst-client
+
+<div id="explorer:renderer"></div>
+<div id="explorer:state"></div>
+<div id="explorer:input"></div>
 
 ## Web Browser
 
@@ -125,9 +151,15 @@ The [Peer Library](https://github.com/decentraland/catalyst-comms-peer) manages 
 
 This [Module](https://github.com/decentraland/explorer/tree/af59463dd3882516874c86bc926726bc557d5184/kernel/packages/voice-chat-codec) is the codec to hook WebAudio & Worklets to comms
 
+
+<div id="catalyst:comms"></div>
+<div id="explorer:comms"></div>
+
 ### Kernel - Client Comms
 
 [Abstraction](https://github.com/decentraland/explorer/tree/df1d30412dcd1a94d933171a39796837aedc87a1/kernel/packages/shared/comms) over the Communication Protocol
+
+<div id="explorer:files"></div>
 
 ### Kernel - Scene Loader System
 
@@ -163,6 +195,9 @@ Like an ESB. Everything is connected to Sagas
 ## Scene Runtime
 
 ### Kernel - Runtime
+
+<div id="runtime:library"></div>
+<div id="runtime:scene"></div>
 
 The [Runtime](https://github.com/decentraland/explorer/blob/df1d30412dcd1a94d933171a39796837aedc87a1/kernel/packages/scene-system/sdk/SceneRuntime.ts) handles SDK bindings and messaging with the Scene in Kernel
 
