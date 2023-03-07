@@ -9,7 +9,7 @@ categories:
   - Decentraland
 type: Document
 url: /creator/wearables/linked-wearables
-weight: 6
+weight: 3
 ---
 
 ### Table of Contents
