@@ -1,5 +1,5 @@
 ---
-date: 2021-05-31
+date: 2023-01-07
 title: Creating wearables
 description: Tips and guidelines for creating Decentraland wearables
 categories:
@@ -44,7 +44,7 @@ The basic form of an avatar. Wearables can be assigned to one, or both, body sha
 
 []({{< ref “/images/wearables/1_creating_wearables.png”>}})
 
-### **Head** **[#](https://docs.decentraland.org/creator/wearables/creating-wearables/#head)**
+### **Head** 
 
 The head includes several different meshes:
 
