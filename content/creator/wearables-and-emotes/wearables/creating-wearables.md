@@ -42,7 +42,7 @@ The Decentraland “avatar system” is the broad collection of different body c
 
 The basic form of an avatar. Wearables can be assigned to one, or both, body shapes. Currently, there are two body shapes: A or B.
 
-[]({{< ref “/images/wearables/1_creating_wearables.png>}})
+[]({{< ref “/images/wearables/1_creating_wearables.png”>}})
 
 ### **Head** 
 
