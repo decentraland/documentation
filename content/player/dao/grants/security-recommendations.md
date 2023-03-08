@@ -45,7 +45,7 @@ If your digital wallet offers additional authentication options like two-factor 
 
 Your Decentraland Voting Power is attached to your assets on your account. You can delegate your voting power from your wallet to another address connected to the cloud in order to vote in governance proposals, even if you don’t have your hardware wallet with you.
 
-Another good practice is to generate burner wallets for NTF drops from unknown users or early projects. 
+Another good practice is to generate burner wallets for NFT drops from unknown users or early projects. 
 
 ## 8. Consider using a hardware wallet
 
@@ -59,7 +59,7 @@ Multisig (multisignature), is the requirement for a transaction to have two or m
 All these recommendations are general, but the best way to know what to add first, is to make your own risk analysis. Threat modeling is a process to identify your potential threats and vulnerabilities to reduce the risk of the resources we want to protect. Once the context is mapped, it is possible to choose the ways that effectively and efficiently help protect our security. To map yours, answer to this questions:
 
 Resources: what resources need to be protected?  
-Examples: money, identity, NFTs,  
+Examples: money, identity, NFTs, among others. 
 
 Adversaries: from whom should these resources be protected?  
 Examples: a peer, corporations, the government, a harasser, smear campaigns, etc. 
