@@ -27,7 +27,7 @@ The first of these options is the easiest to implement. The downside is that you
 Create a message bus object to handle the methods that are needed to send and receive messages between players.
 
 ```ts
-import {MessageBus} from '@dcl/sdk/messageBus'
+import {MessageBus} from '@dcl/sdk/message-bus'
 
 const sceneMessageBus = new MessageBus()
 ```
@@ -37,7 +37,7 @@ const sceneMessageBus = new MessageBus()
 Use the `.emit` command of the message bus to send a message to all other players in the scene.
 
 ```ts
-import {MessageBus} from '@dcl/sdk/messageBus'
+import {MessageBus} from '@dcl/sdk/message-bus'
 
 const sceneMessageBus = new MessageBus()
 
@@ -60,7 +60,7 @@ pointerEventsSystem.onPointerDown(
 Each message can contain a payload as a second argument. The payload is of type `Object`, and can contain any relevant data you wish to send.
 
 ```ts
-import {MessageBus} from '@dcl/sdk/messageBus'
+import {MessageBus} from '@dcl/sdk/message-bus'
 
 const sceneMessageBus = new MessageBus()
 
@@ -76,7 +76,7 @@ sceneMessageBus.emit("spawn", { position: {x: 10, y: 2, z: 10} })
 To handle messages from all other players in that scene, use `.on`. When using this function, you provide a message string and define a function to execute. For each time that a message with a matching string arrives, the given function is executed once.
 
 ```ts
-import {MessageBus} from '@dcl/sdk/messageBus'
+import {MessageBus} from '@dcl/sdk/message-bus'
 
 const sceneMessageBus = new MessageBus()
 
@@ -105,7 +105,7 @@ sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
 This example uses a message bus to send a new message every time the main cube is clicked, generating a new cube in a random position. The message includes the position of the new cube, so that all players see these new cubes in the same positions.
 
 ```ts
-import {MessageBus} from '@dcl/sdk/messageBus'
+import {MessageBus} from '@dcl/sdk/message-bus'
 
 /// --- Create message bus ---
 const sceneMessageBus = new MessageBus()
