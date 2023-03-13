@@ -17,7 +17,7 @@ The interactive diagram below captures the most important sub-components of the 
   id="archdiag"
   src="/frames/archdiag"
   title="Interactive Architecture Diagram" 
-  style="border: 0;">
+  style="border: 0px; max-width: 90%; margin-left: 20px;">
 </iframe>
 
 <script src="/frames/archdiag/parent.js" data-iframe-id="archdiag"></script>
