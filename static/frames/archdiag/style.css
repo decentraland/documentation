@@ -129,8 +129,6 @@ Boxes and Layout
   filter: invert(100%);
 }
 
-
-
 .box .content.final:hover:after {
   opacity: 1;
 }
@@ -173,8 +171,12 @@ Boxes and Layout
 }
 
 .box .cover:not(.expanded):hover {
-  border-bottom-color: #ffffff99;
-  border-right-color: #ffffff99;
+  /* Interactive cover effects disabled */
+  /* To re-enable, uncomment lines below and remove the cursor override */
+
+  /* border-bottom-color: #ffffff99; */
+  /* border-right-color: #ffffff99; */
+  cursor: auto;
 }
 
 .box .cover:not(.expanded) h1,

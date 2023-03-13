@@ -1,5 +1,7 @@
 
 document.querySelectorAll(".box > .cover").forEach(el => {
+  return // click-to-cover functionality is disabled. Leaving this here in case we change our minds.
+
   const expanded = { minWidth: '100%', minHeight: '100%' }
   const contracted = { minWidth: '0', minHeight: '0' }
 
