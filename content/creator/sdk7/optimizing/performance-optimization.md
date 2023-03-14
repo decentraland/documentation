@@ -58,7 +58,7 @@ You can also toggle animations on or off for entities that are far or occluded. 
 
 Blocks of [async code]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) are processed in a separate thread from the rest of the scene, to prevent blocking the progress of everything else.
 
-Any processes that rely on responses from asynchronous services, such as `getPlayerData()` or `getCurrentRealm()` should always run in async blocks, as they otherwise block the rest of the scene's loading while waiting for a response. The same applies to any calls to third party servers.
+Any processes that rely on responses from asynchronous services, such as `getPlayerData()` or `getRealm()` should always run in async blocks, as they otherwise block the rest of the scene's loading while waiting for a response. The same applies to any calls to third party servers.
 
 Note that the scene will be considered fully loaded when everything that isn't async is done. Async processes might still be running when the player enters the scene. Avoid situations where an async process results in the loading of an entity that could potentially get the player stuck inside of its geometry.
 

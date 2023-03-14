@@ -82,6 +82,14 @@ You can also edit the following fields in a PBR Material to fine-tune how its co
 - _emissiveColor_: The color emitted from the material.
 - _reflectivityColor_: AKA _Specular Color_ in other nomenclature.
 
+To create a plain color material that is not affected by light and shadows in the environment, create a basic material instead of a PBR material.
+
+```ts
+Material.setBasicMaterial(myEntity, {
+  diffuseColor: Color4.Black()
+})
+```
+
 ## Using textures
 
 Set an image file as a texture on a material by setting the `texture` parameter.
@@ -111,7 +119,7 @@ In the example above, the image for the material is located in a `materials` fol
 While creating a texture, you can also pass additional parameters:
 
 - `filterMode`: Determines how pixels in the texture are stretched or compressed when rendered. This takes a value from the `TextureFilterMode` enum. See [Texture Scaling](#texture-scaling).
-- `wrapMode`: Determines how a texture is tiled onto an object. This takes a value from the `TextureWrapMode` emote. See [Texture Wrapping](#texture-wrapping).
+- `wrapMode`: Determines how a texture is tiled onto an object. This takes a value from the `TextureWrapMode` enum. See [Texture Wrapping](#texture-wrapping).
 
 ```ts
 Material.setPbrMaterial(myEntity, {
@@ -133,24 +141,35 @@ Material.setBasicMaterial(myEntity, {
 })
 ```
 
-<!-- TODO: See if this behavior changes -->
 
-<!--
 #### Textures from an external URL
 
 You can point the texture of your material to an external URL instead of an internal path in the scene project.
 
 ```ts
-const myTexture = new Texture(
-  "https://wearable-api.decentraland.org/v2/collections/community_contest/wearables/cw_tuxedo_tshirt_upper_body/thumbnail"
-)
-
-const myMaterial = new Material()
-myMaterial.albedoTexture = myTexture
+Material.setBasicMaterial(myEntity, {
+  texture: Material.Texture.Common({
+    src: "https://wearable-api.decentraland.org/v2/collections/community_contest/wearables/cw_tuxedo_tshirt_upper_body/thumbnail"
+  })
+})
 ```
 
 The URL must start with `https`, `http` URLs aren't supported. The site where the image is hosted should also have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it.
--->
+
+
+To fetch images from an external URL, you must add the `ALLOW_MEDIA_HOSTNAMES` permission to the `requiredPermissions` list in the `scene.json` file. You must also include the list of high-level domains where you'll be fetching images from `allowedMediaHostnames`.
+
+```json
+"requiredPermissions": [
+    "ALLOW_MEDIA_HOSTNAMES"
+  ],
+   "allowedMediaHostnames": [
+    "somehost.com",
+    "otherhost.xyz"
+  ]
+```
+
+See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
 
 
 #### Multi-layered textures
@@ -311,6 +330,12 @@ Material.setPbrMaterial(myEntity, {
 ![](/images/avatarTexture.png)
 
 You can fetch the portrait of any Decentraland player, even if they're not currently connected, and even if they don't have a claimed Decentraland name.
+
+The following properties are supported within the object you pass as an argument:
+
+- `userId`: ID of the user who's profile you want to display
+- `filterMode`: Determines how pixels in the texture are stretched or compressed when rendered. This takes a value from the `TextureFilterMode` enum. See [Texture Scaling](#texture-scaling).
+- `wrapMode`: Determines how a texture is tiled onto an object. This takes a value from the `TextureWrapMode` enum. See [Texture Wrapping](#texture-wrapping).
 
 
 ## Transparent materials

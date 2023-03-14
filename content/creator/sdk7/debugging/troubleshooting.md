@@ -23,14 +23,14 @@ Useful resources:
 
 ### Issue: Can't run a particular scene preview, error says **Error: Error while building the project**
 
-If you're running a scene that was shared with you, make sure that this scene wasn't shared containing a `node_modules` or `bin` folder, or a `package-lock.json` file. These files contain dependencies that use versions that are specific to your OS and machine, they should be generated when running the scene for the first time. Delete these folders & file manually, then run `dcl start` again.
+If you're running a scene that was shared with you, make sure that this scene wasn't shared containing a `node_modules` or `bin` folder, or a `package-lock.json` file. These files contain dependencies that use versions that are specific to your OS and machine, they should be generated when running the scene for the first time. Delete these folders & file manually, then run `npm run start` again.
 
 
-### Issue: Running `dcl start` runs, no error message, but no browser window opens and no URL in the output to open the preview
+### Issue: Running `npm run start` runs, no error message, but no browser window opens and no URL in the output to open the preview
 
 Make sure your Node version is up to date. It must be 16 or newer.
 
-### Issue: Running `dcl start` opens a browser tab, but the loading screen never finishes loading, or I see a red error banner that says "critical error".
+### Issue: Running `npm run start` opens a browser tab, but the loading screen never finishes loading, or I see a red error banner that says "critical error".
 
 - Make sure you have the latest version of the Decentraland SDK installed in your project. Run:
 
@@ -56,7 +56,7 @@ To fix these dependencies, you often must resort to calling functions or object 
 
 - Make sure that Metamask is correctly set up to use the right wallet to sign the transaction. This may either be the wallet that owns the LAND tokens, or might have operator permissions granted by the owner.
 
-### Issue: Running `dcl deploy` fails
+### Issue: Running `npm run deploy` fails
 
 - If you're working on an old scene, make sure the `scene.json` file doesn't include legacy sections, such as `communications` or `policy`. Delete these sections entirely.
 
@@ -71,7 +71,7 @@ To fix these dependencies, you often must resort to calling functions or object 
 	`"position": {"x": [1,4], "y": [0,0], "z": [1,4]}`
 
 
-- The default catalyst server that you're assigned to deploy to might be down or having issues. You can force the `dcl deploy` command to deploy to a specific catalyst server instead. To deploy to a specific server, on the Decentraland Editor: 
+- The default catalyst server that you're assigned to deploy to might be down or having issues. You can force the `npm run deploy` command to deploy to a specific catalyst server instead. To deploy to a specific server, on the Decentraland Editor: 
 	1. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Deploy Scene To Custom Catalyst`
 	2. Enter the address of the server, for example `peer-testing.decentraland.org`
 	3. Approve the transaction
@@ -79,23 +79,23 @@ To fix these dependencies, you often must resort to calling functions or object 
 
 	To do this via the CLI:
 
-	`dcl deploy --target-content <server-name>`
+	`npm run deploy --target-content <server-name>`
 
 	For example:
 
-	`dcl deploy --target-content peer-ec1.decentraland.org`
+	`npm run deploy --target-content peer-ec1.decentraland.org`
 
 	See [catalyst-monitor](https://decentraland.github.io/catalyst-monitor/) for a status check of all the servers in the catalyst network. You can also copy the addresses of each one, from the top of each card.
 
 - Check your scene's `package.json`. A common problem is that there's a `bundleDependencies` and also a `bundledDependencies` (extra d) section. This can sometimes result from running different Node versions on the same project. Delete `bundleDependencies`, which relates to older Node versions.
  
-### Issue: Running `dcl deploy` or `dcl build` reports type errors
+### Issue: Running `npm run deploy` or `npm run build` reports type errors
 
-Your scene might have type errors reported by TypeScript, for example stating that a certain variable might be type `any` or that `undefined` or `null` are not allowed. When running `dcl deploy`, it also runs `dcl build`, which is a bit more strict with these checks than `dcl start`.
+Your scene might have type errors reported by TypeScript, for example stating that a certain variable might be type `any` or that `undefined` or `null` are not allowed. When running `npm run deploy`, it also runs `npm run build`, which is a bit more strict with these checks than `npm run start`.
 
 Unlike JavaScript, TypeScript enforces strict typing of all variables. Even though your scene is written in such a way that for example a certain value will never be `undefined`, TypeScript needs to know what would happen in that scenario, or you need to explicitly clarify that the value can only be for example a string.
 
-As an alternative, you can run `dcl deploy --skip-build` to skip the running of `dcl build`, and prevent these checks from running.
+As an alternative, you can run `npm run deploy --skip-build` to skip the running of `npm run build`, and prevent these checks from running.
 
 
 ### Issue: I deployed my scene but I don't see the changes when I enter Decentraland
