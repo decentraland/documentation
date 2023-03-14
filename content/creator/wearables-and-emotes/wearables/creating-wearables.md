@@ -23,7 +23,7 @@ Before you get started, download the example files for reference meshes and text
 
 ## **The Decentraland Avatar System**
 
-The Decentraland “avatar system” is the broad collection of different body components and subcomponents that can be decorated with custom wearables. These components are:
+The Decentraland "avatar system" is the broad collection of different body components and subcomponents that can be decorated with custom wearables. These components are:
 
 - Body shape
 - Head
@@ -171,12 +171,12 @@ To use these maps in Decentraland the workaround is to bake them in one texture.
 
 Decentraland engine render only one side normals. (That means that a plane only will be visible from one side, the other side won’t be rendered) So, to ensure that your 3D is absolutely correct with the normals we can check that in two different ways.
 
-The first one is to toggle the “Backface culling” on the Material properties settings, this is a good practice for spot inverted normals, like in this image:
+The first one is to toggle the "Backface culling" on the Material properties settings, this is a good practice for spot inverted normals, like in this image:
 
 [Normals]({{< ref "/images/wearables/8_normals.gif">}}) 
 [BackfaceCulling]({{< ref "/images/wearables/9_backface_culling.png">}}) 
 
-The second way to check if the normals are right is by toggling “Face orientation” on the viewport overlay options. It will turn your model blue, but don’t worry. The blue faces are the correct ones and the red ones are the ones that needs to be corrected, you can find this option here:
+The second way to check if the normals are right is by toggling "Face orientation" on the viewport overlay options. It will turn your model blue, but don’t worry. The blue faces are the correct ones and the red ones are the ones that needs to be corrected, you can find this option here:
 
 [NormalsFace]({{< ref "/images/wearables/10_normals_face.png">}}) 
 
@@ -187,10 +187,10 @@ After downloading the base avatar example file, load the model into your 3D edit
 
 You’ll notice that each model contains 7 different meshes related to an armature. These meshes represent the head, eyebrows, eyes, mouth, upper body, lower body and feet. You can use these example models as a reference and starting point for your own custom wearable.
 
-{{< hint warning >}} **Important: Do not modify the “cuts” or the “stitches” between categories (unless you want to create an unusual “floating head” effect or similar).**
+{{< hint warning >}} **Important: Do not modify the "cuts" or the "stitches" between categories (unless you want to create an unusual "floating head" effect or similar).**
 {{< /hint >}}
 
-Each part of the body has caps, making them “water tight”. These caps exist to prevent unsightly glitches if there are any animation clipping problems due to bad skin weighting. It’s best to not remove these caps when editing the mesh.
+Each part of the body has caps, making them "water tight". These caps exist to prevent unsightly glitches if there are any animation clipping problems due to bad skin weighting. It’s best to not remove these caps when editing the mesh.
 
 [BodyParts]({{< ref "/images/wearables/14_body_parts.png">}})
 
@@ -299,13 +299,13 @@ Each asset must be weighted to the full skeleton. For example, an upper body ass
 
 [Rig]({{< ref "/static/images/wearables/34_rig.png">}})
 
-Wearables that meet at intersections between body parts must be fully weighted to the same bone. For example, in these two green zones, the vertices in the neck need to be fully weighted to the “Neck” bone only.
+Wearables that meet at intersections between body parts must be fully weighted to the same bone. For example, in these two green zones, the vertices in the neck need to be fully weighted to the "Neck" bone only.
 
 [HeadCuts]({{< ref "/static/images/wearables/35_head_cuts.png">}})
 
 ### **Key Bones**
 
-The “key” bones to use when skin weighting are:
+The "key" bones to use when skin weighting are:
 
 **Head Bone:** for the hair, earrings, tiaras, eyes, eyebrows, mouth and any accessory that needs to follow the head’s movement.
 
@@ -318,7 +318,7 @@ The “key” bones to use when skin weighting are:
 {{< hint warning >}}
 ⚠️ **Hint**
 
-- Remember, you can use any bone to influence any mesh’s vertices! For example, you could create a new foot mesh for a tall pair of boots, and skin weight the top of the boot to the “Leg Bones”. Or, you could create some long hair and use the “Shoulder” or “Spine” bones to influence the hair when the avatar moves around.
+- Remember, you can use any bone to influence any mesh’s vertices! For example, you could create a new foot mesh for a tall pair of boots, and skin weight the top of the boot to the "Leg Bones". Or, you could create some long hair and use the "Shoulder" or "Spine" bones to influence the hair when the avatar moves around.
 - It's always recommendable to keep a symmetry from both sides of the rig, left and right should have similar bone influences.
 - As a common advice, a vertex cannot be influenced by more than 4 bones or joints.
 {{< /hint >}}
@@ -329,7 +329,7 @@ The “key” bones to use when skin weighting are:
 
 When you’re making wearables, the best way to visualize the final result, and to facilitate how you handle topology and position of the wearable is to work with the model in A-Pose. In order to do that you have to follow this simple steps:
 
-1. First select the upper body, then you have to toggle “**Edit mode**” and “**On cage**” in the armature modifier.
+1. First select the upper body, then you have to toggle "**Edit mode**" and "**On cage**" in the armature modifier.
 
 [APose]({{< ref "/static/images/wearables/36_60_1.gif">}})
 
@@ -341,7 +341,7 @@ When you’re making wearables, the best way to visualize the final result, and 
 
 [APose]({{< ref "/static/images/wearables/38_60_3.gif">}})
 
-4. But it is also good to keep in mind that you can easily alternate from A-Pose to T-Pose just toggling back the “Edit mode” and “On cage” in the armature modifier.
+4. But it is also good to keep in mind that you can easily alternate from A-Pose to T-Pose just toggling back the "Edit mode" and "On cage" in the armature modifier.
 
 [APose]({{< ref "/static/images/wearables/39_60_4.gif">}})
 
