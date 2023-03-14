@@ -73,7 +73,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 ### Via the CLI
 
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
-2.  Run `dcl deploy` from the scene's folder.
+2.  Run `npm run deploy` from the scene's folder.
 {{< hint info >}}
 **💡 Tip**:  If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying.
 {{< /hint >}}
@@ -85,7 +85,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 {{< /hint >}}
 
 {{< hint info >}}
-**💡 Tip**:  `dcl deploy` runs a `dcl build`, which checks the scene for type errors more strictly than running `dcl start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `dcl deploy  --skip-build`  to skip the `dcl build` step and deploy the scene as it is.
+**💡 Tip**:  `npm run deploy` runs a `npm run build`, which checks the scene for type errors more strictly than running `npm run start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `npm run deploy  --skip-build`  to skip the `npm run build` step and deploy the scene as it is.
 {{< /hint >}}
 
 ## Publish from a hardware wallet
@@ -113,7 +113,7 @@ The content servers are a network of community-owned servers with a filesystem t
 We use the content servers to host and distribute all scene content in a similar way to BitTorrent, keeping the Decentraland network distributed.
 
 1.  The content servers store and distribute all of the assets required to render your scenes.
-2.  The `dcl deploy` command links these assets to the LAND parcel specified in your **scene.json** file. Whenever you redeploy your scene, the CLI will update your LAND smart contract, if needed, to point to the most recent content available on the content servers.
+2.  The `npm run deploy` command links these assets to the LAND parcel specified in your **scene.json** file. Whenever you redeploy your scene, the CLI will update your LAND smart contract, if needed, to point to the most recent content available on the content servers.
 
 The information on each copy of the server is verifiable, as each scene is signed by the LAND owner's hash. This means that someone hosting a copy of the server won't be able to tamper with the content to display something illegitimate. The community can also vote to approve or remove any of these servers using the DAO.
 
@@ -153,7 +153,7 @@ _play.decentraland.org/&CATALYST=peer-testing.decentraland.org_
 
 To deploy to the test server, run:
 
-`dcl deploy --target peer-testing.decentraland.org`
+`npm run deploy --target peer-testing.decentraland.org`
 
 
 To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL

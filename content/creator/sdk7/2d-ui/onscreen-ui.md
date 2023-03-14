@@ -17,7 +17,7 @@ UI elements are only visible when the player is standing inside the scene's LAND
 Build a UI by defining a structure of `UIEntity` in JSX. The syntax used for UIs is very similar to that of [React](https://reactjs.org/) (a very popular javascript-based framework for building web UIs).
 
 {{< hint warning >}}
-**📔 Note**:  You can only define JSX UI syntax in files that have a `.tsx` extension. `.tsx` files support everything that `.ts` files support, plus UI syntax. We recommend creating a `.ui.tsx` file and defining your UI there. 
+**📔 Note**:  You can only define JSX UI syntax in files that have a `.tsx` extension. `.tsx` files support everything that `.ts` files support, plus UI syntax. We recommend creating a `.ui.tsx` file and defining your UI there.
 {{< /hint >}}
 
 A simple UI with static elements can look a lot like HTML, but when you add dynamic elements that respond to a change in state, you can do things that are a lot more powerful.
@@ -38,6 +38,8 @@ To display a UI in your scene, use the `ReactEcsRenderer.setUiRenderer()` functi
 Each entity is defined as an HTML-like node, with properties for each of its components.
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
@@ -45,7 +47,7 @@ export const uiMenu = () => (
 			height: 400,
 			margin: { top: '35px', left: '500px' }
 		}}
-		uiBackground={{ backgroundColor: Color4.Red() }}
+		uiBackground={{ color: Color4.Red() }}
 	/>
 )
 
@@ -55,6 +57,8 @@ ReactEcsRenderer.setUiRenderer(uiMenu)
 You can also define an entity structure and render it, all in one same command.
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
 	<UiEntity
 		uiTransform={{
@@ -62,7 +66,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 			height: 400,
 			margin: { top: '35px', left: '500px' }
 		}}
-		uiBackground={{ backgroundColor: Color4.Red() }}
+		uiBackground={{ color: Color4.Red() }}
 	/>
 ))
 ```
@@ -89,6 +93,8 @@ The following components are available to use in the UI:
 Like with HTML tags, you can define components as self-closing or nest one within another.
 
 ```ts
+import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+
 ReactEcsRenderer.setUiRenderer(() => (
 	// parent entity
 	<UiEntity
@@ -97,7 +103,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 			height: 200,
 			margin: { top: '250px', left: '500px' }
 		}}
-		uiBackground={{ backgroundColor: Color4.Blue() }}
+		uiBackground={{ color: Color4.Blue() }}
 	>
 		// self-closing child entity
 		<UiEntity
@@ -120,115 +126,4 @@ A JSX statement can only have one parent-level entity. You can define as many ot
 
 
 
-
-<!-- 
-## Images from an image atlas
-
-TODO: Wait for textures in UI
-
-You can use an image atlas to store multiple images and icons in a single image file. You then display rectangular parts of this image file in your UI based on pixel positions, pixel width, and pixel height inside the source image.
-
-Below is an example of an image atlas with multiple icons arranged into a single file.
-
-![](/images/media/UI-atlas.png)
-
-The `UIImage` component has the following fields to crop a sub-section of the original image:
-
-- `sourceTop`: the _y_ coordinate, in pixels, of the top of the selection
-- `sourceLeft`: the _x_ coordinate, in pixels, of the left side of the selection.
-- `sourceWidth`: the width, in pixels, of the selected area
-- `sourceHeight`: the height, in pixels, of the selected area
-
-When constructing a `UIImage` component, you must pass a `Texture` component as an argument. Read more about `Texture` components in [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}).
-
-```ts
-let imageAtlas = "images/image-atlas.jpg"
-let imageTexture = new Texture(imageAtlas)
-
-const canvas = new UICanvas()
-
-const playButton = new UIImage(canvas, imageTexture)
-playButton.sourceLeft = 26
-playButton.sourceTop = 128
-playButton.sourceWidth = 128
-playButton.sourceHeight = 128
-
-const startButton = new UIImage(canvas, imageTexture)
-startButton.sourceLeft = 183
-startButton.sourceTop = 128
-startButton.sourceWidth = 128
-startButton.sourceHeight = 128
-
-const exitButton = new UIImage(canvas, imageTexture)
-exitButton.sourceLeft = 346
-exitButton.sourceTop = 128
-exitButton.sourceWidth = 128
-exitButton.sourceHeight = 128
-
-const expandButton = new UIImage(canvas, imageTexture)
-expandButton.sourceLeft = 496
-expandButton.sourceTop = 128
-expandButton.sourceWidth = 128
-expandButton.sourceHeight = 128
-```
-
-You can change the texture being used by an existing `UIImage` component, set the `source` field.
-
-```ts
-playButton.source = imageTexture2
-``` -->
-
-
-<!-- 
-
-
-## Input text
-
-Input boxes can be added to the UI to provide a place to type in text. You add a text box with an `UIInputText` component. Players must first click on this box before they can write into it.
-
-```ts
-const canvas = new UICanvas()
-
-const textInput = new UIInputText(canvas)
-textInput.width = "80%"
-textInput.height = "25px"
-textInput.vAlign = "bottom"
-textInput.hAlign = "center"
-textInput.fontSize = 10
-textInput.placeholder = "Write message here"
-textInput.placeholderColor = Color4.Gray()
-textInput.positionY = "200px"
-textInput.isPointerBlocker = true
-
-textInput.onTextSubmit = new OnTextSubmit((x) => {
-  const text = new UIText(textInput)
-  text.value = "<USER-ID> " + x.text
-  text.width = "100%"
-  text.height = "20px"
-  text.vAlign = "top"
-  text.hAlign = "left"
-})
-```
-
-Here are some of the main properties you can set:
-
-- `focusedBackground`: You can change the background color to indicate that the input box is currently selected. Use this field to set an alternative color.
-
-- `placeholder`: Set placeholder text to display on the box by default.
-
-- `placeholderColor`: Make the placeholder a different color, to tell it apart. You'll usually want to make it a paler shade of the color of text that the player writes.
-
-When the player interacts with the component, you can use the following events to trigger the execution of code:
-
-- `OnFocus()`: The player clicked on the UI component and has a cursor on it.
-- `OnBlur()`: The player clicked away and the cursor is gone.
-- `OnChanged()`: The player typed or deleted something to change the string on the component.
-- `OnTextSubmit()`: The player hit the `Enter` key to submit this string.
-
-```ts
-textInput.onChanged = new OnChanged((data: { value: string }) => {
-  inputTextState = data.value
-})
-``` 
--->
 

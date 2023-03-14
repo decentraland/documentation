@@ -94,10 +94,10 @@ pointerEventsSystem.onPointerDown(
 
 ### Change existing feedback
 
-When registering an input action with the `EventsSystem`, this is creating a `PointerHoverFeedback` component and adding it to the interactive entity behind the scenes. This component handles the behavior of the UI hover hint. To change the behavior of the hover feedback, modify this component. See [Show feedback]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md#show-feedback" >}}) for more about how to deal with this component.
+When registering an input action with the `EventsSystem`, this is creating a `PointerEvents` component and adding it to the interactive entity behind the scenes. This component handles the behavior of the UI hover hint. To change the behavior of the hover feedback, modify this component. See [Show feedback]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md#show-feedback" >}}) for more about how to deal with this component.
 
 ```ts
-const hoverFeedback = PointerHoverFeedback.getMutable(myEntity)
+const hoverFeedback = PointerEvents.getMutable(myEntity)
 
 hoverFeedback.pointerEvents[0].eventInfo.hoverText = "Close door"
 ```

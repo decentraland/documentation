@@ -13,6 +13,10 @@ weight: 5
 
 See the [Installation guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
+{{< hint warning >}}
+**📔 Note**: There are two versions of the editor, the **Decentraland Editor SDK6** and the **Decentraland Editor SDK7**. As their names suggest, each version of the editor is meant for working on Decentraland scenes built with different SDK versions. You can have both extensions installed in your same instance of Visual Studio Code, and use them accordingly depending on what project you're working with.
+{{< /hint >}}
+
 ## About the Decentraland Editor
 
 The Decentraland editor is an extension of Visual Studio Code, built for easing the experience of creating Decentraland scenes.

@@ -49,7 +49,7 @@ See the [Installation Guide]({{< ref "/content/creator/sdk7/getting-started/inst
 To preview a scene run the following command on the scene's main folder:
 
 ```bash
-dcl start
+npm run start
 ```
 
 Any dependencies that are missing are installed and then the CLI opens the scene in a new browser tab automatically. It creates a local web server in your system and points the web browser tab to this local address.
@@ -63,10 +63,10 @@ Every time you make changes to the scene, the preview reloads and updates automa
 
 ### Parameters of the preview command
 
-You can add the following flags to the `dcl start` command to change its behavior:
+You can add the following flags to the `npm run start` command to change its behavior:
 
 - `--web3` Connects preview to browser wallet to use the associated avatar and account.
-- `--skip-version-checks` Avoids checking if the scene's ECS library version matches your CLI version, and launches the preview anyway.
+- `--skip-version-checks` Avoids checking if the scene's SDK framework version matches your CLI version, and launches the preview anyway.
 - `--desktop-client` Runs the preview in the Decentraland Desktop client.
 - `--port` to assign a specific port to run the scene. Otherwise it will use whatever port is available.
 - `--no-debug` Disable the debug panel, that shows scene and performance stats.
@@ -105,7 +105,7 @@ If you're building a scene to be uploaded to several adjacent parcels, you can e
   },
 ```
 
-You can also change the coordinates by running the `dcl coords` command from the command line, this is especially useful on large scenes with many parcels. See [set parcels via the command line]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#set-parcels-via-the-command-line">}}) for more details.
+You can also change the coordinates by running the `npx update-parcels` command from the command line, this is especially useful on large scenes with many parcels. See [set parcels via the command line]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#set-parcels-via-the-command-line">}}) for more details.
 
 {{< hint info >}}
 **💡 Tip**:  While running the preview, the parcel coordinates don't need to match those that your scene will really use, as long as they're adjacent and are arranged into the same shape. You will have to replace these with the actual coordinates later when you [deploy the scene](#upload-a-scene-to-decentraland).
@@ -119,7 +119,7 @@ To run a preview scene in the Desktop native client, instead of in the web brows
 
 2) Run the preview with:
 
-	`dcl start --desktop-client`
+	`npm run start --desktop-client`
 
 3) Copy the URL provided by the console output under **Desktop Client** and paste in your browser.
 
