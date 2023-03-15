@@ -17,7 +17,7 @@ There are three layers in Decentraland's content system: [files]({{< relref "fil
 
 ```goat
 .---------.         .--------.       .---------.
-| Pointer +-------> | Entity +-+---> |  File 1 |
+| Pointer +-------> | Entity +-+---> |  File 1 |                                       
 '---------'         '--------' |     '---------'
                                |
                                |     .---------.
