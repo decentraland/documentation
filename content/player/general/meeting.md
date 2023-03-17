@@ -16,19 +16,19 @@ There are two aspects to take into consideration when we talk about a place in D
 The platform currently has 11 servers that have friendly names such as Hela, Baldr or Loki and each server represents a realm. When you are logged into the platform, you are only be able to interact with users connected to the same realm that you are in. Finding or changing the realm is an easy process and there are several ways to do it. Once you are in-world you can click on your profile at the top right corner of the screen, this will open a window with different things that you can change or explore but what we are looking for is at the top left corner of the window, there you will see the realm name you are in: 
 
 
-![realm](./img/realm.png)
+![realm](/images/media/realm.png)
 
 If you click on the realm name, a new pop up window will be opened showing the complete list of available realms and the quantity of users in each of them and, by clicking on the **WARP IN** link you can easily jump between realms. 
 
-![realms-list](img/realms-list.png)
+![realms-list](/images/media/realms-list.png)
 
 Another way to jump to a different realm is to use one of the available chatbox commands, the commands are a common handy toold that every platform user should learn about. To change realm using a command you need to open the chat as if you were about to send a message to the nearby players and write the following message that starts with a forward slash `/changerealm [realm-name]`, replacing `[realm-name]` for the actual `name` of the realm that you want to go (there are different handy commands that you can explore using the `/help` command on the chatbox), for example `/changerealm loki` will take you to the Loki realm:  
 
-![change-realm](img/change-realm.png)
+![change-realm](/images/media/change-realm.png)
 
 Now that you are in the realm where you want to meet your mates, the second aspect to be at the same place is the **position** or location coordinates which are determined by two numbers representing the **x** and **y** axis of the Genesis City map. When you enter Genesis City you land at the `0,0` coordinates that are at the center of the world and this is where the Genesis Plaza is located, usually a crowded place as it is where most users land. The range of possible coordinates goes from `-150` to `150` for both axes and as a result, you get 90 thousand possibilities to choose from.     
 
-![map](img/map.png)
+![map](/images/media/map.png)
 
 Now the questions are: How to pick a location? And how to get there? 
 
