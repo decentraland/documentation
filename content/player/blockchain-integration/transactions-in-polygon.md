@@ -22,9 +22,9 @@ You can buy MATIC in most cryptocurrency exchanges.
 
 ## Polygon in Decentraland’s Marketplace and Builder
 
-By using the Polygon network, and thanks to Decentraland’s DAO, users can list, sell and buy wearables in the Marketplace or publish their collections in the Builder without paying for the transaction gas using the meta-transactions services. 
+By using the Polygon network, and thanks to Decentraland’s DAO, users can list, sell and buy wearables in the Marketplace or publish their collections in the Builder without paying for the transaction gas using the meta-transactions services.
 
-**Transactions in Polygon are not free**. The Decentraland DAO covers the cost of the transactions in Polygon so that users can enjoy many costless transactions in the Marketplace.  
+**Transactions in Polygon are not free**. The Decentraland DAO covers the cost of the transactions in Polygon so that users can enjoy many costless transactions in the Marketplace.
 
 In order to enjoy costless transactions there are three conditions that need to be met:
 
@@ -37,6 +37,14 @@ The Decentraland DAO reserves itself the rights to consume or pause the meta-tra
 ## Why do I have to cover the transaction fees for items that cost less than 1 MANA?
 
 In order to avoid exploitation and protect the free gas service, items that cost less than 1 MANA are not included in the costless transactions. You can buy these items by connecting to the Polygon network with MATIC in your wallet.
+
+Gas fees are variable.
+
+## What can I do if network fees are higher than 150 gwei?
+
+Network fees are variable, so the best you can do is wait and try again at another moment.
+
+Alternatively, you can buy these items by connecting to the Polygon network with MATIC in your wallet. The MATIC fee will be deducted automatically as part of the transaction fee of the Polygon network. You only need to be connected to the Polygon network and have MATIC in your wallet.
 
 Gas fees are variable.
 
