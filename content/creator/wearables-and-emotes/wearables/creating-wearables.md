@@ -11,6 +11,7 @@ aliases:
 url: /creator/wearables/creating-wearables
 weight: 2
 ---
+# **Creating wearables**
 
 ## **Intro**
 
@@ -21,7 +22,7 @@ This guide introduces the basics of creating custom 3D models for Decentraland w
 Before you get started, download the example files for reference meshes and textures: **[Wearables Reference Models](https://drive.google.com/drive/u/1/folders/12hOVgZsLriBuutoqGkIYEByJF8bA-rAU)**
 
 
-## **The Decentraland Avatar System**
+# **The Decentraland Avatar System**
 
 The Decentraland "avatar system" is the broad collection of different body components and subcomponents that can be decorated with custom wearables. These components are:
 
@@ -74,7 +75,7 @@ Boots, shoes, sandals, etc. are applied to this slot.
 
 [Feet]({{< ref "/images/wearables/5_feet.jpeg">}})
 
-## **Wearable Categories [#](https://docs.decentraland.org/creator/wearables/creating-wearables/#wearable-categories)**
+# **Wearable Categories [#](https://docs.decentraland.org/creator/wearables/creating-wearables/#wearable-categories)**
 
 Each wearable has a specific category that determines which body part in the avatar system (e.g. head, upper body, etc.) the wearable will be applied to. Certain wearables will impact whether or not other wearables are rendered, depending on the specific category. Some wearables will entirely replace others with sometimes unexpected and surprising results. See the list below for details.
 
@@ -101,13 +102,13 @@ There are also accessories that can be applied to different areas of an avatar. 
 - **Hat** 
 - **Helmet** 
 
-## **Building 3D models for wearables [#](https://docs.decentraland.org/creator/wearables/creating-wearables/#building-3d-models-for-wearables)**
+# **Building 3D models for wearables [#](https://docs.decentraland.org/creator/wearables/creating-wearables/#building-3d-models-for-wearables)**
 
 Let’s start to create some wearables!
 
-### **Limitations**
+## **Limitations**
 
-#### **Tris, materials and texture limitations**
+### **Tris, materials and texture limitations**
 
 To ensure that Decentraland runs smoothly for all users, it is important to create wearable models without using too many triangles. The goal is to keep models as simple as possible so that they can easily be rendered, without sacrificing too much detail.
 
@@ -321,11 +322,13 @@ The "key" bones to use when skin weighting are:
 - Remember, you can use any bone to influence any mesh’s vertices! For example, you could create a new foot mesh for a tall pair of boots, and skin weight the top of the boot to the "Leg Bones". Or, you could create some long hair and use the "Shoulder" or "Spine" bones to influence the hair when the avatar moves around.
 - It's always recommendable to keep a symmetry from both sides of the rig, left and right should have similar bone influences.
 - As a common advice, a vertex cannot be influenced by more than 4 bones or joints.
+- Keep in mind to export the armature exactly as the one provided in the documentation. If it has any other bones like *"_end_bones"* or similar is not going to work on the client.
 {{< /hint >}}
 
-## **Good practices for modeling**
 
-### **Change your mesh from T-pose to A-pose**
+# **Good practices for modeling**
+
+## **Change your mesh from T-pose to A-pose**
 
 When you’re making wearables, the best way to visualize the final result, and to facilitate how you handle topology and position of the wearable is to work with the model in A-Pose. In order to do that you have to follow this simple steps:
 
@@ -357,7 +360,7 @@ A good way to ensure that everything is deforming correctly is to do a weight pa
 
 [JointDeformation_02]({{< ref "/static/images/wearables/42_joint_weight_02.png">}})
 
-### **Skirts**
+## **Skirts**
 
 A useful tip and good practice when modeling skirts/dresses is to add additional loopcuts in the intersections of the folds. This will be very handy when you have to paint the weights of the rig.
 
@@ -369,7 +372,7 @@ Here is an example of how the bone influence should be:
 
 [Skirt]({{< ref "/static/images/wearables/44_skirt.gif">}})
 
-### **Hats**
+## **Hats**
 
 A good practice when creating hats is to add a hair to the base mesh of the hat and then hide the category *hair* using the editor. Doing this is going to prevent that the hat clips with other hairs and reduce unexpected results.
 
@@ -381,7 +384,7 @@ A valuable tip is to always keep on track of the polycount of your models. To do
 
 [PolyCount]({{< ref "/static/images/wearables/46_poly_count">}})
 
-## **Resources**
+# **Resources**
 
 In this shared folder you can find base models, textures, and various other resources, including examples of fully-created wearables. Feel free to leverage these resources when creating your own.
 

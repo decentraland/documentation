@@ -1,7 +1,7 @@
 ---
 date: 2022-09-01
-title: Creating and exporting emotes
-description: Steps for creating and exporting an avatar emote.
+title: Creating Emotes
+description: Tips and guidelines for creating Decentraland Emotes.
 categories:
   - emotes
 type: Document
@@ -10,6 +10,8 @@ aliases:
 url: /creator/emotes/creating-and-exporting-emotes
 weight: 2
 ---
+
+# **Creating Emotes**
 
 This documentation will cover the file specifications, the basics of animation in Blender, the proper way to export an Emote, and how to import one into the Builder.
 
@@ -27,17 +29,24 @@ This documentation will cover the file specifications, the basics of animation i
 
 You can find a more detailed explanation of the animation specifications [**below**](#the-animation-specifications).
 
-### Before Starting
+# Getting Started
 
-**Frame Rate**
+## **Resources**
+This documentation explains the set up for Rig 1.0, its controls, and features.
 
-Before getting started, it’s important to check the frame rate. Decentraland’s animations must have a frame rate of **30 fps**. The rig file provided probably has that set up, but since Blender’s default value is 24 fps, it is best to double check before starting (a wrong frame rate will affect the speed of the animation). That option can be found in _Output Properties_ (the printer icon) under _Format_, as shown below:
+### Blend File for Rig 1.0
+
+[BaseMale_Rig_1.0.blend](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/BaseMale_Rig_1.0.blend)
+
+## **Frame Rate**
+
+To getstarted, it’s important to check the frame rate. Decentraland’s animations must have a frame rate of **30 fps**. The rig file provided probably has that set up, but since Blender’s default value is 24 fps, it is best to double check before starting (a wrong frame rate will affect the speed of the animation). That option can be found in _Output Properties_ (the printer icon) under _Format_, as shown below:
 
 ![Make sure the framerate is set to 30 fps before starting.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/framerate.png)
 
 Make sure the framerate is set to 30 fps before starting.
 
-**Pose Mode**
+## **Pose Mode**
 
 In Blender, a rig can be viewed in three different modes: _Object Mode_, _Edit Mode,_ and _Pose Mode_. Animations can only be done in _**Pose Mode**_ (in that mode, controls have colors). With the rig selected, you’ll find that option in a dropdown menu, at the top right.
 
@@ -45,7 +54,17 @@ In Blender, a rig can be viewed in three different modes: _Object Mode_, _Edit M
 
 Changing to Pose Mode.
 
-**Workspace Windows**
+### **Starting Pose**
+
+In the rig file provided, there’s already an action, the _**Starting_Pose**_. Considering that all avatar actions start from the idle pose, **we really encourage starting your animation from that pose and also using it again in the last frame**. This will make for a better transition from Idle to Emote and a more fluid animation.
+
+{{< hint info >}}
+**💡 Hint!**
+
+If you want to do a loop animation, you don’t have to start the animation from the Starting Pose. Feel free to use the pose that makes more sense in your animation!**
+{{< /hint >}}
+
+## **Blender Interface for Animations**
 
 In the rig file, other than the two windows for the viewport (front and side view), there are three more at the bottom: a _**Graph Editor**_, _**a Dope Sheet**_, and a _**Timeline**_.
 
@@ -65,19 +84,41 @@ These are the bottom windows. The top one is in the _**Graph Editor,**_ the midd
 Since Blender is highly customizable, this is also a good time to set up the layout that best suits you, adding, adjusting, or removing windows. Each animator has their own preferences, so feel free to edit the layout however you want!
 {{< /hint >}}
 
-### Getting Started
+# **Creating an Animation**
 
-**Starting Pose**
+To create a new animation, simply click on _**Create A New Action**_ button (this will duplicate the current animation with all the keyframes) or press the X next to it, the _**Unlink Action,**_ and press the _**New**_ button. This way you’ll start with no keyframes at all. Make sure to always toggle _**Fake User**_ (the shield icon) so your animation is saved!
 
-In the rig file provided, there’s already an action, the _**Starting_Pose**_. Considering that all avatar actions start from the idle pose, **we really encourage starting your animation from that pose and also using it again in the last frame**. This will make for a better transition from Idle to Emote and a more fluid animation.
+![Create a new animation by duplicating the existing one or by clicking on Unlink Action and then New.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/new_anim.gif)
+
+Create a new animation by duplicating the existing one or by clicking on _**Unlink Action**_ and then _**New**_.
+
+**Browsing and Deleting Animations**
+
+In Blender, you can have multiple animation tracks in the same file. It is possible to browse them by clicking on the _**Browse Action**_ dropdown menu. All animation with and F (_**Fake User**_) will be saved. To delete an animation, press _**Shift**_ on the keyboard and click on the _**X**_. After doing that, the animation will show a 0 next to it, which means that it will be deleted the next time you close Blender or reopen the file.
+
+![Browsing animations: The ones with an F will be saved, and the ones with 0 will be deleted.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/anim_list.gif)
+
+Browsing animations: The ones with an F will be saved, and the ones with 0 will be deleted.
 
 {{< hint info >}}
 **💡 Hint!**
 
-If you want to do a loop animation, you don’t have to start the animation from the Starting Pose. Feel free to use the pose that makes more sense in your animation!**
+Do not always edit the same animation track. Before making major changes, just duplicate the animation. That way you have a back up version in case you regret deleting or changing something. This is also a nice way to keep track of the progress made so far!
 {{< /hint >}}
 
-**Ground Reference and Animation Area**
+
+**Naming**
+
+**An animation’s name should start with a capital letter and if the name is more than one word long, the words should be separated by _.** Do not use spaces or special characters. Here are some examples of naming:
+
+-   Snowfall
+-   Rainbow_Dance
+-   Throw_Money
+-   Talk_To_Hand
+
+# The Animation Specifications
+
+## **Ground Reference and Animation Area**
 
 In order to avoid ground penetration during animation, a plane has been added to the file as a ground reference. Along with the animation area reference, it also helps identify the area that can be used for the animation. For reference, the samller circle on the plane has a radius of 2 meters and the larger one, 4 meters.
 
@@ -120,42 +161,7 @@ Thalia Dance
 Watch out for these boundaries because crossing them might cause gameplay issues.
 {{< /hint >}}
 
-
-**Creating an Animation**
-
-To create a new animation, simply click on _**Create A New Action**_ button (this will duplicate the current animation with all the keyframes) or press the X next to it, the _**Unlink Action,**_ and press the _**New**_ button. This way you’ll start with no keyframes at all. Make sure to always toggle _**Fake User**_ (the shield icon) so your animation is saved!
-
-![Create a new animation by duplicating the existing one or by clicking on Unlink Action and then New.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/new_anim.gif)
-
-Create a new animation by duplicating the existing one or by clicking on _**Unlink Action**_ and then _**New**_.
-
-**Browsing and Deleting Animations**
-
-In Blender, you can have multiple animation tracks in the same file. It is possible to browse them by clicking on the _**Browse Action**_ dropdown menu. All animation with and F (_**Fake User**_) will be saved. To delete an animation, press _**Shift**_ on the keyboard and click on the _**X**_. After doing that, the animation will show a 0 next to it, which means that it will be deleted the next time you close Blender or reopen the file.
-
-![Browsing animations: The ones with an F will be saved, and the ones with 0 will be deleted.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/anim_list.gif)
-
-Browsing animations: The ones with an F will be saved, and the ones with 0 will be deleted.
-
-{{< hint info >}}
-**💡 Hint!**
-
-Do not always edit the same animation track. Before making major changes, just duplicate the animation. That way you have a back up version in case you regret deleting or changing something. This is also a nice way to keep track of the progress made so far!
-{{< /hint >}}
-
-
-**Naming**
-
-**An animation’s name should start with a capital letter and if the name is more than one word long, the words should be separated by _.** Do not use spaces or special characters. Here are some examples of naming:
-
--   Snowfall
--   Rainbow_Dance
--   Throw_Money
--   Talk_To_Hand
-
-### The Animation Specifications
-
-**Length**
+## **Animation Length**
 
 The max length of an animation is **10 seconds** or **300 frames**. Remember to keyframe every control’s properties on the first and last frames.
 
@@ -167,15 +173,15 @@ The max length of an animation is **10 seconds** or **300 frames**. Remember to 
 
 Make channels visible before keyframing!
 
-**Number of Animations**
+## **Number of Animations**
 
 The exported file can only have **one animation**. If animations were duplicated during the process, make sure you delete all of them before exporting. Keep only the final version. Sequence emotes that need many animations to work (action start, action loop, and action end) are not supported right now.
 
-**Format**
+## **Format**
 
 Animations should be exported as .**GLB**. The file can only contain the deforming skeleton and the animation. **Mesh, controls, and any other object should not be exported**. More details on how to export can be found [**below**](#exporting).
 
-**Sampling**
+## **Sampling**
 
 Since constraints can’t be exported, the only way to export the animation clip is by baking it, which means that all the deforming bones’ positions, rotation, and scale will be keyframed in every single frame of the animation. If the clip is too long, like up to 300 frames, it’ll have 300 keyframes after exporting and the more keyframes it has, the heavier the file gets.
 
@@ -192,11 +198,11 @@ If the number of frames of the animation can be divided by the sampling rate, th
 {{< /hint >}}
 
 
-**File Size**
+## **File Size**
 
 The max file size is **1 MB**. If the file is over that after exporting, try checking if the mesh wasn’t exported by accident or if the animation isn’t over 10 seconds. If it is still over 1 MB, try experimenting with the Sampling Rate, as higher values will improve the optimization.
 
-### Exporting
+# Exporting
 
 Since we only want the armature and the animation to be exported, turn off the mesh visibility and any object other than the armature before exporting, as shown below:
 
@@ -210,43 +216,15 @@ To export, go to _File_ > _Export_ > _glTF2.0 (.glb, .gltf)_
 
 For the export settings, expand _**Include**_ and in _**Limit to**_ toggle _**Visible Objects**_. For _Transform_ and _Geometry_, leave it as it is.
 
-![export1.png](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/export1.png)
-
 ![visible_objects2.gif](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/visible_objects2.gif)
 
 Next, expand the _**Animation**_ tab, expand the second _**Animation**_ tab and toggle _**Export Deformation Bones Only.**_ This is also where the _**Sampling Rate**_ is defined.
 
-![export2.png](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/export2.png)
-
 ![animation_export.gif](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/animation_export.gif)
 
-That’s it for exporting the animation!
+That’s it for exporting the animation! 
 
-### Import into the Builder
-
-
-When all the files are ready to go you can import them to the builder to test the animation! Go to https://builder.decentraland.org/ and import the item you want to test. You’ll be asked to choose the rarity of your emote, define the category, add name and play mode (Loop or Play Once).
-
-![Screen Shot 2022-08-04 at 12.39.58.png](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/screen_shot_2022-08-04_at_12.39.58.png)
-
-Next step is to choose the thumbnail that shows the emote as its best! Select the key frame that better represents the action.
-
-![Screen Shot 2022-08-04 at 12.39.58.png](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/screen_shot_2022-09-21_at_13.48.58.png)
-
-
-{{< hint warning >}}
-**Attention!**
-
-Make sure to choose the thumbnail that show a key pose of the emote and centered in the frame. It has be clear to other users what the emote is about, otherwise it’s up to the curator to reject the collection.
-{{< /hint >}}
-
-Once it is imported, click on this eye icon to visualize it!
-
-![visulize.png](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/visulize.png)
-
-You can also add a description and tags to the emote. **The overrides and hides section must be empty.**
-
-### References
+# References
 
 If you’re still not sure where to start or need some reference or inspiration, here are some animation clips to help you with that. These can be some nice studying material!
 

@@ -11,13 +11,16 @@ url: /creator/emotes/rig-features
 weight: 4
 ---
 
+# **Rigging features**
+
+## **Resources**
 This documentation explains the set up for Rig 1.0, its controls, and features.
 
 ### Blend File for Rig 1.0
 
 [BaseMale_Rig_1.0.blend](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/BaseMale_Rig_1.0.blend)
 
-## Rig Structure and Features
+# Rig Structure and Features
 
 ### Armature Transforms
 
