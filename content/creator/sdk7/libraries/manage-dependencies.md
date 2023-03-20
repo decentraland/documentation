@@ -74,7 +74,7 @@ To install a library in your project folder, run `npm i` and the library name in
 `npm i @dcl/ecs-scene-utils -B`
 
 {{< hint warning >}}
-**📔 Note**:  You may need to run `dcl start` or `dcl build` after installing the library for the library's dependencies to get installed.
+**📔 Note**:  You may need to run `npm run start` or `npm run build` after installing the library for the library's dependencies to get installed.
 {{< /hint >}}
 
 

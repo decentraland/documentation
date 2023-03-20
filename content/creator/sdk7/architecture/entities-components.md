@@ -285,11 +285,17 @@ const hasTransform = Transform.has(myEntity)
 
 ## Reserved entities
 
-Certain entity ids are reserved for special entities that exist in every scene. To avoid having to remember their id numbers, they can be accessed via the following aliases:
+Certain entity ids are reserved for special entities that exist in every scene. They can be accessed via the following aliases:
 
 - `engine.RootEntity`
 - `engine.PlayerEntity`
 - `engine.CameraEntity`
+
+{{< hint warning >}}
+**📔 Note**: Avoid referring to these entities on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+
+If you refer to these entities in a system, they will always be available, because the first execution of the system is called once the scene is already properly initialized.
+{{< /hint >}}
 
 ### The root entity
 

@@ -151,17 +151,17 @@ In some cases you may want to have several separate raycast queries running at t
 ```typescript
 // custom components
 const CubeOscilator = engine.defineComponent(
+  "CubeOscilator",
   {
     t: Schemas.Float
-  },
-  212
+  }
 )
 
 const TimerComponent = engine.defineComponent(
+  "TimerComponent",
   {
     t: Schemas.Float
-  },
-  213
+  }
 )
 
 const RAY_INTERVAL = 0.1

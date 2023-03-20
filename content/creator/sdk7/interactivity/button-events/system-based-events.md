@@ -40,7 +40,7 @@ The following helper functions are available in the `inputSystem` namespace, and
 
 See the sections below for more details on each.
 
-When handling button events on an entity, always provide feedback to the player, so that the player is aware that an entity can be interacted with. If you add a `PointerHoverFeedback` component to an entity, players will see a hint while hovering their cursor on that entity. See [Show feedback](#show-feedback) to learn how you can add hover hints on interactive entities.
+When handling button events on an entity, always provide feedback to the player, so that the player is aware that an entity can be interacted with. If you add a `PointerEvents` component to an entity, players will see a hint while hovering their cursor on that entity. See [Show feedback](#show-feedback) to learn how you can add hover hints on interactive entities.
 
 
 ### Global input events
@@ -182,7 +182,7 @@ If your scene has multiple entities that are affected by pointer events in the s
 
 ```ts
 engine.addSystem(() => {
-  const activatedEntites = engine.getEntitiesWith(PointerHoverFeedback)
+  const activatedEntites = engine.getEntitiesWith(PointerEvents)
   for (const [entity] of activatedEntites) {
     if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_DOWN, entity)) {
 		 // Logic in response to interacting with an entity
@@ -191,9 +191,9 @@ engine.addSystem(() => {
 })
 ```
 
-This example uses a [component query]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to iterate over all the entities with a `PointerHoverFeedback` component. It then checks each of these entities with `inputSystem.isTriggered`, iterating over them one by one. If an input action is detected on any of these entities, it carries out custom logic.
+This example uses a [component query]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to iterate over all the entities with a `PointerEvents` component. It then checks each of these entities with `inputSystem.isTriggered`, iterating over them one by one. If an input action is detected on any of these entities, it carries out custom logic.
 
-Instead of iterating over _all_ the entities with a `PointerHoverFeedback` component in a single system, you might want to write different systems to handle entities that should behave in different ways. The recommended approach is to mark different types of entities with specific [custom components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}), and iterate over them in separate systems.
+Instead of iterating over _all_ the entities with a `PointerEvents` component in a single system, you might want to write different systems to handle entities that should behave in different ways. The recommended approach is to mark different types of entities with specific [custom components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}), and iterate over them in separate systems.
 
 ```ts
 engine.addSystem(() => {
@@ -222,14 +222,14 @@ This way of organizing your scene's code is very [data oriented]({{< ref "/conte
 
 ## Show feedback
 
-To display UI hints while pointing at an entity, give the entity a `PointerHoverFeedback` component.
+To display UI hints while pointing at an entity, give the entity a `PointerEvents` component.
 
 ```ts
 // create entity
 const myEntity = engine.addEntity()
 
 // give entity a PointerEvents component
-PointerHoverFeedback.create(myEntity, {
+PointerEvents.create(myEntity, {
     pointerEvents: [
       {
         eventType: PointerEventType.PET_DOWN,
@@ -247,11 +247,11 @@ TODO: image -->
 
 
 {{< hint warning >}}
-**📔 Note**:  The `PointerHoverFeedback` component just handles the displaying of hover feedback. To handle the button events themselves with custom logic, see [Using-a-system](#check-for-events).
+**📔 Note**:  The `PointerEvents` component just handles the displaying of hover feedback. To handle the button events themselves with custom logic, see [Using-a-system](#check-for-events).
 {{< /hint >}}
 
 
-The `PointerHoverFeedback` component requires at least one pointer event. Each pointer event can be configured with the following:
+The `PointerEvents` component requires at least one pointer event. Each pointer event can be configured with the following:
 
 - `eventType`: What type of event to listen for, as a value from the `PointerEventType` enum. See [Types of pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#types-of-pointer-events" >}}) for supported options.
 - `eventInfo`: An object that can contain the following fields:
@@ -261,11 +261,11 @@ The `PointerHoverFeedback` component requires at least one pointer event. Each p
 	- `maxDistance`  _(optional)_: Only show feedback when the player is closer than a certain distance from the entity. Default is _10 meters_.
 
 
-A single `PointerHoverFeedback` component can hold multiple pointer events, that can detect different events for different buttons. Each entity can only have _one_ `PointerHoverFeedback` component, but this component can include multiple objects in its `pointerEvents` array, one for each event to respond to.
+A single `PointerEvents` component can hold multiple pointer events, that can detect different events for different buttons. Each entity can only have _one_ `PointerEvents` component, but this component can include multiple objects in its `pointerEvents` array, one for each event to respond to.
 
 
 ```ts
-PointerHoverFeedback.create(NPCEntity, {
+PointerEvents.create(NPCEntity, {
     pointerEvents: [
 	  {
         eventType: PointerEventType.PET_DOWN,
@@ -300,14 +300,14 @@ Players will see multiple labels, one for each pointer event, displayed radially
 
 <!-- TODO: Image with multiple hints -->
 
-The example below combines using `PointerHoverFeedback` to show hover hints, together with a system that actually handles the player's action with custom logic.
+The example below combines using `PointerEvents` to show hover hints, together with a system that actually handles the player's action with custom logic.
 
 ```ts
 // create entity
 const myEntity = engine.addEntity()
 
 // give the entity hover feedback
-PointerHoverFeedback.create(myEntity, {
+PointerEvents.create(myEntity, {
     pointerEvents: [
       {
         eventType: PointerEventType.PET_DOWN,
@@ -330,7 +330,7 @@ engine.addSystem(() => {
 
 ### Hint messages
 
-When a player hovers the cursor over an item with an `PointerHoverFeedback` component, the cursor changes shape to hint to the player that the entity is interactive.
+When a player hovers the cursor over an item with an `PointerEvents` component, the cursor changes shape to hint to the player that the entity is interactive.
 
 You can also display a toast message in the UI that lets the player know what happens if they interact with the entity.
 
@@ -339,7 +339,7 @@ You can also display a toast message in the UI that lets the player know what ha
 const chest = engine.addEntity()
 
 // give entity a PointerEvents component
-PointerHoverFeedback.create(chest, {
+PointerEvents.create(chest, {
     pointerEvents: [
       {
         eventType: PointerEventType.PET_DOWN,
@@ -371,7 +371,7 @@ If an entity has both a `DOWN` pointer event and an `UP` pointer event, the hint
 const entity = engine.addEntity()
 
 // give entity a PointerEvents component
-PointerHoverFeedback.create(entity, {
+PointerEvents.create(entity, {
     pointerEvents: [
       {
         eventType: PointerEventType.PET_DOWN,
@@ -404,7 +404,7 @@ By default, entities are only clickable when the player is within a close range 
 const myEntity = engine.addEntity()
 
 // give entity a PointerEvents component
-PointerHoverFeedback.create(myEntity, {
+PointerEvents.create(myEntity, {
     pointerEvents: [
       {
         eventType: PointerEventType.PET_DOWN,
@@ -438,7 +438,7 @@ The example above sets the maximum distance for hover hints to _6 meters_. Make 
 
 ## Advanced custom hints
 
-The `PointerHoverFeedback` component easily adds UI hints when the player's cursor starts hovering over an entity. It's generally a good thing that hints behave consistently with what players are used to seeing in other Decentraland scenes. However, in some cases you might want to signal that something is interactive in a custom way. For example, you could play a subtle sound when the player starts hovering over the entity. You could also show a glowing highlight around the entity while hovering, and hide it when no longer hovering. It could also be used for specific gameplay mechanics.
+The `PointerEvents` component easily adds UI hints when the player's cursor starts hovering over an entity. It's generally a good thing that hints behave consistently with what players are used to seeing in other Decentraland scenes. However, in some cases you might want to signal that something is interactive in a custom way. For example, you could play a subtle sound when the player starts hovering over the entity. You could also show a glowing highlight around the entity while hovering, and hide it when no longer hovering. It could also be used for specific gameplay mechanics.
 
 Use the `inputSystem.isTriggered()` function together with the `PointerEventType.PET_HOVER_ENTER` and `PointerEventType.PET_HOVER_LEAVE` events to carry out custom behaviors whenever the player's cursor starts pointing at the entity's collider, and whenever the cursor stops pointing at it.
 
@@ -497,7 +497,7 @@ engine.addSystem(() => {
 ```
 
 {{< hint warning >}}
-**📔 Note**:  If you ignore any events that are far away,  make sure you set the `maxDistance` parameter on the `PointerHoverFeedback` component to behave consistently. 
+**📔 Note**:  If you ignore any events that are far away,  make sure you set the `maxDistance` parameter on the `PointerEvents` component to behave consistently. 
 {{< /hint >}}
 
 
