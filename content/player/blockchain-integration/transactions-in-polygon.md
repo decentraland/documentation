@@ -44,7 +44,7 @@ Gas fees are variable.
 
 Network fees are variable, so the best you can do is wait and try again at another moment.
 
-Alternatively, you can buy these items by connecting to the Polygon network with MATIC in your wallet. The MATIC fee will be deducted automatically as part of the transaction fee of the Polygon network. You only need to be connected to the Polygon network and have MATIC in your wallet.
+Alternatively, you can buy these items by connecting to the Polygon network to use the MATIC in your wallet to pay for the fees. The MATIC fee will be deducted automatically as part of the transaction fee of the Polygon network. You only need to be connected to the Polygon network and have MATIC in your wallet.
 
 Gas fees are variable.
 
