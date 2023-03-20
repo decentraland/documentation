@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
-weight: 4
+weight: 3
 title: Publishing Collections
 ---
