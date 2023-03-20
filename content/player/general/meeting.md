@@ -38,5 +38,15 @@ There is another chabtox command that you can use to move around different locat
 
 At this point you should be at the meeting place, realm & location, so it's time to share this with your friends, send them a message *"let's meet in Loki at 100,-33"* or they can also search for you on their friends list and click on the red arrow button that will take them exactly where you are. Finally, if you are using the web browser client, there is another less convenient possibility, to share your current URL as it will contains your current locations details and take there anyone who opens it. 
 
+{{< hint warning >}}
+**📔 Note**: There is another layer of users grouping at Decentraland that may prevent you from seeing someone that is at the same place that you are. Users are grouped in communication islands and the islands have a maximum allowed size of 100 users per island. When there are more than 100 users on the same place, more than one island will also exist. If you and your friend are at the same place but in different islands, you won't be able to see or talk to each other. To workaround this you can try to force the island by just copy/pasting your friend's full URL ([more info](https://adr.decentraland.org/adr/ADR-70)).
+
+{{< /hint >}}
+
+
+
 **The TL;DR version**: 
 To meet with someone you need to be at the same realm and position. Use the Map view to move around or the realm selection window to change where you are. You can also use the `/changrealm [realm-name]` and `/goto [x,y]` commands te get to where you want. 
+
+
+
