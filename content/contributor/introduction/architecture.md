@@ -108,7 +108,7 @@ The reference implementation of a fully-featured World Explorer is the [Decentra
 
 The client-side counterpart to the [content service](#content) of the [Catalyst](#catalyst) network.
 
-It downloads and caches content files, and can updates assets such as a player's profile on behalf of the user.
+It downloads and caches content files, and can update assets such as a player's profile on behalf of the user.
 
 **Learn more:**
 - [Content documentation]({{< relref "../content/overview" >}})
@@ -270,7 +270,7 @@ It is a regular Decentraland [Scene](https://github.com/decentraland/explorer/bl
 
 ### Matrix Client {#fwe-matrix}
 
-The Matris client can be used to provide interaction between Decentraland's users, providing the ability to send private messages and add people as friends.
+The Matrix client can be used to provide interaction between Decentraland's users, providing the ability to send private messages and add people as friends.
 
 **Learn more:** 
 - [Foundation Matrix Client](https://github.com/decentraland/matrix-client)
