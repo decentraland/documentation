@@ -16,7 +16,9 @@ The Decentraland VR Client allows the a user to experience this Metaverse from w
 </b>
 This is where you will find instructions on how to set up and play Decentraland from your Meta Quest 2. In future sections, we will run through how to use Quest Link and the Oculus desktop app to play Decentraland on a PC/VR setup as well as show how you can side-load Decentraland directly onto you your Quest using SideQuest.
 
-In certain ways, the decentraland VR-Client is not too different from the desktop version. In terms of how the world is setup, you will still be able to do things that other players can. The main difference is the way your viewing your environment (from within you headset), and how you interact with the world around you (with controllers instead of a keyboard and mouse). You will also be able to sign in with your wallet, or opt to play as a guest. For more information on the benefits of a 
+In certain ways, the decentraland VR-Client is not too different from the desktop version. In terms of how the world is setup, you will still be able to do things that other players can. The main difference is the way your viewing your environment (from within you headset), and how you interact with the world around you (with controllers instead of a keyboard and mouse). 
+
+You will also be able to sign in with your wallet, or opt to play as a guest. Fortmatic will be the easiest to log in on the headset as there is no way to scan QR codes in headset currently. For more information on the benefits of a 
 wallet vs signing in as guest, see the ["Get a Wallet for Beginners"](https://docs.decentraland.org/player/general/hardware-requirements/) page. 
 
 
@@ -25,6 +27,6 @@ wallet vs signing in as guest, see the ["Get a Wallet for Beginners"](https://do
 
 ### **Compatible Headsets**
 
-- Currently, the client only supports the <u> Meta Quest 2 </u> headset.
+- Currently, the client only supports the <u> Meta Quest 2 </u> headset natively.
 
 
