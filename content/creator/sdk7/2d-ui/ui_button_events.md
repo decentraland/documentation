@@ -22,11 +22,11 @@ It can also have:
 	{{< /hint >}}
 - `onMouseUp`: A similar callback function that runs every the pointer button is raised while pointing at the entity. This could be used for example to build a drag-and-drop mechanic on your UI.
 - `variant`: Use this property to set the style of the button as one of the defaults. `primary` and `secondary` are available.
+- `disabled`: Boolean to set a button disabled. When disabled is set to _true_, the `onMouseDown` and `onMouseUp` actions are no longer called. Also the `apha` value of the color of both the text and the backgroun is halved, so the button is "grayed-out" and stands out less. 
 - `color`: Background color of the button.
 - `font`: Font of the text on the button.
 - `textAlign`: Alignment of the text inside the button
 - `uiTransform`: Positioning properties of the UI element.
-<!-- - `disabled`: -->
 
 
 The following example shows how to create a clickable UI button.
@@ -91,7 +91,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 			uiTransform={{ width: 80, height: 20, margin: 4 }}
 			onMouseDown={() => { console.log("Clicked on the UI") }}
 		/>
-	</UiEntity >
+	</UiEntity>
 ))
 ```
 
