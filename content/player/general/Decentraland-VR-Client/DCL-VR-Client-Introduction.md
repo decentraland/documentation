@@ -31,6 +31,6 @@ wallet vs signing in as guest, see the ["Get a Wallet for Beginners"](https://do
 
 ### **Known Issues**
 
-- A Decentraland architecture change has currently broken the current builds of the VR Clients on Quest and PCVR.
+- The downloads available are in an Alpha version state.  A Decentraland architecture change has broken the current builds of the VR Clients on Quest and PCVR. 
 
 
