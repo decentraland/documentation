@@ -26,7 +26,7 @@ This section will help you get set to play Decentraland using PC/VR! We will wal
 
   Meta has already created some articles and documentation on many of the features of the Quest 2. To set up AirLink, 
 
-  <b>
+
 
   - See the [Meta Quest Link](https://www.meta.com/help/quest/articles/headsets-and-accessories/oculus-link/) page and scroll down to the "Air Link" section. 
 
@@ -36,12 +36,12 @@ This section will help you get set to play Decentraland using PC/VR! We will wal
 
   - After you have completed this, proceed to download the latest version of [Decentraland for PC/VR](https://install.appcenter.ms/orgs/onginnovations/apps/decentraland-vr-pcvr/distribution_groups/public%20testers).  
 
-  </b>
+
 
 ## Launch Quest Link and Play the Game
   Once you have completed the previous steps, you should be ready to launch the Air Link and play the game. Follow the steps listed below to do just that!
 
-  <b>
+
 
   - Open your universal Menu with the Oculus button on your right Touch controller. Navigate to your "Quick Settings" menu by hovering on the clock on the far left of the universal menu.
 
@@ -63,7 +63,7 @@ This section will help you get set to play Decentraland using PC/VR! We will wal
  **📔 Note**: A window may pop up from windows defender saying that it blocked the app from opening since it was from an unknown publisher. Click "See More" or "More" and then click "Run Anyway."
 {{< /hint >}}
 
-  </b>
+
 
 You should now be able to play Decentraland in your Oculus Quest! You will be able to sign in with your Wallet or opt to play as a Guest. Refer to other sections in the documentation for more information on how to play Decentraland in VR. 
 
