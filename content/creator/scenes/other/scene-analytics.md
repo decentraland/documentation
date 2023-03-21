@@ -27,6 +27,8 @@ As a creator, it's very valuable to track player visits and the way in which pla
 
 	Check out the [Atlas Analytics documentation](https://atlas-corporation.gitbook.io/atlas-analytics/) for detailed instructions about how to 		implement it in your scenes.
 	
+	If you have any questions or suggestions you can reach out to the Atlas CORP team in the [Atlas Discord](https://discord.gg/zWY6g9vc7g) or [email](mailto:howie@atlascorp.io).
+	
 - The [Decentraland Builder](https://builder.decentraland.org) exposes basic data about user weekly visits to your scenes. This data is only available to users with ownership or operator rights on these parcels, and there is no historical record for checking past periods. As a scene creator you don't need to do any prior actions, this data is available for all published scenes.
 
 	To access this data, visit the [Decentraland Builder](https://builder.decentraland.org), select the **Land** tab, then select a parcel or estate that you own or have rights on. There you will find data for any scene in that location. The data includes total user visits, median session time and peak concurrent users during the last 7 days.
