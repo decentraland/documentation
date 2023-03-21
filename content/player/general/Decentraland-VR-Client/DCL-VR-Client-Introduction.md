@@ -27,6 +27,10 @@ wallet vs signing in as guest, see the ["Get a Wallet for Beginners"](https://do
 
 ### **Compatible Headsets**
 
-- Currently, the client only supports the <u> Meta Quest 2 </u> headset natively.
+- Currently, the client only supports the <u> Meta Quest 2 </u> headset.
+
+### **Known Issues**
+
+- A Decentraland architecture change has currently broken the current builds of the VR Clients on Quest and PCVR.
 
 
