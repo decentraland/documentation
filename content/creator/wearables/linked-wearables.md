@@ -503,7 +503,7 @@ In order for Linked Wearables to work, the third parties need to provide an API 
 1. `@GET /registry/:registry-id/address/:address/assets` - Retrieves a list of assets associated with a given address
 2. `@GET /registry/:registry-id/address/:address/assets/:id` - Validates if a DCL asset is owned by a user.
 
-**Technical details and examples [here](https://github.com/decentraland/adr/blob/main/ADR/ADR-42-third-party-assets-integration.md#third-party-resolver).**
+**Technical details and examples [here](https://adr.decentraland.org/adr/ADR-42).**
 
 In the next sub-sections we'll provide an explanation on how to build the mentioned API by using an implementation example of the many possible ones.
 

@@ -12,18 +12,20 @@ url: /player/general/dao/overview/requesting-grants
 weight: 3
 ---
 
-To [request a grant]({{< ref "/content/player/dao/grants/community-grants.md" >}}) from the Decentraland DAO, begin by navigating to **[governance.decentraland.org](https://governance.decentraland.org)** and signing in with your wallet.
+To [request a grant]({{< ref "/content/player/dao/grants/community-grants.md" >}}) from the Decentraland DAO, begin by navigating to **[governance.decentraland.org](https://governance.decentraland.org)** click on the button “start voting” and sign in with your wallet.
 
 
-Click **Submit a proposal** and choose **Grant request** from the list of proposal categories. You will be presented with a form that you must complete before submitting your request.
+Head to the Grants tab and on the lower left side of the platform you’ll see a REQUEST A GRANT button. 
 
 ## Grant proposal form
 
 Decentraland Grants allow MANA owned by the DAO to fund the creation of features or content beneficial to the Decentraland platform and its growth. Either individuals or teams may request grant funding through the DAO, and there are no constraints on the content or features that may be funded (within the bounds of Decentraland’s [Content Policy](https://decentraland.org/content)).
+
 Following is an overview of the proposal form:
 
 ## Category
 Select the category that best suits your project. Currently, DAO grants will fund projects within seven categories:
+
 * **Core Unit:** Provide core infrastructure and operations for the DAO
 * **Platform:** Creation of tools and applications extending our platform and ecosystem
 * **Documentation:** Production of free educational content related to Decentraland’s dynamics
@@ -37,64 +39,79 @@ Select the category that best suits your project. Currently, DAO grants will fun
 Every grant category has its own category budget, which is renewed every three months. You will see the remaining category budget based on the category that you had previously selected. 
 
 **Desired Funding**  
-Enter the exact amount of funding you are requesting for your grant in USD. This amount should be within range for the Tier you’ve selected. If your grant is approved, it will be paid in MANA according to the current exchange rate between USD and MANA.
+Enter the exact amount of funding you are requesting for your grant in USD. This amount should be within range for the Tier you’ve selected. If it corresponds to a Lower Tier, you can choose for it to be paid in MANA or USD in Stable Coin (DAI) according to the current exchange rate between USD and MANA. If it corresponds to a Higher Tier, it will be paid in Stable Coin (DAI) according to the current exchange rate between USD and MANA.
 
 **Estimated project duration**  
-Enter the amount of months your project will take to be developed. It will be used to create the vesting contract issuing monthly payments. Make sure to provide a detaild roadmap for the project duration below.
+Enter the amount of months your project will take to be developed. This will define the amount of months of your vesting contract.
 
 **Time of payments**  
 Enter the time of the month you’d like the funds to be released. This could either be: 
 * 1st day of the month
 * 15th day of the month
 
+**Preferred payment token**  
+If your grant requested is of less than $20.000, you will be able to choose your payment token between:
+* MANA
+* DAI
+
+
 ## General Information
 
 **Title**  
-Provide a title that is concise and descriptive for your grant request. This title will appear as the header of your proposal’s detail page on [governance.decentraland.org](https://governance.decentraland.org/) , the proposal in Snapshot, and the Forum thread generated for your proposal.
+Provide a title that is concise and descriptive for your grant request. This title will appear as the header of your proposal’s detail page on [governance.decentraland.org](https://governance.decentraland.org/), the proposal in Snapshot, and the Forum thread generated for your proposal. (80 characters)
 
 **Abstract**  
-Please explain the key components of your project. This should include a description of the feature or content you want to create, what needs or goals your work may satisfy, and the skills or experience you have that will contribute to your success. This is your chance to make a good first impression on the community.
+Please explain the key components of your project. This should include a description of the feature or content you want to create, what needs or goals your work may satisfy, and the skills or experience you have that will contribute to your success. This is your chance to make a good first impression on the community. (750 characters)
 
 **Description**  
-Elaborate on why your project should receive funding, the problems that your project will solve, or the benefits it will bring to the Decentraland platform.
-
-**Budget Specification**  
-The community values budget transparency. Please provide a detailed description on how you are planning to use your budget.
+Elaborate on why your project should receive funding, the problems that your project will solve, or the benefits it will bring to the Decentraland platform. (3500 characters)
 
 **Beneficiary Address**  
 The address that will receive the grant funds. This must be an Ethereum address! Entering a non-Ethereum address that cannot receive MANA may result in a permanent loss of funds.
 
 **Contact Email Address**  
-This email address will be used by the Grant Support teams to contact you to check the progress of the grant, set up meetings and maintain an open communication channel.
-
-**Personnel**  
-Please list who will be working on this project, along with an explicit overview of their relevant skill sets and experience. You may provide links to portfolios or profiles to help the Decentraland community get to know who the DAO will be funding and how their backgrounds will contribute to your project’s success.
+This email address will be used by the Grant Support teams to contact you to check the progress of the grant, set up meetings and maintain an open communication channel. Note that the address will be published in the proposal and publicly visible. If you want to keep your anonymity, consider using an email address without personal identifiable information.
 
 **Roadmap and milestones**  
-Describe the roadmap of your project, making sure to include any relevant milestones that the community should be aware of and how you will share progress you have made. Clearly communicating progress for long-term projects funded by vesting contracts will help prevent the removal of your funding.
+Describe the roadmap of your project, making sure to include any relevant milestones that the community should be aware of and how you will share progress you have made. Clearly communicating progress for long-term projects funded by vesting contracts will help prevent the removal of your funding. (1500 characters)
 
 **Co-authors** (optional)  
-If you co-authored this proposal with someone else, you can add their wallet addresses to acknowledge their work. After you publish the proposal, co-authors will be asked to confirm or reject the request. Only if they confirm, they will be listed publicly on the proposal page.
+If you co-authored this proposal with someone else, you can add their wallet addresses to acknowledge their work. After you publish the proposal, co-authors will be asked to confirm or reject the request. Only if they confirm, they will be listed publicly on the proposal page. This field is optional.
+
+## Team
+
+**Members**
+Please list who will be working on this project and include an explicit overview of their relevant skillset and experience. You may provide links to portfolios or profiles to help the Decentraland community get to know who the DAO will be funding and how their backgrounds will contribute to your project’s success. Provide from each team member:
+- Their name/Identity
+- Their Role/Position
+- About them
+- Relevant Link (optional)
+
+## Due Diligence
+
+**Budget Breakdown**
+
+Our community values transparency. Please for each item in your budget breakdown include:
+- Concept title/name
+- Estimated budget
+- Duration (in months)
+- About this
+- Relevant link (optional)
 
 
 ## Category-Specific Assessment
 Depending on the category you have applied to, you will have different performance metrics to measure the impact of your grant. These could be, but are not limited to:
 
-**1- Core Unit** performance metrics
+**1- Core Unit** performance metrics:
 * How will your team provide strategic value to the Decentraland DAO?
-* List your impact metrics
+*  List your measurable impact metrics
 
-**2- Platform**performance metrics:
+**2- Platform** performance metrics:
 * Publish the source code and its derivatives developed under the budget provided by the DAO under an open-source license and in a public repository. 
 * Commit to publishing documentation for the community to understand and contribute to the codebase.
 
-**3- Documentation**performance metrics:
-* What type of content are you planning to produce?
-	* Documentation Article
-	* Scene Example
-	* Videos
-	* Code examples
-	* Other
+**3- Documentation** performance metrics:
+* What type of content are you planning to produce? (I.e. documentation article, scene example, videos, code examples, other)
 * How many pieces of content are you planning to publish under the duration of this Grant?
 
 **4- In-World Content** performance metrics:
@@ -103,15 +120,7 @@ Depending on the category you have applied to, you will have different performan
 * How are you going to measure the engagement with your content? (I.e. newly populated land, Active Users, Returning Users, Time on Scene)
 
 **5- Social Media Content** performance metrics:
-* Please select the social media platforms where you will publish this content:
-	* Instagram
-	* Facebook
-	* TikTok
-	* Discord
-	* YouTube
-	* Twitter
-	* Twitch
-	* Other
+* Please select the social media platforms where you will publish this content, such as Instagram, Facebook, TikTok, Discord, YouTube, Twitter, Twitch, or Other
 * Tell us how your audience is relevant to Decentraland.
 * How many pieces of content are you planning to generate?
 * How many people do you plan to impact with this content?
@@ -119,12 +128,7 @@ Depending on the category you have applied to, you will have different performan
 
 **6- Sponsorship** performance metrics:
 * Event type (Online, Offline)
-* Please select the Event category:
-	* Conference
-	* Side event
-	* Community meetups
-	* Hackathon
-	* Other
+* Please select the Event category ( I.e. Conference, side event, community meetups, hackathon or other)
 * Is this grant the primary source of funding for this event?
 * How many events are you planning to organize?
 * How many people are you expecting to attend?
