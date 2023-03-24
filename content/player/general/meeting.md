@@ -13,7 +13,7 @@ Being a decentralized platform involves having different servers hosted by diffe
 
 There are two aspects to take into consideration when we talk about a place in Decentraland, the first one is the Realm or Server and the second one is the Position. 
 
-The platform currently has 11 servers that have friendly names such as Hela, Baldr or Loki and each server represents a realm. When you are logged into the platform, you are only be able to interact with users connected to the same realm that you are in. Finding or changing the realm is an easy process and there are several ways to do it. Once you are in-world you can click on your profile at the top right corner of the screen, this will open a window with different things that you can change or explore but what we are looking for is at the top left corner of the window, there you will see the realm name you are in: 
+The platform currently has 11 servers that have friendly names such as Hela, Baldr or Loki and each server represents a realm. When you are logged into the platform, you are only able to interact with users connected to the same realm that you are in. Finding or changing the realm is an easy process and there are several ways to do it. Once you are in-world you can click on your profile at the top right corner of the screen, this will open a window with different things that you can change or explore but what we are looking for is at the top left corner of the window, there you will see the realm name you are in: 
 
 
 ![realm](/images/media/realm.png)
@@ -22,7 +22,7 @@ If you click on the realm name, a new pop up window will be opened showing the c
 
 ![realms-list](/images/media/realms-list.png)
 
-Another way to jump to a different realm is to use one of the available chatbox commands, the commands are a common handy tools that every platform user should learn about. To change realm using a command you need to open the chat as if you were about to send a message to the nearby players and write the following message that starts with a forward slash `/changerealm [realm-name]`, replacing `[realm-name]` for the actual `name` of the realm that you want to go (there are different handy commands that you can explore using the `/help` command on the chatbox), for example `/changerealm loki` will take you to the Loki realm:  
+Another way to jump to a different realm is to use one of the available chatbox commands, the commands are a common handy tool that every platform user should learn about. To change realm using a command you need to open the chat as if you were about to send a message to the nearby players and write the following message that starts with a forward slash `/changerealm [realm-name]`, replacing `[realm-name]` for the actual `name` of the realm that you want to go (there are different handy commands that you can explore using the `/help` command on the chatbox), for example `/changerealm loki` will take you to the Loki realm:  
 
 ![change-realm](/images/media/change-realm.png)
 
@@ -46,7 +46,7 @@ At this point you should be at the meeting place, realm & location, so it's time
 
 
 **The TL;DR version**: 
-To meet with someone you need to be at the same realm and position. Use the Map view to move around or the realm selection window to change where you are. You can also use the `/changrealm [realm-name]` and `/goto [x,y]` commands te get to where you want. 
+To meet with someone you need to be in the same realm and position. Use the Map view to move around or the realm selection window to change where you are. You can also use the `/changerealm [realm-name]` and `/goto [x,y]` commands te get to where you want. 
 
 
 
