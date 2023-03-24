@@ -46,7 +46,7 @@ At this point you should be at the meeting place, realm & location, so it's time
 
 
 **The TL;DR version**: 
-To meet with someone you need to be in the same realm and position. Use the Map view to move around or the realm selection window to change where you are. You can also use the `/changrealm [realm-name]` and `/goto [x,y]` commands te get to where you want. 
+To meet with someone you need to be in the same realm and position. Use the Map view to move around or the realm selection window to change where you are. You can also use the `/changerealm [realm-name]` and `/goto [x,y]` commands te get to where you want. 
 
 
 
