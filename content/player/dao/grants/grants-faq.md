@@ -65,3 +65,4 @@ The Grant Support Squad will contact you and encourage you to submit it. They wi
 
 ## How can you request help?
 During your grant period, you can always contact the Grant Support Squad or ask for help to the community via the  [Decentraland DAO Discord server](https://discord.gg/WAU3hmFYNn).
+
