@@ -47,8 +47,15 @@ Once you click on ***Add Item***, you will get a window like the one shown below
 
 If you already have a collection and want to add more items to it, just click on Add Item and upload your file. You can add as many files as you want before publishing the collection.
 
-[AddMoreItems]({{< ref “/images/creating-a-collection/06_adding_more_items.png”>}})
+[AddMoreItems]({{< ref “/images/creating-a-collection/06_adding_more_items.png”>}}) *Remember: you cannot add, remove, or change the rarity of items after the collection is pubilshed.*
 
+Each item of the collection have:
+
+- Name of the item: this name will be displayed when distributing your wearable on the marketplace.
+- Description *(optional)*: A brief statement describing your item, this is displayed when distributing your wearable on the marketplace
+- Category - the component of an avatar’s body that your wearable modifies.
+- Rarity - the rarity determines the maximum number of NFTs you will be able to mint of your wearable after publication. This is the only property that cannot be modified after publishing a collection.
+- Tags *(optional)*: descriptive words that users can use when searching or filtering for items. These are relevant to competitions or events!
 
 ## **Rarity**
 
