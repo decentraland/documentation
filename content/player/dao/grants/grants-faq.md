@@ -47,7 +47,7 @@ There are two differents ways to change the beneficiary address:
 
 ## How to post updates on my proposal page?
 1. Go to your grant proposal page
-2. Sign in with the wallet address of the grant owner (who submitted the proposal)
+2. Sign in with the wallet address of the grant author(who submitted the proposal), or co-author if the proposal has any. 
 3. This will display a menu on the lower right of your grant proposal page, where you will find a red “POST UPDATE” button. 
 4. This action will provide a space to write about your project (“Introduction/highlights/blockers/next steps”) and to mark the project health (on track / at risk / off track) to submit your update.
 
