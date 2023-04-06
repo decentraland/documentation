@@ -9,7 +9,7 @@ url: /creator/wearables/creating-collection
 weight: 1
 ---
 
-[ManageCollectionBanner](/images/creating-a-collection/00_collections.png)
+<img src="/images/creating-a-collection/00_collections.png" width="300" />
 
 # **What is the Wearables Editor? [#](https://docs.decentraland.org/creator/wearables/wearables-editor-user-guide/#what-is-the-wearables-editor)**
 
@@ -28,21 +28,21 @@ Click **Sign in**, and then **Connect** to log in with your Metamask or Fortm
 
 Before you can upload a wearable or an emote, you must create a collection first. To do that, go to [https://builder.decentraland.org/](https://builder.decentraland.org/) and click on ***Collections***. If you don’t have any collections yet, click on the ***New Collection*** button, the one with an image of a folder. If you already have another collection, clikc on the ***+*** button and select ***New Collection***.
 
-[CreateCollection](/images/creating-a-collection/01_create_collection.png)
+<img src="/images/creating-a-collection/01_create_collection.png" width="300" />
 
-[AddCollection](/images/creating-a-collection/02_add_collection.png)
+<img src="/images/creating-a-collection/02_add_collection.png" width="300" />
 
 After clicking on the button, you will be asked to rename your collection, as shown bellow. In case you change your mind, you can edit the name of your collection at any point **before publishing**.
 
-[RenameCollection](/images/creating-a-collection/03_rename_collection.png)
+<img src="/images/creating-a-collection/03_rename_collection.png" width="300" />
 
 Now, you’re ready to add items to it. For that, just click on the button Add Item and just drag and drop the file with your wearable/emote or browse your computer.
 
-[AddItem](/images/creating-a-collection/04_add_item.png)
+<img src="/images/creating-a-collection/04_add_item.png" width="300" />
 
 Once you click on ***Add Item***, you will get a window like the one shown below. Just drag and drop the file with your wearable/emote or browse your computer.
 
-[AddNewItem](/images/creating-a-collection/05_new_item.png)
+<img src="/images/creating-a-collection/05_new_item.png" width="300" />
 
 If you already have a collection and want to add more items to it, just click on Add Item and upload your file. You can add as many files as you want before publishing the collection.
 

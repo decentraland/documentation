@@ -77,7 +77,7 @@ First, navigate to the **[Builder](https://builder.decentraland.org/)** and se
 
 To add collaborators, simply enter their Ethereum address, and click **Add**. You can add as many collaborators as you want. To remove a collaborator, simply click **Remove** next to the collaborator’s address.
 
-[AddCollaborator](/images/publishing-collections/add-collaborator.png)
+<img src="/images/publishing-collections/add-collaborator.png" width="300" />
 
 # **Selling items [#](https://docs.decentraland.org/creator/wearables/wearables-editor-user-guide/#selling-items)**
 
@@ -104,7 +104,7 @@ To sell your items via primary sales, begin by navigating to the **[Builder](ht
 
 To enable Primary Sales, click the ***On Sale*** toggle and click **Turn On** in the confirmation window that appears. When this switch is enabled, your collection will be available to purchase within the Decentraland store.
 
-[SellingItemsToggle](/images/publishing-collections/selling-items-toggle.png)
+<img src="/images/publishing-collections/selling-items-toggle.png" width="300" />
 
 If the switch is turned on, the Decentraland store will automatically mint one of your items whenever a user makes a primary purchase. This allows you to mint and sell all of your available items until the maximum supply is reached. If you want to save one or more of your items before listing them for sale, you need to manually mint an item to one of your own wallet addresses.
 
@@ -137,4 +137,4 @@ As with selling items in primary sales, you will not be able to mint any items w
 
 To add minters, simply enter their Ethereum address, and click **Add**. You can add as many minters as you want. To remove a minter, simply click **Remove** next to the minter’s address.
 
-[AddMinters](/images/publishing-collections/add-minters.png)
+<img src="/images/publishing-collections/add-minters.png" width="300" />
