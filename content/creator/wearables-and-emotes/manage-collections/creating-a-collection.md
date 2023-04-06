@@ -12,6 +12,8 @@ url: /creator/wearables/creating-wearables
 weight: 1
 ---
 
+[ManageCollectionBanner]({{< ref “/images/creating-a-collection/00_collections.png”>}})
+
 # **What is the Wearables Editor? [#](https://docs.decentraland.org/creator/wearables/wearables-editor-user-guide/#what-is-the-wearables-editor)**
 
 The Wearables Editor is a tool within Decentraland’s Builder that allows you to upload, add metadata to, and publish your own custom wearables.

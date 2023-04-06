@@ -4,7 +4,7 @@ title: Linked wearables
 aliases:
   - /wearables/linked-wearables/
   - /decentraland/linked-wearables/
-description: Wearable representations of 3rd party tokens
+description: Wearable Representations Of 3rd Party Tokens
 categories:
   - Decentraland
 type: Document
@@ -79,7 +79,7 @@ The passage threshold to become approved is 4 million Voting Power and the Votin
 
 After the DAO has approved the proposal, a group of Third Party managers will be assigned to operate with all of the Linked Wearables features.
 
-# Linked Wearables
+# **Linked Wearables**
 
 Linked Wearables are regular wearables mapped to external NFTs. The 3D model version of your NFTs that will be used as in-world wearables will have to be compliant with the same
 [guidelines]({{< ref "/content/creator/wearables/creating-wearables.md" >}}) as regular wearables.
@@ -91,7 +91,7 @@ To create a Linked Wearable, you will need to:
 
 We'll be seeing how to work with Linked Wearables in the sections down below.
 
-## Creating a Linked Wearable Collection
+## **Creating a Linked Wearable Collection**
 
 Creating a Linked Wearable collection is the first step into creating our Linked Wearables.
 
@@ -110,7 +110,7 @@ To create a new Linked Wearable follow these steps:
 We strongly recommend that you choose a name that is unique and descriptive for the collection and as the ID or URN of the collection, **the address of the NFT contract that will be mapped to the Linked Wearables**.
 Using the NFT address as the ID of your collection will prove to be helpful when creating the API.
 
-## Creating Linked Wearables one by one
+## **Creating Linked Wearables One By One**
 
 It's possible to, as it already happens with standard wearables, upload your wearables' 3D models one by one.
 
@@ -126,7 +126,7 @@ To do so, follow these steps:
 
 3. Follow the steps to upload and configure your wearable as it is described in the _Uploading an item_ section in the [wearables editor user guide]({{< ref "/content/creator/wearables/wearables-editor-user-guide.md" >}}).
 
-## Creating Linked Wearables in bulk
+## **Creating Linked Wearables In Bulk**
 
 As Linked Wearable collections can contain a big number of items, it is possible to upload the 3D models and the information of the wearables in bulk.
 

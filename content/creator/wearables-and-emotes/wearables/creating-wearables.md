@@ -1,7 +1,7 @@
 ---
 date: 2023-01-07
 title: Creating wearables
-description: Tips and guidelines for creating Decentraland wearables
+description: Tips and guidelines for creating Decentraland Wearables
 categories:
   - Decentraland
 type: Document
@@ -11,7 +11,9 @@ aliases:
 url: /creator/wearables/creating-wearables
 weight: 2
 ---
-# **Creating wearables**
+# **Creating Wearables**
+
+[CreatingWearablesBanner]({{< ref "/images/wearables/00_creating_wearables_banner.png">}})
 
 ## **Intro**
 
@@ -41,7 +43,7 @@ The Decentraland "avatar system" is the broad collection of different body compo
 
 The basic form of an avatar. Wearables can be assigned to one, or both, body shapes. Currently, there are two body shapes: A or B.
 
-[]({{< ref "/images/wearables/1_creating_wearables.png">}})
+[BodyShape]({{< ref "/images/wearables/1_creating_wearables.png">}})
 
 ### **Head** 
 
@@ -75,7 +77,7 @@ Boots, shoes, sandals, etc. are applied to this slot.
 
 [Feet]({{< ref "/images/wearables/5_feet.jpeg">}})
 
-# **Wearable Categories [#](https://docs.decentraland.org/creator/wearables/creating-wearables/#wearable-categories)**
+# **Wearable Categories**
 
 Each wearable has a specific category that determines which body part in the avatar system (e.g. head, upper body, etc.) the wearable will be applied to. Certain wearables will impact whether or not other wearables are rendered, depending on the specific category. Some wearables will entirely replace others with sometimes unexpected and surprising results. See the list below for details.
 
@@ -102,9 +104,9 @@ There are also accessories that can be applied to different areas of an avatar. 
 - **Hat** 
 - **Helmet** 
 
-# **Building 3D models for wearables [#](https://docs.decentraland.org/creator/wearables/creating-wearables/#building-3d-models-for-wearables)**
+# **Building 3D models for wearables**
 
-Let’s start to create some wearables!
+Before creating wearables but let's take a look at the limitations.
 
 ## **Limitations**
 
@@ -182,7 +184,7 @@ The second way to check if the normals are right is by toggling "Face orientatio
 [NormalsFace]({{< ref "/images/wearables/10_normals_face.png">}}) 
 
 
-### **Base Body Structure**
+## **Base Body Structure**
 
 After downloading the base avatar example file, load the model into your 3D editor, like Blender.
 
