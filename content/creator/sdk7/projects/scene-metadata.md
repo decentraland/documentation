@@ -145,7 +145,6 @@ Your scene might have objects that can block players from moving if they happen 
   "spawnPoints": [
     {
       "name": "spawn1",
-      "default": true,
       "position": {
         "x": 5,
         "y": 1,
@@ -164,7 +163,33 @@ The position is comprised of coordinates inside the scene. These numbers refer t
 
 ### Multiple spawn points
 
-A single scene can have multiple spawn points. This is useful to limit the overlapping of players if they all visit a scene at the same time. To have many spawn points, simply list them as an array.
+A single scene can have multiple spawn points. This is especially useful in large scenes, to prevent players from spawning too far away from the coordinates where they originally intended to load. To have many spawn points, simply list them as an array.
+
+```json
+  "spawnPoints": [
+    {
+      "name": "spawn1",
+      "position": {
+        "x": 5,
+        "y": 1,
+        "z": 4
+      }
+	},
+	{
+      "name": "spawn2",
+      "position": {
+        "x": 3,
+        "y": 1,
+        "z": 1
+      }
+    }
+  ],
+```
+
+When there are multiple spawn points, the one that's closest to the coordinates indicated by the player is picked.
+
+If a coordinate is marked as `default`, it will always be used, regardless of if it's the closest. If multiple spawn points are marked as `default`, the closest one of these is picked.
+
 
 ```json
   "spawnPoints": [
@@ -178,8 +203,7 @@ A single scene can have multiple spawn points. This is useful to limit the overl
       }
 	},
 	{
-      "name": "spawn2",
-      "default": true,
+      "name": "not-used",
       "position": {
         "x": 3,
         "y": 1,
@@ -189,8 +213,6 @@ A single scene can have multiple spawn points. This is useful to limit the overl
   ],
 ```
 
-Spawn points marked as `default` are given preference. When there are multiple spawn points marked as `default`, one of them will be picked randomly from the list.
-
 ### Spawn regions
 
 You can set a whole region in the scene to act as a spawn point. By specifying an array of two numbers on any of the dimensions of the position, players will appear in a random location within this range of numbers. This helps prevent the overlapping of entering players.
@@ -198,8 +220,7 @@ You can set a whole region in the scene to act as a spawn point. By specifying a
 ```json
   "spawnPoints": [
     {
-      "name": "spawn1",
-      "default": true,
+      "name": "region",
       "position": {
         "x": [1,5],
         "y": [1,1],
@@ -211,6 +232,31 @@ You can set a whole region in the scene to act as a spawn point. By specifying a
 
 In the example above, players may appear anywhere in the square who's corners are on _1,1,2_ and _5,1,4_.
 
+A scene can also have multiple spawn regions, just like it can have multiple spawn points.
+
+
+```json
+  "spawnPoints": [
+    {
+      "name": "region1",
+      "position": {
+        "x": [1,5],
+        "y": [1,1],
+        "z": [2,4]
+      }
+    },
+      {
+      "name": "region2",
+      "position": {
+        "x": [1,5],
+        "y": [1,1],
+        "z": [6,8]
+      }
+    }
+  ],
+```
+
+
 ### Rotation
 
 You can also specify the rotation of players when they spawn, so that they're facing in a specific direction. This allows you to have better control over their first impression, and can be useful when wanting to help steer them towards a specific direction.
@@ -221,7 +267,6 @@ Simply add a `cameraTarget` field to the spawn point data. The value of `cameraT
   "spawnPoints": [
     {
       "name": "spawn1",
-      "default": true,
       "position": {
         "x": 5,
         "y": 1,

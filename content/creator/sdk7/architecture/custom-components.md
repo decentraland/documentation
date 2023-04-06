@@ -20,7 +20,7 @@ To define a new component, use `engine.defineComponent`. Each component needs th
 
 - An **componentName**: A unique string identifier that the SDK uses internally to identify this component type. This can be any string, as long as it's unique.
 - A **schema**: A class that defines the data structure held by the component.
-
+- **default values** _(optional)_: An object containing default values to use for initializing a copy of the component, when these are not provided. 
 
 ```ts
 export const WheelSpinComponent = engine.defineComponent(
@@ -200,7 +200,7 @@ const MySchema = {
   }
 ```
 
-### Custom schema types
+### Nested schema types
 
 
 To set the type of a field to be an object, use `Schemas.Map()`. Pass the contents of this object as a property. This nested object is essentially a schema itself, nested within the parent schema.
@@ -252,6 +252,48 @@ const MyCurveSchema = {
 }
 
 ```
+
+## Default values
+
+It's often good to have default values in your components, so that it's not necessary to explicitly set each value every time you create a new copy.
+
+The `engine.defineComponent()` function takes in a third argument, that lets you pass an object with values to use by default. This object can include some or all of the values in the schema. Values that are not provided in the defaults will need to always be provided when initializing a copy of the component.
+
+
+```ts
+// Definition
+
+//// schema
+const mySchema = {
+	spinning: Schemas.Boolean,
+	speed: Schemas.Float
+}
+
+//// defaults
+const myDefaultValues = {
+	spinning: true,
+	speed: 1
+}
+
+//// component
+export const WheelSpinComponent = engine.defineComponent("WheelSpinComponent", mySchema, myDefaultValues)
+
+
+// Usage
+
+//// Create entities
+const wheel = engine.addEntity()
+const wheel2 = engine.addEntity()
+
+//// initialize component using default values
+WheelSpinComponent.create(wheel)
+
+//// initialize component with one custom value, using default for any others
+WheelSpinComponent.create(wheel2, { speed: 5})
+```
+
+The above example creates a `WheelSpinComponent` component that includes both a schema and a set of default values to use. If you then initialize a copy of this component without specifying any values, it will use those set in the default. 
+
 
 ## Building systems to use a component
 
