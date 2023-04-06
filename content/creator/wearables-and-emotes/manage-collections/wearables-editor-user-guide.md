@@ -16,7 +16,7 @@ weight: 4
 
 The Wearables Editor is a tool within Decentraland’s Builder that allows you to upload, add metadata to, and publish your own custom wearables.
 
-> Remember: these docs don’t explain how to create the models, meshes, and textures that make up wearables, they just explain how to use the Wearables Editor to upload and publish your wearables. For an intro on the actual wearable creation process, [start here]({{< ref "/content/creator/wearables/creating-wearables.md" >}}).
+> Remember: these docs don’t explain how to create the models, meshes, and textures that make up wearables, they just explain how to use the Wearables Editor to upload and publish your wearables. For an intro on the actual wearable creation process, [start here]({{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >}}).
 
 ### Logging in
 
@@ -67,7 +67,7 @@ Then, in the editor tool, go to properties and add the other one.
 
 The mouth, eyes and eyebrows category have a different behaviour in the tool, because these are just .pngs files. To upload these just drag and drop the png file as a transparent image (256px X 256PX). Mouth is going to be automatically tinted by skin color, same for the eyebrows tinted by the hair color.
 
-If you want the asset to be masked, so a part of the mouth or eyebrows is not affected by the tinting you would need to both zip files and then drag them to the tool. 
+If you want the asset to be masked, so a part of the mouth or eyebrows is not affected by the tinting you would need to both zip files and then drag them to the tool.
 
 {{< hint warning >}}
 **📔 Note**  : remember that png name of the mask should end with suffix "\_mask" in order to work.**
@@ -205,7 +205,7 @@ After reviewing your total fee, click **Next**.
 > **Warning!**
 > You will not be able to add or remove items in your collection after beginning the publication process. You will be able to see your items within the Decentraland Marketplace, but they will not be able to be bought, sold, or transferred until they have been approved.
 
-For more detailed information on the publication and approval process, see [Publishing Wearables]({{< ref "/content/creator/wearables/publishing-wearables.md" >}}).
+For more detailed information on the publication and approval process, see [Publishing Wearables]({{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md" >}}).
 
 When you are ready, click **Publish** and sign the message when prompted by your wallet.
 

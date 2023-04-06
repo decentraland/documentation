@@ -13,7 +13,7 @@ weight: 2
 ---
 # **Creating Wearables**
 
-[CreatingWearablesBanner]({{< ref "/images/wearables/00_creating_wearables_banner.png">}})
+<img src="/images/wearables/00_creating_wearables_banner.png" />
 
 ## **Intro**
 
@@ -43,9 +43,9 @@ The Decentraland "avatar system" is the broad collection of different body compo
 
 The basic form of an avatar. Wearables can be assigned to one, or both, body shapes. Currently, there are two body shapes: A or B.
 
-[BodyShape]({{< ref "/images/wearables/1_creating_wearables.png">}})
+<img src="/images/wearables/1_creating_wearables.png" />
 
-### **Head** 
+### **Head**
 
 The head includes several different meshes:
 
@@ -57,25 +57,25 @@ The head includes several different meshes:
 
 **Mouth Mesh:** The mouth mesh works as a transparency mask, and is used to create different mouth styles.
 
-[Head]({{< ref "/images/wearables/2_avatar_head.jpeg">}})
+<img src="/images/wearables/2_avatar_head.jpeg" />
 
 ### **Upper Body**
 
 The upper body, or torso, of an avatar includes the arms and hands. All upper body wearables are applied to the entire torso.
 
-[UpperBody]({{< ref "/images/wearables/3_upper_body.jpeg">}})
+<img src="/images/wearables/3_upper_body.jpeg" />
 
 ### **Lower Body**
 
 The lower body includes the pelvis, legs, and ankles of an avatar.
 
-[LowerBody]({{< ref "/images/wearables/4_lower_body.jpeg">}})
+<img src="/images/wearables/4_lower_body.jpeg" />
 
 ### **Feet**
 
 Boots, shoes, sandals, etc. are applied to this slot.
 
-[Feet]({{< ref "/images/wearables/5_feet.jpeg">}})
+<img src="/images/wearables/5_feet.jpeg" />
 
 # **Wearable Categories**
 
@@ -129,12 +129,12 @@ There are limits for the number of triangles and textures that can be used for e
 
 *If the wearable hide other wearables the creator is allowed to combine the tris per slot. For example: if you want to do a jumpsuit you could create it using the upper body category hiding lower body; in that case you could have 1.5K*2= 3K triangles.*
 
-In the case of the helmet, if you hide all the wearables from the head (head, earrings, eyewear, tiara, hat, facial_hair, hair and top_head you can reach the 4k tris and 2 materials and 2 textures) 
+In the case of the helmet, if you hide all the wearables from the head (head, earrings, eyewear, tiara, hat, facial_hair, hair and top_head you can reach the 4k tris and 2 materials and 2 textures)
 {{< /hint >}}
 
 #### **Max width, height and depth dimension of the wearables**
 
-There is a distance limit for wearables to ensure that they do not obstruct the visibility of other players screens or invading the scene space in an excessive way. 
+There is a distance limit for wearables to ensure that they do not obstruct the visibility of other players screens or invading the scene space in an excessive way.
 
 The dimension for the wearables cannot exceed:
 
@@ -144,20 +144,21 @@ The dimension for the wearables cannot exceed:
 
 **`Depth: 1,4 m`**
 
-[MaxWidth&Height]({{< ref "/images/wearables/12_max_width_height.png">}}) 
-[MaxDepth]({{< ref "/images/wearables/13_max_depth.png">}})
+<img src="/images/wearables/12_max_width_height.png">
+<img src="/images/wearables/12_max_width_height.png" />
+<img src="/images/wearables/13_max_depth.png" />
 
 ### **Maps**
 
 Decentraland supports 3 types of maps to texture your **Avatars/Wearables** Which are:
 
-[Maps]({{< ref "/images/wearables/6_maps.png">}})
+<img src="/images/wearables/6_maps.png" />
 
 1. **Base Color**: This is the main texture with the colors and details of your model.
 2. **Emission**: This map is for the parts that are glowing in your model. The emission map goes in a separated material specifically for emission.
 3. **Alpha**: This map is to handle transparency. It uses the opacity channel of the texture.
 
-[Maps]({{< ref "/images/wearables/7_alpha.png">}})
+<img src="/images/wearables/7_alpha.png" />
 
 Since Image textures in blender have a Color and Alpha output you can use the color texture and the opacity texture in the same material.
 
@@ -176,12 +177,12 @@ Decentraland engine render only one side normals. (That means that a plane only 
 
 The first one is to toggle the "Backface culling" on the Material properties settings, this is a good practice for spot inverted normals, like in this image:
 
-[Normals]({{< ref "/images/wearables/8_normals.gif">}}) 
-[BackfaceCulling]({{< ref "/images/wearables/9_backface_culling.png">}}) 
+<img src="/images/wearables/8_normals.gif"" />
+<img src="/images/wearables/9_backface_culling.png" />
 
 The second way to check if the normals are right is by toggling "Face orientation" on the viewport overlay options. It will turn your model blue, but don’t worry. The blue faces are the correct ones and the red ones are the ones that needs to be corrected, you can find this option here:
 
-[NormalsFace]({{< ref "/images/wearables/10_normals_face.png">}}) 
+<img src="/images/wearables/10_normals_face.png" />
 
 
 ## **Base Body Structure**
@@ -195,7 +196,7 @@ You’ll notice that each model contains 7 different meshes related to an armatu
 
 Each part of the body has caps, making them "water tight". These caps exist to prevent unsightly glitches if there are any animation clipping problems due to bad skin weighting. It’s best to not remove these caps when editing the mesh.
 
-[BodyParts]({{< ref "/images/wearables/14_body_parts.png">}})
+<img src="/images/wearables/14_body_parts.png" />
 
 ### **Eyebrows, Eyes and Mouth**
 
@@ -203,30 +204,30 @@ These meshes work with a transparent shader so you don’t have to do anything a
 
 Here are some example png textures:
 
-[Eyes]({{< ref "/static/images/wearables/21_eyes.png">}})
-[Eyebrows]({{< ref "/static/images/wearables/22_eyebrows.png">}})
-[EyesMask]({{< ref "/static/images/wearables/23_eyes_mask_uv.png">}})
+<img src="/images/wearables/21_eyes.png" width="300" />
+<img src="/images/wearables/22_eyebrows.png" width="300" />
+<img src="/images/wearables/23_eyes_mask_uv.png" width="300" />
 
 Eyes and Eyewbrows use the same mesh and UV map.
 
-[Mouth]({{< ref "/static/images/wearables/24_mouth.png">}})
-[MouthMask]({{< ref "/static/images/wearables/25_mouth_mask_uv.png">}})
+<img src="/images/wearables/24_mouth.png" width="300" />
+<img src="/images/wearables/25_mouth_mask_uv.png" width="300" />
 
 Mouth mesh and UV map.
 
 Nodes:To visualize the final result you’ll need to use these nodes (in Blender):
 
-[EyesNodes]({{< ref "/static/images/wearables/26_eyes_nodes.png">}})
-[EyesAlpha]({{< ref "/static/images/wearables/27_eyes_alpha.png">}})
+<img src="/images/wearables/26_eyes_nodes.png" width="300" />
+<img src="/images/wearables/27_eyes_alpha.png" width="300" />
 
 Masks: The Avatar Editor has different color options where users can choose from when selecting eyes.
 
-[EyesEditor]({{< ref "/static/images/wearables/28_eyes_tone.png">}})
+<img src="/images/wearables/28_eyes_tone.png" width="300" />
 
 These color choices are applied to a specific mask in the wearable.
 
-[EyesMask]({{< ref "/static/images/wearables/29_eyes_mask.png">}})
-[EyesBase]({{< ref "/static/images/wearables/30_eyes_base.png">}})
+<img src="/images/wearables/29_eyes_mask.png" width="300" />
+<img src="/images/wearables/30_eyes_base.png" width="300" />
 
 The black area in the image on the left (Eyes Mask) indicates the area of the texture on the right (Eyes Base) that will be colored. It’s important to remember that irises always need to have a grey scale (if the iris is pure black, the tint isn’t going to work. By the contrary, if the iris is pure white it would be fully tinted by the selected color using the editor).
 
@@ -236,12 +237,12 @@ There are two important things to remember when creating custom hair wearables.
 
 First, try to follow the shape of the head. You can always refer to the head mesh provided in the example files if you need a place to start.
 
-[HairBase]({{< ref "/static/images/wearables/31_hair_base.png">}})
+<img src="/images/wearables/31_hair_base.png" width="300" />
 
-Second, if you want users to be able to change the color of your custom hair or facial hair using the avatars editor, then you must paint the hair in grayscale and use "Hair" in the naming (example "M_Hair_Short"). If you want to include other object which doesn't is influenced by tint just don't add the that naming convention. 
+Second, if you want users to be able to change the color of your custom hair or facial hair using the avatars editor, then you must paint the hair in grayscale and use "Hair" in the naming (example "M_Hair_Short"). If you want to include other object which doesn't is influenced by tint just don't add the that naming convention.
 
-[HairMat]({{< ref "/static/images/wearables/32_hair_mat.png">}})
-[HairTX]({{< ref "/static/images/wearables/33_hair_tx.png">}})
+<img src="/images/wearables/32_hair_mat.png" width="300" />
+<img src="/images/wearables/33_hair_tx.png" width="300" />
 
 Lower shades of gray will appear darker and higher shades of gray will appear brighter, but always in the color selected by the user in the avatar editor.
 
@@ -250,42 +251,42 @@ Lower shades of gray will appear darker and higher shades of gray will appear br
 
 There are two basic materials for avatar models. One is the material used for the wearable itself and the other one is used for the skin.
 
-[Materials]({{< ref "/images/wearables/15_avatar_skin_mat.png">}})
+<img src="/images/wearables/15_avatar_skin_mat.png" />
 
 Each base mesh comes with its own skin texture.
 
-[SkinAvatarShapeA]({{< ref "/images/wearables/16_Avatar_MaleSkinBase.png">}})
+<img src="/images/wearables/16_Avatar_MaleSkinBase.png" />
 
-[SkinAvatarShapeB]({{< ref "/images/wearables/17_Avatar_FemaleSkinBase.png">}})
+<img src="/images/wearables/17_Avatar_FemaleSkinBase.png" />
 
 The skin texture is made in grayscale so it allows the render engine to tint the skin of the avatar using the editor according to the user’s preference.
 
-[SkinTone]({{< ref "/images/wearables/18_skin_tone.png">}})
+<img src="/images/wearables/18_skin_tone.png" />
 
 {{< hint warning >}}
 Important: always preserve the UV mapping for any body part that is exposed by a wearable, like the legs exposed by the shorts or skirts.
 {{< /hint >}}
 
-[SkinUV]({{< ref "/images/wearables/19_skin_uv.png">}})
+<img src="/images/wearables/19_skin_uv.png" />
 
 You can create custom textures for your wearables! However, it’s always best to use a single, very small, texture file for each wearable. Using the default AvatarWearable_MAT texture provided in the example files will guarantee that your wearables are performant!
 
-[WearablesUV]({{< ref "/static/images/wearables/20_wearables_uv.png">}})
+<img src="/images/wearables/20_wearables_uv.png" width="300" />
 
 {{< hint warning >}}
 ✨ In the case you want to do your own textures for the model we recommend the following addons for better UV Unwrapping:
 
 **UVPacker**
 
-UvPacker is a free addon that helps you to pack and organize your uvs with just a few clicks. As Decentraland works with 512x for the wearables this tool is a great assist to create better and more organized textures. 
+UvPacker is a free addon that helps you to pack and organize your uvs with just a few clicks. As Decentraland works with 512x for the wearables this tool is a great assist to create better and more organized textures.
 
-You can download directly from the website here: 
+You can download directly from the website here:
 
 [**https://www.uv-packer.com/download/**](https://www.uv-packer.com/download/)
 
 **UVToolKit**
 
-UvToolKit is a addon that helps you to expand your UV settings and options to create great UVs in blender. 
+UvToolKit is a addon that helps you to expand your UV settings and options to create great UVs in blender.
 
 Here is the link for the download:
 [**https://alexbel.gumroad.com/l/NbMya**](https://alexbel.gumroad.com/l/NbMya)
@@ -300,11 +301,11 @@ When skin weighting our new wearables, there are several considerations we need 
 
 Each asset must be weighted to the full skeleton. For example, an upper body asset will look like this when applying skin weights:
 
-[Rig]({{< ref "/static/images/wearables/34_rig.png">}})
+<img src="/images/wearables/34_rig.png" width="300" />
 
 Wearables that meet at intersections between body parts must be fully weighted to the same bone. For example, in these two green zones, the vertices in the neck need to be fully weighted to the "Neck" bone only.
 
-[HeadCuts]({{< ref "/static/images/wearables/35_head_cuts.png">}})
+<img src="/images/wearables/35_head_cuts.png" width="300" />
 
 ### **Key Bones**
 
@@ -336,55 +337,55 @@ When you’re making wearables, the best way to visualize the final result, and 
 
 1. First select the upper body, then you have to toggle "**Edit mode**" and "**On cage**" in the armature modifier.
 
-[APose]({{< ref "/static/images/wearables/36_60_1.gif">}})
+<img src="/images/wearables/36_60_1.gif" width="300" />
 
 2. Now, in pose mode you can rotate the arms 60°.
 
-[APose]({{< ref "/static/images/wearables/37_60_2.gif">}})
+<img src="/images/wearables/37_60_2.gif" width="300" />
 
 3. You can edit your mesh in A-Pose instead of T-pose.
 
-[APose]({{< ref "/static/images/wearables/38_60_3.gif">}})
+<img src="/images/wearables/38_60_3.gif" width="300" />
 
 4. But it is also good to keep in mind that you can easily alternate from A-Pose to T-Pose just toggling back the "Edit mode" and "On cage" in the armature modifier.
 
-[APose]({{< ref "/static/images/wearables/39_60_4.gif">}})
+<img src="/images/wearables/39_60_4.gif" width="300" />
 
 ## **Joint deformation:**
 
 In order to get the best results on the wearable topology when it comes to joints (arms or legs, for example) it's important to have good practices when creating loops. Here we can see the difference on the deformation of the mesh for different loop cuts:
 
-[JointDeformation]({{< ref "/static/images/wearables/40_joints.gif">}})
+<img src="/images/wearables/40_joints.gif" width="300" />
 
 A good way to ensure that everything is deforming correctly is to do a weight paint like the following example:
 
-[JointDeformation_01]({{< ref "/static/images/wearables/41_joint_weight.png">}})
+<img src="/images/wearables/41_joint_weight.png" width="300" />
 
-[JointDeformation_02]({{< ref "/static/images/wearables/42_joint_weight_02.png">}})
+<img src="/images/wearables/42_joint_weight_02.png" width="300" />
 
 ## **Skirts**
 
 A useful tip and good practice when modeling skirts/dresses is to add additional loopcuts in the intersections of the folds. This will be very handy when you have to paint the weights of the rig.
 
-[Skirt]({{< ref "/static/images/wearables/43_skirt.png">}})
+<img src="/images/wearables/43_skirt.png" width="300" />
 
 With this loopcuts the vertex influence look a lot more smooth and give you better results when you’re animating a skirt/dress.
 
 Here is an example of how the bone influence should be:
 
-[Skirt]({{< ref "/static/images/wearables/44_skirt.gif">}})
+<img src="/images/wearables/44_skirt.gif" width="300" />
 
 ## **Hats**
 
 A good practice when creating hats is to add a hair to the base mesh of the hat and then hide the category *hair* using the editor. Doing this is going to prevent that the hat clips with other hairs and reduce unexpected results.
 
-[Hat]({{< ref "/static/images/wearables/45_hat.png">}})
+<img src="/images/wearables/45_hat.png" width="300" />
 
 ## **Add Polygon Count**
 
 A valuable tip is to always keep on track of the polycount of your models. To do that in blender you need to turn on statistics on the viewport overlays panel.
 
-[PolyCount]({{< ref "/static/images/wearables/46_poly_count">}})
+<img src="/images/wearables/46_poly_count" width="300" />
 
 # **Resources**
 

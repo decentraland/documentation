@@ -8,15 +8,15 @@ description: A description of the publication and approval process for Decentral
 categories:
   - Decentraland
 type: Document
-url: /creator/wearables/publishing-wearables
+url: /creator/wearables/publishing-collections
 weight: 3
 ---
 # **Publishing Collections**
-For detailed instructions on how to submit your wearable collection for approval before publication, see the [User Guide](https://docs.decentraland.org/decentraland/wearables-editor-user-guide/). This document explains how the approval process works when publishing wearables, and what criteria is used by the Curation Committee when reviewing wearables. For detailed information on the Curation Committee, [start here]({{< ref "/content/creator/wearables/curation-committee.md" >}}).
+For detailed instructions on how to submit your wearable collection for approval before publication, see the [User Guide](https://docs.decentraland.org/decentraland/wearables-editor-user-guide/). This document explains how the approval process works when publishing wearables, and what criteria is used by the Curation Committee when reviewing wearables. For detailed information on the Curation Committee, [start here]({{< ref "/content/creator/wearables-and-emotes/publishing/curation-committee.md" >}}).
 
 ## **The publication process**
 
-1. After clicking “Publish” on your completed proposal, it will be submitted to the Curation Committee for approval. Collections pending approval will be flagged as “Under Review”.
+1. After clicking "Publish" on your completed proposal, it will be submitted to the Curation Committee for approval. Collections pending approval will be flagged as "Under Review".
 2. Any collections pending approval from the Curation Committee may not be minted until the approval process is completed.
 3. Each time you publish a new collection, a post is automatically created on the Decentraland Forum, providing a list and overview of each item in the collection. This Forum post gives the community and the Curation Committee a space to share feedback or request any changes that you need to make before your collection can be approved.
 4. If there are changes you need to make, the Curation Committee will notify you in the Forum thread for your collection.
@@ -26,9 +26,9 @@ For detailed instructions on how to submit your wearable collection for approval
 
 ## **Publication fees**
 
-There is a required fee for publishing items. This fee was originally [voted in place by the Decentraland DAO](https://governance.decentraland.org/proposal/?id=50092c00-c315-11eb-ac84-1705d1ae4a66) to deter users from publishing an excessive number of wearables in an attempt to “spam” the wearables market.
+There is a required fee for publishing items. This fee was originally [voted in place by the Decentraland DAO](https://governance.decentraland.org/proposal/?id=50092c00-c315-11eb-ac84-1705d1ae4a66) to deter users from publishing an excessive number of wearables in an attempt to "spam" the wearables market.
 
-The [most recent vote](https://governance.decentraland.org/proposal/?id=b8075360-e8e7-11ec-82d9-d917cdd158ac) regarding publication fees has pegged them to a fixed amount of 150 United States dollars per item, to be paid in **Polygon MANA**. 
+The [most recent vote](https://governance.decentraland.org/proposal/?id=b8075360-e8e7-11ec-82d9-d917cdd158ac) regarding publication fees has pegged them to a fixed amount of 150 United States dollars per item, to be paid in **Polygon MANA**.
 
 {{< hint warning >}}
 **📔 Note**: You can move MANA between Ethereum and Polygon using the [Account dApp](https://account.decentraland.org).
@@ -59,7 +59,7 @@ Please refer to the full Content Policy [here](https://decentraland.org/content/
 
 **In addition to the Content Policy, the committee may reject wearable submissions on the following technical conditions:**
 
->- It is important that wearables be “skin weighted” correctly so that the avatar animations can be rendered as expected. Wearables without correct skin weighting will be rejected.
+>- It is important that wearables be "skin weighted" correctly so that the avatar animations can be rendered as expected. Wearables without correct skin weighting will be rejected.
 >- Wearables must preserve avatar UV mapping to ensure that user-selected skin tones can be rendered as expected.
 >- The dimensions of eyebrow, eye, and mouth textures should not exceed 256 by 256px, and these textures must include an alpha channel for transparency.
 >- Wearables with a disproportionate number of triangles and textures may be rejected. Wearables with too many triangles and textures can result in poor performance and a bad experience for users, so creators should avoid exceeding the following guidelines when creating wearables. For more info check the limitations here: **/creating-wearables**
@@ -77,7 +77,7 @@ First, navigate to the **[Builder](https://builder.decentraland.org/)** and se
 
 To add collaborators, simply enter their Ethereum address, and click **Add**. You can add as many collaborators as you want. To remove a collaborator, simply click **Remove** next to the collaborator’s address.
 
-[AddCollaborator]({{< ref “/images/publishing-collections/add-collaborator.png”>}})
+[AddCollaborator](/images/publishing-collections/add-collaborator.png)
 
 # **Selling items [#](https://docs.decentraland.org/creator/wearables/wearables-editor-user-guide/#selling-items)**
 
@@ -104,7 +104,7 @@ To sell your items via primary sales, begin by navigating to the **[Builder](ht
 
 To enable Primary Sales, click the ***On Sale*** toggle and click **Turn On** in the confirmation window that appears. When this switch is enabled, your collection will be available to purchase within the Decentraland store.
 
-[SellingItemsToggle]({{< ref “/images/publishing-collections/selling-items-toggle.png”>}})
+[SellingItemsToggle](/images/publishing-collections/selling-items-toggle.png)
 
 If the switch is turned on, the Decentraland store will automatically mint one of your items whenever a user makes a primary purchase. This allows you to mint and sell all of your available items until the maximum supply is reached. If you want to save one or more of your items before listing them for sale, you need to manually mint an item to one of your own wallet addresses.
 
@@ -131,10 +131,10 @@ In other words, anybody who owns an NFT for a wearable can sell it in the Decent
 
 Minting is the process of creating the actual non-fungible tokens (NFTs) based on the items you’ve uploaded to the Wearables Editor.
 
-As with selling items in primary sales, you will not be able to mint any items within a collection until the review process is complete. If your collection is still under review, you will see the tag **“Under Review”** appended to your collection. After it has been reviewed and approved, the tag will change to **“Published”**, and you can begin minting your items manually.
+As with selling items in primary sales, you will not be able to mint any items within a collection until the review process is complete. If your collection is still under review, you will see the tag **"Under Review"** appended to your collection. After it has been reviewed and approved, the tag will change to **"Published"**, and you can begin minting your items manually.
 
 ### **Adding Minters to the Collection**
 
 To add minters, simply enter their Ethereum address, and click **Add**. You can add as many minters as you want. To remove a minter, simply click **Remove** next to the minter’s address.
 
-[AddMinters]({{< ref “/images/publishing-collections/add-minters.png”>}})
+[AddMinters](/images/publishing-collections/add-minters.png)

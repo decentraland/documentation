@@ -33,7 +33,7 @@ return false
 
 # **Wearables Overview**
 
-[WearablesOverview]({{< ref "/images/wearables-overview/00_wearables_overview.png.png">}}). 
+<img src="/images/wearables-overview/00_wearables_overview.png" alt="WearablesOverview" width="400"/>
 
 ## **What are wearables?**
 
@@ -49,8 +49,8 @@ By default, Decentraland Wearables are minted on the Polygon/Matic side-chain so
 - Hair
 - Facial hair
 - Head
-- Upper body 
-- Lower body 
+- Upper body
+- Lower body
 - Feet
 - Skin
 
