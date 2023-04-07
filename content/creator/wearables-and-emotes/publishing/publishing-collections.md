@@ -129,9 +129,34 @@ In other words, anybody who owns an NFT for a wearable can sell it in the Decent
 
 ## **Minting wearables [#](https://docs.decentraland.org/creator/wearables/wearables-editor-user-guide/#minting-wearables)**
 
-Minting is the process of creating the actual non-fungible tokens (NFTs) based on the items you’ve uploaded to the Wearables Editor.
+Minting is the process of creating the actual non-fungible tokens (NFTs) based on the items you’ve uploaded to the Wearables Editor. 
+
+All wearables in Decentraland are minted on the Polygon sidechain. This allows users to mint and transfer items without paying any gas fees (so long as these transactions are conducted solely on the Polygon sidechain).
 
 As with selling items in primary sales, you will not be able to mint any items within a collection until the review process is complete. If your collection is still under review, you will see the tag **"Under Review"** appended to your collection. After it has been reviewed and approved, the tag will change to **"Published"**, and you can begin minting your items manually.
+
+### **How to manually mint your items**
+
+To mint published items, open the collection containing the items you’d like to mint, and click Mint Items.
+
+<img src="/images/publishing-collections/minting-items-1.png" width="300" />
+
+You will be shown a modal window containing a list of the items available along with the supply available for each. Remember, the supply is the total number of items you can mint. For example, if your supply reads 0/10, then you have used 0 out of your total supply of 10.
+
+<img src="/images/publishing-collections/minting-items-2.png" width="300" />
+
+When minting, you must set the address that will receive the minted items and you must set the number of items you want to mint to that address. You cannot mint more items than are available in the supply available.
+
+If you enter your own address, then the items that are minted will be transferred to your account.
+
+You can “gift” items to anyone you like by entering their address instead of your own under Address.
+
+Remember, these items are minted and transferred to the address entered for free. The price you set for items is only collected in primary sales.
+
+>📔 Note: You can currently only mint 50 items per transaction.
+
+Are there any fees associated with minting items? No, items are minted on the Matic sidechain, thus removing any fees traditionally associated with minting NFTs on the main Ethereum blockchain.
+
 
 ### **Adding Minters to the Collection**
 
