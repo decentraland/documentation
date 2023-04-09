@@ -1,0 +1,61 @@
+
+Autorización de aplicaciones de OAuth
+En este artículo
+Acceso a OAuth App
+Solicitar permisos actualizados
+OAuth Apps y organizaciones
+Información adicional
+Puedes conectar tu identidad GitHub con aplicaciones de terceros mediante OAuth. Al autorizar un OAuth App, deberías asegurarte de que confías en la aplicación, revisar quién la desarrolló y revisar los tipos de información a la que desea acceder la aplicación.
+
+Cuando un OAuth App quiere identificarte mediante tu cuenta de GitHub.com, verás una página con la información de contacto del desarrollador de la aplicación y una lista de los datos específicos que se están solicitando.
+
+Sugerencia: Debe comprobar su dirección de correo electrónico para poder autorizar una OAuth App.
+
+Acceso a OAuth App
+OAuth Apps pueden tener acceso de lectura o escritura a sus datos de GitHub.
+
+El acceso de lectura solo permite que una aplicación examine los datos.
+El acceso de escritura permite a una aplicación cambiar los datos.
+Sugerencia: Te recomendamos que revises frecuentemente tus integraciones autorizadas. Elimina cualquier aplicación y tokens que no se hayan utilizado en mucho tiempo. Para obtener más información, vea «Revisar tus integraciones autorizadas».
+
+Acerca de los alcances de OAuth
+Los alcances son grupos de permisos específicos que puede solicitar una OAuth App para acceder a datos públicos y no públicos.
+
+Cuando quieres usar una OAuth App que se integra con GitHub, la app te permite conocer qué tipo de acceso a tus datos serán necesarios. Si otorgas acceso a la app, la app podrá realizar acciones en tu nombre, como leer o modificar datos. Por ejemplo, si quiere usar una aplicación que solicita el ámbito user:email, la aplicación tendrá acceso de solo lectura a las direcciones de correo electrónico privadas. Para obtener más información, vea «Alcances para las Apps de OAuth».
+
+Nota: Actualmente, no se puede definir el alcance del acceso al código fuente como de solo lectura.
+
+Hay un límite de diez tokens que se emite por combinación de usuario/aplicación/alcance. Si una aplicación crea más de 10 tokens para el mismo usuario y los mismos alcances, se revocarán los tokens más antiguos con la misma combinación de usuario/aplicación/alcance.
+
+Tipos de datos solicitados
+Las OAuth Apps pueden solicitar diferentes tipos de datos.
+
+Tipo de datos	Descripción
+Estado de confirmación	Puedes otorgar acceso para una app para que informe tu estado de confirmación. El acceso al estado de confirmación permite que las apps determinen si una construcción es exitosa frente a una confirmación específica. Las apps no tendrán acceso a tu código, pero podrán leer y escribir el estado de la información frente a una confirmación específica.
+Implementaciones	El estado de implementación permite que las apps determinen si una implementación es exitosa frente a una confirmación específica para repositorios públicos y privados. Las apps no tendrán acceso a tu código.
+Gists	El acceso a gist permite que las aplicaciones lean o escriban en los gists públicos y secretos.
+Enlaces	El acceso a webhooks permite a las aplicaciones leer o escribir configuraciones de enlace en repositorios que usted administra.
+Notificaciones	El acceso a las notificaciones permite que las apps lean tus notificaciones de GitHub, como comentarios sobre propuestas y solicitudes de extracción. Sin embargo, las apps permanecen inhabilitadas para acceder a tus repositorios.
+Las organizaciones y los equipos	El acceso a organizaciones y equipos permite que las apps accedan y administren la membresía de la organización y del equipo.
+Datos de usuario personales	Entre los datos del usuario se incluye información que se encuentra en tu perfil de usuario, como tu nombre, dirección de correo electrónico y ubicación.
+Repositorios	La información del repositorio incluye los nombres de los colaboradores, las ramas que creaste y los archivos actuales dentro de tu repositorio. Las apps pueden solicitar acceso a repositorios públicos o privados a nivel del usuario.
+Eliminación de repositorio	Las apps pueden solicitar la eliminación de los repositorios que administras,, pero no tendrán acceso a tu código.
+Proyectos	Acceso a instancias de projects del usuario y la organización. Las aplicaciones pueden solicitar acceso de lectura y escritura o de solo lectura.
+Solicitar permisos actualizados
+Cuando las OAuth Apps solicitan permisos de acceso nuevos, te notificarán sobre las diferencias entre los permisos actuales y los permisos nuevos.
+
+OAuth Apps y organizaciones
+Al autorizar una OAuth App para tu cuenta personal, también verás cómo afectará la autorización a cada organización de la que seas miembro.
+
+Para las organizaciones con restricciones de acceso a OAuth App, puede solicitar que los administradores de la organización aprueben la aplicación para usarla dentro de la organización. Si la organización no aprueba la aplicación, esta solo podrá acceder a los recursos públicos de la organización. Si es administrador de la organización, puede aprobar la aplicación usted mismo.
+
+Para las organizaciones sin restricciones de acceso a OAuth App, la aplicación se autorizará automáticamente para el acceso a los recursos de la organización. Por este motivo, debe tener cuidado con qué OAuth Apps aprueba para que accedan a los recursos de su cuenta personal, así como a los recursos de la organización.
+
+Si perteneces a cualquier organización con el inicio de sesión único (SSO) de SAML habilitado y has creado una identidad vinculada para esa organización con la autenticación a través de SAML en el pasado, debes tener una sesión de SAML activa para cada organización cada vez que autorices un OAuth App.
+
+Nota: Si tienes problemas con un OAuth App o GitHub App autorizados que acceden a una organización protegida por SAML, es posible que tengas que revocar la aplicación de la página GitHub Apps autorizado o OAuth Apps autorizado, visitar la organización para autenticarte y establecer una sesión SAML activa y, a continuación, intentar volver a autorizar la aplicación accediendo a ella.
+
+Información adicional
+"Acerca de las restricciones de acceso a App OAuth"
+"Autorizar GitHub Apps"
+"Asistencia de Mercado GitHub"
