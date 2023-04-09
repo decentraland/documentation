@@ -40,7 +40,7 @@ You can deploy scenes with SDK7 via the **Publish Scene** button on the Editor.
 You can find more example scenes written with SDK7 here:
 
 - [SDK7 Scene Template](https://github.com/decentraland/sdk7-scene-template)
-- [Goerli Plaza](https://github.com/decentraland-scenes/sdk7-goerli-plaza)
+- [Goerli Plaza](https://github.com/decentraland/sdk7-goerli-plaza)
 
 <!-- ## Pending features
 
