@@ -16,13 +16,13 @@ weight: 1
 
 The Decentraland DAO possesses a [MANA fund]({{< ref "/content/player/dao/overview/the-dao-fund.md" >}})  that has been set aside to help sponsor and facilitate the continual growth of the Decentraland platform. One avenue used by the DAO to achieve these goals is a grants program that was voted in place by the community.
 
-This grants program allows any member of the community to request funding to help reimburse their efforts in community building and education, creating 3D content for the world, or implementing new features and improvements to the platform.
+This grants program allows any member of the community to request funding to make contributions in community building and education, creating 3D content for the world, or implementing new features and improvements to the platform.
 
-Grants can be requested bycompleting a proposal form within the [DAO](https://governance.decentraland.org/). If approved by the community, then the [DAO Committee]({{< ref "/content/player/dao/overview/how-does-the-dao-work.md#dao-committee" >}}) will execute the transfer of funds to the grant beneficiary by means of a one-time transfer, or a vesting contract.
+Grants can be requested by completing a proposal form within the [DAO](https://governance.decentraland.org/). If approved by the community, then the [DAO Committee]({{< ref "/content/player/dao/overview/how-does-the-dao-work.md#dao-committee" >}}) will execute the transfer of funds to the grant beneficiary by means of a one-time transfer, or a vesting contract.
 
 ## Grant categories and requirements
 
-Grant requests can fall under one of seven broad categories: **Core Unit, Platform, Documentation, In-world Content, Social Media Content, Sponsorship, and Accelerator.**These four categories represent areas of Decentraland that benefit most from community contributions.
+Grant requests can fall under one of seven broad categories: **Core Unit, Platform, Documentation, In-world Content, Social Media Content, Sponsorship, and Accelerator.** These categories represent areas of Decentraland that benefit most from community contributions.
 
 Every active grant must:
 * Comply with Decentraland’s [Content Policy](https://decentraland.org/content),  [Terms of Use](https://decentraland.org/terms), and [Code of Ethics](https://decentraland.org/ethics).
