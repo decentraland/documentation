@@ -1,6 +1,6 @@
 ---
 date: 2022-09-01
-title: Rigging features
+title: Rigging Features
 description: Features about the avatar rig and downloadable file.
 categories:
   - emotes
@@ -11,18 +11,8 @@ url: /creator/emotes/rig-features
 weight: 4
 ---
 
-# **Rigging features**
 
-## **Resources**
-This documentation explains the set up for Rig 1.0, its controls, and features.
-
-### Blend File for Rig 1.0
-
-[BaseMale_Rig_1.0.blend](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/BaseMale_Rig_1.0.blend)
-
-# Rig Structure and Features
-
-### Armature Transforms
+#### Armature Transforms
 
 These are the armature’s transforms in Object Mode with the controls’ setup. **Do not edit this in any way**. The rig should only be manipulated in Pose Mode. To avoid unwanted editing, the transforms have been locked in Object Mode.
 
@@ -33,7 +23,7 @@ _Rig 1.0 transforms._
 > **Warning**: **Never edit the rig in Object Mode.**
 
 
-### Bone Orientation
+#### Bone Orientation
 
 This is the bone orientation for Rig 1.0. As it is right now, it’s not possible to mirror behavior on the shoulders, arms, hands, or fingers.
 
@@ -45,7 +35,7 @@ _Axes for bone orientation._
 
 _Behavior when mirrorring poses._
 
-### Layers
+#### Layers
 
 To avoid any accidents and to make it easier to identify the controls, this rig is organized in layers that can be accessed in the *Object Data Properties* tab in Blender. The first set of layers (on the left) has all the controls needed for avatar animation. The second set (on the right) has constraint setups and the base skeleton; there’s no need to select those.
 
@@ -94,7 +84,7 @@ To see all the controls together, select all of the first top four and bottom 2n
 
 _The first set of layers has all the controls needed for animating._
 
-### Controls and Grouping
+#### Controls and Grouping
 
 Controls are non-deforming bones that drive the base skeleton. They have different colors depending on their category:
 
@@ -109,7 +99,7 @@ Controls are non-deforming bones that drive the base skeleton. They have differe
 
 _All the controls and their colors._
 
-## Custom Attributes and Setup
+#### Custom Attributes and Setup
 
 ### FK/IK Blend
 
@@ -145,8 +135,7 @@ _Isolate rotation attribute for the head._
 
 _How the IsoRot attribute for the head works._
 
-> **Warning**: When animating, even if all controls have been selected and key framed, these custom attributes won’t be automatically key framed. Make sure to manually insert a keyframe in each attribute so you don’t lose the pose/motion you created or, in Blender 3.1, press I, then select Location, Rotation, Scale & Custom Properties.
-
+{{< hint warning >}} **Warning**: When animating, even if all controls have been selected and key framed, these custom attributes won’t be automatically key framed. Make sure to manually insert a keyframe in each attribute so you don’t lose the pose/motion you created or, in Blender 3.1, press I, then select Location, Rotation, Scale & Custom Properties. {{< /hint >}}
 
 ![In previous versions of Blender, make sure to keyframe all the controls and custom attributes!](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/custom_attributes.gif)
 

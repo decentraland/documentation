@@ -9,7 +9,7 @@ aliases:
   - /wearables/creating-wearables/
   - /decentraland/creating-wearables/
 url: /creator/wearables/creating-wearables
-weight: 1
+weight: 2
 ---
 
 <img src="/images/wearables-and-emotes/wearables/00_creating_wearables_banner.png" width="1200" />

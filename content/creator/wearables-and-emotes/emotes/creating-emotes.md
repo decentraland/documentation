@@ -11,32 +11,31 @@ url: /creator/emotes/creating-and-exporting-emotes
 weight: 2
 ---
 
-# **Creating Emotes**
-
 This documentation will cover the file specifications, the basics of animation in Blender, the proper way to export an Emote, and how to import one into the Builder.
 
 ### Animation Specs Chart
 
-| Frame Rate | 30 fps |
-| --- | --- |
-| Max Length | 10 seconds (300 frames) |
-| Animations per File | 1 |
-| Export Format | .glb |
-| Sampling Rate | 2 or 3 (if needed) |
-| Max File Size | 1 MB |
+| Frame Rate             | 30 fps                     |
+| ---------------------- | -------------------------- |
+| Max Length             | 10 seconds (300 frames)    |
+| Animations per File    | 1                          |
+| Export Format          | .glb                       |
+| Sampling Rate          | 2 or 3 (if needed)         |
+| Max File Size          | 1 MB                       |
 | Max Animation Distance | 1 meter (in any direction) |
-| Max Animation Height | 1 meter |
+| Max Animation Height   | 1 meter                    |
 
 You can find a more detailed explanation of the animation specifications [**below**](#the-animation-specifications).
 
-# Getting Started
+# **Getting Started**
 
 ## **Resources**
+
 This documentation explains the set up for Rig 1.0, its controls, and features.
 
-### Blend File for Rig 1.0
-
 [BaseMale_Rig_1.0.blend](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/BaseMale_Rig_1.0.blend)
+
+[Decentraland_Maya_Rig] ()
 
 ## **Frame Rate**
 
@@ -61,16 +60,16 @@ In the rig file provided, there’s already an action, the _**Starting_Pose**_. 
 {{< hint info >}}
 **💡 Hint!**
 
-If you want to do a loop animation, you don’t have to start the animation from the Starting Pose. Feel free to use the pose that makes more sense in your animation!**
+If you want to do a loop animation, you don’t have to start the animation from the Starting Pose. Feel free to use the pose that makes more sense in your animation!\*\*
 {{< /hint >}}
 
 ## **Blender Interface for Animations**
 
 In the rig file, other than the two windows for the viewport (front and side view), there are three more at the bottom: a _**Graph Editor**_, _**a Dope Sheet**_, and a _**Timeline**_.
 
--   _**Graph Editor**_: In this editor, it is possible to edit the animation curves of each transform property of the selected controls. Those curves show how the interpolation is being calculated and they can be edited to achieve the wanted effect in the animation. Both in here and in the dope sheet the _**Only Show Selected**_ tool is toggled, which means it’ll only include channels related to the selected control. This can be turned on and off by simply clicking on the arrow icon.
--   _**Dope Sheet**_: Here you can edit the keyframes. This is also where you can create new animations or go through the multiple ones created. Keep in mind that in order to have access to the animation, the _**Action Editor**_ must be selected. This option is right next to the _Dope Sheet_ icon, in a dropdown menu.
--   _**Timeline**_: This is where the timeline and playback controls are found. In here, the _**Auto Keying**_ is on, which means that every time a control is manipulated it automatically creates a keyframe. You can always disable that function by clicking on the dot next to the playback controls.
+- _**Graph Editor**_: In this editor, it is possible to edit the animation curves of each transform property of the selected controls. Those curves show how the interpolation is being calculated and they can be edited to achieve the wanted effect in the animation. Both in here and in the dope sheet the _**Only Show Selected**_ tool is toggled, which means it’ll only include channels related to the selected control. This can be turned on and off by simply clicking on the arrow icon.
+- _**Dope Sheet**_: Here you can edit the keyframes. This is also where you can create new animations or go through the multiple ones created. Keep in mind that in order to have access to the animation, the _**Action Editor**_ must be selected. This option is right next to the _Dope Sheet_ icon, in a dropdown menu.
+- _**Timeline**_: This is where the timeline and playback controls are found. In here, the _**Auto Keying**_ is on, which means that every time a control is manipulated it automatically creates a keyframe. You can always disable that function by clicking on the dot next to the playback controls.
 
 With this workspace, you have everything needed to start animating!
 
@@ -106,15 +105,14 @@ Browsing animations: The ones with an F will be saved, and the ones with 0 will 
 Do not always edit the same animation track. Before making major changes, just duplicate the animation. That way you have a back up version in case you regret deleting or changing something. This is also a nice way to keep track of the progress made so far!
 {{< /hint >}}
 
-
 **Naming**
 
-**An animation’s name should start with a capital letter and if the name is more than one word long, the words should be separated by _.** Do not use spaces or special characters. Here are some examples of naming:
+**An animation’s name should start with a capital letter and if the name is more than one word long, the words should be separated by \_.** Do not use spaces or special characters. Here are some examples of naming:
 
--   Snowfall
--   Rainbow_Dance
--   Throw_Money
--   Talk_To_Hand
+- Snowfall
+- Rainbow_Dance
+- Throw_Money
+- Talk_To_Hand
 
 # The Animation Specifications
 
@@ -153,7 +151,6 @@ Spotlight
 ![Thalia Dance](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/thalia_dance.gif)
 
 Thalia Dance
-
 
 {{< hint info >}}
 **💡 Attention!**
@@ -197,12 +194,11 @@ Usually, a **sampling rate of 2 or 3** will do the trick. Those numbers can opti
 If the number of frames of the animation can be divided by the sampling rate, that’s a good thing! It means that the final frame will be baked, preserving the transition from end to start of the animation.
 {{< /hint >}}
 
-
 ## **File Size**
 
 The max file size is **1 MB**. If the file is over that after exporting, try checking if the mesh wasn’t exported by accident or if the animation isn’t over 10 seconds. If it is still over 1 MB, try experimenting with the Sampling Rate, as higher values will improve the optimization.
 
-# Exporting
+# **Exporting**
 
 Since we only want the armature and the animation to be exported, turn off the mesh visibility and any object other than the armature before exporting, as shown below:
 
@@ -222,7 +218,7 @@ Next, expand the _**Animation**_ tab, expand the second _**Animation**_ tab and 
 
 ![animation_export.gif](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/animation_export.gif)
 
-That’s it for exporting the animation! 
+That’s it for exporting the animation!
 
 # References
 

@@ -12,7 +12,7 @@ url: /creator/wearables/wearables-overview
 weight: 1
 ---
 
-<img src="/images/wearables-overview/00_wearables_overview.png" alt="WearablesOverview" width="900"/>
+<img src="/images/wearables-and-emotes/wearables-overview/00_wearables_overview.png" alt="WearablesOverview" width="900"/>
 
 # What are wearables?
 
