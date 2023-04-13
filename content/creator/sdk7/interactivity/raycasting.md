@@ -28,7 +28,7 @@ Rays are defined using the following data:
 
 - `direction`: _Vector3_ or _Entity_ describing the direction of the ray. Its behavior will depend on the mode of the ray:
 	- `LOCAL_DIRECTION`: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities.
-	- `GLOBAL_DIRECTION`: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0.
+	- `GLOBAL_DIRECTION`: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down.
 	- `GLOBAL_TARGET`: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation.
 	- `TARGET_ENTITY`:  Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities.
 - `maxDistance`: _number_ to set the length with which this ray will be traced.
