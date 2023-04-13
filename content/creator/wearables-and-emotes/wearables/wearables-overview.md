@@ -14,7 +14,7 @@ weight: 1
 
 <img src="/images/wearables-and-emotes/wearables-overview/00_wearables_overview.png" alt="WearablesOverview" width="900"/>
 
-# What are wearables?
+# What Are Wearables?
 
 Wearables are the various items of clothing, accessories, and body features that can be used to customize the appearance of a Decentraland avatar. There is a selection of default wearables that are freely available to all avatars, but Decentraland also supports the creation and use of custom wearables that are represented by non-fungible tokens (or NFTs). This allows a finite amount of different wearables to be created, or minted, on the blockchain, similar to the LAND.
 
@@ -28,7 +28,7 @@ Each wearable has a specific category that determines which body part in the ava
 
 The different categories are:
 
-<img src="/images/wearables-and-emotes/wearables/47_base_categories.png" width="1100" />
+<img src="/images/wearables-and-emotes/creating-wearables/47_base_categories.png" width="900" />
 
 - **Skin:** Replaces the entire avatar (head, upper body, lower body and feet except accessories)
 - **Head:**
@@ -43,7 +43,7 @@ The different categories are:
 
 There are also accessories that can be applied to different areas of an avatar. Some of these accessories can impact other wearables. The accessories are:
 
-<img src="/images/wearables-and-emotes/wearables/48_accessories_category.png" width="1100" />
+<img src="/images/wearables-and-emotes/creating-wearables/48_accessories_category.png" width="900" />
 
 - **Mask**
 - **Eyewear**

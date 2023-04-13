@@ -5,7 +5,7 @@ description: Guidelines to Create a Decentraland Collection
 categories:
   - Decentraland
 type: Document
-url: /creator/wearables/creating-collection
+url: /creator/wearables-and-emotes/manage-collections/creating-collection
 weight: 1
 ---
 

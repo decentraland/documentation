@@ -124,7 +124,7 @@ To do so, follow these steps:
 
    ![](/images/media/linked-wearables/multiple-items-upload.png)
 
-3. Follow the steps to upload and configure your wearable as it is described in the _Uploading an item_ section in the [wearables editor user guide]({{< ref "/content/creator/wearables-and-emotes/manage-collections/wearables-editor-user-guide.md" >}}).
+3. Follow the steps to upload and configure your wearable as it is described in the [creating wearables guidelines]({{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >}})
 
 ## **Creating Linked Wearables In Bulk**
 
@@ -136,7 +136,7 @@ The process of uploading wearables in bulk involves uploading a ZIP file for eac
 - A **required** `wearable.json` file containing the information of the wearable.
 - An **optional** `thumbnail.png` file containing the thumbnail of the wearable that will be seen in the Builder and the world. If it is not provided, one will be generated using the 3D model.
 
-The 3D models and the optional `thumbnail.png` follow the [creating wearables guidelines]({{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >}}) and the [wearables editor user guide]({{< ref "/content/creator/wearables-and-emotes/manage-collections/wearables-editor-user-guide.md" >}}) on how to create a custom thumbnail.
+The 3D models and the optional `thumbnail.png` follow the [creating wearables guidelines]({{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >}}) on how to create a custom thumbnail.
 
 The `wearable.json` accompanying the content of the wearables has the following format (typed as Typescript would):
 
@@ -359,7 +359,7 @@ To edit a single wearable, follow these steps:
 
    ![](/images/media/linked-wearables/edit-single-wearable.png)
 
-2. Edit the wearable as standard wearables are edited. Follow the _Editing items_ section in the [wearables editor user guide]({{< ref "/content/creator/wearables-and-emotes/manage-collections/wearables-editor-user-guide.md" >}}).
+2. Edit the wearable as standard wearables are edited. Follow the _Editing items_ section in [creating wearables guidelines]({{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >}}) on how to create a custom thumbnail.
 
 ## Editing a wearable's ID or URN
 
