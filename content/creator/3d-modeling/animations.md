@@ -1,7 +1,7 @@
 ---
 date: 2018-01-13
 title: Animations
-description: Learn how to create animations that can be embedded on 3D models imported to Decentraland.
+description: Learn How To Create Animations That Can Be Embedded On 3D Models Imported To Decentraland.
 
 categories:
   - 3d-modeling
@@ -11,84 +11,128 @@ aliases:
 url: /creator/3d-modeling/animations
 ---
 
-3D models can be animated in a Decentraland scene using animations. All animations of a 3D model must be embedded inside its _glTF_ file, you can't reference animations in separate files.
+Animation is the art of bringing life into things. And there’s no better way to make you scene more lively then adding some animations to your 3D models.
 
-Most 3D model animations are [_skeletal animations_](https://en.wikipedia.org/wiki/Skeletal_animation). These animations simplify the complex geometry of the model into a "stick figure", linking every vertex in the mesh to the closest _bone_ in the _skeleton_. Modelers adjust the skeleton into different poses, and the mesh stretches and bends to follow these movements.
+There are a couple ways to do it though: through **object animation** or through a **rig (skeletal animation)**.
 
-As an alternative, _vertex animations_ animate a model without the need of a skeleton. These animations specify the position of each vertex in the model directly. These animations aren’t currently supported by Decentraland’s engine.
+**Object animation** is best for simple models, such as a bouncing ball, a spinning globe or a floating chair and it doesn’t need an armature. It’s important to mention that object animation is different from **vertex animation**. In object animation, the model will be animated as a whole, while in vertex animation, as the name says, each vertex of the object can be animated separately (which is super helpful for creating shape keys, for example). While object animation is perfectly fine to use, **vertex animation is currently not supported by Decentraland’s engine**.
 
-There's no specific rule about the names animations must have. You can verify the names of the animations in an exported model by opening the contents of a _.gltf_ file with a text editor. You can also inspect the model in [Babylon sandbox](https://sandbox.babylonjs.com/) to see the available animations.
+If you have a more complex model, such as a person, creature or machinery, then you’ll need a **rig**. A rig is nothing more than a digital skeleton that will move and deform the mesh. The process of binding the mesh to the skeleton is called Skinning, where you define which bone will affect each vertex group and how strong that influence is going be, making sure the model deforms in the best way possible.
 
-You can include any number of animations in a _glTF model_. All animations in a _glTF_ model are disabled by default when loading the model into a Decentraland scene.
+For either method, though, all animations of a 3D model must be embedded inside its _glTF_ file since you can’t reference animations in separate files.
 
-In a Decentraland scene, you can use `weight` to blend several animations or to make an animation more subtle.
+### **Creating An Animation**
 
-{{< hint info >}}
-**💡 Tip**  : Instead of creating your own animations, you can also download generic animations and apply them to your model. For example, for 3D characters with human-like characteristics, you can download free or paid animations from [Mixamo](https://www.mixamo.com/#/).
+This is how you create animations using Blender.
+
+**Object Animation**
+
+- Make sure you have the **_Dope Sheet_** > **_Action Editor_** tab open and click on **_New_** to add an animation clip.
+- Rename it as you see fit and make sure to  toggle **_Fake User_** (the shield icon) so your animation is saved.
+- Set a keyframe in the first frame by selecting the object and pressing **_I_**. Then move the object around, rotate or scale it and, in another frame in the timeline, press **_I_** again to set another keyframe with the current transforms.
+- The final frame of the animation should be the same as the first one, so just copy the first frame and paste it on the last.
+
+<img src="/images/3d-models-and-animations/animations/01_object_animation_02.gif" width="600"/>
+
+_Creating an animation clip and adding keyframes._
+
+**Rig Animation**
+
+For a rig animation, you’ll need an armature. If you want to do it yourself, see [Create a Rig](https://www.notion.so/686e6f59a1604585b059f990a36b2d55) for instructions on how to set up a consistent armature.
+
+When the rigging is done and skinning has nice deformations, you’re ready to start your animation! The process is very similar to Object Animation, but instead of doing it in **_Object Mode_**, you will animate it in **_Pose Mode_**.
+
+- Go to **_Pose Mode_** and make sure you have the **_Dope Sheet_** > **_Action Editor_** tab open and click on **_New_** to add an animation clip.
+- Rename it as you see fit and make sure to  toggle **_Fake User_** (the shield icon) so your animation is saved.
+- With the mouse on the **_Viewport_**, Press **_A_** to select everything and then **_I_** to set a keyframe to the whole armature.
+- Move to a different frame in the timeline and manipulate the bone however you like to get the pose you want. You can change a bone’s location, rotation and scale depending on how you set your rig up.
+- When you have a nice result, set another keyframe to the whole armature. Keep doing that until you finish your animation. Remember to have the first and last frames the same if the animation is going to loop.
+
+<img src="/images/3d-models-and-animations/animations/02_rig_animation_02.gif" width="600"/>
+
+If you’re new to the animation process, check out this tutorial with some nice tips for beginners:
+
+[![Video Preview](https://img.youtube.com/vi/-iWslh4uQIk/maxresdefault.jpg)](https://youtu.be/-iWslh4uQIk)
+
+### Skinned Animations vs Transform Animations
+
+**Transform animations are typically better than skinned mesh animations for performance because they involve less overhead in terms of computational resources required to display the animation.**
+
+Skinned mesh animation involves using a mesh with a skeleton of bones that are weighted to the vertices of the mesh. The skeleton is animated, which in turn animates the mesh. This process can be quite computationally intensive, especially when there are a large number of vertices to animate.
+
+Transform animations, on the other hand, involve animating the transform properties of an object (such as its position, rotation, and scale) directly. This can be done with fewer computational resources than skinned mesh animation, since there are typically fewer transform properties to animate than vertices in a mesh.
+
+Additionally, transform animations can often be pre-calculated and stored in a more compact format, such as keyframe data, which can be quickly accessed and played back without the need for intensive calculations in real-time.
+
+Overall, while skinned mesh animation can produce more detailed and realistic animations, transform animations are often preferred for performance-critical applications such as video games.
+
+### Creating and Exporting Multiple Animation Clips
+
+You can have as many animations clips as you want for you model. You can check on how to create, browse and delete animations in [this section here](https://www.notion.so/5e962e5d54a24bcb9b906748007eb4cc).
+
+In the video below, you will learn how to export multiple animations from Blender in a single GLB file.
+
+[![Video Preview](https://img.youtube.com/vi/YxAB4bujO_w/maxresdefault.jpg)](https://www.youtube.com/watch?v=YxAB4bujO_w&ab_channel=Decentraland)
+
+### Exporting Many Animations as a Single One
+
+Unlike in a skeletal animation, where you can rig multiple objects and combine their animations in a single animation clip, in object animation you can’t do that. The animations will be exported separately and only one object will play at a time. A solution for that is merging many animations into a single one, so you have an animation clip that has all objects moving at the same time.
+
+To do that, push down to the **_Nonlinear Animation Track_** the animation of every object, as shown below.
+
+<img src="/images/3d-models-and-animations/animations/03_object_animation_push_down_02.gif" width="600"/>
+
+_Push down every object’s animation to the NLA Track._
+
+Once all the animations are listed on the NLA Editor, select all the objects, go to **File > Export > glTF2.0**. Expand Include and check Selected Objects. Expand Animation, expand Animation again and uncheck **Group by NLA Track**. You can rename the animation clip in Merged Animation Name and then just press **Export glTF 2.0**.
+
+<img src="/images/3d-models-and-animations/animations/04_export_single_animation_clip.png" width="600"/>
+
+_Settings to export multiple animations as a single one._
+
+Keep in mind that this will only work if the objects have a single animation each. If the objects have multiple animation clips, it’s best to export them separately.
+
+### **Hint!**
+
+{{< hint warning >}}
+💡 _Instead of creating your own animations, you can also download generic animations and apply them to your model. For example, for 3D characters with human-like characteristics, you can download free or paid animations from [Mixamo](https://www.mixamo.com/#/)._
+
 {{< /hint >}}
 
-This document covers how to add animations into a 3D model. See [handle animations]({{< ref "/content/creator/scenes/3d-essentials/3d-model-animations.md" >}}) for instructions on how to activate and handle animations in a scene.
+### Sampling
 
-## How to create an animation
+Sometimes your animation file might end up being too heavy due to the amount of animations or the combination of animation+model.
 
-You can use a tool like Blender to create animations for a 3D model.
+Sampling is a good way to optimize the animation. The sampling rate will define how often a keyframe will be baked in the animation. For example, if the sampling rate is set to 2, that means a keyframe will be created at every two frames. A sampling rate of 3 will bake a keyframe every three frames and so on. The higher the sampling rate, the lighter the file.
 
-1.  Create an armature, following the shape of your model and the parts you wish to move. You do this by adding an initial bone and then extruding all other bones from the vertices of that one. Bones in the armature define the points that can be articulated. The armature must be positioned overlapping the mesh.
+The drawback, however, is that the animation will start getting less and less fluid since it loses some important keyframes (they are distributed through the animation in an uneven way). It’s also important to notice that **sampling is NOT dividing the number of the animation’s frames by the sampling rate**.
 
-    <img src="/images/media/armature_hummingbird1.png" alt="Armature" width="300"/>
+Usually, a **sampling rate of 2 or 3** will do the trick. Those numbers can optimize the animation without compromising the quality.
 
-2.  Make both the armature and the mesh child assets of the same object.
+You can find the **_Sampling Rate_** in the export settings, under **_Animation_**.
 
-3.  Check that the mesh moves naturally when rotating its bones in the ways you plan to move it. If parts of the mesh get stretched in undesired ways, use weight paint to change what parts of the model are affected by each bone in the armature.
+<img src="/images/3d-models-and-animations/animations/05_sampling_rate.png" width="600"/>
 
-    <img src="/images/media/animations_hummingbird_wp1.png" alt="Weight paint view for one bone" width="300"/>
+### Hint!
 
-    <img src="/images/media/animations_hummingbird_wp2.png" alt="Weight paint view for another bone" width="300"/>
+{{< hint warning >}}
+💡 _If the number of frames of the animation can be divided by the sampling rate, that’s a good thing! It means that the final frame will be baked, preserving the transition from end to start of the animation._
+{{< /hint >}}
 
-> Note: There's a reported bug with Babylon.js that prevents some faces of a mesh from being rendered when they're not related to any bone in the armature. So if you paint some faces with weight 0 and then animate the model, you might see these faces dissappear. To solve this, we recommend making sure that each face is related to at least one bone of the armature and painted with a weight of at least 0.01.
+### Implementing Animations
 
-4.  Move the armature to a desired pose, all bones can be rotated or scaled. Then lock the rotation and scale of the bones you wish to control with this animation.
+This document covers how to add animations into a 3D model. See **[handle animations](https://docs.decentraland.org/creator/development-guide/3d-model-animations/)**
+ for instructions on how to activate and handle animations in a scene.
 
-    <img src="/images/media/armature_hummingbird2.png" alt="Shifted armature" width="300"/>
+### Best Practices for Animation
 
-5.  Switch to a different frame in the animation, position the armature into a new pose and lock it again. Repeat this process for all the key frames you want to set to describe the animation.
-
-    <img src="/images/media/armature_hummingbird_animation.png" alt="Frames in animation" width="450"/>
-
-6.  By default all frames in between the ones you defined will transition linearly from one pose to the next. You can also configure these transitions to behave exponentially, ease-in, bounce, etc.
-
-## Vertex animations
-
-Vertex animations, also known as morph-targets, aren't currently supported by Decentraland's engine.
-
-## How to handle multiple animations with Blender
-
-To export a model with several embedded animations in Blender, you must create multiple _actions_ from the _Dope-Sheet_.
-
-<img src="/images/media/blender-dope-sheet.png" alt="Open dope sheet" width="250"/>
-
-You can also edit the animation from the Dope-Sheet view, for example you can adjust the distance between two key frames.
-
-To preview the different actions, open the _Action Editor_ (only accessible once you're in the Dope Sheet).
-
-<img src="/images/media/blender-action-editor.png" alt="Open action editor" width="250"/>
-
-In order to export multiple animations, you need to stash all the actions using the _NLA Editor_. We recommend opening the NLA editor on a separate editor tab while keeping the Dope sheet also open.
-
-<img src="/images/media/blender-nla-editor.png" alt="Open NLA editor" width="250"/>
-
-In the NLA Editor, select each action that you want to embed in the glTF model and click _Stash_.
-
-<img src="/images/media/blender-nla-editor2.png" alt="Stash actions into glTF model" width="600"/>
-
-When adding the model to your Decentraland scene, you must activate animations by configuring the _gltf-model_ entity. See [3D model animations]({{< ref "/content/creator/scenes/3d-essentials/3d-model-animations.md" >}}) for instructions.
-
-## Best practices for animations
-
-- Keep the armature simple, only create bones for the parts of the model that you intend to animate.
-- If the animation will be looped in your scene, make sure the final pose is identical to the starting pose to avoid jumps.
-- Sometimes in an animation you might want to only control the movements of parts of the armature, and leave other bones undefined. This can make it easier to combine animations together.
-- Animated characters in your scene shouldn't ever stay completely still, even when they aren't doing anything. It's best to create an "idle" animation to use for when the character is still. The idle animation can include subtle movements like breathing and perhaps occasional glances.
-- Make sure your model only has one armature when you export it. Sometimes, when importing another animation to the program where you're editing your model, it will bring in a copy of the armature. You want all animations of the model to be performed by the same base armature.
-- When exporting the _glTF_ model, make sure you're exporting all the objects and animations. Some exporters will only export the _currently selected_ by default.
-- After exporting the model, inspect it in [Babylon sandbox](https://sandbox.babylonjs.com/) to make sure all animations work and are named as expected.
+- Keep the armature as simple as possible, only create bones for the parts of the model that you intend to animate. Bones can affect performance, so make sure to only add what’s actually necessary.
+- If the animation is going to loop in your scene, make sure the final pose is identical to the starting one for better transition.
+- Never leave have a character without animation, even if they aren’t actually doing anything. Create an “idle” animation for when the character is still. The idle can include subtle movements like breathing and perhaps occasional glances.
+- Don’t leave bones unposed, like hands, fingers, head or neck. Details are really important in a good animation and stiff movement will only make it less believable.
+- Avoid too many keyframes, unless it’s extremely necessary. The more keyframes you add, the higher the chances of getting bad interpolation and a heavier animation.
+- Select all your bones (including the deforming ones) and set a keyframe on the first and last frames of your animation. This will avoid having bones with no information, causing one animation to affect the other unintentionally.
+- Make sure your file only has one armature when you export it. When importing animations, an armature will also be imported with it. All animations must to be performed by the same base armature, so delete anything that you don’t need.
+- Always rename your bones and animations. Keep everything organized!
+- When exporting the *glTF* model, confirm that you’re exporting all the objects and animations. Some exporters will only export the **_currently selected_** by default.
+- After exporting the model, inspect it in [Babylon Sandbox](https://sandbox.babylonjs.com/) and check if all animations are working and are named as expected.

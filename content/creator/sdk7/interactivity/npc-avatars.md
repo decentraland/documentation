@@ -65,5 +65,29 @@ Transform.create(myAvatar, {
 })
 ```
 
-<!-- TODO: What about `expressionTriggerTimestamp`? is it lamport or time? -->
+## Copy wearables from player
 
+The following snippet creates an NPC avatar that uses the same wearables that the player currently has on. This could be used in a scene as a manequin, to show off a particular wearable or emote combined with the player's current outfit.
+
+```ts
+import { getUserData } from "~system/UserIdentity"
+
+executeTask(async () => {
+  let userData = await getUserData({})
+  console.log(userData.data)
+
+
+  if(!userData.data || !userData.data.avatar || !userData.data.avatar.wearables) return
+
+  const myAvatar = engine.addEntity()
+  AvatarShape.create(myAvatar, {
+	id: "Manequin",
+	emotes: [],
+	wearables: userData.data?.avatar?.wearables
+  })
+
+  Transform.create(myAvatar, {
+		position: Vector3.create(4, 0.25, 5)
+  })
+})
+```
