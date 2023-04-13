@@ -43,7 +43,7 @@ If the `:<id>` segment is appended at the end, the URN becomes a [pointer]({{< r
 
 ### Third-party Collections
 
-Third-party collections, also known as [linked wearables]({{< ref "/creator/wearables/linked-wearables" >}}), are different from regular wearables in that they are tied to existing NFTs outside Decentraland. They allow players to display NFTs from their personal set on their in-world avatars.
+Third-party collections, also known as [linked wearables]({{< ref "/content/creator/wearables-and-emotes/wearables/linked-wearables.md" >}}), are different from regular wearables in that they are tied to existing NFTs outside Decentraland. They allow players to display NFTs from their personal set on their in-world avatars.
 
 Their URNs look like this:
 
@@ -51,7 +51,7 @@ Their URNs look like this:
 urn:decentraland:<blockchain>:collections-thirdparty:<third-party-id>:<collection-id>
 ```
 
-You can find ample information about these in the [linked wearables]({{< ref "/creator/wearables/linked-wearables" >}}) documentation for creators.
+You can find ample information about these in the [linked wearables]({{< ref "/content/creator/wearables-and-emotes/wearables/linked-wearables.md" >}}) documentation for creators.
 
 ## Discovering Collections
 
