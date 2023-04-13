@@ -52,7 +52,7 @@ Transform.create(entity1, {
 	position: Vector3.create(8, 1, 0)
 })
 
-+Raycast.createOrReplace(entity1, {
+Raycast.createOrReplace(entity1, {
   direction: {
 	$case: "globalDirection",
 	globalDirection: Vector3.create(0, 0, 1)
