@@ -26,11 +26,11 @@ A Raycast component describes the invisible ray that is used to query for inters
 Rays are defined using the following data:
 
 
-- `direction`: _Vector3_ or _Entity_ describing the direction of the ray. Its behavior will depend on the mode of the ray:
-	- `LOCAL_DIRECTION`: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading.
-	- `GLOBAL_DIRECTION`: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down.
-	- `GLOBAL_TARGET`: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space.
-	- `TARGET_ENTITY`:  Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities.
+- `direction`: An object that contains a `$case` field to select the type of direction, and an additional field that will depend on this type, that determines this direction. The following are the accepted values for `$case`:
+	- `LOCAL_DIRECTION`: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading. The rotation is defined by the `localDirection` field, as a `Vector3` that describes a rotation.
+	- `GLOBAL_DIRECTION`: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down. The rotation is defined by the `globalDirection` field, as a `Vector3` that describes a rotation.
+	- `GLOBAL_TARGET`: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space. The target is defined by the `globalTarget` field, as a `Vector3` that describes the global position.
+	- `TARGET_ENTITY`:  Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities. The target is defined by the `targetEntity` field, holding a reference to the entity.
 - `maxDistance`: _number_ to set the length with which this ray will be traced.
 - `queryType`: _RaycastQueryType_ enum value, to define if the ray will return all hit entities or just the first. The following options are available:
 	- `RaycastQueryType.RQT_QUERY_ALL`: only returns the first hit entity, starting from the origin point.
@@ -43,31 +43,68 @@ Rays are defined using the following data:
 **📔 Note**: The `continuous` property should be used with caution, as running a raycast query on every frame can be very expensive for performance. When possible, use a system (or the `interval` function in the Utils library) to run raycast queries at a regular more sparse interval, see [recurrent raycasting](#recurrent-raycasting).
 {{< /hint >}}
 
-
+The following example uses a global rotation to determine the direction, and only returns the first entity that is hit on the frame that the ray is sent.
 
 ```typescript
-const ray1 = engine.addEntity()
+const entity1 = engine.addEntity()
 
-Transform.create(ray1, {
+Transform.create(entity1, {
 	position: Vector3.create(8, 1, 0)
 })
 
-// only return first entity
-Raycast.createOrReplace(ray1, {
-  direction: Vector3.create(0, 0, 1),
++Raycast.createOrReplace(entity1, {
+  direction: {
+	$case: "globalDirection",
+	globalDirection: Vector3.create(0, 0, 1)
+  }	
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_HIT_FIRST
 })
+```
 
-const ray2 = engine.addEntity()
 
-Transform.create(ray2, {
+The example below launches a ray in the forward-facing direction of the entity, returning only the first item hit. It does so continuously. It also includes a minor offset of 0.5 to prevent the ray from hitting the entity's own collider.
+
+
+```typescript
+const entity1 = engine.addEntity()
+
+Transform.create(entity1, {
 	position: Vector3.create(8, 1, 0)
 })
 
-// return all entities
-Raycast.createOrReplace(ray2, {
-  direction: Vector3.create(0, 0, 1),
+Raycast.createOrReplace(entity1, {
+  direction: {
+	$case: "localDirection",
+	localDirection: Vector3.Forward()
+  }	
+  maxDistance: 16,
+  queryType: RaycastQueryType.RQT_HIT_FIRST,
+  originOffset: Vector3.create(0.5, 0, 0),
+  continuous: true
+})
+```
+
+This example traces a ray between two entities. It returns all entities that are hit in between.
+
+```ts
+const entity1 = engine.addEntity()
+
+Transform.create(entity1, {
+	position: Vector3.create(8, 1, 0)
+})
+
+const entity2 = engine.addEntity()
+
+Transform.create(entity2, {
+	position: Vector3.create(0, 1, 8)
+})
+
+Raycast.createOrReplace(entity1, {
+   direction: {
+	$case: "targetEntity",
+	targetEntity: entity2
+  }	
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_QUERY_ALL
 })
@@ -106,7 +143,10 @@ Transform.create(rayEntity, {
 
 // return all entities
 Raycast.createOrReplace(rayEntity, {
-  direction: Vector3.create(0, 0, 1),
+  direction: {
+	$case: "globalDirection",
+	globalDirection: Vector3.create(0, 0, 1)
+  }	
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_QUERY_ALL
 })
@@ -168,7 +208,10 @@ engine.addSystem((dt) => {
       timer.t = 0
 
       Raycast.createOrReplace(entity, {
-        direction: Vector3.create(0, 0, 1),
+        direction: {
+			$case: "globalDirection",
+			globalDirection: Vector3.create(0, 0, 1)
+		}	
         maxDistance: 16,
         queryType: RaycastQueryType.RQT_HIT_FIRST
       })
@@ -232,3 +275,4 @@ PhysicsCast.hitAllAvatars( query:RaycastQuery,
 
 
 -->
+
