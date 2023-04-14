@@ -72,22 +72,24 @@ If a model doesn't have collisions, you can either:
 
 See [3D models](/creator/3d-modeling/3d-models) for more details on how to add colliders to a 3D model.
 
+{{< hint warning >}}
+**📔 Note**:  Colliders on 3D models use the default collision layers, so they affect both player physics and pointer events. It's currently not possible to assign a custom collision layer to a mesh in an imported 3D model.
+{{< /hint >}}
 
 
-## Pointer blocking
+## Collision layers
 
-Only shapes that have colliders can be activated with [pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}). An entity also needs to have a collider to block pointer events on entities behind it. So for example, a player can't pick something up that is locked inside a chest, if the chest has colliders around it. The player's pointer events are only affected by collider meshes, not by the model's visible geometry.
+The scene can handle separate collision layers, that have different behaviors.
 
-You can configure a `MeshCollider` component to only respond to one kind of interaction. To do this, set the `collisionMask` property to one of the following values:
+You can configure a `MeshCollider` component to only respond to one kind of interaction, or to severa lof them. To do this, set the `collisionMask` property to one of the following values:
 
 - `ColliderLayer.CL_PHYSICS`: Only blocks player movement (and doesn't affect pointer events)
-- `ColliderLayer.CL_POINTER`: responds only to pointer events (and doesn't block the player movement)
-
+- `ColliderLayer.CL_POINTER`: Responds only to pointer events (and doesn't block the player movement)
+- `ColliderLayer.CL_CUSTOM1` through to `CL_CUSTOM8`: Can be used together with raycasts, so that a ray only detects collisions with one specific layer.
 
 ```ts
 // create entity
 const myEntity = engine.addEntity()
-
 // visible shape
 MeshRenderer.setBox(myEntity)
 
@@ -95,7 +97,32 @@ MeshRenderer.setBox(myEntity)
 MeshCollider.setBox(myEntity, ColliderLayer.CL_PHYSICS)
 ```
 
-The example above creates a `MeshCollider` component that is configured to only respond to player physics. With this configuration, you could for example have an invisible wall that players can't walk through, but that does allow them to click on items on the other side of the wall.
+A single MeshCollider component can respond to multiple collision layers. Use the `|` character as an _or_, to include as many layers as you need. The default value on a MeshCollider is `ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER`.
+
+```ts
+MeshCollider.setBox(myEntity, ColliderLayer.CL_CUSTOM1 | ColliderLayer.CL_CUSTOM3 | ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER )
+```
+
+You can use the 8 different custom layers for whatever suits your scene best, for example one could be used for NPC line-of-sight calculations, whilst another for estimating trajectories of falling objects. Using different layers for different systems allows you to use less resources, as in each case you'll only be checking collisions with the relevant entities.
+
+See [Raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}) for more on how to use custom collision layers.
+
+
+### Pointer blocking
+
+Only shapes that have colliders can be activated with [pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}). An entity also needs to have a collider to block pointer events from going through it and hit entities behind it. So for example, a player can't pick something up that is locked inside a chest, if the chest has colliders around it. The player's pointer events are only affected by collider meshes, not by the model's visible geometry.
+
+For colliders to affect pointer events, they must be on the `ColliderLayer.CL_POINTER` layer. By default, a MeshCollider affects both the Physics and the Pointer layers, but you can change this value to only affect one, or neither, and to affect custom layers instead.
+
+```ts
+// only responds to player physics
+// for example for an invisible wall that you can't walk through but you can click through
+MeshCollider.setBox(myEntity, ColliderLayer.CL_PHYSICS)
+
+// only responds to the player's pointer
+// for example for example for an item you can click to pick up, but can walk right through
+MeshCollider.setBox(myEntity2, ColliderLayer.CL_POINTER)
+```
 
 
 ## Advanced Syntax
