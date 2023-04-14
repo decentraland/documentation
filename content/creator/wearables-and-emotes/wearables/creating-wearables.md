@@ -86,9 +86,8 @@ To ensure that Decentraland runs smoothly for all players, it is important to cr
 
 There are limits for the number of triangles and textures that can be used for each wearable or accessory:
 
-- No more than 1.5K triangles per wearable slot: upper body, lower body, feet and hair.
+- No more than 1.5K triangles per wearable slot: hat, helmet, upper body, lower body, feet and hair.
 - No more than 500 triangles per categories: mask, eyewear, earring, tiara, top_head and facial hair.
-- No more than 1k triangles per these accessories slots: hat, helmet.
 - No more than 2 textures (at a resolution of 512x512px or lower) per wearable. All textures must be square at 72 pixel/inch resolution.
 - No more than 2 materials (without counting the AvatarSkin_MAT)
 - In the case of skin wearable, the amount of tris allowed are 5k and 5 textures.
