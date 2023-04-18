@@ -57,7 +57,7 @@ raycastEventsSystem.registerLocalDirectionRaycast(
 
 Use the following functions to create raycasts by providing the direction in different ways:
 
-- `raycastEventsSystem.registerLocalDirectionRaycast()`: creates a raycast with a **local** direction. The `direction` field expects a `Vector3` that describes a rotation relative to the entity.
+- `raycastEventsSystem.registerLocalDirectionRaycast()`: creates a raycast with a **local** direction. The `direction` field expects a `Vector3` that describes a vector relative to the entity and its rotation (e.g. `Vector3.Forward()` would end up using the entity's transform forward vector)
 - `raycastEventsSystem.registerGlobalDirectionRaycast()`: creates a raycast with a **global** direction. The `direction` field expects a `Vector3` that describes a global rotation.
 - `raycastEventsSystem.registerGlobalTargetRaycast()`: creates a raycast with a direction defined by a **global target** direction. The `target` field expects a `Vector3` that describes a global position in the scene.
 - `raycastEventsSystem.registerTargetEntityRaycast()`: creates a raycast with a direction defined by a **target entity** direction. The `targetEntity` field expects a reference to an entity, this entity's position will be used as the target of the ray.
