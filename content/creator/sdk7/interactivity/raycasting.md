@@ -59,7 +59,7 @@ Use the following functions to create raycasts by providing the direction in dif
 
 - `raycastSystem.registerLocalDirectionRaycast()`: creates a raycast with a **local** direction. The `direction` field expects a `Vector3` that describes a vector relative to the entity and its rotation (e.g. `Vector3.Forward()` would end up using the entity's transform forward vector)
 - `raycastSystem.registerGlobalDirectionRaycast()`: creates a raycast with a **global** direction. The `direction` field expects a `Vector3` that describes the global direction.
-- `raycastSystem.registerGlobalTargetRaycast()`: creates a raycast with a direction defined by a **global target** direction. The `target` field expects a `Vector3` that describes a global position in the scene.
+- `raycastSystem.registerGlobalTargetRaycast()`: creates a raycast with a direction defined by a **global target** position. The `target` field expects a `Vector3` that describes a global position in the scene.
 - `raycastSystem.registerTargetEntityRaycast()`: creates a raycast with a direction defined by a **target entity** direction. The `targetEntity` field expects a reference to an entity, this entity's position will be used as the target of the ray.
 
 The following additional fields are *required* when creating a ray with any of the above methods:
