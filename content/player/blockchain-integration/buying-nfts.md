@@ -13,7 +13,7 @@ weight: 15
 
 Users can easily buy Land, Estates, Names, Wearables and Emotes using the [Marketplace](https://market.decentraland.org/). As easy as it seems to do it on the website, various Smart Contracts on the Ethereum Network and the Polygon Network make this possible.
 
-Lands, Estates and Names are commercialized in the marketplace using a different contract than the ones used for Wearables and Emotes, and Wearables that you buy from the store listed as primary sales use a different one as well. Users are also able to place bids for different NFTs which are also handled by different contracts.
+Lands, Estates and Names are commercialized in the marketplace using a different contract than the ones used for Wearables and Emotes, and Wearables that you buy from the store listed as primary sales use a different one as well. Users are also able to place bids for different NFTs which are also handled by different smart contracts.
 
 Hopefully, this guide will let you understand the different Smart Contracts used behind the scenes to make the marketplace possible and the ways one can interact with these contracts directly to execute a purchase without the need or relying on a UI.
 
@@ -39,11 +39,11 @@ This is a list of smart contracts accessible to users through the marketplace ap
 
 As you can see, there are contracts both in the Ethereum and the Polygon networks. This is because different kinds of assets can be found in one network and the rest in the other. For example, LANDs, Estates, and Names are all in the Ethereum Network, while Wearables and Emotes are in the Polygon Network.
 
-**Networks are not interoperable, meaning that you cannot buy Wearables in the Ethereum network or place bids for LANDs in Polygon. Contracts can only interact with the assets found in their same networks.**
+**Networks are not interoperable, meaning that you cannot buy Wearables in the Ethereum network or place bids for LANDs in Polygon. Contracts can only interact with the assets found in their same networks. But still, the user can get Wearables or Emotes while connected to the Ethereum network thanks to [Meta-Transactions](https://docs.decentraland.org/player/blockchain-integration/transactions-in-polygon/), this is automatic in the Marketplace for a better UX**
 
 ## Marketplace
 
-The Marketplace Smart Contract is the one that allows users to create an Order to sell their assets. On Ethereum, you can create an Order to sell LANDs, Estates, Names and Wearables (Legacy) while on Polygon, the Marketplace Smart Contract allows the user to create Orders for Wearables, Emotes, etc.
+The Marketplace Smart Contract is the one that allows users to create an Order to sell their assets.
 
 Orders can be created using the `createOrder` function with the following signature.
 
@@ -60,9 +60,11 @@ function createOrder(
 )
 ```
 
-Once an Order has been created on-chain, any user with sufficient MANA, and as long as the Order is not expired, can execute the Order and purchase the NFT.
+Once an Order has been created on-chain, the asset will be listed for sale so that any user can buy it. 
 
-An order is executed by calling the `executeOrder` function in the Marketplace Smart Contract.
+When a user wants to buy an asset listed in the Marketplace, they have to allow the Marketplace Smart Contract to operate with their MANA first. This is done by signing a transaction in MetaMask or the user's Wallet. Users can set an allowance for the amount of the asset they want to buy, or set a higher cap to continue using the Marketplace without changing the allowance every time. We recommend to use the Allowance cap by default.
+
+Any user with sufficient MANA, and as long as the Order is not expired, can execute the Order and purchase the NFT if the value of the asset bought is lower than the allowance cap. An order is executed by calling the `executeOrder` function in the Marketplace Smart Contract.
 
 ```sol
 /// @param nftAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote/etc Collection address).
