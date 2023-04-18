@@ -13,7 +13,7 @@ weight: 15
 
 Users can easily buy Land, Estates, Names, Wearables and Emotes using the [Marketplace](https://market.decentraland.org/). As easy as it seems to do it on the website, various Smart Contracts on the Ethereum Network and the Polygon Network make this possible.
 
-Lands, Estates and Names are commercialized in the marketplace using a different contract than the ones used for Wearables and Emotes, and Wearables that you buy from the store listed as primary sales use a different one as well. Users are also able to place bids for different NFTs which are also handled by different smart contracts.
+Lands, Estates, and Names are commercialized in the marketplace using a different contract than the ones used for Wearables and Emotes, and Wearables that you buy from the store listed as primary sales use a different one as well. Users can also place bids for different NFTs, which are also handled by other smart contracts.
 
 Hopefully, this guide will let you understand the different Smart Contracts used behind the scenes to make the marketplace possible and the ways one can interact with these contracts directly to execute a purchase without the need or relying on a UI.
 
@@ -62,9 +62,9 @@ function createOrder(
 
 Once an Order has been created on-chain, the asset will be listed for sale so that any user can buy it. 
 
-When a user wants to buy an asset listed in the Marketplace, they have to allow the Marketplace Smart Contract to operate with their MANA first. This is done by signing a transaction in MetaMask or the user's Wallet. Users can set an allowance for the amount of the asset they want to buy, or set a higher cap to continue using the Marketplace without changing the allowance every time. We recommend to use the Allowance cap by default.
+When a user wants to buy an asset listed in the Marketplace, they have to allow the Marketplace Smart Contract to operate with their MANA first. This is done by signing a transaction in MetaMask or the user's Wallet. Users can set an allowance for the amount of the asset they want to buy or a higher cap to continue using the Marketplace without changing it every time. We recommend using the Allowance cap by default.
 
-Any user with sufficient MANA, and as long as the Order is not expired, can execute the Order and purchase the NFT if the value of the asset bought is lower than the allowance cap. An order is executed by calling the `executeOrder` function in the Marketplace Smart Contract.
+Any user with enough MANA, and with a not expired Order, can execute it and purchase the NFT if the value of the bought asset is lower than the allowance cap. An order is executed by calling the `executeOrder` function in the Marketplace Smart Contract.
 
 ```sol
 /// @param nftAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote/etc Collection address).
