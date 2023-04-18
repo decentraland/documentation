@@ -62,19 +62,20 @@ Use the following functions to create raycasts by providing the direction in dif
 - `raycastSystem.registerGlobalTargetRaycast()`: creates a raycast with a direction defined by a **global target** position. The `target` field expects a `Vector3` that describes a global position in the scene.
 - `raycastSystem.registerTargetEntityRaycast()`: creates a raycast with a direction defined towards a **target entity** position. The `targetEntity` field expects a reference to an entity, this entity's position will be used as the target of the ray.
 
-The following additional fields are *required* when creating a ray with any of the above methods:
+The following optional fields are available when creating a ray with any of the above methods: 
 
-- `maxDistance`: _number_ to set the length with which this ray will be traced.
+- `maxDistance`: _number_ to set the length with which this ray will be traced. If not set, the default is 16 meters.
 - `queryType`: _RaycastQueryType_ enum value, to define if the ray will return all hit entities or just the first. The following options are available:
-	- `RaycastQueryType.RQT_QUERY_ALL`: only returns the first hit entity, starting from the origin point.
-	- `RaycastQueryType.RQT_HIT_FIRST`: returns all hit entities, from the origin through to the max distance of the ray.
+	- `RaycastQueryType.RQT_HIT_FIRST`: _(default)_ only returns the first hit entity, starting from the origin point.
+	- `RaycastQueryType.RQT_QUERY_ALL`: returns all hit entities, from the origin through to the max distance of the ray.
+- `originOffset`: Instead of starting the raycast from the entity's origin position, add an offset to start the query from a relative position. You can for example use a small offset to prevent the ray colliding against the entity's own 3D model. If not set, the default is `Vector3.Zero()`.
+- `collisionMask`: Only detect collisions with certain collision layers. Use this together with a custom collision layer, or to only detect the physics or pointer events layer. See [collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}}). If not set, the default layer used is `ColliderLayer.CL_PHYSICS`.
+- `continuous`: If true, will keep running a raycast query on every frame. If false, the ray will only be used on the current frame. If not set, the default is false.
 
-The following *optional* fields are also available when creating a ray with any of the above methods: 
+- When setting the direction with a local or glocal direction, the `direction` field defaults to `Vector3.Forward()`.
+- When setting the direction with a global target, the `GlobalTarget` field defaults to `Vector3.Zero()`.
+- When setting the direction with an entity target, the `TargetEntity` field defaults to  the scene's root entity, located at `Vector3.Zero()`.
 
-
-- `originOffset`: Instead of starting the raycast from the entity's origin position, add an offset to start the query from a relative position. You can for example use a small offset to prevent the ray colliding against the entity's own 3D model.
-- `collisionMask`: Only detect collisions with certain collision layers. Use this together with a custom collision layer, or to only detect the physics or pointer events layer. See [collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}}). By default, all layers are detected.
-- `continuous`: If true, will keep running a raycast query on every frame. If false, the ray will only be used on the current frame. By default this value is false.
 
 {{< hint warning >}}
 **📔 Note**: The `continuous` property should be used with caution, as running a raycast query on every frame can be very expensive for performance. When possible, use a system (or the `interval` function in the Utils library) to run raycast queries at a regular more sparse interval, see [recurrent raycasting](#recurrent-raycasting).
