@@ -34,7 +34,7 @@ Transform.create(myEntity, {
 	position: Vector3.create(4, 1, 4)
 })
 
-raycastEventsSystem.registerLocalDirectionRaycast(
+raycastSystem.registerLocalDirectionRaycast(
 	myEntity,
     (raycastResult) => {
       if (raycastResult.hits.length > 0) {
@@ -57,10 +57,10 @@ raycastEventsSystem.registerLocalDirectionRaycast(
 
 Use the following functions to create raycasts by providing the direction in different ways:
 
-- `raycastEventsSystem.registerLocalDirectionRaycast()`: creates a raycast with a **local** direction. The `direction` field expects a `Vector3` that describes a vector relative to the entity and its rotation (e.g. `Vector3.Forward()` would end up using the entity's transform forward vector)
-- `raycastEventsSystem.registerGlobalDirectionRaycast()`: creates a raycast with a **global** direction. The `direction` field expects a `Vector3` that describes a global rotation.
-- `raycastEventsSystem.registerGlobalTargetRaycast()`: creates a raycast with a direction defined by a **global target** direction. The `target` field expects a `Vector3` that describes a global position in the scene.
-- `raycastEventsSystem.registerTargetEntityRaycast()`: creates a raycast with a direction defined by a **target entity** direction. The `targetEntity` field expects a reference to an entity, this entity's position will be used as the target of the ray.
+- `raycastSystem.registerLocalDirectionRaycast()`: creates a raycast with a **local** direction. The `direction` field expects a `Vector3` that describes a vector relative to the entity and its rotation (e.g. `Vector3.Forward()` would end up using the entity's transform forward vector)
+- `raycastSystem.registerGlobalDirectionRaycast()`: creates a raycast with a **global** direction. The `direction` field expects a `Vector3` that describes a global rotation.
+- `raycastSystem.registerGlobalTargetRaycast()`: creates a raycast with a direction defined by a **global target** direction. The `target` field expects a `Vector3` that describes a global position in the scene.
+- `raycastSystem.registerTargetEntityRaycast()`: creates a raycast with a direction defined by a **target entity** direction. The `targetEntity` field expects a reference to an entity, this entity's position will be used as the target of the ray.
 
 The following additional fields are *required* when creating a ray with any of the above methods:
 
@@ -84,7 +84,7 @@ Below are examples using each of the four methods to determine the ray direction
 
 ```ts
 // LOCAL DIRECTION RAYCAST
-raycastEventsSystem.registerLocalDirectionRaycast(
+raycastSystem.registerLocalDirectionRaycast(
 	myEntity,
 	(raycastResult) => {
 		console.log(raycastResult.hits)
@@ -97,7 +97,7 @@ raycastEventsSystem.registerLocalDirectionRaycast(
 )
 ​
 // GLOBAL DIRECTION RAYCAST
-raycastEventsSystem.registerGlobalDirectionRaycast(
+raycastSystem.registerGlobalDirectionRaycast(
 	myEntity,
 	(raycastResult) => {
 		console.log(raycastResult.hits)
@@ -110,7 +110,7 @@ raycastEventsSystem.registerGlobalDirectionRaycast(
 )
 ​
 // GLOBAL TARGET POSITION RAYCAST
-raycastEventsSystem.registerGlobalTargetRaycast(
+raycastSystem.registerGlobalTargetRaycast(
 	myEntity,
 	(raycastResult) => {
 		console.log(raycastResult.hits)
@@ -126,7 +126,7 @@ raycastEventsSystem.registerGlobalTargetRaycast(
 const targetEntity = engine.addEntity()
 Transform.create(targetEntity, { position: Vector3.create(8, 1, 10) })
 
-raycastEventsSystem.registerTargetEntityRaycast(
+raycastSystem.registerTargetEntityRaycast(
 	myEntity,
 	(raycastResult) => {
 		console.log(raycastResult.hits)
@@ -166,7 +166,7 @@ Transform.create(myEntity, {
 	position: Vector3.create(4, 1, 4)
 })
 
-raycastEventsSystem.registerLocalDirectionRaycast(
+raycastSystem.registerLocalDirectionRaycast(
 	myEntity,
     (raycastResult) => {
       if (raycastResult.hits.length > 0) {
@@ -195,7 +195,7 @@ It's a good practice to only check for collisions against entities that are rele
 By default, the `collisionMask` field is set to respond to both the layers `ColliderLayer.CL_POINTER` and `ColliderLayer.CL_PHYSICS`. You can change this value to list only one of those, or to include custom layers. Use the `|` separator to list multiple options.
 
 ```ts
-  raycastEventsSystem.registerLocalDirectionRaycast(
+  raycastSystem.registerLocalDirectionRaycast(
     myEntity,
     (raycastResult) => {
     	log(raycastResult.hits)
@@ -211,12 +211,12 @@ By default, the `collisionMask` field is set to respond to both the layers `Coll
 
 ## Recurrent raycasting
 
-When using the functions of the `raycastEventsSystem`, the default behavior is to create a single ray, that will query for collisions once. As an alternative, you can set the `continuous` field to _true_ to run a query and the callback function on every tick of the game loop.
+When using the functions of the `raycastSystem`, the default behavior is to create a single ray, that will query for collisions once. As an alternative, you can set the `continuous` field to _true_ to run a query and the callback function on every tick of the game loop.
 
 The following example will keep running the raycast query from this point onwards
 
 ```ts
-  raycastEventsSystem.registerLocalDirectionRaycast(
+  raycastSystem.registerLocalDirectionRaycast(
     myEntity,
     (raycastResult) => {
     	log(raycastResult.hits)
@@ -265,7 +265,7 @@ engine.addSystem((dt) => {
     if (timer.t > RAY_INTERVAL) {
       	timer.t = 0
 
-		raycastEventsSystem.registerGlobalDirectionRaycast(
+		raycastSystem.registerGlobalDirectionRaycast(
 			entity,
 			(raycastResult) => {
 				log(raycastResult.hits)
