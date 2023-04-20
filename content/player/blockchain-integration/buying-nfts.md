@@ -64,7 +64,7 @@ Once an Order has been created on-chain, the asset will be listed for sale so th
 
 When a user wants to buy an asset listed in the Marketplace, they have to allow the Marketplace Smart Contract to operate with their MANA first. This is done by sending a transaction. Users can set an allowance for the amount of the asset they want to buy or a higher cap to continue using the Marketplace without changing it every time. We recommend using the Allowance cap by default.
 
-Any user with enough MANA, and with a not expired Order, can execute it and purchase the NFT if the value of the bought asset is lower than the allowance cap. An order is executed by calling the `executeOrder` function in the Marketplace Smart Contract.
+Any user with enough MANA can purchase the NFT if the value of the asset to be bought is lower than the allowance cap. An order is executed by calling the `executeOrder` function in the Marketplace Smart Contract.
 
 ```sol
 /// @param nftAddress The address of the NFT contract (The LandRegistry, EstateRegistry or Wearable/Emote/etc Collection address).
