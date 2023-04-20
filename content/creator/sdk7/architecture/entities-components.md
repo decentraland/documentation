@@ -155,11 +155,11 @@ If either the parent or child entity doesn't have a `Transform` component, the f
 
 Entities with no shape component are invisible in the scene. These can be used as wrappers to handle and position multiple entities as a group.
 
-To separate a child entity from its parent, you can assign the entity's parent to `null`.
+To separate a child entity from its parent, you can assign the entity's parent to `engine.RootEntity`.
 
 ```ts
 const mutableChildTransform = Transform.get(childEntity)
-mutableChildTransform.parent = null
+mutableChildTransform.parent = engine.RootEntity
 ```
 
 
