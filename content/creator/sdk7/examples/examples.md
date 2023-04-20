@@ -1,8 +1,9 @@
 ---
-title: "API Reference v7-beta"
-url: "/creator/sdk7/releases/7"
+title: "Example scenes"
+url: "/creator/sdk7/examples/7"
 weight: 1
 ---
-[SDK API Reference v7-beta](https://js-sdk-toolchain.pages.dev/modules)
 
-<iframe src="https://js-sdk-toolchain.pages.dev/modules" />
+[SDK 7 example scenes](https://studios.decentraland.org/resources)
+
+<iframe src="https://studios.decentraland.org/resources" />
