@@ -39,7 +39,7 @@ This is a list of smart contracts accessible to users through the marketplace ap
 
 As you can see, there are contracts both in the Ethereum and the Polygon networks. This is because different kinds of assets can be found in one network and the rest in the other. For example, LANDs, Estates, and Names are all in the Ethereum Network, while Wearables and Emotes are in the Polygon Network.
 
-**Networks are not interoperable, meaning that you cannot buy Wearables in the Ethereum network or place bids for LANDs in Polygon. Contracts can only interact with the assets found in their same networks. But still, the user can get Wearables or Emotes while connected to the Ethereum network thanks to [Meta-Transactions](https://docs.decentraland.org/player/blockchain-integration/transactions-in-polygon/), this is automatic in the Marketplace for a better UX**
+**Networks are not interoperable, meaning that you cannot buy Wearables in the Ethereum network or place bids for LANDs in Polygon. Contracts can only interact with the assets found in their same networks. But still, users can get Wearables or Emotes in Polygon while connected to the Ethereum network thanks to [Meta-Transactions](https://docs.decentraland.org/player/blockchain-integration/transactions-in-polygon/) which are automatically used in the Marketplace for a better UX**
 
 ## Marketplace
 
