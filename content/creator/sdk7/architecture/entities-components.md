@@ -11,8 +11,6 @@ weight: 1
 
 Decentraland scenes are built around [_entities_, _components_ and _systems_](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system). This is a common pattern used in the architecture of several game engines, that allows for easy composability and scalability.
 
-
-
 ![](/images/media/ecs-big-picture.png)
 
 ## Overview
@@ -47,7 +45,7 @@ const door = engine.addEntity()
 
 // Give the entity a position via a transform component
 Transform.create(door, {
-	position: Vector3.create(5, 1, 5)
+  position: Vector3.create(5, 1, 5)
 })
 
 // Give the entity a visible shape via a GltfContainer component
@@ -89,15 +87,15 @@ const doorKnob = engine.addEntity()
 
 // Give the entities a visible shape
 GltfContainer.create(door, {
-	src: "models/door.glb"
+  src: "models/door.glb"
 })
 GltfContainer.create(doorKnob, {
-	src: "models/doorKnob.glb"
+  src: "models/doorKnob.glb"
 })
 
 // Parent
 Transform.create(doorKnob, {
-	parent: door
+  parent: door
 })
 
 // Remove both parent and children
@@ -158,7 +156,7 @@ Entities with no shape component are invisible in the scene. These can be used a
 To separate a child entity from its parent, you can assign the entity's parent to `engine.RootEntity`.
 
 ```ts
-const mutableChildTransform = Transform.get(childEntity)
+const mutableChildTransform = Transform.getMutable(childEntity)
 mutableChildTransform.parent = engine.RootEntity
 ```
 
@@ -188,7 +186,7 @@ To prevent this error, you can use `.createOrReplace` instead of `.create`. This
 
 ```ts
 Transform.createOrReplace(door, {
-	position: Vector3.create(5, 1, 5)
+  position: Vector3.create(5, 1, 5)
 })
 ```
 
