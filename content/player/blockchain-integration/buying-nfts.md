@@ -43,7 +43,7 @@ As you can see, there are contracts both in the Ethereum and the Polygon network
 
 ## Marketplace
 
-The Marketplace Smart Contract is the one that allows users to create an Order to sell their assets.
+The Marketplace Smart Contract in Ethereum allows users to create an Order to sell LANDs, Estates, Names and Legacy Wearables, while the one in Polygon only allows the creation of Orders for Wearables and Emotes.
 
 Orders can be created using the `createOrder` function with the following signature.
 
