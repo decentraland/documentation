@@ -220,11 +220,16 @@ The following example will keep running the raycast query from this point onward
     }
   )
 ```
-//TODO: can I turn it off??
 
 {{< hint warning >}}
 **📔 Note**: The `continuous` property should be used with caution, as running a raycast query on every frame can be very expensive for performance.
 {{< /hint >}}
+
+When not needed anymore, remove any recurrent raycasts. To do so, you must use `raycastSystem.removeRaycasterEntity`.
+
+```ts
+raycastSystem.removeRaycasterEntity(myEntity)
+```
 
 When possible, use a system (or the `interval` function in the Utils library) to run raycast queries at a regular more sparse interval, like just once a second, or every fifth of a second.
 
