@@ -76,41 +76,41 @@ Below are examples using each of the four methods to determine the ray direction
 ```ts
 // LOCAL DIRECTION RAYCAST
 raycastSystem.registerLocalDirectionRaycast(
-	myEntity,
-	(raycastResult) => {
-		console.log(raycastResult.hits)
-	},
-	{
-		maxDistance: 30,
-		queryType: RaycastQueryType.RQT_QUERY_ALL,
-		direction: Vector3.Forward(),
-	}
+  myEntity,
+  (raycastResult) => {
+    console.log(raycastResult.hits)
+  },
+  {
+    maxDistance: 30,
+    queryType: RaycastQueryType.RQT_QUERY_ALL,
+    direction: Vector3.Forward(),
+  }
 )
 ​
 // GLOBAL DIRECTION RAYCAST
 raycastSystem.registerGlobalDirectionRaycast(
-	myEntity,
-	(raycastResult) => {
-		console.log(raycastResult.hits)
-	},
-	{
-		maxDistance: 30,
-		queryType: RaycastQueryType.RQT_QUERY_ALL,
-		direction: Vector3.Forward(),
-	}
+  myEntity,
+  (raycastResult) => {
+    console.log(raycastResult.hits)
+  },
+  {
+    maxDistance: 30,
+    queryType: RaycastQueryType.RQT_QUERY_ALL,
+    direction: Vector3.Forward(),
+  }
 )
 ​
 // GLOBAL TARGET POSITION RAYCAST
 raycastSystem.registerGlobalTargetRaycast(
-	myEntity,
-	(raycastResult) => {
-		console.log(raycastResult.hits)
-	},
-	{
-		maxDistance: 30,
-		queryType: RaycastQueryType.RQT_QUERY_ALL,
-		target: Vector3.Zero()
-	}
+  myEntity,
+  (raycastResult) => {
+    console.log(raycastResult.hits)
+  },
+  {
+    maxDistance: 30,
+    queryType: RaycastQueryType.RQT_QUERY_ALL,
+    target: Vector3.Zero()
+  }
 )
 ​
 // TARGET ENTITY RAYCAST
@@ -118,15 +118,15 @@ const targetEntity = engine.addEntity()
 Transform.create(targetEntity, { position: Vector3.create(8, 1, 10) })
 
 raycastSystem.registerTargetEntityRaycast(
-	myEntity,
-	(raycastResult) => {
-		console.log(raycastResult.hits)
-	},
-	{
-		maxDistance: 30,
-		queryType: RaycastQueryType.RQT_QUERY_ALL,
-		targetEntity: targetEntity
-	}
+  myEntity,
+  (raycastResult) => {
+    console.log(raycastResult.hits)
+  },
+  {
+    maxDistance: 30,
+    queryType: RaycastQueryType.RQT_QUERY_ALL,
+    targetEntity: targetEntity
+  }
 )
 ```
 
@@ -154,11 +154,11 @@ The following example iterates over the entities that were hit:
 ```ts
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-	position: Vector3.create(4, 1, 4)
+  position: Vector3.create(4, 1, 4)
 })
 
 raycastSystem.registerLocalDirectionRaycast(
-	myEntity,
+    myEntity,
     (raycastResult) => {
       if (raycastResult.hits.length > 0) {
         for (const hit of raycastResult.hits) {
@@ -189,7 +189,7 @@ By default, the `collisionMask` field is set to respond to both the layers `Coll
   raycastSystem.registerLocalDirectionRaycast(
     myEntity,
     (raycastResult) => {
-    	log(raycastResult.hits)
+      log(raycastResult.hits)
     },
     {
       collisionMask: ColliderLayer.CL_CUSTOM1 | ColliderLayer.CL_CUSTOM3 | ColliderLayer.CL_POINTER,
@@ -210,10 +210,10 @@ The following example will keep running the raycast query from this point onward
   raycastSystem.registerLocalDirectionRaycast(
     myEntity,
     (raycastResult) => {
-    	log(raycastResult.hits)
+      log(raycastResult.hits)
     },
     {
-	  continuous: true,
+      continuous: true,
       maxDistance: 30,
       queryType: RaycastQueryType.RQT_QUERY_ALL,
       direction: Vector3.Forward(),
@@ -255,18 +255,17 @@ engine.addSystem((dt) => {
 
     if (timer.t > RAY_INTERVAL) {
       	timer.t = 0
-
-		raycastSystem.registerGlobalDirectionRaycast(
-			entity,
-			(raycastResult) => {
-				log(raycastResult.hits)
-			},
-			{
-				maxDistance: 16,
-				queryType: RaycastQueryType.RQT_HIT_FIRST,
-				direction: Vector3.Forward(),
-			}
-		)
+	raycastSystem.registerGlobalDirectionRaycast(
+	  entity,
+	  (raycastResult) => {
+	    log(raycastResult.hits)
+	  },
+	  {
+	    maxDistance: 16,
+	    queryType: RaycastQueryType.RQT_HIT_FIRST,
+	    direction: Vector3.Forward(),
+	  }
+	)
     }
   }
 })
@@ -338,13 +337,13 @@ The following example uses a global rotation to determine the direction, and onl
 const entity1 = engine.addEntity()
 
 Transform.create(entity1, {
-	position: Vector3.create(8, 1, 0)
+  position: Vector3.create(8, 1, 0)
 })
 
 Raycast.createOrReplace(entity1, {
   direction: {
-	$case: "globalDirection",
-	globalDirection: Vector3.create(0, 0, 1)
+    $case: "globalDirection",
+    globalDirection: Vector3.create(0, 0, 1)
   }	
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_HIT_FIRST
@@ -359,13 +358,13 @@ The example below launches a ray in the forward-facing direction of the entity, 
 const entity1 = engine.addEntity()
 
 Transform.create(entity1, {
-	position: Vector3.create(8, 1, 0)
+  position: Vector3.create(8, 1, 0)
 })
 
 Raycast.createOrReplace(entity1, {
   direction: {
-	$case: "localDirection",
-	localDirection: Vector3.Forward()
+    $case: "localDirection",
+    localDirection: Vector3.Forward()
   }	
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_HIT_FIRST,
@@ -380,19 +379,19 @@ This example traces a ray between two entities. It returns all entities that are
 const entity1 = engine.addEntity()
 
 Transform.create(entity1, {
-	position: Vector3.create(8, 1, 0)
+  position: Vector3.create(8, 1, 0)
 })
 
 const entity2 = engine.addEntity()
 
 Transform.create(entity2, {
-	position: Vector3.create(0, 1, 8)
+  position: Vector3.create(0, 1, 8)
 })
 
 Raycast.createOrReplace(entity1, {
-   direction: {
-	$case: "targetEntity",
-	targetEntity: entity2
+  direction: {
+    $case: "targetEntity",
+    targetEntity: entity2
   }	
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_QUERY_ALL
@@ -431,22 +430,22 @@ The example below shows how you can access results from an individual entity usi
 const rayEntity = engine.addEntity()
 
 Transform.create(rayEntity, {
-	position: Vector3.create(8, 1, 0)
+  position: Vector3.create(8, 1, 0)
 })
 
 // return all entities
 Raycast.createOrReplace(rayEntity, {
   direction: {
-	$case: "globalDirection",
-	globalDirection: Vector3.create(0, 0, 1)
+    $case: "globalDirection",
+    globalDirection: Vector3.create(0, 0, 1)
   }	
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_QUERY_ALL
 })
 
 engine.addSystem(() => {
-	const rayResult = RaycastResult.get(rayEntity)
-	console.log(rayResult.hits)
+  const rayResult = RaycastResult.get(rayEntity)
+  console.log(rayResult.hits)
 })
 ```
 
@@ -454,9 +453,9 @@ The next example shows how you can access `RaycastResult` components from all en
 
 ```typescript
 engine.addSystem(() => {
-	for (const [_, result] of engine.getEntitiesWith(RaycastResult)) {
-		console.log(result.hits)
-	}
+  for (const [_, result] of engine.getEntitiesWith(RaycastResult)) {
+    console.log(result.hits)
+  }
 })
 ```
 
