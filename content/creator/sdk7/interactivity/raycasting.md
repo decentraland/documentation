@@ -37,19 +37,9 @@ Transform.create(myEntity, {
 raycastSystem.registerLocalDirectionRaycast(
 	myEntity,
     (raycastResult) => {
-      if (raycastResult.hits.length > 0) {
-        for (const hit of raycastResult.hits) {
-          if (hit.entityId) {
-            // hit some entity
-          }
-        }
-      } else {
-        // no entity hit
-      }
+      // callback function
     },
     {
-      maxDistance: 30,
-      queryType: RaycastQueryType.RQT_QUERY_ALL,
       direction: Vector3.Forward(),
     }
 )
