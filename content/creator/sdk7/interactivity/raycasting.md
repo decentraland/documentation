@@ -31,11 +31,11 @@ The following code creates a raycast with a local direction:
 ```ts
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-	position: Vector3.create(4, 1, 4)
+  position: Vector3.create(4, 1, 4)
 })
 
 raycastSystem.registerLocalDirectionRaycast(
-	myEntity,
+    myEntity,
     (raycastResult) => {
       // callback function
     },
