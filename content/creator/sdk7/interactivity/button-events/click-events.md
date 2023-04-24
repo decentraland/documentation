@@ -15,7 +15,7 @@ A Decentraland scene can detect input actions from all of the buttons that are u
 You can detect input actions against an entity. This involves pressing a button while the player's cursor is pointing at that entity's collider. You can also detect _global_ input event, that involve pressing activating the input at any time, without consideration for where the pointer is aiming.
 
 {{< hint warning >}}
-**📔 Note**:  An entity must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) to respond to input actions. If an entity has no collider, you can give it a `MeshCollider` component to make it clickable.
+**📔 Note**:  Primitive shapes must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) to respond to input actions. If an entity has no collider, you can give it a `MeshCollider` component to make it clickable. Entities with a GLTFShape component have their entire visible geometry clickable by default.
 {{< /hint >}}
 
 
@@ -38,7 +38,7 @@ You could also implement [custom] ways of feedback, for example you could play a
 
 Button events cast rays that only interact with the first entity on their path, as long as the entity is closer than its distance limit.
 
-For an entity to be intercepted by the ray of a button event, the entity's 3d model must either have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). Either the entity's 3d model must include a collider mesh, or the entity must have a `CollierMesh` component.
+For an entity to be intercepted by the ray of a button event, the entity's 3d model must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). Either the entity's 3d model must include a collider mesh, or the entity must have a `CollierMesh` component. `GLTFContainer` components include a pointer-layer collider on all their visible meshes by default.
 
 If another entity's collider is standing on the way of the entity that the player wants to interact with it, the player won't be able to click the entity that's behind, unless the entity's `MeshCollider` component is configured to allow clicking through it.
 

@@ -8,9 +8,12 @@ type: Document
 url: /creator/development-guide/sdk7/colliders/
 ---
 
-Entities that have colliders occupy space and block a player's path, entities without colliders can be walked through by a player`s avatar. 
+Entities that have colliders occupy space and block a player's path, entities without colliders can be walked through by a player`s avatar.
 
-Colliders are also needed to make an entity clickable. Button events are based on the collider shape of an entity, not on its visible shape. 
+Colliders are also needed to make an entity clickable. Button events are based on the collider shape of an entity, not on its visible shape.
+
+There are separate collision layers for interacting with either the player's physics, or with pointer events, colliders can be configured to only interact with one or the other. They can also be configured to interact with custom layers, that can be assigned to whatever makes sense to the scene.
+
 
 {{< hint warning >}}
 **📔 Note**:  Colliders don't affect how other entities interact with each other, entities can always overlap. Collision settings only affect how the entity interacts with the player's avatar and button events. Decentraland doesn't have a native physics engine, so if you want entities to fall, crash or bounce, you must code this behavior into the scene, or import a library to handle that.
@@ -19,7 +22,6 @@ Colliders are also needed to make an entity clickable. Button events are based o
 ## Colliders on primitive shapes
 
 Entities that have a `MeshRenderer` component to give them a [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md#primitive-shapes" >}})(boxes, spheres, planes etc) don't have colliders by default. You must also give the entity a `MeshCollider` component.
-
 
 The following collider shapes are available. Several shapes include optional additional fields, specific to that shape.
 
@@ -59,7 +61,9 @@ The shape used by the `MeshCollider` doesn't need to necessarily match the one u
 
 ## Colliders on 3D models
 
-3D models can include their own colliders as part of a _.glTF_ or _.glb_ file. Any mesh in the model who's name ends in `_collider` is interpreted as a collider.
+3D models include pointer-layer colliders by default, so any visible geometry of a model is clickable without needing to add anything additional.
+
+3D models can include their own physics-layer colliders as part of a _.glTF_ or _.glb_ file. Any mesh in the model who's name ends in `_collider` is interpreted as a collider.
 
 A _collider_ is a set of geometric shapes or planes that define which parts of the model are collided with. This allows for much greater control and is a lot less demanding on the system than using the visible geometry, as the collision object is usually a lot simpler (with less vertices) than the original model.
 
@@ -81,7 +85,7 @@ See [3D models](/creator/3d-modeling/3d-models) for more details on how to add c
 
 The scene can handle separate collision layers, that have different behaviors.
 
-You can configure a `MeshCollider` component to only respond to one kind of interaction, or to severa lof them. To do this, set the `collisionMask` property to one of the following values:
+You can configure a `MeshCollider` component to only respond to one kind of interaction, or to several of them. To do this, set the `collisionMask` property to one of the following values:
 
 - `ColliderLayer.CL_PHYSICS`: Only blocks player movement (and doesn't affect pointer events)
 - `ColliderLayer.CL_POINTER`: Responds only to pointer events (and doesn't block the player movement)

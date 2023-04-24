@@ -102,7 +102,10 @@ The `src` field is required, you must give it a value when constructing the comp
 **💡 Tip**:  We recommend keeping your models separate in a `/models` folder inside your scene.
 {{< /hint >}}
 
-glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this.
+glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this. 
+
+To prevent players from walking through a 3D model, you must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}), which may be embedded in the model or provided via a `MeshCollider` component.
+`GLTFContainer` components include a pointer-layer collider on all their visible meshes by default. so no action is needed to make a 3D model clickable.
 
 Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
 
@@ -112,6 +115,7 @@ Instead of building your own 3D models, you can also download them from several 
 
 To get you started, below is a list of libraries that have free or relatively inexpensive content:
 
+- [Asset Ovi](https://assetovi.com/)
 - [Assets from the Builder](https://github.com/decentraland/builder-assets/tree/master/assets)
 - [SketchFab](https://sketchfab.com/)
 - [Clara.io](https://clara.io/)
