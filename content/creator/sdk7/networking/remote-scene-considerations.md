@@ -15,12 +15,12 @@ Allowing all players to see a scene as having the same content in the same state
 
 There are two ways to keep the scene state that all players see in sync:
 
-- Send P2P messages between players to update changes
+- Use the default messaging transport between players to update changes
 - Use an authoritative server to keep track of the scene's state
 
 The first of these options is the easiest to implement. The downside is that you rely more on player's connection speeds. Also, if there are incentives to exploit (eg: there are prizes for players with highest scores in a game, or there are in-game transactions) it's always recommendable to use an authoritative server, as this allows you to have more control and exposes less vulnerabilities.
 
-## P2P messaging
+## Default messaging
 
 #### Initiate a message bus
 
@@ -154,7 +154,7 @@ sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
 
 Find some more examples in the [Awesome Repository](https://github.com/decentraland-scenes/Awesome-Repository#use-message-bus)
 
-#### Test a P2P scene locally
+### Test a multiplayer scene locally
 
 If you launch a scene preview and open it in two (or more) different browser windows, each open window will be interpreted as a separate player, and a mock communications server will keep these players in sync.
 
@@ -172,7 +172,7 @@ An authoritative server may have different levels of involvement with the scene:
 - API + DB: This is useful for scenes where changes don't happen constantly and where it's acceptable to have minor delays in syncing. When a player changes something, it sends an HTTP request to a REST API that stores the new scene state in a data base. Changes remained stored for any new player that visits the scene at a later date. The main limitation is that new changes from other players aren't notified to players who are already there, messages can't be pushed from the server to players. Players must regularly send requests the server to get the latest state.
 
 {{< hint info >}}
-**💡 Tip**:  It's also possible to opt for a hybrid approach where changes are notified between players via P2P Messagebus messages, but the final state is also stored via an API for future visitors.
+**💡 Tip**:  It's also possible to opt for a hybrid approach where changes are notified between players via Messagebus messages, but the final state is also stored via an API for future visitors.
 {{< /hint >}}
 
 - Websockets: This alternative is more robust, as it establishes a two-way communications channel between player and server. Updates can be sent from the server, you could even have game logic run on or validated on the server. This enables real time interaction and makes more fast paced games possible. It's also more secure, as each message between player and server is part of a session that is opened, no need to validate each message.

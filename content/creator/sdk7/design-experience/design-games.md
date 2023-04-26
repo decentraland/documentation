@@ -64,18 +64,18 @@ Your scene could have a reset mechanism that sets it to an initial state, but yo
 
 **Currently, scene states aren't shared between players unless manually implemented.** This is the simplest way to build a scene, but it’s not ideal for social experiences.
 
-Scenes can share state information between players in a peer to peer manner. Peer to peer has the advantage of needing no servers, but it can lead to significant latency, as players could have poor internet connections or be geographically far away. If no players are currently near the scene and loading it, the scene will reset to a default state the next time it’s loaded.
+You can use the MessageBus to use the same messaging architecture used to share player position changes and chat. These state changes are not stored anywhere. If no players are currently near the scene and loading it, the scene will reset to a default state the next time it’s loaded.
 
 **You can host your own server to store information about your scene and keep all players in sync with it.** This ensures good connection speeds and keeps the scene running continuously even when no players are near. If you do this, your latency limitations would be no different to any other massively played online games.
 
-Hosting your own server is also a recommended safety measure for games that involve transactions with valuable game items, as peer to peer connections place trust in the player that assumes the role of server.
+Hosting your own server is also a recommended safety measure for games that involve transactions with valuable game items, as you can keep certain information like security tokens only in the server, never exposing that information outside.
 
 {{< hint warning >}}
 **📔 Note**:  In future releases, we will provide out-of-the-box solutions and code examples for how to implement your own server.
 
 #### Game timing
 
-**Games that use peer to peer connections should take into account that there could be lag between players** and shouldn’t rely on fast reactions between the actions of different players. We recommend games that are turn based, or that are mostly based on player versus environment interactions.
+**Games that use default communications architecture should take into account that there could be lag between players** and shouldn’t rely on fast reactions between the actions of different players. We recommend games that are turn based, or that are mostly based on player versus environment interactions.
 
 For games where the timing of actions between players is critical, like a first person shooter, you should implement your own server as a real-time authoritative source of truth between all players in your scene.
 
@@ -172,7 +172,5 @@ The player must always approve these transactions explicitly on their Ethereum c
 Players could also sign a contract that automatically approves all transactions requested by a specific address or within certain constraints, so as to avoid interruptions to approve transactions.
 
 You can also use smart contracts to condition transactions based on custom conditions. For example, players could stake a bet on the outcome of a game, and the corresponding payments would occur automatically as soon as the outcome is known.
-
-As a safety measure, we don’t recommend carrying out in-game transactions in scenes that are hosted peer to peer. Peer to peer connections place trust in the player that assumes the role of server.
 
 To implement blockchain interactions in your scene’s code, you must use external libraries that interface with the Ethereum network. Future releases of the SDK will provide a custom API to expose these functionalities in a simpler way.

@@ -17,14 +17,14 @@ Allowing all players to see a scene as having the same content in the same state
 
 There are two ways to keep the scene state that all players see in sync:
 
-- Send P2P messages between players to update changes
+- Use the default messaging transport between players to update changes
 - Use an authoritative server to keep track of the scene's state
 
 The first of these options is the easiest to implement. The downside is that you rely more on player's connection speeds. Also, if there are incentives to exploit (eg: there are prizes for players with highest scores in a game, or there are in-game transactions) it's always recommendable to use an authoritative server, as this allows you to have more control and exposes less vulnerabilities.
 
-## P2P messaging
+## Default messaging
 
-#### Initiate a message bus
+### Initiate a message bus
 
 Create a message bus object to handle the methods that are needed to send and receive messages between players.
 
@@ -32,7 +32,7 @@ Create a message bus object to handle the methods that are needed to send and re
 const sceneMessageBus = new MessageBus()
 ```
 
-#### Send messages
+### Send messages
 
 Use the `.emit` command of the message bus to send a message to all other players in the scene.
 
@@ -60,7 +60,7 @@ sceneMessageBus.emit("spawn", { position: spawnPos })
 **💡 Tip**:  If you need a single message to include data from more than one variable, create a custom type to hold all this data in a single object.
 {{< /hint >}}
 
-#### Receive messages
+### Receive messages
 
 To handle messages from all other players in that scene, use `.on`. When using this function, you provide a message string and define a function to execute. For each time that a message with a matching string arrives, the given function is executed once.
 
@@ -80,7 +80,7 @@ sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
 **📔 Note**:  Messages that are sent by a player are also picked up by that same player. The `.on` method can't distinguish between a message that was emitted by that same player from a message emitted from other players.
 {{< /hint >}}
 
-#### Full example
+### Full example
 
 This example uses a message bus to send a new message every time the main cube is clicked, generating a new cube in a random position. The message includes the position of the new cube, so that all players see these new cubes in the same positions.
 
@@ -142,7 +142,7 @@ sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
 
 Find some more examples in the [Awesome Repository](https://github.com/decentraland-scenes/Awesome-Repository#use-message-bus)
 
-#### Test a P2P scene locally
+### Test a multiplayer scene locally
 
 If you launch a scene preview and open it in two (or more) different browser windows, each open window will be interpreted as a separate player, and a mock communications server will keep these players in sync.
 
@@ -159,18 +159,18 @@ An authoritative server may have different levels of involvement with the scene:
 - API + DB: This is useful for scenes where changes don't happen constantly and where it's acceptable to have minor delays in syncing. When a player changes something, it sends an HTTP request to a REST API that stores the new scene state in a data base. Changes remained stored for any new player that visits the scene at a later date. The main limitation is that new changes from other players aren't notified to players who are already there, messages can't be pushed from the server to players. Players must regularly send requests the server to get the latest state.
 
 {{< hint info >}}
-**💡 Tip**:  It's also possible to opt for a hybrid approach where changes are notified between players via P2P Messagebus messages, but the final state is also stored via an API for future visitors.
+**💡 Tip**:  It's also possible to opt for a hybrid approach where changes are notified between players via Messagebus messages, but the final state is also stored via an API for future visitors.
 {{< /hint >}}
 
 - Websockets: This alternative is more robust, as it establishes a two-way communications channel between player and server. Updates can be sent from the server, you could even have game logic run on or validated on the server. This enables real time interaction and makes more fast paced games possible. It's also more secure, as each message between player and server is part of a session that is opened, no need to validate each message.
 
-#### Example scenes with authoritative server
+### Example scenes with authoritative server
 
 - [API + DB](https://github.com/decentraland-scenes/Awesome-Repository#use-an-api-as-db)
 
 - [Websockets](https://github.com/decentraland-scenes/Awesome-Repository#websockets)
 
-#### Preview scenes with authoritative servers
+### Preview scenes with authoritative servers
 
 To preview a scene that uses an authoritative server, you must run both the scene and the server it relies on. The server can be run locally in the same machine as the preview, as an easier way to test it.
 
@@ -190,14 +190,14 @@ If your scene sends data to a 3rd party server to sync changes between players i
 
 See how to obtain the realm for each player in [get player data]({{< ref "/content/creator/scenes/interactivity/user-data.md" >}})
 
-#### Multiplayer persistance
+### Multiplayer persistance
 
 Unlike local scenes that are newly mounted each time a player walks into them, scenes that use authoritative servers have a life span that extends well beyond when the player enters and leaves the scene.
 
 You must therefore design the experience taking into account that player won't always find the scene in the same initial state.
 Any changes made to the scene will linger on for other players to find, you must make sure that these don't interfere with future player's experiences in an undesired way.
 
-##### Reset the state
+#### Reset the state
 
 When loading the scene, make sure its built based on the shared information stored in the server, and not in a default state.
 
