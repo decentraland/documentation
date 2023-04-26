@@ -100,7 +100,13 @@ Open a prebuilt UI that displays the name, owner, and description of an NFT. It 
 
 <img src="/images/media/nft-ui.png" alt="Move entity" width="500"/>
 
-Open this UI by calling the function `OpenNftDialog()`, passing it the NFT's contract and id, just like with the NFT shape.
+Open this UI by calling the function `OpenNftDialog()`. This function requires an object as an argument that contains a single `urn` field. This field takes a string that should follow this structure:
+
+`urn:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT>:<TOKEN_ID>`
+
+For example:
+
+`urn:ethereum:erc721:0x00...000:123`
 
 
 {{< hint warning >}}
@@ -115,7 +121,7 @@ pointerEventsSystem.onPointerDown(
   entity,
   function () {
      OpenNftDialog({
-       urn: "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536"
+       urn: "urn:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536"
 		})
   },
   {
