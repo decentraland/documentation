@@ -94,40 +94,35 @@ Some frames use more materials than others. For example, the default frame adds 
 **💡 Tip**:  Using Visual Studio Code (or another IDE), see the whole list by typing `NftFrameType.` and waiting for the smart suggestions display the list of options. Use `NftFrameType.NFT_NONE`to display the plain NFT as is, with no frame or background color.
 {{< /hint >}}
 
-<!-- 
 ## Open an NFT UI
-
-TODO: is this still a thing?? 
 
 Open a prebuilt UI that displays the name, owner, and description of an NFT. It also includes the NFT's current price and price of last sale if applicable, and a button that links to the NFT's page on OpenSea, where more information is available and it can be purchased.
 
 <img src="/images/media/nft-ui.png" alt="Move entity" width="500"/>
 
-Open this UI by calling the function `openNFTDiaconsole.log()`, passing it the NFT's contract and id, just like with the NFT shape. The UI must be opened as a result of a button event, to prevent abusive spamming. The button event doesn't necessarily need to be on the same picture frame or on an `NftShape`.
+Open this UI by calling the function `OpenNftDialog()`, passing it the NFT's contract and id, just like with the NFT shape.
 
-To open this UI, add the following:
+
+{{< hint warning >}}
+**📔 Note**:  The UI must be opened as a result of a button event, to prevent abusive spamming. The button event doesn't necessarily need to be on the same picture frame or on an `NftShape`.
+{{< /hint >}}
+
+To open this UI as a result of a click action, add the following:
 
 
 ```ts
-myPictureFrame.addComponent(
-  new OnPointerDown((e) => {
-    openNFTDiaconsole.log(
-      "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536"
-    )
-  })
+pointerEventsSystem.onPointerDown(
+  entity,
+  function () {
+     OpenNftDialog({
+       urn: "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536"
+		})
+  },
+  {
+    button: InputAction.IA_PRIMARY,
+    hoverText: 'Click'
+  }
 )
 ```
 
-The UI will include the description that's available on the NFT, you can also include additional custom text to the UI. To add custom text, simply include the text as a second argument on the `openNFTDiaconsole.log()` function.
 
-```ts
-myPictureFrame.addComponent(
-  new OnPointerDown((e) => {
-    openNFTDiaconsole.log(
-      "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536",
-      "This NFT is mine and I'm really proud of owning it."
-    )
-  })
-)
-``` 
--->
