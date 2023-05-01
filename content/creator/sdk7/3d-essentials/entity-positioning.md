@@ -349,20 +349,20 @@ You can pick different anchor points on the avatar, most of these points are lin
 ```ts
 // Attach to loacl player
 AvatarAttach.create(myEntity,{
-    AvatarAnchorPoint: AvatarAnchorPointType.AAPT_NAME_TAG,
+    anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
 // Attach to another player, by ID
 AvatarAttach.create(myEntity,{
     avatarId: '0xAAAAAAAAAAAAAAAAA',
-    AvatarAnchorPoint: AvatarAnchorPointType.AAPT_NAME_TAG,
+    anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 ```
 
 When creating an `AvatarAttach` component, pass an object with the following data:
 
 - `avatarId`: _Optional_ The ID of the player to attach to. This is the same as the player's Ethereum address, for those players connected with an Ethereum wallet. If not speccified, it attaches the entity to the local player's avatar.
-- `AvatarAnchorPoint`: What anchor point on the avatar skeleton to attach the entity, using a value from the enum `AvatarAnchorPointType`.
+- `anchorPointId`: What anchor point on the avatar skeleton to attach the entity, using a value from the enum `AvatarAnchorPointType`.
 
 The following anchor points are available on the player:
 
@@ -380,7 +380,7 @@ Entity rendering is locally determined on each instance of the scene. Attaching 
 **📔 Note**:  Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
 {{< /hint >}}
 
-The `AvatarAttach` component overwrites the `Transform` component, a single entity can't have both an `AvatarAttach` and a `Transform` component at the same time.
+The `AvatarAttach` component overwrites the `Transform` component. A single entity can have both an `AvatarAttach` and a `Transform` component at the same time but the values on the `Transform` component are ignored.
 
 If you need to position an entity with an offset from the anchor point on the avatar, or a different rotation or scale, attach a parent entity to the anchor point. You can then set the visible model on a child entity to that parent, and give this child its own Transform component to describe its shifts from the anchor point.
 
@@ -390,14 +390,13 @@ const parentEntity = engine.addEntity()
   
 // Attach parent entity to player
 AvatarAttach.create(parentEntity,{
-	avatarId: '0xAAAAAAAAAAAAAAAAA',
-    AvatarAnchorPoint: AvatarAnchorPointType.AAPT_NAME_TAG,
+    anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
 // Create child entity
 let childEntity = engine.addEntity()
 
-ConeShape.create(childEntity)
+MeshRenderer.setCylinder(childEntity)
 
 Transform.create(childEntity, {
     scale: Vector3.create(0.2, 0.2, 0.2),

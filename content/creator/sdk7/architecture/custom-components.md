@@ -253,6 +253,30 @@ const MyCurveSchema = {
 
 ```
 
+### Interchangeable types
+
+You can set the type of a field in a schema to follow a `oneOf` pattern, where different types can be accepted.
+
+```ts
+const MySchema = {
+  myField: Schemas.OneOf({ type1: Schemas.Vector3, type2: Schemas.Quaternion })
+}
+
+export const MyComponent = engine.defineComponent("MyComponent", MySchema)
+```
+
+When creating an instance of the component, you need to specify the selected type with a `$case`, for example:
+
+```ts
+MyComponent.create(myEntity, {
+	myField: {
+		$case: type1
+		value: Vector3.create(1, 1, 1)
+	}
+})
+```
+
+
 ## Default values
 
 It's often good to have default values in your components, so that it's not necessary to explicitly set each value every time you create a new copy.

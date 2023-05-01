@@ -33,7 +33,7 @@ Not all shaders can be used in models that are imported into Decentraland. Make 
 
 The image below shows two identical models, created with the same colors and textures. The model on the left uses all _PBR_ materials, some of them include _metalness_, _transparency_, and _emissiveness_. The model on the right uses all _standard_ materials, some including _transparency_ and _emissiveness_.
 
-![](/images/media/materials_pbr_basic.png)
+<img src="/images/media/materials_pbr_basic.png" width="300" />
 
 ## Transparent materials
 
@@ -41,13 +41,13 @@ You can set a material to be _transparent_. Transparent materials can be seen th
 
 The image below shows two identical models created with standard materials. The one on the left uses only opaque materials, the one on the right uses both transparent and opaque materials in some of its parts.
 
-![](/images/media/materials_transparent_emissive.png)
+<img src="/images/media/materials_transparent_emissive.png" width="300" />
 
 There are two main different transparency modes: _Aplha Clip_ and _Aplha Blend_.
 
 _Alpha Clip_ sets that each part of a model is either 100% opaque or 100% transparent. _Alpha Blend_ allows you to pick intermediate values per region.
 
-![](/images/media/transparency-modes.png)
+<img src="/images/media/transparency-modes.png" width="300" />
 
 Unless you specifically want to be able to have an intermediate level of transparency, it's always better to use _Alpha Clip_.
 
@@ -57,21 +57,21 @@ You can also make a material _emissive_. Emissive materials cast their own light
 
 The image below shows two identical models created with standard materials. The one on the right has glowing emissive materials on some of its surfaces.
 
-![](/images/media/materials_transparent_emissive.png)
+<img src="/images/media/materials_transparent_emissive.png" width="300" />
 
 To make a material emissive in Blender, simply add an `emission` shader to the material.
 
-![](/images/media/simple-emissive.png)
+<img src="/images/media/simple-emissive.png" width="300" />
 
 To make a material both emissive and have a texture, you can use two shaders in parallel, one of the `emission` and another `principled BDSF` for the texture. You can then use a `mix shader` node to join them.
 
-![](/images/media/apply-emissive.png)
+<img src="/images/media/apply-emissive.png" width="300" />
 
 {{< hint info >}}
 **💡 Tip**:  By using a color atlas as a texture, you can get away with having various possible colors counted as a single texture. This is useful for making sure you don't exceed the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}).
 {{< /hint >}}
 
-![](/images/media/neon-texture.png)
+<img src="/images/media/neon-texture.png" width="300" />
 
 #### Soften an emissive
 
@@ -81,7 +81,7 @@ To make a material glow less, the best workaround is to set the `color` property
 
 For example, if using the below color map, you can achieve a less bright emissive material by picking a color from the bottom half of the image. Anything on the top half will be fully emissive, but as you go lower the material will have less glow.
 
-![](/images/media/neon-texture.png)
+<img src="/images/media/neon-texture.png" width="300" />
 
 ## Vertex painting
 
@@ -184,7 +184,7 @@ To swap the material:
 1. Check the current material's settings to see what texture files are being used and how they are configured.
 2. Delete the current material from the mesh.
 
-   ![](/images/media/materials_delete_material.png)
+   <img src="/images/media/materials_delete_material.png" width="300" />
 
 3. Create a new material.
 

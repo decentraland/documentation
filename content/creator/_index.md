@@ -23,7 +23,7 @@ The Decentraland SDK is a collection of tools to allow you to create scenes. The
 
 {{< hint warning >}}
 **📔 Note**: 
-The currently stable version of the SDK is 6.x. Everything documented under the **scenes** section refers to that stable version. To try out the new version 7 of the SDK (which is still in Alpha), read the documents under the **SDK7 Scenes (alpha)** section. This section is right below the scenes section, non-expanded by default.
+The currently stable version of the SDK is 6.x. Everything documented under the **scenes** section refers to that stable version. To try out the new version 7 of the SDK (which is still in Beta), read the documents under the **SDK7 Scenes (beta)** section. This section is right below the scenes section, non-expanded by default.
 {{< /hint >}}
 
 ### The Decentraland Editor
