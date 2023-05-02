@@ -7,7 +7,7 @@ title: SignedFetch
 
 The `SignedFetch` module provides an implementation of the `fetch` interface that is transparently compliant with the [signed fetch]({{< relref "../../auth/signed_fetch" >}}) protocol, which defines how to attach signed [authentication chains]({{< relref "../../auth/authchain" >}}) to outgoing requests.
 
-The procedures for signing and verifying this request are detailed in the [authentication chain]({{< ref "/contributor/auth/authchain" >}}) page. !! link to section
+The procedures for signing and verifying this request are detailed in the [authentication chain]({{< ref "/contributor/auth/authchain" >}}) page.
 
 Using `SignedFetch` from a scene requires the [`USE_FETCH`]({{< ref "/contributor/content/entity-types/scenes#permissions" >}}) permission.
 
