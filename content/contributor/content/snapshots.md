@@ -49,7 +49,7 @@ If you intend to parse a snapshot line by line, remember to skip the first one w
 
 ## Dowloading Snapshots
 
-To locate the current set of snapshots, use the [`/snapshot`](https://decentraland.github.io/catalyst-api-specs/#tag/Content-Server/operation/getActiveEntities) endpoint. The response contains a reference to a global snapshot file for all entities, as well as individual ones for every entity type. Each entry lists the Unix UTC timestamp at the time of creation. For example:
+To locate the current set of snapshots, use the [`/snapshots`](https://decentraland.github.io/catalyst-api-specs/#tag/Content-Server/operation/getActiveEntities) endpoint. The response contains a reference to a global snapshot file for all entities, as well as individual ones for every entity type. Each entry lists the Unix UTC timestamp at the time of creation. For example:
 
 ```json
 {

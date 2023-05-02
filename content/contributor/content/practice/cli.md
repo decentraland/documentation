@@ -62,10 +62,10 @@ curl "https://peer.decentraland.org/about"
 
 Looks like the server is up and running normally (`"healthy": true`), and is giving us information about the version it implements for each feature set, plus some configuration options of the instance.
 
-We're interested in downloading some content, so let's explore the available [snapshots]({{< relref "snapshots" >}}) to get our hands on some identifiers via `/content/snapshot`.
+We're interested in downloading some content, so let's explore the available [snapshots]({{< relref "snapshots" >}}) to get our hands on some identifiers via `/content/snapshots`.
 
 ```bash
-curl "https://peer.decentraland.org/content/snapshot"
+curl "https://peer.decentraland.org/content/snapshots"
 ```
 
 ```json

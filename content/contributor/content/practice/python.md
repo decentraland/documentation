@@ -50,7 +50,7 @@ If we get past this point, the server is up and running (we got a `200` response
 
 ```python3
 # Get the list of snapshots:
-snapshots = json.loads(http_get('https://peer.decentraland.org/content/snapshot'))
+snapshots = json.loads(http_get('https://peer.decentraland.org/content/snapshots'))
 ```
 
 Let's obtain the identifier for the emote snapshot file, as we did in the manual practice above:
