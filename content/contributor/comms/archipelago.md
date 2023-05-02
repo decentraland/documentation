@@ -96,12 +96,12 @@ The [`Heartbeat`][Heartbeat] message includes two fields:
 
 
 When given a `desired_room` parameter, Archipelago will try to honor the request and assign the
-client to specified island, but it may (rarely) reject if the island population is already too large. Clients should verify their assignments.
+client to the specified island, but it may (rarely) reject it if the island population is already too large. Clients should verify their assignments.
 
 
 ## Getting Island Assignments {#assignment}
 
-Shortly after the first heartbeat, Archipelago will send the client their first [`IslandChangeMessage`][IslandChangeMessage].
+Shortly after the first heartbeat, Archipelago will send the client their first [`IslandChangedMessage`][IslandChangedMessage].
 
 | Field | Type | Value
 | ----- | --- | --- |
