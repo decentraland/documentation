@@ -7,6 +7,7 @@ weight: 1
 
 The Decentraland communications system, usually called _comms_, is the real-time messaging protocol that handles interaction between players in a realm.
 
+
 Some of these interactions are initiated by players, others are automatically handled by clients under the hood. Some examples:
 
 * Text and voice chat
@@ -14,7 +15,7 @@ Some of these interactions are initiated by players, others are automatically ha
 * Avatar updates when players change their appearance
 
 {{< info >}}
-When using the word _message_ in the context of comms, we'll be referring to the binary message protocol, not to chat messages exchanged between players.
+You can see the comms protocol in action and experiment with it using the [[Comms Demo Station]].
 {{< /info >}}
 
 Since most of this functionality requires broadcasting messages to all nearby players, they are automatically grouped into proximity-based clusters named _islands_. Each player is assigned to a single island at a time, which changes as they travel the world and move relative to others.
@@ -134,6 +135,10 @@ The flow for getting assigned to an island and joining it is detailed in the [Ar
 ## Messages
 
 Messages in the comms protocol are binary blobs serialized using [protocol buffers](https://github.com/protocolbuffers/protobuf), wrapped in a [Packet]({{< relref "messages#Packet" >}}) structure.
+
+{{< info >}}
+When using the word _message_ in the context of comms, we'll always be referring to the binary message protocol, not to chat messages exchanged between players.
+{{< /info >}}
 
 There are several different message types, for a variety of real-time interaction flows. Header over to the [messages]({{< relref "messages" >}}) section to learn more.
 

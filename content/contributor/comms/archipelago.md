@@ -8,7 +8,7 @@ weight: 2
 Archipelago is the realm service that groups nearby players into islands, reassigning them as they move around and providing the information required to connect to the actual backend that will relay their messages.
 
 {{< info >}}
-You can see the Archipelago protocol in action and play with it using the [[Comms Demo Station]].
+You can see the Archipelago protocol in action and experiment with it using the [[Comms Demo Station]].
 {{< /info >}}
 
 To use the service, clients must connect to their realm's _backend-for-frontend_ (BFF) websocket RPC, authenticate and activate the comms module for their connection, as described below. They can then start exchanging messages with Archipelago.
