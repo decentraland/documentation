@@ -110,7 +110,7 @@ Clients typically broadcast `AnnounceProfileVersion` messages periodically, plus
      |                              |                            |
      |                              o ProfileRequest(@client 1)  o ProfileRequest(@client 1) 
      |                              |                            |
-     o ProfileResponse(v1)          |                            |
+     o ProfileResponse(v2)          |                            |
      |                              |                            |
      |                              |                            |
      
@@ -147,9 +147,14 @@ Receivers can reply with [`ProfileResponse`](#ProfileResponse) messages to provi
 
 Sends a profile in response to a [`ProfileRequest`](#ProfileRequest).
 
+| Field | Type | Value
+| ----- | --- | --- |
+| `serialized_profile` | string | JSON-serialized profile entity.
+| `base_url` | `uint32` | base URL for a filesystem endpoint, recommended by the sender.
+
 The `serialized_profile` field contains the JSON serialization of a [profile entity]({{< ref "/contributor/content/entity-types/profiles" >}}).
 
-If the sender wants to recommend a content server to download entities referenced in their profile, it can set the `base_url` field.
+If the sender wants to recommend a content server to download entities referenced in their profile (such as wearables), it can set the `base_url` field as a hint. Clients are free to use or ignore this URL.
 
 
 <!--
