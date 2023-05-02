@@ -73,8 +73,6 @@ If the challenge signature is successfully verified by the service, the client w
        |                          |
 ```
 
-Protocol failures (e.g. malformed messages) during the authentication phase will result in immediate disconnection. !!
-
 
 ## Sending Heartbeat {#heartbeat}
 
