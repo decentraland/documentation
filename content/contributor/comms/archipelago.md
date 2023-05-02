@@ -15,8 +15,6 @@ To use the service, clients must connect to their realm's _backend-for-frontend_
 
 The Archipelago protocol closely matches the comms [client life-cycle]({{< relref "overview#lifecycle" >}}), with messages to report positions, get island assignments and receive various updates.
 
-!! prefer link to sections below over externals
-
 Connections to the BFF (and thus Archipelago) last for the full duration of the client's session -- indeed, as far as comms is concerned, open connections _are_ the session.
 
 All messages exchanged with the BFF and the Archipelago service are encoded using protocol buffers, as defined in the Decentraland [protocol repository](https://github.com/decentraland/protocol). There's also a complete implementation of a BFF connection in the [Foundation's World Explorer](https://github.com/decentraland/unity-renderer/blob/d19577b762db71144bc402c3af0fb599685276b8/browser-interface/packages/shared/realm/connections/BFFConnection.ts).
@@ -36,11 +34,11 @@ To begin, clients must obtain the URI for the realm's BFF through the `/about` e
 
 By specification, the RPC interface is located at `wss://<root>/<publicUrl>/rpc`. For example, [`https://peer.decentraland.org/about`](https://peer.decentraland.org/about) reports its `publicUrl` as `/bff`, so the websocket endpoint is at `wss://peer.decentraland.org/bff/rpc`.
 
-{{< info >}}
-While the larger realms run the Archipelago service, smaller ones may choose to provide a fixed backend connection string for all players.
-{{< /info >}}
+**Fixed Adapters**<br>
+While the larger realms run the Archipelago service, smaller ones may choose to provide a fixed backend connection string for all players. The URI, if present, can be found in the `comms.fixedAdapter` property of the realm's `/about`.
 
-<!-- !! fixed adapters -->
+In these cases, dynamic island assignment won't be available, and the realm's RPC interface should not be used for that purpose.
+
 
 ## Authenticating {#authenticating}
 
