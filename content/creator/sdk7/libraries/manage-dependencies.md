@@ -42,11 +42,11 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 4) Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `react`.
 
 {{< hint warning >}}
-**📔 Note**:  If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
+**📔 Note**:  If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl-sdk/utils@1.0.4`.
 {{< /hint >}}
 
 
-5) If it is a Decentraland library (ie. `decentraland-ecs-utils`) select `Yes`, otherwise `No`.
+5) If it is a Decentraland library (ie. `@dcl-sdk/utils`) select `Yes`, otherwise `No`.
 
 ### Update a dependency
 
