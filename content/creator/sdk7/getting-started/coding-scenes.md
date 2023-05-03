@@ -187,8 +187,12 @@ You can write your code outside the `main()` function when:
 - The code defines a system, or adds a system to the engine
 - The code is inside an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}})
 
+
+
 {{< hint warning >}}
-**📔 Note**:  [Custom Components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) must always be written outside the `main()` function, in a separate file. They need to be interpreted before `main()` is executed.
+**📔 Note**: By the time the code inside an async function or a system is first executed, everything in the scene is already properly initialized.
+
+[Custom Components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) must always be written outside the `main()` function, in a separate file. They need to be interpreted before `main()` is executed.
 {{< /hint >}}
 
 
