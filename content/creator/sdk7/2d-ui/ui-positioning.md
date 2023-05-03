@@ -172,4 +172,26 @@ examples:
 ```ts
 ``` -->
 
+## UI Canvas Information
 
+Instead of positioning and scaling UI elements in terms of screen percentages, you can also obtain the canvas dimensions and then calculate the absolute positions following your own custom logic. For example, you could chose different dialog arrangements depending on the screen size.
+
+To obtain information about the screen's dimension, you can check the `UiCanvasInformation`, that's added by default to the scenes's root entity.
+
+The `UiCanvasInformation` component holds the following information:
+
+- `height`: Canvas height in pixels
+- `width`: Canvas width in pixels
+- `devicePixelRatio`: The ratio of the resolution in physical pixels in the device to the pixels on the canvas
+- `interactableArea`: A `rect` object, detailing the size of the area designated for scene UI elements. This object contains the following fields:
+   - `height`: Height of interactable area
+   - `width`: Width of interactable area
+   - `x`: Leftmost x position of the interactable area
+   - `y`: Lowest y position of the interactable area
+
+```ts
+executeTask(async () => {
+  let canvas = UiCanvasInformation.get(engine.rootEntity)
+	console.log("CANVAS DIMENSIONS: ", canvas.width, canvas.height)
+})
+```
