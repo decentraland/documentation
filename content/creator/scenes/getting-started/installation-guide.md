@@ -28,7 +28,7 @@ To install the Decentraland Editor:
 
 2) Open Visual Studio Code, and open the <img src="/images/editor/vscode-extensions.png" alt="Header" width="25"/> **extensions** marketplace. 
 
-3) Search for the <img src="/images/editor/dcl-logo.png" alt="Header" width="25"/> **Decentraland Editor SDK6** extension and click **Install**. You'll then need to restart Visual Studio to use the extension.
+3) Search for the <img src="/images/editor/dcl-logo.png" alt="Header" width="25"/> **Decentraland Editor SDK6** extension and click **Install**.
 
 	<img src="/images/editor/editor-installation.png" alt="Header" width="100%"/>
 
