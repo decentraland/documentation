@@ -1,5 +1,5 @@
 ---
-date: 2022-11-18
+date: 2023-05-10
 title: FAQ
 description: Places FAQ
 type: Document
@@ -17,16 +17,6 @@ The title, description and image of your Place are taken from the scene metadata
 **I updated the scene metadata but my Place has not been updated?**
 
 Once your scene metadata is updated, you need to let us know so we can update your scene’s data in Places. You can get in touch on [Discord](https://decentraland.org/discord) in the [Places channel](https://discord.com/channels/417796904760639509/1043158908392443974).
-
-## Adding and removing Places
-
-**How do I add my Place?**
-
-If you have a Place which you think should be part of the Places page, contact us on [Discord](https://decentraland.org/discord) in the [Places channel](https://discord.com/channels/417796904760639509/1043158908392443974). Your Place will be accepted if it has a high quality title, description and image.
-
-**How do I remove my Place?**
-
-To remove your Place from the Places page, please contact us on [Discord](https://decentraland.org/discord) in the [Places channel](https://discord.com/channels/417796904760639509/1043158908392443974).
 
 ## Highest Rated
 
