@@ -1,5 +1,5 @@
 ---
-date: 2022-11-18
+date: 2022-05-10
 title: FAQ
 description: Places FAQ
 type: Document
@@ -14,25 +14,19 @@ Below you can find the **frequently asked questions** about [Places](https://pla
 
 The title, description and image of your Place are taken from the scene metadata. Find out more about editing the [scene metadata](https://docs.decentraland.org/creator/development-guide/scene-metadata/).
 
-**I updated the scene metadata but my Place has not been updated?**
-
-Once your scene metadata is updated, you need to let us know so we can update your scene’s data in Places. You can get in touch on [Discord](https://decentraland.org/discord) in the [Places channel](https://discord.com/channels/417796904760639509/1043158908392443974).
-
-## Adding and removing Places
-
-**How do I add my Place?**
-
-If you have a Place which you think should be part of the Places page, contact us on [Discord](https://decentraland.org/discord) in the [Places channel](https://discord.com/channels/417796904760639509/1043158908392443974). Your Place will be accepted if it has a high quality title, description and image.
-
-**How do I remove my Place?**
-
-To remove your Place from the Places page, please contact us on [Discord](https://decentraland.org/discord) in the [Places channel](https://discord.com/channels/417796904760639509/1043158908392443974).
-
 ## Highest Rated
 
 **How is the highest rated percentage calculated?**
 
 In order to avoid abuse, the highest rated percentage is calculated from upvotes and downvotes from users who have at least 100 [voting power](https://docs.decentraland.org/player/general/dao/dao-userguide/#voting-power). Anyone can vote, but only qualifying votes are used to calculate the highest rated percentage.
+
+## Points of Interest
+
+**How can my Place become a Point of Interest?**
+
+Points of interest are notable locations in Decentraland. These “POIs” are promoted in several areas of the virtual world’s UI, and are promoted as good places for users to explore, especially people new to Decentraland.
+
+You can create a [proposal](https://docs.decentraland.org/player/general/dao/dao-userguide/#creating-a-proposal) in the [DAO](https://dao.decentraland.org/en/) to nominate your Place as a Point of Interest.
 
 # More help
 
