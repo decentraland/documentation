@@ -28,9 +28,7 @@ Each Place has a unique ID. There are certain conditions which, when fulfilled, 
 
 In order to avoid abuse, the highest rated percentage is calculated from upvotes and downvotes from users who have at least 100 [voting power](https://docs.decentraland.org/player/general/dao/dao-userguide/#voting-power). Anyone can vote, but only qualifying votes are used to calculate the highest rated percentage.
 
-**How is the highest rated percentage calculated?**
-
-Users are more likely to rate your place highly if your Place has a title, description and thumbnail.
+People are more likely to rate your place highly if your Place has a title, description and thumbnail.
 
 ## Points of Interest
 
