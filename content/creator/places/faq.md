@@ -20,7 +20,7 @@ When you re-upload your scene, the Places website will update any metadata autom
 
 **What happens if I change my Place significantly?**
 
-Each Place is has a unique ID. There are certain conditions which, when fulfilled, will make your Place be considered "new" and it will be given a new ID. This is to cope with the constantly changing nature of Decentraland. If your Place is considered different enough to get a new ID, it will lose favorites and likes. You can read about these conditions in [ADR: Place Identifiers](https://adr.decentraland.org/adr/ADR-186).
+Each Place has a unique ID. There are certain conditions which, when fulfilled, will make your Place be considered "new" and it will be given a new ID. This is to cope with the constantly changing nature of Decentraland. If your Place is considered different enough to get a new ID, it will lose favorites and likes. You can read about these conditions in [ADR: Place Identifiers](https://adr.decentraland.org/adr/ADR-186).
 
 ## Highest Rated
 
