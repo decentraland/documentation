@@ -6,7 +6,7 @@ weight: 2
 
 When protocol clients what to make authenticated HTTPs requests, they can leverage the standard _signed fetch_ mechanism.
 
-A signed fetch is request that includes an [authentication chain]({{< relref "authchain" >}}), represented through headers. Servers with Decentraland-compatbile APIs can validate identities before, for example, [allowing requests from scenes]({{< relref "../runtime/modules/signed_fetch" >}}) or creating [adapters]({{< relref "../comms/overview" >}}).
+A signed fetch is request that includes an [authentication chain]({{< relref "authchain" >}}), represented through headers. Servers with Decentraland-compatible APIs can validate identities before, for example, [allowing requests from scenes]({{< relref "../runtime/modules/signed_fetch" >}}) or creating [adapters]({{< relref "../comms/overview" >}}).
 
 ## Headers
 
