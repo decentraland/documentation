@@ -67,6 +67,6 @@ interface Transport {
 
 ## Client Requirements
 
-Clients may choose to implement only some of the specified adapters, according to their use-case and the servers they expect to interact with.
+Clients may choose to implement only some of the specified transports, according to their use-case and the servers they expect to interact with.
 
 For versatile clients, such as a World Explorer, it's recommended to implement at least the [websocket]({{< relref "transport-types/websocket" >}}) and [LiveKit]({{< relref "transport-types/livekit" >}}) transports, which are currently used by all major realms.
