@@ -2,13 +2,13 @@
 title: "Messages"
 sidebartitle: "Messages"
 url: "/contributor/comms/messages"
-weight: 2
+weight: 3
 ---
 
 Messages in comms are binary data _packets_, serialized using [protocol buffers](https://github.com/protocolbuffers/protobuf). They carry text and voice chat, positional updates, profile changes and other real-time interactions.
 
 {{< info >}}
-You can see the comms protocol in action and experiment with it using the [[Comms Demo Station]].
+You can see the comms protocol in action and experiment with it using the open-source [[Comms Demo Station]].
 {{< /info >}}
 
 All message definitions are available in the [protocol repository](https://github.com/decentraland/protocol), and each message type below has a link to its declaration.
@@ -73,7 +73,7 @@ Updates other clients on the position and orientation of an avatar.
 Clients typically send `Position` updates with a low frequency (such as once every 1 or 2 seconds), and switch to a high frequency (several times per second) when moving or interacting.
 
 {{< info >}}
-When sending positional updates, speed is usually better than reliability. The perceived performance is better when delivery is faster, even if a `Position` message is ocasionally dropped or reordered. Some adapters (e.g. [LiveKit]({{< relref "adapters/livekit" >}})) can change between fast and reliable modes on a per-message basis.
+When sending positional updates, speed is usually better than reliability. The perceived performance is better when delivery is faster, even if a `Position` message is ocasionally dropped or reordered. Some transports (e.g. [LiveKit]({{< relref "transport-types/livekit" >}})) can change between fast and reliable modes on a per-message basis.
 {{< /info >}}
 
 The low-frequency broadcasts are recommended as a simple solution for deliverying updates to clients that momentarily lost connectivity or failed to catch a message while they joined the island.

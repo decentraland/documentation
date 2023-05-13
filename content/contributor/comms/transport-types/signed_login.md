@@ -1,11 +1,11 @@
 ---
-title: "Signed Login Adapter"
+title: "Signed Login Transport"
 sidebartitle: "Signed Login"
-url: "/contributor/comms/adapters/signed-login"
+url: "/contributor/comms/transport-types/signed-login"
 weight: 3
 ---
 
-The Signed Login adapter can be used by servers that want to customize the way they assign clients to islands, replacing Archipelago in their architecture.
+The Signed Login transport can be used by servers that want to customize the way they assign clients to islands, replacing or wrapping Archipelago in their architecture.
 
 Instead of connecting directly to a real-time backend, Signed Login makes a [signed fetch]({{< ref "/contributor/auth/signed_fetch" >}}) to obtain the connection string. This intermediate step allows servers to employ whatever assignment strategy they want.
 
@@ -27,7 +27,7 @@ The response, if successful, will have status `200` and a JSON body with _at lea
 
 | Field | Type | Value
 | ----- | --- | --- |
-| `fixedAdapter` | `string` | The assigned adapter URI (e.g. `livekit:` or `ws-room:`)
+| `fixedAdapter` | `string` | The assigned transport URI (e.g. `livekit:` or `ws-room:`)
 
 
 For example:

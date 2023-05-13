@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: true
-weight: 3
-title: Adapters
+weight: 5
+title: Transport Types
 ---

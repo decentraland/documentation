@@ -1,13 +1,13 @@
 ---
-title: "Websocket Adapter"
+title: "Websocket Transport"
 sidebartitle: "Websocket"
-url: "/contributor/comms/adapters/websocket"
+url: "/contributor/comms/transport-types/websocket"
 weight: 2
 ---
 
-The websocket adapter is one of the island messaging transports supported by the Decentraland comms protocol. Clients should use it when they receive an appropriate connection string from their realm's [Archipelago]({{< relref "../archipelago" >}}) service, or if it's indiciated as a fixed adapter.
+The websocket transport is one of the island messaging transports supported by the Decentraland comms protocol. Clients should use it when they receive an appropriate connection string from their realm's [Archipelago]({{< relref "../archipelago" >}}) service, or if it's indiciated as a fixed transport.
 
-In the context of the websocket adapter, an island is referred to as a _room_. Either name indicates the same thing: a group of nearby players that exchange updates and chat.
+In the context of the websocket transport, an island is referred to as a _room_. Either name indicates the same thing: a group of nearby players that exchange updates and chat.
 
 Connection strings begin with the `ws-room:` prefix, followed by a `wss://` URI for the specific room. They look like this:
 
@@ -20,15 +20,15 @@ In the abscence of an explicit protocol for the websocket URI, `wss://` is assum
 
 ## Connecting
 
-The adapter uses the regular websocket protocol over HTTPS. Clients can open a connection using any standard implementation at their disposal.
+The transport uses the regular websocket protocol over HTTPS. Clients can open a connection using any standard implementation at their disposal.
 
 
 ## Websocket Packets
 
-All messages from the websocket adapter are serialized using the [`WsPacket`][WsPacket] structure. They implement a set of protocol-level connectivity and authentication messages, plus a container type for client messages.
+All messages from the websocket transport are serialized using the [`WsPacket`][WsPacket] structure. They implement a set of protocol-level connectivity and authentication messages, plus a container type for client messages.
 
 {{< info >}}
-The [`WsPacket`](#WsPacket) structure should not be confused with the message [`Packet`][Packet]. It's an additional wrapping layer specific to the websocket adapter. Actual comms messages are contained in the [`WsPeerUpdate`](#WsPeerUpdate) type.
+The [`WsPacket`](#WsPacket) structure should not be confused with the message [`Packet`][Packet]. It's an additional wrapping layer specific to the websocket transport. Actual comms messages are contained in the [`WsPeerUpdate`](#WsPeerUpdate) type.
 {{< /info >}}
 
 | Field | Type | Value
@@ -38,7 +38,7 @@ The [`WsPacket`](#WsPacket) structure should not be confused with the message [`
 
 ## Authentication
 
-Before they can start relaying messages to others, clients must authenticate by signing a challenge string. This is required even when the adapter URI was obtained from [Archipelago]({{< relref "../archipelago" >}}) after a previous round of authentication.
+Before they can start relaying messages to others, clients must authenticate by signing a challenge string. This is required even when the transport URI was obtained from [Archipelago]({{< relref "../archipelago" >}}) after a previous round of authentication.
 
 The first message a client sends when joining an island is [`WsIdentification`][WsIdentification], which contains a public address. It will be responded with [`WsChallengeRequired`](#WsChallengeRequired), and clients send a [`WsSignedChallenge`](#WsSignedChallenge) in reply.
 
@@ -133,7 +133,7 @@ There's also the [`WsKicked`](#WsKicked) message, which informs clients that the
 
 ## Client Messages
 
-To send comms [messages]({{< relref "../messages" >}}), clients wrap them in the [`WsPeerUpdate`](#WsPeerUpdate) structure. This differentiates the adapter control message types from the actual messages sent between peers.
+To send comms [messages]({{< relref "../messages" >}}), clients wrap them in the [`WsPeerUpdate`](#WsPeerUpdate) structure. This differentiates the transport control message types from the actual messages sent between peers.
 
 ```goat
 .-------------------.                                                                               

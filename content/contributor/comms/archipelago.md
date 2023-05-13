@@ -8,112 +8,82 @@ weight: 2
 Archipelago is the realm service that groups nearby players into islands, reassigning them as they move around and providing the information required to connect to the actual backend that will relay their messages.
 
 {{< info >}}
-You can see the Archipelago protocol in action and experiment with it using the [[Comms Demo Station]].
+You can see the Archipelago protocol in action and experiment with it using the open-source [[Comms Demo Station]].
 {{< /info >}}
 
-To use the service, clients must connect to their realm's _backend-for-frontend_ (BFF) websocket RPC, authenticate and activate the comms module for their connection, as described below. They can then start exchanging messages with Archipelago.
+To use the service, clients must connect to their realm's Archipelago websocket endpoint and authenticate to begin their session. They can then start sending positional updates and receiving island assignments (see the [client life-cycle]({{< relref "overview#lifecycle" >}})).
 
-The Archipelago protocol closely matches the comms [client life-cycle]({{< relref "overview#lifecycle" >}}), with messages to report positions, get island assignments and receive various updates.
-
-Connections to the BFF (and thus Archipelago) last for the full duration of the client's session -- indeed, as far as comms is concerned, open connections _are_ the session.
-
-All messages exchanged with the BFF and the Archipelago service are encoded using protocol buffers, as defined in the Decentraland [protocol repository](https://github.com/decentraland/protocol). There's also a complete implementation of a BFF connection in the [Foundation's World Explorer](https://github.com/decentraland/unity-renderer/blob/d19577b762db71144bc402c3af0fb599685276b8/browser-interface/packages/shared/realm/connections/BFFConnection.ts).
+All messages exchanged with the Archipelago service are encoded using protocol buffers, as defined in the Decentraland [protocol repository](https://github.com/decentraland/protocol).
 
 
 ## Connecting {#connecting}
 
-To begin, clients must obtain the URI for the realm's BFF through the `/about` endpoint. The response includes the following object:
+To begin, clients must open a secure websocket connection (`wss:`) to the `/archipelago/ws` endpoint of the realm.
 
-```js
-"bff": {
-  "healthy": true,
-  "publicUrl": "/bff",
-  // ...other properties
-}
-```
+Once connected, clients have a time window defined by realm policy (60 seconds, by default) to send each message of the [authentication](#authenticating) flow.
 
-By specification, the RPC interface is located at `wss://<root>/<publicUrl>/rpc`. For example, [`https://peer.decentraland.org/about`](https://peer.decentraland.org/about) reports its `publicUrl` as `/bff`, so the websocket endpoint is at `wss://peer.decentraland.org/bff/rpc`.
-
-**Fixed Adapters**<br>
-While the larger realms run the Archipelago service, smaller ones may choose to provide a fixed backend connection string for all players. The URI, if present, can be found in the `comms.fixedAdapter` property of the realm's `/about`.
+**Fixed Adapters**<br>!!
+!!While the larger realms run the Archipelago service, smaller ones may choose to provide a fixed backend connection string for all players. The URI, if present, can be found in the `comms.fixedAdapter` property of the realm's `/about`.!!
 
 In these cases, dynamic island assignment won't be available, and the realm's RPC interface should not be used for that purpose.
 
 
 ## Authenticating {#authenticating}
 
-When opening a connection to the BFF, clients must begin by requesting and signing a challenge from the service to verify their identity. For this, they use the [`BffAuthenticationService`][BffAuthenticationService] RPC interface.
+After opening a connection to Archipelago, clients must begin by requesting and signing a challenge from the service to verify their identity.
 
-Clients send a [`GetChallengeRequest`][GetChallengeRequest] with the an Ethereum address (representing their public key), receive a [`GetChallengeResponse`][GetChallengeResponse] with a randomly generated string to sign, and respond with a [`SignedChallenge`][SignedChallenge].
+The first message a client sends is a [`ChallengeRequestMessage`](ChallengeRequestMessage) with their Ethereum address (i.e. their public key). They will receive a [`ChallengeResponseMessage`](ChallengeResponseMessage) with a randomly generated string to sign, and must respond with a [`SignedChallengeMessage`](#SignedChallengeMessage).
 
-The [`SignedChallenge`][SignedChallenge] message carries a JSON-serialized [authentication chain]({{< relref "../auth/authchain" >}}) that begins with the provided address, and ends with the challenge signature.
+The [`SignedChallengeMessage`](#SignedChallengeMessage) carries a JSON-serialized [authentication chain]({{< relref "../auth/authchain" >}}) that begins with the provided address, and ends with the challenge signature.
 
-If the challenge signature is successfully verified by the service, the client will receive a [`WelcomePeerInformation`][WelcomePeerInformation] message.
+If the signature is successfully verified by the service, the client is authenticated and will receive a [`WelcomeMessage`](#WelcomeMessage).
 
 
 ```goat
- .-----------.                .--------.                                                            
- |    BFF    |                | Client |
- '----+------'                '---+----'
-       ⋮                          |
-       ⋮                  Connect |
-       o - - - - - - - - - - - - -|
-       |                          |
-       |                          |
-       |      GetChallengeRequest |
-       |<-------------------------+
-       +------------------------->|
-       | GetChallengeResponse     |
-       |                          |
-       |                          |
-       |          SignedChallenge |
-       |<-------------------------+
-       +------------------------->|
-       | WelcomePeerInformation   |
-       |                          |
+ .-------------.                  .--------.                                                        
+ | Archipelago |                  | Client |
+ '----+--------'                  '---+----'
+       ⋮                              |
+       ⋮                  Connect     |
+       o - - - - - - - - - - - - - - -|
+       |                              |
+       |                              |
+       |      ChallengeRequestMessage |
+       |<-----------------------------+
+       +----------------------------->|
+       | ChallengeResponseMessage     |
+       |                              |
+       |                              |
+       |       SignedChallengeMessage |
+       |<-----------------------------+
+       +----------------------------->|
+       | WelcomeMessage               |
+       |                              |
 ```
 
 
 ## Sending Heartbeat {#heartbeat}
 
-During their session with Archipelago, clients must periodically send a _heartbeat_ message to keep
-the connection active, and keep Archipelago updated as needed to issue island assignments.
+During their session, clients must periodically send a [`Heartbeat`](#Heartbeat) message to keep Archipelago updated with the necessary information to issue island assignments.
 
 {{< info >}}
 The recommended heartbeat frequency for comms clients is about one update per second.
 {{< /info >}}
 
-The [`Heartbeat`][Heartbeat] message includes two fields:
-
-| Field | Type | Value
-| ----- | --- | --- |
-| `position` | `Position` | The 3D coordinates of the current position in the world map.
-| `desired_room` | `string?` | Optional request for a specific island (e.g. to join a friend)
-
-
-When given a `desired_room` parameter, Archipelago will try to honor the request and assign the
-client to the specified island, but it may (rarely) reject it if the island population is already too large. Clients should verify their assignments.
+If a client stops sending [`Heartbeat`](#Heartbeat) messages, Archipelago (depending on its current policy) may close the connection.
 
 
 ## Getting Island Assignments {#assignment}
 
 Shortly after the first heartbeat, Archipelago will send the client their first [`IslandChangedMessage`][IslandChangedMessage].
 
-| Field | Type | Value
-| ----- | --- | --- |
-| `island_id` | `string` | The unique identifier for the island.
-| `conn_str` | `string` | The connection string containing an adapter URI.
-| `from_island_id` | `string?` | The previous island ID, if any.
-| `peers` | `map<string, Position>` | Other players (identified by address) and their positions.
-
-
-The main field is the `conn_str`, which can be used to initialize an adapter and connect to the island. Values typically look like this:
+The main field is `conn_str`, which can be used to initialize a transport and connect to the island. Values typically look like this:
 
 ```
 livekit:wss://comms.example.com?access_token=eyJhbGciOiJI...
 ```
 
-The label before the first `:` is the adapter type, the rest is a specialized URI for it. It can include pre-authorized tokens or other parameters.
+The label before the first `:` is the transport type, the rest is a specialized URI for it. It can include pre-authorized tokens or other parameters.
 
 During the session, Archipelago may send a new assignment at any time, for a number of reasons:
 
@@ -121,14 +91,139 @@ During the session, Archipelago may send a new assignment at any time, for a num
 2. Island requests: the client requested being assigned to a specific island.
 3. Archipelago policy: the service decided to create or divide islands to better balance the population.
 
-Clients must listen for these assignments, closing and opening adapter connections as indicated, and
-changing the type of adapter in use when required.
+Clients must listen for these assignments, closing and opening transport connections as indicated, and changing the type of transport in use when required.
 
 
-[SignedChallenge]: https://github.com/decentraland/protocol/blob/c48ea0aa00d8173084571552463a6a05a7f49636/proto/decentraland/bff/authentication_service.proto#L13
-[WelcomePeerInformation]: https://github.com/decentraland/protocol/blob/e877adcab9411b13be327b1f314d04994098246a/proto/decentraland/bff/authentication_service.proto#L17
-[GetChallengeRequest]: https://github.com/decentraland/protocol/blob/e877adcab9411b13be327b1f314d04994098246a/proto/decentraland/bff/authentication_service.proto#L4
-[GetChallengeResponse]: https://github.com/decentraland/protocol/blob/e877adcab9411b13be327b1f314d04994098246a/proto/decentraland/bff/authentication_service.proto#L8
-[BffAuthenticationService]: https://github.com/decentraland/protocol/blob/e877adcab9411b13be327b1f314d04994098246a/proto/decentraland/bff/authentication_service.proto#L24
-[Heartbeat]: https://github.com/decentraland/protocol/blob/c48ea0aa00d8173084571552463a6a05a7f49636/proto/decentraland/kernel/comms/v3/archipelago.proto#L62
-[IslandChangedMessage]: https://github.com/decentraland/protocol/blob/c48ea0aa00d8173084571552463a6a05a7f49636/proto/decentraland/kernel/comms/v3/archipelago.proto#L17
+## Client Messages
+
+###### `ChallengeRequestMessage` <small>[↗ source][ChallengeRequestMessage]</small> {#ChallengeRequestMessage}
+
+Sent by the client as the first message of a session, to start the authentication flow.
+
+| Field | Type | Value
+| ----- | --- | --- |
+| `address` | `string` | The user's address.
+
+The `address` field must be derived from the first private key of the [authentication chain]({{< relref "../auth/authchain" >}}) that will be presented.
+
+
+---
+###### `SignedChallengeMessage` <small>[↗ source][SignedChallengeMessage]</small> {#SignedChallengeMessage}
+
+Sent by the client after receiving a [`ChallengeResponseMessage`](#ChallengeResponseMessage), to complete the authentication flow.
+
+| Field | Type | Value
+| ----- | --- | --- |
+| `auth_chain_json` | `string` | A JSON-serialized [authentication chain]({{< relref "../auth/authchain" >}}) ending with the challenge signature.
+
+The first key in the [authentication chain]({{< relref "../auth/authchain" >}}) must correspond to the address sent in the original [`ChallengeRequestMessage`](#ChallengeRequestMessage).
+
+
+---
+###### `Heartbeat` <small>[↗ source][Heartbeat]</small> {#Heartbeat}
+
+Sent by the client at regular intervals (typically once per second), to update Archipelago on their position and/or request an island assignment.
+
+| Field | Type | Value
+| ----- | --- | --- |
+| `position` | `Position` | The client's 3D position in the world map
+| `desired_room` | `string?` | The ID of an island the client would like to be assigned to
+
+The first `Heartbeat` message a client sends is quickly followed by an [`IslandChangedMessage`](#IslandChangedMessage) from Archipelago. Subsequent updates, however, are independent of island assignments. Clients should not expect a `Heartbeat` to be responded.
+
+When the `desired_room` parameter is included, the service will attempt to honor the request, but a reassignment to that island is not guaranteed. It depends on Archipelago's policy (e.g. limits on island population).
+
+
+## Server Messages
+
+###### `ChallengeResponseMessage` <small>[↗ source][ChallengeResponseMessage]</small> {#ChallengeResponseMessage}
+
+Sent by Archipelago in response to a [`ChallengeRequestMessage`](#ChallengeRequestMessage)
+
+| Field | Type | Value
+| ----- | --- | --- |
+| `challenge_to_sign` | `string` | A generated string to sign and create an [authentication chain]({{< relref "../auth/authchain" >}})
+| `already_connected` | `bool` | Whether an existing connection for this user's key
+
+
+---
+###### `WelcomeMessage` <small>[↗ source][WelcomeMessage]</small> {#WelcomeMessage}
+
+Sent by Archipelago after successful authentication.
+
+| Field | Type | Value
+| ----- | --- | --- |
+| `peer_id` | `string` | A unique identifier for the authenticated client (typically their address)
+
+
+---
+###### `IslandChangedMessage` <small>[↗ source][IslandChangedMessage]</small> {#IslandChangedMessage}
+
+Sent by Archipelago when the client is (re)assigned to an island.
+
+Description.
+
+| Field | Type | Value
+| ----- | --- | --- |
+| `island_id` | `string` | The ID of the new island
+| `from_island_id` | `string?` | The ID of the old island, if this is a reassignment
+| `conn_str` | `string` | The connection string for the island [[transport]].
+| `peers` | `map<string, Position>` | Description.
+
+Clients that receive an `IslandChangedMessage` should end their connection to the island backend, and connect to the one given in `conn_str`.
+
+The `peers` field contains the current identities and positions of all peers in the island, so that clients can populate their initial set. After this point, they should rely on messages received via the island [[transport]] to get positional updates.
+
+
+---
+###### `KickedMessage` <small>[↗ source][KickedMessage]</small> {#KickedMessage}
+
+Sent by Archipelago before closing a connection.
+
+| Field | Type | Value
+| ----- | --- | --- |
+| `reason` | [[`KickedReason`]] | Archipelago's reason for closing the connection
+
+
+The standard values for the `reason` field are:
+
+* `KR_NEW_SESSION`: another connection authenticated with the same key.
+
+---
+###### `JoinIslandMessage` <small>[↗ source][JoinIslandMessage]</small> {#JoinIslandMessage}
+
+Sent by Archipelago when a peer is assigned to the client's island.
+
+| Field | Type | Value
+| ----- | --- | --- |
+| `island_id` | `string` | The identifier for the island
+| `peer_id` | `string` | The unique identifier for the peer (typically their address)
+
+The `island_id` field will match the client's current assignment.
+
+
+---
+###### `LeftIslandMessage` <small>[↗ source][LeftIslandMessage]</small> {#LeftIslandMessage}
+
+Sent by Archipelago when a peer is removed from the client's island.
+
+| Field | Type | Value
+| ----- | --- | --- |
+| `island_id` | `string` | The identifier for the island
+| `peer_id` | `string` | The unique identifier for the peer (typically their address)
+
+The `island_id` field will match the client's current assignment.
+
+
+
+
+[WelcomeMessage]: https://github.com/decentraland/protocol/blob/9a568b16b2eafb134177329ba670c1451be8a169/proto/decentraland/kernel/comms/v3/archipelago.proto#L13
+[IslandChangedMessage]: https://github.com/decentraland/protocol/blob/9a568b16b2eafb134177329ba670c1451be8a169/proto/decentraland/kernel/comms/v3/archipelago.proto#L17
+[LeftIslandMessage]: https://github.com/decentraland/protocol/blob/9a568b16b2eafb134177329ba670c1451be8a169/proto/decentraland/kernel/comms/v3/archipelago.proto#L24
+[JoinIslandMessage]: https://github.com/decentraland/protocol/blob/9a568b16b2eafb134177329ba670c1451be8a169/proto/decentraland/kernel/comms/v3/archipelago.proto#L29
+[KickedReason]: https://github.com/decentraland/protocol/blob/9a568b16b2eafb134177329ba670c1451be8a169/proto/decentraland/kernel/comms/v3/archipelago.proto#L34
+[KickedMessage]: https://github.com/decentraland/protocol/blob/9a568b16b2eafb134177329ba670c1451be8a169/proto/decentraland/kernel/comms/v3/archipelago.proto#LL37C1-L38C1
+[ChallengeRequestMessage]: https://github.com/decentraland/protocol/blob/9a568b16b2eafb134177329ba670c1451be8a169/proto/decentraland/kernel/comms/v3/archipelago.proto#L54
+[SignedChallengeMessage]: https://github.com/decentraland/protocol/blob/9a568b16b2eafb134177329ba670c1451be8a169/proto/decentraland/kernel/comms/v3/archipelago.proto#L58
+[Heartbeat]: https://github.com/decentraland/protocol/blob/9a568b16b2eafb134177329ba670c1451be8a169/proto/decentraland/kernel/comms/v3/archipelago.proto#L62
+[ChallengeResponseMessage]: https://github.com/decentraland/protocol/blob/9a568b16b2eafb134177329ba670c1451be8a169/proto/decentraland/kernel/comms/v3/archipelago.proto#L8
