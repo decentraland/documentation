@@ -5,34 +5,61 @@ url: "/contributor/comms/transports"
 weight: 4
 ---
 
-A _transport_ is an interface that encapsulates the wire protocol of a real-time comms backend, providing a unified API across all variants.
+A _transport_ is a client-side interface that can connect to a comms URI and exchange real-time messages with peers or services. 
 
 {{< info >}}
 You can see the comms protocol in action and experiment with it using the open-source [[Comms Demo Station]].
 {{< /info >}}
 
-There are 5 defined transport types:
+Clients are free to implement transports as they see fit (as long as they follow the protocol expected by other clients and services), but the [recommended design](#recommended) described below has been tested in practice and proven to integrate well with different projects.`
 
-* [Websocket]({{< relref "transport-types/websocket" >}}) (`ws-room`) uses the standard websocket protocol.
-* [LiveKit]({{< relref "transport-types/livekit" >}}) (`livekit`) uses the open-source LiveKit framework.
-* [SignedLogin]({{< relref "transport-types/signed_login" >}}) (`signed-login`)makes a signed HTTPs request to obtain a new transport from a server.
+## Standard Transports {#types}
+
+There are 5 transport types defined by the protocol:
+
+* [Websocket]({{< relref "transport-types/websocket" >}}) (`ws-room`) uses a standard websocket stream.
+* [LiveKit]({{< relref "transport-types/livekit" >}}) (`livekit`) uses the open-source LiveKit framework, based on WebRTC.
+* [SignedLogin]({{< relref "transport-types/signed_login" >}}) (`signed-login`) makes a signed HTTPs request to obtain a dynamically assigned transport from a server.
 * [Offline]({{< relref "transport-types/offline" >}}) (`offline`) is a dummy transport indicates there are no comms in the current environment.
 * [Simulator]({{< relref "transport-types/simulator" >}}) (`simulator`) is a dummy transport with completely custom behavior, mainly for developers to debug their implementations.
 
-Messages sent and received through a transport interface are always the same (see [messages]({{< relref "messages" >}} or the )), although some transports may wrap them in control structures for transmission. In the end, as long as a transport can send and receive comms messages, it is free to leverage any wire protocol or delivery strategy under the hood.
-
-To illustrate, this is a `Transport` interface defined in Typescript:
+Messages sent and received through a transport interface are always the same (see [messages]({{< relref "messages" >}})). Some transports may wrap them in control structures for transmission, but these should be unpacked before crossing the `Transport` interface.
 
 
-## Creating a Transport
+## Recommended Design {#recommended}
 
-Transports are created using a single connection string, which is a URI of the form:
+This is a minimal `Transport` interface written in TypeScript:
+
+```ts
+interface Transport {
+  // Initialize the Transport with a URI:
+  constructor(private uriWithConnectionParams: string)
+
+  // Open a connection using the URI given in the constructor:
+  connect(): Promise<void>
+
+  // Close the connection:
+  disconnect(): Promise<void>
+
+  // Send an arbitrary payload to the service and all peers:
+  send(packet: Packet): Promise<void>
+
+  // Subscribe to incoming messages from both the service and all peers:
+  on(event: 'receive', callback: (packet: Packet) => void): void
+}
+```
+
+Actual implementations commonly extend this, adding connection/disconnection and join/leave events, non-broadcast sending, stricter typing or language-specific adaptations.
+
+### Transport URIs
+
+The values of `uriWithConnectionParams` are always of the form:
 
 ```
-<transport type>:<connection parameters>
+<type>:<type connection parameters>
 ```
 
-The `transport type` corresponds to one listed above, and `connection parameters` is dependent on the specific transport. It can be a URL, an opaque token, or even arbitrary data. 
+The `<type>` corresponds to one listed above, and the format for `<type connection parameters>` is dependent on the specific transport. It can be a URL, an opaque token, or any arbitrary data.
 
 The [LiveKit]({{< relref "transport-types/livekit" >}}) transport, for example, uses a `wss` URL with an `access_token` parameter to establish an authenticated connection:
 
@@ -43,30 +70,29 @@ livekit:wss://comms.example.com?access_token=eyJhbGciOiJI...
 For comparison, the [Websocket]({{< relref "transport-types/websocket" >}}) transport also uses a `wss` URL, but without a pre-generated token. It requires an authentication flow once connected.
 
 
-## Connecting, Sending and Receiving
+### Creating Transports
 
-The specifics of each transport implementation are left to developers, so they can adapt to the constraints of any particular framework, language or environment. However, some functionality should always be present in a `Transport` interface.
-
-To illustrate, this is a minimal but reasonable TypeScript interface:
+Since each `Transport` class will support a particular kind of URI, it's a good idea to have a factory method that either returns a valid `Transport` or fails immediately. For example:
 
 ```ts
-interface Transport {
-  // Open a connection using the paramters in the transport URI:
-  connect(connParams: string): Promise<void>
+function createTransport(uriWithConnectionParams: string) {
+  const type = getPrefix(urlWithConnectionParams)
 
-  // Close the connection:
-  disconnect(): Promise<void>
+  switch (type) {
+    case 'ws-room': return new WsRoomTransport(uriWithConnectionParams)
+    case 'livekit': return new LiveKitTransport(uriWithConnectionParams)
+    // ... other supported implementations...
+  }
 
-  // Send an arbitrary payload:
-  send(data: Uint8Array): Promise<void>
-
-  // Subscribe to incoming messages:
-  on(event: 'message', callback: (packet: Packet) => void): void
+  throw new Error(`Unsupported transport type: ${type}`)
 }
 ```
 
-## Client Requirements
+Clients are not required to implement all standard transports. If they intend to only use a subset of the defined types without aiming to handle all URIs, they are free to reject types they don't support.
 
-Clients may choose to implement only some of the specified transports, according to their use-case and the servers they expect to interact with.
+More featured clients, such as a World Explorer, are advised to implement at least the [websocket]({{< relref "transport-types/websocket" >}}) and [LiveKit]({{< relref "transport-types/livekit" >}}) transports, which are currently in use by all major realms.
 
-For versatile clients, such as a World Explorer, it's recommended to implement at least the [websocket]({{< relref "transport-types/websocket" >}}) and [LiveKit]({{< relref "transport-types/livekit" >}}) transports, which are currently used by all major realms.
+
+## Learn more
+
+Head over to a [specific transport type](#types) section, read about the different [message types]({{< relref "messages" >}}) or check out the [[Comms Demo Station]].
