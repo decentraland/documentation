@@ -141,6 +141,12 @@ The second way to check if the normals are right is by toggling "Face orientatio
 
 <img src="/images/wearables-and-emotes/creating-wearables/10_normals_face.png" width="400"/>
 
+### **Armature**
+
+Remember not to change any of the specifications, naming conventions, hierarchy, or transforms of the given armature. Changing any of these will cause the wearable to stop working in the client after exporting.
+
+<img src="/images/wearables-and-emotes/creating-wearables/50_armature.png" width="600"/>
+
 ### **Eyebrows, Eyes and Mouth**
 
 These meshes work with a transparent shader so you don’t have to do anything aside from creating your own png texture for the new eyebrow, eye, or mouth style you want and placing it correctly into the UV map. These textures should be 256x256px and need to have an alpha channel for transparency.
@@ -272,6 +278,18 @@ The "key" bones to use when skin weighting are:
 - As a common advice, a vertex cannot be influenced by more than 4 bones or joints.
 - Keep in mind to export the armature exactly as the one provided in the documentation. If it has any other bones like _"\_end_bones"_ or similar is not going to work on the client.
   {{< /hint >}}
+
+### **Exporting Wearables**
+
+When exporting wearables, make sure there are no other bones outside of the given Armature. A common problem when importing armatures between different software is the appearance of "\_end" bones. Be sure to remove those before exporting. Otherwise, it is very likely that the wearables will not work on the client afterwards.
+
+<img src="/images/wearables-and-emotes/creating-wearables/51_export_wearables.png" width="600" />
+
+To export the wearable, select the object and then the armature. Be sure to not export anything else, such as cameras, lights, or empty objects.
+
+Next, export the wearable in _glTF2.0_ format. Make sure you only export the wearable with its skinning properties, and without any other unnecessary features like animation or shape keys.
+
+<img src="/images/wearables-and-emotes/creating-wearables/52_export_wearables.png" width="600" />
 
 # Good Practices For Modeling
 
