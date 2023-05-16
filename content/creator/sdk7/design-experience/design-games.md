@@ -72,6 +72,7 @@ Hosting your own server is also a recommended safety measure for games that invo
 
 {{< hint warning >}}
 **📔 Note**:  In future releases, we will provide out-of-the-box solutions and code examples for how to implement your own server.
+{{< /hint >}}
 
 #### Game timing
 
