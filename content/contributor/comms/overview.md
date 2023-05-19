@@ -14,7 +14,7 @@ Some of these interactions are initiated by players, others are automatically ha
 * Avatar updates when players change their appearance
 
 {{< info >}}
-You can see the comms protocol in action and experiment with it using the open-source [[Comms Demo Station]].
+You can see the comms protocol in action and experiment with it using the open-source [Comms Station](https://decentraland.github.io/comms-station/).
 {{< /info >}}
 
 Since most of this functionality requires broadcasting messages to all nearby players, they are automatically grouped into proximity-based clusters named _islands_. Each player is assigned to a single island at a time, which changes as they travel the world and move relative to others.
