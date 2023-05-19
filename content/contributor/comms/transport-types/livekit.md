@@ -8,7 +8,7 @@ weight: 2
 The [LiveKit](https://livekit.io/) transport is the most versatile and efficient of the supported transports, and also the easiest to implement. Clients should use it when they receive an appropriate connection string from their realm's [Archipelago]({{< relref "../archipelago" >}}) service, or if it's indiciated as a fixed transport.
 
 {{< info >}}
-You can see the LiveKit transport in action and play with its features using the open-source [[Comms Demo Station]].
+You can see the LiveKit transport in action and play with its features using the open-source [Comms Station](https://decentraland.github.io/comms-station/).
 {{< /info >}}
 
 Unlike the custom [websocket]({{< relref "websocket" >}}) transport, it uses a third-party (open source) library, which greatly simplifies the development process by abstracting all transport-level logic and serialization.

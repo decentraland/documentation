@@ -8,7 +8,7 @@ weight: 3
 Messages in comms are binary data _packets_, serialized using [protocol buffers](https://github.com/protocolbuffers/protobuf). They carry text and voice chat, positional updates, profile changes and other real-time interactions.
 
 {{< info >}}
-You can see the comms protocol in action and experiment with it using the open-source [[Comms Demo Station]].
+You can see the comms protocol in action and experiment with it using the open-source [Comms Station](https://decentraland.github.io/comms-station/).
 {{< /info >}}
 
 All message definitions are available in the [protocol repository](https://github.com/decentraland/protocol), and each message type below has a link to its declaration.

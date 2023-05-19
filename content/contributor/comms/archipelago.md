@@ -8,7 +8,7 @@ weight: 2
 Archipelago is the realm service that groups nearby players into islands, reassigning them as they move around and providing the information required to connect to the actual backend that will relay their messages.
 
 {{< info >}}
-You can see the Archipelago protocol in action and experiment with it using the open-source [[Comms Demo Station]].
+You can see the Archipelago protocol in action and experiment with it using the open-source [Comms Station](https://decentraland.github.io/comms-station/).
 {{< /info >}}
 
 To use the service, clients must connect to their realm's Archipelago websocket endpoint and authenticate to begin their session. They can then start sending positional updates and receiving island assignments (see the [client life-cycle]({{< relref "overview#lifecycle" >}})).
@@ -167,12 +167,12 @@ Description.
 | ----- | --- | --- |
 | `island_id` | `string` | The ID of the new island
 | `from_island_id` | `string?` | The ID of the old island, if this is a reassignment
-| `conn_str` | `string` | The connection string for the island [[transport]].
+| `conn_str` | `string` | The connection string for the island [transport]({{< relref "transports" >}}).
 | `peers` | `map<string, Position>` | Description.
 
 Clients that receive an `IslandChangedMessage` should end their connection to the island backend, and connect to the one given in `conn_str`.
 
-The `peers` field contains the current identities and positions of all peers in the island, so that clients can populate their initial set. After this point, they should rely on messages received via the island [[transport]] to get positional updates.
+The `peers` field contains the current identities and positions of all peers in the island, so that clients can populate their initial set. After this point, they should rely on messages received via the island [transport]({{< relref "transports" >}}) to get positional updates.
 
 
 ---
@@ -182,7 +182,7 @@ Sent by Archipelago before closing a connection.
 
 | Field | Type | Value
 | ----- | --- | --- |
-| `reason` | [[`KickedReason`]] | Archipelago's reason for closing the connection
+| `reason` | `KickedReason` | Archipelago's reason for closing the connection
 
 
 The standard values for the `reason` field are:

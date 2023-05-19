@@ -8,7 +8,7 @@ weight: 4
 A _transport_ is a client-side interface that can connect to a comms URI and exchange real-time messages with peers or services. 
 
 {{< info >}}
-You can see the comms protocol in action and experiment with it using the open-source [[Comms Demo Station]].
+You can see the comms protocol in action and experiment with it using the open-source [Comms Station](https://decentraland.github.io/comms-station/).
 {{< /info >}}
 
 Clients are free to implement transports as they see fit (as long as they follow the protocol expected by other clients and services), but the [recommended design](#recommended) described below has been tested in practice and proven to integrate well with different projects.`
