@@ -64,3 +64,4 @@ Below are links to the full code of several dApps that we built around Decentral
 Before launching your dApp into production, we recommend testing it first.
 
 - [dAppeteer](https://github.com/decentraland/dappeteer): We put this framework together to help you run tests on your dApp.
+- [dAppeteer - Chainsafe](https://github.com/decentraland/dappeteer): Chainsafe maintains an active fork of dAppeteer originally built by Decentraland.
