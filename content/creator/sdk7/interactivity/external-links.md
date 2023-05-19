@@ -20,7 +20,7 @@ import { teleportTo } from "~system/RestrictedActions"
 
 const gridSize: number = 16
 
-await teleportTo({
+teleportTo({
   worldPosition: Vector3.create(-51 * gridSize, 0 , 1 * gridSize)
 })
 ```
