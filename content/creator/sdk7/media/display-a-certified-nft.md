@@ -114,7 +114,7 @@ Open a prebuilt UI that displays the name, owner, and description of an NFT. It 
 
 Open this UI by calling the function `OpenNftDialog()`. This function requires an object as an argument that contains a single `urn` field. This field takes a string that should follow this structure:
 
-`urn:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT>:<TOKEN_ID>`
+`urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
 
 For example:
 
