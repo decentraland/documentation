@@ -39,7 +39,7 @@ The `NftShape` component must be instanced with a parameter that includes the fo
 
 - `urn` field. This field takes a string that should follow this structure:
 
-`urn:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT>:<TOKEN_ID>`
+`urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
 
 This string includes:
 
