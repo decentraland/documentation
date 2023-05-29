@@ -31,14 +31,26 @@ Transform.create(nft, {
 })
 
 NftShape.create(nft, {
-	src: 'ethereum://0x06012c8cf97bead5deae237070f9587f8e7a266d/558536'
+	urn: 'urn:decentraland:ethereum:erc721:x06012c8cf97bead5deae237070f9587f8e7a266d:558536'
 })
 ```
 
 The `NftShape` component must be instanced with a parameter that includes the following:
 
+- `urn` field. This field takes a string that should follow this structure:
+
+`urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
+
+This string includes:
+
+- The _network_ (currently only Ethereum is supported)
+- The _contract standard_ that this token is based on, for example `erc721`
 - The _contract_ of the token (for example, the CryptoKitties contract)
-- The _id_ of the specific token you own
+- The _id_ of the specific token to display
+
+For example:
+
+`urn:decentraland:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536`
 
 The example above fetches an NFT with the contract address `0x06012c8cf97BEaD5deAe237070F9587f8E7A266d`, and the specific identifier `558536`. The corresponding asset asset can be found in OpenSea at [https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536](https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536).
 
@@ -51,7 +63,7 @@ By default, the image will have a purple background and have a frame with a puls
 
 ```ts
 const shapeComponent = new NftShape(
-  "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536",
+  urn: 'urn:decentraland:ethereum:erc721:x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
   {
     color: Color3.Green(),
     style: NftFrameType.NFT_GOLD_EDGES,
@@ -94,40 +106,41 @@ Some frames use more materials than others. For example, the default frame adds 
 **💡 Tip**:  Using Visual Studio Code (or another IDE), see the whole list by typing `NftFrameType.` and waiting for the smart suggestions display the list of options. Use `NftFrameType.NFT_NONE`to display the plain NFT as is, with no frame or background color.
 {{< /hint >}}
 
-<!-- 
 ## Open an NFT UI
-
-TODO: is this still a thing?? 
 
 Open a prebuilt UI that displays the name, owner, and description of an NFT. It also includes the NFT's current price and price of last sale if applicable, and a button that links to the NFT's page on OpenSea, where more information is available and it can be purchased.
 
 <img src="/images/media/nft-ui.png" alt="Move entity" width="500"/>
 
-Open this UI by calling the function `openNFTDiaconsole.log()`, passing it the NFT's contract and id, just like with the NFT shape. The UI must be opened as a result of a button event, to prevent abusive spamming. The button event doesn't necessarily need to be on the same picture frame or on an `NftShape`.
+Open this UI by calling the function `OpenNftDialog()`. This function requires an object as an argument that contains a single `urn` field. This field takes a string that should follow this structure:
 
-To open this UI, add the following:
+`urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
+
+For example:
+
+`urn:decentraland:ethereum:erc721:0x00...000:123`
+
+
+{{< hint warning >}}
+**📔 Note**:  The UI must be opened as a result of a button event, to prevent abusive spamming. The button event doesn't necessarily need to be on the same picture frame or on an `NftShape`.
+{{< /hint >}}
+
+To open this UI as a result of a click action, add the following:
 
 
 ```ts
-myPictureFrame.addComponent(
-  new OnPointerDown((e) => {
-    openNFTDiaconsole.log(
-      "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536"
-    )
-  })
+pointerEventsSystem.onPointerDown(
+  entity,
+  function () {
+     OpenNftDialog({
+       urn: "urn:decentraland:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536"
+		})
+  },
+  {
+    button: InputAction.IA_PRIMARY,
+    hoverText: 'Click'
+  }
 )
 ```
 
-The UI will include the description that's available on the NFT, you can also include additional custom text to the UI. To add custom text, simply include the text as a second argument on the `openNFTDiaconsole.log()` function.
 
-```ts
-myPictureFrame.addComponent(
-  new OnPointerDown((e) => {
-    openNFTDiaconsole.log(
-      "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536",
-      "This NFT is mine and I'm really proud of owning it."
-    )
-  })
-)
-``` 
--->
