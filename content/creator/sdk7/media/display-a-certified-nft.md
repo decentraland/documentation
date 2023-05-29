@@ -133,7 +133,7 @@ pointerEventsSystem.onPointerDown(
   entity,
   function () {
      OpenNftDialog({
-       urn: "urn:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536"
+       urn: "urn:decentraland:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536"
 		})
   },
   {
