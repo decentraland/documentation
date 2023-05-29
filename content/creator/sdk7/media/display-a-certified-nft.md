@@ -37,8 +37,20 @@ NftShape.create(nft, {
 
 The `NftShape` component must be instanced with a parameter that includes the following:
 
+- `src` field. This field takes a string that should follow this structure:
+
+`urn:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT>/<TOKEN_ID>`
+
+This string includes:
+
+- The _network_ (currently only Ethereum is supported)
+- The _contract standard_ that this token is based on, for example `erc721`
 - The _contract_ of the token (for example, the CryptoKitties contract)
-- The _id_ of the specific token you own
+- The _id_ of the specific token to display
+
+For example:
+
+`urn:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536`
 
 The example above fetches an NFT with the contract address `0x06012c8cf97BEaD5deAe237070F9587f8E7A266d`, and the specific identifier `558536`. The corresponding asset asset can be found in OpenSea at [https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536](https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536).
 
