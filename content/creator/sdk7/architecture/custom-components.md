@@ -31,9 +31,10 @@ export const WheelSpinComponent = engine.defineComponent(
 	})
 ```
 
-{{< hint info >}}
-**💡 Tip**:  Define your scene's custom components in a separate `/components` folder inside `/src`, each in its own file. That way it's easier to reuse these in future projects.
+{{< hint warning >}}
+**📔 Note**: Custom Components must always be written outside the `main()` function, in a separate file. They need to be interpreted before `main()` is executed. The recommended place for this is in a `/components` folder inside `/src`, each in its own file. That way it's easier to reuse these in future projects.
 {{< /hint >}}
+
 
 Once you defined a custom component, you can create instances of this component, that reference entities in the scene. When you create an instance of a component, you provide values to each of the fields in the component's schema. The values must comply with the declared types of each field.
 
@@ -304,16 +305,17 @@ export const WheelSpinComponent = engine.defineComponent("WheelSpinComponent", m
 
 
 // Usage
+export function main(){
+	//// Create entities
+	const wheel = engine.addEntity()
+	const wheel2 = engine.addEntity()
 
-//// Create entities
-const wheel = engine.addEntity()
-const wheel2 = engine.addEntity()
+	//// initialize component using default values
+	WheelSpinComponent.create(wheel)
 
-//// initialize component using default values
-WheelSpinComponent.create(wheel)
-
-//// initialize component with one custom value, using default for any others
-WheelSpinComponent.create(wheel2, { speed: 5})
+	//// initialize component with one custom value, using default for any others
+	WheelSpinComponent.create(wheel2, { speed: 5})
+}
 ```
 
 The above example creates a `WheelSpinComponent` component that includes both a schema and a set of default values to use. If you then initialize a copy of this component without specifying any values, it will use those set in the default. 
@@ -330,35 +332,38 @@ export const WheelSpinComponent = engine.defineComponent("WheelSpinComponent", {
 	speed: Schemas.Float
 })
 
-// Create entities
-const wheel = engine.addEntity()
-const wheel2 = engine.addEntity()
+// Usage
+export function main(){
+	// Create entities
+	const wheel = engine.addEntity()
+	const wheel2 = engine.addEntity()
 
-// Create instances of the component
-WheelSpinComponent.create(wheel1, {
-	spinning: true,
-	speed: 10	
-})
+	// Create instances of the component
+	WheelSpinComponent.create(wheel1, {
+		spinning: true,
+		speed: 10	
+	})
 
-WheelSpinComponent.create(wheel2, {
-	spinning: false,
-	speed: 0	
-})
+	WheelSpinComponent.create(wheel2, {
+		spinning: false,
+		speed: 0	
+	})
+}
 
 // Define a system to iterate over these entities
 export function spinSystem(dt: number) {
 	// iterate over all entiities with a WheelSpinComponent
   for (const [entity, wheelSpin] of engine.getEntitiesWith(WheelSpinComponent)) {
 
-	// only do something if spinning == true
-	if(wheelSpin.spinning){
+		// only do something if spinning == true
+		if(wheelSpin.spinning){
 
-		// fetch a mutable Transform component 
-		const transform = Transform.getMutable(entity)
+			// fetch a mutable Transform component 
+			const transform = Transform.getMutable(entity)
 
-		// update the rotation value accordingly
-		transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.fromAngleAxis(dt * wheelSpin.speed, Vector3.Up()))
-	}
+			// update the rotation value accordingly
+			transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.fromAngleAxis(dt * wheelSpin.speed, Vector3.Up()))
+		}
   }
 }
 

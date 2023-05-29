@@ -82,11 +82,13 @@ In a Decentraland scene, you can think of the game loop as the aggregation of al
 Some components and systems are meant for using only on one entity in the scene. For example, on an entity that stores a game's score or perhaps a main gate that is unique in the scene. To access one of those entities within a system, you can simply refer to the entity or its components by name in the system's functions.
 
 ```ts
-// create a new entity
-const game = engine.addEntity()
+export function main(){
+	// create a new entity
+	const game = engine.addEntity()
 
-// add component to that entity
-ScoreComponent.create(game)
+	// add component to that entity
+	ScoreComponent.create(game)
+}
 
 // Define the system
 export function UpdateScore() {
