@@ -118,7 +118,7 @@ Open this UI by calling the function `OpenNftDialog()`. This function requires a
 
 For example:
 
-`urn:ethereum:erc721:0x00...000:123`
+`urn:decentraland:ethereum:erc721:0x00...000:123`
 
 
 {{< hint warning >}}
