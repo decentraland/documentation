@@ -50,7 +50,7 @@ This string includes:
 
 For example:
 
-`urn:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536`
+`urn:decentraland:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536`
 
 The example above fetches an NFT with the contract address `0x06012c8cf97BEaD5deAe237070F9587f8E7A266d`, and the specific identifier `558536`. The corresponding asset asset can be found in OpenSea at [https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536](https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536).
 
