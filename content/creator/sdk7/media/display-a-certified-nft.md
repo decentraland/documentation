@@ -31,15 +31,15 @@ Transform.create(nft, {
 })
 
 NftShape.create(nft, {
-	src: 'ethereum://0x06012c8cf97bead5deae237070f9587f8e7a266d/558536'
+	urn: 'urn:decentraland:ethereum:erc721:x06012c8cf97bead5deae237070f9587f8e7a266d:558536'
 })
 ```
 
 The `NftShape` component must be instanced with a parameter that includes the following:
 
-- `src` field. This field takes a string that should follow this structure:
+- `urn` field. This field takes a string that should follow this structure:
 
-`urn:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT>/<TOKEN_ID>`
+`urn:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT>:<TOKEN_ID>`
 
 This string includes:
 
@@ -50,7 +50,7 @@ This string includes:
 
 For example:
 
-`urn:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536`
+`urn:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536`
 
 The example above fetches an NFT with the contract address `0x06012c8cf97BEaD5deAe237070F9587f8E7A266d`, and the specific identifier `558536`. The corresponding asset asset can be found in OpenSea at [https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536](https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536).
 
@@ -63,7 +63,7 @@ By default, the image will have a purple background and have a frame with a puls
 
 ```ts
 const shapeComponent = new NftShape(
-  "ethereum://0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536",
+  urn: 'urn:decentraland:ethereum:erc721:x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
   {
     color: Color3.Green(),
     style: NftFrameType.NFT_GOLD_EDGES,
@@ -133,7 +133,7 @@ pointerEventsSystem.onPointerDown(
   entity,
   function () {
      OpenNftDialog({
-       urn: "urn:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536"
+       urn: "urn:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536"
 		})
   },
   {
