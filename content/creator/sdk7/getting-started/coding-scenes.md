@@ -332,3 +332,21 @@ engine.addSystem(mySystem)
 
 The exception to this rule are the definitions of custom components. These must not be accessed via the `main()` function entry point, as they need to be interpreted before everything else.
 
+
+## SDK Versions
+
+When developing a new scene, you use the `@latest` stable SDK release by default.
+
+You can install the `@next` SDK release if you want to leverage or preview upcoming features that didn't yet make it into the latest stable release.
+
+To do so, open the Decentraland Editor tab, and press the `+` sign to install the following:
+
+`@dcl/skd@next`
+
+See [manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-dependencies.md" >}}) for more details.
+
+{{< hint warning >}}
+**📔 Note**:  Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.
+{{< /hint >}}
+
+

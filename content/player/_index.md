@@ -8,20 +8,21 @@ url: /player
 <style>
 .section-cards-container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 0 auto;
     padding-top: 30px;
 }
   .section-card {
-    flex: 1 1 0;
-      border-radius: 8px;
-      box-shadow: 0 5px 10px 0 rgba(0,0,0,.24);
-      box-sizing: border-box;
-      height: 350px;
-      margin-right: 20px;
-      padding: 20px;
-      text-align: left;
-      transition: all .5s ease-in-out
+    width: 250px;
+    height: 370px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.24);
+    box-sizing: border-box;
+    margin-right: 20px;
+    padding: 20px;
+    text-align: left;
+    transition: all .5s ease-in-out
   }
 
   .section-card:hover {

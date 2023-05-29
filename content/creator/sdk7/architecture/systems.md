@@ -18,48 +18,39 @@ _systems_ are what make scenes dynamic, they're functions that are executed peri
 
 The following example shows a basic system declaration:
 
+
+
+{{< playground link="https://playground.decentraland.org/?code=CgovLyBDdWJlIGZhY3RvcnkKZnVuY3Rpb24gY3JlYXRlQ3ViZSh4OiBudW1iZXIsIHk6IG51bWJlciwgejogbnVtYmVyKTogRW50aXR5IHsKICBjb25zdCBtZXNoRW50aXR5ID0gZW5naW5lLmFkZEVudGl0eSgpCiAgVHJhbnNmb3JtLmNyZWF0ZShtZXNoRW50aXR5LCB7IHBvc2l0aW9uOiB7IHgsIHksIHogfSB9KQogIE1lc2hSZW5kZXJlci5jcmVhdGUobWVzaEVudGl0eSwgeyBtZXNoOiB7ICRjYXNlOiAnYm94JywgYm94OiB7IHV2czogW10gfSB9IH0pCiAgTWVzaENvbGxpZGVyLmNyZWF0ZShtZXNoRW50aXR5LCB7IG1lc2g6IHsgJGNhc2U6ICdib3gnLCBib3g6IHt9IH0gfSkKCiAgcmV0dXJuIG1lc2hFbnRpdHkKfQoKLy8gU3lzdGVtcwpmdW5jdGlvbiBjaXJjdWxhclN5c3RlbShkdDogbnVtYmVyKSB7CiAgY29uc29sZS5sb2coJ015IHN5c3RlbSBpcyBydW5uaW5nJykKICBmb3IgKGNvbnN0IFtlbnRpdHksIF9tZXNoUmVuZGVyZXIsIF90cmFuc2Zvcm1dIG9mIGVuZ2luZS5nZXRFbnRpdGllc1dpdGgoTWVzaFJlbmRlcmVyLCBUcmFuc2Zvcm0pKSB7CiAgICBjb25zdCBtdXRhYmxlVHJhbnNmb3JtID0gVHJhbnNmb3JtLmdldE11dGFibGUoZW50aXR5KQoKICAgIG11dGFibGVUcmFuc2Zvcm0ucm90YXRpb24gPSBRdWF0ZXJuaW9uLm11bHRpcGx5KAogICAgICBtdXRhYmxlVHJhbnNmb3JtLnJvdGF0aW9uLAogICAgICBRdWF0ZXJuaW9uLmZyb21BbmdsZUF4aXMoZHQgKiAxMCwgVmVjdG9yMy5VcCgpKQogICAgKQogIH0KfQoKLy8gSW5pdApjb25zdCBpbml0RW50aXR5ID0gY3JlYXRlQ3ViZSg4LCAxLCA4KQoKZW5naW5lLmFkZFN5c3RlbShjaXJjdWxhclN5c3RlbSkK" >}}
 ```ts
 // Define the system
 function mySystem() {
-
-	// performed on every tick
-	console.log("my system is running")
+  console.log("Performed on every tick. My system is running")
 }
-
 // Add system to engine
 engine.addSystem(mySystem)
 ```
-
-You must add a _System_ to the engine before its functions start being called. You can also declare a system and add it to the engine all in one same instruction.
-
-```ts
-// Define and add system to engine
-engine.addSystem(mySystem() {
-
-	// performed on every tick
-	console.log("my system is running")
-})
-```
-
+{{< /playground >}}
 
 The function in a system can perform anything you want. Typically, it will act upon all the entities that meet certain [query]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}), following certain logic to change the values stored in the entity's components.
 
-
+{{< playground link="https://playground.decentraland.org/?code=CgovLyBDdWJlIGZhY3RvcnkKZnVuY3Rpb24gY3JlYXRlQ3ViZSh4OiBudW1iZXIsIHk6IG51bWJlciwgejogbnVtYmVyKTogRW50aXR5IHsKICBjb25zdCBtZXNoRW50aXR5ID0gZW5naW5lLmFkZEVudGl0eSgpCiAgVHJhbnNmb3JtLmNyZWF0ZShtZXNoRW50aXR5LCB7IHBvc2l0aW9uOiB7IHgsIHksIHogfSB9KQogIE1lc2hSZW5kZXJlci5jcmVhdGUobWVzaEVudGl0eSwgeyBtZXNoOiB7ICRjYXNlOiAnYm94JywgYm94OiB7IHV2czogW10gfSB9IH0pCiAgTWVzaENvbGxpZGVyLmNyZWF0ZShtZXNoRW50aXR5LCB7IG1lc2g6IHsgJGNhc2U6ICdib3gnLCBib3g6IHt9IH0gfSkKCiAgcmV0dXJuIG1lc2hFbnRpdHkKfQoKZnVuY3Rpb24gbW92ZVN5c3RlbShkdDogbnVtYmVyKSB7CgkvLyBpdGVyYXRlIG92ZXIgYWxsIGVudGlpdGllcyB3aXRoIGEgVHJhbnNmb3JtCiAgZm9yIChjb25zdCBbZW50aXR5XSBvZiBlbmdpbmUuZ2V0RW50aXRpZXNXaXRoKFRyYW5zZm9ybSwgTWVzaFJlbmRlcmVyKSkgewoKCS8vIGZldGNoIGEgbXV0YWJsZSBUcmFuc2Zvcm0gY29tcG9uZW50Cgljb25zdCB0cmFuc2Zvcm0gPSBUcmFuc2Zvcm0uZ2V0TXV0YWJsZShlbnRpdHkpCgoJLy8gdXBkYXRlIHRoZSBwb3NpdGlvbiB2YWx1ZQogIAl0cmFuc2Zvcm0ucG9zaXRpb24ueiArPSAwLjAxCiAgfQp9CgovLyBJbml0CmNvbnN0IGluaXRFbnRpdHkgPSBjcmVhdGVDdWJlKDgsIDEsIDgpCgplbmdpbmUuYWRkU3lzdGVtKG1vdmVTeXN0ZW0pCg%3D%3D" >}}
 ```ts
 function moveSystem(dt: number) {
-	// iterate over all entiities with a Transform
+  // iterate over all entiities with a Transform
   for (const [entity] of engine.getEntitiesWith(Transform)) {
 
-	// fetch a mutable Transform component 
-	const transform = Transform.getMutable(entity)
+  // fetch a mutable Transform component
+  const transform = Transform.getMutable(entity)
 
-	// update the position value
-  	transform.position.z += 0.01
+  // update the position value
+    transform.position.z += 0.01
   }
 }
 
 engine.addSystem(moveSystem)
 ```
+{{< /playground >}}
+
 
 In the example above, the system `MoveSystem` is a function that runs on each tick of the game loop, changing position of every entity in the scene that has a Transform.
 
@@ -102,9 +93,9 @@ export function main(){
 // Define the system
 export function UpdateScore() {
 
-	// call reference to individual entity
-	const points = ScoreComponent.get(game).points
-	console.log(points)
+  // call reference to individual entity
+  const points = ScoreComponent.get(game).points
+  console.log(points)
 }
 
 // Add system to engine
@@ -125,13 +116,13 @@ For example, your scene can have a `PhysicsSystem` that calculates the effect of
 ```ts
 // Define the system
 export function PhysicsSystem() {
-	// iterate over all entiities with a HasPhysics
+  // iterate over all entiities with a HasPhysics
   for (const [entity] of engine.getEntitiesWith(HasPhysics)) {
 
-	// fetch a mutable Transform component 
-	const transform = Transform.getMutable(entity)
+  // fetch a mutable Transform component
+  const transform = Transform.getMutable(entity)
 
-	// Calculate effect of physics
+  // Calculate effect of physics
   }
 }
 
@@ -147,8 +138,8 @@ The function in a system can optionally include an argument called `dt`, of type
 ```ts
 function MySystem(dt: number) {
 
-	// Udate scene
-	console.log("time since last tick: ", dt)
+  // Udate scene
+  console.log("time since last tick: ", dt)
 }
 
 engine.addSystem(MySystem)
@@ -225,7 +216,7 @@ To remove a system, you must first create a pointer to it when adding it to the 
 ```ts
 // declare system
 function mySystem(dt: number){
-	console.log("delay since last tick: ", dt)
+  console.log("delay since last tick: ", dt)
 }
 
 // add system (making a pointer)
