@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
-weight: 6
-title: Catalyst Nodes
+weight: 5
+title: Communications
 ---

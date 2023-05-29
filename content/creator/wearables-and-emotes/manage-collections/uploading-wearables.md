@@ -57,7 +57,7 @@ You can add your own custom thumbnail by clicking on the camera icon and browsin
 {{< hint warning >}}
 ⚠️ Having a good render of your wearable is crucial in making it more appealing to potential users in the marketplace. **It's important to avoid adding any graphics other than the wearable itself, because this may cause the curation committee to reject it.**
 
-<img src="/images/wearables-and-emotes/uploading-wearables/07_thumbnail.jpeg" width="600" />
+<img src="/images/wearables-and-emotes/uploading-wearables/07_thumbnail.png" width="800" />
 {{< /hint >}}
 
 ### **Properties**

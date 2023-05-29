@@ -21,12 +21,8 @@ At a very high level, the Decentraland **Software Development Kit** (SDK) allows
 
 Our SDK includes the following components:
 
-<!--
-- **The Decentraland Editor**: Use it to create and preview Decentraland scenes. You don't need to download any software to your machine, the editor runs entirely on your browser.
--->
-
 - **The Decentraland Editor**: An extension for Visual Studio Code that allows you to create scenes, preview and debug, and publish. [Read more]({{< ref "/content/creator/sdk7/getting-started/decentraland-editor.md" >}})
-- **The Decentraland ECS**: A TypeScript package containing the library of helper methods that allows you to create interactive experiences. Use it to create and manipulate objects in the scene and also to facilitate in-world transactions between players or other applications. ( [latest ECS reference](https://github.com/decentraland/ecs-reference/blob/master/docs-latest/decentraland-ecs.md))
+- **The Decentraland ECS**: A TypeScript package containing the framework of helper methods that allows you to create interactive experiences. Use it to create and manipulate objects in the scene and also to facilitate in-world transactions between players or other applications. ( [latest ECS reference](https://github.com/decentraland/ecs-reference/blob/master/docs-latest/decentraland-ecs.md))
 - **The Decentraland CLI** (Command Line Interface): Use it to [generate]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}) new Decentraland scenes locally on your own machine, preview them and upload them to the content server.
 
 
@@ -34,13 +30,13 @@ Our SDK includes the following components:
 
 ## Requirements
 
-To develop a scene locally, you don't need to own LAND tokens. Developing and testing a scene can be done completely offline, without the need to deploy a scene to the Ethereum network (the system Decentraland uses to establish ownership of LAND), or the content server.
+To develop a scene locally, you don't need to own LAND tokens. Developing and testing a scene can be done completely offline, without the need to deploy a scene to the Ethereum network (the system Decentraland uses to establish ownership of LAND, of a Decentraland Name), or the content server.
 
 You must have the following:
 
 - **Visual Studio Code**: Dowload it [here](https://code.visualstudio.com/). Beyond hosting the Decentraland Editor extension, it helps you create scenes a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
 
-- **The Decentraland Editor**: An extension for Visual Studio code that exposes many common functionalities as buttons in the UI. [How to install it]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+- **The Decentraland Editor SDK7**: An extension for Visual Studio code that exposes many common functionalities as buttons in the UI. [How to install it]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 
 ## Supported languages and syntax
@@ -69,28 +65,25 @@ You can also run a scene locally on your machine by running a preview from the C
 
 ## Entities and Components
 
-Three dimensional scenes in Decentraland are based on an [Entity-Component-System](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system) architecture, where everything in a scene is an _entity_. Entities have _components_, each component gives the entity it belongs to specific properties. A door entity is likely to have at least a Transform component (that sets position, rotation & scale) and another to provide it a shape. Components are just a place to store data, they don’t carry out any actions. 
+Three dimensional scenes in Decentraland are based on an [Entity-Component-System](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system) architecture, where everything in a scene is an _entity_. Entities have _components_, each component gives the entity it belongs to specific properties. A door entity is likely to have at least a Transform component (that sets position, rotation & scale) and another to provide it a shape. Components are just a place to store data, they don’t carry out any actions by themselves. 
 
 <img src="/images/media/ecs-components-new.png" alt="nested entities" width="400"/>
 
 
 ```ts
-// Create an entity
-const door = engine.addEntity()
+export function main() {
+	// Create an entity
+	const door = engine.addEntity()
 
-// Give the entity a position via a transform component
-Transform.create(door, {
-	position: Vector3.create(5, 1, 5)
-})
+	// Give the entity a position via a transform component
+	Transform.create(door, {
+		position: Vector3.create(5, 1, 5)
+	})
 
-// Give the entity a visible shape via a GltfContainer component
-GltfContainer.create(door)
+	// Give the entity a visible shape via a GltfContainer component
+	GltfContainer.create(door)
+}
 ```
- 
-The default set of components are interpreted by the engine and have direct consequences on how the entity will look, its position, if it emits sounds, etc. You can also define custom components to store data that might be useful to the mechanics in your scene. The engine won't directly interpret what the values on these components mean, but you can write logic in your scene's code to monitor these values and respond to them.
-
-
-For example, I can define a custom “doorState” component to track the door’s open/closed/locked state. In this case, the component is nothing more than a place to store a value that keeps track of this state, I have to implement the logic that interprets these values separately. 
 
 
 Entities may be nested inside other entities to form a tree structure. If you're familiar with web development, you might find it useful to think of entities as elements in a DOM tree and of components as the attributes of each of these elements.
@@ -101,26 +94,15 @@ Entities are an abstract concept. An entity is just an id, that is used as a ref
 
 
 See [Entities and components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}) for an in-depth look of both these concepts and how they're used by Decentraland scenes.
+ 
+### Custom components
 
-## The game loop
+The default set of components (like `Transform`, `GltfContainer`, `Material`, etc) are interpreted by the engine and have direct consequences on how the entity will look, its position, if it emits sounds, etc.
 
-The [game loop](http://gameprogrammingpatterns.com/game-loop.html) is the backbone of a Decentraland scene's code. It cycles through part of the code at a regular interval and does the following:
+You can also define _custom components_ to store data that might be useful to the mechanics in your scene. The engine won't know how to interpret what the values on these components mean, they won't have any direct consequences on how the scene is rendered. However, you can write logic in your scene's code to monitor these values and respond to them. For example, you can define a custom “doorState” component to track the door’s open/closed state. In this case, the component is nothing more than a place to store a value that keeps track of this state. To see the door open and close in your scene, you have to then separately implement the logic that uses these values to affect the door's rotation, a value from the `Transform` component that the engine does know how to interpret.
 
-- Listen for player input
-- Update the scene
-- Re-render the scene
+See [Custom Components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) for more information.
 
-In most traditional software programs, all events are triggered directly by player actions. Nothing in the program's state will change until the player clicks on a button, opens a menu, etc.
-
-But interactive environments and games are different from that. Not all changes to the scene are necessarily caused by a player's actions. Your scene could have animated objects that move on their own or even non-player characters that have their own AI. Some player actions might also take multiple ticks to be completed, for example if the opening of a door needs to take a whole second, the door's rotation must be incrementally updated about 30 times as it moves.
-
-We call each iteration over the loop a _tick_. Decentraland scenes are rendered at 30 ticks per second, whenever possible. If the machine is struggling to render each tick, it may result in less frequent updates.
-
-In each tick, the scene is updated; then the scene is re-rendered, based on the updated values.
-
-In Decentraland scenes, there is no explicitly declared game loop, but rather the [Systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) of the scene make up the game loop.
-
-The compiling and rendering of the scene is carried out in the backend, you don't need to handle that while developing your scene.
 
 ## Systems
 
@@ -150,6 +132,27 @@ A single scene can have 0 or many systems running at the same time. Systems can 
 
 See [Systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) for more details about how systems are used in a scene.
 
+
+### The game loop
+
+The [game loop](http://gameprogrammingpatterns.com/game-loop.html) is the backbone of a Decentraland scene's code. It cycles through part of the code at a regular interval and does the following:
+
+- Listen for player input
+- Update the scene
+- Re-render the scene
+
+In most traditional software programs, all events are triggered directly by player actions. Nothing in the program's state will change until the player clicks on a button, opens a menu, etc.
+
+But interactive environments and games are different from that. Not all changes to the scene are necessarily caused by a player's actions. Your scene could have animated objects that move on their own or even non-player characters that have their own AI. Some player actions might also take multiple ticks to be completed, for example if the opening of a door needs to take a whole second, the door's rotation must be incrementally updated about 30 times as it moves.
+
+We call each iteration over the loop a _tick_. Decentraland scenes are rendered at 30 ticks per second, whenever possible. If the machine is struggling to render each tick, it may result in less frequent updates.
+
+In each tick, the scene is updated; then the scene is re-rendered, based on the updated values.
+
+In Decentraland scenes, there is no explicitly declared game loop, but rather the [Systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) of the scene make up the game loop.
+
+The compiling and rendering of the scene is carried out in the backend, you don't need to handle that while developing your scene.
+
 ## Querying components
 
 You can [query components]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) with the method `engine.getEntitiesWith(...components)` to keep track of all entities in the scene that have certain components.
@@ -172,6 +175,25 @@ function boxHeightSystem(dt: number) {
 // Add the system to the engine
 engine.addSystem(rotationSystem)
 ```
+
+## Scene lifecycle
+
+If you start writing code directly in `index.ts`, your code may be lacking some important context. For example, you might be trying to do something with the `PlayerEntity`, or you with an entity that was added via the Decentraland Editor's UI, however at that point in time those things haven't been loaded yet.
+
+To avoid that scenario, it's always recommended to write out your scene's initial loading code using the `main()` function (on the `main.ts` file) as an entrypoint. This function runs only once all of the scene's initial context is already loaded, this includes anything added via the Decentraland Editor's UI.
+
+You can write your code outside the `main()` function when: 
+- The code is indirectly called by `main()`
+- The code defines a system, or adds a system to the engine
+- The code is inside an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}})
+
+
+
+{{< hint warning >}}
+**📔 Note**: By the time the code inside an async function or a system is first executed, everything in the scene is already properly initialized.
+
+[Custom Components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) must always be written outside the `main()` function, in a separate file. They need to be interpreted before `main()` is executed.
+{{< /hint >}}
 
 
 ## Mutability
@@ -207,17 +229,18 @@ All of the values stored in the components in the scene represent the scene's st
 After all the systems run, the components on each entity will have new values. When the engine renders the scene, it will use these new updated values and players will see the entities change to match their new states.
 
 ```ts
+export function main() {
+	// Create an entity
+	const cube = engine.addEntity()
 
-// Create an entity
-const cube = engine.addEntity()
+	// Give the entity a position via a transform component
+	Transform.create(cube, {
+		position: Vector3.create(5, 1, 5)
+	})
 
-// Give the entity a position via a transform component
-Transform.create(cube, {
-	position: Vector3.create(5, 1, 5)
-})
-
-// Give the entity a visible shape via a MeshRenderer component
-MeshRenderer.setBox(cube)
+	// Give the entity a visible shape via a MeshRenderer component
+	MeshRenderer.setBox(cube)
+}
 
 // Define a System
 function rotationSystem(dt: number) {
@@ -255,9 +278,9 @@ This decoupling is also important to prevent neighbor scenes from interfering wi
 
 ## Tree Shaking
 
-When converting the source code in TypeScript to the compiled code in minified JavaScript, the process performs [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking) to ensure that only the parts of the code that are actually being used get converted. This helps keep the scene's final code as lightweight as possible. It's especially useful when using extenal libraries, since often these libraries include a lot of functionality that is not used that would otherwise bulk up the scene.
+When converting the source code in TypeScript to the compiled code in minified JavaScript, the process performs [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking) to ensure that only the parts of the code that are actually being used get converted. This helps keep the scene's final code as lightweight as possible. It's especially useful when using external libraries, since often these libraries include a lot of functionality that is not used that would otherwise bulk up the scene.
 
-As a consecuence of tree shaking, any code that you want your scene to run needs to be referenced one way or another by the entry point of your code, `index.ts`. Any code that is not explicitly or indirectly referenced by this file, will not make it into the scene.
+As a consequence of tree shaking, any code that you want your scene to run needs to be referenced one way or another by the entry points of your code: the `main()` function on `main.ts`. Systems can also alternatively be added to the engine on the `index.ts` file, without referencing `main.ts`. Any code that is not explicitly or indirectly referenced by these files, will not make it into the scene.
 
 For example, suppose you have a file named `extraContent.ts` with the following content, the entity will not be rendered and the system will not start running:
 
@@ -277,7 +300,7 @@ function mySystem(dt: number) {
 engine.addSystem(mySystem)
 ```
 
-To make it run as part of your scene, you can reference from `index.ts` in the following way:
+To make it run as part of your scene, you can reference from `main.ts` in the following way:
 
 ```ts
 // on extraContent.ts
@@ -296,22 +319,18 @@ export function mySystem(dt: number) {
 
 /////////////////////////////
 
-// on index.ts
+// on main.ts
 
 import {addEntities, mySystem} from "/extraContent"
 
-addEntities()
+export function main(){
+	addEntities()
+}
 
 engine.addSystem(mySystem)
-
 ```
 
-In the beta release of SDK7, all scenes must include the following line in `index.ts`, this imports the essential elements from the SDK, which would otherwise not be imported due to tree shaking.
-
-```ts
-export * from '@dcl/sdk'
-```
-
+The exception to this rule are the definitions of custom components. These must not be accessed via the `main()` function entry point, as they need to be interpreted before everything else.
 
 
 ## SDK Versions
@@ -329,4 +348,5 @@ See [manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-depe
 {{< hint warning >}}
 **📔 Note**:  Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.
 {{< /hint >}}
+
 
