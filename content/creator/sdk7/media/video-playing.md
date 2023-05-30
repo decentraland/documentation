@@ -242,6 +242,80 @@ Material.setPbrMaterial(screen2, {
 Note that in the example above, it's only necessary to create one `VideoPlayer` component, which controls the state of both video screens. In this case this component is assigned to belong to the `screen1` entity, but it could also be assigned to belong to any other entity on the scene, not necessarily one of the screens.
 
 
+## Video events
+
+Easily handle state changes in a video, to respond to when a video starts playing, is paused, etc. This can be used for example to play animations in perfect sync with a video, ensuring they start at the same time as the video.
+
+Use ‘videoEventsSystem.registerVideoEventsEntity‘ to define a function that runs every time the state of the video assigned to an entity. Every time the state changes, your function can check the new state and respond accordingly.
+
+```ts
+import {
+  engine,
+  Entity,
+  VideoPlayer,
+  videoEventsSystem,
+  VideoState
+} from '@dcl/sdk/ecs'
+
+// ... Create videoPlayerEntity with VideoPlayer component, Transform, MeshRenderer.setPlane(), etc. ...
+
+videoEventsSystem.registerVideoEventsEntity(videoPlayerEntity, (videoEvent) => {
+  console.log('video event - state: ' + videoEvent.state
+    + '\ncurrent offset:' + videoEvent.currentOffset
+    + '\nvideo length:' + videoEvent.videoLength)
+
+  switch (videoEvent.state) {
+    case VideoState.VS_READY:
+      console.log('video event - video is READY')
+      break
+    case VideoState.VS_NONE:
+      console.log('video event - video is in NO STATE')
+      break
+    case VideoState.VS_ERROR:
+      console.log('video event - video ERROR')
+      break
+    case VideoState.VS_SEEKING:
+      console.log('video event - video is SEEKING')
+      break
+    case VideoState.VS_LOADING:
+      console.log('video event - video is LOADING')
+      break
+    case VideoState.VS_BUFFERING:
+      console.log('video event - video is BUFFERING')
+      break
+    case VideoState.VS_PLAYING:
+      console.log('video event - video started PLAYING')
+      break
+    case VideoState.VS_PAUSED:
+      console.log('video event - video is PAUSED')
+      break
+  }
+})
+```
+
+
+The videoEvent object passed as an input for the function contains the following properties:
+
+- `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default.
+- `state`: The value for the new video status of the video, expressed as a value from the `VideoState` enum. This enum can hold the following possible values:
+	- ‘VideoState.VS_READY‘
+	- ‘VideoState.VS_NONE‘
+	- ‘VideoState.VS_ERROR‘
+	- ‘VideoState.VS_SEEKING‘
+	- ‘VideoState.VS_LOADING‘
+	- ‘VideoState.VS_BUFFERING‘
+	- ‘VideoState.VS_PLAYING‘
+	- ‘VideoState.VS_PAUSED‘
+- `videoLength` (_number_ ): The length in seconds of the entire video. _-1_ if length is unknown.
+- `timeStamp` ( _number_): 
+- `tickNumber` (_number_): 
+
+
+
+
+
+
+
 <!-- 
 ## Map a video texture
 
