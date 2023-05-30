@@ -25,6 +25,7 @@ There are five types of entities:
 - [**Wearables**]({{< relref "entity-types/wearables" >}}): clothing and items that players can add to their avatars.
 - [**Emotes**]({{< relref "entity-types/emotes" >}}): animations that a player's avatar can perform.
 - [**Stores**]({{< relref "entity-types/stores" >}}): marketplace sites for wearables and emotes that players can purchase.
+- [**Outfits**]({{< relref "entity-types/outfits" >}}): saved outfits for a specific player.
 
 All types follow the same procedures for creation, identification, ownership and hosting.
 
@@ -34,7 +35,7 @@ Every entity has certain common properties in its manifest, applicable to all ty
 
 | Field | Value |
 | ----- | --- |
-| `type` | One of `scene`, `profile`, `wearable`, `emote` or `store`.
+| `type` | One of `scene`, `profile`, `wearable`, `emote`, `store` or `outfits`.
 | `pointers` | An array of [pointers]({{< relref "pointers" >}}) associated to this entity.
 | `timestamp` | The Unix UTC timestamp when this entity was uploaded.
 | `content` | An array of references to additional [files]({{< relref "filesystem" >}}) in the entity's package.
