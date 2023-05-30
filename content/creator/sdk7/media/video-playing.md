@@ -296,7 +296,7 @@ videoEventsSystem.registerVideoEventsEntity(videoPlayerEntity, (videoEvent) => {
 
 The videoEvent object passed as an input for the function contains the following properties:
 
-- `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default.
+- `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default, if the video hasn't started playing.
 - `state`: The value for the new video status of the video, expressed as a value from the `VideoState` enum. This enum can hold the following possible values:
 	- ‘VideoState.VS_READY‘
 	- ‘VideoState.VS_NONE‘
@@ -307,12 +307,8 @@ The videoEvent object passed as an input for the function contains the following
 	- ‘VideoState.VS_PLAYING‘
 	- ‘VideoState.VS_PAUSED‘
 - `videoLength` (_number_ ): The length in seconds of the entire video. _-1_ if length is unknown.
-- `timeStamp` ( _number_): 
-- `tickNumber` (_number_): 
-
-
-
-
+- `timeStamp` ( _number_): A _lamport_ timestamp that is incremented every time that the video changes state.
+- `tickNumber` (_number_): The time at which the event occurred, expressed as counting ticks since the scene started running.
 
 
 
