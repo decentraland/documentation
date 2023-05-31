@@ -23,7 +23,7 @@ Outfits [pointers]({{< relref "../pointers" >}}) are the Ethereum address of the
 
 ## Outfits
 
-Each outfit in `metadata.outfts[]` represents an outfit of the user, and has a number of properties:
+Each outfit in `metadata.outfits[]` represents an outfit of the user, and has a number of properties:
 
 | Field | Value |
 | ----- | --- |
