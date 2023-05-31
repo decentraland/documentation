@@ -56,11 +56,10 @@ engine.addSystem(() => {
 })
 ```
 
-The example above checks on every tick if a single hard-coded entity was pressed with the pointer button (left mouse button).
+The example above checks if the button was pressed, regardless of where the pointer is at, or what entities may be in its path.
 
 `inputSystem.isTriggered()` returns _true_ only if the indicated button was pressed down in the current tick of the game loop. If the button was not pushed down, or it was already down from the previous tick, it returns _false_.
 
-<!-- TODO: check this outside playground: -->
 
 {{< hint warning >}}
 **📔 Note**:  The player needs to be standing inside the scene's boundaries for the pointer event to be detected. The player's cursor also needs to be locked, buttons pressed while having the free cursor aren't detected.
@@ -73,12 +72,9 @@ The `inputSystem.isTriggered` function takes the following required arguments:
 - `InputAction`: Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options.
 - `PointerEventType`: What type of event to listen for, as a value from the `PointerEventType` enum. See [Types of pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#types-of-pointer-events" >}}) for supported options.
 
-
 ### Activate an entity
 
 To detect button events while pointing at a particular entity, pass a third optional argument to `inputSystem.isTriggered` to specify what entity to check against.
-
-The following example checks for button presses against a particular entity.
 
 ```ts
 engine.addSystem(() => {
@@ -88,6 +84,9 @@ engine.addSystem(() => {
 })
 ```
 
+The example above checks on every tick if a single hard-coded entity was pressed with the pointer button (left mouse button).
+
+
 The `inputSystem.isTriggered` function takes the following arguments:
 
 - `InputAction`: Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options.
@@ -96,9 +95,20 @@ The `inputSystem.isTriggered` function takes the following arguments:
 
 For an entity to be interactive, it must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). See [obstacles]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#obstacles" >}}) for more details.
 
-{{< hint info >}}
-**💡 Tip**:  See [Data from a pointer event](#data-from-a-pointer-event) for ways to obtain more detailed data about a pointer event.
-{{< /hint >}}
+If there are multiple entities that the player can interact with in the same way, consider using `inputSystem.getInputCommand`. This command returns infor about a global click command, including the entity ID, you can use this to execute a single function that can handle them all.
+
+```ts
+engine.addSystem(() => {
+    const result = inputSystem.getInputCommand(InputAction.IA_LEFT, PointerEventType.PET_DOWN)
+    if (result) {
+      if(result.hit.entityId === myEntity){
+        // handle click
+      }
+    }
+  })
+```
+
+See [Data from input action](#data-from-input-action) for more info. This method also grants you more detailed data about the hit of the pointer event.
 
 ### Input button up
 
