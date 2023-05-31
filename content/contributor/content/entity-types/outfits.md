@@ -8,7 +8,7 @@ Outfits are the saved outfits of a player. An outfit is composed of body shape, 
 
 ## Pointers {#pointers}
 
-Outfits [pointers]({{< relref "../pointers" >}}) are the Ethereum address of the owner with a "`:outfits`" suffix . For example:
+Outfits [pointers]({{< relref "../pointers" >}}) are the Ethereum address of the owner with a "`:outfits`" suffix. For example:
 
 ```
 0x210c4415d6a71195af76beef9b85dd0eb43f35df:outfits
