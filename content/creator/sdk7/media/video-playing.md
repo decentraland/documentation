@@ -259,7 +259,9 @@ import {
 
 // ... Create videoPlayerEntity with VideoPlayer component, Transform, MeshRenderer.setPlane(), etc. ...
 
-videoEventsSystem.registerVideoEventsEntity(videoPlayerEntity, (videoEvent) => {
+videoEventsSystem.registerVideoEventsEntity(
+{ entity: videoPlayerEntity },
+function (videoEvent) {
   console.log('video event - state: ' + videoEvent.state
     + '\ncurrent offset:' + videoEvent.currentOffset
     + '\nvideo length:' + videoEvent.videoLength)
