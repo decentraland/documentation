@@ -24,7 +24,7 @@ After that, each line is a JSON document describing an [entity]({{< relref "enti
 | Field | Value |
 | ----- | --- |
 | `entityId` | The immutable identifier for this [entity]({{< relref "entities" >}}).
-| `entityType` | One of `scene`, `profile`, `wearable`, `emote` or `store`.
+| `entityType` | One of `scene`, `profile`, `wearable`, `emote`, `store` or `outfits`.
 | `pointers` | An array of [pointers]({{< relref "pointers" >}}) that resolve (or used to resolve) to this entity.
 | `localTimestamp` | The Unix UTC timestamp when this entity was uploaded.
 | `authChain` | The [authentication chain]({{< relref "entities#ownership" >}}) for this entity.

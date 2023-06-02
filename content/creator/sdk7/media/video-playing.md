@@ -242,7 +242,7 @@ import {
   Entity,
   VideoPlayer,
   videoEventsSystem,
-  VideoState,
+  VideoState
 } from '@dcl/sdk/ecs'
 
 // ... Create videoPlayerEntity with VideoPlayer component, Transform, MeshRenderer.setPlane(), etc. ...
@@ -256,7 +256,6 @@ videoEventsSystem.registerVideoEventsEntity(videoPlayerEntity, (videoEvent) => {
       '\nvideo length:' +
       videoEvent.videoLength
   )
-
   switch (videoEvent.state) {
     case VideoState.VS_READY:
       console.log('video event - video is READY')
@@ -290,6 +289,7 @@ The videoEvent object passed as an input for the function contains the following
 
 - `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default.
 - `state`: The value for the new video status of the video, expressed as a value from the `VideoState` enum. This enum can hold the following possible values:
+
   - ‘VideoState.VS_READY‘
   - ‘VideoState.VS_NONE‘
   - ‘VideoState.VS_ERROR‘
@@ -302,7 +302,9 @@ The videoEvent object passed as an input for the function contains the following
 - `timeStamp` ( _number_):
 - `tickNumber` (_number_):
 
-<!--
+
+<!-- 
+
 ## Map a video texture
 
 TODO
