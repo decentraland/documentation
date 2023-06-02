@@ -9,14 +9,12 @@ url: /creator/development-guide/sdk7/video-playing/
 weight: 2
 ---
 
-
-
 There are two different ways you can show a video in a scene. One is to stream the video from an external source, the other is to pack the video file with the scene and play it from there.
 
 In both cases, you use a `VideoPlayer` component to control the state of the video. You also need to create a `VideoTexture`, which can be used on a [material]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) and then applied to any [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
 
 {{< hint warning >}}
-**📔 Note**:  Keep in mind that streaming video demands a significant effort from the player's machine. For this reason, we recommend never having more than one video stream displayed at a time per scene. Videos are also not played if the player is standing on a different scene. Also avoid streaming videos that are in very high resolution, don't use anything above _HD_.
+**📔 Note**: Keep in mind that streaming video demands a significant effort from the player's machine. For this reason, we recommend never having more than one video stream displayed at a time per scene. Videos are also not played if the player is standing on a different scene. Also avoid streaming videos that are in very high resolution, don't use anything above _HD_.
 {{< /hint >}}
 
 ## Show a video
@@ -31,9 +29,7 @@ The following instructions apply both to streaming and to showing a video from a
 
 4. Create a `Material`, assign it to the screen entity, and set its `texture` to the `VideoTexture` you created.
 
-
 This example uses a video that's locally stored in a `/videos` folder in the scene project:
-
 
 ```ts
 // #1
@@ -43,8 +39,8 @@ Transform.create(screen, { position: { x: 4, y: 1, z: 4 } })
 
 // #2
 VideoPlayer.create(screen, {
-  src: "videos/myVideo.mp3",
-  playing: true
+  src: 'videos/myVideo.mp3',
+  playing: true,
 })
 
 // #3
@@ -62,18 +58,16 @@ Material.setPbrMaterial(screen, {
 To use a video from an external streaming URL, just change step 2 so that the `src` property in the `VideoPlayer` component references the path to the file.
 
 {{< hint warning >}}
-**📔 Note**:  For a video stream to work in your scene, you must also edit the `scene.json` to allow streaming, and add the domains you want to stream from to the allowlist. See [About streaming](#about-streaming).
+**📔 Note**: For a video stream to work in your scene, you must also edit the `scene.json` to allow streaming, and add the domains you want to stream from to the allowlist. See [About streaming](#about-streaming).
 {{< /hint >}}
 
 ```ts
 // #2
 VideoPlayer.create(screen, {
   src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
-  playing: true
+  playing: true,
 })
 ```
-
-
 
 ## About Streaming
 
@@ -93,9 +87,7 @@ To stream videos from an external URL, you must add the `ALLOW_MEDIA_HOSTNAMES` 
 
 See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
 
-
-To launch your own video streaming server, we recommend using a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box. See 
-
+To launch your own video streaming server, we recommend using a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box. See
 
 ## Video Materials
 
@@ -114,7 +106,6 @@ Material.setPbrMaterial(screen, {
 
 If you want the screen to glow a little, more like a LED screen, you can also add some emissive properties. You can even set the `emissiveTexture` of the material to the same `VideoTexture` as the `texture`.
 
-
 ```ts
 Material.setPbrMaterial(screen, {
   texture: videoTexture,
@@ -123,14 +114,14 @@ Material.setPbrMaterial(screen, {
   metallic: 0,
   emissiveTexture: videoTexture,
   emissiveIntensity: 0.6,
-  emissiveColor: Color3.White()
+  emissiveColor: Color3.White(),
 })
 ```
 
-See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md">}}) for more details. 
+See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md">}}) for more details.
 
 {{< hint info >}}
-**💡 Tip**:  Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
+**💡 Tip**: Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
 {{< /hint >}}
 
 ## About Video Files
@@ -145,9 +136,6 @@ Keep in mind that a video file adds to the total size of the scene, which makes 
 
 We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
 
-
-
-
 ## Start pause and stop a video
 
 To start playing the video or pause it, set the `playing` property to _true_ or _false_. If `playing` is set to false, the video is paused at the last frame shown.
@@ -155,54 +143,55 @@ To start playing the video or pause it, set the `playing` property to _true_ or 
 You can make a screen toggleable by adding a pointer event to it as shown below:
 
 ```ts
-pointerEventsSystem.onPointerDown(screen, () => {
-  	const videoPlayer = VideoPlayer.getMutable(screen)
-  	videoPlayer.playing = !videoPlayer.playing
-}, { 
-	button: InputAction.IA_POINTER,
-	hoverText: "Play/pause" 
-})
+pointerEventsSystem.onPointerDown(
+  {
+    entity: screen,
+    opts: { button: InputAction.IA_POINTER, hoverText: 'Play/Pause' },
+  },
+  function () {
+    const videoPlayer = VideoPlayer.getMutable(screen)
+    videoPlayer.playing = !videoPlayer.playing
+  }
+)
 ```
 
 To stop the video and send it back to the first frame, set the `position` property to 0. in the following example, clicking on the video stops it.
 
 ```ts
-pointerEventsSystem.onPointerDown(screen, () => {
-  	const videoPlayer = VideoPlayer.getMutable(screen)
-  	videoPlayer.playing = false
-	videoPlayer.position = 0
-}, { 
-	button: InputAction.IA_POINTER,
-	hoverText: "STOP" 
-})
+pointerEventsSystem.onPointerDown(
+  {
+    entity: screen,
+    opts: { button: InputAction.IA_POINTER, hoverText: 'STOP' },
+  },
+  function () {
+    const videoPlayer = VideoPlayer.getMutable(screen)
+    videoPlayer.playing = false
+    videoPlayer.position = 0
+  }
+)
 ```
 
 ## Configure the video state
-
-
 
 The following optional properties are available to set on the `VideoPlayer` component:
 
 - `playing`: Determines if the video is currently playing. If false, the video is paused.
 
 {{< hint warning >}}
-**📔 Note**:  There can only be one `VideoPlayer` component active at a time in each scene. 
+**📔 Note**: There can only be one `VideoPlayer` component active at a time in each scene.
 {{< /hint >}}
 
 - `playbackRate`: Changes the speed at which the video is played. _1_ by default.
 - `volume`: Lets you change the volume of the audio. _1_ by default.
-- `position`: Allows you to set a different starting position on the video. It's expressed in seconds after the video's original beginning. _-1_ by default, which makes it start at the actual start of the video. 
-- `loop`: Boolean that determines if the video is played continuously in a loop, or if it stops after playing once. _false_ by default. 
-- `playbackRate`: The speed at which the video is played 
+- `position`: Allows you to set a different starting position on the video. It's expressed in seconds after the video's original beginning. _-1_ by default, which makes it start at the actual start of the video.
+- `loop`: Boolean that determines if the video is played continuously in a loop, or if it stops after playing once. _false_ by default.
+- `playbackRate`: The speed at which the video is played
 
 <!-- TODO: check if exposed and how it works -->
-
-
 
 ## Play multiple videos
 
 To avoid running into performance problems, each scene is only allowed to play one single video texture at a time. However, a scene can play multiple copies of one same video texture in several different screens. That action is not restricted as it impacts performance considerably less than playing separate videos. To play a same video on multiple entities, simply assign the same instance of the video texture object to the `Material` components of each screen entity.
-
 
 ```ts
 // #1
@@ -217,7 +206,7 @@ Transform.create(screen2, { position: { x: 6, y: 1, z: 4 } })
 // #2
 VideoPlayer.create(screen1, {
   src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
-  playing: true
+  playing: true,
 })
 
 // #3
@@ -241,7 +230,6 @@ Material.setPbrMaterial(screen2, {
 
 Note that in the example above, it's only necessary to create one `VideoPlayer` component, which controls the state of both video screens. In this case this component is assigned to belong to the `screen1` entity, but it could also be assigned to belong to any other entity on the scene, not necessarily one of the screens.
 
-
 ## Video events
 
 Easily handle state changes in a video, to respond to when a video starts playing, is paused, etc. This can be used for example to play animations in perfect sync with a video, ensuring they start at the same time as the video.
@@ -254,15 +242,20 @@ import {
   Entity,
   VideoPlayer,
   videoEventsSystem,
-  VideoState
+  VideoState,
 } from '@dcl/sdk/ecs'
 
 // ... Create videoPlayerEntity with VideoPlayer component, Transform, MeshRenderer.setPlane(), etc. ...
 
 videoEventsSystem.registerVideoEventsEntity(videoPlayerEntity, (videoEvent) => {
-  console.log('video event - state: ' + videoEvent.state
-    + '\ncurrent offset:' + videoEvent.currentOffset
-    + '\nvideo length:' + videoEvent.videoLength)
+  console.log(
+    'video event - state: ' +
+      videoEvent.state +
+      '\ncurrent offset:' +
+      videoEvent.currentOffset +
+      '\nvideo length:' +
+      videoEvent.videoLength
+  )
 
   switch (videoEvent.state) {
     case VideoState.VS_READY:
@@ -293,30 +286,23 @@ videoEventsSystem.registerVideoEventsEntity(videoPlayerEntity, (videoEvent) => {
 })
 ```
 
-
 The videoEvent object passed as an input for the function contains the following properties:
 
 - `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default.
 - `state`: The value for the new video status of the video, expressed as a value from the `VideoState` enum. This enum can hold the following possible values:
-	- ‘VideoState.VS_READY‘
-	- ‘VideoState.VS_NONE‘
-	- ‘VideoState.VS_ERROR‘
-	- ‘VideoState.VS_SEEKING‘
-	- ‘VideoState.VS_LOADING‘
-	- ‘VideoState.VS_BUFFERING‘
-	- ‘VideoState.VS_PLAYING‘
-	- ‘VideoState.VS_PAUSED‘
+  - ‘VideoState.VS_READY‘
+  - ‘VideoState.VS_NONE‘
+  - ‘VideoState.VS_ERROR‘
+  - ‘VideoState.VS_SEEKING‘
+  - ‘VideoState.VS_LOADING‘
+  - ‘VideoState.VS_BUFFERING‘
+  - ‘VideoState.VS_PLAYING‘
+  - ‘VideoState.VS_PAUSED‘
 - `videoLength` (_number_ ): The length in seconds of the entire video. _-1_ if length is unknown.
-- `timeStamp` ( _number_): 
-- `tickNumber` (_number_): 
+- `timeStamp` ( _number_):
+- `tickNumber` (_number_):
 
-
-
-
-
-
-
-<!-- 
+<!--
 ## Map a video texture
 
 TODO
@@ -325,10 +311,9 @@ filterMode?: TextureFilterMode | undefined;
 wrapMode?: TextureWrapMode | undefined;
 
 if using a plane or cube...
-use uvs to map parts of the video 
+use uvs to map parts of the video
 
 -->
-
 
 <!-- 
 ## Handle a video file
@@ -344,5 +329,3 @@ When playing a video from a file, you can perform the following actions:
 - `seekTime()`: Sets the `seek` property to a specific value, so that the video plays from that point on. It's expressed in seconds after the video's original beginning.
 
 You can also change the following properties:
-
-
