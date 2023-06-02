@@ -304,6 +304,27 @@ The example above runs a recurring raycast every 0.1 seconds. It uses a timer co
 **💡 Tip**: Use the `interval` function in the [SDK Utils library](https://github.com/decentraland/sdk7-utils) for a simpler way to run a function at a fixed interval.
 {{< /hint >}}
 
+## Raycasts via a system
+
+Another way to perform recurrent raycasts is to execute them from within the recurring function of a system. This allows you to have a lot more control about when and how these work. Instead of registering a callback function, you can perform a raycast query with `raycastSystem.registerRaycast` and then check the data returned by this operation, all within the function of the system.
+
+```ts
+engine.addSystem((deltaTime) => {
+		const result = raycastSystem.registerRaycast(
+			entity,
+			localDirectionOptions({
+				collisionMask: ColliderLayer.CL_CUSTOM1 | ColliderLayer.CL_CUSTOM3 | ColliderLayer.CL_POINTER,
+				originOffset: Vector3.create(0, 0.4, 0),
+				maxDistance: RAY_POWER,
+				queryType: raycastQueryType,
+				direction: Vector.forward()
+				continuous: true // don't overuse the 'continuous' property as raycasting is expensive on performance
+			})
+		)
+		if (result) // do something
+	})
+```
+
 
 ## Collide with the player
 
