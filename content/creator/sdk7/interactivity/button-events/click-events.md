@@ -14,7 +14,7 @@ A Decentraland scene can detect input actions from all of the buttons that are u
 You can detect input actions against an entity. This involves pressing a button while the player's cursor is pointing at that entity's collider. You can also detect _global_ input event, that involve pressing activating the input at any time, without consideration for where the pointer is aiming.
 
 {{< hint warning >}}
-**📔 Note**: An entity must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) to respond to input actions. If an entity has no collider, you can give it a `MeshCollider` component to make it clickable.
+**📔 Note**:  Entities must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) to respond to input actions. `MeshRenderer` models must also be given a `MeshCollider` component. Models from a `GLTFContainer` may have their own embedded collision geometry, or they can be configured to use their visible geometry, they can also be given a `MeshCollider` component.
 {{< /hint >}}
 
 There are several different ways to handle input actions, depending on the use case.
@@ -27,17 +27,55 @@ There are several different ways to handle input actions, depending on the use c
 
 Whichever method you use, it's important to make players aware that an entity is interactive. Otherwise, they might completely miss out on the experience you built. It's not a good experience to be clicking on every object hoping for one to respond. Users of Decentraland are used to the pattern that any interactive items offer feedback on hover, so they will discard an item with no feedback as non-interactive.
 
-The default way to add feedback is to display a hover hint on the UI whenever the player passes their cursor over the entity. You can implement this behavior by adding a `PointerEvents` component to an entity. The [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach makes this even easier, as you don't have to explicitly create this component.
+The default way to add feedback is to display a hover hint on the UI whenever the player passes their cursor over the entity's collider.  You can implement this behavior by adding a `PointerEvents` component to an entity.  The [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach makes this even easier, as you don't have to explicitly create this component.
 
-You could also implement [custom] ways of feedback, for example you could play a sound, making the entity change color, spin or or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
+You could also implement [advanced custom hints]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md#advanced-custom-hints" >}}), for example you could play a sound, making the entity change color, spin or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
 
 ## Obstacles
 
-Button events cast rays that only interact with the first entity on their path, as long as the entity is closer than its distance limit.
+Button events cast rays that only interact with the first entity on their path that is subscribed to the pointer events collision layer, as long as the entity is closer than its distance limit.
 
-For an entity to be intercepted by the ray of a button event, the entity's 3d model must either have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). Either the entity's 3d model must include a collider mesh, or the entity must have a `CollierMesh` component.
+For an entity to be intercepted by the ray of a pointer event, either:
+- The model must contain [collider meshes]({{< ref "/content/creator/3d-modeling/colliders.md">}}).
+- The `GLTFContainer` must be configured to use the [visible geometry with collision masks]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models" >}}).
+- The entity must have a [MeshCollider component]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). 
 
-If another entity's collider is standing on the way of the entity that the player wants to interact with it, the player won't be able to click the entity that's behind, unless the entity's `MeshCollider` component is configured to allow clicking through it.
+If another entity's collider is standing on the way of the entity that the player wants to interact with it, the player won't be able to click the entity that's behind, unless the entity has no collider, or this collider is configured to not respond to the pointer events collision layer.
+
+```ts
+// clickable entity
+const clickableEntity = engine.addEntity()
+MeshRenderer.setBox(clickableEntity)
+MeshCollider.setBox(clickableEntity)
+Transform.create(clickableEntity, {position: Vector3.create(8, 1, 8)})
+
+pointerEventsSystem.onPointerDown(
+  clickableEntity,
+  function () {
+    console.log("clicked entity")
+    const t= Transform.getMutable(clickableEntity)
+    t.scale.y += 0.2
+  },
+  {
+    button: InputAction.IA_POINTER,
+    hoverText: 'Click'
+  }
+)
+
+// non-blocker for clicks
+const nonBlocker = engine.addEntity()
+MeshRenderer.setBox(nonBlocker)
+MeshCollider.setBox(nonBlocker, ColliderLayer.CL_PHYSICS)
+Transform.create(nonBlocker, {position: Vector3.create(10, 1, 8)})
+
+// blocker for clicks
+const blocker = engine.addEntity()
+MeshRenderer.setBox(blocker)
+MeshCollider.setBox(blocker, ColliderLayer.CL_POINTER)
+Transform.create(blocker, {position: Vector3.create(8, 1, 10)})
+```
+
+
 
 ## Pointer buttons
 
