@@ -308,6 +308,8 @@ The example above runs a recurring raycast every 0.1 seconds. It uses a timer co
 
 Another way to perform recurrent raycasts is to execute them from within the recurring function of a system. This allows you to have a lot more control about when and how these work. Instead of registering a callback function, you can perform a raycast query with `raycastSystem.registerRaycast` and then check the data returned by this operation, all within the function of the system.
 
+Please note that since the raycast is executed in a system, the result will only be available the next tick, needing two runs of the system. One to register the raycast for the next frame, and the next frame process its result.
+
 ```ts
 engine.addSystem((deltaTime) => {
 		const result = raycastSystem.registerRaycast(
