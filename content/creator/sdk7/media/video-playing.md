@@ -171,7 +171,7 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
-## Configure the video state
+## Configure the video player
 
 The following optional properties are available to set on the `VideoPlayer` component:
 
@@ -247,62 +247,84 @@ import {
 
 // ... Create videoPlayerEntity with VideoPlayer component, Transform, MeshRenderer.setPlane(), etc. ...
 
-videoEventsSystem.registerVideoEventsEntity(videoPlayerEntity, (videoEvent) => {
-  console.log(
-    'video event - state: ' +
-      videoEvent.state +
-      '\ncurrent offset:' +
-      videoEvent.currentOffset +
-      '\nvideo length:' +
-      videoEvent.videoLength
-  )
-  switch (videoEvent.state) {
-    case VideoState.VS_READY:
-      console.log('video event - video is READY')
-      break
-    case VideoState.VS_NONE:
-      console.log('video event - video is in NO STATE')
-      break
-    case VideoState.VS_ERROR:
-      console.log('video event - video ERROR')
-      break
-    case VideoState.VS_SEEKING:
-      console.log('video event - video is SEEKING')
-      break
-    case VideoState.VS_LOADING:
-      console.log('video event - video is LOADING')
-      break
-    case VideoState.VS_BUFFERING:
-      console.log('video event - video is BUFFERING')
-      break
-    case VideoState.VS_PLAYING:
-      console.log('video event - video started PLAYING')
-      break
-    case VideoState.VS_PAUSED:
-      console.log('video event - video is PAUSED')
-      break
+
+videoEventsSystem.registerVideoEventsEntity(
+  { entity: videoPlayerEntity },
+  function (videoEvent) {
+    console.log(
+      'video event - state: ' +
+        videoEvent.state +
+        '\ncurrent offset:' +
+        videoEvent.currentOffset +
+        '\nvideo length:' +
+        videoEvent.videoLength
+    )
+
+    switch (videoEvent.state) {
+      case VideoState.VS_READY:
+        console.log('video event - video is READY')
+        break
+      case VideoState.VS_NONE:
+        console.log('video event - video is in NO STATE')
+        break
+      case VideoState.VS_ERROR:
+        console.log('video event - video ERROR')
+        break
+      case VideoState.VS_SEEKING:
+        console.log('video event - video is SEEKING')
+        break
+      case VideoState.VS_LOADING:
+        console.log('video event - video is LOADING')
+        break
+      case VideoState.VS_BUFFERING:
+        console.log('video event - video is BUFFERING')
+        break
+      case VideoState.VS_PLAYING:
+        console.log('video event - video started PLAYING')
+        break
+      case VideoState.VS_PAUSED:
+        console.log('video event - video is PAUSED')
+        break
+    }
   }
-})
+)
 ```
 
 The videoEvent object passed as an input for the function contains the following properties:
 
-- `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default.
+- `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default, if the video hasn't started playing.
 - `state`: The value for the new video status of the video, expressed as a value from the `VideoState` enum. This enum can hold the following possible values:
-
-  - ‘VideoState.VS_READY‘
-  - ‘VideoState.VS_NONE‘
-  - ‘VideoState.VS_ERROR‘
-  - ‘VideoState.VS_SEEKING‘
-  - ‘VideoState.VS_LOADING‘
-  - ‘VideoState.VS_BUFFERING‘
-  - ‘VideoState.VS_PLAYING‘
-  - ‘VideoState.VS_PAUSED‘
+  - `VideoState.VS_READY`
+  - `VideoState.VS_NONE`
+  - `VideoState.VS_ERROR`
+  - `VideoState.VS_SEEKING`
+  - `VideoState.VS_LOADING`
+  - `VideoState.VS_BUFFERING`
+  - `VideoState.VS_PLAYING`
+  - `VideoState.VS_PAUSED`
 - `videoLength` (_number_ ): The length in seconds of the entire video. _-1_ if length is unknown.
-- `timeStamp` ( _number_):
-- `tickNumber` (_number_):
+- `timeStamp` ( _number_): A _lamport_ timestamp that is incremented every time that the video changes state.
+- `tickNumber` (_number_): The time at which the event occurred, expressed as counting ticks since the scene started running.
 
+### Latest video event
 
+Query a video for its last state change by using `getLatestVideoEvent`. This function returns an object with a `currentState` property, with one of the following values from the `VideoState` enum, indicating the current state of the video:
+
+- `VideoState.VS_READY`
+- `VideoState.VS_NONE`
+- `VideoState.VS_ERROR`
+- `VideoState.VS_SEEKING`
+- `VideoState.VS_LOADING`
+- `VideoState.VS_BUFFERING`
+- `VideoState.VS_PLAYING`
+- `VideoState.VS_PAUSED`
+
+```ts
+function mySystem() {
+  const latestVideoEvent = getLatestVideoEvent(videoPlayerEntity)
+  console.log(latestVideoEvent.currentState)
+}
+```
 <!-- 
 
 ## Map a video texture
@@ -331,3 +353,5 @@ When playing a video from a file, you can perform the following actions:
 - `seekTime()`: Sets the `seek` property to a specific value, so that the video plays from that point on. It's expressed in seconds after the video's original beginning.
 
 You can also change the following properties:
+-->
+
