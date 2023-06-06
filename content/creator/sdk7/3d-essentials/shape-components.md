@@ -102,7 +102,9 @@ The `src` field is required, you must give it a value when constructing the comp
 **💡 Tip**: We recommend keeping your models separate in a `/models` folder inside your scene.
 {{< /hint >}}
 
-glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this.
+glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this. 
+
+To prevent players from walking through a 3D model, or to make a model clickable, you must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}), which may be embedded in the model or provided via a `MeshCollider` component.
 
 Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
 
@@ -112,6 +114,7 @@ Instead of building your own 3D models, you can also download them from several 
 
 To get you started, below is a list of libraries that have free or relatively inexpensive content:
 
+- [Asset Ovi](https://assetovi.com/)
 - [Assets from the Builder](https://github.com/decentraland/builder-assets/tree/master/assets)
 - [SketchFab](https://sketchfab.com/)
 - [Clara.io](https://clara.io/)
@@ -166,7 +169,7 @@ VisibilityComponent.create(myEntity, { visible: false })
 
 The `VisibilityComponent` works the same for entities with primitive shapes and with `GLTFContainer` components.
 
-If an entity is invisible, its collider can block a player's path and can prevent clicking entities that are behind it.
+If an entity is invisible, its collider can block a player's path and/or prevent clicking entities that are behind it, depending on the collision layers assigned to the collider.
 
 ## Loading state
 

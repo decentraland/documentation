@@ -9,39 +9,37 @@ url: /creator/development-guide/sdk7/raycasting/
 weight: 5
 ---
 
-
 Raycasting is a fundamental tool in game development. With raycasting, you can trace an imaginary line in space, and query if any entities are intersected by that line. This is useful for calculating lines of sight, trajectories of bullets, pathfinding algorithms and many other applications.
 
 When a player pushes the pointer button, or the primary or secondary button, a ray is traced from the player's position in the direction they are looking, see [button events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}) for more details about this. This document covers how to trace an invisible ray from any arbitrary position and direction, independent of player actions, which you can use in many other scenarios.
 
-Please note that as a general rule, all raycasts in the SDK will only hit objects with colliders. So if you want to detect ray hits against a model that you've imported, that model should contain [collider meshes](/creator/3d-models/colliders), or you should add a [MeshCollider component]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). 
+Please note that raycasts only hit objects with colliders. So if you want to detect ray hits against a 3D model, either:
+- The model must contain [collider meshes]({{< ref "/content/creator/3d-modeling/colliders.md">}}).
+- The `GLTFContainer` must be configured to use the [visible geometry with collision masks]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models" >}}).
+- Add a [MeshCollider component]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). 
 
 It's also a good practice to assign custom [collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}}) to 3D models, so that rays only need to calculate collisions against the relevant entities, instead of against everything that has a collider.
 
 ## Create a ray
 
-All rays have a point of origin and a direction. The point of origin is based on an entity's position, taking the values on the entity's Transform component. The direction of a ray can be defined in 4 different ways:
-	- **local**: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading. 
-	- **global**: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down.
-	- **global target**: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful for example to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space.
-	- **target entity**:  Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities.
+All rays have a point of origin and a direction. The point of origin is based on an entity's position, taking the values on the entity's Transform component. The direction of a ray can be defined in 4 different ways: - **local**: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading. - **global**: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down. - **global target**: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful for example to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space. - **target entity**: Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities.
 
 The following code creates a raycast with a local direction:
 
 ```ts
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4)
+  position: Vector3.create(4, 1, 4),
 })
 
 raycastSystem.registerLocalDirectionRaycast(
-    myEntity,
-    (raycastResult) => {
-      // callback function
-    },
-    {
-      direction: Vector3.Forward(),
-    }
+  {
+    entity: myEntity,
+    opts: { direction: Vector3.Forward() },
+  },
+  function (raycastResult) {
+    // callback function
+  }
 )
 ```
 
@@ -52,20 +50,19 @@ Use the following functions to create raycasts by providing the direction in dif
 - `raycastSystem.registerGlobalTargetRaycast()`: creates a raycast with a direction defined by a **global target** position. The `target` field expects a `Vector3` that describes a global position in the scene.
 - `raycastSystem.registerTargetEntityRaycast()`: creates a raycast with a direction defined towards a **target entity** position. The `targetEntity` field expects a reference to an entity, this entity's position will be used as the target of the ray.
 
-The following optional fields are available when creating a ray with any of the above methods: 
+The following optional fields are available when creating a ray with any of the above methods:
 
 - `maxDistance`: _number_ to set the length with which this ray will be traced. If not set, the default is 16 meters.
 - `queryType`: _RaycastQueryType_ enum value, to define if the ray will return all hit entities or just the first. The following options are available:
 	- `RaycastQueryType.RQT_HIT_FIRST`: _(default)_ only returns the first hit entity, starting from the origin point.
 	- `RaycastQueryType.RQT_QUERY_ALL`: returns all hit entities, from the origin through to the max distance of the ray.
-- `originOffset`: Instead of starting the raycast from the entity's origin position, add an offset to start the query from a relative position. You can for example use a small offset to prevent the ray colliding against the entity's own 3D model. If not set, the default is `Vector3.Zero()`.
+- `originOffset`: Instead of starting the raycast from the entity's origin position, add an offset to start the query from a relative position. You can for example use a small offset to prevent the ray colliding against the entity's own collider. If not set, the default is `Vector3.Zero()`.
 - `collisionMask`: Only detect collisions with certain collision layers. Use this together with a custom collision layer, or to only detect the physics or pointer events layer. See [collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}}). If not set, the default layer used is `ColliderLayer.CL_PHYSICS`.
 - `continuous`: If true, will keep running a raycast query on every frame. If false, the ray will only be used on the current frame. If not set, the default is false.
 
 - When setting the direction with a local or glocal direction, the `direction` field defaults to `Vector3.Forward()`.
-- When setting the direction with a global target, the `GlobalTarget` field defaults to `Vector3.Zero()`.
-- When setting the direction with an entity target, the `TargetEntity` field defaults to  the scene's root entity, located at `Vector3.Zero()`.
-
+- When setting the direction with a global target, the `globalTarget` field defaults to `Vector3.Zero()`.
+- When setting the direction with an entity target, the `targetEntity` field defaults to the scene's root entity, located at `Vector3.Zero()`.
 
 {{< hint warning >}}
 **📔 Note**: The `continuous` property should be used with caution, as running a raycast query on every frame can be very expensive for performance. When possible, use a system (or the `interval` function in the Utils library) to run raycast queries at a regular more sparse interval, see [recurrent raycasting](#recurrent-raycasting).
@@ -76,60 +73,62 @@ Below are examples using each of the four methods to determine the ray direction
 ```ts
 // LOCAL DIRECTION RAYCAST
 raycastSystem.registerLocalDirectionRaycast(
-  myEntity,
-  (raycastResult) => {
-    console.log(raycastResult.hits)
-  },
   {
-    maxDistance: 30,
-    queryType: RaycastQueryType.RQT_QUERY_ALL,
-    direction: Vector3.Forward(),
+    entity: myEntity,
+    opts: {
+      queryType: RaycastQueryType.RQT_QUERY_ALL,
+      direction: Vector3.Forward(),
+      maxDistance: 30,
+    },
+  },
+  function (raycastResult) {
+    console.log(raycastResult.hits)
   }
 )
-​
 // GLOBAL DIRECTION RAYCAST
 raycastSystem.registerGlobalDirectionRaycast(
-  myEntity,
-  (raycastResult) => {
-    console.log(raycastResult.hits)
-  },
   {
-    maxDistance: 30,
-    queryType: RaycastQueryType.RQT_QUERY_ALL,
-    direction: Vector3.Forward(),
+    entity: myEntity,
+    opts: {
+      queryType: RaycastQueryType.RQT_QUERY_ALL,
+      direction: Vector3.Forward(),
+      maxDistance: 30,
+    },
+  },
+  function (raycastResult) {
+    console.log(raycastResult.hits)
   }
 )
-​
 // GLOBAL TARGET POSITION RAYCAST
 raycastSystem.registerGlobalTargetRaycast(
-  myEntity,
+  {
+    entity: myEntity,
+    opts: {
+      queryType: RaycastQueryType.RQT_QUERY_ALL,
+      globalTarget: Vector3.Zero(),
+    },
+  },
   (raycastResult) => {
     console.log(raycastResult.hits)
-  },
-  {
-    maxDistance: 30,
-    queryType: RaycastQueryType.RQT_QUERY_ALL,
-    target: Vector3.Zero()
   }
 )
-​
 // TARGET ENTITY RAYCAST
 const targetEntity = engine.addEntity()
 Transform.create(targetEntity, { position: Vector3.create(8, 1, 10) })
 
 raycastSystem.registerTargetEntityRaycast(
-  myEntity,
+  {
+    entity: myEntity,
+    opts: {
+      queryType: RaycastQueryType.RQT_QUERY_ALL,
+      targetEntity: targetEntity,
+    },
+  },
   (raycastResult) => {
     console.log(raycastResult.hits)
-  },
-  {
-    maxDistance: 30,
-    queryType: RaycastQueryType.RQT_QUERY_ALL,
-    targetEntity: targetEntity
   }
 )
 ```
-
 
 ## Raycast result
 
@@ -154,30 +153,31 @@ The following example iterates over the entities that were hit:
 ```ts
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4)
+  position: Vector3.create(4, 1, 4),
 })
 
 raycastSystem.registerLocalDirectionRaycast(
-    myEntity,
-    (raycastResult) => {
-      if (raycastResult.hits.length > 0) {
-        for (const hit of raycastResult.hits) {
-          if (hit.entityId) {
-            console.log("hit entity ", hit.entityId)
-          }
-        }
-      } else {
-        console.log("no entities hit")
-      }
-    },
-    {
-      maxDistance: 30,
+  {
+    entity: myEntity,
+    opts: {
       queryType: RaycastQueryType.RQT_QUERY_ALL,
       direction: Vector3.Forward(),
+      maxDistance: 30,
+    },
+  },
+  function (raycastResult) {
+    if (raycastResult.hits.length > 0) {
+      for (const hit of raycastResult.hits) {
+        if (hit.entityId) {
+          console.log('hit entity ', hit.entityId)
+        }
+      }
+    } else {
+      console.log('no entities hit')
     }
+  }
 )
 ```
-
 
 ## Collision layers
 
@@ -186,18 +186,23 @@ It's a good practice to only check for collisions against entities that are rele
 By default, the `collisionMask` field is set to respond to both the layers `ColliderLayer.CL_POINTER` and `ColliderLayer.CL_PHYSICS`. You can change this value to list only one of those, or to include custom layers. Use the `|` separator to list multiple options.
 
 ```ts
-  raycastSystem.registerLocalDirectionRaycast(
-    myEntity,
-    (raycastResult) => {
-      log(raycastResult.hits)
-    },
-    {
-      collisionMask: ColliderLayer.CL_CUSTOM1 | ColliderLayer.CL_CUSTOM3 | ColliderLayer.CL_POINTER,
-      maxDistance: 30,
+raycastSystem.registerLocalDirectionRaycast(
+  {
+    entity: myEntity,
+    opts: {
       queryType: RaycastQueryType.RQT_QUERY_ALL,
       direction: Vector3.Forward(),
-    }
-  )
+      maxDistance: 30,
+      collisionMask:
+        ColliderLayer.CL_CUSTOM1 |
+        ColliderLayer.CL_CUSTOM3 |
+        ColliderLayer.CL_POINTER,
+    },
+  },
+  (raycastResult) => {
+    log(raycastResult.hits)
+  }
+)
 ```
 
 ## Recurrent raycasting
@@ -207,18 +212,20 @@ When using the functions of the `raycastSystem`, the default behavior is to crea
 The following example will keep running the raycast query from this point onwards
 
 ```ts
-  raycastSystem.registerLocalDirectionRaycast(
-    myEntity,
-    (raycastResult) => {
-      log(raycastResult.hits)
-    },
-    {
-      continuous: true,
-      maxDistance: 30,
+raycastSystem.registerLocalDirectionRaycast(
+  {
+    entity: myEntity,
+    opts: {
       queryType: RaycastQueryType.RQT_QUERY_ALL,
       direction: Vector3.Forward(),
-    }
-  )
+      maxDistance: 30,
+      continuous: true,
+    },
+  },
+  function (raycastResult) {
+    log(raycastResult.hits)
+  }
+)
 ```
 
 {{< hint warning >}}
@@ -233,22 +240,15 @@ raycastSystem.removeRaycasterEntity(myEntity)
 
 When possible, use a system (or the `interval` function in the Utils library) to run raycast queries at a regular more sparse interval, like just once a second, or every fifth of a second.
 
-
 ```typescript
 // custom components
-const CubeOscilator = engine.defineComponent(
-  "CubeOscilator",
-  {
-    t: Schemas.Float
-  }
-)
+const CubeOscilator = engine.defineComponent('CubeOscilator', {
+  t: Schemas.Float,
+})
 
-const TimerComponent = engine.defineComponent(
-  "TimerComponent",
-  {
-    t: Schemas.Float
-  }
-)
+const TimerComponent = engine.defineComponent('TimerComponent', {
+  t: Schemas.Float,
+})
 
 const RAY_INTERVAL = 0.1
 
@@ -259,24 +259,25 @@ engine.addSystem((dt) => {
     timer.t += dt
 
     if (timer.t > RAY_INTERVAL) {
-      	timer.t = 0
-	raycastSystem.registerGlobalDirectionRaycast(
-	  entity,
-	  (raycastResult) => {
-	    log(raycastResult.hits)
-	  },
-	  {
-	    maxDistance: 16,
-	    queryType: RaycastQueryType.RQT_HIT_FIRST,
-	    direction: Vector3.Forward(),
-	  }
-	)
+      timer.t = 0
+      raycastSystem.registerGlobalDirectionRaycast(
+        {
+          entity: myEntity,
+          opts: {
+            queryType: RaycastQueryType.RQT_HIT_FIRST,
+            direction: Vector3.Forward(),
+            maxDistance: 16,
+          },
+        },
+        function (raycastResult) {
+          log(raycastResult.hits)
+        }
+      )
     }
   }
 })
 
 TimerComponent.create(engine.addEntity())
-
 
 // oscillating cube system
 engine.addSystem((dt) => {
@@ -291,12 +292,11 @@ engine.addSystem((dt) => {
 
 // create cube
 const cubeEntity = engine.addEntity()
-Transform.create(cubeEntity, { position: { x:8, y:1, z:8 } })
+Transform.create(cubeEntity, { position: { x: 8, y: 1, z: 8 } })
 CubeOscilator.create(cubeEntity)
 MeshRenderer.setBox(cubeEntity)
 MeshCollider.setBox(cubeEntity)
 ```
-
 
 The example above runs a recurring raycast every 0.1 seconds. It uses a timer component and a system's `dt` property to time these evenly. It also includes a cube that oscillates up and down, controlled by another system, to move in and out of the path of the ray.
 
@@ -332,25 +332,23 @@ engine.addSystem((deltaTime) => {
 
 You can't directly hit the player's avatar or those of other players with a ray, but what you can do as a workaround is position an invisible entity occupying the same space as a player using the [AvatarAttach component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar">}}), and check collisions with that cube.
 
-
 ## Advanced syntax
 
 ### Create a raycast component
 
-A Raycast component describes the invisible ray that is used to query for intersecting entities. The ray is traced starting at the entity's position, as defined by the Transform component and affected by that of any parent entities. The direction can be defined in various ways, 
+A Raycast component describes the invisible ray that is used to query for intersecting entities. The ray is traced starting at the entity's position, as defined by the Transform component and affected by that of any parent entities. The direction can be defined in various ways,
 
 Rays are defined using the following data:
 
-
 - `direction`: An object that contains a `$case` field to select the type of direction, and an additional field that will depend on this type, that determines this direction. The following are the accepted values for `$case`:
-	- `LOCAL_DIRECTION`: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading. The rotation is defined by the `localDirection` field, as a `Vector3` that describes a rotation.
-	- `GLOBAL_DIRECTION`: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down. The rotation is defined by the `globalDirection` field, as a `Vector3` that describes a rotation.
-	- `GLOBAL_TARGET`: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space. The target is defined by the `globalTarget` field, as a `Vector3` that describes the global position.
-	- `TARGET_ENTITY`:  Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities. The target is defined by the `targetEntity` field, holding a reference to the entity.
+  - `LOCAL_DIRECTION`: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading. The rotation is defined by the `localDirection` field, as a `Vector3` that describes a rotation.
+  - `GLOBAL_DIRECTION`: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down. The rotation is defined by the `globalDirection` field, as a `Vector3` that describes a rotation.
+  - `GLOBAL_TARGET`: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space. The target is defined by the `globalTarget` field, as a `Vector3` that describes the global position.
+  - `TARGET_ENTITY`: Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities. The target is defined by the `targetEntity` field, holding a reference to the entity.
 - `maxDistance`: _number_ to set the length with which this ray will be traced.
 - `queryType`: _RaycastQueryType_ enum value, to define if the ray will return all hit entities or just the first. The following options are available:
-	- `RaycastQueryType.RQT_QUERY_ALL`: only returns the first hit entity, starting from the origin point.
-	- `RaycastQueryType.RQT_HIT_FIRST`: returns all hit entities, from the origin through to the max distance of the ray.
+  - `RaycastQueryType.RQT_QUERY_ALL`: only returns the first hit entity, starting from the origin point.
+  - `RaycastQueryType.RQT_HIT_FIRST`: returns all hit entities, from the origin through to the max distance of the ray.
 - `collisionMask`: Only detect collisions with certain collision layers. Use this together with a custom collision layer, or to only detect the physics or pointer events layer. See [collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}}). By default, all layers are detected.
 - `originOffset`: Instead of starting the raycast from the entity's origin position, add an offset to start the query from a relative position. You can for example use a small offset to prevent the ray colliding against the entity's own 3D model.
 - `continuous`: If true, will keep running a raycast query on every frame. If false, the ray will only be used on the current frame. By default this value is false.
@@ -372,15 +370,13 @@ Raycast.createOrReplace(entity1, {
   direction: {
     $case: "globalDirection",
     globalDirection: Vector3.create(0, 0, 1)
-  }	
+  }
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_HIT_FIRST
 })
 ```
 
-
 The example below launches a ray in the forward-facing direction of the entity, returning only the first item hit. It does so continuously. It also includes a minor offset of 0.5 to prevent the ray from hitting the entity's own collider.
-
 
 ```typescript
 const entity1 = engine.addEntity()
@@ -393,7 +389,7 @@ Raycast.createOrReplace(entity1, {
   direction: {
     $case: "localDirection",
     localDirection: Vector3.Forward()
-  }	
+  }
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_HIT_FIRST,
   originOffset: Vector3.create(0.5, 0, 0),
@@ -420,17 +416,16 @@ Raycast.createOrReplace(entity1, {
   direction: {
     $case: "targetEntity",
     targetEntity: entity2
-  }	
+  }
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_QUERY_ALL
 })
 ```
 
-
 ### Raycast results component
 
 {{< hint warning >}}
-**📔 Note**:  The easiest way to deal with raycast results is to use `raycastEventSystem`, and register a callback function as part of the same statement that creates the ray. The`RaycastResult` component is used internally by that that interface, but also exposed to enable more advanced custom logic.
+**📔 Note**: The easiest way to deal with raycast results is to use `raycastEventSystem`, and register a callback function as part of the same statement that creates the ray. The`RaycastResult` component is used internally by that that interface, but also exposed to enable more advanced custom logic.
 {{< /hint >}}
 
 After creating a Raycast component, the entity that this component is added to will have a `RaycastResult` component. This component includes information about any hits of the ray. Set up a system to check for this data.
@@ -466,7 +461,7 @@ Raycast.createOrReplace(rayEntity, {
   direction: {
     $case: "globalDirection",
     globalDirection: Vector3.create(0, 0, 1)
-  }	
+  }
   maxDistance: 16,
   queryType: RaycastQueryType.RQT_QUERY_ALL
 })
@@ -488,10 +483,7 @@ engine.addSystem(() => {
 ```
 
 {{< hint warning >}}
-**📔 Note**:  The results of a raycast do not arrive on the same tick of the game loop that you created the raycast. The results may take one or multiple ticks to arrive.
+**📔 Note**: The results of a raycast do not arrive on the same tick of the game loop that you created the raycast. The results may take one or multiple ticks to arrive.
 {{< /hint >}}
 
-
 In a scene where you use multiple kinds of rays for different purposes (like for path finding, line-of-sight checking, projectile tracing, etc), you might want to use different [collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}}), to avoid calculating irrelevant collisions.
-
-
