@@ -9,17 +9,17 @@ url: /creator/development-guide/sdk7/move-player/
 weight: 2
 ---
 
-To change the player's position in the scene, set the position of the `Transform` component for the `engine.PlayerEntity` entity.
 
-<!-- - `position`: Where to move the player, expressed as an object with _x_, _y_, and _z_ properties.
-- `cameraTarget`: (optional) What direction to make the player face, expressed as an object with _x_, _y_, and _z_ properties that represent the coordinates of a point in space to stare at. If no value is provided, the player will maintain the same rotation as before moving. -->
+To change the player's position in the scene, use the `movePlayerTo()` function. This function takes an object with two properties:
 
-```ts
-const playerTransform = Transform.getMutable(engine.PlayerEntity)
-playerTransform.position = {x: 1, y: 10, z: 1}
-```
+- `newRelativePosition`: Where to move the player, expressed as a Vector3.
+- `cameraTarget`: (optional) What direction to make the player face, expressed as a Vector3 that represents the coordinates of a point in space to stare at. If no value is provided, the player will maintain the same rotation as before moving.
+
+
 
 ```ts
+import { movePlayerTo } from "~system/RestrictedActions"
+
 // create entity
 const myEntity = engine.addEntity()
 MeshRenderer.setBox(myEntity)
@@ -33,27 +33,15 @@ Transform.create(myEntity, {
 pointerEventsSystem.onPointerDown(
   myEntity,
   function () {
-     respawnPlayer()
+		// respawn player
+    movePlayerTo({  newRelativePosition: Vector3.create(1, 0, 1), cameraTarget: Vector3.create(8,1,8)})
   },
   {
     button: InputAction.IA_POINTER,
     hoverText: 'Click'
   }
 )
-
-// function to handle respawn
-function respawnPlayer(){
- const playerTransform = Transform.getMutable(engine.PlayerEntity)
-	  playerTransform.position = {x: 1, y: 10, z: 1}
-}
 ```
-
-{{< hint warning >}}
-**📔 Note**: Avoid referring to the `engine.PlayerEntity` on the initial scene loading, because that can result in errors if the entity is not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
-
-If you refer to this entity in a system, it will always be available, because the first execution of the system is called once the scene is already properly initialized.
-{{< /hint >}}
-
 
 The player's movement occurs instantly, without any confirmation screens or camera transitions.
 

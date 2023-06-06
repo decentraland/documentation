@@ -21,6 +21,7 @@ There are 4 types of pointers that content servers can resolve to entities, each
 - [Profile pointers]({{< relref "entity-types/profiles#pointers" >}}) are the Ethereum address of the owner.
 - [Wearable pointers]({{< relref "entity-types/wearables#pointers" >}}) and [emote pointers]({{< relref "entity-types/emotes#pointers" >}}) are either [collection]({{< relref "collections" >}}) item or off-chain URNs.
 - [Store pointers]({{< relref "entity-types/stores#pointers" >}}) are off-chain URNs with the Ethereum address of the owner.
+- [Outfits pointers]({{< relref "entity-types/outfits#pointers" >}}) are the Ethereum address of the owner suffixed by `:outfits`.
 
 You can find more details in their specific sections.
 

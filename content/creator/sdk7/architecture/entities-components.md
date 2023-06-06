@@ -40,16 +40,18 @@ Components are meant to store data about their referenced entity. They can only 
 The example below shows some basic operations for declaring, and configuring basic entities and components.
 
 ```ts
-// Create an entity
-const door = engine.addEntity()
+export function main(){
+	// Create an entity
+	const door = engine.addEntity()
 
-// Give the entity a position via a transform component
-Transform.create(door, {
-  position: Vector3.create(5, 1, 5)
-})
+	// Give the entity a position via a transform component
+	Transform.create(door, {
+		position: Vector3.create(5, 1, 5)
+	})
 
-// Give the entity a visible shape via a GltfContainer component
-GltfContainer.create(door)
+	// Give the entity a visible shape via a GltfContainer component
+	GltfContainer.create(door)
+}
 ```
 
 {{< hint warning >}}
@@ -63,14 +65,16 @@ When a component is created, it's always assigned to a parent entity. The compon
 To remove an entity from the engine, use `engine.removeEntity()`
 
 ```ts
-// Create an entity
-const door = engine.addEntity()
+export function main(){
+	// Create an entity
+	const door = engine.addEntity()
 
-// Give the entity a visible shape via a GltfContainer component
-GltfContainer.create(door)
+	// Give the entity a visible shape via a GltfContainer component
+	GltfContainer.create(door)
 
-// Remove entity
-engine.removeEntity(door)
+	// Remove entity
+	engine.removeEntity(door)
+}
 ```
 
 If a removed entity has any child entities, these change their parent back to the default `engine.RootEntity` entity, which is positioned at the scene base position, with a scale of _1_.
@@ -79,27 +83,29 @@ If a removed entity has any child entities, these change their parent back to th
 To remove an entity and also all of its children (and any children of its children, recurrently), use `engine.removeEntityWithChildren()`.
 
 ```ts
-// Create parent entity
-const door = engine.addEntity()
+export function main(){
+	// Create parent entity
+	const door = engine.addEntity()
 
-// Create child entity
-const doorKnob = engine.addEntity()
+	// Create child entity
+	const doorKnob = engine.addEntity()
 
-// Give the entities a visible shape
-GltfContainer.create(door, {
-  src: "models/door.glb"
-})
-GltfContainer.create(doorKnob, {
-  src: "models/doorKnob.glb"
-})
+	// Give the entities a visible shape
+	GltfContainer.create(door, {
+		src: "models/door.glb"
+	})
+	GltfContainer.create(doorKnob, {
+		src: "models/doorKnob.glb"
+	})
 
-// Parent
-Transform.create(doorKnob, {
-  parent: door
-})
+	// Parent
+	Transform.create(doorKnob, {
+		parent: door
+	})
 
-// Remove both parent and children
-engine.removeEntityWithChildren(door)
+	// Remove both parent and children
+	engine.removeEntityWithChildren(door)
+}
 ```
 
 {{< hint info >}}
@@ -123,15 +129,17 @@ An entity can have other entities as children. Thanks to this, we can arrange en
 To set an entity as the parent of another, the child entity must have a `Transform` component. You can then set the `parent` field with a reference to the parent entity.
 
 ```ts
-// Create entities
-const parentEntity = engine.addEntity()
+export function main(){
+	// Create entities
+	const parentEntity = engine.addEntity()
 
-const childEntity = engine.addEntity()
+	const childEntity = engine.addEntity()
 
-// Set parent
-Transform.create(childEntity, {
-	parent: parentEntity
-})
+	// Set parent
+	Transform.create(childEntity, {
+		parent: parentEntity
+	})
+}
 ```
 
 
@@ -200,17 +208,19 @@ Transform.createOrReplace(door, {
 You can access components of an entity by using the entity's `.get()` or the `getMutable()` functions.
 
 ```ts
-// Create entity
-const box = engine.addEntity()
+export function main(){
+	// Create entity
+	const box = engine.addEntity()
 
-// Create and add component to that entity
-Transform.create(box)
+	// Create and add component to that entity
+	Transform.create(box)
 
-// Get read-only version of component
-let transform = Transform.get(box)
+	// Get read-only version of component
+	let transform = Transform.get(box)
 
-// Get mutable version of component
-let transform = Transform.getMutable(box)
+	// Get mutable version of component
+	let transform = Transform.getMutable(box)
+}
 ```
 
 The `get()` function fetches a read-only reference to the component. You cannot change any values from this reference of the component.
@@ -290,14 +300,12 @@ Certain entity ids are reserved for special entities that exist in every scene. 
 - `engine.CameraEntity`
 
 {{< hint warning >}}
-**📔 Note**: Avoid referring to these entities on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
-
-If you refer to these entities in a system, they will always be available, because the first execution of the system is called once the scene is already properly initialized.
+**📔 Note**: Avoid referring to these entities before they are initialized. To avoid this problem, refer to these entities in the `main()` function, or in a system.
 {{< /hint >}}
 
 ### The root entity
 
-All entities in the scene are children of the root entity, directly or indirectly.
+All entities in the scene are children of the `engine.RootEntity`, directly or indirectly.
 
 ### The player entity
 

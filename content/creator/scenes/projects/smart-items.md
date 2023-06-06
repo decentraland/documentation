@@ -342,7 +342,7 @@ The `props` parameter will expose all the properties that are defined in the `as
 
 You should define a custom type for props, that includes the specific set of properties used by the item. You can then refer to these properties in the `spawn()` function via the parameter's id: `props.onClick`.
 
-The `channel` parameter refers to the name of the channel of communication that will be used by this smart item. Smart items use the [message bus]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md#p2p-messaging" >}}) to communicate between items and to sync state changes with other players. Having separate channels for each item avoids unwanted crosstalk between unrelated items.
+The `channel` parameter refers to the name of the channel of communication that will be used by this smart item. Smart items use the [message bus]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md#default-messaging" >}}) to communicate between items and to sync state changes with other players. Having separate channels for each item avoids unwanted crosstalk between unrelated items.
 
 #### Handling actions
 
@@ -442,7 +442,7 @@ Note that besides defining the system, you also need to add an instance of it to
 
 ## Multiplayer behavior
 
-All the smart items that are available by default in the Builder have multiplayer capabilities. They achieve this by using the [message bus]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md#p2p-messaging" >}}) to send peer to peer messages between players every time that something changes.
+All the smart items that are available by default in the Builder have multiplayer capabilities. They achieve this by using the [message bus]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md#default-messaging" >}}) to send peer to peer messages between players every time that something changes.
 
 Since the state of the item is shared amongst peers, if all players leave the area of the scene, the state of the item is no longer stored anywhere, and it reverts to its initial state.
 
