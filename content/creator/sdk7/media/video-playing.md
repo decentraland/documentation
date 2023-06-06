@@ -144,14 +144,13 @@ You can make a screen toggleable by adding a pointer event to it as shown below:
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  screen,
-  () => {
+  {
+    entity: screen,
+    opts: { button: InputAction.IA_POINTER, hoverText: 'Play/Pause' },
+  },
+  function () {
     const videoPlayer = VideoPlayer.getMutable(screen)
     videoPlayer.playing = !videoPlayer.playing
-  },
-  {
-    button: InputAction.IA_POINTER,
-    hoverText: 'Play/pause',
   }
 )
 ```
@@ -160,15 +159,14 @@ To stop the video and send it back to the first frame, set the `position` proper
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  screen,
-  () => {
+  {
+    entity: screen,
+    opts: { button: InputAction.IA_POINTER, hoverText: 'STOP' },
+  },
+  function () {
     const videoPlayer = VideoPlayer.getMutable(screen)
     videoPlayer.playing = false
     videoPlayer.position = 0
-  },
-  {
-    button: InputAction.IA_POINTER,
-    hoverText: 'STOP',
   }
 )
 ```
@@ -328,6 +326,7 @@ function mySystem() {
 }
 ```
 <!-- 
+
 ## Map a video texture
 
 TODO
@@ -355,3 +354,4 @@ When playing a video from a file, you can perform the following actions:
 
 You can also change the following properties:
 -->
+
