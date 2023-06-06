@@ -190,7 +190,7 @@ The `UiCanvasInformation` component holds the following information:
    - `y`: Lowest y position of the interactable area
 
 ```ts
-executeTask(async () => {
+export function Main(){
   let canvas = UiCanvasInformation.get(engine.rootEntity)
 	console.log("CANVAS DIMENSIONS: ", canvas.width, canvas.height)
 })
