@@ -9,7 +9,6 @@ url: /creator/development-guide/sdk7/click-events/
 weight: 1
 ---
 
-
 A Decentraland scene can detect input actions from all of the buttons that are used to control the player's avatar. These include pointer clicks, several action buttons, and the keys that are used to move the avatar around. Button events can come from a mouse, a touch screen, a VR controller or some other device, these are all interpreted the same by the SDK.
 
 You can detect input actions against an entity. This involves pressing a button while the player's cursor is pointing at that entity's collider. You can also detect _global_ input event, that involve pressing activating the input at any time, without consideration for where the pointer is aiming.
@@ -17,7 +16,6 @@ You can detect input actions against an entity. This involves pressing a button 
 {{< hint warning >}}
 **📔 Note**:  Entities must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) to respond to input actions. `MeshRenderer` models must also be given a `MeshCollider` component. Models from a `GLTFContainer` may have their own embedded collision geometry, or they can be configured to use their visible geometry, they can also be given a `MeshCollider` component.
 {{< /hint >}}
-
 
 There are several different ways to handle input actions, depending on the use case.
 
@@ -81,7 +79,6 @@ Transform.create(blocker, {position: Vector3.create(8, 1, 10)})
 
 ## Pointer buttons
 
-
 The following inputs can be handled by any of the approaches to detect input events.
 
 - `InputAction.IA_POINTER`: **left-mouse button** on a computer.
@@ -98,8 +95,7 @@ The following inputs can be handled by any of the approaches to detect input eve
 - `InputAction.IA_BACK`: **S** key on a computer.
 - `InputAction.IA_WALK`: **Shift** key on a computer.
 
-
-Each `InputAction` is abstracted away from the literal input in the keyboard so that it can be mapped to different inputs depending on the device. For this same reason, not all buttons on the keyboard can be tracked for button events, only the buttons that are used for movement and interaction. This intentional limitation is to ensure that all content is compatible in the future with VR controllers, other kinds of game controllers, and mobile devices. 
+Each `InputAction` is abstracted away from the literal input in the keyboard so that it can be mapped to different inputs depending on the device. For this same reason, not all buttons on the keyboard can be tracked for button events, only the buttons that are used for movement and interaction. This intentional limitation is to ensure that all content is compatible in the future with VR controllers, other kinds of game controllers, and mobile devices.
 
 ## Types of pointer events
 
@@ -112,8 +108,6 @@ Each input can produce the following types of pointer events. Each of the follow
 
 <!-- > Note: A _click_ event, as detected by the `inputSystem.wasJustClicked` helper function, is a combination of a `DOWN` event followed by an `UP` event. Note that as this event may take several ticks of the game loop to be completed, it can't be detected in a single frame, and therefore can only be detected thanks to a helper function. -->
 
-
-
 ## Data from an input action
 
 All input actions include data about the event, including things like the button that was activated, and where the pointer was pointing at at the time.
@@ -124,40 +118,40 @@ The following information can be obtained from any input event:
 - `button`: Which button id was pressed. The number corresponds to the `InputAction` enum, that lists all of the available buttons.
 - `state`: Type of pointer event, from the enum `PointerEventType`. _0_ refers to `PointerEventType.PET_DOWN`, _1_ to `PointerEventType.PET_UP`, _2_ to `PointerEventType.PET_HOVER_ENTER`, _3_ to `PointerEventType.PET_HOVER_LEAVE`
 
-- `timestamp`: A [lamport timestamp](https://en.wikipedia.org/wiki/Lamport_timestamp) to identify each button event. 
+- `timestamp`: A [lamport timestamp](https://en.wikipedia.org/wiki/Lamport_timestamp) to identify each button event.
 
-	> Note: This timestamp is not numbered based on the current time. Think of it as a counter that starts at 0 and is incremented by 1 for each event.
+  > Note: This timestamp is not numbered based on the current time. Think of it as a counter that starts at 0 and is incremented by 1 for each event.
 
 - `hit`: An object that contains the following data about the hit event:
 
-	- `entityId`: Id number of the entity that was hit by the ray.
-	- `meshName`: _String_ with the internal name of the specific mesh in the 3D model that was hit. This is useful when a 3D model is composed of multiple meshes.
-	- `origin`: _Vector3_ for the position where the ray originates (relative to the scene)
-	- `position`: _Vector3_ for the position where the ray intersected with the hit entity (relative to the scene)
-	- `length`: Length of the ray from its origin to the position where the hit against the entity occurred.
-	- `normalHit`: _Quaternion_ for the angle of the normal of the hit in world space.
-
+  - `entityId`: Id number of the entity that was hit by the ray.
+  - `meshName`: _String_ with the internal name of the specific mesh in the 3D model that was hit. This is useful when a 3D model is composed of multiple meshes.
+  - `origin`: _Vector3_ for the position where the ray originates (relative to the scene)
+  - `position`: _Vector3_ for the position where the ray intersected with the hit entity (relative to the scene)
+  - `length`: Length of the ray from its origin to the position where the hit against the entity occurred.
+  - `normalHit`: _Quaternion_ for the angle of the normal of the hit in world space.
 
 This data is accessed in different ways depending on what approach you're using to handle input actions.
 
 Using the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach, the first parameter passed to the callback function contains this entire data structure.
 
 ```ts
-pointerEventsSystem.onPointerDown(
-  myEntity,
-  function (cmd) {
-      console.log(cmd.hit.entityId)
-  },
-)
+pointerEventsSystem.onPointerDown({ entity: myEntity }, function (cmd) {
+  console.log(cmd.hit.entityId)
+})
 ```
 
 Using the [**System-based**]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) approach, use `inputSystem.getInputCommand()` to fetch this data.
 
 ```ts
 engine.addSystem(() => {
-  const cmd = inputSystem.getInputCommand(InputAction.IA_POINTER, PointerEventType.PET_DOWN, myEntity)
-  if(cmd){
- 	console.log(cmd.hit.entityId)
+  const cmd = inputSystem.getInputCommand(
+    InputAction.IA_POINTER,
+    PointerEventType.PET_DOWN,
+    myEntity
+  )
+  if (cmd) {
+    console.log(cmd.hit.entityId)
   }
 })
 ```
@@ -168,15 +162,14 @@ Using the [**Advanced**]({{< ref "/content/creator/sdk7/interactivity/button-eve
 engine.addSystem(() => {
   const pointerEvents = engine.getEntitiesWith(PointerEventsResult)
   for (const [entity] of pointerEvents) {
-      const poninterEvents = PointerEventsResult.get(entity)
+    const poninterEvents = PointerEventsResult.get(entity)
 
-	  if(poninterEvents.commands.length > 0){
-		console.log(poninterEvents.commands[0].hit.entityId)
-	  }   
+    if (poninterEvents.commands.length > 0) {
+      console.log(poninterEvents.commands[0].hit.entityId)
+    }
   }
 })
 ```
 
-
-<!-- 
+<!--
 When using `Input.getClick`, it returns an object with a `down` and an `up` object, each of these with all the same data structure returned by `inputSystem.getInputCommand`. The `down` object contains the data relevant to the moment when the moment when button was pushed down, the `up` object for when the button went up. -->

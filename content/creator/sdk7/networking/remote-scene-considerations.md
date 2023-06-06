@@ -27,7 +27,7 @@ The first of these options is the easiest to implement. The downside is that you
 Create a message bus object to handle the methods that are needed to send and receive messages between players.
 
 ```ts
-import {MessageBus} from '@dcl/sdk/message-bus'
+import { MessageBus } from '@dcl/sdk/message-bus'
 
 const sceneMessageBus = new MessageBus()
 ```
@@ -37,7 +37,7 @@ const sceneMessageBus = new MessageBus()
 Use the `.emit` command of the message bus to send a message to all other players in the scene.
 
 ```ts
-import {MessageBus} from '@dcl/sdk/message-bus'
+import { MessageBus } from '@dcl/sdk/message-bus'
 
 const sceneMessageBus = new MessageBus()
 
@@ -46,13 +46,12 @@ MeshRenderer.setBox(myEntity)
 MeshCollider.setBox(myEntity)
 
 pointerEventsSystem.onPointerDown(
-  myEntity,
-  function () {
-    sceneMessageBus.emit("box1Clicked", {})
-  },
   {
-    button: InputAction.IA_PRIMARY,
-    hoverText: 'Click'
+    entity: myEntity,
+    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
+  },
+  function () {
+    sceneMessageBus.emit('box1Clicked', {})
   }
 )
 ```
@@ -60,15 +59,15 @@ pointerEventsSystem.onPointerDown(
 Each message can contain a payload as a second argument. The payload is of type `Object`, and can contain any relevant data you wish to send.
 
 ```ts
-import {MessageBus} from '@dcl/sdk/message-bus'
+import { MessageBus } from '@dcl/sdk/message-bus'
 
 const sceneMessageBus = new MessageBus()
 
-sceneMessageBus.emit("spawn", { position: {x: 10, y: 2, z: 10} })
+sceneMessageBus.emit('spawn', { position: { x: 10, y: 2, z: 10 } })
 ```
 
 {{< hint info >}}
-**💡 Tip**:  If you need a single message to include data from more than one variable, create a custom type to hold all this data in a single object.
+**💡 Tip**: If you need a single message to include data from more than one variable, create a custom type to hold all this data in a single object.
 {{< /hint >}}
 
 #### Receive messages
@@ -76,76 +75,75 @@ sceneMessageBus.emit("spawn", { position: {x: 10, y: 2, z: 10} })
 To handle messages from all other players in that scene, use `.on`. When using this function, you provide a message string and define a function to execute. For each time that a message with a matching string arrives, the given function is executed once.
 
 ```ts
-import {MessageBus} from '@dcl/sdk/message-bus'
+import { MessageBus } from '@dcl/sdk/message-bus'
 
 const sceneMessageBus = new MessageBus()
 
 type NewBoxPosition = {
-  position: {x: number, y: number, z: number}
+  position: { x: number; y: number; z: number }
 }
 
-sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
-
+sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
   const myEntity = engine.addEntity()
   Transform.create(myEntity, {
-	  position:  { x: info.position.x, y: info.position.y, z: info.position.z }
-	})
+    position: { x: info.position.x, y: info.position.y, z: info.position.z },
+  })
   MeshRenderer.setBox(myEntity)
   MeshCollider.setBox(myEntity)
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Messages that are sent by a player are also picked up by that same player. The `.on` method can't distinguish between a message that was emitted by that same player from a message emitted from other players.
+**📔 Note**: Messages that are sent by a player are also picked up by that same player. The `.on` method can't distinguish between a message that was emitted by that same player from a message emitted from other players.
 {{< /hint >}}
-
 
 #### Full example
 
 This example uses a message bus to send a new message every time the main cube is clicked, generating a new cube in a random position. The message includes the position of the new cube, so that all players see these new cubes in the same positions.
 
 ```ts
-import {MessageBus} from '@dcl/sdk/message-bus'
+import { MessageBus } from '@dcl/sdk/message-bus'
 
 /// --- Create message bus ---
 const sceneMessageBus = new MessageBus()
 
 // Cube factory
 function createCube(x: number, y: number, z: number): Entity {
-	const meshEntity = engine.addEntity()
-	Transform.create(meshEntity, { position: { x, y, z } })
-	MeshRenderer.setBox(meshEntity)
-	MeshCollider.setBox(meshEntity)
+  const meshEntity = engine.addEntity()
+  Transform.create(meshEntity, { position: { x, y, z } })
+  MeshRenderer.setBox(meshEntity)
+  MeshCollider.setBox(meshEntity)
 
-    // When a cube is clicked, send message to spawn another one
-	pointerEventsSystem.onPointerDown(
-		meshEntity,
-		function () {
-			sceneMessageBus.emit("spawn", {
-				position: {x: 1 + Math.random() * 8, y: Math.random() * 8, z: 1 + Math.random() * 8} 
-			})
-		},
-		{
-			button: InputAction.IA_PRIMARY,
-			hoverText: 'Press E to spawn'
-		}
-	)
-  
+  // When a cube is clicked, send message to spawn another one
+  pointerEventsSystem.onPointerDown(
+    {
+      entity: myEntity,
+      opts: { button: InputAction.IA_PRIMARY, hoverText: 'Press E to spawn' },
+    },
+    function () {
+      sceneMessageBus.emit('spawn', {
+        position: {
+          x: 1 + Math.random() * 8,
+          y: Math.random() * 8,
+          z: 1 + Math.random() * 8,
+        },
+      })
+    }
+  )
 
-  	return meshEntity
+  return meshEntity
 }
 
 // Init
 createCube(8, 1, 8)
 
-
 // define type of data
 type NewBoxPosition = {
-  position: {x: number, y: number, z: number}
+  position: { x: number; y: number; z: number }
 }
 
 // on spawn message, create new cube
-sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
+sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
   createCube(info.position.x, info.position.y, info.position.z)
 })
 ```
@@ -161,9 +159,8 @@ If you launch a scene preview and open it in two (or more) different browser win
 Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
 
 {{< hint warning >}}
-**📔 Note**:  Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
+**📔 Note**: Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
 {{< /hint >}}
-
 
 ## Use an authoritative server
 
@@ -172,7 +169,7 @@ An authoritative server may have different levels of involvement with the scene:
 - API + DB: This is useful for scenes where changes don't happen constantly and where it's acceptable to have minor delays in syncing. When a player changes something, it sends an HTTP request to a REST API that stores the new scene state in a data base. Changes remained stored for any new player that visits the scene at a later date. The main limitation is that new changes from other players aren't notified to players who are already there, messages can't be pushed from the server to players. Players must regularly send requests the server to get the latest state.
 
 {{< hint info >}}
-**💡 Tip**:  It's also possible to opt for a hybrid approach where changes are notified between players via Messagebus messages, but the final state is also stored via an API for future visitors.
+**💡 Tip**: It's also possible to opt for a hybrid approach where changes are notified between players via Messagebus messages, but the final state is also stored via an API for future visitors.
 {{< /hint >}}
 
 - Websockets: This alternative is more robust, as it establishes a two-way communications channel between player and server. Updates can be sent from the server, you could even have game logic run on or validated on the server. This enables real time interaction and makes more fast paced games possible. It's also more secure, as each message between player and server is part of a session that is opened, no need to validate each message.
