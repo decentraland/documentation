@@ -304,6 +304,30 @@ The example above runs a recurring raycast every 0.1 seconds. It uses a timer co
 **💡 Tip**: Use the `interval` function in the [SDK Utils library](https://github.com/decentraland/sdk7-utils) for a simpler way to run a function at a fixed interval.
 {{< /hint >}}
 
+## Raycasts via a system
+
+Another way to perform recurrent raycasts is to execute them from within the recurring function of a system. This allows you to have a lot more control about when and how these work. Instead of registering a callback function, you can perform a raycast query with `raycastSystem.registerRaycast` and then check the data returned by this operation, all within the function of the system.
+
+Please note that since the raycast is executed in a system, the result will only be available the next tick, needing two runs of the system. One to register the raycast for the next frame, and the next frame process its result.
+
+```ts
+engine.addSystem((deltaTime) => {
+		const result = raycastSystem.registerRaycast(
+			entity,
+			localDirectionOptions({
+				collisionMask: ColliderLayer.CL_CUSTOM1 | ColliderLayer.CL_CUSTOM3 | ColliderLayer.CL_POINTER,
+				originOffset: Vector3.create(0, 0.4, 0),
+				maxDistance: RAY_POWER,
+				queryType: raycastQueryType,
+				direction: Vector.forward()
+				continuous: true // don't overuse the 'continuous' property as raycasting is expensive on performance
+			})
+		)
+		if (result) // do something
+	})
+```
+
+
 ## Collide with the player
 
 You can't directly hit the player's avatar or those of other players with a ray, but what you can do as a workaround is position an invisible entity occupying the same space as a player using the [AvatarAttach component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar">}}), and check collisions with that cube.
