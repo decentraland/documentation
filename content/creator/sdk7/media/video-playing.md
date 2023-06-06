@@ -244,10 +244,11 @@ import {
   Entity,
   VideoPlayer,
   videoEventsSystem,
-  VideoState,
+  VideoState
 } from '@dcl/sdk/ecs'
 
 // ... Create videoPlayerEntity with VideoPlayer component, Transform, MeshRenderer.setPlane(), etc. ...
+
 
 videoEventsSystem.registerVideoEventsEntity(
   { entity: videoPlayerEntity },
@@ -326,8 +327,7 @@ function mySystem() {
   console.log(latestVideoEvent.currentState)
 }
 ```
-
-<!--
+<!-- 
 ## Map a video texture
 
 TODO
@@ -354,3 +354,4 @@ When playing a video from a file, you can perform the following actions:
 - `seekTime()`: Sets the `seek` property to a specific value, so that the video plays from that point on. It's expressed in seconds after the video's original beginning.
 
 You can also change the following properties:
+-->
