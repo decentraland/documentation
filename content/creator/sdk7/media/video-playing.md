@@ -290,6 +290,7 @@ videoEventsSystem.registerVideoEventsEntity(
 )
 ```
 
+
 The videoEvent object passed as an input for the function contains the following properties:
 
 - `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default, if the video hasn't started playing.
@@ -325,6 +326,7 @@ function mySystem() {
   console.log(latestVideoEvent.currentState)
 }
 ```
+
 <!-- 
 
 ## Map a video texture
