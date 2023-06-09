@@ -178,16 +178,16 @@ For example, if a player's click or a [raycast]({{< ref "/content/creator/sdk7/i
 
 ## Get an entity by name
 
-When using the Decentraland Editor and adding entities via the drag-and-drop inspector, each entity has a unique name. Use the `getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the inspector's UI, in the tree view on the left.
+When using the Decentraland Editor and adding entities via the drag-and-drop inspector, each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the inspector's UI, in the tree view on the left.
 
 ```ts
 function main() {
-  let door = getEntityOrNullByName('door3')
+  let door = engine.getEntityOrNullByName('door3')
 }
 ```
 
 {{< hint warning >}}
-**📔 Note**: Make sure you only use `getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the Editor´s inspector may not yet be instanced.
+**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the Editor´s inspector may not yet be instanced.
 {{< /hint >}}
 
 You're free to perform any action on an entity fetched via this method, like add or remove components, modify values of existing components, or remove the entity from the engine.
@@ -195,7 +195,7 @@ You're free to perform any action on an entity fetched via this method, like add
 ```ts
 function main() {
   // fetch entity
-  let door = getEntityOrNullByName('door-3')
+  let door = engine.getEntityOrNullByName('door-3')
   // verify that the entity exists
   if (door) {
     // add a pointer events callback
@@ -208,6 +208,16 @@ function main() {
         // open door
       }
     )
+  }
+}
+```
+
+All the entities added via the inspector have a `Name` component, you can iterate over all of them like this:
+
+```ts
+function main() {
+  for (const [entity, name] of engine.getEntitiesWith(Name)) {
+    console.log({ entity, name })
   }
 }
 ```
