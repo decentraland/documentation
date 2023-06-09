@@ -182,7 +182,7 @@ When using the Decentraland Editor and adding entities via the drag-and-drop ins
 
 ```ts
 function main() {
-  let door = engine.getEntityOrNullByName('door3')
+  const door = engine.getEntityOrNullByName('door3')
 }
 ```
 
@@ -195,7 +195,7 @@ You're free to perform any action on an entity fetched via this method, like add
 ```ts
 function main() {
   // fetch entity
-  let door = engine.getEntityOrNullByName('door-3')
+  const door = engine.getEntityOrNullByName('door-3')
   // verify that the entity exists
   if (door) {
     // add a pointer events callback
