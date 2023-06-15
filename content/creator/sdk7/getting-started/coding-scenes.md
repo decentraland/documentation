@@ -23,10 +23,7 @@ Our SDK includes the following components:
 
 - **The Decentraland Editor**: An extension for Visual Studio Code that allows you to create scenes, preview and debug, and publish. [Read more]({{< ref "/content/creator/sdk7/getting-started/decentraland-editor.md" >}})
 - **The Decentraland ECS**: A TypeScript package containing the framework of helper methods that allows you to create interactive experiences. Use it to create and manipulate objects in the scene and also to facilitate in-world transactions between players or other applications. ( [latest ECS reference](https://github.com/decentraland/ecs-reference/blob/master/docs-latest/decentraland-ecs.md))
-- **The Decentraland CLI** (Command Line Interface): Use it to [generate]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}) new Decentraland scenes locally on your own machine, preview them and upload them to the content server.
-
-
-- **Scene examples**: Take inspiration and coding best practices from the [scene examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
+- **Scene examples**: Take inspiration and coding best practices from the [scene examples]([https://github.com/decentraland-scenes/Awesome-Repository#examples](https://studios.decentraland.org/resources?sdk_version=SDK7)).
 
 ## Requirements
 
@@ -40,8 +37,6 @@ You must have the following:
 
 
 ## Supported languages and syntax
-
-### TypeScript
 
 Decentraland employs [TypeScript (.ts)](https://www.typescriptlang.org/docs/handbook/jsx.html) as the default language for writing scenes.
 
@@ -180,7 +175,7 @@ engine.addSystem(rotationSystem)
 
 If you start writing code directly in `index.ts`, your code may be lacking some important context. For example, you might be trying to do something with the `PlayerEntity`, or you with an entity that was added via the Decentraland Editor's UI, however at that point in time those things haven't been loaded yet.
 
-To avoid that scenario, it's always recommended to write out your scene's initial loading code using the `main()` function (on the `main.ts` file) as an entrypoint. This function runs only once all of the scene's initial context is already loaded, this includes anything added via the Decentraland Editor's UI.
+To avoid that scenario, it's always recommended to write out your scene's initial loading code using the `main()` function (on the `index.ts` file) as an entrypoint. This function runs only once all of the scene's initial context is already loaded, this includes anything added via the Decentraland Editor's UI.
 
 You can write your code outside the `main()` function when: 
 - The code is indirectly called by `main()`
@@ -280,7 +275,7 @@ This decoupling is also important to prevent neighbor scenes from interfering wi
 
 When converting the source code in TypeScript to the compiled code in minified JavaScript, the process performs [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking) to ensure that only the parts of the code that are actually being used get converted. This helps keep the scene's final code as lightweight as possible. It's especially useful when using external libraries, since often these libraries include a lot of functionality that is not used that would otherwise bulk up the scene.
 
-As a consequence of tree shaking, any code that you want your scene to run needs to be referenced one way or another by the entry points of your code: the `main()` function on `main.ts`. Systems can also alternatively be added to the engine on the `index.ts` file, without referencing `main.ts`. Any code that is not explicitly or indirectly referenced by these files, will not make it into the scene.
+As a consequence of tree shaking, any code that you want your scene to run needs to be referenced one way or another by the entry points of your code: the `main()` function on `index.ts`. Systems can also alternatively be added to the engine on the `index.ts` file, without referencing `main()`. Any code that is not explicitly or indirectly referenced by these files, will not make it into the scene.
 
 For example, suppose you have a file named `extraContent.ts` with the following content, the entity will not be rendered and the system will not start running:
 
@@ -300,7 +295,7 @@ function mySystem(dt: number) {
 engine.addSystem(mySystem)
 ```
 
-To make it run as part of your scene, you can reference from `main.ts` in the following way:
+To make it run as part of your scene, you can reference from `index.ts` in the following way:
 
 ```ts
 // on extraContent.ts
@@ -319,7 +314,7 @@ export function mySystem(dt: number) {
 
 /////////////////////////////
 
-// on main.ts
+// on index.ts
 
 import {addEntities, mySystem} from "/extraContent"
 
