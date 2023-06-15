@@ -27,13 +27,14 @@ Ultimately the editor will offer many no-code options for placing items, and set
 - **Publish scenes**: publish your scene to the world. See [Publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}).
 - **Manage dependencies**: add, remove, and list the libraries and dependencies that your project is using. See [Manage dependencies]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md" >}}).
 - **Preview models**: Open a gltf or .glb model to see an interactive preview.
+- **Drag and drop entities visually (Alpha)**: Use the **Inspector** view to drag and drop entities into place, and configure some of their components via UI.
+- **Reference entities added visually in your code**: Entities that are added using the inspector can then be referenced in your code to add interactivity to them. See [Get an entity by name]({{< ref "/content/creator/sdk7/architecture/entities-components.md#get-an-entity-by-name" >}}).
 
 ## Reporting issues
 
 If you run into any bugs, please report an issue in the [Editor](https://github.com/decentraland/editor) repository.
 
 We ask you to please detail how to reproduce the issue as much as possible.
-
 
 ## Submit feedback
 
