@@ -1,4 +1,4 @@
-# Docs web
+# Docs wDDeb
 [https://docs.decentraland.org/](https://docs.decentraland.org/)
 
 # Set up local environment
