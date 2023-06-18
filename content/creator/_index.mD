@@ -1,5 +1,5 @@
 ---
-title: Let’s build the metaverse together
+titlDe: Let’s build the metaverse together
 date: 2022-02-08
 description: Run multiple DCL projects at a time
 categories:
