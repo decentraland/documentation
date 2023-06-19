@@ -10,17 +10,15 @@ weight: 15
 ---
 
 
-To build scenes for Decentraland you an either use 
+To create, preview, deploy and deal with a Decentraland scene you can either use 
 
 - The Decentraland Editor
-- The CLI: @dcl/sdk-commands global library
+- The command line
 
-Both tools allow you to compile and preview your scene in an "off-chain" development environment. After testing your scene locally, you can upload your content to the content server, linking it with your LAND.
-
-Although the Editor is easier to use, the CLI allows you more flexibility, and can be easily used in automated processes.
+Although the Editor is easier to use, using the command line allows you more flexibility, and can be easily used in automated processes.
 
 {{< hint warning >}}
-**📔 Note**:  The Editor uses the CLI behind the scenes.
+**📔 Note**:  The Editor runs the same command-line operations behind the curtains.
 {{< /hint >}}
 
 
@@ -28,30 +26,19 @@ Although the Editor is easier to use, the CLI allows you more flexibility, and c
 **💡 Tip**:  See [Instalation guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}) for instructions on how to install the Editor.
 {{< /hint >}}
 
-The Decentraland CLI is distributed via [npm](https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm).
-
-
-
 ## Before you Begin
 
-Please install the following dependencies before you install the CLI:
+To deal with the scene via the command line, please install the following dependencies before you run CLI commands with the scene:
 
 - [Node.js](https://nodejs.org) (version 8 or later)
 
-## Install the CLI
+## Initiate a new project
 
-Open the _Terminal_ app and run the following command:
+Run `npx @dcl/sdk-commands init` on an empty folder to populate it with the default files of a Decentraland project.
 
-```bash
-npx @dcl/sdk-commands
-```
-
+The CLI then prompts you to chose what kind of project, if you want to build a [scene]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}), a [workspace]({{< ref "/content/creator/sdk7/projects/workspaces.md" >}}) or a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). If selecting a scene, the CLI prompts you about what base project to use as a starting point.
 
 ## Update the SDK version of a scene
-
-If your CLI is up to date, the new projects you create with it will use the latest version of the SDK.
-
-The SDK version used by your existing projects doesn't change by updating the CLI. You need to manually update the SDK version in the projects.
 
 Run the following command on the scene folder:
 
@@ -60,12 +47,6 @@ npm i @dcl/sdk@latest
 ```
 
 You can confirm that it worked by checking the `package.json` file for the scene, and looking for the `@dcl/sdk` version there.
-
-## Initiate a new project
-
-Run `npx @dcl/sdk-commands init` on an empty folder to populate it with the default files of a Decentraland project.
-
-The CLI then prompts you to chose what kind of project, if you want to build a [scene]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}), a [workspace]({{< ref "/content/creator/sdk7/projects/workspaces.md" >}}) or a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). If selecting a scene, the CLI prompts you about what base project to use as a starting point.
 
 ## Run a preview
 
