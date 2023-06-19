@@ -13,7 +13,7 @@ weight: 15
 To build scenes for Decentraland you an either use 
 
 - The Decentraland Editor
-- The Command Line Interface (CLI)
+- The CLI: @dcl/sdk-commands global library
 
 Both tools allow you to compile and preview your scene in an "off-chain" development environment. After testing your scene locally, you can upload your content to the content server, linking it with your LAND.
 
@@ -43,22 +43,9 @@ Please install the following dependencies before you install the CLI:
 Open the _Terminal_ app and run the following command:
 
 ```bash
-npm install -g decentraland
+npx @dcl/sdk-commands
 ```
 
-Once the installation is complete, the `dcl` command will be globally available.
-
-## Update the CLI on any platform
-
-To update the CLI to the latest supported version, we recommend first uninstalling the CLI and then reinstalling a fresh version. To do this, run the following commands:
-
-```bash
-// uninstall
-npm rm decentraland -g
-
-// install
-npm install -g decentraland
-```
 
 ## Update the SDK version of a scene
 
@@ -69,14 +56,14 @@ The SDK version used by your existing projects doesn't change by updating the CL
 Run the following command on the scene folder:
 
 ```bash
-npm i decentraland-ecs@latest
+npm i @dcl/sdk@latest
 ```
 
-You can confirm that it worked by checking the `package.json` file for the scene, and looking for the `decentraland-ecs` version there.
+You can confirm that it worked by checking the `package.json` file for the scene, and looking for the `@dcl/sdk` version there.
 
 ## Initiate a new project
 
-Run `npx sdk-commands init` on an empty folder to populate it with the default files of a Decentraland project.
+Run `npx @dcl/sdk-commands init` on an empty folder to populate it with the default files of a Decentraland project.
 
 The CLI then prompts you to chose what kind of project, if you want to build a [scene]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}), a [workspace]({{< ref "/content/creator/sdk7/projects/workspaces.md" >}}) or a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). If selecting a scene, the CLI prompts you about what base project to use as a starting point.
 
