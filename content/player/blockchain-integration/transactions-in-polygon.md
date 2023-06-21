@@ -40,7 +40,7 @@ In order to avoid exploitation and protect the free gas service, items that cost
 
 Gas fees are variable.
 
-## What can I do if network fees are higher than 150 gwei?
+## What can I do if network fees are higher than 300 gwei?
 
 Network fees are variable, so the best you can do is wait and try again at another moment.
 

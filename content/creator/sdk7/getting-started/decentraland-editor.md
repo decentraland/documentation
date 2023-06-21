@@ -32,7 +32,7 @@ Ultimately the editor will offer many no-code options for placing items, and set
 
 ## Reporting issues
 
-If you run into any bugs, please report an issue in the [Editor](https://github.com/decentraland/editor) repository.
+If you run into any bugs, please report an issue in the [Editor](https://github.com/decentraland/editor-sdk7) repository.
 
 We ask you to please detail how to reproduce the issue as much as possible.
 
