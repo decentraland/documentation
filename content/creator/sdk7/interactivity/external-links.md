@@ -16,6 +16,8 @@ You can add links from your scene out to other content, either to other scenes o
 To teleport a player to another scene, call the following function, indicating the coordinates that you want players to teleport to.
 
 ```ts
+import { teleportTo } from "~system/RestrictedActions"
+
 teleportTo('-51,1')
 ```
 
