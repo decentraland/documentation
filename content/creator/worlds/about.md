@@ -4,7 +4,7 @@ slug: "/contributor/worlds/about"
 weight: 1
 ---
 
-In this document you will learn how to use Decentraland Worlds BETA, a new service that lets you deploy isolated scenes that you can access with the Decentraland Explorer and using your digital identity.  
+In this document, you will learn how to use Decentraland Worlds BETA, a new service that lets you deploy isolated scenes that you can access with the Decentraland Explorer and using your digital identity.  
 
 The name **Worlds** was given to scenes that exist outside the Genesis City boundaries. Worlds can be used to do experiments, create new experiences, as scenes portfolio or even as a Scene Preview Service to test the content before uploading it to the Genesis City. Worlds scenes are attached to [Decentraland NAMEs](https://builder.decentraland.org/names) (a `NAME NFT` within the DCL ecosystem that can be assigned to your avatar or LAND and costs 100 MANA to create or can be purchased from a previous owner in the Marketplace) and the NAMEs are used to tell Decentraland Explorer which World to load.  
 
@@ -12,7 +12,7 @@ The name **Worlds** was given to scenes that exist outside the Genesis City boun
 
 Consider that this product is in BETA state before making it a key part of your product road map.  
 
-The BETA is open to anyone to use, to kick-off the product and be able to assess the scaling, a World scene must meet the following limitations: 
+The BETA is open to anyone to use, to kick off the product and be able to assess scalability; a World scene must meet the following limitations: 
 - Scenes have no parcel limitations since January 2023
 - 100 MB is the maximum size for the scene deployment 
 - Up to 100 users will be allowed to join a World scene concurrently  
@@ -41,6 +41,20 @@ Keep the following in mind:
 - The total size of the scene must be less or equal to 100 MB
 - The scene has no parcel limitations (since January 2023)
 
+Some of the Worlds deployed to the Foundation's Worlds Content Server may be eligible for being listed in Decentraland Places. See [eligibility criteria]({{< ref "/content/creator/places/faq.md#worlds" >}}) for more details. 
+
+If you wish to opt-out from your Worlds being indexed in Places, you can add the following section in your `scene.json`:
+
+```json
+{
+  "worldConfiguration": {
+    "name": "my-name.dcl.eth",
+    "placesConfig": {
+      "optOut": true
+    }
+  }
+}
+```
 
 ### Publish via the Decentraland Editor:
 
