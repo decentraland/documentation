@@ -41,7 +41,9 @@ Keep the following in mind:
 - The total size of the scene must be less or equal to 100 MB
 - The scene has no parcel limitations (since January 2023)
 
-Some of the Worlds deployed to the Foundation's Worlds Content Server may be eligible for being listed in Decentraland Places. If you wish to opt-out from your Worlds being indexed in Places, you can add the following section in your `scene.json`:
+Some of the Worlds deployed to the Foundation's Worlds Content Server may be eligible for being listed in Decentraland Places. See [Places - Worlds]({{< ref "/content/creator/places/faq.md#worlds" >}}). 
+
+If you wish to opt-out from your Worlds being indexed in Places, you can add the following section in your `scene.json`:
 
 ```json
 {
