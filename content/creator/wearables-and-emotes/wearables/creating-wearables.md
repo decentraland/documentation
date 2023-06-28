@@ -147,7 +147,7 @@ Remember not to change any of the specifications, naming conventions, hierarchy,
 
 <img src="/images/wearables-and-emotes/creating-wearables/50_armature.png" width="600"/>
 
-If you use the .fbx model from the **[Wearables Reference Models](https://drive.google.com/drive/u/1/folders/12hOVgZsLriBuutoqGkIYEByJF8bA-rAU)** to create your wearables remember to ***Ignore Leaf Bones*** when importing the armature. Otherwise Blender will generate ***end bones*** that are not part of the base armature and after exporting to the world is not going to work as it should. 
+Be sure that the armature imported has no any *end* or *neutral* bones, otherwise the wearable is not going to work after exporting to the builder. If you are importing an .fbx that has this issue you can toggle ***Ignore Leaf Bones*** when importing the armature.
 
 <img src="/images/wearables-and-emotes/creating-wearables/53_ignore_leaf_bones.png" width="600"/>
 
