@@ -147,6 +147,10 @@ Remember not to change any of the specifications, naming conventions, hierarchy,
 
 <img src="/images/wearables-and-emotes/creating-wearables/50_armature.png" width="600"/>
 
+If you use the .fbx model from the **[Wearables Reference Models](https://drive.google.com/drive/u/1/folders/12hOVgZsLriBuutoqGkIYEByJF8bA-rAU)** to create your wearables remember to ***Ignore Leaf Bones*** when importing the armature. Otherwise Blender will generate ***end bones*** that are not part of the base armature and after exporting to the world is not going to work as it should. 
+
+<img src="/images/wearables-and-emotes/creating-wearables/53_ignore_leaf_bones.png" width="600"/>
+
 ### **Eyebrows, Eyes and Mouth**
 
 These meshes work with a transparent shader so you don’t have to do anything aside from creating your own png texture for the new eyebrow, eye, or mouth style you want and placing it correctly into the UV map. These textures should be 256x256px and need to have an alpha channel for transparency.
@@ -281,7 +285,7 @@ The "key" bones to use when skin weighting are:
 
 ### **Exporting Wearables**
 
-When exporting wearables, make sure there are no other bones outside of the given Armature. A common problem when importing armatures between different software is the appearance of "\_end" bones. Be sure to remove those before exporting. Otherwise, it is very likely that the wearables will not work on the client afterwards.
+When exporting wearables, make sure there are no other bones outside of the given Armature. A common problem when importing armatures between different software is the appearance of *"end"* or *"neutral"* bones. Be sure to remove those before exporting. Otherwise, it is very likely that the wearables will not work on the client afterwards.
 
 <img src="/images/wearables-and-emotes/creating-wearables/51_export_wearables.png" width="600" />
 
