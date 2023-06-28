@@ -24,7 +24,7 @@ The most common components are those that attach visual and pyhisical properties
 
 
 ---
-###### `Transform` {#Transform}
+###### `Transform` <small>[↗ spec](https://adr.decentraland.org/adr/ADR-153)</small> {#Transform}
 
 Adds position, rotation and scale to an entity.
 

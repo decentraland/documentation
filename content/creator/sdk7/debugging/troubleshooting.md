@@ -34,11 +34,7 @@ Make sure your Node version is up to date. It must be 16 or newer.
 
 - Make sure you have the latest version of the Decentraland SDK installed in your project. Run:
 
-	`npm i decentraland-ecs@latest`
-
-- Make sure you also have the latest version of the Decentraland CLI installed globally on your machine. Run:
-
-	`npm i -g decentraland@latest`
+	`npm i @dcl/sdk"latest`
 
 ### Issue: The scene runs, in the console I see `Cyclic dependencies` warnings.
 
@@ -47,6 +43,12 @@ These refer to files in your scene that reference each other mutually. This is n
 Ideally, the loading of the code in your scene should follow a clear sequential order. Code that has cyclic dependencies might suffer a chicken & the egg problem, where the compiler doesn't know which to initiate first. Often this is resolved without issues, but it's a good practice to avoid. 
 
 To fix these dependencies, you often must resort to calling functions or object constructors passing references to already instanced entities/objects in the function arguments; Instead of hard-coding references to these entities/objects in the function, which may or may not already be instanced. 
+
+## Issues when running the Editor Inspector
+
+### Issue: The editor never finishes loading the scene, it may say something like "Can't connect to server".
+
+Make sure your Node version is up to date. It must be 16 or newer.
 
 # Issues when deploying
 
@@ -57,8 +59,6 @@ To fix these dependencies, you often must resort to calling functions or object 
 - Make sure that Metamask is correctly set up to use the right wallet to sign the transaction. This may either be the wallet that owns the LAND tokens, or might have operator permissions granted by the owner.
 
 ### Issue: Running `npm run deploy` fails
-
-- If you're working on an old scene, make sure the `scene.json` file doesn't include legacy sections, such as `communications` or `policy`. Delete these sections entirely.
 
 - Check the spawn points of your scene, all three x,y,z coordinates of a spawn point must either be a number or a range. Either all three are numbers or all three are ranges. It's not supported to have ranges for some but numbers for others. 
 
@@ -87,7 +87,9 @@ To fix these dependencies, you often must resort to calling functions or object 
 
 	See [catalyst-monitor](https://decentraland.github.io/catalyst-monitor/) for a status check of all the servers in the catalyst network. You can also copy the addresses of each one, from the top of each card.
 
-- Check your scene's `package.json`. A common problem is that there's a `bundleDependencies` and also a `bundledDependencies` (extra d) section. This can sometimes result from running different Node versions on the same project. Delete `bundleDependencies`, which relates to older Node versions.
+- Check your scene's `package.json`. A common problem is that there's a `bundleDependencies` and also a `bundledDependencies` (extra d) section. This can sometimes result from running different Node versions on the same project at different times, or from sharing the project between people that ran it with different Node versions installed. Delete `bundleDependencies`, which relates to older Node versions. 
+
+Also ensure you have your Node version up to date, at least version 16.
  
 ### Issue: Running `npm run deploy` or `npm run build` reports type errors
 

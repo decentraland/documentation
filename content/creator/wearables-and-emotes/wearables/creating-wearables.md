@@ -285,7 +285,8 @@ The "key" bones to use when skin weighting are:
 
 ### **Exporting Wearables**
 
-When exporting wearables, make sure there are no other bones outside of the given Armature. A common problem when importing armatures between different software is the appearance of *"end"* or *"neutral"* bones. Be sure to remove those before exporting. Otherwise, it is very likely that the wearables will not work on the client afterwards.
+When exporting wearables, make sure there are no other bones outside of the given Armature. A common problem when importing armatures between different software is the appearance of *"\_end"* or *"\_neutral"* bones. Be sure to remove those before exporting. Otherwise, it is very likely that the wearables will not work on the client afterwards.
+
 
 <img src="/images/wearables-and-emotes/creating-wearables/51_export_wearables.png" width="600" />
 
