@@ -1,5 +1,5 @@
 ---
-date: 2023-05-11
+date: 2023-06-26
 title: FAQ
 description: Places FAQ
 type: Document
@@ -37,6 +37,12 @@ People are more likely to rate your place highly if your Place has a title, desc
 Points of interest are notable locations in Decentraland. These “POIs” are promoted in several areas of the virtual world’s UI, and are promoted as good places for users to explore, especially people new to Decentraland.
 
 You can create a [proposal](https://docs.decentraland.org/player/general/dao/dao-userguide/#creating-a-proposal) in the [DAO](https://dao.decentraland.org/en/) to nominate your Place as a Point of Interest.
+
+## Worlds
+
+**Which Worlds appear in the Worlds tab?**
+
+As defined in the _Worlds 1.0 - Short-Term Plan_ [DAO proposal](https://governance.decentraland.org/proposal/?id=e712bb50-e822-11ed-b8f1-75dbe089d333),  we allow discoverability of Worlds deployed to Foundation’s World Content Server only for NAME owners that also hold LAND or an active LAND rental contract.
 
 # More help
 
