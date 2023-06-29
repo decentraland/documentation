@@ -11,9 +11,11 @@ aliases:
 url: /creator/3d-modeling/colliders
 ---
 
-To enable collisions between a 3D model and users of your scene, you must create a new object to serve as a collider. Without a collider, players are able to walk through models as if they weren't there. For performance reasons, colliders usually have a much simpler geometry than the model itself.
+To enable collisions between a 3D model and users of your scene, you must give the model colliders. Without a collider, players are able to walk through models as if they weren't there. Colliders are also required to make an object respond to the player's pointer events or to block them, or to be intersected by raycasts or block them. For performance reasons, colliders are often modeled separately as a simpler invisible geometry that has less vertices than the visible geometry.
 
-Colliders currently don't affect how models and entities interact with each other, they can always overlap. Colliders only affect how the model interacts with the player's avatar.
+The model can either use an invisible geometry to use as colliders, or (as of SDK7) you can instead assign the visible geometry to behave as a collider. See [Colliders on 3D models]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models" >}}). You can also assign different layer of collisions to the different geometries, to separately control player physics, pointer events, and other custom layers, see [Colliders on 3D models]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}}).
+
+Colliders don't affect how models and entities interact with each other, they can always overlap. Colliders only affect how the model interacts with the player's avatar.
 
 For an object to be recognized by a Decentraland scene as a collider, all it needs is to be named in a certain way. The object's name must include the the suffix “\_collider” at the end.
 
@@ -70,6 +72,8 @@ Now when players view the stairs in your scene, they’ll see the more elaborate
 
 - When duplicating collider objects, pay attention to their names. Some programs append a \__1_ to the end of the filename to avoid duplicates, for example _tree_collider_1_. Objects that are named like this will be interpreted by the Decentraland World Engine as normal objects, not colliders.
 
-- You can avoid adding a collider mesh if you add an invisible primitive shape that overlaps to your 3D model in your scene. Primitive shapes have collisions on by default. For example, an entity with a BoxShape() component, and its `visible` property set to false can do the trick.
+- You can avoid adding a collider mesh if you add an invisible `MeshCollider` component to the entity, that approximates the shape of the 3D model.
+
+- You can also avoid adding a collider mesh if you configure the `GLTFContainer` component to use the visible geometry as a collider. See [Colliders on 3D models]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models" >}}).
 
 - If you're creating a 3D model with many mesh shapes that each need their collider, there are some handy add-ons that can help. For Blender you can use [Simple Renaming Panel](https://github.com/Weisl/simple_renaming_panel) to automatically add a `_collider` suffix to all mesh names in a group.

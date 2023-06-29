@@ -162,7 +162,7 @@ To test how the smart wearable behaves in the context of a scene, you can also r
 
 - When positioning an entity, note that positions are global, relative to the 0,0 coordinates of Genesis Plaza.
 - To react to nearby players:
-  - use `getConnectedPlayers()` to know what players are already there, and `onPlayerConnectedObservable` / `onPlayerDisconnectedObservable to track other players coming and going.
+  - use `getConnectedPlayers()` to know what players are already there, and `onPlayerConnectedObservable` / `onPlayerDisconnectedObservable` to track other players coming and going.
   - Be mindful that the loading of the smart wearable, surrounding scenes and other players may occur in different orders depending on the situation. If the player enters Decentraland with the smart wearable already on, it’s likely that your portable experience will load before other players do. On the other hand, tf the player first loads into a scene and then puts on the wearable, it’s likely that other players will already be loaded by the time the portable experience starts running.
   - Wait till the player is connected to an island inside their realm. Fetch the realm data and check for the ‘room’ field. If the ‘room’ field is null, the player is not yet connected to an island and other players won’t be loaded yet. You can periodically check this every 1 second till the ‘room’ field is present, and only initialize your logic then.
 - To interact with surrounding scenes:
@@ -187,7 +187,7 @@ To publish your smart wearable:
 
 3. Open the Builder, open the Collections tab, click + to upload a new wearable.
 
-4. Drag your compressed `portable-expereince.zip` file into the Builder, verify that all the information is accurate.
+4. Drag your compressed `portable-experience.zip` file into the Builder, verify that all the information is accurate.
 
   > Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model): 
     a) Select only Male and complete the process
@@ -195,7 +195,7 @@ To publish your smart wearable:
 
 5. Open the editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
 6. Create a new collection with this and perhaps other wearables.
-7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on ropsten, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
+7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Goerli, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
 8. At this point, your wearable is ready to be published. We still don’t encourage creators to publish any smart wearables, as we’re still in experimental stages, reviewers from the committee have been instructed to not approve any smart wearables that don’t come from the foundation.
 
 
@@ -209,7 +209,7 @@ See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadat
 ## Limitations
 
 > IMPORTANT: The entire smart wearable needs to fit within 2 MB. This includes the 3D model, thumbnail, code, libraries, sound files, additional 3D models, UI images, etc. This limit is for the uncompressed folder. The builder will not let you upload larger wearables than this.
-> To check the size of your portable experience, run `dcl pack`, the project size is specified in the output text of the command. You can also verify this by uncompressing the generated `portable-expereince.zip` file.
+> To check the size of your portable experience, run `dcl pack`, the project size is specified in the output text of the command. You can also verify this by uncompressing the generated `portable-experience.zip` file.
 
 Smart wearables only run the portable experience for the player wearing the wearable. Other players don't see the effects. For example, if the portable experience renders a pet that follows the player, other players around won't see this pet.
 
@@ -219,7 +219,7 @@ If a wearable is “hidden” but not “removed” by other wearables being wor
 
 ## Examples
 
-[Portal-ble expoerence](https://github.com/decentraland-scenes/Portal-ble_experience)
+[Portal-ble experience](https://github.com/decentraland-scenes/Portal-ble_experience)
 
 [Graffiti](https://github.com/decentraland-scenes/Smart-wearable-graffitti)
 
