@@ -26,9 +26,8 @@ Users can publish content on their World in different ways:
 
 ## Using the Builder dApp (no-code)
 
-The Builder is the go-to option for non-developers, but it also serves as a starting point for developers who want to create a more complex scene. Users can download a scene and continue working on it on the Editor or the CLI. 
+The Builder is the go-to option for non-developers. Scenes can be created from scratch using the Scene Builder by dragging and dropping items into the scene. Smart Items can also be used for player interaction once the scene is deployed. 
 
-Scenes can be created from scratch using the Scene Builder by dragging and dropping items into the scene. Smart Items can also be used for player interaction once the scene is deployed. 
 Creators can also use Templates, edit them, and then deploy them to their World. More templates from the Foundation will be uploaded over time. 
 Another way is to use a scene from the Scene Pool. Anyone can get a scene from the pool, download it, and then Import it  in the Builder to edit it, or deploy it to a World as it is. 
 
