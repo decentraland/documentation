@@ -19,6 +19,20 @@ The BETA is open to anyone to use, to kick off the product and be able to assess
 
 ## Publish a World 
 
+Users can publish content on their World in different ways:
+* With the [Builder dApp](https://builder.decentraland.org/scenes).
+* With the Editor in VSCode
+* With the CLI
+
+## Using the Builder dApp (no-code)
+
+The Builder is the go-to option for non-developers. Scenes can be created from scratch using the Scene Builder by dragging and dropping items into the scene. Smart Items can also be used for player interaction once the scene is deployed. 
+
+Creators can also use Templates, edit them, and then deploy them to their World. More templates from the Foundation will be uploaded over time. 
+Another way is to use a scene from the Scene Pool. Anyone can get a scene from the pool, download it, and then Import it  in the Builder to edit it, or deploy it to a World as it is. 
+
+## Using the SDK and Editor
+
 The starting point for this product is having a scene that meets the size requirements mentioned above. If you wish to know more about how to create a scene, check out the [Decentraland SDK]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) documentation.
 
 If you are a Content Creator, you may be already familiar with how the [publishing of a scene]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) works, the experience is quite similar, but with a small caveat: 
