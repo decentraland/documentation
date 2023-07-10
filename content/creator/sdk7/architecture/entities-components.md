@@ -77,7 +77,7 @@ export function main() {
 
 If a removed entity has any child entities, these change their parent back to the default `engine.RootEntity` entity, which is positioned at the scene base position, with a scale of _1_.
 
-To remove an entity and also all of its children (and any children of its children, recurrently), use `engine.removeEntityWithChildren()`.
+To remove an entity and also all of its children (and any children of its children, recurrently), use the `removeEntityWithChildren()` helper.
 
 ```ts
 export function main() {
@@ -101,7 +101,7 @@ export function main() {
   })
 
   // Remove both parent and children
-  engine.removeEntityWithChildren(door)
+  removeEntityWithChildren(engine, door)
 }
 ```
 
