@@ -58,7 +58,9 @@ Requirements:
 	* The topic shouldn’t be already well-covered in the official documentation.
 	* Provide examples of documentation done in the past.
 	* Describe the format of documentation to be produced.
-	* Productions thought to be published in official mediums.
+	* Documentation should be in English (when added to awesome repository or Decentraland Documentation)
+	* Productions thought to be published in official mediums (Decentraland Blog, Awesome Repository, Decentraland Documentation, Decentraland DAO youtube channel / social media, Decentraland Foundation Youtube Channel / social media)
+ 	
 
 Performance Metrics:
 	* The number of contributions to Decentraland Documentation
