@@ -91,7 +91,7 @@ dcl deploy --target-content https://worlds-content-server.decentraland.org
 For SDK7 scenes, use the following command:
 
 ```bash
-npm run deploy -- --target-content https://worlds-content-server.decentraland.org
+npm run deploy --target-content https://worlds-content-server.decentraland.org
 ```
 
 
