@@ -8,7 +8,7 @@ Welcome to Decentraland Worlds! Here, you will discover everything about this se
 
 The term **Worlds** refers to scenes located beyond the boundaries of Genesis City. These Worlds serve various purposes, such as conducting experiments, creating new experiences, building a portfolio of scenes, or even serving as a Scene Preview Service for testing content before uploading it to Genesis City. Worlds scenes are associated with [Decentraland NAMEs](https://builder.decentraland.org/names), which are NAME NFTs within the DCL ecosystem. Acquiring a NAME requires 100 MANA and can be assigned to your avatar or LAND. Alternatively, you can purchase a NAME from a previous owner in the [Marketplace](https://market.decentraland.org/). These NAMEs are then utilized by the Decentraland Explorer to load the designated World.
 
-Worlds serves as a gateway for aspiring content creators, providing an accessible entry point to the platform and the freedom to experiment with scene creation. These isolated experiences come with certain limitations to ensure scalable growth:  
+Worlds serve as a gateway for aspiring content creators, providing an accessible entry point to the platform and the freedom to experiment with scene creation. These isolated experiences come with certain limitations to ensure scalable growth:  
 
 - Scene Deployment Size: The maximum size allowed for scene deployment is 100 MB.
 - Concurrent User Limit: Each World scene can accommodate up to 100 users simultaneously 
