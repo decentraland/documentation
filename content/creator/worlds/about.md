@@ -4,25 +4,22 @@ slug: "/contributor/worlds/about"
 weight: 1
 ---
 
-In this document, you will learn how to use Decentraland Worlds BETA, a new service that lets you deploy isolated scenes that you can access with the Decentraland Explorer and using your digital identity.  
+Welcome to Decentraland Worlds! Here, you will discover everything about this service that empowers you to deploy self-contained scenes. These scenes are easily accessible through the Decentraland Explorer, providing you with a platform to experiment, unleash your creativity and explore new horizons.
 
-The name **Worlds** was given to scenes that exist outside the Genesis City boundaries. Worlds can be used to do experiments, create new experiences, as scenes portfolio or even as a Scene Preview Service to test the content before uploading it to the Genesis City. Worlds scenes are attached to [Decentraland NAMEs](https://builder.decentraland.org/names) (a `NAME NFT` within the DCL ecosystem that can be assigned to your avatar or LAND and costs 100 MANA to create or can be purchased from a previous owner in the Marketplace) and the NAMEs are used to tell Decentraland Explorer which World to load.  
+The term **Worlds** refers to scenes located beyond the boundaries of Genesis City. These Worlds serve various purposes, such as conducting experiments, creating new experiences, building a portfolio of scenes, or even serving as a Scene Preview Service for testing content before uploading it to Genesis City. Worlds scenes are associated with [Decentraland NAMEs](https://builder.decentraland.org/names), which are NAME NFTs within the DCL ecosystem. Acquiring a NAME requires 100 MANA and can be assigned to your avatar or LAND. Alternatively, you can purchase a NAME from a previous owner in the [Marketplace](https://market.decentraland.org/). These NAMEs are then utilized by the Decentraland Explorer to load the designated World.
 
-## WARNINGS: The Worlds Service is in BETA state
+Worlds serves as a gateway for aspiring content creators, providing an accessible entry point to the platform and the freedom to experiment with scene creation. These isolated experiences come with certain limitations to ensure scalable growth:  
 
-Consider that this product is in BETA state before making it a key part of your product road map.  
-
-The BETA is open to anyone to use, to kick off the product and be able to assess scalability; a World scene must meet the following limitations: 
-- Scenes have no parcel limitations since January 2023
-- 100 MB is the maximum size for the scene deployment 
-- Up to 100 users will be allowed to join a World scene concurrently  
+- Scene Deployment Size: The maximum size allowed for scene deployment is 100 MB.
+- Concurrent User Limit: Each World scene can accommodate up to 100 users simultaneously 
 
 ## Publish a World 
 
-Users can publish content on their World in different ways:
-* With the [Builder dApp](https://builder.decentraland.org/scenes).
-* With the Editor in VSCode
-* With the CLI
+Users have various options to publish content on their World: 
+
+* [Builder dApp](https://builder.decentraland.org/scenes): web app and no coding skills needed 
+* Decentraland Editor: IDE for developing Decentraland scenes
+* CLI: Advanced users can leverage the CLI for efficient content publishing.
 
 ## Using the Builder dApp (no-code)
 
