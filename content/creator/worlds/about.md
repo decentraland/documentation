@@ -17,7 +17,7 @@ Worlds serve as a gateway for aspiring content creators, providing an accessible
 
 Users have various options to publish content on their World: 
 
-* [Builder dApp](https://builder.decentraland.org/scenes): web app and no coding skills needed 
+* [Builder dApp](https://builder.decentraland.org/scenes): web app and no coding skills needed.
 * Decentraland Editor: IDE for developing Decentraland scenes
 * CLI: Advanced users can leverage the CLI for efficient content publishing.
 
