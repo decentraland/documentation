@@ -39,11 +39,12 @@ The different categories are:
   - **Hair**
 - **Upper Body**
 - **Lower Body**
+- **Hands**
 - **Feet**
 
 There are also accessories that can be applied to different areas of an avatar. Some of these accessories can impact other wearables. The accessories are:
 
-<img src="/images/wearables-and-emotes/creating-wearables/48_accessories_category.png" width="900" />
+<img src="/images/wearables-and-emotes/creating-wearables/48_accessories_categories.png" width="900" />
 
 - **Mask**
 - **Eyewear**
