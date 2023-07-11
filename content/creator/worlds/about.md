@@ -11,7 +11,7 @@ The term **Worlds** refers to scenes located beyond the boundaries of Genesis Ci
 Worlds serve as a gateway for aspiring content creators, providing an accessible entry point to the platform and the freedom to experiment with scene creation. These isolated experiences come with certain limitations to ensure scalable growth:  
 
 - Scene Deployment Size: The maximum size allowed for scene deployment is 100 MB.
-- Concurrent User Limit: Each World scene can accommodate up to 100 users simultaneously 
+- Concurrent User Limit: Each World scene can accommodate up to 100 users simultaneously.
 
 ## Publish a World 
 
