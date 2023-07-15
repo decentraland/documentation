@@ -50,17 +50,19 @@ MeshCollider.setBox(clickableEntity)
 Transform.create(clickableEntity, {position: Vector3.create(8, 1, 8)})
 
 pointerEventsSystem.onPointerDown(
-  clickableEntity,
+  {
+  entity: clickableEntity,
+  opts: {
+      button: InputAction.IA_POINTER,
+      hoverText: 'Click'
+    }
+  },
   function () {
     console.log("clicked entity")
-    const t= Transform.getMutable(clickableEntity)
+    const t = Transform.getMutable(clickableEntity)
     t.scale.y += 0.2
-  },
-  {
-    button: InputAction.IA_POINTER,
-    hoverText: 'Click'
   }
-)
+    )
 
 // non-blocker for clicks
 const nonBlocker = engine.addEntity()
