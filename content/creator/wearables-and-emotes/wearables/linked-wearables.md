@@ -509,7 +509,7 @@ It's important to note that these endpoints are used to validate a user profile 
 
 Considering that the client validates user profiles in batches so any delay in processing a single profile with LinkedWearables will impact the entire batch of users. This means that if the API performs slowly, it will negatively affect the overall performance of all users within that batch.
 
-To avoid damaging the platform performance all these endpoints must have an average response below the 500ms. This benchmark is crucial to prevent any degradation in the platform's overall performance.
+To avoid damaging the platform performance all these endpoints **must have an average response below the 500ms**. This benchmark is crucial to prevent any degradation in the platform's overall performance.
 
 
 **Technical details and examples [here](https://adr.decentraland.org/adr/ADR-42).**
