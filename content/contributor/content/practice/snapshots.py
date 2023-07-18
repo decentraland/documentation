@@ -45,7 +45,7 @@ all_snapshots.sort(key=lambda s: s['timeRange']['initTimestamp'], reverse=True)
 # we already downloaded, including those replaced by later snapshots.
 
 # Index all entities!
-all_entity_ids = set()
+seen_pointers = set()
 
 for snapshot in all_snapshots:
     # Extract relevant properties:
@@ -75,10 +75,12 @@ for snapshot in all_snapshots:
     for line in response:
         item = json.loads(line)
 
-        if item['entityId'] not in all_entity_ids:
-            all_entity_ids.add(item['entityId'])
+        if any(pointer in seen_pointers for pointer in item['pointers']):
+            continue # skip if we already found a more entity for this pointer
 
-    print(f"  done ({len(all_entity_ids)} accumulated entities)\n")
+        seen_pointers.update(item['pointers'])
+
+    print(f"  done ({len(seen_pointers)} accumulated entities)\n")
 
 # Done!
-print(f"Finished with {len(all_entity_ids)} total entities")
+print(f"Finished with {len(seen_pointers)} total entities")

@@ -13,7 +13,7 @@ Snapshots will contain conflicting versions of the same entities (i.e. different
 
 When a new snapshot _replaces_ older ones (e.g. a weekly snapshot that combines a series of daily ones), its metadata indicates which prior files are replaced so clients don't need to download them. 
 
-The full set of active entities can be discovered by combining all the available snapshots (more on this below), keeping the most recent version of each entity. 
+The full set of active entities can be discovered by combining all the available snapshots (more on this below), keeping the most recent entity referenced by each [pointer]({{< relref "pointers" >}}) discovered along the way.
 
 You can experiment with snapshots using working code in the [practice]({{< relref "practice" >}}) section.
 
@@ -87,9 +87,9 @@ If you intend to parse a snapshot line by line, remember to skip (or better stil
 
 ### Starting an Entity Index {#index-start}
 
-Clients that want to index the entire set of active entities should process all currently available snapshots, and keep the most recent entry for each entity.
+Clients that want to index the entire set of active entities should process all currently available snapshots, and keep the most recent [entity]({{< relref "entities" >}}) for each [pointer]({{< relref "pointers" >}}).
 
-The simplest strategy is to process snapshots in reverse-chronological order (i.e. most recent first), ignoring references to entities that have already been discovered.
+The simplest strategy is to process snapshots in reverse-chronological order (i.e. most recent first), ignoring pointers that have already been discovered, in order to keep the reference to the latest entity.
 
 In pseudo-code:
 
@@ -98,19 +98,21 @@ In pseudo-code:
 snapshots = get_snapshots()
 snapshots.sort('timeRange.initTimestamp', DESCENDING)
 
-seen_entity_ids = set()
+seen_pointers = set()
 
-# Process snapshots, keeping the newest item for each entity ID:
+# Process snapshots, keeping the newest entity for each pointer:
 for snapshot in snapshots:
     items = get_snapshot_items(snapshot) 
 
     for item in items:
-        if item['entityId'] not in seen_entity_ids:
-            keep(item)
-            seen_entity_ids.add(item['entityId'])
-        else:
+        if any(pointer in seen_pointers for pointer in item.pointers):
             discard(item)
+        else:
+            keep(item)
+            seen_pointers.update(item.pointers)
 ```
+
+Since individual entities can be referenced by multiple pointers (as is commonly the case with [scenes]({{< relref "entitiy-types/scenes" >}})), all of them must be checked before choosing to keep or discard the item.
 
 {{< info >}}
 Snapshot files for the longer time ranges can be very large. For development and experimentation purposes that don't require indexing the entire entity set, using the smaller snapshots is recommended. The resulting set of entities will be incomplete but valid.

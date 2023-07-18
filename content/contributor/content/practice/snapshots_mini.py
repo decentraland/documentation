@@ -49,5 +49,5 @@ if header != '### Decentraland json snapshot':
 # Read and decode all items, one JSON per line:
 for line in response:
     item = json.loads(line)
-    print(item['entityType'], item['entityId'])
+    print(item['entityType'], item['entityId'], item['pointers'])
 
