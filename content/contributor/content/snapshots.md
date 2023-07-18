@@ -112,7 +112,7 @@ for snapshot in snapshots:
             seen_pointers.update(item.pointers)
 ```
 
-Since individual entities can be referenced by multiple pointers (as is commonly the case with [scenes]({{< relref "entitiy-types/scenes" >}})), all of them must be checked before choosing to keep or discard the item.
+Since individual entities can be referenced by multiple pointers (as is commonly the case with [scenes]({{< relref "entity-types/scenes" >}})), all of them must be checked before choosing to keep or discard the item.
 
 {{< info >}}
 Snapshot files for the longer time ranges can be very large. For development and experimentation purposes that don't require indexing the entire entity set, using the smaller snapshots is recommended. The resulting set of entities will be incomplete but valid.
