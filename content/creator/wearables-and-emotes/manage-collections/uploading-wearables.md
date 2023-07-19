@@ -104,10 +104,8 @@ This is a brief statement describing your item that will be displayed in the mar
 
 ## **Overrides**
 
-Overrides determine what other wearable categories your item will either replace, or hide. For example, if a hat has hair attached to the model, you might want to hide the category **_Hair_**. Or if you are submitting a deep sea diver helmet you may want hide all the head accessories that are not going to be visible such as earrings, eyewear, tiara, etc. You can add multiple categories to each override; just select them on the dropdown menu.
-
-- **Replaces**: any items within the categories added to this override will be unequipped from a users’ avatar when they equip your item. A user would have to re-equip any "replaced" items after unequipping your item. This does not delete items, it only unequips them.
-- **Hides**: any items within the categories added to this override will only be hidden (they won’t be rendered) when a user equips your item. When a user unequips your item, the hidden items will be rendered again automatically.
+Overrides determine what other wearable categories your item will hide. For example, if a hat has hair attached to the model, you might want to hide the category **_Hair_**. Or if you are submitting a deep sea diver helmet you may want hide all the head accessories that are not going to be visible such as earrings, eyewear, tiara, etc. You can add multiple categories to each override; just select them on the dropdown menu.
+- **Hides**: any items within the categories added to this override will only be hidden (they won’t be rendered) when a user equips your item. When a user unequips your item, the hidden items will be rendered again automatically. The user will be able to manually revert this override for individual categories.
 
 For a detailed description of each category, and how items within each category interact or replace one another, see **[Creating Wearables](https://docs.decentraland.org/creator/wearables-and-emotes/wearables/creating-wearables/)**.
 
