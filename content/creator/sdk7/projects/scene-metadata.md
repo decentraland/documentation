@@ -326,13 +326,15 @@ The corresponding features are enabled by default, unless specified as _dissable
 
 ```json
 "featureToggles": {
-    "voiceChat": "disabled"
+    "voiceChat": "disabled",
+    "portableExperiences": "enabled" | "disabled" | "hideUi"
 },
 ```
 
 Currently, only the following feature is handled like this:
 
 - `voiceChat`: Refers to players using their microphones to have conversations over voice chat with other nearby players.
+-`portableExperiences`: This settings will set the behaivour for all external portable experiences on your scene. You can disabled, enabled or hide the ui for all of them.
 
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
