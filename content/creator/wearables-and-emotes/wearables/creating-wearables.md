@@ -34,7 +34,7 @@ The Decentraland "avatar system" is the broad collection of different body compo
   - Mouth
 - Upper body
 - Lower body
-- Hands
+- Handwear
 - Feet
 - Accessories
 
@@ -201,16 +201,16 @@ There are two types of **Handwear** you can do under the same category.
 
 <img src="/images/wearables-and-emotes/creating-wearables/55_gloves.png" width="300" />
 
-If you want to do handwear that replaces both hands you would probably need to override the ***hand*** base mesh. Doing that the limit for the hand wearable would be 1500 tris.
+If you want to create handwear that replaces both hands you would probably need to override the ***hand*** base mesh. Doing that, the limit for the handwear wearable would be 1500 tris.
 
 2. **Hand Accessories:**
 
 <img src="/images/wearables-and-emotes/creating-wearables/56_dclwatch.png" width="300" />
 
-Also you can create hand accessories like watches, bracelets, rings, etc. In that sense, the hand doesn't need to be override and the limit is 1000 tris per item. 
+Also you can create hand accessories like watches, bracelets, rings, etc. In that sense, the hand doesn't need to be overridden and the limit is 1000 tris per item. 
 
 {{< hint warning >}}
-Note: The "hand wear" category is specifically for hand accessories or replacing hands that follow the avatar armature with proper skinning. It is not meant for items such as swords, shields, or any similar asset. Submitting an item that doesn't follow these specifications may result in rejection by the curators committee.
+Note: The **handwear** category is specifically for hand accessories or replacing hands that follow the avatar armature with proper skinning. It is not meant for items such as swords, shields, or any similar asset. Submitting an item that doesn't follow these specifications may result in rejection by the curators committee.
 
 {{< /hint >}}
 
