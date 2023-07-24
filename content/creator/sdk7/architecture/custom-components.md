@@ -237,7 +237,7 @@ const MySchema = {
 
 You can set the type of a field in a schema to be an enum. Enums make it easy to select between a finite number of options, providing human-readable values for each.
 
-To set the type of a field to an enum, you must first define the enum. Then you can refer to it using `Schemas.Enum`, passing the enum to reference between `<>`, as well as the type as a parameter (usually all enums are `Schemas.Int`).
+To set the type of a field to an enum, you must first define the enum. Then you can refer to it using `Schemas.EnumNumber` or `Schemas.EnumString`, depending on the type of enum. You must pass the enum to reference between `<>`, as well as the type as a parameter (either `Schemas.Int` for number enums, or `Schemas.String` for string enums). You must also pass a default value to use for this field.
 
 ```ts
 // Define an enum
@@ -249,7 +249,7 @@ enum CurveType {
 
 // Define a schema that uses this enum in a field
 const MyCurveSchema = {
-  curve:  Schemas.Enum<CurveType>(Schemas.Int),
+  curve:  Schemas.EnumNumber<CurveType>(Schemas.Int, CurveType.LINEAR),
 }
 
 ```
