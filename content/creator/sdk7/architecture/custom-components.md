@@ -240,18 +240,39 @@ You can set the type of a field in a schema to be an enum. Enums make it easy to
 To set the type of a field to an enum, you must first define the enum. Then you can refer to it using `Schemas.EnumNumber` or `Schemas.EnumString`, depending on the type of enum. You must pass the enum to reference between `<>`, as well as the type as a parameter (either `Schemas.Int` for number enums, or `Schemas.String` for string enums). You must also pass a default value to use for this field.
 
 ```ts
-// Define an enum
+//// String enum
+
+// Define enum
+enum Color {
+  Red = 'red',
+  Green = 'green',
+  Pink = 'pink'
+}
+
+// Define a component that uses this enum in a field
+const ColorComponent = engine.defineComponent('Color', { 
+  color: Schemas.EnumString<Color>(Color, Color.Red)
+})
+
+// Use component on an entity
+ColorComponent.create(engine.addEntity(), { color: Color.Green })
+
+//// Number enum
+
+// Define enum
 enum CurveType {
   LINEAR,
   EASEIN,
   EASEOUT
 }
 
-// Define a schema that uses this enum in a field
-const MyCurveSchema = {
-  curve:  Schemas.EnumNumber<CurveType>(Schemas.Int, CurveType.LINEAR),
-}
+// Define a component that uses this enum in a field
+const CurveComponent = engine.defineComponent('curveComponent', { 
+  curve: Schemas.EnumString<CurveType>(CurveType, CurveType.LINEAR)
+})
 
+// Use component on an entity
+CurveComponent.create(engine.addEntity(), { curve: CurveType.EASEIN })
 ```
 
 ### Interchangeable types
