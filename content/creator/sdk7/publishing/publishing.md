@@ -54,7 +54,7 @@ Open your scene's _scene.json_ file and complete the following data:
 
 Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
-1) Open your scene's folder using Visual Studio Code. 
+1) Open your scene's folder using Visual Studio Code.
 
 {{< hint warning >}}
 **📔 Note**:  The Visual Studio window must be at the root folder of the scene project.
@@ -127,7 +127,7 @@ You can deploy content to the test catalyst server to run full tests with multip
 {{< /hint >}}
 
 
-Players are never directed to this server, the only way to access it is to explicitly provide a URL parameter to connect to it. 
+Players are never directed to this server, the only way to access it is to explicitly provide a URL parameter to connect to it.
 
 If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
 
@@ -153,7 +153,7 @@ _play.decentraland.org/&CATALYST=peer-testing.decentraland.org_
 
 To deploy to the test server, run:
 
-`npm run deploy --target peer-testing.decentraland.org`
+`npm run deploy -- --target peer-testing.decentraland.org`
 
 
 To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
@@ -166,7 +166,7 @@ _https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
 
 Once you deployed your scene, these changes will take a few minutes to be propagated throughout the various content servers in the network. If you enter Decentraland right after deploying, you might still see the previous version of your content, depending of what realm you enter.
 
-After you sign to authorize the deployment of your scene, the signing dapp will start displaying confirmations that the new version of your content has been propagated throughout all of the servers in the network, 
+After you sign to authorize the deployment of your scene, the signing dapp will start displaying confirmations that the new version of your content has been propagated throughout all of the servers in the network,
 
 You'll see a list of each of the servers that make up Decentraland's content network. For each server, it specifies the timestamp of the last uploaded change on that parcel. Each one of these servers refers to a different realm, you can reference how these server names map to realm names in the [catalyst monitor screen](https://decentraland.github.io/catalyst-monitor/).
 
@@ -216,4 +216,3 @@ jobs:
 ```
 
 > Important: For this process to run, you must set a wallet's private key as an environment variable in GitHub, this is used to sign the deployment. As always, be very careful with keeping public keys secure. Do NOT use the public key of the account that actually owns the land tokens, as that would have very big risks. Instead, delegate operator rights to a disposable wallet that owns no valuable tokens. If this private key is ever leaked somehow, you can easily revoke those operator rights from the account and set up a new wallet.
-
