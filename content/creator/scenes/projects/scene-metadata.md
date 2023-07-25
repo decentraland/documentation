@@ -275,7 +275,7 @@ If a `requiredPermissions` property doesn't exist in your `scene.json` file, cre
 
 ## Feature Toggles
 
-There are certain features that can be dissabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
+There are certain features that can be disabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
 
 The corresponding features are enabled by default, unless specified as _dissabled_ in the `scene.json` file.
 
@@ -293,6 +293,24 @@ Currently, only the following feature is handled like this:
 -`portableExperiences`: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) but also [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
 
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
+
+## Worlds Configuration 
+
+When you are planning to upload yor scene to a Decentraland [World]({{< ref "/content/creator/worlds/about.md" >}}) instead of Genesis City, you must specify the NAME that you are going to target. On the other hand, if your world meets the requirements to be listed on [Places](https://places.decentraland.org/) (owning a LAND or having an active LAND rental contract), and you prefer not to list your scene, you can also configure it accordingly. 
+
+```
+{
+  "worldConfiguration" : {
+    "name": "my-name.dcl.eth",
+    "placesConfig": {
+      "optOut": true
+    }
+  }
+}
+```
+{{< hint warning >}}
+**📔 Note**: Attempting to upload a scene with the `worldConfiguration`` section to a Catalyst will result in the deployment being rejected.
+{{< /hint >}}
 
 ## Fetch metadata from scene code
 
