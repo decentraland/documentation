@@ -275,7 +275,7 @@ If a `requiredPermissions` property doesn't exist in your `scene.json` file, cre
 
 ## Feature Toggles
 
-There are certain features that can be dissabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
+There are certain features that can be disabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
 
 The corresponding features are enabled by default, unless specified as _dissabled_ in the `scene.json` file.
 
@@ -290,6 +290,24 @@ Currently, only the following feature is handled like this:
 - `voiceChat`: Refers to players using their microphones to have conversations over voice chat with other nearby players.
 
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
+
+## Worlds Configuration 
+
+When you are planning to upload yor scene to a Decentraland [World]({{< ref "/content/creator/worlds/about.md" >}}) instead of Genesis City, you must specify the NAME that you are going to target. On the other hand, if your world meets the requirements to be listed on [Places](https://places.decentraland.org/) (owning a LAND or having an active LAND rental contract), and you prefer not to list your scene, you can also configure it accordingly. 
+
+```
+{
+  "worldConfiguration" : {
+    "name": "my-name.dcl.eth",
+    "placesConfig": {
+      "optOut": true
+    }
+  }
+}
+```
+{{< hint warning >}}
+**📔 Note**: Attempting to upload a scene with the `worldConfiguration`` section to a Catalyst will result in the deployment being rejected.
+{{< /hint >}}
 
 ## Fetch metadata from scene code
 

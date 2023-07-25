@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: Upload a preview
+title: Preview in Heroku
 description: Upload a preview of your scene to a server and share it offchain.
 aliases:
   - /deploy/deploy-to-now/
@@ -12,7 +12,7 @@ type: Document
 url: /creator/development-guide/deploy-third-party
 ---
 
-If you don't own parcels in Decentraland or are not ready to [deploy]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) your scene to Decentraland, you can upload your scene preview to run as an app in a free server.
+If you do not possess any parcels in Decentraland or a Decentraland [NAME](https://builder.decentraland.zone/names) to publish your scene to a [Worlds]({{< ref "/content/creator/worlds/about.md" >}}), or if you are not yet prepared to [deploy]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) your scene to Decentraland, there is an alternative option available. You can upload a preview of your scene to run as an application on a free server.
 
 Once uploaded, the only thing that others have to do to explore your scene is follow a link. They don’t need to install the CLI, Node, NPM, or any of the other tools that would be required to run the preview on their local machine.
 
