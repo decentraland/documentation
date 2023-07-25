@@ -34,6 +34,7 @@ The Decentraland "avatar system" is the broad collection of different body compo
   - Mouth
 - Upper body
 - Lower body
+- Handwear
 - Feet
 - Accessories
 
@@ -41,7 +42,7 @@ The Decentraland "avatar system" is the broad collection of different body compo
 
 After downloading the base avatar example file, load the model into your 3D editor, like Blender.
 
-You’ll notice that each model contains 7 different meshes related to an armature. These meshes represent the head, eyebrows, eyes, mouth, upper body, lower body and feet. You can use these example models as a reference and starting point for your own custom wearable.
+You’ll notice that each model contains 8 different meshes related to an armature. These meshes represent the head, eyebrows, eyes, mouth, upper body, lower body, hands and feet. You can use these example models as a reference and starting point for your own custom wearable.
 
 Currently, there are two body shapes: A or B.
 
@@ -55,19 +56,25 @@ _*The base head includes different meshes attached that can be customizables as 
 
 ## **Upper Body**
 
-<img src="/images/wearables-and-emotes/creating-wearables/3_upper_body.jpeg" width="600" />
+<img src="/images/wearables-and-emotes/creating-wearables/3_upper_body.png" width="600" />
 
-_*The upper body, or torso, of an avatar includes the arms and hands.*_
+_*The upper body, or torso, of an avatar. Does not includes the hands.*_
 
 ## **Lower Body**
 
-<img src="/images/wearables-and-emotes/creating-wearables/4_lower_body.jpeg" width="600" />
+<img src="/images/wearables-and-emotes/creating-wearables/4_lower_body.png" width="600" />
 
 _*The lower body includes the pelvis and legs of an avatar.*_
 
+## **Hands**
+
+<img src="/images/wearables-and-emotes/creating-wearables/54_hands.png" width="600"/>
+
+_*The hands are the same for Shape A and B, and start on the wrists of an avatar.*_
+
 ## **Feet**
 
-<img src="/images/wearables-and-emotes/creating-wearables/5_feet.jpeg" width="600" />
+<img src="/images/wearables-and-emotes/creating-wearables/5_feet.png" width="600" />
 
 _*Feet include ankles and foot.*_
 
@@ -76,7 +83,7 @@ _*Feet include ankles and foot.*_
 
 Each part of the body has caps, making them "water tight". These caps exist to prevent unsightly glitches if there are any animation clipping problems due to bad skin weighting. It’s best to not remove these caps when editing the mesh.
 
-<img src="/images/wearables-and-emotes/creating-wearables/14_body_parts.jpeg" width="600"/>
+<img src="/images/wearables-and-emotes/creating-wearables/14_body_parts.png" width="800"/>
 
 # Building 3D Models for Wearables
 
@@ -88,6 +95,7 @@ There are limits for the number of triangles and textures that can be used for e
 
 - No more than 1.5K triangles per wearable slot: hat, helmet, upper body, lower body, feet and hair.
 - No more than 500 triangles per categories: mask, eyewear, earring, tiara, top_head and facial hair.
+- For hand accessories, the budget is 1k tris. If the hand wear hides the base hand of the avatar, the budget is 1.5k tris.
 - No more than 2 textures (at a resolution of 512x512px or lower) per wearable. All textures must be square at 72 pixel/inch resolution.
 - No more than 2 materials (without counting the AvatarSkin_MAT)
 - In the case of skin wearable, the amount of tris allowed are 5k and 5 textures.
@@ -147,7 +155,7 @@ Remember not to change any of the specifications, naming conventions, hierarchy,
 
 <img src="/images/wearables-and-emotes/creating-wearables/50_armature.png" width="600"/>
 
-Be sure that the armature imported has no any *end* or *neutral* bones, otherwise the wearable is not going to work after exporting to the builder. If you are importing an .fbx that has this issue you can toggle ***Ignore Leaf Bones*** when importing the armature.
+Be sure that the armature imported has no any _end_ or _neutral_ bones, otherwise the wearable is not going to work after exporting to the builder. If you are importing an .fbx that has this issue you can toggle **_Ignore Leaf Bones_** when importing the armature.
 
 <img src="/images/wearables-and-emotes/creating-wearables/53_ignore_leaf_bones.png" width="600"/>
 
@@ -184,6 +192,27 @@ These color choices are applied to a specific mask in the wearable.
 <img src="/images/wearables-and-emotes/creating-wearables/30_eyes_base.png" width="300" />
 
 The black area in the image on the left (Eyes Mask) indicates the area of the texture on the right (Eyes Base) that will be colored. It’s important to remember that irises always need to have a grey scale (if the iris is pure black, the tint isn’t going to work. By the contrary, if the iris is pure white it would be fully tinted by the selected color using the editor).
+
+### **Handwear**
+
+There are two types of **Handwear** you can do under the same category.
+
+1. **Replacing Hands:**
+
+<img src="/images/wearables-and-emotes/creating-wearables/55_gloves.png" width="300" />
+
+If you want to create handwear that replaces both hands you would probably need to override the ***hand*** base mesh. Doing that, the limit for the handwear wearable would be 1500 tris.
+
+2. **Hand Accessories:**
+
+<img src="/images/wearables-and-emotes/creating-wearables/56_dclwatch.png" width="300" />
+
+Also you can create hand accessories like watches, bracelets, rings, etc. In that sense, the hand doesn't need to be overridden and the limit is 1000 tris per item. 
+
+{{< hint warning >}}
+Note: The **handwear** category is specifically for hand accessories or replacing hands that follow the avatar armature with proper skinning. It is not meant for items such as swords, shields, or any similar asset. Submitting an item that doesn't follow these specifications may result in rejection by the curators committee.
+
+{{< /hint >}}
 
 ### **Hair and Facial Hair**
 
@@ -274,6 +303,8 @@ The "key" bones to use when skin weighting are:
 
 **Right Leg and Left Leg Bones:** for the lower body and feet intersecting vertices.
 
+**Right Forearm and Left Forearm** for the hands intersecting vertices.
+
 {{< hint warning >}}
 ⚠️ **Hint**
 
@@ -285,8 +316,7 @@ The "key" bones to use when skin weighting are:
 
 ### **Exporting Wearables**
 
-When exporting wearables, make sure there are no other bones outside of the given Armature. A common problem when importing armatures between different software is the appearance of *"\_end"* or *"\_neutral"* bones. Be sure to remove those before exporting. Otherwise, it is very likely that the wearables will not work on the client afterwards.
-
+When exporting wearables, make sure there are no other bones outside of the given Armature. A common problem when importing armatures between different software is the appearance of _"\_end"_ or _"\_neutral"_ bones. Be sure to remove those before exporting. Otherwise, it is very likely that the wearables will not work on the client afterwards.
 
 <img src="/images/wearables-and-emotes/creating-wearables/51_export_wearables.png" width="600" />
 
