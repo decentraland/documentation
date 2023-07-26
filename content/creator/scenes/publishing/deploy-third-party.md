@@ -12,17 +12,17 @@ type: Document
 url: /creator/development-guide/deploy-third-party
 ---
 
-If you do not possess any parcels in Decentraland or a Decentraland [NAME](https://builder.decentraland.zone/names) to publish your scene to a [World]({{< ref "/content/creator/worlds/about.md" >}}), or if you are not yet prepared to [deploy]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) your scene to Decentraland, there is an alternative option available. You can upload a preview of your scene to run as an application on a free server.
+If you do not possess any parcels in Decentraland or a Decentraland [NAME](https://builder.decentraland.zone/names) to publish your scene to a [Worlds]({{< ref "/content/creator/worlds/about.md" >}}), or if you are not yet prepared to [deploy]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) your scene to Decentraland, there is an alternative option available. You can upload a preview of your scene to run as an application on server.
 
 Once uploaded, the only thing that others have to do to explore your scene is follow a link. They don’t need to install the CLI, Node, NPM, or any of the other tools that would be required to run the preview on their local machine.
 
 Note that it's not necessary to own LAND to upload a scene preview to a Heroku server. The uploaded content isn't linked to the blockchain in any way. When running the preview, other adjacent parcels appear as empty.
 
-Follow the steps below to upload your scenes to a free Heroku server:
+Follow the steps below to upload your scenes to a Heroku server:
 
 1. Make sure you have the latest Decentralnd CLI version installed on your machine `npm i -g decentraland@latest`.
 
-2. Create a free [Heroku](https://dashboard.heroku.com/) account, if you don't already have one.
+2. Create a [Heroku](https://dashboard.heroku.com/) account, if you don't already have one.
 
 3. Install the Heroku CLI. Do this via `npm i -g heroku`, or see [their documentation](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli) for alternatives.
 
