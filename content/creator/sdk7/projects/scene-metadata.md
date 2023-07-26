@@ -293,14 +293,14 @@ Currently, the following permissions are managed on all content:
 - `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >}})
 - `ALLOW_MEDIA_HOSTNAMES`: Refers to fetching resources (including images, video streams, and audio streams) from external sources rather than being limited to the files stored in the scene folder. You must also list the allowlisted high-level domains you will be fetching resources from.
   `json
-	"requiredPermissions": [
-		"ALLOW_MEDIA_HOSTNAMES"
-	],
-	"allowedMediaHostnames": [
-		"somehost.com",
-		"otherhost.xyz"
-	]
-	`
+"requiredPermissions": [
+	"ALLOW_MEDIA_HOSTNAMES"
+],
+"allowedMediaHostnames": [
+	"somehost.com",
+	"otherhost.xyz"
+]
+`
   {{< hint warning >}}
   **📔 Note**: The `allowedMediaHostnames` lists only the high-level domains from where your assets are being requested. If there are any chained requests, these don't need to be explicitly listed. For example, if a video streaming service forwards content from a network of alternative servers, you only need to list the original URL you'll be explicitly calling from your code, not those other servers.
   {{< /hint >}}
@@ -320,19 +320,22 @@ If a `requiredPermissions` property doesn't exist in your `scene.json` file, cre
 
 ## Feature Toggles
 
-There are certain features that can be dissabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
+There are certain features that can be disabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
 
-The corresponding features are enabled by default, unless specified as _dissabled_ in the `scene.json` file.
+The corresponding features are enabled by default, unless specified as _disabled_ in the `scene.json` file.
 
 ```json
 "featureToggles": {
-    "voiceChat": "disabled"
+    "voiceChat": "disabled",
+    "portableExperiences": "enabled" | "disabled" | "hideUi"
 },
 ```
 
 Currently, only the following feature is handled like this:
 
 - `voiceChat`: Refers to players using their microphones to have conversations over voice chat with other nearby players.
+
+-`portableExperiences`: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) but also [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
 
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 

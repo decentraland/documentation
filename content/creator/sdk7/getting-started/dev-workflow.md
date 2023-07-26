@@ -17,7 +17,7 @@ This document outlines the steps recommended for developing a scene for Decentra
 - [Design your experience](#design-your-experience)
 - [Where to publish](#where-to-publish)
 - [Templates and examples](#templates-and-examples)
-- [Art Assets](#art-assets)
+- [Art assets](#art-assets)
 - [Run a local preview](#run-a-local-preview)
 - [Publish to the test server](#publish-to-the-test-server)
 - [Publish to Decentraland](#publish-to-decentraland)
@@ -46,7 +46,7 @@ Think about how much space you need to take up, what kind of distribution, what 
 
 In Decentraland, content is published to adjacent plots of land in a finit amount of space. Players can freely walk from one to the other. Each scene is its own contained little world, items from one scene can't extend out into another scene, and the code for each scene is sandboxed from all others.
 
-Permission to publish to each of these is controlled via tokens. You don't need land to develop a scene, but you will need access to land once you're ready to publish. You can also publish to Decentraland Worlds (beta), which are isolated scenes.
+Permission to publish to each of these is controlled via tokens. You don't need land to develop a scene, but you will need access to land once you're ready to publish. Alternatively, you have the option to publish to Decentraland [Worlds]({{< ref "/content/creator/worlds/about.md" >}}), which are self-contained and isolated scenes. 
 
 The following options are available:
 
@@ -54,10 +54,6 @@ The following options are available:
 - [Purchase LAND]({{< ref "/content/player/marketplace/marketplace.md" >}})
 - Obtain permissions from a land owner
 - Publish to a Decentraland World, see [worlds]({{< ref "/content/creator/worlds/about.md" >}}) to learn more.
-
-{{< hint warning >}}
-**📔 Note**:  The Worlds feature is still in beta.
-{{< /hint >}}
 
 See [Publishing options]({{< ref "/content/creator/sdk7/publishing/publishing-options.md" >}}) for more details.
 
