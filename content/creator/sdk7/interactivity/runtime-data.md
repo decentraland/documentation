@@ -5,7 +5,7 @@ description: Obtain data from the context where your scene is running and the sc
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/sdk7/user-data/
+url: /creator/development-guide/sdk7/runtime-data/
 weight: 5
 ---
 

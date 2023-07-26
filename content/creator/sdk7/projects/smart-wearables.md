@@ -17,17 +17,20 @@ Smart wearables are portable experiences that are turned on when the player puts
 
 ## Getting started
 
-To create a new smart wearable
+### Using the Editor
 
-1. Make sure you have the latest version of the CLI installed
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}), then:
 
-`npm i -g decentraland@latest`
+1. Open a Visual Studio Code window on an _empty folder_.
+2. Select the Decentraland tab on Visual Studio's left margin sidebar
+3. Click **Create Project**
+4. The editor will prompt you about what kind of project to create. Select **Smart Wearable**.
 
-2. Open a command line in a new folder and run
+### Using the CLI
 
-`npx sdk-commands init`
+1. Open a command line in a new folder and run
 
-When prompted by the command, select `smart wearable (beta)`
+`npx sdk-commands init --project smart-wearable`
 
 This command creates the basic files and structure for a new smart wearable. This folder is very similar to that of a Decentraland scene, but you will notice the following differences:
 
@@ -73,13 +76,11 @@ The default `wearable.json` file looks like this:
 
 The following fields are required in `wearable.json`:
 
-- `id`: The `npx sdk-commands init` command generates a random value for this ID.
-
 {{< hint warning >}}
-**📔 Note**:  If you forked your project from an existing one, make sure the ID value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
+**📔 Note**:  - If you forked your project from an existing one, make sure the ID value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
 {{< /hint >}}
 
-
+- `id`: Unique id of the smart wearable.
 - `name`: The name for the wearable that users will see in the marketplace
 - `description`: The description of the wearable that users will see in the marketplace. Make sure you indicate what the smart wearable can do, as users of the marketplace will have no way to preview its functinality before buying it.
 - `rarity`: The rarity supply of the token. Possible values are:
@@ -101,7 +102,7 @@ The following fields can also optionally be included. These settings can also be
     - `bodyShapes`: The list of avatar representations that can use this wearable. Eg, both `BaseMale` and `BaseFemale`.
     - `mainFile`: The main file with the 3D model of the wearable.
     - `contents`: The full list of files used to render the 3D model of the wearable. For example, the 3D model could include textures as separate files.
-    - `overrideHides`: Any exceptions from the default _hide_ behavior of this wearable category. 
+    - `overrideHides`: Any exceptions from the default _hide_ behavior of this wearable category.
     - `overrideReplaces`:  Any exceptions from the default _replace_ behavior of this wearable category.
 
   - `category`: What wearable category to use. Possible values are:
@@ -177,19 +178,19 @@ To publish your smart wearable:
 
 1. Make sure the information in `wearable.json` is accurate. If you used another project as a starting point, make sure the `id` is a unique identifier, not used by other wearables.
 
-2. Run `dcl pack` on your project folder. This generates a `portable-experience.zip` file in your project folder.
+2. Run `npm run pack` on your project folder. This generates a `smart-wearable.zip` file in your project folder.
 
 {{< hint warning >}}
-**📔 Note**:  The output of `dcl pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
+**📔 Note**:  The output of `npm run pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
 {{< /hint >}}
 
 
 
 3. Open the Builder, open the Collections tab, click + to upload a new wearable.
 
-4. Drag your compressed `portable-experience.zip` file into the Builder, verify that all the information is accurate.
+4. Drag your compressed `smart-wearable.zip` file into the Builder, verify that all the information is accurate.
 
-  > Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model): 
+  > Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model):
     a) Select only Male and complete the process
     b) Open the wearables in the editor, click the three dot options button, select “upload female representation”, and upload the 3D model for the female shape.
 
@@ -209,13 +210,13 @@ See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadat
 ## Limitations
 
 > IMPORTANT: The entire smart wearable needs to fit within 2 MB. This includes the 3D model, thumbnail, code, libraries, sound files, additional 3D models, UI images, etc. This limit is for the uncompressed folder. The builder will not let you upload larger wearables than this.
-> To check the size of your portable experience, run `dcl pack`, the project size is specified in the output text of the command. You can also verify this by uncompressing the generated `portable-experience.zip` file.
+> To check the size of your portable experience, run `npm run pack`, the project size is specified in the output text of the command. You can also verify this by uncompressing the generated `smart-wearable.zip` file.
 
 Smart wearables only run the portable experience for the player wearing the wearable. Other players don't see the effects. For example, if the portable experience renders a pet that follows the player, other players around won't see this pet.
 
 Smart wearables only work when players have them on. For this reason, players can only have a limited number of activated smart wearables, and depending on what part of the body they take up, some will be incompatible with others. For example, you can’t have two hats at the same time, or a helmet and hair at the same time.
 
-If a wearable is “hidden” but not “removed” by other wearables being worn, then the portable experience can still be on, even if the corresponding wearable is not visible.
+If a wearable is “hidden” but not “removed” by other wearables being worn, then the smart wearable can still be on, even if the corresponding wearable is not visible.
 
 ## Examples
 
