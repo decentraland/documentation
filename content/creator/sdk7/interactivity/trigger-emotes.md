@@ -80,7 +80,7 @@ pointerEventsSystem.onPointerDown(
     opts: { button: InputAction.IA_POINTER, hoverText: 'Make snowball' },
   },
   () => {
-    triggerSceneEmote({ scr: 'animations/Snowball_Throw.glb', loop: false })
+    triggerSceneEmote({ src: 'animations/Snowball_Throw.glb', loop: false })
   }
 )
 ```
