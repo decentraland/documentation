@@ -9,7 +9,13 @@ url: /creator/development-guide/sdk7/entity-positioning/
 weight: 1
 ---
 
-You can set the _position_, _rotation_ and _scale_ of any entity by using the `Transform` component. This can be used on any entities, affecting where 3D objects are rendered, like primitive shapes (cube, sphere, plane, etc) and 3D models (`GltfContainer`).
+You can set the _position_, _rotation_ and _scale_ of any entity by using the `Transform` component. This can be used on any entity in the 3D space, affecting where the entitiy is rendered. This includes primitive shapes (cube, sphere, plane, etc), 3D text shapes, NFT shapes, and 3D models (`GltfContainer`).
+
+## Editor UI
+
+When dragging entities via the Inspector, in the [Decentraland Editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}), you are changing the values in the entity's Transform implicitly. By changing the position, rotation or scale of an entity, this changes the data in that entity's Transform component.
+
+## Code essentials
 
 <img src="/images/media/ecs-simple-components-new.png" alt="nested entities" width="400"/>
 
