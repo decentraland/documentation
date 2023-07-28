@@ -68,7 +68,7 @@ To specify under what **name** to make your deployment, add the following sectio
 To spawn a portable experience from your scene, use the `spawn()` function. To terminate a portable experience, use `kill()`. In both cases, you just need yo know the DCL name where the Portable experience was deployed.
 
 ```ts
-import { spawn } from '~system/portableexperiences'
+import {spawn} from "~system/PortableExperiences"
 
 // spawn
 executeTask(async () => {
@@ -94,7 +94,7 @@ import {
   spawn,
   getPortableExperiencesLoaded,
   kill,
-} from '~system/PortableExperiences'
+} from "~system/PortableExperiences"
 
 executeTask(async () => {
   const { loaded } = await getPortableExperiencesLoaded({})
