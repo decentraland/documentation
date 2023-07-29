@@ -59,6 +59,12 @@ To specify under what **name** to make your deployment, add the following sectio
 }
 ```
 
+Run
+```
+npm run deploy --target-content https://worlds-content-server.decentraland.org
+```
+
+
 {{< hint warning >}}
 **📔 Note**: Each NAME references a single portable experience or world. If your name already pointed to a world, deploying a portable experience will override that content.
 {{< /hint >}}
