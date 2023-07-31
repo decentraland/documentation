@@ -24,7 +24,7 @@ To add an audio stream into your scene, simply add an `AudioStream` component to
 ```ts
 const streamEntity = engine.addEntity()
 
-AudioStream.create(cube,{
+AudioStream.create(streamEntity,{
 	url: "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3",
 	playing: true,
 	volume: 0.8
