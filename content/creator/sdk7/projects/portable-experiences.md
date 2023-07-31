@@ -59,15 +59,20 @@ To specify under what **name** to make your deployment, add the following sectio
 }
 ```
 
-Run
-```
-npm run deploy --target-content https://worlds-content-server.decentraland.org
-```
-
-
 {{< hint warning >}}
 **📔 Note**: Each NAME references a single portable experience or world. If your name already pointed to a world, deploying a portable experience will override that content.
 {{< /hint >}}
+
+### Using the Editor
+
+Open the Decentraland tab and click the three-dots icon at the top, and select **Publish scene to your world**.
+
+### Using the CLI
+
+Run:
+```
+npm run deploy --target-content https://worlds-content-server.decentraland.org
+```
 
 ## Lifecycle of a portable experience in a scene
 
