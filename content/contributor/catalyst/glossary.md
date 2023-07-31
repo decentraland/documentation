@@ -25,6 +25,7 @@ Data Type, defined with [schemas](https://github.com/decentraland/common-schemas
 - [Scene](https://github.com/decentraland/common-schemas/blob/main/src/platform/scene/scene.ts)
 - [Profile](https://github.com/decentraland/common-schemas/blob/main/src/platform/profile/profile.ts)
 - [Stores](https://github.com/decentraland/common-schemas/blob/main/src/dapps/store.ts)
+- [Outfits](https://github.com/decentraland/common-schemas/blob/main/src/platform/outfits/outfits.ts)
 
 ### Deployment
 
@@ -46,6 +47,7 @@ Pointers are the ids or locations to which a Deployment belongs. Their format is
 - **Scenes**: Uses parcels or array of parcels as pointers, for example `--10,20` or `[(0,0), (0,1), (0,-1)]`
 - **Profiles**: Uses a Wallet address as pointer `0xb01ddb6d4c89314f74a32dfc2f3bd0f8311a6d75`
 - **Stores**: Uses a URN as pointer `urn:decentraland:off-chain:marketplace-stores:{wallet}`
+- **Outfits**: Uses a Wallet address as pointer suffixed by `:outfits`, `0xb01ddb6d4c89314f74a32dfc2f3bd0f8311a6d75:outfits`
 
 ### URN
 
