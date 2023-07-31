@@ -66,7 +66,7 @@ Pass two arguments: the South-West and the North-East parcels. The South-West pa
 `npx update-parcels <parcel> <parcel>`
 
 {{< hint info >}}
-**💡 Tip**:  The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
+**💡 Tip**: The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
 {{< /hint >}}
 
 For example:
@@ -82,25 +82,22 @@ Pass three arguments: the South-West and the North-East parcels, and the parcel 
 `npx update-parcels <parcel> <parcel> <parcel>`
 
 {{< hint warning >}}
-**📔 Note**:  The base parcel must be one of the parcels in the scene.
+**📔 Note**: The base parcel must be one of the parcels in the scene.
 {{< /hint >}}
-
 
 **Non-square scenes**
 
 The above commands all generate rectangular-shaped scenes. Decentraland scenes can have L shapes or other configurations. You can generate a larger square with `npx update-parcels` and then manually remove excess parcels from the `scene.json` file.
 
 {{< hint warning >}}
-**📔 Note**:  The base parcel must be one of the parcels in the scene.
+**📔 Note**: The base parcel must be one of the parcels in the scene.
 {{< /hint >}}
-
 
 ## Scene title, description, and image
 
 It's very important to give your scene a title, a description and a thumbnail image to attract players to your scene and so they know what to expect.
 
 Players will see these displayed on a modal when they select the parcels of your scene on the map. They will also see these in a confirmation screen when being [teleported]({{< ref "/content/creator/sdk7/interactivity/external-links.md" >}}) there by another scene. Setting up compelling data here can significantly help drive traffic to your scene.
-
 
 When players navigate the world and enter your scene, they are able to read the scene title from under the minimap.
 
@@ -120,9 +117,8 @@ The thumbnail should be a _.png_ or _.jpg_ image of a recommended size of _228x1
 The image on `navmapThumbnail` should be a path to an image file in the project folder. It can also be a URL link to an image hosted elsewhere.
 
 {{< hint warning >}}
-**📔 Note**:  If you host an image elsewhere, make sure this is in a site that has permissive CORS policies for displaying content on other sites.
+**📔 Note**: If you host an image elsewhere, make sure this is in a site that has permissive CORS policies for displaying content on other sites.
 {{< /hint >}}
-
 
 ## Contact information
 
@@ -157,9 +153,8 @@ Your scene might have objects that can block players from moving if they happen 
 The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to [position an entity]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md" >}}).
 
 {{< hint warning >}}
-**📔 Note**:  All spawn points must be within the parcels that make up the scene. You can't spawn a player outside the space of these parcels.
+**📔 Note**: All spawn points must be within the parcels that make up the scene. You can't spawn a player outside the space of these parcels.
 {{< /hint >}}
-
 
 ### Multiple spawn points
 
@@ -189,7 +184,6 @@ A single scene can have multiple spawn points. This is especially useful in larg
 When there are multiple spawn points, the one that's closest to the coordinates indicated by the player is picked.
 
 If a coordinate is marked as `default`, it will always be used, regardless of if it's the closest. If multiple spawn points are marked as `default`, the closest one of these is picked.
-
 
 ```json
   "spawnPoints": [
@@ -234,7 +228,6 @@ In the example above, players may appear anywhere in the square who's corners ar
 
 A scene can also have multiple spawn regions, just like it can have multiple spawn points.
 
-
 ```json
   "spawnPoints": [
     {
@@ -255,7 +248,6 @@ A scene can also have multiple spawn regions, just like it can have multiple spa
     }
   ],
 ```
-
 
 ### Rotation
 
@@ -300,19 +292,18 @@ Currently, the following permissions are managed on all content:
 - `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}})
 - `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >}})
 - `ALLOW_MEDIA_HOSTNAMES`: Refers to fetching resources (including images, video streams, and audio streams) from external sources rather than being limited to the files stored in the scene folder. You must also list the allowlisted high-level domains you will be fetching resources from.
-	```json
-	"requiredPermissions": [
-		"ALLOW_MEDIA_HOSTNAMES"
-	],
-	"allowedMediaHostnames": [
-		"somehost.com",
-		"otherhost.xyz"
-	]
-	```
-{{< hint warning >}}
-**📔 Note**:  The `allowedMediaHostnames` lists only the high-level domains from where your assets are being requested. If there are any chained requests, these don't need to be explicitly listed. For example, if a video streaming service forwards content from a network of alternative servers, you only need to list the original URL you'll be explicitly calling from your code, not those other servers. 
-{{< /hint >}}
-
+  `json
+"requiredPermissions": [
+	"ALLOW_MEDIA_HOSTNAMES"
+],
+"allowedMediaHostnames": [
+	"somehost.com",
+	"otherhost.xyz"
+]
+`
+  {{< hint warning >}}
+  **📔 Note**: The `allowedMediaHostnames` lists only the high-level domains from where your assets are being requested. If there are any chained requests, these don't need to be explicitly listed. For example, if a video streaming service forwards content from a network of alternative servers, you only need to list the original URL you'll be explicitly calling from your code, not those other servers.
+  {{< /hint >}}
 
 Portable experiences and smart wearables are also affected by the following permissions:
 
@@ -324,25 +315,27 @@ Portable experiences and smart wearables are also affected by the following perm
 If a `requiredPermissions` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
 {{< hint warning >}}
-**📔 Note**:  In future releases, when a player enters a scene that has items listed in the `requiredPermissions` property, the scene will prompt the player to grant these permissions. The player will be able to decline these permissions for that scene.
+**📔 Note**: In future releases, when a player enters a scene that has items listed in the `requiredPermissions` property, the scene will prompt the player to grant these permissions. The player will be able to decline these permissions for that scene.
 {{< /hint >}}
-
 
 ## Feature Toggles
 
-There are certain features that can be dissabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
+There are certain features that can be disabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
 
-The corresponding features are enabled by default, unless specified as _dissabled_ in the `scene.json` file.
+The corresponding features are enabled by default, unless specified as _disabled_ in the `scene.json` file.
 
 ```json
 "featureToggles": {
-    "voiceChat": "disabled"
+    "voiceChat": "disabled",
+    "portableExperiences": "enabled" | "disabled" | "hideUi"
 },
 ```
 
 Currently, only the following feature is handled like this:
 
 - `voiceChat`: Refers to players using their microphones to have conversations over voice chat with other nearby players.
+
+-`portableExperiences`: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) but also [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
 
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
@@ -355,19 +348,17 @@ You may need a scene's code to access the fields from the scene metadata, like t
 To access this data, first import the `Scene` namespace to your scene:
 
 ```ts
-import { getSceneInfo } from "~system/Scene"
+import { getSceneInfo } from '~system/Scene'
 ```
 
 Then you can call the `getSceneInfo()` function from this namespace, which returns a json object that includes much of the contents of the scene.json file.
 The example below shows the path to obtain several of the more common fields you might need from this function's response:
 
-
 ```ts
-
-import { getSceneInfo } from "~system/Scene"
+import { getSceneInfo } from '~system/Scene'
 
 executeTask(async () => {
-	const sceneInfo = await getSceneInfo({})
+  const sceneInfo = await getSceneInfo({})
   /**
    * You need to parse the metadata in order to access the properties.
    * If you deployed a scene you can get the types from here https://github.com/decentraland/common-schemas/blob/main/src/platform/scene/scene.ts#L17-L40
@@ -382,16 +373,14 @@ executeTask(async () => {
     // baseUrl where its deployed
     baseUrl,
     // content mapping of files deployed.
-    contents
+    contents,
   } = sceneInfo
   const sceneJson: Scene = JSON.parse(sceneInfo.metadata)
-  const spawnPoints = sceneJson.spawnPoints;
+  const spawnPoints = sceneJson.spawnPoints
   console.log({ sceneJson, cid, baseUrl, contents })
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**:  `getSceneInfo()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
+**📔 Note**: `getSceneInfo()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
 {{< /hint >}}
-
-

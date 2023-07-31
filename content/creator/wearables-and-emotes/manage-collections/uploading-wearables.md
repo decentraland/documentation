@@ -57,7 +57,7 @@ You can add your own custom thumbnail by clicking on the camera icon and browsin
 {{< hint warning >}}
 ⚠️ Having a good render of your wearable is crucial in making it more appealing to potential users in the marketplace. **It's important to avoid adding any graphics other than the wearable itself, because this may cause the curation committee to reject it.**
 
-<img src="/images/wearables-and-emotes/uploading-wearables/07_thumbnail.jpeg" width="600" />
+<img src="/images/wearables-and-emotes/uploading-wearables/07_thumbnail.png" width="800" />
 {{< /hint >}}
 
 ### **Properties**
@@ -104,12 +104,15 @@ This is a brief statement describing your item that will be displayed in the mar
 
 ## **Overrides**
 
-Overrides determine what other wearable categories your item will either replace, or hide. For example, if a hat has hair attached to the model, you might want to hide the category **_Hair_**. Or if you are submitting a deep sea diver helmet you may want hide all the head accessories that are not going to be visible such as earrings, eyewear, tiara, etc. You can add multiple categories to each override; just select them on the dropdown menu.
+Overrides determine which Wearable categories or avatar body parts your item will hide. For instance, a hat with attached hair might need to hide the *Hair* category. A deep-sea diver helmet may require hiding head accessories like earrings, eyewear, tiaras, etc., which wouldn’t be visible. Multiple options can be selected for each override.
 
-- **Replaces**: any items within the categories added to this override will be unequipped from a users’ avatar when they equip your item. A user would have to re-equip any "replaced" items after unequipping your item. This does not delete items, it only unequips them.
-- **Hides**: any items within the categories added to this override will only be hidden (they won’t be rendered) when a user equips your item. When a user unequips your item, the hidden items will be rendered again automatically.
+- **Base Body**: This refers to core avatar parts like the *head* and *hands*. For example, if you’re creating a **Handwear** item such as a robot mechanic hand, you’ll likely need to hide *hands* to prevent overlap and clipping.
 
-For a detailed description of each category, and how items within each category interact or replace one another, see **[Creating Wearables](https://docs.decentraland.org/creator/wearables-and-emotes/wearables/creating-wearables/)**.
+- **Wearables**: This includes other Wearable categories. You can hide multiple categories. For more details on each category and how items interact, refer to **[Creating Wearables](https://docs.decentraland.org/creator/wearables/creating-wearables/)**.
+
+{{< hint warning >}}
+Note: The overrides you select will be the suggested default settings for your Wearable. However, users can customize which Wearables are hidden or showing from the Backpack.
+{{< /hint >}}
 
 ## **Tags**
 
