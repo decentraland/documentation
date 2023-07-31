@@ -59,6 +59,12 @@ To specify under what **name** to make your deployment, add the following sectio
 }
 ```
 
+Run
+```
+npm run deploy --target-content https://worlds-content-server.decentraland.org
+```
+
+
 {{< hint warning >}}
 **📔 Note**: Each NAME references a single portable experience or world. If your name already pointed to a world, deploying a portable experience will override that content.
 {{< /hint >}}
@@ -68,7 +74,7 @@ To specify under what **name** to make your deployment, add the following sectio
 To spawn a portable experience from your scene, use the `spawn()` function. To terminate a portable experience, use `kill()`. In both cases, you just need yo know the DCL name where the Portable experience was deployed.
 
 ```ts
-import { spawn } from '~system/portableexperiences'
+import {spawn} from "~system/PortableExperiences"
 
 // spawn
 executeTask(async () => {
@@ -94,7 +100,7 @@ import {
   spawn,
   getPortableExperiencesLoaded,
   kill,
-} from '~system/PortableExperiences'
+} from "~system/PortableExperiences"
 
 executeTask(async () => {
   const { loaded } = await getPortableExperiencesLoaded({})

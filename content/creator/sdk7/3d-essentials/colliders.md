@@ -146,6 +146,10 @@ Only shapes that have colliders can be activated with [pointer events]({{< ref "
 
 By default, a MeshCollider affects both the Physics and the Pointer layers, but you can change this value to only affect one, or neither, and to affect custom layers instead.
 
+{{< hint warning >}}
+**📔 Note**: Besides colliders, an entity also needs to have a `PointerEvents` component to respond to pointer events. The `pointerEventsSystem` helpers also take care of this requirment. 
+{{< /hint >}}
+
 ```ts
 // only responds to player physics
 // for example for an invisible wall that you can't walk through but you can click through
