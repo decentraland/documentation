@@ -64,24 +64,30 @@ To fix these dependencies, you often must resort to calling functions or object 
 
 - Check the spawn points of your scene, all three x,y,z coordinates of a spawn point must either be a number or a range. Either all three are numbers or all three are ranges. It's not supported to have ranges for some but numbers for others. 
 
-For example this is not supported:
+	For example this is not supported:
 
-`"position": {"x": [1,4], "y": 0, "z": [1,4]}`
+	`"position": {"x": [1,4], "y": 0, "z": [1,4]}`
 
-This is supported:
+	This is supported:
 
-`"position": {"x": [1,4], "y": [0,0], "z": [1,4]}`
+	`"position": {"x": [1,4], "y": [0,0], "z": [1,4]}`
 
 
-- The default catalyst server that you're assigned to deploy to might be down or having issues. You can force the `dcl deploy` command to deploy to a specific catalyst server instead. To deploy to a specific server, do:
+- The default catalyst server that you're assigned to deploy to might be down or having issues. You can force the `dcl deploy` command to deploy to a specific catalyst server instead. To deploy to a specific server, on the Decentraland Editor: 
+	1. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Deploy Scene To Custom Catalyst`
+	2. Enter the address of the server, for example `peer-testing.decentraland.org`
+	3. Approve the transaction
 
-`dcl deploy --target-content <server-name>`
 
-For example:
+	To do this via the CLI:
 
-`dcl deploy --target-content peer-ec1.decentraland.org`
+	`dcl deploy --target-content <server-name>`
 
-See [catalyst-monitor](https://decentraland.github.io/catalyst-monitor/) for a status check of all the servers in the catalyst network. You can also copy the addresses of each one, from the top of each card.
+	For example:
+
+	`dcl deploy --target-content peer-ec1.decentraland.org`
+
+	See [catalyst-monitor](https://decentraland.github.io/catalyst-monitor/) for a status check of all the servers in the catalyst network. You can also copy the addresses of each one, from the top of each card.
 
 - Check your scene's `package.json`. A common problem is that there's a `bundleDependencies` and also a `bundledDependencies` (extra d) section. This can sometimes result from running different Node versions on the same project. Delete `bundledDependencies`, which relates to older Node versions.  Newer versions of Node accept either spelling, but `bundleDependencies` is the proper one.  Most important is not to have both.
  
@@ -114,7 +120,7 @@ As an alternative, you can run `dcl deploy --skip-build` to skip the running of 
 
 	To validate this, try running the scene with the URL parameter `&DISABLE_ASSET_BUNDLES`. If the models look fine with this flag, the issue must be related to a bug in the conversion of the model.
 
-	Note that the generation of compressed asset-bundle versions of your models is a process that takes the servers time (about an hour). You can check if the models are being loaded as compressed asset bundles or not by accessing the scene via the following URL:  `https://play.decentraland.zone/?renderer-branch=feat%2Fab-view`. Compressed models are tinted green, non-compressed are tinted red.
+	Note that the generation of compressed asset-bundle versions of your models is a process that takes the servers time (about an hour). You can check if the models are being loaded as compressed asset bundles or not by writing the following command into the chat window `/detectabs`. Compressed models are tinted green, non-compressed are tinted red.
 
 ### Issue: My scene has poor FPS in production, even though it runs smoothly in preview.
 
@@ -122,4 +128,4 @@ Your scene's performance could be affected by neighboring scenes that follow bad
 
 You can reduce the line of sight even further by running your scene with the parameter `&LOS=0`, to not load any surrounding scenes at all.
 
-If you just deployed your scene, the burden when loading the scene might also be reduced once the servers convert the 3d models in the scene to compressed asset bundles. You can check if the models are being loaded as compressed asset bundles or not by accessing the scene via the following URL:  `https://play.decentraland.zone/?renderer-branch=feat%2Fab-view`. Compressed models are tinted green, non-compressed are tinted red.
+If you just deployed your scene, the burden when loading the scene might also be reduced once the servers convert the 3d models in the scene to compressed asset bundles. You can check if the models are being loaded as compressed asset bundles or not by writing the following command into the chat window `/detectabs`. Compressed models are tinted green, non-compressed are tinted red.

@@ -9,7 +9,13 @@ url: /creator/development-guide/sdk7/entity-positioning/
 weight: 1
 ---
 
-You can set the _position_, _rotation_ and _scale_ of any entity by using the `Transform` component. This can be used on any entities, affecting where 3D objects are rendered, like primitive shapes (cube, sphere, plane, etc) and 3D models (`GltfContainer`).
+You can set the _position_, _rotation_ and _scale_ of any entity by using the `Transform` component. This can be used on any entity in the 3D space, affecting where the entitiy is rendered. This includes primitive shapes (cube, sphere, plane, etc), 3D text shapes, NFT shapes, and 3D models (`GltfContainer`).
+
+## Editor UI
+
+When dragging entities via the Inspector, in the [Decentraland Editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}), you are changing the values in the entity's Transform implicitly. By changing the position, rotation or scale of an entity, this changes the data in that entity's Transform component.
+
+## Code essentials
 
 <img src="/images/media/ecs-simple-components-new.png" alt="nested entities" width="400"/>
 
@@ -194,10 +200,11 @@ Billboard.create(cube, {})
 You can configure how the billboard behaves with the following parameters:
 
 - `billboardMode`: Uses a value of the `BillboardMode` to set its behavior:
-	- `BillboardMode.BM_ALL_AXES`: The entity rotates to face the player on all of its rotation axis. If the player is high above the entity, the entity will face up.
-	- `BillboardMode.BM_Y_AXE`: The entity has its _y_ rotation axis fixed. It only rotates left and right, not up and down. It stays perpendicular to the ground if the player is above or below the entity.
-- `oppositeDirection`: Switch what side of the entity faces the player. This is useful for `TextShape` components, and for 3D models that may have been built using different conventions of what direction is _forward_.
-
+	- `BillboardMode.BM_ALL`: The entity rotates to face the player on all of its rotation axis. If the player is high above the entity, the entity will face up.
+	- `BillboardMode.BM_NONE`: The entity won't rotate at all.
+	- `BillboardMode.BM_X`:  The entity has its _x_ rotation axis fixed.
+	- `BillboardMode.BM_Y`: The entity has its _y_ rotation axis fixed. It only rotates left and right, not up and down. It stays perpendicular to the ground if the player is above or below the entity.
+	- `BillboardMode.BM_Z`: The entity has its _z_ rotation axis fixed.
 
 
 ```ts
@@ -211,7 +218,7 @@ Transform.create(perpendicularPlane, {
 PlaneShape.create(perpendicularPlane)
 
 Billboard.create(perpendicularPlane, {
-  billboardMode: BillboardMode.BM_Y_AXE,
+  billboardMode: BillboardMode.BM_Y,
 })
 
 // text label
@@ -225,13 +232,11 @@ TextShape.create(textLabel, {
     text: "This text is always readable",
   })
 
-Billboard.create(textLabel, {
-  oppositeDirection: true
-})
+Billboard.create(textLabel)
 ```
 
 {{< hint info >}}
-**💡 Tip**:  Billboards are very handy to add to _text_ entities, since it makes them always legible. When using a billboard on an entity with a `TextShape` component, set `oppositeDirection` to true, so that you see the text facing the right way.
+**💡 Tip**:  Billboards are very handy to add to _text_ entities, since it makes them always legible.
 {{< /hint >}}
 
 The `rotation` value of the entity's `Transform` component doesn't change as the billboard follows players around.
@@ -350,20 +355,20 @@ You can pick different anchor points on the avatar, most of these points are lin
 ```ts
 // Attach to loacl player
 AvatarAttach.create(myEntity,{
-    AvatarAnchorPoint: AvatarAnchorPointType.AAPT_NAME_TAG,
+    anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
 // Attach to another player, by ID
 AvatarAttach.create(myEntity,{
     avatarId: '0xAAAAAAAAAAAAAAAAA',
-    AvatarAnchorPoint: AvatarAnchorPointType.AAPT_NAME_TAG,
+    anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 ```
 
 When creating an `AvatarAttach` component, pass an object with the following data:
 
 - `avatarId`: _Optional_ The ID of the player to attach to. This is the same as the player's Ethereum address, for those players connected with an Ethereum wallet. If not speccified, it attaches the entity to the local player's avatar.
-- `AvatarAnchorPoint`: What anchor point on the avatar skeleton to attach the entity, using a value from the enum `AvatarAnchorPointType`.
+- `anchorPointId`: What anchor point on the avatar skeleton to attach the entity, using a value from the enum `AvatarAnchorPointType`.
 
 The following anchor points are available on the player:
 
@@ -381,7 +386,7 @@ Entity rendering is locally determined on each instance of the scene. Attaching 
 **📔 Note**:  Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
 {{< /hint >}}
 
-The `AvatarAttach` component overwrites the `Transform` component, a single entity can't have both an `AvatarAttach` and a `Transform` component at the same time.
+The `AvatarAttach` component overwrites the `Transform` component. A single entity can have both an `AvatarAttach` and a `Transform` component at the same time but the values on the `Transform` component are ignored.
 
 If you need to position an entity with an offset from the anchor point on the avatar, or a different rotation or scale, attach a parent entity to the anchor point. You can then set the visible model on a child entity to that parent, and give this child its own Transform component to describe its shifts from the anchor point.
 
@@ -391,14 +396,13 @@ const parentEntity = engine.addEntity()
   
 // Attach parent entity to player
 AvatarAttach.create(parentEntity,{
-	avatarId: '0xAAAAAAAAAAAAAAAAA',
-    AvatarAnchorPoint: AvatarAnchorPointType.AAPT_NAME_TAG,
+    anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
 // Create child entity
 let childEntity = engine.addEntity()
 
-ConeShape.create(childEntity)
+MeshRenderer.setCylinder(childEntity)
 
 Transform.create(childEntity, {
     scale: Vector3.create(0.2, 0.2, 0.2),

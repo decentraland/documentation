@@ -1,5 +1,5 @@
 ---
-bookCollapseSection: true
+bookCollapseSection: false
 weight: 4
-title: SDK7 Scenes (alpha)
+title: Scenes (SDK7)
 ---

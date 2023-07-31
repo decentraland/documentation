@@ -24,6 +24,8 @@ Make sure of the following:
 
 - You own or have permissions to the necessary amount of adjacent LAND parcels. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org).
 
+- You may also choose to publish your scene to a Decentraland  [World]({{< ref "/content/creator/worlds/about.md" >}}), in this case, you must own a NAME which you can mint on the [Builder](https://builder.decentraland.zone/names) and your scene must comply with the World limits.
+
 {{< hint warning >}}
 **📔 Note**:  Multi-parcel scenes can only be deployed to adjacent parcels.
 {{< /hint >}}
@@ -54,7 +56,11 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ### Via the Decentraland Editor
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}). 
+
+{{< hint warning >}}
+**📔 Note**:  Deployment to Worlds is not yet supported from the Editor.
+{{< /hint >}}
 
 1) Open your scene's folder using Visual Studio Code. 
 
@@ -77,10 +83,13 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
 2.  Run `dcl deploy` from the scene's folder.
-    {{< hint info >}}
+{{< hint info >}}
 **💡 Tip**:  If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying.
-3.  A browser tab will open, showing what parcels you're deploying to. Click **Sign and Deploy**.
-4.  Metamask opens, notifying you that your signature is requested. Click **Sign** to confirm this action.
+{{< /hint >}} 
+3. Optionally, you can also use the `--target-content` parameter with a World server URL in order to upload the scene to a World instead of to the Genesis City, for example `dcl deploy --target-content https://worlds-content-server.decentraland.org`.
+
+4.  A browser tab will open, showing what parcels you're deploying to. Click **Sign and Deploy**.
+5.  Metamask opens, notifying you that your signature is requested. Click **Sign** to confirm this action.
 
 {{< hint info >}}
 **💡 Tip**:  If you're implementing a continuous integration flow, where changes to your scene are deployed automatically, then you can set the `export DCL_PRIVATE_KEY` environment variable to the private key of an account that has deploy permissions.
@@ -89,6 +98,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 {{< hint info >}}
 **💡 Tip**:  `dcl deploy` runs a `dcl build`, which checks the scene for type errors more strictly than running `dcl start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `dcl deploy  --skip-build`  to skip the `dcl build` step and deploy the scene as it is.
 {{< /hint >}}
+
 ## Publish from a hardware wallet
 
 Instead of storing your LAND tokens in a Metamask account, you may find it more secure to store them in a hardware wallet device, such as a [Ledger](https://www.ledger.com/) or a [Trezor](https://trezor.io/), that's physically plugged in to your computer.
@@ -126,18 +136,26 @@ You can deploy content to the test catalyst server to run full tests with multip
 **📔 Note**:  To deploy to parcels in the test server, you must have the same permissions required to deploy to those parcels in the main network.
 {{< /hint >}}
 
+Players are never directed to this server, the only way to access it is to explicitly provide a URL parameter to connect to it. 
+
+If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
+
+
 ### Via the Decentraland Editor
 
 To deploy a scene to the test server:
 
 1. Open VSCode in a Decentraland scene project.
 2. Click on the Decentraland icon on the left sidebar.
-4. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Deploy Scene To Custom Catalyst`
-5. Enter the address of the test server, as `peer-testing.decentraland.org`
-6. Approve the transaction
+4. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Publish scene to test server`
+5. Approve the transaction
 
 	- If the LAND tokens you own or have permissions are linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
 	- If you need to use Metamask on the browser, click **Open in Browser** to open this same window on a browser tab. Then approve the transaction on the Metamask browser extension.
+
+To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
+
+_play.decentraland.org/?&CATALYST=peer-testing.decentraland.org_
 
 
 ### Via the CLI
@@ -146,18 +164,11 @@ To deploy to the test server, run:
 
 `dcl deploy --target peer-testing.decentraland.org`
 
-{{< hint warning >}}
-**📔 Note**:  The same permissions apply as in production. You must be owner or have permissions on the parcels that you're deployng to.
-{{< /hint >}}
-
-Players are never directed to this server, the only way to access it is to explicitly provide a URL parameter to connect to it. 
 
 To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
 
-play.decentraland.org/&CATALYST=peer-testing.decentraland.org
+_https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
 
-
-If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
 
 ## Verify deployment success
 

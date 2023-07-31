@@ -159,7 +159,7 @@ Now all configuration is set, what's left is actually running the server. You ca
 ```bash
 npm install
 npm run migrate # only the first run
-npm start
+npm run start
 ```
 
 Of course, you'll probably want to deploy this to your service of choice, like [AWS](https://aws.amazon.com/) for example. You can use the Project's [Dockerfile](https://github.com/decentraland/transactions-server/tree/v1/blob/master/Dockerfile) to do so.

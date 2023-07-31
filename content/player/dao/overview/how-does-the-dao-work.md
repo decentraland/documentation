@@ -64,5 +64,5 @@ The [Decentraland Forum](https://forum.decentraland.org) is the communication hu
 
 The DAO operates on two Discord servers:
 * [#dao channel](https://discord.com/channels/417796904760639509/538106198419832844) on the Decentraland Discord server for general announcements, discussions and questions.
-* A [dedicated Discord server](https://discord.gg/ZdzKgYE5Q3) only for the DAO operations with more in-depth discussions, specific channels for working groups tacking complex issues and spaces for the community grant owners to post updates on their project. In this channel the DAO also host their monthly Town Hall. 
+* A [dedicated Discord server](https://dcl.gg/daodiscord) only for the DAO operations with more in-depth discussions, specific channels for working groups tacking complex issues and spaces for the community grant owners to post updates on their project. In this channel the DAO also host their monthly Town Hall. 
  
