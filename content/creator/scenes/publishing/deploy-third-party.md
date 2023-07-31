@@ -20,7 +20,7 @@ Note that it's not necessary to own LAND to upload a scene preview to a Heroku s
 
 Follow the steps below to upload your scenes to a Heroku server:
 
-1. Make sure you have the latest Decentralnd CLI version installed on your machine `npm i -g decentraland@latest`.
+1. Make sure you have the latest Decentraland CLI version installed on your machine `npm i -g decentraland@latest`.
 
 2. Create a [Heroku](https://dashboard.heroku.com/) account, if you don't already have one.
 
