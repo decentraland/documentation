@@ -14,9 +14,10 @@ Raycasting is a fundamental tool in game development. With raycasting, you can t
 When a player pushes the pointer button, or the primary or secondary button, a ray is traced from the player's position in the direction they are looking, see [button events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}) for more details about this. This document covers how to trace an invisible ray from any arbitrary position and direction, independent of player actions, which you can use in many other scenarios.
 
 Please note that raycasts only hit objects with colliders. So if you want to detect ray hits against a 3D model, either:
+
 - The model must contain [collider meshes]({{< ref "/content/creator/3d-modeling/colliders.md">}}).
 - The `GLTFContainer` must be configured to use the [visible geometry with collision masks]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models" >}}).
-- Add a [MeshCollider component]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). 
+- Add a [MeshCollider component]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}).
 
 It's also a good practice to assign custom [collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}}) to 3D models, so that rays only need to calculate collisions against the relevant entities, instead of against everything that has a collider.
 
@@ -54,8 +55,8 @@ The following optional fields are available when creating a ray with any of the 
 
 - `maxDistance`: _number_ to set the length with which this ray will be traced. If not set, the default is 16 meters.
 - `queryType`: _RaycastQueryType_ enum value, to define if the ray will return all hit entities or just the first. The following options are available:
-	- `RaycastQueryType.RQT_HIT_FIRST`: _(default)_ only returns the first hit entity, starting from the origin point.
-	- `RaycastQueryType.RQT_QUERY_ALL`: returns all hit entities, from the origin through to the max distance of the ray.
+  - `RaycastQueryType.RQT_HIT_FIRST`: _(default)_ only returns the first hit entity, starting from the origin point.
+  - `RaycastQueryType.RQT_QUERY_ALL`: returns all hit entities, from the origin through to the max distance of the ray.
 - `originOffset`: Instead of starting the raycast from the entity's origin position, add an offset to start the query from a relative position. You can for example use a small offset to prevent the ray colliding against the entity's own collider. If not set, the default is `Vector3.Zero()`.
 - `collisionMask`: Only detect collisions with certain collision layers. Use this together with a custom collision layer, or to only detect the physics or pointer events layer. See [collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}}). If not set, the default layer used is `ColliderLayer.CL_PHYSICS`.
 - `continuous`: If true, will keep running a raycast query on every frame. If false, the ray will only be used on the current frame. If not set, the default is false.
@@ -327,7 +328,6 @@ engine.addSystem((deltaTime) => {
 	})
 ```
 
-
 ## Collide with the player
 
 You can't directly hit the player's avatar or those of other players with a ray, but what you can do as a workaround is position an invisible entity occupying the same space as a player using the [AvatarAttach component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar">}}), and check collisions with that cube.
@@ -337,30 +337,32 @@ You can't directly hit the player's avatar or those of other players with a ray,
 To trace a ray from the player's position in the direction faced by the camera, you can trace a ray using the camera or the avatar [Reserved entities]({{< ref "/content/creator/sdk7/architecture/entities-components.md#reserved-entities">}}).
 
 {{< hint info >}}
-**💡 Tip**: For most cases, you might be better off using [Pointer eveents]({{< ref "/content/creator/sdk7/3d-interactivity/button-events/click-events.md">}}) instead of raycasts.
+**💡 Tip**: For most cases, you might be better off using [Pointer eveents]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md">}}) instead of raycasts.
 {{< /hint >}}
 
 The following example traces a ray from the player's camera position forward, using the `engine.CameraEntity` entity.
 
 ```ts
 raycastSystem.registerGlobalDirectionRaycast(
-			{
-				entity: engine.CameraEntity,
-				opts: {
-					queryType: RaycastQueryType.RQT_HIT_FIRST,
-					direction: Vector3.rotate(Vector3.Forward(), Transform.get(engine.CameraEntity).rotation),
-				}
-			},
-			function (raycastResult) {
-				console.log(raycastResult)
-			}
-		)
+  {
+    entity: engine.CameraEntity,
+    opts: {
+      queryType: RaycastQueryType.RQT_HIT_FIRST,
+      direction: Vector3.rotate(
+        Vector3.Forward(),
+        Transform.get(engine.CameraEntity).rotation
+      ),
+    },
+  },
+  function (raycastResult) {
+    console.log(raycastResult)
+  }
+)
 ```
 
 {{< hint warning >}}
 **📔 Note**: Keep in mind that in 3rd person the cursor could in the future not behave the same as in 1st person. It's recommended to only use this if the player is in 1st person.
 {{< /hint >}}
-
 
 ## Advanced syntax
 
