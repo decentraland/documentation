@@ -10,11 +10,11 @@ url: /creator/wearables-and-emotes/manage-collections/uploading-smart-wearables
 weight: 4
 ---
 
-Once you export your smart wearable, you’ll have to upload it to the builder. This document will cover the process of uploading smart wearables.
+After generating your smart wearable using the [SDK7](/creator/development-guide/sdk7/smart-wearables/), the next step is to upload it to the builder. This document explains the process of uploading, publishing and putting Smart Wearables up for sale.
 
 #### Uploading Your File
 
-Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, check [Creating a Collection](/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your wearable, just drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is an emote or wearable. **Remember that the collection max file size is 2MB**.
+Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, chec [Creating a Collection](/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your smart wearable, just drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is a smart wearable. **Remember that the collection max file size is 2MB**.
 
 <img src="/images/wearables-and-emotes/uploading-smart-wearables/01_new_item.png" width="400" />
 
@@ -22,7 +22,9 @@ When you upload the file, you will be asked to upload a video showcase.
 
 #### Uploading Your Video Showcase
 
-To upload your video showcase, just drag and drop the file on the **_Upload a video for your smart wearable_** window or browse your computer. **Remember that the video max file size is 4MB and max duration is 15 seconds**.
+This video showcase will be displayed in the marketplace for buyers to see how the Smart Wearable works.
+
+To upload your video showcase, just drag and drop a **.mp4** video file on the **_Upload a video for your smart wearable_** window or browse your computer. **Remember that the video max file size is 4MB and max duration is 15 seconds**.
 
 <img src="/images/wearables-and-emotes/uploading-smart-wearables/01_new_video.png" width="400" />
 
@@ -124,13 +126,13 @@ Note: The overrides you select will be the suggested default settings for your W
 
 ## **Tags**
 
-Tags are simply descriptive words that users can use when searching or filtering for items. These are relevant to competitions or events!
+Tags are descriptive words that users can utilize for competitions or events!
 
 ## **Preview**
 
 To preview your wearable, hover your mouse over the wearable icon on the top left and click on the eye symbol.
 
-<img src="/images/wearables-and-emotes/uploading-smart-wearables/18_preview_wearables_03.gif" />
+<img src="/images/wearables-and-emotes/uploading-smart-wearables/18_preview_smart_wearables_03.gif" />
 
 By clicking on the icon at the lower left you will be able to edit the avatar. This is pretty useful if you have a male and female version of your wearable, so make sure to check how both versions look like in editor, testing different emotes to identify if there are any skinning issues and mixing other wearables to see how it matches with different clothes. When you’re done editing your wearable, click on **_Save_**.
 
@@ -152,7 +154,11 @@ Once you select the location to teleport, a new tab will open on your browser an
 
 Click on **_Switch to Sepolia_** and a popup from your wallet will show up asking to switch the network. Simply click on Switch Network and the new tab will automatically refresh. To test your wearable, go to the backpack and select it.
 
-<img src="/images/wearables-and-emotes/uploading-smart-wearables/22_wearable_world.gif" />
+{{< hint warning >}}
+If you haven't enabled the Ethereum testnet networks, you can follow this [Metamask Article](https://support.metamask.io/hc/en-us/articles/13946422437147-How-to-view-testnets-in-MetaMask).
+{{< /hint >}}
+
+<img src="/images/wearables-and-emotes/uploading-smart-wearables/22_smart_wearable_world.gif" />
 
 ## **Before Publishing**
 
