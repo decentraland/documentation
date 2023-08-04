@@ -332,6 +332,36 @@ engine.addSystem((deltaTime) => {
 
 You can't directly hit the player's avatar or those of other players with a ray, but what you can do as a workaround is position an invisible entity occupying the same space as a player using the [AvatarAttach component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar">}}), and check collisions with that cube.
 
+## Raycasts from the player
+
+To trace a ray from the player's position in the direction faced by the camera, you can trace a ray using the camera or the avatar [Reserved entities]({{< ref "/content/creator/sdk7/architecture/entities-components.md#reserved-entities">}}).
+
+{{< hint info >}}
+**💡 Tip**: For most cases, you might be better off using [Pointer eveents]({{< ref "/content/creator/sdk7/3d-interactivity/button-events/click-events.md">}}) instead of raycasts.
+{{< /hint >}}
+
+The following example traces a ray from the player's camera position forward, using the `engine.CameraEntity` entity.
+
+```ts
+raycastSystem.registerGlobalDirectionRaycast(
+			{
+				entity: engine.CameraEntity,
+				opts: {
+					queryType: RaycastQueryType.RQT_HIT_FIRST,
+					direction: Vector3.rotate(Vector3.Forward(), Transform.get(engine.CameraEntity).rotation),
+				}
+			},
+			function (raycastResult) {
+				console.log(raycastResult)
+			}
+		)
+```
+
+{{< hint warning >}}
+**📔 Note**: Keep in mind that in 3rd person the cursor could in the future not behave the same as in 1st person. It's recommended to only use this if the player is in 1st person.
+{{< /hint >}}
+
+
 ## Advanced syntax
 
 ### Create a raycast component
