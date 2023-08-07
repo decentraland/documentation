@@ -84,7 +84,7 @@ You can set the price of your wearable by clicking on **_Set Price_**. This can 
 
 You could also **_Make it Free_**, which means that the price will be set as 0 MANA and the beneficiary address will be null. Know that making it free (primary sale) does not prevent it from being sold at any price as a secondary sale.
 
-Don’t forget to set the beneficiary address, which is the one that will receive the MANA from your sales. You can use any Ethereum address you like. To automatically fill in the address you are logged in with, click **_I’m the Beneficiary._**
+Don’t forget to set the beneficiary address, which is the one that will receive the MANA from your sales. You can use any Ethereum address you like. To automatically fill in the address you are logged in with, click **_I’m the Beneficiary._**
 
 <img src="/images/wearables-and-emotes/uploading-wearables/12_set_price.png" width="400"/>
 
