@@ -1,6 +1,6 @@
 ---
 date: 2022-02-02
-title: Smart Wearables (Alpha)
+title: Smart Wearables
 description: Create wearables with interactive capabilities
 categories:
   - development-guide
@@ -8,8 +8,6 @@ type: Document
 url: /creator/development-guide/sdk7/smart-wearables/
 weight: 4
 ---
-
-> **WARNING:** Smart wearables are still in Alpha. The Builder does not support the upload of smart wearables, and there isn't an approval process in place to allow community-built smart wearables to be published. The current development tools allow you to create and test smart wearables, but please don't attempt to publish any in the Builder, they will not be approved.
 
 Smart wearables are a type of global scene. Like [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md">}}), they are gameplay that players take with them as they move through the metaverse. For example, while running a global scene, a player could take a snowball from the ground in Genesis Plaza, walk away to another scene, and throw the snowball to another player who’s also playing the same game.
 
@@ -80,8 +78,6 @@ The default `wearable.json` file looks like this:
 
 The following fields are required in `wearable.json`:
 
-
-
 - `id`: Unique id of the smart wearable.
 - `name`: The name for the wearable that users will see in the marketplace
 - `description`: The description of the wearable that users will see in the marketplace. Make sure you indicate what the smart wearable can do, as users of the marketplace will have no way to preview its functinality before buying it.
@@ -94,7 +90,7 @@ The following fields are required in `wearable.json`:
   - common (100.000 copies)
 
 {{< hint warning >}}
-**📔 Note**:  If you forked your project from an existing one, make sure the `id` value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
+**📔 Note**: If you forked your project from an existing one, make sure the `id` value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
 {{< /hint >}}
 
 The following fields can also optionally be included. These settings can also be configured from the Builder UI, once you upload the smart wearable.
@@ -108,8 +104,7 @@ The following fields can also optionally be included. These settings can also be
     - `mainFile`: The main file with the 3D model of the wearable.
     - `contents`: The full list of files used to render the 3D model of the wearable. For example, the 3D model could include textures as separate files.
     - `overrideHides`: Any exceptions from the default _hide_ behavior of this wearable category.
-    - `overrideReplaces`:  Any exceptions from the default _replace_ behavior of this wearable category.
-
+    - `overrideReplaces`: Any exceptions from the default _replace_ behavior of this wearable category.
   - `category`: What wearable category to use. Possible values are:
 
     - 'eyebrows'
@@ -188,14 +183,15 @@ To publish your smart wearable:
 2. Run `npm run pack` on your project folder. This generates a `smart-wearable.zip` file in your project folder.
 
 {{< hint warning >}}
-**📔 Note**:  The output of `npm run pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
+**📔 Note**: The output of `npm run pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
 {{< /hint >}}
 
 3. Open the Builder, open the Collections tab, click + to upload a new wearable.
 
 4. Drag your compressed `smart-wearable.zip` file into the Builder, verify that all the information is accurate.
 
-  > Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model):
+> Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model):
+
     a) Select only Male and complete the process
     b) Open the wearables in the editor, click the three dot options button, select “upload female representation”, and upload the 3D model for the female shape.
 
@@ -203,8 +199,6 @@ To publish your smart wearable:
 6. Create a new collection with this and perhaps other wearables.
 7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Goerli, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
 8. At this point, your wearable is ready to be published. We still don’t encourage creators to publish any smart wearables, as we’re still in experimental stages, reviewers from the committee have been instructed to not approve any smart wearables that don’t come from the foundation.
-
-
 
 ## Restricted actions
 

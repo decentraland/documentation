@@ -1,6 +1,6 @@
 ---
 date: 2022-02-02
-title: Smart wearables (alpha)
+title: Smart wearables
 description: Create wearables with interactive capabilities
 categories:
   - development-guide
@@ -10,8 +10,6 @@ aliases:
 url: /creator/development-guide/smart-wearables
 weight: 4
 ---
-
-> **WARNING:** Smart wearables are still in Alpha. The Builder does not support the upload of smart wearables, and there isn't an approval process in place to allow community-built smart wearables to be published. The current development tools allow you to create and test smart wearables, but please don't attempt to publish any in the Builder, they will not be approved.
 
 Smart wearables are a type of portable experience. Portable experiences are parts of the gameplay that players take with them as they move through the metaverse. For example, a player could take a snowball from your scene, walk away to another scene, and throw the snowball to another player who’s also playing the same game.
 
@@ -91,7 +89,6 @@ The following fields are required in `wearable.json`:
   - uncommon (10.000 copies)
   - common (100.000 copies)
 
-
 The following fields can also optionally be included. These settings can also be configured from the Builder UI, once you upload the smart wearable.
 
 - `data`: Includes the following
@@ -102,7 +99,7 @@ The following fields can also optionally be included. These settings can also be
     - `bodyShapes`: The list of avatar representations that can use this werable. Eg, both `BaseMale` and `BaseFemale`.
     - `mainFile`: The main file with the 3d model of the wearable.
     - `contents`: The full list of files used to render the 3d model of the wearable. For example, the 3d model could include textures as separate files.
-    - `overrideHides`: Any exceptions from the default _hide_ behavior of this wearable category. 
+    - `overrideHides`: Any exceptions from the default _hide_ behavior of this wearable category.
     - `overrideReplaces`:  Any exceptions from the default _replace_ behavior of this wearable category.
 
   - `category`: What wearable category to use. Possible values are:
@@ -188,7 +185,7 @@ To publish your smart wearable:
 
 4. Drag your compressed `portable-expereince.zip` file into the Builder, verify that all the information is accurate.
 
-  > Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model): 
+  > Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model):
     a) Select only Male and complete the process
     b) Open the wearables in the editor, click the three dot options button, select “upload female representation”, and upload the 3d model for the female shape.
 
