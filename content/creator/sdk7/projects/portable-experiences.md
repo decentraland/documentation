@@ -129,15 +129,19 @@ To prevent abuse, certain features aren't permitted on portable experiences by d
 
 See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
 
+## Limitations
+
+Portable experiences only run for the player that activates it. Other players don't see the effects. For example, if the portable experience renders a pet that follows the player, other players around won't see this pet. However, other players will see avatars perform animations that run as part of the portable experience, even [custom avatar animations]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#custom-animations">}}) uploaded as part of the portable experience's files.
+
 ## Tips
 
 - When positioning an entity, note that positions are global, relative to the 0,0 coordinates of Genesis Plaza.
 - To react to nearby players:
   - use `getConnectedPlayers()` to know what players are already there, and `onPlayerConnectedObservable` / `onPlayerDisconnectedObservable` to track other players coming and going.
   - Be mindful that the loading of the portable experience, surrounding scenes and other players may occur in different orders depending on the situation. If the player enters Decentraland with the portable experience already on, it’s likely that your portable experience will load before other players do. On the other hand, tf the player first loads into a scene and then activates the portable experience, it’s likely that other players will already be loaded by the time the portable experience starts running.
-  - Wait till the player is connected to an island inside their realm. Run `getRealm()` and check for the ‘room’ field. If the ‘room’ field is null, the player is not yet connected to an island and other players won’t be loaded yet. You can periodically check this every 1 second till the ‘room’ field is present, and only initialize your logic then.
+  - For multiplayer experiences, wait till the player is connected to an island inside their realm. Run `getRealm()` and check for the ‘room’ field. If the ‘room’ field is null, the player is not yet connected to an island and other players won’t be loaded yet. You can periodically check this every 1 second till the ‘room’ field is present, and only initialize your logic then.
 - To interact with surrounding scenes:
   - You can’t directly send any instructions to nearby scenes or other portable experiences, the `messageBus` is sandboxed for each portable experience/scene.
   - You can use an intermediate server to send information between the portable experience and a scene.
-  - If you do a raycast, you can detect hits against the colliders of entities from the surrounding scenes. This can tell you the exact hit location, normal direction, and even the entity name and mesh name of the 3D model.
+  - If you do a raycast, you can detect hits against the colliders of entities from the surrounding scenes. This can tell you the exact hit location, normal direction, and even the entity name and mesh name of the 3D model. This only works when hitting entities on scenes written with SDK7.
 - Kill a portable experience: Run the `kill()` method to self-terminate a portable experience.
