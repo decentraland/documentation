@@ -144,7 +144,7 @@ The following fields can also optionally be included. These settings can also be
 
     - 'skin'
 
-    - 'hand_wear'
+    - 'hands_wear'
 
 - `menuBarIcon`: Image to use on the “experiences” menu, to represent this portable experience, to represent the portable experience. This image should be at root level in your folder. The recommended image size is 256x256.
 - `model`: The 3D model to use for the wearable. This file should be at root level in your folder.
