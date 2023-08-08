@@ -1,6 +1,6 @@
 ---
 date: 2022-02-02
-title: Smart wearables
+title: Smart Wearables
 description: Create wearables with interactive capabilities
 categories:
   - development-guide
