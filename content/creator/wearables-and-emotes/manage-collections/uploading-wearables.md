@@ -6,7 +6,7 @@ categories:
   - Decentraland
 type: Document
 aliases:
-url: /creator/wearables-and-amotes/manage-collections/uploading-wearables
+url: /creator/wearables-and-emotes/manage-collections/uploading-wearables
 weight: 2
 ---
 
@@ -84,7 +84,7 @@ You can set the price of your wearable by clicking on **_Set Price_**. This can 
 
 You could also **_Make it Free_**, which means that the price will be set as 0 MANA and the beneficiary address will be null. Know that making it free (primary sale) does not prevent it from being sold at any price as a secondary sale.
 
-Don’t forget to set the beneficiary address, which is the one that will receive the MANA from your sales. You can use any Ethereum address you like. To automatically fill in the address you are logged in with, click **_I’m the Beneficiary._**
+Don’t forget to set the beneficiary address, which is the one that will receive the MANA from your sales. You can use any Ethereum address you like. To automatically fill in the address you are logged in with, click **_I’m the Beneficiary._**
 
 <img src="/images/wearables-and-emotes/uploading-wearables/12_set_price.png" width="400"/>
 
@@ -104,9 +104,9 @@ This is a brief statement describing your item that will be displayed in the mar
 
 ## **Overrides**
 
-Overrides determine which Wearable categories or avatar body parts your item will hide. For instance, a hat with attached hair might need to hide the *Hair* category. A deep-sea diver helmet may require hiding head accessories like earrings, eyewear, tiaras, etc., which wouldn’t be visible. Multiple options can be selected for each override.
+Overrides determine which Wearable categories or avatar body parts your item will hide. For instance, a hat with attached hair might need to hide the _Hair_ category. A deep-sea diver helmet may require hiding head accessories like earrings, eyewear, tiaras, etc., which wouldn’t be visible. Multiple options can be selected for each override.
 
-- **Base Body**: This refers to core avatar parts like the *head* and *hands*. For example, if you’re creating a **Handwear** item such as a robot mechanic hand, you’ll likely need to hide *hands* to prevent overlap and clipping.
+- **Base Body**: This refers to core avatar parts like the _head_ and _hands_. For example, if you’re creating a **Handwear** item such as a robot mechanic hand, you’ll likely need to hide _hands_ to prevent overlap and clipping.
 
 - **Wearables**: This includes other Wearable categories. You can hide multiple categories. For more details on each category and how items interact, refer to **[Creating Wearables](https://docs.decentraland.org/creator/wearables/creating-wearables/)**.
 
