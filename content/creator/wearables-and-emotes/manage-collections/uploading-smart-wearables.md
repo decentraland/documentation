@@ -48,7 +48,7 @@ Select the Rarity of your item.
 
 ### Category
 
-Wearables are organized into different categories, depending on what part of an avatar they modify. Select the appropriate category for your item.
+Wearables are organized into different categories, depending on what part of an avatar they modify. In this step, you must select the appropriate item category.
 
 <img src="/images/wearables-and-emotes/uploading-smart-wearables/04_category.png" width="400"/>
 
@@ -76,7 +76,7 @@ Next to the thumbnail, you're going to find the properties of your wearable such
 
 <img src="/images/wearables-and-emotes/uploading-smart-wearables/08_properties.png" width="400"/>
 
-## **Uploading Mouth, Eyes and Eyebrows**
+## Uploading Mouth, Eyes and Eyebrows
 
 The mouth, eyes and eyebrows category have a different behaviour in the editor because these are just .png files. To upload these just drag and drop the png file as a transparent image (256X256 pixels). Mouth is going to be automatically tinted by skin color, same for the eyebrows tinted by the hair color.
 
@@ -104,7 +104,7 @@ Save the price, and you will be back on the list of Wearables in your collection
 
 # The Editor
 
-Once you click on **_Preview in Editor_**, you will have the editor open. You can edit all the info of your smart wearable, as well as add new ones, such as description, tags and overrides.
+Once you click on **_Preview in Editor_**, you will have the editor open. You can edit your Smart Wearable info, including the description, tags and overrides.
 
 <img src="/images/wearables-and-emotes/uploading-smart-wearables/14_editor.png" width="900"/>
 
@@ -130,7 +130,7 @@ Tags are descriptive words that users can utilize for competitions or events!
 
 ## Preview
 
-To preview your wearable, hover your mouse over the wearable icon on the top left and click on the eye symbol.
+To preview your Smart Wearable, hover your mouse over the wearable element on the top left and click on the eye symbol.
 
 <img src="/images/wearables-and-emotes/uploading-smart-wearables/18_preview_smart_wearables_03.gif" />
 
@@ -140,11 +140,11 @@ By clicking on the icon at the lower left, you can edit the avatar. This is usef
 
 ## Testing in Decentraland
 
-Even after testing the Wearable in the editor, it’s important to check how it will look and behave in Decentraland. To try it there, go to the Collections tab. Select the desired collection and click the button **_See in Decentraland_**.
+Even after testing the Smart Wearable in the editor, it’s important to check how it will look and behave in Decentraland. To try it there, go to the Collections tab. Select the desired collection and click the button **_See in Decentraland_**.
 
 <img src="/images/wearables-and-emotes/uploading-smart-wearables/20_test_in_world_01.png" width="900"/>
 
-After clicking the following pop up is going to appear. Selecting **_Empty Parcels_** will teleport you to a place without too much content, which will load faster. Selecting **_Genesis Plaza_** will take you to the main plaza.
+After clicking the **_See in Decentraland_** button, the following pop-up is going to appear. Selecting **_Empty Parcels_** will teleport you to a place without too much content, which will load faster. Selecting **_Genesis Plaza_** will take you to the main plaza.
 
 <img src="/images/wearables-and-emotes/uploading-smart-wearables/23_see_in_world.png" width="600"/>
 
@@ -152,7 +152,7 @@ Once you select the location to teleport, a new tab will open on your browser an
 
 <img src="/images/wearables-and-emotes/uploading-smart-wearables/21_sepolia.png" width="600"/>
 
-Click on **_Switch to Sepolia_**, and a pop-up from your wallet asking you to switch the network will show up. Click on Switch Network, and the new tab will automatically refresh. To test your Wearable, you can go to the backpack and select it.
+Click on **_Switch to Sepolia_**, and a pop-up from your wallet asking you to switch the network will show up. Click on Switch Network, and the new tab will automatically refresh. To test your Smart Wearable, you can go to the backpack and select it.
 
 {{< hint warning >}}
 If you haven't enabled the Ethereum testnet networks, you can follow this [Metamask Article](https://support.metamask.io/hc/en-us/articles/13946422437147-How-to-view-testnets-in-MetaMask).
