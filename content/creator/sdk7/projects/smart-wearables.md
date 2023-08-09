@@ -219,18 +219,4 @@ If a wearable is “hidden” but not “removed” by other wearables being wor
 
 ## Examples
 
-[Portal-ble experience](https://github.com/decentraland-scenes/Portal-ble_experience)
-
-[Graffiti](https://github.com/decentraland-scenes/Smart-wearable-graffitti)
-
-[Radio](https://github.com/decentraland-scenes/Smart-wearable-radio)
-
-[Raycast test](https://github.com/decentraland-scenes/Smart-wearable-raycast-test)
-
-[Realms test](https://github.com/decentraland-scenes/Smart-wearable-realms-test)
-
-[Rocket board](https://github.com/decentraland-scenes/Smart-wearable-rocket-board)
-
-[Scarvenger hunt](https://github.com/decentraland-scenes/Smart-wearable-Scarvenger-hunt)
-
-[Snowball fight](https://github.com/decentraland-scenes/snowball-fight)
+[Smart wearable sample](https://github.com/decentraland/smart-wearable-sample))
