@@ -198,7 +198,7 @@ To publish your smart wearable:
 5. Open the editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
 6. Create a new collection with this and perhaps other wearables.
 7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Goerli, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
-8. At this point, your wearable is ready to be published. We still don’t encourage creators to publish any smart wearables, as we’re still in experimental stages, reviewers from the committee have been instructed to not approve any smart wearables that don’t come from the foundation.
+8. At this point, your wearable is ready to be published.
 
 ## Restricted actions
 
