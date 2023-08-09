@@ -11,7 +11,7 @@ url: /creator/development-guide/workspaces
 weight: 3
 ---
 
-Run multiple Decentraland projects in preview by grouping these into a workspace. Run multiple adjacent scenes to see how they fit, or also run multiple [smart wearables]({{< ref "/content/creator/scenes/projects/smart-wearables.md" >}}) together to see how they interact with each other and with different scenes.
+Run multiple Decentraland projects in preview by grouping these into a workspace. Run multiple adjacent scenes to see how they fit, or also run multiple [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}) together to see how they interact with each other and with different scenes.
 
 Running multiple projects in a workspace provides a much more complete testing alternative, to ensure different content works well together.
 
@@ -42,7 +42,7 @@ Once a workspace is created, you can add additional projects `dcl workspace add`
 You can also add a project that is not inside the workspace folder, by using the absolute path.
 
 {{< hint warning >}}
-**📔 Note**:  The folder must already contain a decentraland project initatied with `dcl init`. It can't be an empty folder.
+**📔 Note**: The folder must already contain a decentraland project initatied with `dcl init`. It can't be an empty folder.
 {{< /hint >}}
 
 You can also edit the `dcl-workspace.json` file manually to add or remove projects. Modify the file to include the relative paths to each of the projects in the workspace in the `folders` array.
