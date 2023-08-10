@@ -146,7 +146,7 @@ The following fields can also optionally be included. These settings can also be
 
 ## The thumbnail
 
-You must include an image named `thumbnail.png` at root level in your folder. This image will be shown both in the backpack and the marketplace, to represent your wearable in 2d. The recommended required image size is 1024x1024.
+You must include an image named `thumbnail.png` at root level in your folder. This image will be shown both in the backpack and the marketplace, to represent your wearable in 2d. The recommended required image size is 256x256.
 
 Chose an image that sets player expectations and properly represents your creation.
 
