@@ -183,7 +183,7 @@ To publish your smart wearable:
 
 3. Open the Builder, open the Collections tab, click + to upload a new wearable.
 
-4. Drag your compressed `portable-expereince.zip` file into the Builder, verify that all the information is accurate.
+4. Drag your compressed `portable-experience.zip` file into the Builder, verify that all the information is accurate.
 
   > Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model):
     a) Select only Male and complete the process
@@ -192,7 +192,7 @@ To publish your smart wearable:
 5. Open the editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
 6. Create a new collection with this and perhaps other wearables.
 7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on ropsten, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
-8. At this point, your wearable is ready to be published. We still don’t encourage creators to publish any smart wearables, as we’re still in experimental stages, reviewers from the committee have been instructed to not approve any smart wearables that don’t come from the foundation.
+8. At this point, your wearable is ready to be published.
 
 {{< hint warning >}}
 **📔 Note**:  There will be a `dcl deploy` command in the future, to enable you to do this process without navigating the Builder UI.
