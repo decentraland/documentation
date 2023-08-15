@@ -102,11 +102,10 @@ To launch your own video streaming server, we recommend using a [Node Media Serv
 
 ## Streaming using Decentraland Cast
 
-You can livestream from your camera or share your screen using [Decentraland Cast](https://cast.decentraland.org). This streaming method uses the same comms architecture used for live communications between players, and is easy to set up and has a lot less delay than streaming from external sources.
+You can livestream from your camera or share your screen using [Decentraland Cast]({{< ref "/creator/worlds/cast.md">}}). This streaming method uses the same comms architecture used for live communications between players, and is easy to set up and has a lot less delay than streaming from external sources.
 
 {{< hint warning >}}
-**📔 Note**: Decentraland cast is only available to use in a World, not in scenes published to Genesis City. Only the user with the wallet that owns the NAME for the World is able to stream.
-As Worlds have a limited capacity of maximum 100 players at a time, this streaming method can only reach that maximum amount.
+**📔 Note**: Decentraland cast is only available to use in a World, not in scenes published to Genesis City. See [Decentraland Cast]({{< ref "/creator/worlds/cast.md">}}) for more information. As Worlds have a limited capacity of maximum 100 players at a time, this streaming method can only reach that maximum amount.
 {{< /hint >}}
 
 
