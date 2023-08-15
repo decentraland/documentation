@@ -89,6 +89,25 @@ See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadat
 
 To launch your own video streaming server, we recommend using a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box. See
 
+## Streaming using Decentraland Cast
+
+Be aware this feature is only available for worlds. In the context of a world's scene, you can livestream you camera or share your screen using [Decentraland Cast](https://cast.decentraland.org). To play a live stream happening in the world you have access to a function called `getActiveVideoStreams`, which will return a list of all active video streams. Here is an example code:
+
+```ts
+const { streams } = await getActiveVideoStreams({})
+if (streams.length > 0) {
+  const stream = streams[0]
+  VideoPlayer.createOrReplace(screen, {
+    src: stream.trackSid,
+    playing: true
+  })
+  console.log(`playing ${stream.identity} ${stream.sourceType} stream`)
+}
+```
+
+The `stream.trackSid` contains a unique track id that allow the player to play the video stream, `stream.identity` contains the address of the person that is streaming and `stream.sourceType` could be `VideoTrackSourceType.VTST_SCREEN_SHARE` or `VideoTrackSourceType.VTST_CAMERA`
+
+
 ## Video Materials
 
 The default properties of a material make the video look rather opaque for a screen, but you can enhance that by altering other properties of the material.
@@ -327,7 +346,7 @@ function mySystem() {
 }
 ```
 
-<!-- 
+<!--
 
 ## Map a video texture
 
@@ -341,7 +360,7 @@ use uvs to map parts of the video
 
 -->
 
-<!-- 
+<!--
 ## Handle a video file
 
 When playing a video from a file, you can perform the following actions:
@@ -356,4 +375,3 @@ When playing a video from a file, you can perform the following actions:
 
 You can also change the following properties:
 -->
-
