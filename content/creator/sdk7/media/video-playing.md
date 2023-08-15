@@ -9,9 +9,17 @@ url: /creator/development-guide/sdk7/video-playing/
 weight: 2
 ---
 
-There are two different ways you can show a video in a scene. One is to stream the video from an external source, the other is to pack the video file with the scene and play it from there.
+There are tree different ways you can show a video in a scene:
 
-In both cases, you use a `VideoPlayer` component to control the state of the video. You also need to create a `VideoTexture`, which can be used on a [material]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) and then applied to any [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
+- Upload a video file as part of the scene contents
+- Stream the video from an external source
+- Stream live via Decentraland cast
+
+In all cases, you'll need:
+
+- An entity with a [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
+- A [material]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) with a A `VideoTexture` assigned to its texture
+- A `VideoPlayer` component to control the state of the video.
 
 {{< hint warning >}}
 **📔 Note**: Keep in mind that streaming video demands a significant effort from the player's machine. For this reason, we recommend never having more than one video stream displayed at a time per scene. Videos are also not played if the player is standing on a different scene. Also avoid streaming videos that are in very high resolution, don't use anything above _HD_.
@@ -19,7 +27,7 @@ In both cases, you use a `VideoPlayer` component to control the state of the vid
 
 ## Show a video
 
-The following instructions apply both to streaming and to showing a video from a file:
+The following instructions apply to all three video showing options:
 
 1. Create an entity to serve as the video screen. Give this entity a `MeshRenderer` component so that it has a visible shape.
 
@@ -69,7 +77,10 @@ VideoPlayer.create(screen, {
 })
 ```
 
-## About Streaming
+See [Streaming using Decentraland cast](#streaming-using-decentraland-cast) for details on how to use this third alternative method.
+
+
+## About External Streaming
 
 The source of the streaming must be an _https_ URL (_http_ URLs aren't supported), and the source should have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it. If this is not the case, you might need to set up a server to act as a proxy and expose the stream in a valid way.
 
@@ -91,7 +102,15 @@ To launch your own video streaming server, we recommend using a [Node Media Serv
 
 ## Streaming using Decentraland Cast
 
-Be aware this feature is only available for worlds. In the context of a world's scene, you can livestream you camera or share your screen using [Decentraland Cast](https://cast.decentraland.org). To play a live stream happening in the world you have access to a function called `getActiveVideoStreams`, which will return a list of all active video streams. Here is an example code:
+You can livestream from your camera or share your screen using [Decentraland Cast](https://cast.decentraland.org). This streaming method uses the same comms architecture used for live communications between players, and is easy to set up and has a lot less delay than streaming from external sources.
+
+{{< hint warning >}}
+**📔 Note**: Decentraland cast is only available to use in a World, not in scenes published to Genesis City. Only the user with the wallet that owns the NAME for the World is able to stream.
+As Worlds have a limited capacity of maximum 100 players at a time, this streaming method can only reach that maximum amount.
+{{< /hint >}}
+
+
+Call `getActiveVideoStreams` to fetch a list of all live streams active in the current World. The example below uses the first stream returned by this method:
 
 ```ts
 const { streams } = await getActiveVideoStreams({})
@@ -105,7 +124,11 @@ if (streams.length > 0) {
 }
 ```
 
-The `stream.trackSid` contains a unique track id that allow the player to play the video stream, `stream.identity` contains the address of the person that is streaming and `stream.sourceType` could be `VideoTrackSourceType.VTST_SCREEN_SHARE` or `VideoTrackSourceType.VTST_CAMERA`
+Each stream returned by `getActiveVideoStreams` contains the following fields:
+
+- `trackSid`: contains a unique track id that allow the player to play the video stream
+- `identity` : the address of the person that is streaming
+- `sourceType`: can be `VideoTrackSourceType.VTST_SCREEN_SHARE` or `VideoTrackSourceType.VTST_CAMERA`
 
 
 ## Video Materials
