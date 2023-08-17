@@ -13,7 +13,7 @@ weight: 14
 
 The Web Editor is a simple visual tool that lets you create and publish Decentraland scenes without the need to install anything.
 
-To access the web editor simply visit the [builder page](builder.decentraland.org) and go to scenes section. 
+To access the web editor simply visit the [builder page](builder.decentraland.org) and go to **scenes** section. 
 
 ## Create scene
 
@@ -24,13 +24,14 @@ Scenes in Decentraland occupy one or several adjacent LAND parcels. Each LAND pa
 To build something to deploy to LAND parcels you own, make sure the shape of the scene matches the shape of where you want it deployed.
 
 {{< hint warning >}}
-📔 Note: The scene creation flow currently only supports rectangular-shaped scenes. You can edit the scene shape from the editor scene panel by selecting the parcels you want to occupied
+📔 Note: The scene creation flow currently only supports rectangular-shaped scenes. You can edit the scene shape from the editor scene panel by selecting the parcels you want to occupy.
 {{< /hint >}}
 
-##### Add items
+#### Add items
+
 Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene. There’s a great variety!
 
-To place an item click and drag the item to a specific location in the scene. All the changes will be saved automatically.
+To place an item, click and drag the item to a specific location in the scene. All your changes are saved automatically.
 
 ## Preview in explorer
 
@@ -42,9 +43,9 @@ To test your scene and experience it like a player, click the _Preview scene_ bu
 
 Once you're happy with the scene, press _Publish scene_.
 
-- Select _My world_ to make your scene available in any of your worlds.
+- Select _My world_ to make your scene available in any of your [worlds]({{< ref "/content/creator/worlds/about.md" >}}).
 
-- Select _My Land_ if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed in the map. Parcels where you are allowed to deploy are shown in pink.
+- Select _My Land_ if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed on the map. Parcels where you are allowed to deploy are shown in pink.
 
 ## Download scene
 
@@ -69,14 +70,15 @@ If a scene is too large to upload, try this:
 {{< /hint >}}
 
 ## Migrate from SDK6 to SDK7
-All scenes in sdk6 can be easily migrated to sdk7 using the builder. To do it:
+
+Scenes created with the Builder in SDK6 can be easily migrated to SDK7 using the builder. To do this:
 
 1. Select an SDK6 scene from the list
-2. Press the "Edit scene" button
+2. Press the **Edit scene** button
 3. Select "Use decentraland web editor (SDK7)" option
-4. Press "Migrate now" button. If needed, you can also save a copy of the scene in sdk6. 
+4. Press the **Migrate now** button. If needed, you can also save a copy of the scene in SDK6. 
 
 {{< hint danger >}}
 **❗Warning**  
-If the migrated scene contains smart items, these will be removed as sdk7 doesn't support smart items yet.  
+If the migrated scene contains smart items, these will be removed from the scene. SDK7 doesn't support smart items yet.  
 {{< /hint >}}
