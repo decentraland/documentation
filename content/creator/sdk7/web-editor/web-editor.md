@@ -8,7 +8,7 @@ categories:
   - web-editor
 type: Document
 url: /creator/web-editor
-weight: 14
+weight: 1
 ---
 
 The Web Editor is a simple visual tool that lets you create and publish Decentraland scenes without the need to install anything.
