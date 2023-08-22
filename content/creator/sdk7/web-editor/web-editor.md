@@ -24,7 +24,7 @@ Scenes in Decentraland occupy one or several adjacent LAND parcels. Each LAND pa
 To build something to deploy to LAND parcels you own, make sure the shape of the scene matches the shape of where you want it deployed.
 
 {{< hint warning >}}
-📔 Note: The scene creation flow currently only supports rectangular-shaped scenes. You can edit the scene shape from the editor scene panel by selecting the parcels you want to occupy.
+📔 Note: The scene creation flow currently only supports rectangular-shaped scenes.
 {{< /hint >}}
 
 #### Add items
