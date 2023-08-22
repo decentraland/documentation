@@ -1,5 +1,5 @@
 ---
-date: 2023-06-26
+date: 2023-10-22
 title: FAQ
 description: Places FAQ
 type: Document
@@ -8,7 +8,7 @@ url: /creator/places/faq
 
 Below you can find the **frequently asked questions** about [Places](https://places.decentraland.org/).
 
-## Editing your Place
+## Editing Your Place
 
 **How do I edit the title, description or image of my Place?**
 
@@ -20,15 +20,15 @@ When you re-upload your scene, the Places website will update any metadata autom
 
 **What happens if I change my Place significantly?**
 
-Each Place has a unique ID. There are certain conditions which, when fulfilled, will make your Place be considered "new" and it will be given a new ID. This is to cope with the constantly changing nature of Decentraland. If your Place is considered different enough to get a new ID, it will lose favorites and likes. You can read about these conditions in [ADR: Place Identifiers](https://adr.decentraland.org/adr/ADR-186).
+Each Place is assigned a unique ID. When certain conditions are met, your Place may be deemed "new", resulting in a new ID assignment. This change will cause your Place to lose any accumulated favorites and likes. For details on these conditions, please refer to [ADR: Place Identifiers](https://adr.decentraland.org/adr/ADR-186).
 
-## Highest Rated
+## Like Percentage
 
-**How is the highest rated percentage calculated?**
+**How is the like percentage calculated?**
 
-In order to avoid abuse, the highest rated percentage is calculated from upvotes and downvotes from users who have at least 100 [voting power](https://docs.decentraland.org/player/general/dao/dao-userguide/#voting-power). Anyone can vote, but only qualifying votes are used to calculate the highest rated percentage.
+In order to prevent abuse, the like percentage is calculated from likes and dislikes from users who have at least 100 [voting power](https://docs.decentraland.org/player/general/dao/dao-userguide/#voting-power). Anyone with an account can like or dislike, but only qualifying votes are used to calculate the like percentage.
 
-People are more likely to rate your place highly if your Place has a title, description and thumbnail.
+Increase your chances of getting a good rating by making sure your Place has a title, description and thumbnail.
 
 ## Points of Interest
 
