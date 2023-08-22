@@ -4,7 +4,7 @@ url: /creator/quests/rewards
 weight: 3
 ---
 
-A Quest can have a rewards for the users who complete it. When a Quest is created, the creator could set a reward which consists of a webhook and a set of items.
+A Quest can have rewards for the users who complete it. When a Quest is created, the creator could set a reward which consists of a webhook and a set of items.
 The webhook is a URL that will be called when the Quest is completed. The items are a set of items (it could be only one item) that will be given to the user when the Quest is completed.
 
 The **[Quests System](/creator/quests/overview)** is in charge of sending the request to the given webhook URL when it detects that a user has completed a quest.
