@@ -20,7 +20,7 @@ It's super flexible as long as you meet the API requirements for the webhook end
 }
 ```
 
-You can also set a `requestBody` when you create the Quest. This `requestBody` will be sent as the body of the POST request to the webhook URL.
+If you need to send extra information or a specific value to your webhook, you can set a `requestBody` when you create the Quest. This `requestBody` will be sent as the body of the POST request to the webhook URL.
 
 You are able to receive Quest or User information on your endpoint. You can use a set of placeholders in the `webhookUrl` and `requestBody` fields to receive this information. We currently support these placeholders:
 - `{quest_id}`: the id of the Quest
@@ -35,6 +35,7 @@ So an example of this could be:
             webhookUrl: "https://my-rewards-webhook.com/quests/{quest_id}", 
             requestBody: { 
                 "user": "{user_address}"
+                "your_service_key": "your_service_value"
             }
         },
         ...
@@ -51,7 +52,8 @@ Another Example:
             webhookUrl: "https://my-rewards-server.com/quests", 
             requestBody: { 
                 "user": "{user_address}"
-                "quest": "{quest_id}"
+                "quest": "{quest_id}",
+                "your_service_key": "your_service_value"
             }
         },
         ...
@@ -59,7 +61,7 @@ Another Example:
 }
 ```
 
-As we defined [here](/creator/quests/define), the `requestBody` is optional. If you don't need to send any information to your webhook, you can just omit it. So an example of this could be:
+As it's defined [here](/creator/quests/define), the `requestBody` is optional. If you don't need to send any information to your webhook within the POST request body, you can just omit it. So an example of this could be:
 ```typescript
 {
     ...,
