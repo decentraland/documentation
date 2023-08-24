@@ -15,6 +15,10 @@ Streaming via Decentraland Cast is an exclusive feature reserved for world owner
 2. Join the Session: Once the world is selected, a session will be joined. 
 <!-- <image Decentraland Cast UI> -->
 3. Share Screen or Camera Footage: If authorized, users have the option to either activate their cameras or share their screens directly within the app.
+{{< hint warning >}}
+**📔 Note**: If you intend to stream a video along with its audio, it's advisable to utilize Google Chrome or a browser built on the Chrome engine. These browsers offer the functionality to easily share both video and audio directly from a browser tab.
+{{< /hint >}}
+
 <!-- <image showing the Decentraland Cast controls bar> -->
 4. Flawless Integration: Decentraland Cast’s integration with the world ensures uninterrupted communication, allowing users to effortlessly send, receive, and listen to chat and voice messages.
 <!-- <image showing the screen and chat Decentraland Cast UI>
