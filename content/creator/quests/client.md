@@ -1,29 +1,42 @@
 ---
-title: "SDK Client"
+title: 'Quests SDK Library'
 url: /creator/quests/sdk-client
 weight: 4
 ---
 
-In order to connect to the Quests Service to track users' progress, send events and receive updates of users' progress from your scenes, you need to use the [Quests Client for SDK 7](https://github.com/decentraland/quests-client).
+Use the [Quests Client for SDK 7](https://github.com/decentraland/quests-client) library in your scenes (or portable experiences) to connect to the Quests Service to track player's progress, send events and receive updates of player's progress from your scenes,
 
-#### What do we provide here? 
+## What does this library provide?
 
-- Quests Client API to send your [Custom](/creator/quests/define#action-items) events and receive updates of users' progress.
+- An interface with the Quests Client API, to send your [Custom](/creator/quests/define#action-items) events and receive updates of player's progress.
 - SDK System helpers to send [Location, Emote, Jump](/creator/quests/define#action-items) events automatically. (TODO)
 - Default UI for your Quest HUD. (TODO)
 
-# Usage
+## Usage
 
-## Installation 
+#### Installation
+
+##### Via the Editor
+
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+
+1. Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
+
+2. Click the `+` icon on the header of the **Dependencies** view.
+
+3. Visual Studio opens an input box at the top of the screen. Write `@dcl/quests-client`.
+
+##### Via the CLI
+
 Run this command in your scene's directory:
 
 ```bash
 $ npm install @dcl/quests-client
 ```
 
-## Quests Client methods
+## Quests Client overview
 
-You can find below types defined in [Quests Client for SDK 7](https://github.com/decentraland/quests-client).
+The types below are defined in [Quests Client for SDK 7](https://github.com/decentraland/quests-client).
 
 ```typescript
 type QuestsClient = {
@@ -44,28 +57,33 @@ type OnStartedCallback = (instance: QuestInstance) => void
 type OnUpdateCallback = (instance: QuestInstance) => void
 ```
 
-Before explaining each method of the Quests Client, let's take a look at the `QuestInstance` type since it's used in some methods. A `QuestInstance` is an instance of a specific Quest and it contains the state (or progress) of the user in that specific Quest. The `QuestInstance` type has the following fields:
-- `id`: It's the id of the Quest Instance. It's a unique identifier of the user's Quest Instance.
-- `quest`: It's the Quest object defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
-- `state`: It's the progress of the user on the Quest defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
+## The Quest instance
 
-Now, let's take a look at each method of the Quests Client:
+The `QuestInstance` type is used in several methods. A `QuestInstance` is an instance of a specific Quest and it contains the state (or progress) of the player in that specific Quest. The `QuestInstance` type has the following fields:
 
-- `startQuest`: This function allows you as a creator to make the user start your Quest. In the background, the function will call the Quest RPC Service. The function receives a `StartQuestRequest` object that contains the Quest's id that you want to start. The function returns a `StartQuestResponse` object that contains the Quest Instance's id. Both objects are defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
+- `id`: The id of the Quest Instance. It's a unique identifier of the player's Quest Instance.
+- `quest`: The Quest object defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
+- `state`: The progress of the player on the Quest defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
 
-- `abortQuest`: This function allows you as a creator to allow the users to abort your Quest if they want to. In the background, the function will call the Quest RPC Service. The function receives a `AbortQuestRequest` object that contains the user's instance id. The function returns a `AbortQuestResponse` that contains the result of the request, it may be an error or a success. Both objects are defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
+## Quest client methods
 
-- `sendEvent`: This function allows you as a creator to send a custom event to the Quest RPC Service. The function receives an `Action` (action item with its type and parameters) that the user should have done. The function returns an `EventResponse` object that contains the result of the request, it may be an error or a success. Both `Action` and `EventResponse` are defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
+The following methods are available in the Quests Client:
 
-- `onStarted`: This function allows you as a creator to register multiple callbacks that will be called when the user starts a Quest. If you as a creator want to react to the start of a Quest, you can register a callback here. The callback receives a `QuestInstance` object that contains the information of the Quest that the user has started. 
+- `startQuest`: Use this function to make the player start your Quest. In the background, the function calls the Quest RPC Service. The function receives a `StartQuestRequest` object that contains the Quest's id that you want to start. The function returns a `StartQuestResponse` object that contains the Quest Instance's id. Both objects are defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
 
-- `onUpdate`: This function allows you as a creator to register multiple callback that will be called when the user makes progress on a Quest. You, as a creator, do want to react to progress to apply chanes on your scene. The callback receives a `QuestInstance` object that contains the information of the Quest that the user has made progress on.
+- `abortQuest`: Use this function to allow the player to abort your Quest. In the background, the function will call the Quest RPC Service. The function receives a `AbortQuestRequest` object that contains the player's instance id. The function returns a `AbortQuestResponse` that contains the result of the request, both in case of an error or success. Both objects are defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
 
-- `getInstances`: This function allows you as a creator to get all the Quest Instances of the user. The function returns an array of `QuestInstance` objects.
+- `sendEvent`: Use this function send a custom event to the Quest RPC Service. The function receives an `Action` (action item with its type and parameters), representing an action that the player has already completed in the scene. The function returns an `EventResponse` object that contains the result of the request, both in case of an error or success. Both `Action` and `EventResponse` are defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
 
-#### Setting up the client
+- `onStarted`: Use this function to register one or multiple callbacks that are called when the player starts a Quest. Use this for the scene to react to the start of a Quest in any needed way. The callback receives a `QuestInstance` object that contains the information of the Quest that the player has started.
 
-First off, you should start by importing a `createQuestsClient` to initialize the Quests Client in your scene.
+- `onUpdate`: Use this function to register one or multiple callbacks that are called whenever the player makes progress on a Quest. Use these callbacks to apply changes on your scene that correlate to this progress. The callback receives a `QuestInstance` object that contains the information of the Quest that the player has made progress on.
+
+- `getInstances`: This function allows you as a creator to get all the Quest Instances of the player. The function returns an array of `QuestInstance` objects.
+
+## Setting up the client
+
+Start by importing `createQuestsClient` to initialize the Quests Client in your scene.
 
 ```typescript
 // index.ts
@@ -74,13 +92,13 @@ First off, you should start by importing a `createQuestsClient` to initialize th
 import { createQuestsClient } from '@dcl/quests-client'
 ```
 
-The initialization of the Quests Client returns a promise that resolves when the Quests Client is ready to use, so you should run this code in async function. To run this code in async function, you could use the `executeTask` function from the SDK.
+The initialization of the Quests Client returns a promise that resolves when the Quests Client is ready to use. Run this code inside an async function. To do this, you can use the `executeTask` function, see [asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}).
 
-The URL to connect to [Quests API](creator/quests/overview/#services-architecture), you can use the following URLs: 
+The function `createQuestsClient()` takes a parameter containing the URL to connect to the [Quests API](creator/quests/overview/#services-architecture). The following options are available:
+
 - Development: `wss://quests-rpc.decentraland.zone`
 - Production: `wss://quests-rpc.decentraland.org`
-
-Or you can set up your own Quests Service locally for development or testing. You can find more information on how to do so on [Quests Service's repository](https://github.com/decentraland/quests)
+- Custom: Set up your own Quests Service locally for development or testing. You can find more information on how to do so on [Quests Service's repository](https://github.com/decentraland/quests)
 
 ```typescript
 // index.ts
@@ -89,23 +107,23 @@ Or you can set up your own Quests Service locally for development or testing. Yo
 import { executeTask } from '@dcl/sdk/ecs'
 import { createQuestsClient } from '@dcl/quests-client'
 
-executeTask(async() => {
-    const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+executeTask(async () => {
+  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-    try {
-        const questsClient = await createQuestsClient(serviceUrl)
-        console.log("Quests Client is ready to use!")
-    } catch (e) {
-        console.error("Error on connecting to Quests Service")
-    }
+  try {
+    const questsClient = await createQuestsClient(serviceUrl)
+    console.log('Quests Client is ready to use!')
+  } catch (e) {
+    console.error('Error on connecting to Quests Service')
+  }
 })
-
 ```
-#### React to changes on user's progress
 
-Well so now, you have the client ready to use and it's listening to the Quests Service for new changes on logged-in user's progress. But you may want to react and apply different changes to your scene when the user makes progress on a Quest.
+## React to changes on the player's progress
 
-To do so, you can register a callback for that: 
+By now you have the client set up and listening to the Quests Service for changes on the current player's progress. You may want to react and apply different changes to your scene when the player makes progress on a Quest.
+
+To react to these changes, register a callback:
 
 ```typescript
 // index.ts
@@ -114,46 +132,45 @@ To do so, you can register a callback for that:
 import { executeTask } from '@dcl/sdk/ecs'
 import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
 
-executeTask(async() => {
-    const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+executeTask(async () => {
+  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-    try {
-        const questsClient = await createQuestsClient(serviceUrl)
-        console.log("Quests Client is ready to use!")
+  try {
+    const questsClient = await createQuestsClient(serviceUrl)
+    console.log('Quests Client is ready to use!')
 
-        client.onUpdate((quest: QuestInstance) => {
-          // update your state here or react to the quest updates
-        })
-
-    } catch (e) {
-        console.error("Error on connecting to Quests Service")
-    }
+    client.onUpdate((quest: QuestInstance) => {
+      // update your state here or react to the quest updates
+    })
+  } catch (e) {
+    console.error('Error on connecting to Quests Service')
+  }
 })
 ```
 
-The `onUpdate` function receives a callback that will be called when the user has made progress on a Quest. The callback receives a `QuestInstance` object that contains the information of the Quest that the user has made progress on.
+The `onUpdate` function receives a callback function that is called every time the player makes progress on a Quest. The callback receives a `QuestInstance` object that contains the information of the Quest that the player has made progress on.
 
 The `QuestInstance` object has the following fields:
 
-```typescript 
+```typescript
 type QuestInstance = {
-    id: string
-    quest: Quest
-    state: QuestState
+  id: string
+  quest: Quest
+  state: QuestState
 }
 ```
 
-- `id`: It's the id of the Quest Instance. It's a unique identifier of the user's Quest Instance.
-- `quest`: It's the Quest object. You can find more information about the Quest object [here](/creator/quests/define).
-- `state`: It's the progress of the user on the Quest. 
+- `id`: The id of the Quest Instance. It's a unique identifier of the player's Quest Instance.
+- `quest`: The Quest object. Find more information about the Quest object [here](/creator/quests/define).
+- `state`: The progress of the player on the Quest.
 
-You can find `Quest` and `QuestState` types in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
+Find details about the `Quest` and `QuestState` types in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
 
-#### Trigger the Start of your Quest
+## Trigger the Start of your Quest
 
-Now you have the Quests Client ready to use and you are listening to the Quests Service for new changes on the user's progress. But you may want to trigger the start of a Quest when the user enters a specific area of your scene or when the user interacts with an NPC, or when the user clicks on a button. So, let's see how to do that.
+Now you have the Quests Client ready to use and you are listening to the Quests Service for new changes on the player's progress. But you may want to trigger the start of a Quest when the player enters a specific area of your scene or when the player performs a specific action, like interacting with an NPC.
 
-To trigger the start of a Quest, you need to call the `startQuest` function from the Quests Client. This function receives the Quest's id that you want to start. But how can you do that since the `questClient` is scoped within `executeAsync` function? Well, you can make use of observables also known as event emitters in order to use the `questClient` from any part of your scene.
+To trigger the start of a Quest, call the `startQuest` function. This function receives the id of the quest you want to start. But how can you do that since the `questClient` is scoped within `executeAsync` function? Well, you can make use of observables also known as event emitters in order to use the `questClient` from any part of your scene.
 
 To do so, you can use the `mitt` library. You can find more information about this library [here](https://www.npmjs.com/package/mitt)
 
@@ -161,16 +178,16 @@ To do so, you can use the `mitt` library. You can find more information about th
 $ npm install mitt
 ```
 
-In your scene code, you can create a new file with your event emitters. 
+In your scene code, you can create a new file with your event emitters.
 
 ```typescript
 // utils.ts
 import mitt from 'mitt'
 
-export const questStartEmitter = mitt<{start: boolean}>()
+export const questStartEmitter = mitt<{ start: boolean }>()
 ```
 
-So the above code initializes a event emitter which will be used to trigger the start of a Quest. This event emitter "emits an event" called "start" with a boolean value. Now, you can import this emitter where you have the `questClient` initialized and listen to the `start` event. 
+So the above code initializes a event emitter which will be used to trigger the start of a Quest. This event emitter "emits an event" called "start" with a boolean value. Now, you can import this emitter where you have the `questClient` initialized and listen to the `start` event.
 
 ```typescript
 // index.ts
@@ -180,32 +197,31 @@ import { executeTask } from '@dcl/sdk/ecs'
 import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
 import { questStartEmitter } from './utils'
 
-const MY_QUEST_ID = "quest-id-1234-5678-9012"
+const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
-executeTask(async() => {
-    const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+executeTask(async () => {
+  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-    try {
-        const questsClient = await createQuestsClient(serviceUrl)
-        console.log("Quests Client is ready to use!")
+  try {
+    const questsClient = await createQuestsClient(serviceUrl)
+    console.log('Quests Client is ready to use!')
 
-        client.onUpdate((quest: QuestInstance) => {
-          // update your state here or react to the quest updates
-        })
+    client.onUpdate((quest: QuestInstance) => {
+      // update your state here or react to the quest updates
+    })
 
-        questsStartEmitter.on('start', async (value: boolean) => {
-            await questsClient.startQuest({questId: MY_QUEST_ID})
-        })
-
-    } catch (e) {
-        console.error("Error on connecting to Quests Service")
-    }
+    questsStartEmitter.on('start', async (value: boolean) => {
+      await questsClient.startQuest({ questId: MY_QUEST_ID })
+    })
+  } catch (e) {
+    console.error('Error on connecting to Quests Service')
+  }
 })
 ```
 
-In the previous code, a constant value, containing the Quest ID you want the user to start, is defined. Then, the `questStartEmitter` is imported from the `utils.ts` file. Finally, the `questStartEmitter` is listening to the `start` event and when the event is emitted, the `startQuest` function is called with the Quest ID.
+In the previous code, a constant value, containing the Quest ID you want the player to start, is defined. Then, the `questStartEmitter` is imported from the `utils.ts` file. Finally, the `questStartEmitter` is listening to the `start` event and when the event is emitted, the `startQuest` function is called with the Quest ID.
 
-What it's left now is to emit the `start` event when you want the user to start the Quest. For example, you can emit the `start` event when the user clicks on a Cube mesh. Here is a pseudocode as example: 
+What it's left now is to emit the `start` event when you want the player to start the Quest. For example, you can emit the `start` event when the player clicks on a Cube mesh. Here is a pseudocode as example:
 
 ```typescript
 // cube.ts
@@ -215,15 +231,19 @@ import { pointerEventsSystem, InputAction } from '@dcl/sdk/ecs'
 import { questStartEmitter } from './utils'
 
 //...
-pointerEventsSystem.onPointerDown(cubeMeshEntity, (cmd) => {
+pointerEventsSystem.onPointerDown(
+  cubeMeshEntity,
+  (cmd) => {
     questStartObservable.emit('start', true)
-}, { button: InputAction.IA_PRIMARY, hoverText: "E to Start Quest" })
+  },
+  { button: InputAction.IA_PRIMARY, hoverText: 'E to Start Quest' }
+)
 //...
 ```
 
 #### React to the start of your Quest
 
-After your user starts your Quest, you may want to react to this event. So in order to do so, you can register a callback using `onStarted` function provided by the client: 
+After your player starts your Quest, you may want to react to this event. So in order to do so, you can register a callback using `onStarted` function provided by the client:
 
 ```typescript
 // index.ts
@@ -233,50 +253,48 @@ import { executeTask } from '@dcl/sdk/ecs'
 import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
 import { questStartEmitter } from './utils'
 
-const MY_QUEST_ID = "quest-id-1234-5678-9012"
+const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
-executeTask(async() => {
-    const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+executeTask(async () => {
+  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-    try {
-        const questsClient = await createQuestsClient(serviceUrl)
-        console.log("Quests Client is ready to use!")
+  try {
+    const questsClient = await createQuestsClient(serviceUrl)
+    console.log('Quests Client is ready to use!')
 
-        client.onUpdate((quest: QuestInstance) => {
-          // update your state here or react to your quest updates
-        })
+    client.onUpdate((quest: QuestInstance) => {
+      // update your state here or react to your quest updates
+    })
 
-        client.onStarted((quest: QuestInstance) => {
-          // react to the start of your Quest
-        })
+    client.onStarted((quest: QuestInstance) => {
+      // react to the start of your Quest
+    })
 
-        questsStartEmitter.on('start', async (value: boolean) => {
-            await questsClient.startQuest({questId: MY_QUEST_ID})
-        })
-
-    } catch (e) {
-        console.error("Error on connecting to Quests Service")
-    }
+    questsStartEmitter.on('start', async (value: boolean) => {
+      await questsClient.startQuest({ questId: MY_QUEST_ID })
+    })
+  } catch (e) {
+    console.error('Error on connecting to Quests Service')
+  }
 })
 ```
 
 #### Sending Events to the Quests Service
 
-You may be asking how you can send your custom events when the user performs an action that it's needed to make progress. Well, as we did it with the `startQuest` function, we can use an event emitter to send events to the Quests Service.
+You may be asking how you can send your custom events when the player performs an action that it's needed to make progress. Well, as we did it with the `startQuest` function, we can use an event emitter to send events to the Quests Service.
 
 Let's go back to our `utils.ts` file and add a new event emitter to send events to the Quests Service. Also, we need to import the `Action` type provided by the Quests Client library and defined in the Quest's Protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
-
 
 ```typescript
 // utils.ts
 import mitt from 'mitt'
 import { Action } from '@dcl/quests-client'
 
-export const questStartEmitter = mitt<{start: boolean}>()
-export const questEventEmitter = mitt<{action: Action}>()
+export const questStartEmitter = mitt<{ start: boolean }>()
+export const questEventEmitter = mitt<{ action: Action }>()
 ```
 
-So the above code initializes a event emitter which will be used to send events to the Quests Service. This event emitter "emits an event" called "action" with an `Action` object. Now, you can import this emitter where you have the `questClient` initialized and listen to the `action` event. 
+So the above code initializes a event emitter which will be used to send events to the Quests Service. This event emitter "emits an event" called "action" with an `Action` object. Now, you can import this emitter where you have the `questClient` initialized and listen to the `action` event.
 
 ```typescript
 // index.ts
@@ -286,36 +304,35 @@ import { executeTask } from '@dcl/sdk/ecs'
 import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
 import { questStartEmitter, questEventEmitter } from './utils'
 
-const MY_QUEST_ID = "quest-id-1234-5678-9012"
+const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
-executeTask(async() => {
-    const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+executeTask(async () => {
+  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-    try {
-        const questsClient = await createQuestsClient(serviceUrl)
-        console.log("Quests Client is ready to use!")
+  try {
+    const questsClient = await createQuestsClient(serviceUrl)
+    console.log('Quests Client is ready to use!')
 
-        client.onUpdate((quest: QuestInstance) => {
-          // update your state here or react to the quest updates
-        })
+    client.onUpdate((quest: QuestInstance) => {
+      // update your state here or react to the quest updates
+    })
 
-        questsStartEmitter.on('start', async (value: boolean) => {
-            await questsClient.startQuest({questId: MY_QUEST_ID})
-        })
+    questsStartEmitter.on('start', async (value: boolean) => {
+      await questsClient.startQuest({ questId: MY_QUEST_ID })
+    })
 
-        questEventEmitter.on('action', async (action: Action) => {
-            await questsClient.sendEvent({action})
-        })
-
-    } catch (e) {
-        console.error("Error on connecting to Quests Service")
-    }
+    questEventEmitter.on('action', async (action: Action) => {
+      await questsClient.sendEvent({ action })
+    })
+  } catch (e) {
+    console.error('Error on connecting to Quests Service')
+  }
 })
 ```
 
 In the previous code, we've added the `questEventEmitter` and it's listening to the `action` event and when the event is emitted, the `sendEvent` function is called with the `Action` object.
 
-After that, you can make use of the `questEventEmitter` in any part of your code to send events to the Quests Service, just importing it and emiting the `action` event. Here it's a pseudocode example: 
+After that, you can make use of the `questEventEmitter` in any part of your code to send events to the Quests Service, just importing it and emiting the `action` event. Here it's a pseudocode example:
 
 ```typescript
 // another-file.ts
@@ -326,5 +343,8 @@ import { questEventEmitter } from './utils'
 
 //...
 
-questEventEmitter.emit('action', {type: "CUSTOM", parameters: {id: "my-custom-action-id"}})
+questEventEmitter.emit('action', {
+  type: 'CUSTOM',
+  parameters: { id: 'my-custom-action-id' },
+})
 ```
