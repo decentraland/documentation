@@ -380,19 +380,19 @@ Players can switch between two cursor modes: _locked cursor_ mode to control the
 
 Players unlock the cursor by clicking the _Right mouse button_ or pressing the _Esc_ key, and lock the cursor back by clicking anywhere in the screen.
 
-Check the `PointerLock` component of the scene's root entity to find out what the current cursor mode is.
+Check the `PointerLock` component of the scene's [camera entity]({{< ref "/content/creator/sdk7/architecture/entities-components.md#reserved-entities" >}}) to find out what the current cursor mode is.
 
 ```ts
 executeTask(async () => {
-  const isLocked = PointerLock.get(engine.RootEntity).isPointerLocked
+  const isLocked = PointerLock.get(engine.CameraEntity).isPointerLocked
   console.log(isLocked)
 })
 ```
 
-The `PointerLock` component of the `engine.RootEntity` is read-only, you can't force the player to lock or unlock the cursor.
+The `PointerLock` component of the `engine.CameraEntity` is read-only, you can't force the player to lock or unlock the cursor.
 
 {{< hint warning >}}
-**📔 Note**: Avoid referring to the `engine.RootEntity` on the initial scene loading, because that can result in errors if the entity is not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+**📔 Note**: Avoid referring to the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entity is not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
 
 If you refer to this entity in a system, it will always be available, because the first execution of the system is called once the scene is already properly initialized.
 {{< /hint >}}
