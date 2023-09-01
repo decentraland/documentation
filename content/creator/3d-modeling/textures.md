@@ -42,7 +42,11 @@ Examples of other valid sizes:
 512x256px
 512x512px
 ```
+On another hand there is a limit for textures per parcel:
 
+```
+log2(n+1) x 10 Amount of textures per parcel. It includes textures imported as part of models.
+```
 # **UVMapping**
 UVmapping is the process of unwrapping the faces of your 3d model into a 2D coordinate that will be used later to add the different maps to your assets. It's a key part of the creation process. Doing a correct unwrap of your models is a key factor to squeeze the resolution of your models and also it will organize your maps to be flexible for modification.
 
