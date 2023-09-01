@@ -61,16 +61,16 @@ The shape used by the `MeshCollider` doesn't need to necessarily match the one u
 
 3D models can be assigned colliders on two different geometry levels:
 
-- `visible_meshes_collision_mask`: Refers to the visible geometry of the model. By default this geometry has no colliders.
-- `invisible_meshes_collision_mask`: refers to the collider meshes, whose name end in `_collider`. By default, this geometry is treated as a collider for both physics and pointer events.
+- `visibleMeshesCollisionMask`: Refers to the visible geometry of the model. By default this geometry has no colliders.
+- `invisibleMeshesCollisionMask`: refers to the collider meshes, whose name end in `_collider`. By default, this geometry is treated as a collider for both physics and pointer events.
 
-Any mesh embedded as part of a 3D model who's name ends in `_collider` is treated as part of the `invisible_meshes_collision_mask` layer, and interpreted as a collider by default.
+Any mesh embedded as part of a 3D model who's name ends in `_collider` is treated as part of the `invisibleMeshesCollisionMask` layer, and interpreted as a collider by default.
 
 Defining collider geometry as a separate invisible layer allows for much greater control and is a lot less demanding on the system than using the visible geometry, as the collision object is usually a lot simpler (with less vertices) than the original model.
 
 If a model doesn't have any collider geometry, and you want to make it affect the physics or the pointer events systems, you can either:
 
-- Assign collision layers directly to the visible geometry, via the `visible_meshes_collision_mask`.
+- Assign collision layers directly to the visible geometry, via the `visibleMeshesCollisionMask`.
   {{< hint warning >}}
   **📔 Note**: If the visible geometry of the object has many vertices, note that this may have more of a performance cost.
   {{< /hint >}}
@@ -78,10 +78,10 @@ If a model doesn't have any collider geometry, and you want to make it affect th
 - Overlay an invisible entity that has a `MeshCollider` component.
 - Edit the model in an external tool like Blender to include a _collider mesh_. The collider must be named _x_collider_, where _x_ is the name of the model. So for a model named _house_, the collider must be named _house_collider_.
 
-You might also want to assign the pointer events collision layer to the `visible_meshes_collision_mask` in case you want the hover hints and pointer events to respond more accurately to the contour of the entity. Note that this is more demanding on performance.
+You might also want to assign the pointer events collision layer to the `visibleMeshesCollisionMask` in case you want the hover hints and pointer events to respond more accurately to the contour of the entity. Note that this is more demanding on performance.
 
 {{< hint warning >}}
-**📔 Note**: Make sure you don't have the same layer (physics, pointer events or custom layers) assigned to both `visible_meshes_collision_mask` and `invisible_meshes_collision_mask`, as that would be a very inefficient use of resources. You can have different layers on each, such as physics on the invisible layer and pointer events on the visible layer.
+**📔 Note**: Make sure you don't have the same layer (physics, pointer events or custom layers) assigned to both `visibleMeshesCollisionMask` and `invisibleMeshesCollisionMask`, as that would be a very inefficient use of resources. You can have different layers on each, such as physics on the invisible layer and pointer events on the visible layer.
 {{< /hint >}}
 
 ```ts
@@ -89,10 +89,10 @@ You might also want to assign the pointer events collision layer to the `visible
 const myEntity = engine.addEntity()
 
 // assign GLTF shape
-GLTFContainer.create(myEntity, {
+GltfContainer.create(myEntity, {
   src: '/models/myModel.gltf',
-  invisible_meshes_collision_mask: ColliderLayer.CL_PHYSICS,
-  visible_meshes_collision_mask: ColliderLayer.CL_POINTER,
+  invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
+  visibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
 })
 ```
 
@@ -108,7 +108,7 @@ When playing animations that involve moving full meshes without changing their s
 
 The scene can handle separate collision layers, that have different behaviors.
 
-You can configure a `MeshCollider` component or the `GLTFContainer` component to only respond to one kind of interaction, or to several of them. To do this, on the `MeshCollider` set the `collisionMask` property, and on `GLTFContainer` set the `visible_meshes_collision_mask` or `invisible_meshes_collision_mask` properties to one or several of the following values:
+You can configure a `MeshCollider` component or the `GltfContainer` component to only respond to one kind of interaction, or to several of them. To do this, on the `MeshCollider` set the `collisionMask` property, and on `GltfContainer` set the `visibleMeshesCollisionMask` or `invisibleMeshesCollisionMask` properties to one or several of the following values:
 
 - `ColliderLayer.CL_PHYSICS`: Only blocks player movement (and doesn't affect pointer events)
 - `ColliderLayer.CL_POINTER`: Responds only to pointer events (and doesn't block the player movement)
@@ -170,18 +170,18 @@ GLTFContainer.create(myEntity, {
 
 // player physics uses the simpler invisible geometry
 // pointer events use the full detailed contour of the visible geometry
-GLTFContainer.create(myEntity2, {
+GltfContainer.create(myEntity2, {
   src: '/models/myModel.gltf',
-  invisible_meshes_collision_mask: ColliderLayer.CL_PHYSICS,
-  visible_meshes_collision_mask: ColliderLayer.CL_POINTER,
+  invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
+  visibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
 })
 
 // both player physics and pointer events use the full detailed contour of the visible geometry
 // the simpler invisible geometry is mapped to undefined to avoid calculating both
-GLTFContainer.create(myEntity, {
+GltfContainer.create(myEntity, {
   src: '/models/myModel.gltf',
-  invisible_meshes_collision_mask: undefined,
-  visible_meshes_collision_mask:
+  invisibleMeshesCollisionMask: undefined,
+  visibleMeshesCollisionMask:
     ColliderLayer.CL_POINTER | ColliderLayer.CL_PHYSICS,
 })
 ```
