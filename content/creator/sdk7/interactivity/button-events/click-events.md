@@ -50,17 +50,19 @@ MeshCollider.setBox(clickableEntity)
 Transform.create(clickableEntity, {position: Vector3.create(8, 1, 8)})
 
 pointerEventsSystem.onPointerDown(
-  clickableEntity,
+  {
+  entity: clickableEntity,
+  opts: {
+      button: InputAction.IA_POINTER,
+      hoverText: 'Click'
+    }
+  },
   function () {
     console.log("clicked entity")
-    const t= Transform.getMutable(clickableEntity)
+    const t = Transform.getMutable(clickableEntity)
     t.scale.y += 0.2
-  },
-  {
-    button: InputAction.IA_POINTER,
-    hoverText: 'Click'
   }
-)
+    )
 
 // non-blocker for clicks
 const nonBlocker = engine.addEntity()
@@ -75,7 +77,9 @@ MeshCollider.setBox(blocker, ColliderLayer.CL_POINTER)
 Transform.create(blocker, {position: Vector3.create(8, 1, 10)})
 ```
 
-
+{{< hint warning >}}
+**📔 Note**: For an entity to not only intercept a pointer event, but also to return data, the entity also needs to have a `PointerEvents` component. The `pointerEventsSystem` helpers also take care of this requirment. 
+{{< /hint >}}
 
 ## Pointer buttons
 
@@ -105,8 +109,6 @@ Each input can produce the following types of pointer events. Each of the follow
 - `UP`: Player releases a specific button while having the cursor pointing at the entity's collider.
 - `HOVER_ENTER`: Player's cursor starts pointing at the entity's collider.
 - `HOVER_LEAVE`: Player's cursor stops pointing at the entity's collider.
-
-<!-- > Note: A _click_ event, as detected by the `inputSystem.wasJustClicked` helper function, is a combination of a `DOWN` event followed by an `UP` event. Note that as this event may take several ticks of the game loop to be completed, it can't be detected in a single frame, and therefore can only be detected thanks to a helper function. -->
 
 ## Data from an input action
 
@@ -156,6 +158,10 @@ engine.addSystem(() => {
 })
 ```
 
+{{< hint warning >}}
+**📔 Note**: For an entity to not only intercept a pointer event, but also to return data, the entity also needs to have a `PointerEvents` component. The `pointerEventsSystem` helpers also take care of this requirment. 
+{{< /hint >}}
+
 Using the [**Advanced**]({{< ref "/content/creator/sdk7/interactivity/button-events/advanced-button-events.md" >}}) approach, the `PointerEventsResults` contains an array with a recent history of all pointer events against that entity.
 
 ```ts
@@ -171,5 +177,4 @@ engine.addSystem(() => {
 })
 ```
 
-<!--
-When using `Input.getClick`, it returns an object with a `down` and an `up` object, each of these with all the same data structure returned by `inputSystem.getInputCommand`. The `down` object contains the data relevant to the moment when the moment when button was pushed down, the `up` object for when the button went up. -->
+

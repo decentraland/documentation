@@ -200,7 +200,7 @@ One way of knowing whether synchronization is complete consists of checking the 
 }
 ```
 
-While `synchronizationState` is `Bootstrapping`, you can use the node for deploying new content, but it is still not up-to-date with other nodes from the DAO. Once the status changes to `Syncing` it means it has already caught up and is continuously receiving the latest updates. This is the healthy state in which the node is fully working.
+While `synchronizationState` is `Bootstrapping`, the node will temporarily suspend the acceptance of new deployments. This measure ensures that no new entities are deployed until the node is brought up-to-date within the DAO network. Once the status changes to `Syncing`, it indicates that the node has successfully caught up and is now continuously receiving the latest updates. This is the healthy state in which the node is fully working and accepting new deployments.
 
 ```json
 {
