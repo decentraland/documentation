@@ -6,13 +6,12 @@ categories:
   - market
 type: Document
 aliases:
-   - /market/land-manager/
+  - /market/land-manager/
 url: /player/market/land-manager
 weight: 2
 ---
 
 The Land Manager allows you to manage your LAND and Estate assets.
-
 
 Access the Land manager at [https://builder.decentraland.org/land](https://builder.decentraland.org/land).
 
@@ -26,9 +25,9 @@ The Land Manager allows you to:
 
 ## Manage Your LAND
 
-To view your LAND tokens, click **My LAND**. Here you’ll find a list of all of your parcels and Estates, including any parcels that you have listed for sale.
+To view your LAND tokens, click **Manage your LAND**. Here you’ll find a list of all of your parcels and Estates, including any parcels that you have listed for sale.
 
-By clicking on one of the parcels or Estates listed under My Land, you can edit its name, description, put it up for sale, or transfer it directly to another wallet address.
+By clicking on one of the parcels or Estates listed under **Land**, you can edit its name, description, set an operator, or transfer it directly to another wallet address.
 
 ![](/images/media/marketplace_myland.png)
 
@@ -77,12 +76,15 @@ The user given permission can also change the name or description in the Marketp
 
 To grant permissions over your LAND:
 
-1. Navigate to the details page of the parcel or Estate and click **Permissions**.
+1. Navigate to the details page of the parcel or Estate and click on the three dots and then **Set Operator**.
+   ![](/images/media/marketplace_give_permissions_set_operator.png)
+
+2. Fill the form with the desired info.
 
    ![](/images/media/marketplace_give_permissions.png)
 
-2. Click **Submit**.
-3. Confirm this transaction on your Ethereum client and wait for the network to verify it.
+3. Click **Submit**.
+4. Confirm this transaction on your Ethereum client and wait for the network to verify it.
 
 ## See your activity history
 
@@ -104,7 +106,12 @@ To transfer a LAND parcel or Estate to another user:
 
 2. Enter the public address of the Ethereum wallet of the recipient.
 
-> Note: Please double check this address, since you cannot cancel the operation. While the recipient could always transfer the LAND back to you, the original owner cannot reverse the action.
+{{< hint warning >}}
+**📔 Note**:  Please double check this address, since you cannot cancel the operation. While the recipient could always transfer the LAND back to you, the original owner cannot reverse the action.
+{{< /hint >}}
+
+
+![](/images/media/marketplace_transfer_land_form.png)
 
 3. Click **Submit**.
 4. Confirm this transaction on your Ethereum client and wait for the network to verify it.

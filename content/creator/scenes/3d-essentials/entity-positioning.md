@@ -60,7 +60,9 @@ myTransform.position.set(3, 1, 3)
 myTransform.position = new Vector3(5, 1, 5)
 ```
 
-> Note: When setting the value of the position with an object, you can either use a `Vector3` object, or any other object with _x_, _y_ and _z_ fields.
+{{< hint warning >}}
+**📔 Note**:  When setting the value of the position with an object, you can either use a `Vector3` object, or any other object with _x_, _y_ and _z_ fields.
+{{< /hint >}}
 
 When setting a position, keep the following considerations in mind:
 
@@ -114,7 +116,9 @@ myTransform.rotation.eulerAngles = new Vector3(0, 90, 0)
 
 When using a _3D vector_ to represent Euler angles, _x_, _y_ and _z_ represent the rotation in that axis, measured in degrees. A full turn requires 360 degrees.
 
-> Note: If you set the rotation using _Euler_ angles, the rotation value is still stored internally as a quaternion.
+{{< hint warning >}}
+**📔 Note**:  If you set the rotation using _Euler_ angles, the rotation value is still stored internally as a quaternion.
+{{< /hint >}}
 
 When you retrieve the rotation of an entity, it returns a quaternion by default. To obtain the rotation expressed as in Euler angles, get the `.eulerAngles` field:
 
@@ -183,7 +187,9 @@ The `rotation` value of the entity's `Transform` component doesn't change as the
 
 If an entity has both a `Billboard` component and `Transform` component with `rotation` values, players will see the entity rotating as a billboard. If the billboard doesn't affect all axis, the remaining axis will be rotated according to the `Transform` component.
 
-> Note: If there are multiple players present at the same time, each will see the entities with billboard mode facing them.
+{{< hint warning >}}
+**📔 Note**:  If there are multiple players present at the same time, each will see the entities with billboard mode facing them.
+{{< /hint >}}
 
 ## Face a set of coordinates
 
@@ -267,7 +273,9 @@ engine.addEntity(parentEntity)
 
 You can use an invisible entity with no shape component to wrap a set of other entities. This entity won't be visible in the rendered scene, but can be used to group its children and apply a transform to all of them.
 
-> Note: Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
+{{< hint warning >}}
+**📔 Note**:  Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
+{{< /hint >}}
 
 ## Attach an entity to an avatar
 
@@ -307,12 +315,15 @@ The following anchor points are available on the player:
 ...etc
 -->
 
-> Note: Future SDK versions will include alternative anchor points on the avatar that will accompany the avatar animations.
+{{< hint warning >}}
+**📔 Note**:  Future SDK versions will include alternative anchor points on the avatar that will accompany the avatar animations.
+{{< /hint >}}
 
 Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to everyone seeing that player.
 
-> Note: Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
-
+{{< hint warning >}}
+**📔 Note**:  Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
+{{< /hint >}}
 
 The `AttachToAvatar` component overwrites the `Transform` component, a single entity can't have both an `AttachToAvatar` and a `Transform` component at the same time.
 
@@ -345,7 +356,9 @@ child.setParent(parent)
 
 To attach an entity to an avatar, you must provide the user's ID in the field `avatarId`. There are [various ways]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) to obtain this data.
 
-> Note: For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
+{{< hint warning >}}
+**📔 Note**:  For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
+{{< /hint >}}
 
 - Fetch the local player's `userId` via `getUserData()`.
 
@@ -407,7 +420,9 @@ engine.addEntity(followAvatar)
 followAvatar.setParent(Attachable.AVATAR)
 ```
 
-> Note: To set an entity as a child of `Attachable.FIRST_PERSON_CAMERA` or `Attachable.AVATAR`, you need to first add the entity to the engine. If you attempt to set the entity as child of the player _before_ adding it to the engine, it will raise an error.
+{{< hint warning >}}
+**📔 Note**:  To set an entity as a child of `Attachable.FIRST_PERSON_CAMERA` or `Attachable.AVATAR`, you need to first add the entity to the engine. If you attempt to set the entity as child of the player _before_ adding it to the engine, it will raise an error.
+{{< /hint >}}
 
 Both `Attachable.FIRST_PERSON_CAMERA` and `Attachable.AVATAR` behave similarly, but have subtle differences:
 
@@ -441,7 +456,9 @@ The position of entities in your scene is constantly being checked as they move,
 
 A grid on the scene's ground shows the limits of the scene, which by default rage from 0 to 16 on the _x_ and _z_ axis, and up to 20 on the _y_ axis. You're free to place entities underground, below 0 on the _y_ axis.
 
-> Tip: If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
+{{< hint info >}}
+**💡 Tip**:  If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
+{{< /hint >}}
 
 It's important to note that the _entire_ 3D model must be within the scene's bounds. This includes the model's _bounding box_. Some 3D models may have bounding boxes that unnecessarily extend beyond the meshes themselves, and it can sometimes be tricky to tell when this happens. When an entity extends beyond the scene's boundaries, in the preview you'll see a cube that marks these bounding boxes. The entire cube must fit within your scene.
 

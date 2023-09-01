@@ -172,7 +172,9 @@ physicsCast.hitFirst(
 )
 ```
 
-> Tip: To reference an entity based on its ID, use the engine's `entities` array, like this: `engine.entities[e.entity.entityId]`.
+{{< hint info >}}
+**💡 Tip**:  To reference an entity based on its ID, use the engine's `entities` array, like this: `engine.entities[e.entity.entityId]`.
+{{< /hint >}}
 
 The example below does the same, but dealing with an array of entities returned from the `hitAll()` function:
 

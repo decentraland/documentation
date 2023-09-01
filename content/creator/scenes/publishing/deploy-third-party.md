@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: Upload a preview
+title: Preview in Heroku
 description: Upload a preview of your scene to a server and share it offchain.
 aliases:
   - /deploy/deploy-to-now/
@@ -12,17 +12,17 @@ type: Document
 url: /creator/development-guide/deploy-third-party
 ---
 
-If you don't own parcels in Decentraland or are not ready to [deploy]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) your scene to Decentraland, you can upload your scene preview to run as an app in a free server.
+If you do not possess any parcels in Decentraland or a Decentraland [NAME](https://builder.decentraland.zone/names) to publish your scene to a [World]({{< ref "/content/creator/worlds/about.md" >}}), or if you are not yet prepared to [deploy]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) your scene to Decentraland, there is an alternative option available. You can upload a preview of your scene to run as an application on server.
 
 Once uploaded, the only thing that others have to do to explore your scene is follow a link. They don’t need to install the CLI, Node, NPM, or any of the other tools that would be required to run the preview on their local machine.
 
 Note that it's not necessary to own LAND to upload a scene preview to a Heroku server. The uploaded content isn't linked to the blockchain in any way. When running the preview, other adjacent parcels appear as empty.
 
-Follow the steps below to upload your scenes to a free Heroku server:
+Follow the steps below to upload your scenes to a Heroku server:
 
-1. Make sure you have the latest Decentralnd CLI version installed on your machine `npm i -g decentraland@latest`.
+1. Make sure you have the latest Decentraland CLI version installed on your machine `npm i -g decentraland@latest`.
 
-2. Create a free [Heroku](https://dashboard.heroku.com/) account, if you don't already have one.
+2. Create a [Heroku](https://dashboard.heroku.com/) account, if you don't already have one.
 
 3. Install the Heroku CLI. Do this via `npm i -g heroku`, or see [their documentation](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli) for alternatives.
 
@@ -59,11 +59,11 @@ Follow the steps below to upload your scenes to a free Heroku server:
 
 10. Deploy your scene preview with `git push heroku main`
 
-11. To access the scene, copy the link shared by the Heroku deploy command. Then manually add the following parameters to the URL `?realm=localhost-stub&renderer-branch=master`.
+11. To access the scene, copy the link shared by the Heroku deploy command. Then manually add the following parameters to the URL `?realm=localhost-stub&explorer-branch=main`.
 
-    For example if the link shared by Heroku is `https://example-dcl-scene.herokuapp.com`, the link you should enter is `https://example-dcl-scene.herokuapp.com/?realm=localhost-stub&renderer-branch=master`.
+    For example if the link shared by Heroku is `https://example-dcl-scene.herokuapp.com`, the link you should enter is `https://example-dcl-scene.herokuapp.com/?realm=localhost-stub&explorer-branch=main`.
 
-	If your scene is not in coordinates `0,0`, you should also include these as part of the URL. For example: `https://example-dcl-scene.herokuapp.com/?realm=localhost-stub&renderer-branch=master&position=50,-10`
+	If your scene is not in coordinates `0,0`, you should also include these as part of the URL. For example: `https://example-dcl-scene.herokuapp.com/?realm=localhost-stub&explorer-branch=main&position=50,-10`
 
 Every time you make changes to your scene, make sure you:
 

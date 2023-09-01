@@ -13,7 +13,7 @@ weight: 2
 
 Decentraland scenes rely on _systems_ to update the information stored in each entity's [components]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}) as the scene changes.
 
-![](/images/media/ecs-big-picture.png)
+![](/images/media/ecs-big-picture-old.png)
 
 _systems_ are what make scenes dynamic, they're able to execute functions periodically on every frame of the scene's game loop, changing what will be rendered.
 
@@ -38,13 +38,17 @@ engine.addSystem(new MoveSystem())
 
 In the example above, the system `MoveSystem` executes the `update()` function of each frame of the game loop, changing position of every entity in the scene.
 
-> Note: You must add a _System_ to the engine before its functions can be called.
+{{< hint warning >}}
+**📔 Note**:  You must add a _System_ to the engine before its functions can be called.
+{{< /hint >}}
 
 All systems act upon entities, changing the values stored in the entity's components.
 
 ![](/images/media/ecs-system.png)
 
-> Tip: As a simpler alternative to create custom systems, you can use the helpers in the [utils library](https://github.com/decentraland/decentraland-ecs-utils). The library creates systems in the background that handle common tasks like moving or rotating entities. In most cases, this library only requires a single line of code to apply these behaviors.
+{{< hint info >}}
+**💡 Tip**:  As a simpler alternative to create custom systems, you can use the helpers in the [utils library](https://github.com/decentraland/decentraland-ecs-utils). The library creates systems in the background that handle common tasks like moving or rotating entities. In most cases, this library only requires a single line of code to apply these behaviors.
+{{< /hint >}}
 
 You can have multiple systems in your scene to decouple different behaviors, making your code cleaner and easier to scale. For example, one system might handle physics, another might make an entity move back and forth continuously, another could handle the AI of characters.
 
@@ -129,7 +133,9 @@ engine.addSystem(new UpdateScore(game))
 engine.addSystem(new UpdateScore(score))
 ```
 
-> Note: You could store this data in a custom object instead of an custom component, for more simplicity.
+{{< hint warning >}}
+**📔 Note**:  You could store this data in a custom object instead of an custom component, for more simplicity.
+{{< /hint >}}
 
 ## Execute when an entity is added
 

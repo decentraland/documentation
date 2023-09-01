@@ -48,15 +48,49 @@ The **Decentraland ECS Utils** library includes a number of helpful pre-built to
 
 ## Using the Utils library
 
+### Via the Editor
+
+
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+
+1) Open your scene's folder using Visual Studio Code. 
+
+{{< hint warning >}}
+**📔 Note**:  The Visual Studio window must be at the root folder of the scene project.
+{{< /hint >}}
+
+2) Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
+
+3) Click the `+` icon on the header of the **Dependencies** view.
+
+4) Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `react`.
+
+{{< hint warning >}}
+**📔 Note**:  If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
+{{< /hint >}}
+
+5) If it is a Decentraland library (ie. `decentraland-ecs-utils`) select `Yes`, otherwise `No`.
+
+
+6) Import the library into the scene's script. Add this line at the start of your `game.ts` file, or any other TypeScript files that require it:
+
+```ts
+import * as utils from '@dcl/ecs-scene-utils'
+```
+
+7) In your TypeScript file, write `utils.` and let the suggestions of your IDE show the available helpers.
+
+### Via the CLI
+
 To use any of the helpers provided by the utils library
 
-1. Install it as an `npm` package. Run this command in your scene's project folder:
+1) Install it as an `npm` package. Run this command in your scene's project folder:
 
 ```
 npm install @dcl/ecs-scene-utils -B
 ```
 
-2. Run `dcl start` or `dcl build` so the dependencies are correctly installed.
+2) Run `dcl start` or `dcl build` so the dependencies are correctly installed.
 
 3) Import the library into the scene's script. Add this line at the start of your `game.ts` file, or any other TypeScript files that require it:
 
@@ -64,7 +98,7 @@ npm install @dcl/ecs-scene-utils -B
 import * as utils from '@dcl/ecs-scene-utils'
 ```
 
-4. In your TypeScript file, write `utils.` and let the suggestions of your IDE show the available helpers.
+4) In your TypeScript file, write `utils.` and let the suggestions of your IDE show the available helpers.
 
 ## Gradual Movement
 
@@ -148,7 +182,9 @@ The curved path is composed of multiple straight line segments put together. You
 - `duration`: The duration (in seconds) of the whole path.
 - `numberOfSegments`: How many straight-line segments to use to construct the curve.
 
-> Tip: Each segment takes at least one frame to complete. Avoid using more than 30 segments per second in the duration of the path, or the entity will move significantly slower while it stops for each segment.
+{{< hint info >}}
+**💡 Tip**:  Each segment takes at least one frame to complete. Avoid using more than 30 segments per second in the duration of the path, or the entity will move significantly slower while it stops for each segment.
+{{< /hint >}}
 
 This example moves an entity over through a curve that's subdivided into 40 segments, over a period of 5 seconds. The curve passes through four key points.
 
@@ -600,7 +636,9 @@ box.addComponent(
 engine.addEntity(box)
 ```
 
-> Note: The trigger shape can be positioned or stretched, but it can't be rotated on any axis. This is a design decision taken for performance reasons. To cover a slanted area, we recommend adding multiple triggers if applicable.
+{{< hint warning >}}
+**📔 Note**:  The trigger shape can be positioned or stretched, but it can't be rotated on any axis. This is a design decision taken for performance reasons. To cover a slanted area, we recommend adding multiple triggers if applicable.
+{{< /hint >}}
 
 Each trigger area has a shape for its area to check for collisions, which is completely independent of the visible shape of the entity. The shape of the area can either be determined by a `TriggerBoxShape` or a `TriggerSphereShape`. When instancing these, can set the scale and an offset position. By default, the trigger shape starts in the same position as the entity that has the `TriggerComponent`.
 
@@ -870,7 +908,9 @@ async function request() {
 }
 ```
 
-> NOTE: The sendRequest() function is asynchronous, since it must wait for the external server to respond back before it can return a response. If you need your code to access the data on the request's response, you must use the sendRequest() within an `async` block of code, and add an `await` to the function.
+{{< hint warning >}}
+**📔 Note**:  The sendRequest() function is asynchronous, since it must wait for the external server to respond back before it can return a response. If you need your code to access the data on the request's response, you must use the sendRequest() within an `async` block of code, and add an `await` to the function.
+{{< /hint >}}
 
 The `sendRequest()` function also lets you use the following arguments, for sending more advanced requests:
 
@@ -917,7 +957,9 @@ The `addLabel()` function also lets you set the following:
 - `size`: Text font size, 3 by default.
 - `textOffset`: Offset from parent entity's position. By default 1.5 meters above the parent.
 
-> Tip: The `addLabel()` function returns the created entity used for the text. You can then tweak this entity in any way you choose.
+{{< hint info >}}
+**💡 Tip**:  The `addLabel()` function returns the created entity used for the text. You can then tweak this entity in any way you choose.
+{{< /hint >}}
 
 ## Debug helpers
 
@@ -925,7 +967,9 @@ The `addLabel()` function also lets you set the following:
 
 Render a simple clickable cube to use as a trigger when debugging a scene with `addTestCube()`.
 
-> NOTE: The test cube is only shown in preview, unless configured to appear also in production.
+{{< hint warning >}}
+**📔 Note**:  The test cube is only shown in preview, unless configured to appear also in production.
+{{< /hint >}}
 
 The `addTestCube()` function has just two required arguments:
 
@@ -946,7 +990,9 @@ The `addTestCube()` function also lets you set the following:
 - `noCollider`: If true, the cube won't have a collider and will let players walk through it.
 - `keepInProduction`: If true, it will be visible for players in-world once the scene is deployed. Otherwise, the cube is only present when previewing he scene locally.
 
-> Tip: The `addTestCube()` function returns the created entity for the cube. You can then tweak this entity in any way you choose. `addTestCube()` is an async function (because the function first checks if you're in preview or in production). If you need the function to return the cube (instead of a promise of a cube) use it inside an async block of code with an await on the `addTestCube()` function.
+{{< hint info >}}
+**💡 Tip**:  The `addTestCube()` function returns the created entity for the cube. You can then tweak this entity in any way you choose. `addTestCube()` is an async function (because the function first checks if you're in preview or in production). If you need the function to return the cube (instead of a promise of a cube) use it inside an async block of code with an await on the `addTestCube()` function.
+{{< /hint >}}
 
 ```ts
 async function addMyCube() {

@@ -1,93 +1,41 @@
 ---
 date: 2018-01-01
-title: CLI installation guide
+title: Editor installation guide
 description: Step-by-step guide to installing the SDK
 aliases:
   - /documentation/installation-guide/
   - /getting-started/installation-guide/
   - /development-guide/installation-guide/
+  - /creator/editor/installation-guide
 categories:
   - development-guide
 type: Document
 url: /creator/development-guide/installation-guide
-weight: 2
+weight: 3
 ---
 
-To build scenes for Decentraland you will need to install the Command Line Interface (CLI).
+The Decentraland Editor is a Visual Studio extension, that allows you to build, preview and deploy Decentraland scenes.
 
-The CLI allows you to compile and preview your scene in an "off-chain" development environment. After testing your scene locally, you can use the CLI to upload your content to the content server, linking it with your LAND.
+<img src="/images/editor/editor-header.png" alt="Header" width="100%"/>
 
-**Please note:** Currently, the Decentraland SDK (bundled with the CLI installation) only supports TypeScript.
+{{< hint warning >}}
+**📔 Note**: There are two versions of the editor, the **Decentraland Editor SDK6** and the **Decentraland Editor SDK7**. As their names suggest, each version of the editor is meant for working on Decentraland scenes built with different SDK versions. You can have both extensions active in your same installation of Visual Studio Code, and use them accordingly depending on what project you're working with.
+{{< /hint >}}
 
-The Decentraland CLI is distributed via [npm](https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm).
+To install the Decentraland Editor:
 
-## Before you Begin
+1) Install  <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
 
-Please install the following dependencies before you install the CLI:
+2) Open Visual Studio Code, and open the <img src="/images/editor/vscode-extensions.png" alt="Header" width="25"/> **extensions** marketplace. 
 
-- [Node.js](https://nodejs.org) (version 8 or later)
+3) Search for the <img src="/images/editor/dcl-logo.png" alt="Header" width="25"/> **Decentraland Editor SDK6** extension and click **Install**.
 
-## Install the CLI
+	<img src="/images/editor/editor-installation.png" alt="Header" width="100%"/>
 
-Open the _Terminal_ app and run the following command:
+4) You'll then need to **restart Visual Studio** to use the extension.
 
-```bash
-npm install -g decentraland
-```
 
-Once the installation is complete, the `dcl` command will be globally available.
-
-## Update the CLI on any platform
-
-To update the CLI to the latest supported version, we recommend first uninstalling the CLI and then reinstalling a fresh version. To do this, run the following commands:
-
-```bash
-// uninstall
-npm rm decentraland -g
-
-// install
-npm install -g decentraland
-```
-
-#### Update the SDK version of a scene
-
-If your CLI is up to date, the new projects you create with it will use the latest version of the SDK.
-
-The SDK version used by your existing projects doesn't change by updating the CLI. You need to manually update the SDK version in the projects.
-
-Run the following command on the scene folder:
-
-```bash
-npm i decentraland-ecs@latest
-```
-
-You can confirm that it worked by checking the `package.json` file for the scene, and looking for the `decentraland-ecs` version there.
 
 ## Troubleshooting
 
 If you run into issues, see the [troubleshooting]({{< ref "/content/creator/scenes/debugging/troubleshooting.md" >}}) section.
-
-
-
-<!--
-
-
-#### Optional: Install Git
-
-Mac OS and linux-based machines should have git installed by default, these steps should only be relevant to Windows based machines.
-
-1.  Download [git](https://git-scm.com/download/win) (you'll likely want the 64-bit Windows version)
-2.  The installation process will prompt you to choose severla options, we recommend the following:
-	1.  Install **git bash**
-	2.  For default text editor, select **Use the Nano editor by default**
-	3.  For path environment, select **Use Git from the Windows Command Prompt**
-	4.  For SSH executable, select **Use OpenSSH**
-	5.  For HTTPS transport backend, select **Use the OpenSSL library**
-	6.  For line ending conversions, select **Checkout Windows-style, commit Unix-style line endings**
-	7.  For the terminal emulator to use with Git Bash select **Use MinTTY**
-	8.  On the final installation screen select the following options
-		- **Enable file system caching**
-		- **Enable Git Credential Manager**
-		- **Enable symbolic links**
-
--->

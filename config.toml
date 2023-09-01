@@ -94,6 +94,8 @@ enableGitInfo = true
   # Segment Api Key
   SegmentApiKey = ''
 
+  # Intercom App ID
+  IntercomAppId = ''
 
 
 [outputs]
@@ -109,3 +111,7 @@ mediatype = "text/cloudflare-redirects"
 baseName = "_redirects"
 isPlainText = true
 notAlternative = true
+
+[frontmatter]
+date = ["date", "publishDate", "lastmod"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]

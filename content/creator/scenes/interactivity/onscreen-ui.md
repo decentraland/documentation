@@ -36,7 +36,9 @@ const text = new UIText(canvas)
 text.value = "Hello world!"
 ```
 
-> Note: Create only one `UICanvas` per scene. To have different menus that appear at different times, make them all children of the same `UICanvas`, and set their visibility at that level.
+{{< hint warning >}}
+**📔 Note**:  Create only one `UICanvas` per scene. To have different menus that appear at different times, make them all children of the same `UICanvas`, and set their visibility at that level.
+{{< /hint >}}
 
 ## Types of UI content
 
@@ -66,7 +68,9 @@ All UI components have several fields you can set to determine the position of t
 
 - `positionX`, `positionY`: the position of the top-left corner of the component, relative to the parent. By default, to the top-left corner of its parent. If the `hAlign` or `vAlign` properties are set, then `positionX` and `positionY` offset the UI component relative to the position of these alignment properties.
 
-> Tip: When measuring from the top, the numbers for `positionY` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `positionX` to 20 and `positionY` to -20.
+{{< hint info >}}
+**💡 Tip**:  When measuring from the top, the numbers for `positionY` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `positionX` to 20 and `positionY` to -20.
+{{< /hint >}}
 
 - `paddingLeft`, `paddingRight`, `paddingTop`, `paddingBottom`: padding space to leave empty around. To set these fields in pixels, write the value as a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`
 
@@ -186,7 +190,9 @@ myText.positionX = "15px"
 myText.color = Color4.Blue()
 ```
 
-> TIP: If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
+{{< hint info >}}
+**💡 Tip**:  If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
+{{< /hint >}}
 
 You can share a same instanced `Font` object accross multiple `UIText` components.
 
@@ -288,7 +294,7 @@ playButton.source = imageTexture2
 
 All UI elements have an `isPointerBlocker` property, that determines if they can be clicked. If this value is false, the pointer should ignore them and respond to whatever is behind the element.
 
-Clickable UI elements also have an `OnClick` property, that lets you add a function to execute every time it's clicked.
+Clickable UI elements also have an `OnClick` property, that lets you add a function to execute every time it's clicked. `OnClick` properties must be followed by an `OnPointerDown(()=>{})` function, as seen below.
 
 ```ts
 const canvas = new UICanvas()
@@ -300,7 +306,7 @@ clickableImage.height = "91px"
 clickableImage.sourceWidth = 92
 clickableImage.sourceHeight = 91
 clickableImage.isPointerBlocker = true
-clickableImage.onClick = new OnClick(() => {
+clickableImage.onClick = new OnPointerDown(() => {
   // DO SOMETHING
 })
 ```
@@ -309,9 +315,13 @@ clickableImage.onClick = new OnClick(() => {
 ![](/images/media/UI-clicks.png)
 -->
 
-> Note: To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
+{{< hint warning >}}
+**📔 Note**:  To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
+{{< /hint >}}
 
-> Tip: If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
+{{< hint info >}}
+**💡 Tip**:  If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
+{{< /hint >}}
 
 ## Input text
 
@@ -327,7 +337,6 @@ textInput.vAlign = "bottom"
 textInput.hAlign = "center"
 textInput.fontSize = 10
 textInput.placeholder = "Write message here"
-textInput.placeholderColor = Color4.Gray()
 textInput.positionY = "200px"
 textInput.isPointerBlocker = true
 
@@ -413,10 +422,11 @@ close.sourceWidth = 92
 close.sourceHeight = 91
 close.vAlign = "bottom"
 close.isPointerBlocker = true
-close.onClick = new OnClick(() => {
+close.onClick = new OnPointerDown(() => {
   log("clicked on the close image")
   canvas.visible = false
   canvas.isPointerBlocker = false
 })
 ```
-````
+
+See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.

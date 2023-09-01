@@ -26,11 +26,13 @@ Note that all transactions triggered by a scene will require a player to approve
 
 All blockchain operations also need to be carried out as [asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the timing depends on external events.
 
-When running a preview of a scene that uses one of the ethereum libraries, you must have Metamask open in your browser and you must run the preview with:
+When running a preview of a scene that uses one of the ethereum libraries, you must have Metamask open in your browser. If using the CLI, run the preview with:
 
 ```
 dcl start --web3
 ```
+
+If using the Decentraland Editor, open the scene in a separate browser window, and manually include the string `&ENABLE_WEB3`.
 
 ## Ethereum controller library
 
@@ -87,7 +89,9 @@ executeTask(async () => {
 })
 ```
 
-> Note: Even though the eth address may contain upper case characters, some browsers convert the returned string to lower case automatically. If you wish compare address values and have it work on all browsers, use the `.toLowerCase()` method to convert the value into lower case.
+{{< hint warning >}}
+**📔 Note**:  Even though the eth address may contain upper case characters, some browsers convert the returned string to lower case automatically. If you wish compare address values and have it work on all browsers, use the `.toLowerCase()` method to convert the value into lower case.
+{{< /hint >}}
 
 ## Sign messages
 
@@ -180,7 +184,11 @@ The function requires that you specify an Ethereum wallet address to receive the
 
 If accepted by the player, the function returns the hash number of the transaction.
 
-> Warning: This function informs you that a transaction was requested, but not that it was confirmed. If the gas price is too low, or it doesn't get mined for any reason, the transaction won't be completed.
+{{< hint danger >}}
+**❗Warning**  
+This function informs you that a transaction was requested, but not that it was confirmed. If the gas price is too low, or it doesn't get mined for any reason, the transaction won't be completed.
+{{< /hint >}}
+
 
 ```ts
 const myWallet = ‘0x0123456789...’
@@ -209,18 +217,10 @@ The example above listens for clicks on a _button_ entity. When clicked, the pla
 
 ![](/images/media/metamask_confirm.png)
 
-> Tip: We recommend defining the wallet address and the amount to pay as global constants at the start of the _.ts_ file. These are values you might need to change in the future, setting them as constants makes it easier to update the code.
+{{< hint info >}}
+**💡 Tip**:  We recommend defining the wallet address and the amount to pay as global constants at the start of the _.ts_ file. These are values you might need to change in the future, setting them as constants makes it easier to update the code.
+{{< /hint >}}
 
-## Async sending
-
-Use the function `sendAsync()` to send messages over [RPC protocol](https://en.wikipedia.org/wiki/Remote_procedure_call).
-
-```ts
-import * as EthereumController from "@decentraland/EthereumController"
-
-// send a message
-await eth!.sendAsync(myMessage)
-```
 
 ## Lower level operations
 
@@ -230,7 +230,9 @@ This controller operates at a lower level than the _Ethereum controller_ (in fac
 
 It's main use is to call functions in a contract, it also offers a number of helper functions for various tasks. Check it out on [GitHub](https://github.com/decentraland/eth-connect).
 
-> Note: The eth-connect library is currently lacking more in-depth documentation. Since this library is mostly based on the Web3.js library and most of the function names are intentionally kept identical to those in Web3.js, it can often help to refer to [Web3's documentation](https://web3js.readthedocs.io/en/1.0/).
+{{< hint warning >}}
+**📔 Note**:  The eth-connect library is currently lacking more in-depth documentation. Since this library is mostly based on the Web3.js library and most of the function names are intentionally kept identical to those in Web3.js, it can often help to refer to [Web3's documentation](https://web3js.readthedocs.io/en/1.0/).
+{{< /hint >}}
 
 #### Download and import the eth-connect library
 
@@ -240,9 +242,11 @@ To use eth-connect library, you must manually install the package via `npm` in y
 npm install eth-connect -B
 ```
 
-> Note: Decentraland scenes don't support older versions than 4.0 of the eth-connect library.
+{{< hint warning >}}
+**📔 Note**:  Decentraland scenes don't support older versions than 4.0 of the eth-connect library.
 
-> Note: Currently, we don't allow installing other dependencies via npm that are not created by Decentraland. This is to keep scenes well sandboxed and prevent malicious code.
+Currently, we don't allow installing other dependencies via npm that are not created by Decentraland. This is to keep scenes well sandboxed and prevent malicious code.
+{{< /hint >}}
 
 Once installed, you can import whatever you need from `eth-connect` to the scene's code:
 
@@ -302,7 +306,9 @@ These are the contracts for the various wearable collections: (each collection w
 - [DCLLaunchCollection ABI](https://etherscan.io/address/0xd35147be6401dcb20811f2104c33de8e97ed6818)
 - [DCGCollection ABI](https://etherscan.io/address/0x3163d2cfee3183f9874e2869942cc62649eeb004)
 
-> TIP: To clearly see the functions exposed by a contract, open it in [abitopic.io](https://abitopic.io). Just paste the contract address there and open the _functions_ tab to see the full list of supported functions and their arguments. You can even test calling the functions with different parameters via the webpage.
+{{< hint info >}}
+**💡 Tip**:  To clearly see the functions exposed by a contract, open it in [abitopic.io](https://abitopic.io). Just paste the contract address there and open the _functions_ tab to see the full list of supported functions and their arguments. You can even test calling the functions with different parameters via the webpage.
+{{< /hint >}}
 
 Configuring TypeScript to be able to import from a JSON file has its difficulties. The recommended easier workaround is to change the `ABI.JSON` file's extension to `.ts` and modifying it slightly so that it its content starts with `export default`.
 
@@ -335,7 +341,9 @@ executeTask(async () => {
 
 Note that several of these functions must be called using `await`, since they rely on fetching external data and can take some time to be completed.
 
-> Tip: For contracts that follow a same standard, such as ERC20 or ERC721, you can import a single generic ABI for all. You then generate a single `ContractFactory` object with that ABI and use that same factory to instance interfaces for each contract.
+{{< hint info >}}
+**💡 Tip**:  For contracts that follow a same standard, such as ERC20 or ERC721, you can import a single generic ABI for all. You then generate a single `ContractFactory` object with that ABI and use that same factory to instance interfaces for each contract.
+{{< /hint >}}
 
 #### Call the methods in a contract
 
@@ -390,14 +398,33 @@ The eth-connect library includes a number of other helpers you can use. For exam
 
 ## Using the Ethereum test network
 
-While testing your scene, to avoid transferring real MANA currency, you can use the _Ethereum Ropsten test network_ and transfer fake MANA instead.
 
-To use the test network you must set your Metamask Chrome extension to use the _Ropsten test network_ instead of _Main network_.
+While testing your scene, to avoid transferring real MANA currency, you can use the _Ethereum Goerli test network_ and transfer fake MANA instead.
 
-You must also own MANA in the Ropsten blockchain. To obtain free Ropsten mana in the test network, go to our [MANA faucet](https://faucet.decentraland.io/).
+To use the test network you must set your Metamask Chrome extension to use the _Goerli test network_ instead of _Main network_.
 
-> Tip: To run the transaction of transferring Ropsten MANA to your wallet, you will need to pay a gas fee in Ropsten Ether. If you don't have Ropsten Ether, you can obtain it for free from various external faucets like [this one](https://faucet.ropsten.be/).
+You must acquire Goerli Ether, which you can obtain for free from various external faucets like [this one](https://faucet.paradigm.xyz/ ).
+
+If your transactions also involve MANA, you can also obtain free Goerli MANA from our [Goerli MANA faucet](https://faucet-goerli.decentraland.io/).
+
+{{< hint info >}}
+**💡 Tip**:  To run the transaction of transferring Goerli MANA to your wallet, you will need to pay a gas fee in Goerli Ether. 
+{{< /hint >}}
 
 To preview your scene using the test network, add the `DEBUG` property to the URL you're using to access the scene preview on your browser. For example, if you're accessing the scene via `http://127.0.0.1:8000/?position=0%2C-1`, you should set the URL to `http://127.0.0.1:8000/?DEBUG&position=0%2C-1`.
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
+
+If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you'll need to swap MANA to that network after acquiring it in Goerli. To bridge Goerli MANA to the Polygon Testnet, visit your [Decentraland account page in Goerli](https://account.decentraland.zone/) and click on ‘swap’ on the Ethereum MANA side. 
+
+
+## Send custom RPC messages
+
+Use the function `sendAsync()` to send messages over [RPC protocol](https://en.wikipedia.org/wiki/Remote_procedure_call).
+
+```ts
+import * as EthereumController from "@decentraland/EthereumController"
+
+// send a message
+await eth!.sendAsync(myMessage)
+```

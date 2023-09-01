@@ -32,7 +32,7 @@ Once created, a custom asset pack is be available in every scene you edit as lon
 
 All 3D models need to be in _.glTF_ or _.glb_ format. You can convert other formats into these formats with various different editors and tools. See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for recommendations and tips.
 
-All materials in the models need to be either _basic material_ or _PBR_, and all textures need to be in sizes that are powers of two (ex: 256, 512). See [Scene limitations]({{< ref "/content/creator/builder/scene-limitations.md" >}}) for details.
+All materials in the models need to be either _basic material_ or _PBR_, and all textures need to be in sizes that are powers of two (ex: 256, 512). See [Scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}) for details.
 
 If a 3D model relies on external files besides the _.gltf_ file (like _.bin_ or _.png_ files) compress all the relevant files for the 3D model into a _.zip_ file. Then import only this _.zip_ file into the Builder.
 
@@ -51,7 +51,9 @@ To get you started, below is a list of libraries that have free or relatively in
 - [Thingiverse](https://www.thingiverse.com/) (3D models made primarily for 3D printing, but adaptable to Virtual Worlds)
 - [ShareCG](https://www.sharecg.com/)
 
-> Note: Pay attention to the license restrictions that the content you download has.
+{{< hint warning >}}
+**📔 Note**:  Pay attention to the license restrictions that the content you download has.
+{{< /hint >}}
 
 Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _.glTF_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting them with one of the available _.glTF_ export add-ons.
 
@@ -59,7 +61,9 @@ Note that in several of these sites, you can choose what format to download the 
 
 You might find that when running a preview the player can walk through your imported 3D models. This is likely because the models are missing a _collider mesh_ to define a collision geometry. See [colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}}) for more details and instructions.
 
-> Tip: Instead of editing the model to add a _collider mesh_, a simpler alternative is to an _Invisible wall_ smart item with approximately the same shape to stand in its place.
+{{< hint info >}}
+**💡 Tip**:  Instead of editing the model to add a _collider mesh_, a simpler alternative is to an _Invisible wall_ smart item with approximately the same shape to stand in its place.
+{{< /hint >}}
 
 ## Animations
 

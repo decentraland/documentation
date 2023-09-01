@@ -20,17 +20,19 @@ You can then share this scene with another Builder user, or edit the scene with 
 
 See [SDK 101]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) if you're not yet familiar with coding with the Decentraland SDK.
 
-## Import a scene
+## Upload a scene
 
-In the scene selector screen, press _Import scene_, then drag one or several _.zip_ files from exported Builder scenes and press _Import_.
+In the scene selector screen, press _Upload scene_, then drag one or several _.zip_ files from exported Builder scenes and press _Upload_.
 
-If a scene is too large to import, try this:
+If a scene is too large to upload, try this:
 
 1. Decompress the scene _.zip_ file.
 2. Look for the `builder.json` inside the uncompressed folder. Compress that single file into a new _.zip_ file.
-3. Import this new _.zip_ file.
+3. Upload this new _.zip_ file.
 
-> Note: You can only import scenes that have been built with the Builder. You can't import a scene that was built with the SDK or modified with it.
+{{< hint warning >}}
+**📔 Note**:  You can only upload scenes that have been built with the Builder. You can't upload a scene that was built with the SDK or modified with it.
+{{< /hint >}}
 
 ## Delete a scene
 

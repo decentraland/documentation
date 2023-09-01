@@ -19,7 +19,9 @@ As an alternative, _vertex animations_ animate a model without the need of a ske
 
 See [Animations]({{< ref "/content/creator/3d-modeling/animations.md" >}}) for details on how to create animations for a 3D model. Read [Shape components]({{< ref "/content/creator/scenes/3d-essentials/shape-components.md" >}}) for instructions on how to import a 3D model to a scene.
 
-> Tip: Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/scenes/3d-essentials/move-entities.md" >}}) for more details.
+{{< hint info >}}
+**💡 Tip**:  Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/scenes/3d-essentials/move-entities.md" >}}) for more details.
+{{< /hint >}}
 
 ## Check a 3D model for animations
 
@@ -29,7 +31,9 @@ Not all _glTF_ files include animations. To see if there are any available, you 
 - Open the [Babylon Sandbox](https://sandbox.babylonjs.com/) site and drag the glTF file (and any _.jpg_ or _.bin_ dependencies) to the browser.
 - Open the _.glTF_ file with a text editor and scroll down till you find _"animations":_.
 
-> Tip: In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
+{{< hint info >}}
+**💡 Tip**:  In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
+{{< /hint >}}
 
 ## Automatic playing
 
@@ -100,7 +104,9 @@ shark.getComponent(Animator).getClip("swim")
 <!--
 ... which one is true?
 
-> Note: If you attempt to use `getClip()` to fetch a clip that doesn't exist in the Animator component, it returns `null`.
+{{< hint warning >}}
+**📔 Note**:  If you attempt to use `getClip()` to fetch a clip that doesn't exist in the Animator component, it returns `null`.
+{{< /hint >}}
 
 If you try to get an `AnimationState` that was never added to the `Animator` component, the clip is created and added automatically.
 -->
@@ -184,7 +190,9 @@ To play an animation from the start, regardless of what frame the animation is c
 clipSwim.play(true)
 ```
 
-> Note: Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
+{{< hint warning >}}
+**📔 Note**:  Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
+{{< /hint >}}
 
     - apply an animation with a `weight` property of 0 and gradually increase the `weight`
     - create an animation clip that describes a movement from the posture you want to transition from to the default posture you want.
@@ -221,7 +229,9 @@ engine.addEntity(shark)
 
 In the example above, two animations are handled by separate `AnimationState` objects, and they are then both assigned to the same `Animator` component.
 
-> Note: If the layer of an animation isn't specified, it's assigned to layer 0.
+{{< hint warning >}}
+**📔 Note**:  If the layer of an animation isn't specified, it's assigned to layer 0.
+{{< /hint >}}
 
 Each bone in an animation can only be affected by one animation at a time, unless these animations have a `weight` that adds up to a value of 1 or less.
 
@@ -280,7 +290,9 @@ The `weight` property can be used in interesting ways, for example the `weight` 
 
 You could also change the `weight` value gradually when starting and stopping an animation to give it a more natural transition and to avoid jumps from the default pose to the first pose in the animation.
 
-> Note: The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
+{{< hint warning >}}
+**📔 Note**:  The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
+{{< /hint >}}
 
 ## Set clip parameters in bulk
 
@@ -340,4 +352,6 @@ engine.addEntity(shark1)
 engine.addEntity(shark2)
 ```
 
-> Note: If you define a single `AnimationState` object instance and add it to multiple `Animator` components from different entities, all entities using the `AnimationState` instance will be animated together at the same time.
+{{< hint warning >}}
+**📔 Note**:  If you define a single `AnimationState` object instance and add it to multiple `Animator` components from different entities, all entities using the `AnimationState` instance will be animated together at the same time.
+{{< /hint >}}

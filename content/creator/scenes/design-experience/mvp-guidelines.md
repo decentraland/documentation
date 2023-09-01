@@ -101,7 +101,9 @@ Failing quickly allows you to develop your experience by creating successive pro
 
 In game design, a persistent core loop is the fundamental “game loop” that drives player actions and the game’s response to those actions. These persistent loops extend to any form of virtual experience (like those provided by Districts).
 
-> Note: The Decentraland client borrows some architectural ideas from [React.js](https://reactjs.org/) and only renders a scene when a change has taken place, not at a constant rate.
+{{< hint warning >}}
+**📔 Note**:  The Decentraland client borrows some architectural ideas from [React.js](https://reactjs.org/) and only renders a scene when a change has taken place, not at a constant rate.
+{{< /hint >}}
 
 **What are transactional layers?**
 
@@ -118,11 +120,11 @@ For example, you could design a scene with the following successive experiences:
 
 ## How to share your MVP
 
-Although the Decentraland world is not yet open to all, you can upload a scene preview to a server and easily share a link to it with people who can give you feedback.
+With the addition of Decentraland Worlds, you now have the opportunity to upload your own isolated scene and obtain a shareable link effortlessly. All you need is to own a unique NAME, which can be easily acquired from the [builder](https://builder.decentraland.org/names).
 
-Even once Decentraland is made available to all, we still recommend testing changes with test users in a separate preview server first, before uploading a new version of your scene to Decentraland.
+Read the [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) documentation to learn how to upload your scene to your own private space.  
 
-Read [this blogpost](https://decentraland.org/blog/announcements/decentraland-on-now/) for details on how to upload your scene preview to a free server.
+On the other hand, there are external tools that can help you to share your scene, discover how to upload your work and preview it in a free server by reading [this blogpost](https://decentraland.org/blog/announcements/decentraland-on-now/). 
 
 ## Additional considerations
 
