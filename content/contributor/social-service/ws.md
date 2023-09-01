@@ -1,6 +1,6 @@
 ---
-title: WS Implementation API
-url: /contributor/social-service/ws
+title: Overview
+url: /contributor/social-service/overview
 weight: 1
 ---
 
