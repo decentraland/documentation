@@ -272,7 +272,7 @@ function setUVs(rows: number, cols: number) {
 }
 ```
 
-For setting the UVs for a `box` mesh shape, the same structure applies. Each of the 6 faces of the cube takes 4 values, one for each corner. All of these 24 values are listed as a single array.
+For setting the UVs for a `box` mesh shape, the same structure applies. Each of the 6 faces of the cube takes 4 pairs of coordinates, one for each corner. All of these 48 values are listed as a single array.
 
 You can also define how the texture is tiled if the mapping spans more than the dimensions of the texture image. The `texture` object lets you configure the wrapping mode by setting the `wrapMode` field. This property takes its values from the `TextureWrapMode` enum, which allows for the following values:
 
