@@ -24,7 +24,7 @@ By using the CLI and following the steps detailed here, you can avoid most of th
 
 To create your own library and share it via NPM, do the following:
 
-1. In an empty folder, run `npx sdk-commands init`, then select the option `Library`.
+1. In an empty folder, run `npx @dcl/sdk-commands init`, then select the option `Library`.
 
    This will create all of the default files and dependencies for a Decentraland library.
 
