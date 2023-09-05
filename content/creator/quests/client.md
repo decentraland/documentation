@@ -548,4 +548,4 @@ The above code creates a Quest HUD object. This object automatically renders the
 
 When the quest is stated or it receives any player progress update, the `questHud.upsert` function is called to updates this UI. This function receives a `QuestInstace` object. It creates an SDK entity with this data to be used by a ReactECS UI component. This component is rendered in the scene UI, displaying the Quest progress, including which steps and tasks are completed or not. Under the hood, this function is calling `ReactEcsRenderer.setUiRenderer` from `@dcl/sdk/react-ecs` library.
 
-You are also free to use the SDK to create your own custom UI to display quest progress based on this same information. See ({{< ref "/content/creator/sdk7/2d-ui/onscreen-ui.md" >}}) for guidance about how to do this.
+You are also free to use the SDK to create your own custom UI to display quest progress based on this same information. See [Onscreen UI]({{< ref "/content/creator/sdk7/2d-ui/onscreen-ui.md" >}}) for guidance about how to do this.
