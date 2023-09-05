@@ -98,7 +98,7 @@ To initialize the Quests Client in your scene, start by importing `createQuestsC
 import { createQuestsClient } from '@dcl/quests-client'
 ```
 
-Then run the function `createQuestsClient` to initialize the Quests Client. This function returns a promise that resolves when the Quests Client is ready to be used. Run this function inside an async function, for this you can use the `executeTask` function, see [asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}).
+Then run the function `createQuestsClient` to initialize the Quests Client. This function returns a promise that resolves when the Quests Client is ready to be used. Run this function inside an async function, for this you can use the `executeTask` function, see [asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}).
 
 The function `createQuestsClient()` takes a parameter with the URL to connect to the [Quests API](creator/quests/overview/#services-architecture). The following options are available:
 
@@ -349,11 +349,14 @@ actionEvents.emit('action', {
 
 ## Sending other types of actions
 
-For actions of type `LOCATION`, `JUMP`, and `EMOTE`, you can make use of `initActionsTracker` function from `@dcl/quests-client/dist/systemHelpers`. This function will register a set of systems to track these types of actios. You only need to call this function once, with the action types you want to track.
+For actions of type `LOCATION`, `JUMP`, and `EMOTE`, you can make use of the `initActionsTracker` function. This function registers a set of systems to track these types of actions. You only need to call this function once, with the action types you want to track.
 
-For example: Let's track the `LOCATION` type of action. 
+For example: to track the `LOCATION` type of action.
 
-First, you need to import the `initActionsTracker` function from `@dcl/quests-client/dist/systemHelpers`. After that you can the funciton passing the SDK engine constant as first parameter, a callback function as second parameter which you may want to send the acion using the `QuestClient` or using a event emitter as we see in other examples, and the type of action you want to track as third parameter.
+1. Import the `initActionsTracker` function from `@dcl/quests-client/dist/systemHelpers` and call it, passing the following parameters:
+   a. The SDK `engine` constant.
+   b. A callback function. You may use it to send the action using the `QuestClient` or using a event emitter, as covered in other examples.
+   c. The type of action you want to track.
 
 ```ts
 import { initActionsTracker } from '@dcl/quests-client/dist/systemHelpers'
@@ -367,7 +370,7 @@ initActionsTracker(
 )
 ```
 
-If you want to track more than one action, you can keep adding them as parameters. For example:
+To track more than one action, list them as additional parameters. For example:
 
 ```ts
 import { initActionsTracker } from '@dcl/quests-client/dist/systemHelpers'
@@ -382,7 +385,7 @@ initActionsTracker(
 )
 ```
 
-Or the three action types:
+Or all three action types:
 
 ```ts
 import { initActionsTracker } from '@dcl/quests-client/dist/systemHelpers'
@@ -399,7 +402,6 @@ initActionsTracker(
 ```
 
 The order of the action type parameters is not relevant here. Each action type that you pass as parameter will be tracked by the system.
-
 
 ## React to changes on the player's progress
 
@@ -504,11 +506,11 @@ import { questProgress } from '@dcl/quests-client'
 	})
 ```
 
-## Quest HUD, a SDK UI for your Quest
+## Quest HUD - an SDK UI for your Quest
 
-You may be wondering how to display the player's progress on the Quest. The Quests Client library provides a basic UI for your Quest. 
+The Quests Client library provides a basic UI for your Quest. This displays the players their progress, listing the steps in the quest and their status.
 
-To make use of it, you have to import the `createQuestHUD` function from `@dcl/quests-client/dist/hud`. Let's see an example:
+To use this default UI, import the `createQuestHUD` function from `@dcl/quests-client/dist/hud`. For example:
 
 ```typescript
 // index.ts
@@ -518,7 +520,7 @@ import { executeTask } from '@dcl/sdk/ecs'
 import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
 import { createQuestHUD } from '@dcl/quests-client/dist/hud'
 
-const questHud = createQuestHud();
+const questHud = createQuestHud()
 
 executeTask(async () => {
   const serviceUrl = 'wss://quests-rpc.decentraland.zone'
@@ -528,13 +530,13 @@ executeTask(async () => {
     console.log('Quests Client is ready to use!')
 
     client.onStarted((quest: QuestInstance) => {
-        // react to the start of your Quest
-        questHud.upsert(quest)
+      // react to the start of your Quest
+      questHud.upsert(quest)
     })
 
     client.onUpdate((quest: QuestInstance) => {
-        // update your state here to react to the quest updates
-        questHud.upsert(quest)
+      // update your state here to react to the quest updates
+      questHud.upsert(quest)
     })
   } catch (e) {
     console.error('Error on connecting to Quests Service')
@@ -542,6 +544,8 @@ executeTask(async () => {
 })
 ```
 
-What does the above code do? It creates a Quest HUD object, and automatically renders the UI when detect that a Quest is being played, by starting it off or by receiving Quest progress update.
+The above code creates a Quest HUD object. This object automatically renders the UI.
 
-`questHud.upsert` function, receives a QuestInstace object and creates an SDK entity wit its data to be used by a ReactECS component. This component will be rendered in the scene, and will display the Quest progress: steps and tasks completed or not. Under the hood, this function is calling `ReactEcsRenderer.setUiRenderer` from `@dcl/sdk/react-ecs` library.
+When the quest is stated or it receives any player progress update, the `questHud.upsert` function is called to updates this UI. This function receives a `QuestInstace` object. It creates an SDK entity with this data to be used by a ReactECS UI component. This component is rendered in the scene UI, displaying the Quest progress, including which steps and tasks are completed or not. Under the hood, this function is calling `ReactEcsRenderer.setUiRenderer` from `@dcl/sdk/react-ecs` library.
+
+You are also free to use the SDK to create your own custom UI to display quest progress based on this same information. See ({{< ref "/content/creator/sdk7/2d-ui/onscreen-ui.md" >}}) for guidance about how to do this.

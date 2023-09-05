@@ -294,7 +294,7 @@ A linear Quest "Z World", with 3 steps and with `CUSTOM`, `LOCATION` ad `JUMP` a
 
 ###### Linear Quest 3
 
-A linear Quest "Z World", equal to "Linear Quest 2" but this one **gives rewards to its players**. It's set `https://the-rewards-webhook-url.com/rewards` as the webhook URL, so this endpoint will be called to let creator server know when a user completed this Quest, and it's set a JSON to be sent witin Request Body of the webhook call. The JSON has two placeholders that will be replaced by the Quests Server with the actual values. And it's set **only one** reward item called "Zombie Head" with the image `https://the-wearable-item-image.com`:
+A linear Quest "Z World", similar to "Linear Quest 2" but this one **gives rewards to its players**. It uses `https://the-rewards-webhook-url.com/rewards` as the webhook URL, so this endpoint will be called when a user completes this Quest. The request to this server includes a JSON in the Request Body. The JSON has two placeholders that are replaced by the Quests Server with the actual values. The rewards include **only one** item called "Zombie Head", with the image `https://the-wearable-item-image.com`:
 
 ```JSON
 {
@@ -391,26 +391,30 @@ A linear Quest "Z World", equal to "Linear Quest 2" but this one **gives rewards
 ```
 
 {{< hint info >}}
-**💡 Tip**: You can give more than one item as a reward. You can just add more items to the `items` array. We'll use the items that you set here to display the Quest's rewards on Decentraland.
+**💡 Tip**: To give more than one item as a reward, add more items to the `items` array. These images may be used to display a quest's rewards in-world.
 {{< /hint >}}
-
 
 ###### Branching Quest
 
-This Quest is a **more** complex one.
+This Quest is \*more complex. A Branching Quest "Z World", with 4 steps:
 
-A Branching Quest "Z World", with 4 steps. We'll take a deeper look at this Quest:
+- `STEP_1_1`: **One** of two possible **fist steps** of the Quest. It has two tasks: `STEP_1_1` and `STEP_1_2`. Both tasks have only one action item, and both action items are `CUSTOM` action items.
 
-- `STEP_1_1`: **One** of the first possible **steps** of the Quest. It has two tasks: `STEP_1_1` and `STEP_1_2`. Both tasks have only one action item, and both action items are `CUSTOM` action items. The first task has a `CUSTOM` action item with `CUSTOM_EVENT_1` as the `id` of the custom event that the player has to complete. The second task has a `CUSTOM` action item with `SECOND_TASK_COLLECT_EVENT` as the `id` of the custom event that the player has to complete. This step has a connection to `STEP_2`.
+  - The first task has a `CUSTOM` action item with `CUSTOM_EVENT_1` as the `id` of the custom event that the player has to complete.
+  - The second task has a `CUSTOM` action item with `SECOND_TASK_COLLECT_EVENT` as the `id` of the custom event that the player has to complete. This step has a connection to `STEP_2`.
 
-- `STEP_1_2`: **One** of the first possible **steps** of the Quest. It has two tasks: `STEP_1_2_1` and `STEP_1_2_2`. The first task has a `LOCATION` action item with `100` as the `x` coordinate and `-101` as the `y` coordinate. The second task has **two** `CUSTOM` action items with `SECOND_TASK_COLLECT_EVENT` as the `id` of the custom event that the player has to complete, as there are two identical action items, the action has to be repeated by the user. This step has a connection to `STEP_2`.
+- `STEP_1_2`: **One** of two possible **fist steps** of the Quest. It has two tasks: `STEP_1_2_1` and `STEP_1_2_2`.
+  - The first task has a `LOCATION` action item with `100` as the `x` coordinate and `-101` as the `y` coordinate.
+  - The second task has **two** `CUSTOM` action items with `SECOND_TASK_COLLECT_EVENT` as the `id` of the custom event that the player has to complete. As there are two identical action items, the action has to be repeated by the user. This step has a connection to `STEP_2`.
 
-As you can see, `STEP_1_1` and `STEP_1_2` are two different steps, but they both lead to `STEP_2`. This means that the player must complete `STEP_1_1` **and** `STEP_1_2` to continue with the `STEP_2` and the other next steps.
+{{< hint info >}}
+**📔 Note**:
+`STEP_1_1` and `STEP_1_2` are two different steps, but they both lead to `STEP_2`. This means that the player must complete `STEP_1_1` **and** `STEP_1_2` to continue to `STEP_2` and the other next steps.
+{{< /hint >}}
 
-- `STEP_2`: The second step of the Quest. It has one task: `STEP_2_1`. This task has two action items: `JUMP` and `LOCATION`. The `JUMP` action item has `105` as the `x` coordinate and `-101` as the `y` coordinate. The `LOCATION` action item has `103` as the `x` coordinate and `-101` as the `y` coordinate. This step has a connection to `STEP_3`.
+- `STEP_2`: It has one task: `STEP_2_1`. This task has two action items: `JUMP` and `LOCATION`. The `JUMP` action item has `105` as the `x` coordinate and `-101` as the `y` coordinate. The `LOCATION` action item has `103` as the `x` coordinate and `-101` as the `y` coordinate. This step has a connection to `STEP_3`.
 
-- `STEP_3`: The third step of the Quest. It has one task: `STEP_3_1`. This task has three action items: `CUSTOM`, `CUSTOM` and `CUSTOM`. The first two `CUSTOM` action items have `USERACTION_STEP_3` as the `id` of the custom event that the player has to complete. As it was defined before, since the action items are identical, the user has to repeat the same action. The third `CUSTOM` action item has `ANOTHER_USERACTION_STEP_3` as the `id` of the custom event that the player has to complete. This step has no connections, so it's considered the last step of the Quest. After finishing this step, the Quest will be completed.
-
+- `STEP_3`: It has one task: `STEP_3_1`. This task has three action items: `CUSTOM`, `CUSTOM` and `CUSTOM`. The first two `CUSTOM` action items have `USERACTION_STEP_3` as the `id` of the custom event that the player has to complete. Once more, since the action items are identical, the user must repeat the same action. The third `CUSTOM` action item has `ANOTHER_USERACTION_STEP_3` as the `id` of the custom event that the player has to complete. This step has no connections, so it's considered the last step of the Quest. After finishing this step, the Quest is completed.
 
 ```JSON
 {
