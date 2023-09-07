@@ -37,7 +37,7 @@ On Jun 24, 2022 [a proposal](https://governance.decentraland.org/proposal/?id=b8
 **📔 Note**: You can move MANA between Ethereum and Polygon using the [Account dApp](https://account.decentraland.org).
 {{< /hint >}}
 
-For example, if you publish a collection with two items and the price of MANA at the time is 1.5 USD, you will have to pay a fee of 150 MANA (100 USD for each item divided by the price of MANA in USD) regardless of the rarity (or how many NFTs can be minted) of those items.
+For example, if you publish a collection with two items and the price of MANA at the time is 1.25 USD, you will have to pay a fee of 160 MANA (100 USD for each item divided by the price of MANA in USD) regardless of the rarity (or how many NFTs can be minted) of those items.
 
 These fees are transferred to the curators committee and the Decentraland DAO, where they are used to help fund the growth of the platform through grants and other initiatives voted on by the greater Decentraland community.
 
