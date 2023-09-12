@@ -54,13 +54,16 @@ The `definition` field is the most important section, as it defines the actual s
 
 - `steps`: An array of steps. Each step has an `id`, a `description` and an array of `tasks`.
   - `id`: A unique identifier of the step.
-  - `description`: A short description of the step.
+  - `description`: A short description of the step. This information is suitable to be used as a display name or human friendly label for the current step to be seen by players of the quest through the HUD.
   - `tasks`: An array of tasks that the player has to complete to consider the step as done. Each task has an `id`, a `description` and an array of `actionItems`.
     - `id` A unique identifier of the task.
-    - `description` A short description of the task.
+    - `description` A short description of the task. This information is suitable to be used as a display name or human friendly label for the current task to be seen by players of the quest through the HUD.
+
     - `actionItems`: An array of action items that the player has to complete to consider the task as done. Each action item has a `type` and a `parameters` field.
       - `type`: The type of the action item. Find the supported types [here]({{< ref "/content/creator/quests/define.md#action-items" >}}).
       - `parameters`: An object with the parameters needed to complete the action item. The parameters are depend on the type of the action item. Find the supported parameters [here]({{< ref "/content/creator/quests/define.md#action-items" >}}).
+
+      **Note:** `actionItems` **will not be publicly available** for anyone but the owner of the quest.
 - `connections`: An array of connections. Each connection has a `stepFrom` and a `stepTo` field. The connections define the order of the steps. Steps that don't have a `stepFrom` in this array are considered the starting steps of the Quest. Steps that don't have a `stepTo` in this array are considered the ending steps of the Quest. Note that one step can lead to multiple steps at once.
   - `stepFrom`: The `id` of the step where the connection starts.
   - `stepTo`: The `id` of the step where the connection ends.
@@ -77,7 +80,7 @@ To complete each of these:
 - To complete a **Step**, you must complete all its **Tasks**
 - To complete a **Task**, you must complete all its **Action items**
 
-## Rewards section
+## Rewards section
 
 Finally, let's take a look at the `reward` section. This section defines the reward that players will receive after completing the quest. It's not mandatory for a Quest to give a reward to the player, this section is optional.
 
