@@ -520,7 +520,7 @@ import { executeTask } from '@dcl/sdk/ecs'
 import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
 import { createQuestHUD } from '@dcl/quests-client/dist/hud'
 
-const questHud = createQuestHud()
+const questHud = createQuestHUD()
 
 executeTask(async () => {
   const serviceUrl = 'wss://quests-rpc.decentraland.zone'
