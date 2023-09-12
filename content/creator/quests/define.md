@@ -52,14 +52,14 @@ Below is the full Quest schema as a Typescript type:
 
 The `definition` field is the most important section, as it defines the actual steps and their order.
 
-- `steps`: An array of steps. Each step has an `id`, a `description` and an array of `tasks`.
+- `steps`: An array of steps. Each step has an `id`, a `description` and an array of `tasks`. Steps are **ordered**, which means that a player will need to go through each of them, fulfilling each of their tasks in other to advance to the next one in the definition.
   - `id`: A unique identifier of the step.
   - `description`: A short description of the step. This information is suitable to be used as a display name or human friendly label for the current step to be seen by players of the quest through the HUD.
   - `tasks`: An array of tasks that the player has to complete to consider the step as done. Each task has an `id`, a `description` and an array of `actionItems`.
     - `id` A unique identifier of the task.
     - `description` A short description of the task. This information is suitable to be used as a display name or human friendly label for the current task to be seen by players of the quest through the HUD.
 
-    - `actionItems`: An array of action items that the player has to complete to consider the task as done. Each action item has a `type` and a `parameters` field.
+    - `actionItems`: An array of action items that the player has to complete to consider the task as done. *The order of the actions defined is not important*, the player is able to fulfill each of the different items in a single task in any order. Each action item has a `type` and a `parameters` field.
       - `type`: The type of the action item. Find the supported types [here]({{< ref "/content/creator/quests/define.md#action-items" >}}).
       - `parameters`: An object with the parameters needed to complete the action item. The parameters are depend on the type of the action item. Find the supported parameters [here]({{< ref "/content/creator/quests/define.md#action-items" >}}).
 
