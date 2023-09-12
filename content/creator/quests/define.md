@@ -55,7 +55,7 @@ The `definition` field is the most important section, as it defines the actual s
 - `steps`: An array of steps. Each step has an `id`, a `description` and an array of `tasks`. Steps are **ordered**, which means that a player will need to go through each of them, fulfilling each of their tasks in other to advance to the next one in the definition.
   - `id`: A unique identifier of the step.
   - `description`: A short description of the step. This information is suitable to be used as a display name or human friendly label for the current step to be seen by players of the quest through the HUD.
-  - `tasks`: An array of tasks that the player has to complete to consider the step as done. Each task has an `id`, a `description` and an array of `actionItems`.
+  - `tasks`: An array of tasks that the player has to complete to consider the step as done. Each task has an `id`, a `description` and an array of `actionItems`. The order of the tasks in a step is not important, the player will need to fulfill each of them to advance to the next one.
     - `id` A unique identifier of the task.
     - `description` A short description of the task. This information is suitable to be used as a display name or human friendly label for the current task to be seen by players of the quest through the HUD.
 
