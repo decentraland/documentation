@@ -8,9 +8,9 @@ Use the [Quests Client for SDK 7](https://github.com/decentraland/quests-client)
 
 ## What the library provides
 
-- An interface with the Quests Client API, to send your [Custom](/creator/quests/define#action-items) events and receive updates of player's progress.
-- SDK System helper to track [Location, Emote, Jump](/creator/quests/define#action-items) actions. Passing a callback function to the helper, you can send the action to the Quests Service, if it's the action that your quest requires.
-- A fully-customizable Quest HUD UI to display the player's progress on your Quest. You can use this UI as is, or as an example to build your own one. You can find the code [here](https://github.com/decentraland/quests-client/tree/main/src/hud.tsx).
+- An interface with the Quests Client API, to send your [Custom](/creator/quests/define#action-items) events and receive updates of the player's progress.
+- SDK System helper to track [Location, Emote, and Jump](/creator/quests/define#action-items) actions. Passing a callback function to the helper, you can send the action to the Quests Service when relevant.
+- A fully-customizable Quest HUD UI to display the player's progress on your Quest. You can use this UI as is, or as an example to build your own. You can find the code [here](https://github.com/decentraland/quests-client/tree/main/src/hud.tsx).
 
 ## Usage
 
@@ -84,13 +84,13 @@ The following methods are available in the Quests Client:
 
 - `sendEvent`: Use this function send a custom event to the Quest RPC Service. The function receives an `Action` (action item with its type and parameters), representing an action that the player has already completed in the scene. The function returns an `EventResponse` object that contains the result of the request, both in case of an error or success. Both `Action` and `EventResponse` are defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
 
-- `onStarted`: Use this function to register one or multiple callbacks that are called when the player starts your Quest. Callbacks will only be called when the user starts the Quest that matches the Quest ID passed when you created the client. Use these callbacks for the scene to react to the start of your Quest in any needed way. The callback receives an `QuestInstance` object that contains the information of the Quest that the player has started.
+- `onStarted`: Use this function to register one or multiple callbacks that are called when the player starts your Quest. Callbacks will only be called when the user starts the Quest that matches the Quest ID passed when creating the client instance. Use these callbacks for the scene to react to the start of your Quest. The callback receives an `QuestInstance` object that contains the information of the Quest that the player has started.
 
-- `onUpdate`: Use this function to register one or multiple callbacks that are called whenever the player makes progress on a Quest. Callbacks will only be called when the user makes progress on the Quest that matches the Quest ID passed when you created the client. Use these callbacks to apply changes on your scene that correlate to this progress. The callback receives an `QuestInstance` object that contains the information of the Quest that the player has made progress on.
+- `onUpdate`: Use this function to register one or multiple callbacks that are called whenever the player makes progress on a Quest. Callbacks will only be called when the user makes progress on the Quest that matches the Quest ID passed when you created the client instance. Use these callbacks to apply changes on your scene that correlate to this progress. The callback receives a `QuestInstance` object that contains the information of the Quest that the player has made progress on.
 
 - `isQuestStarted`: Use this function to check if the player has started your Quest. The function returns a `boolean`. If the player has started the Quest, it returns `true`. If the player hasn't started the Quest, it returns `false`.
 
-- `getQuestInstance`: This function allows you to get the Instance of the Quest that mathches the QUest ID passed when you created the Client. The function returns a `QuestInstance` object. If the user hasn't started the Quest, it returns `null`.
+- `getQuestInstance`: This function allows you to get the Instance of the Quest that matches the Quest ID passed when you created the Client. The function returns a `QuestInstance` object, including data about the player's progress in that quest. If the user hasn't started the Quest, it returns `null`.
 
 - `getInstances`: This function allows you to get all the Quest Instances of the player. The function returns an array of `QuestInstance` objects.
 
@@ -235,7 +235,6 @@ pointerEventsSystem.onPointerDown(
 To trigger the start of a Quest, call the `startQuest` function. This function receives the id of the quest you want to start.
 
 ```ts
-
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
 executeTask(async () => {
@@ -243,10 +242,10 @@ executeTask(async () => {
   try {
     const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
 
- 		const result = await questsClient.startQuest()
+    const result = await questsClient.startQuest()
 
     if (result) {
-      console.log("Quest started successfully!")
+      console.log('Quest started successfully!')
     } else {
       console.error("Quest couldn't be started")
     }
@@ -487,12 +486,15 @@ export const startEvent = mitt()
 export const actionEvents = mitt<{ action: Action }>()
 export const questProgress = mitt<{ step: number }>()
 
-
 // index.ts
 
 //...
 import { executeTask } from '@dcl/sdk/ecs'
-import { createQuestsClient, QuestInstance, questProgress } from '@dcl/quests-client'
+import {
+  createQuestsClient,
+  QuestInstance,
+  questProgress,
+} from '@dcl/quests-client'
 
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
@@ -503,41 +505,93 @@ executeTask(async () => {
     const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
     console.log('Quests Client is ready to use!')
 
-  	questsClient.onUpdate((quest: QuestInstance) => {
-        for (let step of quest.state.stepsCompleted) {
-            switch (step) {
-                case "my_step_1":
-                    questProgress.emit("step", 1)
-                case "my_step_2":
-                    questProgress.emit("step", 2)
-                case "my_step_3":
-                    questProgress.emit("step", 3)
-            }
+    questsClient.onUpdate((quest: QuestInstance) => {
+      for (let step of quest.state.stepsCompleted) {
+        switch (step) {
+          case 'my_step_1':
+            questProgress.emit('step', 1)
+          case 'my_step_2':
+            questProgress.emit('step', 2)
+          case 'my_step_3':
+            questProgress.emit('step', 3)
         }
+      }
     })
   } catch (e) {
     console.error('Error on connecting to Quests Service')
   }
 })
 
-
 // cube.ts
 import { questProgress } from '@dcl/quests-client'
 
-  //...
+//...
 
-	questProgress.on("step", (stepNumber: number)=>{
-		if(stepNumber >= 2){
-			console.log("we're ready for step 3!")
-		}
-	})
+questProgress.on('step', (stepNumber: number) => {
+  if (stepNumber >= 2) {
+    console.log("we're ready for step 3!")
+  }
+})
 ```
+
+## Check for progress in other sessions
+
+The player might be coming back to your scene after having started the quest before. The quest server keeps track of how far they got, but your scene might have to load changes that reflect the past actions of the player. For example, you might have to hide items that were already collected, unlock doors that were already opened, etc. You should also update the quest UI to reflect their initial progress.
+
+Use the `getQuestInstance()` function to fetch a `QuestInstance` object, which contains a `stepsCompleted` array.
+
+```typescript
+// index.ts
+
+//...
+import { executeTask } from '@dcl/sdk/ecs'
+import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
+
+const MY_QUEST_ID = 'quest-id-1234-5678-9012'
+
+executeTask(async () => {
+  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+
+  try {
+    const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
+    console.log('Quests Client is ready to use!')
+
+    const currentProgress = questsClient.getQuestInstance()
+    if (currentProgress) {
+      sendQuestUpdates(currentProgress)
+    }
+
+    questsClient.onUpdate((quest: QuestInstance) => {
+      sendQuestUpdates(quest)
+    })
+  } catch (e) {
+    console.error('Error on connecting to Quests Service')
+  }
+})
+
+function sendQuestUpdates(questInstance: QuestInstance) {
+  for (let step of questInstance.state.stepsCompleted) {
+    switch (step) {
+      case 'my_step_1':
+        questProgress.emit('step', 1)
+      case 'my_step_2':
+        questProgress.emit('step', 2)
+      case 'my_step_3':
+        questProgress.emit('step', 3)
+    }
+  }
+}
+```
+
+The example above defines a function `sendQuestUpdates` to handle both the initial state of the quest when the scene loads, obtained from `getQuestInstance()`, and any updates done later, obtained from `onUpdate()`. The scene can then react to these messages that are emitted and change the states of relevant things.
 
 ## Quest HUD - an SDK UI for your Quest
 
-The Quests Client library provides a UI (HUD) for your Quest. This displays the players their progress, listing the steps in the quest and their status.
+The Quests Client library provides a default UI (HUD). This displays the player's progress, listing the steps in the quest and their status.
 
-As it was defined previously, this HUD is fully-customizable. So, let's start with the options that you have to customize it.
+### HUD Properties
+
+This HUD is fully-customizable. Below are the full set of options that can be set up:
 
 ```typescript
 type LabelProps = EntityPropTypes & UiLabelProps
@@ -589,50 +643,58 @@ export type QuestHudOptions = {
 }
 ```
 
-- `autoRender`: If `true`, the HUD will be rendered automatically. If `false`, you will need to call the `render` function to render the HUD. By default, it's **not** rendered automatically.
+- `autoRender`: If `true`, the HUD is rendered automatically. If `false`, you will need to call the `render` function to render the HUD. By default, it's **not** rendered automatically.
 
-- `leftSidePanel`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the `UiEntity` containing the box that contains all the Quest progress and the "Hide/Show" toggle button. In web terms, this would be the div acting as a container for the box and button.
+- `leftSidePanel`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify the `UiEntity` containing the box that contains all the Quest progress and the "Hide/Show" toggle button. In web terms, this would be the div acting as a container for the box and button.
 
-- `questBox`: It's an object that contains two fields:
-  - `uiBackground`: It's the `UiBackgroundProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the background of the `UiEntity` containing the box that contains the Quest name and the steps. In web terms, this would be the `div` acting as a container for the Quest name and steps.
-  - `uiTransform`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the `UiEntity` containing the box that contains the Quest name and the steps. In web terms, this would be the `div` acting as a container for the Quest name and steps.
+- `questBox`: An object that contains two fields:
 
-- `questNameContainer`: It's an object that contains two fields:
-  - `uiTransform`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the `UiEntity` containing the Quest name. In web terms, this would be the `div` acting as a container for the Quest name.
-  - `label`: It's the `LabelProps` type defined in the snippet above. You can use this to modify the `Label` containing the Quest name. In web terms, this would be the `p` tag containing the Quest name.
+  - `uiBackground`: The `UiBackgroundProps` type from `@dcl/sdk/react-ecs`. Use this to modify the background of the `UiEntity` containing the box with the Quest name and steps. In web terms, this would be the `div` acting as a container for the Quest name and steps.
+  - `uiTransform`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify the `UiEntity` containing the box with the Quest name and steps. In web terms, this would be the `div` acting as a container for the Quest name and steps.
 
-- `stepsContainer`: It's an object that contains three fields:
-  - `uiTransform`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the `UiEntity` containing and listing the steps with their `description`. In web terms, this would be the `div` acting as a container for the steps.
-  - `labels`: It's an object that contains two fields:
-    - `labelUiEntity`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify all `UiEntity`s containing the step's `description` and the "Show Tasks" button. In web terms, this would be the `div` acting as a container for the step's `description` and the "Show Tasks" button.
-    - `props`: It's the `LabelProps` type defined in the snippet above. You can use this to modify all `Label`s containing the step's `description`. In web terms, this would be the `p` tag containing the step's `description`.
-  - `showTasksButton`: It's an object that contains two fields:
-    - `buttonUiEntity`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify all `UiEntity`s containing the "Show Tasks" button. In web terms, this would be the `div` acting as a container for the "Show Tasks" button.
-    - `buttonProps`: It's the `UiButtonProps` type from `@dcl/sdk/react-ecs`. You can use this to modify all the "Show Tasks" `Button`s.
+- `questNameContainer`: An object that contains two fields:
 
-- `tasksBox`: It's an object that contains three fields:
-  - `uiTransform`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify all `UiEntity`s containing and listing each step tasks with their `description`. In web terms, this would be the `div` acting as a container for a step tasks.
-  - `uiBackground`: It's the `UiBackgroundProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the background of all `UiEntity`s containing and listing each step tasks with their `description`. In web terms, this would be the `div` acting as a container for the tasks.
-  - `labels`: It's an object that contains two fields:
-    - `labelUiEntity`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify all `UiEntity`s containing the task's `description`. In web terms, this would be the `div` acting as a container for the task's `description`.
-    - `props`: It's the `LabelProps` type defined in the snippet above. You can use this to modify all `Label`s containing the task's `description`. In web terms, this would be the `p` tag containing the task's `description`.
+  - `uiTransform`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify the `UiEntity` containing the Quest name. In web terms, this would be the `div` acting as a container for the Quest name.
+  - `label`: The `LabelProps` type defined in the snippet above. Use this to modify the `Label` with the Quest name. In web terms, this would be the `p` tag containing the Quest name.
 
-- `nextSteps`: It's an object that contains three fields:
-  - `nextTitleUiEntity`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the `UiEntity` containing the "Next Steps" title. In web terms, this would be the `div` acting as a container for the "Next Steps" title.
-  - `nextTitleProps`: It's the `LabelProps` type defined in the snippet above. You can use this to modify the `Label` containing the "Next Steps" title. In web terms, this would be the `p` tag containing the "Next Steps" title.
-  - `labels`: It's an object that contains two fields:
-    - `labelUiEntity`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify all `UiEntity`s containing the next step's `description`. In web terms, this would be the `div` acting as a container for the next step's `description`.
-    - `props`: It's the `LabelProps` type defined in the snippet above. You can use this to modify all `Label`s containing the next step's `description`. In web terms, this would be the `p` tag containing the next step's `description`.
+- `stepsContainer`: An object that contains three fields:
 
-- `questCompletionLabel`: It's an object that contains two fields:
-  - `uiTransform`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the `UiEntity` containing the Quest completion label. In web terms, this would be the `div` acting as a container for the Quest completion label.
-  - `label`: It's the `LabelProps` type defined in the snippet above. You can use this to modify the `Label` containing the text that lets the users know they have completed the Quest. In web terms, this would be the `p` tag containing the text noticing the completion of the Quest.
+  - `uiTransform`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify the `UiEntity` listing the steps and their `description`. In web terms, this would be the `div` acting as a container for the steps.
+  - `labels`: An object that contains two fields:
+    - `labelUiEntity`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify every `UiEntity` that contains the step's `description` and the "Show Tasks" button. In web terms, this would be the `div` acting as a container for the step's `description` and the "Show Tasks" button.
+    - `props`: The `LabelProps` type defined in the snippet above. Use this to modify every `Label` containing the step's `description`. In web terms, this would be the `p` tag containing the step's `description`.
+  - `showTasksButton`: An object that contains two fields:
+    - `buttonUiEntity`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify every `UiEntity` containing the "Show Tasks" button. In web terms, this would be the `div` acting as a container for the "Show Tasks" button.
+    - `buttonProps`: The `UiButtonProps` type from `@dcl/sdk/react-ecs`. Use this to modify all the "Show Tasks" `Button`s.
 
-- `showHideToggleButton`: It's the `UiButtonProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the "Hide" and "Show Quest Progress" toggle `Button`. In web terms, this would be the `button` tag.
+- `tasksBox`: An object that contains three fields:
 
-- `closeTasksBoxButton`: It's the `UiButtonProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the "Close" `Button` that appears when the user clicks on the "Show Tasks" `Button`. In web terms, this would be the `button` tag.
+  - `uiTransform`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify every `UiEntity` containing and listing each step tasks with their `description`. In web terms, this would be the `div` acting as a container for a step tasks.
+  - `uiBackground`: The `UiBackgroundProps` type from `@dcl/sdk/react-ecs`. Use this to modify the background of every `UiEntity` listing each step tasks with their `description`. In web terms, this would be the `div` acting as a container for the tasks.
+  - `labels`: An object that contains two fields:
+    - `labelUiEntity`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify every `UiEntity` containing the task's `description`. In web terms, this would be the `div` acting as a container for the task's `description`.
+    - `props`: The `LabelProps` type defined in the snippet above. Use this to modify every `Label` containing the task's `description`. In web terms, this would be the `p` tag containing the task's `description`.
 
-Well now, let's explain the `QuestHUD` type returned by the `createQuestHUD` function from `@dcl/quests-client/dist/hud`:
+- `nextSteps`: An object that contains three fields:
+
+  - `nextTitleUiEntity`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify the `UiEntity` containing the "Next Steps" title. In web terms, this would be the `div` acting as a container for the "Next Steps" title.
+  - `nextTitleProps`: The `LabelProps` type defined in the snippet above. Use this to modify the `Label` containing the "Next Steps" title. In web terms, this would be the `p` tag containing the "Next Steps" title.
+  - `labels`: An object that contains two fields:
+    - `labelUiEntity`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify every `UiEntity` containing the next step's `description`. In web terms, this would be the `div` acting as a container for the next step's `description`.
+    - `props`: The `LabelProps` type defined in the snippet above. Use this to modify every `Label` containing the next step's `description`. In web terms, this would be the `p` tag containing the next step's `description`.
+
+- `questCompletionLabel`: An object that contains two fields:
+
+  - `uiTransform`: The `UiTransformProps` type from `@dcl/sdk/react-ecs`. Use this to modify the `UiEntity` containing the Quest completion label. In web terms, this would be the `div` acting as a container for the Quest completion label.
+  - `label`: The `LabelProps` type defined in the snippet above. Use this to modify the `Label` containing the text that lets the users know they have completed the Quest. In web terms, this would be the `p` tag containing the text noticing the completion of the Quest.
+
+- `showHideToggleButton`: The `UiButtonProps` type from `@dcl/sdk/react-ecs`. Use this to modify the "Hide" and "Show Quest Progress" toggle `Button`. In web terms, this would be the `button` tag.
+
+- `closeTasksBoxButton`: The `UiButtonProps` type from `@dcl/sdk/react-ecs`. Use this to modify the "Close" `Button` that appears when the user clicks on the "Show Tasks" `Button`. In web terms, this would be the `button` tag.
+
+### Methods of the QuestHUD object
+
+Once you created a Quest HUD with `createQuestHUD()`, you're returned a `QuestHUD` object. This object has the following methods:
 
 ```typescript
 type QuestHUD = {
@@ -640,15 +702,19 @@ type QuestHUD = {
   getHUDComponent: () => () => ReactEcs.JSX.Element
   render: () => void
   updateOptions: (opts: QuestHudOptions) => void
-  getHUDComponentWithUpdatedOptions: (newOpts: QuestHudOptions) => () => ReactEcs.JSX.Element
+  getHUDComponentWithUpdatedOptions: (
+    newOpts: QuestHudOptions
+  ) => () => ReactEcs.JSX.Element
 }
 ```
 
-- `upsert`: Use this function to update the Quest HUD with the player's progress, you may want to call it when the users start the Quest and when they make some progress. This function receives a `QuestInstance` object. It creates an SDK entity with this data to be used by a ReactECS UI component. This component is rendered in the scene UI, displaying the Quest progress.
+- `upsert`: Update the Quest HUD with the player's progress, you may want to call it when the users starts the Quest and when they make some progress. Also when the player loads into the scene with the quest already partially completed. This function receives a `QuestInstance` object. It creates an entity with this data to be used by a ReactECS UI component. This component is rendered in the scene UI, displaying the Quest progress.
 
-- `getHUDComponent`: Use this function to get the ReactECS UI component that renders a ready-to-use Quest HUD. You may want to make use of this function when you already have an UI to render since `ReactEcsRenderer.setUiRenderer` overrides everything that previously exists when you execute it.
+- `getHUDComponent`: Get the ReactECS UI component that renders a ready-to-use Quest HUD. This is useful when you already have a UI to render, since `ReactEcsRenderer.setUiRenderer` overrides everything that previously exists.
 
-- `render`: Use this function to render the Quest HUD. You may want to call this function when you have the `autoRender` option set to `false` and you want to render the Quest HUD manually. (TODO: check if recalling it when entity updates is needed.)
+- `render`: Render the Quest HUD. You may want to call this function when you have the `autoRender` option set to `false` and you want to render the Quest HUD manually.
+
+<!--(TODO: check if recalling it when entity updates is needed.)  -->
 
 To use it, import the `createQuestHUD` function from `@dcl/quests-client/dist/hud`. For example:
 
@@ -686,11 +752,12 @@ executeTask(async () => {
 })
 ```
 
-The above code creates a Quest HUD object without customization, it will use the default styles for everything. You can find the defaults in the code [here](https://github.com/decentraland/quests-client/blob/main/src/hud.tsx) or you can just render the HUD to check how it looks.
+The above code creates a default Quest HUD object, with no customization. You can find the defaults in the code [here](https://github.com/decentraland/quests-client/blob/main/src/hud.tsx), or render the HUD to see how it looks.
 
-When the quest is stated or it receives any player progress update, the `questHud.upsert` function is called to updates this UI. This function receives a `QuestInstance` object. It creates an SDK entity with this data to be used by a ReactECS UI component. This component is rendered in the scene UI, displaying the Quest progress, including which steps and tasks are completed or not.
+When the quest is stated or it receives any player progress update, the `questHud.upsert` function is called to update this UI. This function receives a `QuestInstance` object. It creates an SDK entity with this data to be used by a ReactECS UI component. This component is rendered in the scene UI, displaying the Quest progress, including which steps and tasks are completed or not.
 
 ###### Customizing the Quest HUD
+
 ```typescript
 // index.ts
 
@@ -698,21 +765,23 @@ When the quest is stated or it receives any player progress update, the `questHu
 const questHud = createQuestHUD({
   autoRender: true,
   leftSidePanel: {
-    position: { top: '8%' }
+    position: { top: '8%' },
   },
   questBox: {
     uiBackground: {
-      color: Color4.fromHexString('ff2d5382')
-    }
-  }
+      color: Color4.fromHexString('ff2d5382'),
+    },
+  },
 })
 
 //....
 //....
 ```
 
-The above code create a customized Quest HUD and it's rendered automatically so whenever the player starts the Quest or makes progress or `upsert` function is called, the Quest HUD will appear or be updated.
+The above code creates a customized Quest HUD. This HUD is rendered automatically, so it's updated whenever the player starts the Quest or makes progress or the `upsert` function is called.
 
-Also, this Quest HUD will be rendered `8%` far from the top of the screen because all the left side panel is pulled up (this will works for Worlds where there isn't a minimap), the default is `28%`. And., the Quest box will have a background color of `#ff2d5382`, which it's the primary color of Decentraland (kind of light red) with almost 50% of opacity.
+This Quest HUD is configured to be rendered `8%` far from the top of the screen. This works well in Worlds, where there is no minimap. The default is `28%` places the quest HUD below the height of the minimap, ideal for quests inside Genesis Plaza.
 
-You are also free to use the SDK to create your own custom UI to display quest progress based on this same information. See [Onscreen UI]({{< ref "/content/creator/sdk7/2d-ui/onscreen-ui.md" >}}) for guidance about how to do this.
+This example also sets the Quest box background color to `#ff2d5382`. This is the primary color of Decentraland (a light red), with almost 50% of opacity.
+
+You are free to use the SDK to create your own custom UI to display quest progress based on this same information. See [Onscreen UI]({{< ref "/content/creator/sdk7/2d-ui/onscreen-ui.md" >}}) for guidance about how to do this.
