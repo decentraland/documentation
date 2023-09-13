@@ -399,7 +399,7 @@ A linear Quest "Z World", similar to "Linear Quest 2" but this one **gives rewar
 
 ###### Branching Quest
 
-This Quest is \*more complex. A Branching Quest "Z World", with 4 steps:
+This Quest is *more complex*. A Branching Quest "Z World", with 4 steps:
 
 - `STEP_1_1`: **One** of two possible **fist steps** of the Quest. It has two tasks: `STEP_1_1` and `STEP_1_2`. Both tasks have only one action item, and both action items are `CUSTOM` action items.
 

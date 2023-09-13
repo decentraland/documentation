@@ -62,7 +62,7 @@ type OnStartedCallback = (instance: QuestInstance) => void
 type OnUpdateCallback = (instance: QuestInstance) => void
 ```
 
-## The Quest instance
+## The Quest Instance
 
 The `QuestInstance` type is used in several methods. The `QuestInstance` type has the same fields as `QuestInstanceProtocol` **but** with no `undefined` fields (the `undefined` are caused by `proto`, and it's impossible that these fields are `undefined`). A `QuestInstance` (or `QuestInstanceProtocol`) is an instance of a specific Quest and it contains the state (or progress) of the player in that specific Quest. The `QuestInstance` type has the following fields:
 
@@ -93,8 +93,6 @@ The following methods are available in the Quests Client:
 - `getQuestInstance`: This function allows you to get the Instance of the Quest that matches the Quest ID passed when you created the Client. The function returns a `QuestInstance` object, including data about the player's progress in that quest. If the user hasn't started the Quest, it returns `null`.
 
 - `getInstances`: This function allows you to get all the Quest Instances of the player. The function returns an array of `QuestInstance` objects.
-
-- `initActionsTracker`: Use this function to subscribe listeners to different kinds of actions, like actions of type location, emote and jump. Once the tracker is initialized, the scene will take care of updating the player's progress on any action of those types in the quest.
 
 ## Setting up the client
 
