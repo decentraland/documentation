@@ -4,7 +4,7 @@ url: /creator/quests/quest-ui
 weight: 5
 ---
 
-The [Quests Client library]({{< ref "/content/creator/sdk7/quests/client.md" >}}) provides a default UI (HUD). This displays the player's progress, listing the steps in the quest and their status.
+The [Quests Client library]({{< ref "/content/creator/quests/client.md" >}}) provides a default UI (HUD). This displays the player's progress, listing the steps in the quest and their status.
 
 This default UI is highly customizable, but you can also build your own UI, entirely from scratch.
 

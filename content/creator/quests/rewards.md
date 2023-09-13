@@ -8,7 +8,7 @@ A Quest can have rewards for the players who complete it. When a Quest is create
 
 The webhook is a URL that is called when the Quest is completed. The list of items includes one or several items to give to the player when the Quest is completed.
 
-The **[Quests System]({{< ref "/content/creator/sdk7/quests/overview.md" >}}) ** is in charge of sending the request to the given webhook URL when it detects that a player has completed a quest.
+The **[Quests System]({{< ref "/content/creator/quests/overview.md" >}}) ** is in charge of sending the request to the given webhook URL when it detects that a player has completed a quest.
 
 ## API Requirements
 
@@ -87,4 +87,4 @@ Another Example:
 }
 ```
 
-See [defining a quest]({{< ref "/content/creator/sdk7/quests/define.md" >}}) for more details on the quest definition JSON structure.
+See [defining a quest]({{< ref "/content/creator/quests/define.md" >}}) for more details on the quest definition JSON structure.

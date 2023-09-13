@@ -8,9 +8,9 @@ Use the [Quests Client for SDK 7](https://github.com/decentraland/quests-client)
 
 ## What the library provides
 
-- An interface with the Quests Client API, to send your [Custom]({{< ref "/content/creator/sdk7/quests/define.md#action-items" >}}) events and receive updates of the player's progress.
-- SDK System helper to track [Location, Emote, and Jump]({{< ref "/content/creator/sdk7/quests/define.md#action-items" >}}) actions. Passing a callback function to the helper, you can send the action to the Quests Service when relevant.
-- A fully-customizable [Quest HUD UI]({{< ref "/content/creator/sdk7/quests/quest-hud.md" >}}) to display the player's progress on your Quest. You can use this UI as is, or as an example to build your own. You can find the code [here](https://github.com/decentraland/quests-client/tree/main/src/hud.tsx).
+- An interface with the Quests Client API, to send your [Custom]({{< ref "/content/creator/quests/define.md#action-items" >}}) events and receive updates of the player's progress.
+- SDK System helper to track [Location, Emote, and Jump]({{< ref "/content/creator/quests/define.md#action-items" >}}) actions. Passing a callback function to the helper, you can send the action to the Quests Service when relevant.
+- A fully-customizable [Quest HUD UI]({{< ref "/content/creator/quests/quest-hud.md" >}}) to display the player's progress on your Quest. You can use this UI as is, or as an example to build your own. You can find the code [here](https://github.com/decentraland/quests-client/tree/main/src/hud.tsx).
 
 ## Usage
 
@@ -466,7 +466,7 @@ type QuestInstance = {
 ```
 
 - `id`: The id of the Quest Instance. It's a unique identifier of the player's Quest Instance.
-- `quest`: The Quest object. Find more information about the Quest object [here]({{< ref "/content/creator/sdk7/quests/define.md" >}}).
+- `quest`: The Quest object. Find more information about the Quest object [here]({{< ref "/content/creator/quests/define.md" >}}).
 - `state`: The progress of the player on the Quest.
 
 Find details about the `Quest` and `QuestState` types in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
