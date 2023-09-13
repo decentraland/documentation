@@ -111,9 +111,9 @@ Then run the function `createQuestsClient` to initialize the Quests Client. This
 
 The function `createQuestsClient()` takes a parameter with the URL to connect to the [Quests API](creator/quests/overview/#services-architecture). The following options are available:
 
-- Development: `wss://quests-rpc.decentraland.zone`
-- Production: `wss://quests-rpc.decentraland.org`
-- Custom: Set up your own Quests Service locally for development or testing. You can find more information on how to do so on [Quests Service's repository](https://github.com/decentraland/quests)
+- **Development**: `wss://quests-rpc.decentraland.zone`
+- **Production**: `wss://quests-rpc.decentraland.org`
+- **Custom**: Set up your own Quests Service locally for development or testing. You can find more information on how to do so on [Quests Service's repository](https://github.com/decentraland/quests)
 
 ```typescript
 // index.ts

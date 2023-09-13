@@ -233,8 +233,10 @@ With our newly created quest already uploaded, we can move forward and wire thin
 
 To start off, let's create a client to connect with our scene. [You can review the documentation for it here]({{< ref "/content/creator/quests/client.md" >}}).
 
+We will be using the dev environment here, [please check SDK client section to set up your desired quest server]({{< ref "/creator/quests/client.md#setting-up-the-client" >}})
+
 ```typescript
-const ws = 'wss://quests-rpc.decentraland.org'
+const ws = 'wss://quests-rpc.decentraland.zone'
 
 // replace <QUEST_ID> below with the id returned by the CLI in the uploading quest phase
 const quests = await createQuestsClient(ws, '<QUEST_ID>')
