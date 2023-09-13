@@ -249,7 +249,7 @@ quests.onStarted((questInstance) => {
   if (questInstance.quest.id === QUEST_ID) {
     questInstanceId = questInstance.id
     updateFromState(questInstance.state)
-    hud.upsert(generateQuestUI(questInstance))
+    hud.upsert(questInstance)
     questStarted = true
   }
 })
@@ -257,7 +257,7 @@ quests.onStarted((questInstance) => {
 quests.onUpdate((questInstance) => {
   if (questInstance.id === questInstanceId) {
     updateFromState(questInstance.state)
-    hud.upsert(generateQuestUI(questInstance))
+    hud.upsert(questInstance)
   }
 })
 ```
@@ -286,16 +286,16 @@ export function updateFromState(state: QuestState) {
   if (state.stepsLeft === 0) {
     onQuestComplete()
   } else if (state.stepsCompleted.length === 0) {
-    onQuestStart()
+    onQuestStart(state)
   } else if (state.stepsCompleted.includes('prepare-for')) {
     onAllItemsPickedUp()
   }
 }
 
-export function onQuestStart() {
+export function onQuestStart(state: QuestState) {
   if (step !== 'prepare-for') {
-    spawnItemsToPickup()
     step = 'prepare-for'
+    spawnItemsToPickup(state.currentSteps[step].tasksCompleted)
   }
 }
 
@@ -312,7 +312,8 @@ export function onQuestComplete() {
   }
 }
 
-export function spawnItemsToPickup() {
+export function spawnItemsToPickup(completedTasks: Task[]) {
+  // Instantiate items bases
   const redBaseEntity = engine.addEntity()
   GltfContainer.create(redBaseEntity, {
     src: 'models/spawnBaseRed.glb'
@@ -337,9 +338,17 @@ export function spawnItemsToPickup() {
     position: Vector3.create(12, 0, 6)
   })
 
-  instantiatePickableItem('models/medikit.glb', Vector3.create(4, 0.75, 6), 'sounds/medikitPickup.mp3', 'medikit')
-  instantiatePickableItem('models/ammo.glb', Vector3.create(8, 0.75, 10), 'sounds/ammoPickup.mp3', 'ammo')
-  instantiatePickableItem('models/armor.glb', Vector3.create(12, 0.75, 6), 'sounds/armorPickup.mp3', 'armor')
+  if (!completedTasks.find((t) => t.id === 'pick-up-medikit')) {
+    instantiatePickableItem('models/medikit.glb', Vector3.create(4, 0.75, 6), 'sounds/medikitPickup.mp3', 'medikit')
+  }
+
+  if (!completedTasks.find((t) => t.id === 'pick-up-ammo')) {
+    instantiatePickableItem('models/ammo.glb', Vector3.create(8, 0.75, 10), 'sounds/ammoPickup.mp3', 'ammo')
+  }
+
+  if (!completedTasks.find((t) => t.id === 'pick-up-armor')) {
+    instantiatePickableItem('models/armor.glb', Vector3.create(12, 0.75, 6), 'sounds/armorPickup.mp3', 'armor')
+  }
 }
 
 export function spawnZone() {
