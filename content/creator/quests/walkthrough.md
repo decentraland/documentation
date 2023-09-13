@@ -260,7 +260,7 @@ quests.onUpdate((questInstance) => {
 })
 ```
 
-*Note:* In the above example we are also using the HUD described [in the SDK section as well]({{< ref "/content/creator/quests/client.md#quest-hud---an-sdk-ui-for-your-quest" >}}).
+*Note:* In the above example we are also using the HUD described [in the SDK section as well]({{< ref "/content/creator/quests/quest-hud.md" >}}).
 
 And we will do the opposite to send events to the server whenever the player acts on our scene. For this we will use the `mitt` lib [as described here]({{< ref "/content/creator/quests/client.md#using-observables" >}}) to generate events in our scene code.
 ```typescript
