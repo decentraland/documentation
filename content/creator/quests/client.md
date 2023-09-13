@@ -39,6 +39,8 @@ $ npm install @dcl/quests-client
 The types below are defined in [Quests Client for SDK 7](https://github.com/decentraland/quests-client).
 
 ```typescript
+import { QuestInstance } from './protocol/decentraland/quests/definitions.gen'
+
 type QuestsClient = {
   startQuest: () => Promise<boolean>
   abortQuest: () => Promise<boolean>
@@ -46,22 +48,23 @@ type QuestsClient = {
   onStarted: (callback: OnStartedCallback) => void
   onUpdate: (callback: OnUpdateCallback) => void
   isQuestStarted: () => boolean
-  getQuestInstance: () => QuestInstance | null
-  getInstances: () => QuestInstance[]
+  getQuestInstance: () => QuestInstanceRequired | null
+  getInstances: () => QuestInstanceRequired[]
 }
 
-type QuestInstance = {
-  id: string
-  quest: Quest
-  state: QuestState
+type Required<T> = T & {
+  [P in keyof T]: NonNullable<T[P]>
 }
+
+type QuestInstanceRequired = Required<QuestInstance>
+
 type OnStartedCallback = (instance: QuestInstance) => void
 type OnUpdateCallback = (instance: QuestInstance) => void
 ```
 
 ## The Quest instance
 
-The `QuestInstance` type is used in several methods. A `QuestInstance` is an instance of a specific Quest and it contains the state (or progress) of the player in that specific Quest. The `QuestInstance` type has the following fields:
+The `QuestInstanceRequired` type is used in several methods. The `QuestInstanceRequired` is the same as `QuestInstance` **but** with no `undefined` fields (the `undefined` are caused by `proto`, and it's impossible that these fields are `undefined`). A `QuestInstanceRequired` (or `QuestInstance`) is an instance of a specific Quest and it contains the state (or progress) of the player in that specific Quest. The `QuestInstanceRequired` type has the following fields:
 
 - `id`: The id of the Quest Instance. It's a unique identifier of the player's Quest Instance.
 - `quest`: The Quest object defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
@@ -81,15 +84,15 @@ The following methods are available in the Quests Client:
 
 - `sendEvent`: Use this function send a custom event to the Quest RPC Service. The function receives an `Action` (action item with its type and parameters), representing an action that the player has already completed in the scene. The function returns an `EventResponse` object that contains the result of the request, both in case of an error or success. Both `Action` and `EventResponse` are defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
 
-- `onStarted`: Use this function to register one or multiple callbacks that are called when the player starts your Quest. Callbacks will only be called when the user starts the Quest that matches the Quest ID passed when you created the client. Use these callbacks for the scene to react to the start of your Quest in any needed way. The callback receives an `QuestInstance` object that contains the information of the Quest that the player has started.
+- `onStarted`: Use this function to register one or multiple callbacks that are called when the player starts your Quest. Callbacks will only be called when the user starts the Quest that matches the Quest ID passed when you created the client. Use these callbacks for the scene to react to the start of your Quest in any needed way. The callback receives an `QuestInstanceRequired` object that contains the information of the Quest that the player has started.
 
-- `onUpdate`: Use this function to register one or multiple callbacks that are called whenever the player makes progress on a Quest. Callbacks will only be called when the user makes progress on the Quest that matches the Quest ID passed when you created the client. Use these callbacks to apply changes on your scene that correlate to this progress. The callback receives an `QuestInstance` object that contains the information of the Quest that the player has made progress on.
+- `onUpdate`: Use this function to register one or multiple callbacks that are called whenever the player makes progress on a Quest. Callbacks will only be called when the user makes progress on the Quest that matches the Quest ID passed when you created the client. Use these callbacks to apply changes on your scene that correlate to this progress. The callback receives an `QuestInstanceRequired` object that contains the information of the Quest that the player has made progress on.
 
 - `isQuestStarted`: Use this function to check if the player has started your Quest. The function returns a `boolean`. If the player has started the Quest, it returns `true`. If the player hasn't started the Quest, it returns `false`.
 
-- `getQuestInstance`: This function allows you to get the Instance of the Quest that mathches the QUest ID passed when you created the Client. The function returns a `QuestInstance` object. If the user hasn't started the Quest, it returns `null`.
+- `getQuestInstance`: This function allows you to get the Instance of the Quest that mathches the QUest ID passed when you created the Client. The function returns a `QuestInstanceRequired` object. If the user hasn't started the Quest, it returns `null`.
 
-- `getInstances`: This function allows you to get all the Quest Instances of the player. The function returns an array of `QuestInstance` objects.
+- `getInstances`: This function allows you to get all the Quest Instances of the player. The function returns an array of `QuestInstanceRequired` objects.
 
 - `initActionsTracker`: Use this function to subscribe listeners to different kinds of actions, like actions of type location, emote and jump. Once the tracker is initialized, the scene will take care of updating the player's progress on any action of those types in the quest.
 
@@ -181,7 +184,7 @@ export const startEvent = mitt()
 
 //...
 import { executeTask } from '@dcl/sdk/ecs'
-import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
+import { createQuestsClient, QuestInstanceRequired } from '@dcl/quests-client'
 import { startEvent } from './events'
 
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
@@ -193,11 +196,11 @@ executeTask(async () => {
     const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
     console.log('Quests Client is ready to use!')
 
-    questsClient.onUpdate((quest: QuestInstance) => {
+    questsClient.onUpdate((quest: QuestInstanceRequired) => {
       // apply some changes on your scene to reflect the player's progress
     })
 
-    questsClient.onStarted((quest: QuestInstance) => {
+    questsClient.onStarted((quest: QuestInstanceRequired) => {
       // react to the start of your Quest by applying some change on your scene
     })
 
@@ -264,7 +267,7 @@ When the player starts your Quest, you may want the scene to react to this event
 
 //...
 import { executeTask } from '@dcl/sdk/ecs'
-import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
+import { createQuestsClient, QuestInstanceRequired } from '@dcl/quests-client'
 import { startEvent } from './events'
 
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
@@ -276,7 +279,7 @@ executeTask(async () => {
     const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
     console.log('Quests Client is ready to use!')
 
-    client.onStarted((quest: QuestInstance) => {
+    client.onStarted((quest: QuestInstanceRequired) => {
       // react to the start of your Quest
     })
   } catch (e) {
@@ -309,7 +312,7 @@ The above code initializes an event emitter used to send events to the Quests Se
 
 //...
 import { executeTask } from '@dcl/sdk/ecs'
-import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
+import { createQuestsClient, QuestInstanceRequired } from '@dcl/quests-client'
 import { startEvent, actionEvents } from './events'
 
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
@@ -321,7 +324,7 @@ executeTask(async () => {
     const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
     console.log('Quests Client is ready to use!')
 
-    client.onUpdate((quest: QuestInstance) => {
+    client.onUpdate((quest: QuestInstanceRequired) => {
       // apply some changes on your scene to reflect the player's progress
     })
 
@@ -431,7 +434,7 @@ You may want to react and apply different changes to your scene when the player 
 
 //...
 import { executeTask } from '@dcl/sdk/ecs'
-import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
+import { createQuestsClient, QuestInstanceRequired } from '@dcl/quests-client'
 
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
@@ -442,7 +445,7 @@ executeTask(async () => {
     const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
     console.log('Quests Client is ready to use!')
 
-    client.onUpdate((quest: QuestInstance) => {
+    client.onUpdate((quest: QuestInstanceRequired) => {
       // update your state here to react to the quest updates
     })
   } catch (e) {
@@ -451,12 +454,12 @@ executeTask(async () => {
 })
 ```
 
-The `onUpdate` function receives a callback function that is called every time the player makes progress on a Quest. The callback receives a `QuestInstance` object that contains information about the Quest that the player has made progress on.
+The `onUpdate` function receives a callback function that is called every time the player makes progress on a Quest. The callback receives a `QuestInstanceRequired` object that contains information about the Quest that the player has made progress on.
 
-The `QuestInstance` object has the following fields:
+The `QuestInstanceRequired` object has the following fields:
 
 ```typescript
-type QuestInstance = {
+type QuestInstanceRequired = {
   id: string
   quest: Quest
   state: QuestState
@@ -489,7 +492,7 @@ export const questProgress = mitt<{ step: number }>()
 
 //...
 import { executeTask } from '@dcl/sdk/ecs'
-import { createQuestsClient, QuestInstance, questProgress } from '@dcl/quests-client'
+import { createQuestsClient, QuestInstanceRequired, questProgress } from '@dcl/quests-client'
 
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
@@ -500,7 +503,7 @@ executeTask(async () => {
     const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
     console.log('Quests Client is ready to use!')
 
-  	questsClient.onUpdate((quest: QuestInstance) => {
+  	questsClient.onUpdate((quest: QuestInstanceRequired) => {
         for (let step of quest.state.stepsCompleted) {
             switch (step) {
                 case "my_step_1":
@@ -577,6 +580,12 @@ export type QuestHudOptions = {
       props?: LabelProps
     }
   }
+  questCompletionLabel?: {
+    uiTransform?: UiTransformProps
+    label?: LabelProps
+  }
+  showHideToggleButton?: UiButtonProps
+  closeTasksBoxButton?: UiButtonProps
 }
 ```
 
@@ -615,18 +624,27 @@ export type QuestHudOptions = {
     - `labelUiEntity`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify all `UiEntity`s containing the next step's `description`. In web terms, this would be the `div` acting as a container for the next step's `description`.
     - `props`: It's the `LabelProps` type defined in the snippet above. You can use this to modify all `Label`s containing the next step's `description`. In web terms, this would be the `p` tag containing the next step's `description`.
 
+- `questCompletionLabel`: It's an object that contains two fields:
+  - `uiTransform`: It's the `UiTransformProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the `UiEntity` containing the Quest completion label. In web terms, this would be the `div` acting as a container for the Quest completion label.
+  - `label`: It's the `LabelProps` type defined in the snippet above. You can use this to modify the `Label` containing the text that lets the users know they have completed the Quest. In web terms, this would be the `p` tag containing the text noticing the completion of the Quest.
+
+- `showHideToggleButton`: It's the `UiButtonProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the "Hide" and "Show Quest Progress" toggle `Button`. In web terms, this would be the `button` tag.
+
+- `closeTasksBoxButton`: It's the `UiButtonProps` type from `@dcl/sdk/react-ecs`. You can use this to modify the "Close" `Button` that appears when the user clicks on the "Show Tasks" `Button`. In web terms, this would be the `button` tag.
 
 Well now, let's explain the `QuestHUD` type returned by the `createQuestHUD` function from `@dcl/quests-client/dist/hud`:
 
 ```typescript
 type QuestHUD = {
-  upsert: (instance: QuestInstance) => void
+  upsert: (instance: QuestInstanceRequired) => void
   getHUDComponent: () => () => ReactEcs.JSX.Element
   render: () => void
+  updateOptions: (opts: QuestHudOptions) => void
+  getHUDComponentWithUpdatedOptions: (newOpts: QuestHudOptions) => () => ReactEcs.JSX.Element
 }
 ```
 
-- `upsert`: Use this function to update the Quest HUD with the player's progress, you may want to call it when the users start the Quest and when they make some progress. This function receives a `QuestInstance` object. It creates an SDK entity with this data to be used by a ReactECS UI component. This component is rendered in the scene UI, displaying the Quest progress.
+- `upsert`: Use this function to update the Quest HUD with the player's progress, you may want to call it when the users start the Quest and when they make some progress. This function receives a `QuestInstanceRequired` object. It creates an SDK entity with this data to be used by a ReactECS UI component. This component is rendered in the scene UI, displaying the Quest progress.
 
 - `getHUDComponent`: Use this function to get the ReactECS UI component that renders a ready-to-use Quest HUD. You may want to make use of this function when you already have an UI to render since `ReactEcsRenderer.setUiRenderer` overrides everything that previously exists when you execute it.
 
@@ -639,7 +657,7 @@ To use it, import the `createQuestHUD` function from `@dcl/quests-client/dist/hu
 
 //...
 import { executeTask } from '@dcl/sdk/ecs'
-import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
+import { createQuestsClient, QuestInstanceRequired } from '@dcl/quests-client'
 import { createQuestHUD } from '@dcl/quests-client/dist/hud'
 
 const questHud = createQuestHUD()
@@ -653,12 +671,12 @@ executeTask(async () => {
     const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
     console.log('Quests Client is ready to use!')
 
-    client.onStarted((quest: QuestInstance) => {
+    client.onStarted((quest: QuestInstanceRequired) => {
       // react to the start of your Quest
       questHud.upsert(quest)
     })
 
-    client.onUpdate((quest: QuestInstance) => {
+    client.onUpdate((quest: QuestInstanceRequired) => {
       // update your state here to react to the quest updates
       questHud.upsert(quest)
     })
@@ -670,7 +688,7 @@ executeTask(async () => {
 
 The above code creates a Quest HUD object without customization, it will use the default styles for everything. You can find the defaults in the code [here](https://github.com/decentraland/quests-client/blob/main/src/hud.tsx) or you can just render the HUD to check how it looks.
 
-When the quest is stated or it receives any player progress update, the `questHud.upsert` function is called to updates this UI. This function receives a `QuestInstace` object. It creates an SDK entity with this data to be used by a ReactECS UI component. This component is rendered in the scene UI, displaying the Quest progress, including which steps and tasks are completed or not.
+When the quest is stated or it receives any player progress update, the `questHud.upsert` function is called to updates this UI. This function receives a `QuestInstanceRequired` object. It creates an SDK entity with this data to be used by a ReactECS UI component. This component is rendered in the scene UI, displaying the Quest progress, including which steps and tasks are completed or not.
 
 ###### Customizing the Quest HUD
 ```typescript
