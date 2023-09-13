@@ -22,9 +22,9 @@ The creator of a Quest must define the steps and their order or the path to the 
 
 - Quests can only be created by creators with enough voting power on the DAO. The voting power required is 100 or more.
 
-- Quest Creators must manage their own Quest HUD as part of the content of the scene (or portable experience). They can design their own, or use the default one provided as part of the [Quests Client SDK Library](/creator/quests/client).
+- Quest Creators must manage their own Quest HUD as part of the content of the scene (or portable experience). They can design their own, or use the default one provided as part of the [Quests Client SDK Library]({{< ref "/content/creator/sdk7/quests/client.md" >}}).
 
-- If a Quest Creator wants to give rewards to players who complete the quest, the creator is responsible of setting up a rewards service and providing all the information needed, as described [here](/creator/quests/rewards).
+- If a Quest Creator wants to give rewards to players who complete the quest, the creator is responsible of setting up a rewards service and providing all the information needed, as described [here]({{< ref "/content/creator/sdk7/quests/rewards.md" >}}).
 
 - Due to current limitations of the SDK and Decentraland itself, all Quests are single player experiences. This means that a Quest cannot be done by multiple players or by a "team" of players.
 

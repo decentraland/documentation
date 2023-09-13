@@ -124,7 +124,7 @@ Once you finish providing the information for each item, the creation will be do
 
 ###### Create a new Quest with a JSON file
 
-To avoid all the prompts, create a full JSON file with all of the information needed to create a Quest. Find more information about this [here]({{< ref "/content/creator/quests/define.md" >}}).
+To avoid all the prompts, create a full JSON file with all of the information needed to create a Quest. Find more information about the quest definition JSON structure [here]({{< ref "/content/creator/quests/define.md" >}}).
 
 ```bash
 $ npx @dcl/sdk-commands quests --create-from-json <path_to_json_file>
