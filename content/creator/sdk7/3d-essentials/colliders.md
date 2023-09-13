@@ -108,11 +108,12 @@ When playing animations that involve moving full meshes without changing their s
 
 The scene can handle separate collision layers, that have different behaviors.
 
-You can configure a `MeshCollider` component or the `GltfContainer` component to only respond to one kind of interaction, or to several of them. To do this, on the `MeshCollider` set the `collisionMask` property, and on `GltfContainer` set the `visibleMeshesCollisionMask` or `invisibleMeshesCollisionMask` properties to one or several of the following values:
+You can configure a `MeshCollider` component or the `GltfContainer` component to only respond to one kind of interaction, or to several of them, or none. To do this, on the `MeshCollider` set the `collisionMask` property, and on `GltfContainer` set the `visibleMeshesCollisionMask` or `invisibleMeshesCollisionMask` properties to one or several of the following values:
 
 - `ColliderLayer.CL_PHYSICS`: Only blocks player movement (and doesn't affect pointer events)
 - `ColliderLayer.CL_POINTER`: Responds only to pointer events (and doesn't block the player movement)
 - `ColliderLayer.CL_CUSTOM1` through to `CL_CUSTOM8`: Can be used together with raycasts, so that a ray only detects collisions with one specific layer.
+- `ColliderLayer.CL_NONE`: Doesn't respond to collisions of any kind.
 
 ```ts
 // create entity
@@ -177,12 +178,18 @@ GltfContainer.create(myEntity2, {
 })
 
 // both player physics and pointer events use the full detailed contour of the visible geometry
-// the simpler invisible geometry is mapped to undefined to avoid calculating both
+// the simpler invisible geometry is mapped to ColliderLayer.CL_NONE to avoid calculating both
 GltfContainer.create(myEntity, {
   src: '/models/myModel.gltf',
-  invisibleMeshesCollisionMask: undefined,
+  invisibleMeshesCollisionMask: ColliderLayer.CL_NONE,
   visibleMeshesCollisionMask:
     ColliderLayer.CL_POINTER | ColliderLayer.CL_PHYSICS,
+})
+
+// don't respond to collisions of any kind, with either the visible or the invisible geometry:
+GltfContainer.create(myEntity, {
+  src: '/models/myModel.gltf',
+  invisibleMeshesCollisionMask: ColliderLayer.CL_NONE
 })
 ```
 
