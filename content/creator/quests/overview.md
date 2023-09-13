@@ -20,8 +20,6 @@ The creator of a Quest must define the steps and their order or the path to the 
 
 - Quests can be completed only once by a player.
 
-- Quests can only be created by creators with enough voting power on the DAO. The voting power required is 100 or more.
-
 - Quest Creators must manage their own Quest HUD as part of the content of the scene (or portable experience). They can design their own, or use the default one provided as part of the [Quests Client SDK Library]({{< ref "/content/creator/quests/client.md" >}}).
 
 - If a Quest Creator wants to give rewards to players who complete the quest, the creator is responsible of setting up a rewards service and providing all the information needed, as described [here]({{< ref "/content/creator/quests/rewards.md" >}}).
@@ -38,7 +36,7 @@ The creator of a Quest must define the steps and their order or the path to the 
 
 A brief description of the components in the picture:
 
-- **Quests API**: It consists of two different servers. One is the **Quests REST API** which has a set of endpoints that allow the creators to create and modify Quests as well as check their Quest's stats. The other one is the **Quests RPC Service** which is used by scenes and the explorer to send events and track player's progress.
+- **Quests API**: It consists of two different servers. One is the **Quests REST API** which has a set of endpoints that allow the creators to create and modify Quests as well as check their Quest's stats, for a more comprehensive spec on this API, [please refer to this link](https://quests.decentraland.org/api/docs). The other one is the **Quests RPC Service** which is used by scenes and the explorer to send events and track player's progress.
 - **Quests Database**: It's a PostgreSQL database to store Quests and player's progress.
 - **Quests System**: It's a service to process the incoming player's events, validate and update the player's progress. It also sends notifications to scenes and the explorer through **Quest Channels** when a player makes progress on a Quest.
 - **Events Queue**: It's where the **Quests RPC Service** sends the events to be processed by the Quests System.
