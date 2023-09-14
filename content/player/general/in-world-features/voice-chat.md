@@ -24,7 +24,7 @@ When you enter the world, the voice chat will be automatically connected. You ca
 To send message to nearby users there are few ways:
 - Press and hold the microphone button
 - Hold 'T' key
-- Press 'Alt' + 'T' key
+- Press 'Alt' + 'T' key (Note: the voice chat will stay active until you press the 'Alt' + 'T', 'T' or the microphone button again)
 
 Note: It is possible that the first time you do this, the browser will ask you about microphone permissions. You will see a browser’s modal similar to this
 
