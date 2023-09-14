@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: LAND Manager
+title: LAND King
 description: Manage LAND and Estate tokens
 categories:
   - market
@@ -8,7 +8,7 @@ type: Document
 aliases:
   - /market/land-manager/
 url: /player/market/land-manager
-weight: 2
+weight: 1
 ---
 
 The Land Manager allows you to manage your LAND and Estate assets.
