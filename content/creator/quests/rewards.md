@@ -8,7 +8,7 @@ A Quest can have rewards for the players who complete it. When a Quest is create
 
 The webhook is a URL that is called when the Quest is completed. The list of items includes one or several items to give to the player when the Quest is completed.
 
-The **[Quests System]({{< ref "/content/creator/quests/overview.md" >}}) ** is in charge of sending the request to the given webhook URL when it detects that a player has completed a quest.
+The [Quests System]({{< ref "/content/creator/quests/overview.md" >}}) is in charge of sending the request to the given webhook URL when it detects that a player has completed a quest.
 
 ## API Requirements
 
@@ -30,7 +30,7 @@ You can use a set of placeholders in the `webhookUrl` field to include some dyna
 - `{quest_id}`: The id of the Quest
 - `{user_address}`: The Ethereum address of the player
 
-The **[Quests System/overview)** replaces the placeholders with the actual values before sending the request to the webhook URL.
+The [Quests System overview]({{< ref "/content/creator/quests/overview.md" >}}) replaces the placeholders with the actual values before sending the request to the webhook URL.
 
 The example below uses both these placeholders to construct the URL:
 
