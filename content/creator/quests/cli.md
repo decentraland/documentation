@@ -14,7 +14,7 @@ Before going into detail about each command, you should know that each command w
 
 ## Open up the Quest Manager
 
-The Quests Manager is a web app that allows you to create, edit and handle your quests. It's a more visual way to create and edit your quests, and it's also a way to manage your quests without using the CLI.
+The Quests Manager is a web app that allows you to create, edit and handle your quests, all via UI. With this tool you can avoid using the CLI and editing the quest JSON file manually.
 
 To open up the Quests Manager, use the following command:
 
@@ -28,7 +28,7 @@ Or
 $ npx @dcl/sdk-commands quests --manager
 ```
 
-A browser window will open up with the Quests Manager. If you are not logged in, you will be asked to do so. Once you are logged in, you will be able to see all the Quests you created to edit, activate or deactivate them, and you **also** will be able to create new ones using the [Quests Designer](https://github.com/decentraland/quests-desginer).
+A browser window will open up with the Quests Manager. If you are not logged in, you will be asked to do so. Once you are logged in, you can see all the Quests you created, edit them, activate or deactivate them. You can also create new ones using the [Quests Designer](https://github.com/decentraland/quests-desginer).
 
 For more documentation and details about the Quests Manager, read [Quests Manager]({{< ref "/content/creator/quests/manager.md" >}}).
 
