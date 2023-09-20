@@ -46,19 +46,47 @@ New features will only be released into the latest version in development. As so
 
 Breaking changes should only occur in major releases. There should be no breaking changes within the stable minor releases of a same version family, except in case of an emergency and absence of any other means to address it. Breaking changes within a minor release are a drastic measure that the developers will avoid at all costs. New minor releases will extend the capabilities of the existing syntax, but should never change what the established syntax produces, except when fixing bugs.
 
+### Isolated changes
+
+On very rare occasions, it could be preferable to make a small, isolated breaking change, if this will only cause inconvenience to a small subset of users. (Creating a new major version is an inconvenience to all users.) In this case, the SDK might deprecate a feature, but must continue to support the feature for a reasonable amount of time.
+
+### Emergency changes
+
+In certain exceptional cases, such as security concerns or regulatory requirements, any feature may be changed in a breaking manner regardless of its stability level, and a deprecation is not promised in these situations.
+
 ## Stable and unstable releases
 
-Whenever a new major release is introduced, a few initial minor releases may be labeled as unstable **alpha** versions.  These versions may suffer from breaking changes going forward.
+### Alpha
+
+Whenever a new major release is introduced, a few initial minor releases may be labeled as unstable **alpha** versions. Breaking changes must be allowed and expected in alpha releases, and users must have no expectation of stability.
 
 Developers are free to experiment with these alpha versions, but they're not encouraged to publish content built with unstable alpha versions, as there is no guarantee that the content will keep working after subsequent changes. It's also not recommended to begin large complicated migrations at this point, since more changes may be required before the next stable release.
 
-Once a major release reaches a certain level of maturity, a **beta** release can be made available. As of the release of the first beta version in a version family, the version family is considered **stable** and there should be no further changes to the syntax, other than addition of new features. Content written with the syntax of a beta version should be effortless to migrate to the next versions within that family tree. It's still not advisable to develop content for major events with a beta version, as testing is still in progress and bugs are still likely.
+### Beta
 
-Once the development of the version family is considered to be ready for production, a **GA** (general availability) release can be made available. From this point onwards, the version is considered the recommended and encouraged option for all developers to use.
+Once a version family reaches a certain level of maturity, a **beta** release is made available. A beta release is be considered complete and ready to be declared stable, subject to public testing.
 
-### Stable releases with unstable namespaces
+Beta version families should be as stable as possible; however, they are permitted to change over time. These changes should be minimal but may include breaking changes. Breaking changes must be made only after a reasonable deprecation period to give content creators the opportunity to migrate their scenes. This deprecation period must be defined at the time of introducing a breaking change.
 
-In exceptional cases, a stable (beta or GA) version may include specific features grouped into a legacy namespace that is not considered to be part of the supported release and is meant to be deprecated in the future. This namespace will be labeled as unstable, and the documentation will make it clear when this is the case. The purpose of leaving these legacy features is to aid in the transition between major versions, without losing any functionality. This can happen when a proper re-implementation of certain features is required, but it would delay releasing the stable version too much. Creators who make use of these legacy features must be aware that the feature will be replaced in future versions. In these cases, the changes will be communicated clearly, including migration guides, and there will be a transition period for creators to adjust their scene's code.
+Beta version families should only be in beta for a limited period of time, specified at the time of being marked beta. They should be promoted to stable if no issues are found in that period. The length of this time period may vary case by case, but a good rule of thumb is 90 days.
+
+Content written with the syntax of a beta version should be effortless to migrate to the next versions within that family tree. It's still not advisable to develop content for major events with a beta version, as testing is still in progress and bugs are still likely.
+
+### Stable
+
+Once the beta time period is over without major issues, the version family is considered **stable** and there should be no further changes to the syntax, other than addition of new features. From this point onwards, the version is considered the recommended and encouraged option for all developers to use.
+
+A stable version family must be fully-supported over its lifetime. There must be no breaking changes, subject to the caveats described below.
+
+## Unstable features in stable releases
+
+Specific features in an release may have different stability levels from the release as a whole. This can be either because the feature has recently been introduced, and requires more testing, or because it's destined to be replaced soon.
+
+For example, a new type of component could be introduced as alpha in an already stable release of the SDK framework, as this particular component may still require its own testing cycle. It can then undergo the versioning flow described above, going from alpha, to beta, to stable.
+
+Any feature from a stable release that is not considered stable should be clearly labeled as such in the documentation. Creators who make use of unstable features must be aware that the feature could potentially undergo breaking changes. Any breaking changes will be communicated clearly, including migration guides, and there will be a transition period for creators to adjust their scene's code.
+
+<!-- In exceptional cases, a stable (beta or GA) version may include specific features grouped into a legacy namespace that is not considered to be part of the supported release and is meant to be deprecated in the future. This namespace will be labeled as unstable, and the documentation will make it clear when this is the case. The purpose of leaving these legacy features is to aid in the transition between major versions, without losing any functionality. This can happen when a proper re-implementation of certain features is required, but it would delay releasing the stable version too much.  -->
 
 
 ## How long do we support a stable version family?

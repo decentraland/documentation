@@ -12,25 +12,20 @@ aliases:
 weight: 2
 ---
 
-
-3D content in Decentraland is made up of scenes, each scene occupies a finite amount of space and is displayed one next to the other for players to freely walk through them. 
+3D content in Decentraland is made up of scenes, each scene occupies a finite amount of space and is displayed one next to the other for players to freely walk through them.
 
 The Decentraland SDK is a collection of tools to allow you to create scenes. The following are good places to start:
 
-- [Quick start]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}): follow this mini tutorial for a quick crash course.
-- [Development workflow]({{< ref "/content/creator/scenes/getting-started/dev-workflow.md" >}}): read this to understand the full process of creating a scene from start to end, incluing publishing and promoting it.
-- [Examples](https://github.com/decentraland-scenes/Awesome-Repository#examples): dive right into working example scenes.
-
-{{< hint warning >}}
-**📔 Note**: 
-The currently stable version of the SDK is 6.x. Everything documented under the **scenes** section refers to that stable version. To try out the new version 7 of the SDK (which is still in Alpha), read the documents under the **SDK7 Scenes (alpha)** section. This section is right below the scenes section, non-expanded by default.
-{{< /hint >}}
+- [Quick start]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}): follow this mini tutorial for a quick crash course.
+- [Development workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}): read this to understand the full process of creating a scene from start to end, incluing publishing and promoting it.
+- [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7)
+- [More examples](https://github.com/decentraland-scenes/Awesome-Repository#examples): dive right into working example scenes.
 
 ### The Decentraland Editor
 
 The Editor is an all-in-one content creation tool. It's intended for users of any knowledge level, combining a graphical interface with code editing capabilities. Both technical and non-technical creators will benefit from using it.
 
-[Learn more]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+[Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 ### Other scene creation tools
 
@@ -42,7 +37,7 @@ There are a number of tools that can help with arranging 3d models into position
   Read the [documentation]({{< ref "/content/creator/builder/builder-101.md" >}}).
 
 {{< hint warning >}}
-**📔 Note**:  If a scene is created by or modified by the SDK, you can't import it into the Builder. You can only go from the Builder to the SDK, not in the other direction.
+**📔 Note**: If a scene is created by or modified by the SDK, you can't import it into the Builder. You can only go from the Builder to the SDK, not in the other direction.
 {{< /hint >}}
 
 ### 3D Modeling
@@ -50,4 +45,3 @@ There are a number of tools that can help with arranging 3d models into position
 You can use any 3rd party modeling tool to create 3D models that can be used in Decentraland scenes. It's easy to [import them into the Builder]({{< ref "/content/creator/builder/import-items.md" >}}).
 
 See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for tips and tricks, and information about supported features and formats for 3D models.
-

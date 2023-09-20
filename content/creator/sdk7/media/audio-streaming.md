@@ -24,7 +24,7 @@ To add an audio stream into your scene, simply add an `AudioStream` component to
 ```ts
 const streamEntity = engine.addEntity()
 
-AudioStream.create(cube,{
+AudioStream.create(streamEntity,{
 	url: "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3",
 	playing: true,
 	volume: 0.8
@@ -39,3 +39,17 @@ AudioStream.create(cube,{
 Set the volume of the `AudioStream` component by changing its `volume` property.
 
 Switch the `AudioStream` component on or off by setting its `playing` property to _true_ or _false_.
+
+To stream audio into a scene, you must add the `ALLOW_MEDIA_HOSTNAMES` permission to the `requiredPermissions` list in the `scene.json` file. You must also include the list of high-level domains where you'll be streaming from under `allowedMediaHostnames`.
+
+```json
+"requiredPermissions": [
+    "ALLOW_MEDIA_HOSTNAMES"
+  ],
+   "allowedMediaHostnames": [
+    "somehost.com",
+    "otherhost.xyz"
+  ]
+```
+
+See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.

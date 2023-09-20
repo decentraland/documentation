@@ -24,7 +24,7 @@ By using the CLI and following the steps detailed here, you can avoid most of th
 
 To create your own library and share it via NPM, do the following:
 
-1. In an empty folder, run `dcl init`, then select the option `Library`.
+1. In an empty folder, run `npx sdk-commands init`, then select the option `Library`.
 
    This will create all of the default files and dependencies for a Decentraland library.
 
@@ -69,9 +69,17 @@ Install your npm package into a scene by running `npm i <package-name>`. Then bu
 
 If you need to continually make small adjustments to your library and test them, it can get exhausting to have to commit changes and then wait for the npm publication to complete before you can try out the new version in a scene. Fortunately, there's a much faster alternative for running tests with your library.
 
-1. Make sure the library repo has all of its dependencies built, run `npm i` and `npm run build`.
-2. On your library's folder run `npm link`.
-3. On your test scene folder run `npm link <library name>`, using the name with which your library is exposed on NPM.
+1. Make sure the scene repo has all of its dependencies built, run `npm i`.
+2. Make sure the library repo has all of its dependencies built, run `npm i`.
+3. On your library's folder run `npm link <library-name> <path to scene>`.
+4. On the library folder, run `npm run build`.
+5. On the library folder run `npm link`.
+6. On your test scene folder run `npm link <library name>`, using the name with which your library is exposed on NPM.
+7. Run your scene with `npm run start`
+
+{{< hint danger >}}
+**❗Warning**: The order of these steps is important. It may not work in another order.
+{{< /hint >}}
 
 This will keep your scene synced to the version of the library that's directly in your local drive. For any changes to the library that you want to test, just run `npm run build` on the library folder, no need to publish changes to GitHub or NPM.
 
@@ -85,9 +93,7 @@ When you're finished testing, remember to unlink the library.
 
 2. Then in the library run`npm unlink`
 
-{{< hint warning >}}
-**📔 Note**:  The order of these steps is important.
-{{< /hint >}}
+
 
 
 ## Versioning

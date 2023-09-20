@@ -337,7 +337,6 @@ textInput.vAlign = "bottom"
 textInput.hAlign = "center"
 textInput.fontSize = 10
 textInput.placeholder = "Write message here"
-textInput.placeholderColor = Color4.Gray()
 textInput.positionY = "200px"
 textInput.isPointerBlocker = true
 

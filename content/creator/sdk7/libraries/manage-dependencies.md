@@ -13,10 +13,6 @@ A lot of times, your scene might need functionality that is already encapsulated
 
 You can import external libraries into a Decentraland project and then reference the systems, components, or functions described in these libraries.
 
-{{< hint warning >}}
-**📔 Note**:  Not all Typescript or Javascript dependencies are supported in Decentraland projects. Libraries should be tagged with `decentralandLibrary` in their `package.json`.
-{{< /hint >}}
-
 
 Check the [Awesome repository](https://github.com/decentraland-scenes/Awesome-Repository#libraries) to find a series of libraries, both created by the Decentraland Foundation and by community members, that solve common problems.
 
@@ -39,14 +35,12 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 3) Click the `+` icon on the header of the **Dependencies** view.
 
-4) Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `react`.
+4) Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `@dcl-sdk/utils`.
 
 {{< hint warning >}}
-**📔 Note**:  If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
+**📔 Note**:  If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl-sdk/utils@1.0.4`.
 {{< /hint >}}
 
-
-5) If it is a Decentraland library (ie. `decentraland-ecs-utils`) select `Yes`, otherwise `No`.
 
 ### Update a dependency
 
@@ -54,7 +48,7 @@ Click the refresh icon on the header of the **Dependencies** section. All depend
 
 If a dependency in your scene's `package.json` points to a specific version number, then you need to either:
 
-- Reinstall as a new dependency, clicking the plus sign and specifying the library name with `@latest` at the end. For example `@dcl/ecs-scene-utils@latest`.
+- Reinstall as a new dependency, clicking the plus sign and specifying the library name with `@latest` at the end. For example `@dcl-sdk/utils@latest`.
 
 - Manually change the `package.json` file so that the dependency version points to `@latest`. Then click the update icon again.
 
@@ -69,12 +63,12 @@ You can also click the `-` icon on the header of the **Dependencies** section, a
 
 ### Install
 
-To install a library in your project folder, run `npm i` and the library name in your project's root path. If the library is a Decentraland library, add `-B` at the end, to install it like a bundled dependency. For example:
+To install a library in your project folder, run `npm i` and the library name in your project's root path. For example:
 
-`npm i @dcl/ecs-scene-utils -B`
+`npm i @dcl-sdk/utils`
 
 {{< hint warning >}}
-**📔 Note**:  You may need to run `dcl start` or `dcl build` after installing the library for the library's dependencies to get installed.
+**📔 Note**:  You may need to run `npm run start` or `npm run build` after installing the library for the library's dependencies to get installed.
 {{< /hint >}}
 
 
@@ -84,12 +78,12 @@ If your `package.json` file lists the version of the scene as `@latest`, then ru
 
 If your `package.json` references a specific version number, you can update it by running the command to install the library, adding `@` and the version number in the end. For example:
 
-`npm i @dcl/ecs-scene-utils@1.7.5 -B`
+`npm i @dcl-sdk/utils@1.7.5`
 
 ### Uninstall
 
 To delete a library from your scene's dependencies run `npm rm` and the library name. For example:
 
-`npm rm @dcl/ecs-scene-utils`
+`npm rm @dcl-sdk/utils`
 
 It's a good practice to remove any libraries that you're not using. Unused libraries still occupy space in the scene, affecting the player's experience of downloading and running your scene.

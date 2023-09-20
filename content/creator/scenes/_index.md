@@ -1,5 +1,5 @@
 ---
-bookCollapseSection: false
-weight: 4
-title: Scenes
+bookCollapseSection: true
+weight: 5
+title: SDK6 Scenes
 ---

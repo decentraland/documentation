@@ -17,7 +17,7 @@ Running multiple projects in a workspace provides a much more complete testing a
 
 1. Create a top-level folder to hold the workspace.
 
-2. Inside this folder, add one folder at root level for each project you want to work with. You can drag in existing folders with scenes or smart wearables. For new folders, run `dcl init` inside each, to create a Decentraland project.
+2. Inside this folder, add one folder at root level for each project you want to work with. You can drag in existing folders with scenes or smart wearables. For new folders, run `npx sdk-commands init` inside each, to create a Decentraland project.
 
    > Note: Make sure that the parcels on each of the scenes don't overlap.
 
@@ -29,7 +29,7 @@ You can confirm that the projects are part of the workspace by running `dcl work
 
 ## Run a workspace
 
-Run `dcl start` on the root folder of the workspace. This runs all of the projects at the same time, viewable in a single preview window. This preview behaves just like when previewing a single scene.
+Run `npm run start` on the root folder of the workspace. This runs all of the projects at the same time, viewable in a single preview window. This preview behaves just like when previewing a single scene.
 
 Any smart wearables in the workspace are available to try on by looking for them in the backpack.
 
@@ -40,7 +40,7 @@ Once a workspace is created, you can add additional projects `dcl workspace add`
 You can also add a project that is not inside the workspace folder, by using the absolute path.
 
 {{< hint warning >}}
-**📔 Note**:  The folder must already contain a decentraland project initatied with `dcl init`. It can't be an empty folder.
+**📔 Note**:  The folder must already contain a decentraland project initatied with `npx sdk-commands init`. It can't be an empty folder.
 {{< /hint >}}
 
 

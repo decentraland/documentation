@@ -29,13 +29,15 @@ executeTask(async () => {
 ```
 
 {{< hint warning >}}
-**📔 Note**:  The `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` events are deprecated on SDK 7.x. Instead, track the list of connected players, from `getConnectedPlayers()`. This is a more [data oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and should result in better performance.
+**📔 Note**:  The `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` events are deprecated on SDK 7.x. Instead, track the list of connected players, from `getConnectedPlayers()`.
 {{< /hint >}}
 
 
 Whenever another player starts or stops being rendered by the local engine, this creates an event you can listen to. Players may or may not be standing on the same scene as you, but must be within visual range (not necessarily in sight). The `onPlayerConnectedObservable` detects both when a player newly connects nearby or comes close enough to be in visual range, likewise the `onPlayerDisconnectedObservable` detects when a player ends their session or or walks far away.
 
 ```ts
+import { onPlayerConnectedObservable, onPlayerDisconnectedObservable} from '@dcl/sdk/observables'
+
 onPlayerConnectedObservable.add((player) => {
   console.log("player entered: ", player.userId)
 })
@@ -52,6 +54,8 @@ Keep in mind that if other players are already being rendered in the surrounding
 Whenever an avatar steps inside or out of the parcels of land that make up your scene, or teleports in or out, this creates an event you can listen to. This event is triggered by all avatars, including the player's.
 
 ```ts
+import { onEnterSceneObservable, onLeaveSceneObservable} from '@dcl/sdk/observables'
+
 onEnterSceneObservable.add((player) => {
   console.log("player entered scene: ", player.userId)
 })
@@ -72,6 +76,7 @@ You can filter out the triggered events to only react to the player's avatar, ra
 
 ```ts
 import { getUserData } from "~system/UserIdentity"
+import { onEnterSceneObservable, onLeaveSceneObservable} from '@dcl/sdk/observables'
 
 executeTask(async () => {
   let myPlayer = await getUserData({})
@@ -141,6 +146,8 @@ See [Check player's camera mode]({{< ref "/content/creator/sdk7/interactivity/us
 Whenever the player plays an emote (dance, clap, wave, etc), you can detect this event.
 
 ```ts
+import { onPlayerExpressionObservable} from '@dcl/sdk/observables'
+
 onPlayerExpressionObservable.add(({ expressionId }) => {
   console.log("Expression: ", expressionId)
 })
@@ -165,6 +172,8 @@ The event includes the following information:
 Whenever the player clicks on another player, you can detect an event.
 
 ```ts
+import { onPlayerClickedObservable} from '@dcl/sdk/observables'
+
 onPlayerClickedObservable.add((clickEvent) => {
   console.log("Clicked ", clickEvent.userId, " details: ", clickEvent.ray)
 })
@@ -188,7 +197,10 @@ The event includes the following data:
   - `distance`: _number_ The distance in meters from the point of origin to the hit point.
   - `origin`: _Vector3_ The point of origin of the click, the position of the player who did the click, relative to the scene.
 
-Tip: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md" >}}).
+
+{{< hint info >}}
+**💡 Tip**: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md" >}}).
+{{< /hint >}}
 
 ## Player locks/unlocks cursor
 
@@ -199,6 +211,8 @@ Players unlock the cursor by clicking the _Right mouse button_ or pressing the _
 This `onPointerLockedStateChange` event is activated each time a player switches between these two modes, while near the scene.
 
 ```ts
+import { onPointerLockedStateChange} from '@dcl/sdk/observables'
+
 onPointerLockedStateChange.add(({ locked }) => {
   if (locked) {
     console.log("Pointer has been locked")
@@ -229,6 +243,8 @@ This can also be used in scenes where the player is expected to react fast, but 
 Whenever the player is inactive for a full minute, without interacting with any input being picked up by the Decentraland explorer, we can consider the player to be idle. Whenever this happens, it creates an event that you can listen to.
 
 ```ts
+import { onIdleStateChangedObservable} from '@dcl/sdk/observables'
+
 onIdleStateChangedObservable.add(({ isIdle }) => {
   console.log("Idle State change: ", isIdle)
 })
@@ -253,6 +269,8 @@ This event is especially useful for multiplayer scenes, when you might want to d
 Whenever the player makes a change to their profile, the `onProfileChanged` event is called. These changes may include putting on different wearables, changing name, description, activating portable experiences, etc.
 
 ```ts
+import { onProfileChanged} from '@dcl/sdk/observables'
+
 onProfileChanged.add((profileData) => {
   console.log("Own profile data is ", profileData)
 })
@@ -265,11 +283,11 @@ onProfileChanged.add((profileData) => {
 
 Event data includes only the ID of the player and a version number for that avatar's profile, according to the catalyst server. Every time a change is propagated, the version number increases by 1.
 
-{{< hint info >}}
-**💡 Tip**:  When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data">}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
-{{< /hint >}}
+When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data">}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
 
-When testing in preview, run the scene with `dcl start --web3` so that you connect with your wallet. Otherwise, you will be using a random avatar.
+{{< hint info >}}
+**💡 Tip**: When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
+{{< /hint >}}
 
 {{< hint warning >}}
 **📔 Note**:  This event is only triggered by changes to the current player, not by changes on the profiles of other nearby players.
@@ -281,6 +299,8 @@ When testing in preview, run the scene with `dcl start --web3` so that you conne
 When the scene finishes loading, the `onSceneReadyObservable` gets called. This works both if the player loads straight into the scene, or if the player walks up to the scene from somewhere else. When all of the content in the scene has finished its initial load, including heavy models, etc, this event is called.
 
 ```ts
+import { onSceneReadyObservable} from '@dcl/sdk/observables'
+
 onSceneReadyObservable.add(() => {
   console.log("SCENE LOADED")
 })
@@ -296,6 +316,8 @@ onSceneReadyObservable.add(() => {
 When a `VideoTexture` changes its playing status, the `onVideoEvent` observable receives an event.
 
 ```ts
+import { onVideoEvent} from '@dcl/sdk/observables'
+
 onVideoEvent.add((data) => {
   console.log("New Video Event ", data)
 })
@@ -330,6 +352,8 @@ Players in decentraland exist in separate _realms_, and in separate _islands_ wi
 Each time the player changes realms or island, the `onRealmChangedObservable` event gets called.
 
 ```ts
+import { onRealmChangedObservable} from '@dcl/sdk/observables'
+
 onRealmChangedObservable.add((realmChange) => {
   console.log("PLAYER CHANGED ISLAND TO ", realmChange.room)
 })
