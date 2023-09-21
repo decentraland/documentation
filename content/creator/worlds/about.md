@@ -1,6 +1,6 @@
 ---
 title: "Worlds Overview"
-slug: "/contributor/worlds/about"
+url: /creator/worlds/about
 weight: 1
 ---
 

@@ -21,8 +21,12 @@ When you enter the world, the voice chat will be automatically connected. You ca
 
 ### Sending audio message
 
-By keeping pressed the microphone button (or the T key), you will be able to send audio messages to the nearby users also connected to the Voice Chat.
-It is possible that the first time you do this, the browser will ask you about microphone permissions. You will see a browser’s modal similar to this
+To send message to nearby users there are few ways:
+- Press and hold the microphone button
+- Hold 'T' key
+- Press 'Alt' + 'T' key (Note: the voice chat will stay active until you press the 'Alt' + 'T', 'T' or the microphone button again)
+
+Note: It is possible that the first time you do this, the browser will ask you about microphone permissions. You will see a browser’s modal similar to this
 
 <img src="/images/media/voice-chat-2.png" style="margin: 2rem auto; display: block;width: 90%;"/>
 
@@ -43,13 +47,15 @@ At the top left corner of the Voice Chat window you will find a selector with wh
 
 ### Muting unwanted users
 
-You will be able to mute/unmute nearby users. For that you can click on the speaker button you will find next to the name of each user. Remember that the mute status of each user will be remembered in your next sessions in Decentraland.
-You will also be able to mute/unmute ALL the nearby users using the top right `MUTE ALL` toggle.
+Manage the audio input from specific users by:
+1. Clicking the speaker icon next to a user's name to mute/unmute them individually.
+2. Utilize the `MUTE ALL` toggle at the top right corner to mute/unmute all nearby users collectively.
 
 ### Leaving chat
 
-By clicking on the `LEAVE` button (you can find it in the top right corner of the Voice Chat window or in the right side of the Voice Chat bar), you will be disconnected from the Voice Chat. From this point on you won’t hear anything from the nearby users.
-You will know it is disconnected because you will see this Voice Chat bar in the taskbar
+To exit the chat:
+1. Click the `LEAVE` button situated either at the top right of the Voice Chat window or on the right side of the Voice Chat bar.
+2. To rejoin, click on the `JOIN VOICE CHAT` button, displayed below.
 
 <img src="/images/media/voice-chat-4.png" style="margin: 2rem auto; display: block;width: 90%;"/>
 

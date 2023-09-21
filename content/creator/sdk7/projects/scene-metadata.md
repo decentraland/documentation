@@ -293,14 +293,14 @@ Currently, the following permissions are managed on all content:
 - `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >}})
 - `ALLOW_MEDIA_HOSTNAMES`: Refers to fetching resources (including images, video streams, and audio streams) from external sources rather than being limited to the files stored in the scene folder. You must also list the allowlisted high-level domains you will be fetching resources from.
   `json
-	"requiredPermissions": [
-		"ALLOW_MEDIA_HOSTNAMES"
-	],
-	"allowedMediaHostnames": [
-		"somehost.com",
-		"otherhost.xyz"
-	]
-	`
+"requiredPermissions": [
+	"ALLOW_MEDIA_HOSTNAMES"
+],
+"allowedMediaHostnames": [
+	"somehost.com",
+	"otherhost.xyz"
+]
+`
   {{< hint warning >}}
   **📔 Note**: The `allowedMediaHostnames` lists only the high-level domains from where your assets are being requested. If there are any chained requests, these don't need to be explicitly listed. For example, if a video streaming service forwards content from a network of alternative servers, you only need to list the original URL you'll be explicitly calling from your code, not those other servers.
   {{< /hint >}}
@@ -320,19 +320,22 @@ If a `requiredPermissions` property doesn't exist in your `scene.json` file, cre
 
 ## Feature Toggles
 
-There are certain features that can be dissabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
+There are certain features that can be disabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
 
-The corresponding features are enabled by default, unless specified as _dissabled_ in the `scene.json` file.
+The corresponding features are enabled by default, unless specified as _disabled_ in the `scene.json` file.
 
 ```json
 "featureToggles": {
-    "voiceChat": "disabled"
+    "voiceChat": "disabled",
+    "portableExperiences": "enabled" | "disabled" | "hideUi"
 },
 ```
 
 Currently, only the following feature is handled like this:
 
 - `voiceChat`: Refers to players using their microphones to have conversations over voice chat with other nearby players.
+
+-`portableExperiences`: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) but also [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
 
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
@@ -342,42 +345,54 @@ If a `featureToggles` property doesn't exist in your `scene.json` file, create i
 
 You may need a scene's code to access the fields from the scene metadata, like the parcels that the scene is deployed to, or the spawn point positions. This is especially useful for scenes that are meant to be replicated, or for code that is meant to be reused in other scenes. It's also very useful for libraries, where the library might for example need to know where the scene limits are.
 
-To access this data, first import the `Scene` namespace to your scene:
+To access this data, first import the `getSceneInformation` function:
 
 ```ts
-import { getSceneInfo } from '~system/Scene'
+import { getSceneInformation } from '~system/Runtime'
 ```
 
-Then you can call the `getSceneInfo()` function from this namespace, which returns a json object that includes much of the contents of the scene.json file.
+Then you can call the `getSceneInformation()` function, which returns a json object that includes much of the contents of the scene.json file.
 The example below shows the path to obtain several of the more common fields you might need from this function's response:
 
 ```ts
-import { getSceneInfo } from '~system/Scene'
+import { getSceneInformation } from '~system/Runtime'
 
 executeTask(async () => {
-  const sceneInfo = await getSceneInfo({})
-  /**
-   * You need to parse the metadata in order to access the properties.
-   * If you deployed a scene you can get the types from here https://github.com/decentraland/common-schemas/blob/main/src/platform/scene/scene.ts#L17-L40
-   * For more info of this metadata see: https://docs.decentraland.org/contributor/content/entities/
-   */
+  const sceneInfo = await getSceneInformation({})
+
   if (!sceneInfo) return
-  const {
-    // scene.json deployed as string
-    metadata,
-    // scene id
-    cid,
-    // baseUrl where its deployed
-    baseUrl,
-    // content mapping of files deployed.
-    contents,
-  } = sceneInfo
-  const sceneJson: Scene = JSON.parse(sceneInfo.metadata)
-  const spawnPoints = sceneJson.spawnPoints
-  console.log({ sceneJson, cid, baseUrl, contents })
+    console.log("SCENE INFO: ", sceneInfo)
+  }
+
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**: `getSceneInfo()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
+**📔 Note**: `getSceneInformation()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
+Do not use the deprecated `getSceneInfo()` function.
 {{< /hint >}}
+
+The object returned by `getSceneInformation()` includes the following:
+
+- `baseUrl`: The base URL where the scene's content is hosted
+- `content`: An array with all the files of the scene, including their hash, that can be used together with the baseUrl to retrieve them.
+- `metadataJson`: The full contents of the scene's scene.json, as a string. You must parse this to obtain specific values.
+- `urn`: The unique urn for the scene as a whole.
+
+The example below parses the contents from `metadataJson` to obtain values from properties in the scene.json file
+
+```ts
+import { getSceneInformation } from '~system/Runtime'
+
+executeTask(async () => {
+  const sceneInfo = await getSceneInformation({})
+
+  if (!sceneInfo) return
+
+  const sceneJson = JSON.parse(sceneInfo.metadataJson)
+  const spawnPoints = sceneJson.spawnPoints
+  const parcels = sceneJson.scene.parcels
+  console.log({ parcels, spawnPoints })
+
+})
+```

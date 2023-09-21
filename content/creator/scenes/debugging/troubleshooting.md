@@ -89,7 +89,7 @@ To fix these dependencies, you often must resort to calling functions or object 
 
 	See [catalyst-monitor](https://decentraland.github.io/catalyst-monitor/) for a status check of all the servers in the catalyst network. You can also copy the addresses of each one, from the top of each card.
 
-- Check your scene's `package.json`. A common problem is that there's a `bundleDependencies` and also a `bundledDependencies` (extra d) section. This can sometimes result from running different Node versions on the same project. Delete `bundleDependencies`, which relates to older Node versions.
+- Check your scene's `package.json`. A common problem is that there's a `bundleDependencies` and also a `bundledDependencies` (extra d) section. This can sometimes result from running different Node versions on the same project. Delete `bundledDependencies`, which relates to older Node versions.  Newer versions of Node accept either spelling, but `bundleDependencies` is the proper one.  Most important is not to have both.
  
 ### Issue: Running `dcl deploy` or `dcl build` reports type errors
 
