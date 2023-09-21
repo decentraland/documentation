@@ -15,7 +15,7 @@ weight: 5
 
 In order to take your Decentraland Emotes to the next level you can add props (3d geometry) and/or sounds to them, doing the emotes much more fun and engaging! In this guideline you will find everything you need to know to export them correctly!
 
-# The Basics and Limitations
+# **The Basics and Limitations**
 
 To start adding the props to your emotes it's important to use the [Decentraland Template File](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/BaseMale_Rig_1.0.blend) which will have the rig for the avatar and also the Ground Reference to keep your work inside the allowed space boundaries.
 
@@ -63,7 +63,36 @@ In order for the emotes to work you must follow the following naming conventions
 
 - Example: `TennisServe_Prop`, `GunShoot_Prop`
 
-# NLA Tracks
+# **Getting Started**
+
+Before starting you animation, you will have to create a rig for the prop. If you’re not familiar with the process, check [Create a Rig](https://www.notion.so/Create-a-Rig-686e6f59a1604585b059f990a36b2d55?pvs=21) for more information on how to do it.
+
+### Making the Prop Follow the Avatar Rig
+
+Some props might have to be attached to certain body parts, like a tennis racket to the hand. That can be done by simply adding a constraint. To do so, in ***Pose Mode***, select the prop bone (the tennis racket one, for example), press ***CTRL + Shift + C*** on your keyborad and select ***Child of*** or just click on the ***Bone Constraint Properties*** tab and, in the drop down menu, select ***Child of***.
+
+<img src="/images/wearables-and-emotes/props-and-sound/14-add-constrain.png" width="400" />
+
+_Add a constraint by pressing `Ctrl + Shift + C` on your keyboard._
+
+<img src="/images/wearables-and-emotes/props-and-sound/15-add-constrain-02.png" width="400" />
+
+Then, in ***Target***, select the avatar armature and in ***Bone*** select the bone you want the prop to follow. To maintain the prop’s original position, click on ***Set Inverse*** once you add the constraint. If the influence is 1, the prop will fully follow the selected bone, if it’s 0, the constraint will be disabled. You can set keyframes on the influence to turn it on and off throughout the animation. To do that, just press I while the cursor is on top of ***Influence***.
+
+<img src="/images/wearables-and-emotes/props-and-sound/16-target.png" width="600" />
+
+_***Chlid of*** constraint menu. Keyframe the influence to turn it on and off._ 
+
+{{< hint info >}}
+**💡Animation Tip**
+
+If you use the slide to turn off the Influence, the prop will not maintain its previous position, making it hard to keep the animation fluid. To avoid having to manually fix the position, instead of using the slide, click on the X next to Influence, set a keyframe on it and another one on all the transform attributes. This way the prop will keep the same poistion as when the Influence was on!
+
+{{< /hint >}}
+
+<img src="/images/wearables-and-emotes/props-and-sound/17-influence.gif" width="600" />
+
+# **NLA Tracks**
 
 In order for all the animations to be exported, the clips should be added to the NLA Tracks. Make sure there’s only one animation clip for the avatar and another one for the prop, **they must have the exact same number of frames.**
 
@@ -101,6 +130,10 @@ To export **be sure to select only both Avatar and Prop Armatures with its anima
 <img src="/images/wearables-and-emotes/props-and-sound/05-export-props.png" width="600" />
 
 <img src="/images/wearables-and-emotes/props-and-sound/06-export-settings.png" width="600" />
+
+<img src="/images/wearables-and-emotes/props-and-sound/13-export-deformation-bones.png" width="600" />
+
+_Under *Data>Armature* make sure to toggle **Export Deformation Bones Only**_ 
 
 {{< hint info >}}
 **💡 Attention!**
