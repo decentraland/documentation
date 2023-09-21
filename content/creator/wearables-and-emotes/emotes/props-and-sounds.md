@@ -1,0 +1,170 @@
+---
+date: 2023-01-07
+title: Adding Props and Sounds to your Emotes
+description: Guidelines to add props and sounds to the emotes.
+categories:
+  - emotes
+type: Document
+aliases:
+  - /emotes/props-and-sounds/
+  - /creator/emotes/props-and-sounds/
+url: /creator/emotes/props-and-sounds
+weight: 5
+---
+
+<img src="/images/wearables-and-emotes/props-and-sound/01-props-and-sound-banner.png" width="900" />
+
+In order to take your Decentraland Emotes to the next level you can add props (3d geometry) and/or sounds to them, doing the emotes much more fun and engaging! In this guideline you will find everything you need to know to export them correctly!
+
+# The Basics and Limitations
+
+To start adding the props to your emotes it's important to use the [Decentraland Template File](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/BaseMale_Rig_1.0.blend) which will have the rig for the avatar and also the Ground Reference to keep your work inside the allowed space boundaries.
+
+**Currently, the props animations only work with **Armature/Bones Animations** meaning that _transform animations_ are not allowed.**
+
+The emote with their props must be exported all together in one single _.glb_ file (Avatar_Armature + Props_Armature with its animations).
+
+- The size limit per emote is 3MB (megabytes) in total (incluiding prop and sounds).
+
+- The tris limit per emote is 3000 tris (including all props).
+
+- No more than 2 materials and 2 textures for props.
+
+- The emote must have one animation for the avatar and one animation for the prop. _Currently multiple animations are not allowed._
+
+- Both animations (Avatar and Prop) must have the same keyframe lenght.
+
+- The space boundaries are the same as standard emotes. For more information check [the space limitations](https://docs.decentraland.org/creator/emotes/creating-and-exporting-emotes/#the-animation-specifications).
+
+# **Naming Conventions:**
+
+In order for the emotes to work you must follow the following naming conventions. Otherwise the emote will not play correctly using the builder or in world.
+
+### Armatures Name Conventions:
+
+**For Avatar:**
+
+`Avatar_Armature`
+
+**For Props:**
+
+`Prop_Armature`
+
+### Animations Name Conventions:
+
+**For Avatar:**
+
+`AnimationName_Avatar`
+
+- Example: `TennisServe_Avatar`, `GunShoot_Avatar`
+
+**For Props:**
+
+`AnimationName_Prop`
+
+- Example: `TennisServe_Prop`, `GunShoot_Prop`
+
+# NLA Tracks
+
+In order for all the animations to be exported, the clips should be added to the NLA Tracks. Make sure there’s only one animation clip for the avatar and another one for the prop, **they must have the exact same number of frames.**
+
+{{< hint info >}}
+**💡Animation Tip**
+
+In order to your props have a more smooth appearance you can scale from 0 to 1 in the first moment they appear and from 1 to 0 when they disappear. This will make the transitions much more fluid!
+{{< /hint >}}
+
+In Object Mode, select the avatar armature, select the respective animation clip in the Browse Action menu and click on the Push Down button.
+
+Then, select prop armature, select the proper animation clip for it and click on the Push Down button again.
+
+<img src="/images/wearables-and-emotes/props-and-sound/02-nla-tracks.png" width="600" />
+
+{{< hint info >}}
+**🔥 Optimization Tip**
+
+**Before this step make sure to do a backup of your project.**
+
+If you have different objects for your props you can merge them together in one single mesh. This would help to reduce the draw calls in game making the emote more performant.
+
+<img src="/images/wearables-and-emotes/props-and-sound/03-merge-mesh.png" width="400" />
+
+_Select objects and press `Ctrl+J` to merge them together._
+
+<img src="/images/wearables-and-emotes/props-and-sound/04-merge-mesh-02.png" width="400" />
+
+{{< /hint >}}
+
+# **Exporting**
+
+To export **be sure to select only both Avatar and Prop Armatures with its animations and the Prop mesh**. Then go to the export glb settings and be sure to export only selected objects and untoggle unnecessary features like _Shapekeys Animation_.
+
+<img src="/images/wearables-and-emotes/props-and-sound/05-export-props.png" width="600" />
+
+<img src="/images/wearables-and-emotes/props-and-sound/06-export-settings.png" width="600" />
+
+{{< hint info >}}
+**💡 Attention!**
+You should **NOT** export the avatar mesh into the .glb.
+{{< /hint >}}
+
+# **Add Audio to the Emotes**
+
+## Format and Limitations for Audio Clips
+
+- The correct format to export sounds for your emotes are `.mp3` and `.ogg`.
+
+- The audio clip must have the same duration as the emote.
+
+- While there is no limitation for size in the audio, the emote with props and sounds cannot be bigger than 3mb.
+
+## Editing Sounds
+
+To add sounds to your emotes you can do it in different ways:
+
+1. **Edit your sounds directly on Blender - Basic**
+
+One way to add sounds to your emotes is using the video sequencer editor that Blender provides.
+
+To start adding sounds go to _Editor Type> Video Sequencer._
+
+<img src="/images/wearables-and-emotes/props-and-sound/07-video-sequencer.png" width="400" />
+
+Drag and Drop you sounds to the channels interface.
+
+<img src="/images/wearables-and-emotes/props-and-sound/08-drag-sound.png" width="600" />
+
+Press the shortcut `N` to see more options to handle your sounds like displaying waveform, make your sounds Mono or changing the volume.
+
+<img src="/images/wearables-and-emotes/props-and-sound/09-sound-properties.png" width="400" />
+
+{{< hint info >}}
+If you want to fade in and out you can simply do it by adding keyframes from 0 to 1 and viceversa to the volume property.
+{{< /hint >}}
+
+Once you finished to edit your sounds you can export it going to _Render> Render Audio_. In the exporting option you need to select `.mp3` or `.ogg` format in the _Container_ section and then _Mixdown_. **Only the audio within the frame range will be exported.**
+
+<img src="/images/wearables-and-emotes/props-and-sound/10-export-sound.png" width="600" />
+
+2. **Render animation and add sound with a sound edit software - Pro**
+
+While editing sounds directly in Blender can be convenient, it is not very flexible because the software is not primarily focused on sound editing. The available tools are very basic. If you want to add a more professional touch to your sounds, we recommend using dedicated sound editing software of your choice.
+
+There are several software options you can use, such as [Audacity](https://www.audacityteam.org/) (Free and OpenSource), Adobe Audition, Ableton Live, or ProTools. Using dedicated sound editing software will provide you with a wider range of tools, functionalities, and sound effects, allowing you to enhance your sounds and give them a more professional feel.
+
+To render your emote you can simply add a camera to your Blender scene and position it in a way you can see all the elements as clearly as possible to later have a good reference to add sounds.
+
+<img src="/images/wearables-and-emotes/props-and-sound/11-setting-render.png" width="600" />
+
+When rendering an emote, it is important to only include the frame range of your emote and not more. Choose an aspect ratio that suits your needs and select the output folder where you want the video or image sequence to be saved.
+
+{{< hint info >}}
+**Hint!**
+
+<img src="/images/wearables-and-emotes/props-and-sound/12-sampling-render.png" width="400" />
+
+_Before rendering make sure you do a low sampling rendering to save time in your render!_
+
+{{< /hint >}}
+
+Once this step is completed, use your video as a reference to create the corresponding sounds using your preferred sound editing software.
