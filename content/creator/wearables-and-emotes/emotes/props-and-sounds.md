@@ -1,5 +1,5 @@
 ---
-date: 2023-01-07
+date: 2023-21-09
 title: Adding Props and Sounds to your Emotes
 description: Guidelines to add props and sounds to the emotes.
 categories:
