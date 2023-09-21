@@ -7,7 +7,6 @@ categories:
 type: Document
 aliases:
   - /emotes/props-and-sounds/
-  - /creator/emotes/props-and-sounds/
 url: /creator/emotes/props-and-sounds
 weight: 5
 ---
