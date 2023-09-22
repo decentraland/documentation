@@ -43,11 +43,11 @@ In order for the emotes to work you must follow the following naming conventions
 
 **For Avatar:**
 
-`Avatar_Armature`
+`Armature`
 
 **For Props:**
 
-`Prop_Armature`
+`Armature_Prop`
 
 ### Animations Name Conventions:
 
@@ -69,7 +69,7 @@ Before starting you animation, you will have to create a rig for the prop. If yo
 
 ### Making the Prop Follow the Avatar Rig
 
-Some props might have to be attached to certain body parts, like a tennis racket to the hand. That can be done by simply adding a constraint. To do so, in ***Pose Mode***, select the prop bone (the tennis racket one, for example), press ***CTRL + Shift + C*** on your keyborad and select ***Child of*** or just click on the ***Bone Constraint Properties*** tab and, in the drop down menu, select ***Child of***.
+Some props might have to be attached to certain body parts, like a tennis racket to the hand. That can be done by simply adding a constraint. To do so, in **_Pose Mode_**, select the prop bone (the tennis racket one, for example), press **_CTRL + Shift + C_** on your keyborad and select **_Child of_** or just click on the **_Bone Constraint Properties_** tab and, in the drop down menu, select **_Child of_**.
 
 <img src="/images/wearables-and-emotes/props-and-sound/14-add-constrain.png" width="400" />
 
@@ -77,11 +77,11 @@ _Add a constraint by pressing `Ctrl + Shift + C` on your keyboard._
 
 <img src="/images/wearables-and-emotes/props-and-sound/15-add-constrain-02.png" width="400" />
 
-Then, in ***Target***, select the avatar armature and in ***Bone*** select the bone you want the prop to follow. To maintain the prop’s original position, click on ***Set Inverse*** once you add the constraint. If the influence is 1, the prop will fully follow the selected bone, if it’s 0, the constraint will be disabled. You can set keyframes on the influence to turn it on and off throughout the animation. To do that, just press I while the cursor is on top of ***Influence***.
+Then, in **_Target_**, select the avatar armature and in **_Bone_** select the bone you want the prop to follow. To maintain the prop’s original position, click on **_Set Inverse_** once you add the constraint. If the influence is 1, the prop will fully follow the selected bone, if it’s 0, the constraint will be disabled. You can set keyframes on the influence to turn it on and off throughout the animation. To do that, just press I while the cursor is on top of **_Influence_**.
 
 <img src="/images/wearables-and-emotes/props-and-sound/16-target.png" width="600" />
 
-_***Chlid of*** constraint menu. Keyframe the influence to turn it on and off._ 
+_***Chlid of*** constraint menu. Keyframe the influence to turn it on and off._
 
 {{< hint info >}}
 **💡Animation Tip**
@@ -133,7 +133,7 @@ To export **be sure to select only both Avatar and Prop Armatures with its anima
 
 <img src="/images/wearables-and-emotes/props-and-sound/13-export-deformation-bones.png" width="600" />
 
-_Under *Data>Armature* make sure to toggle **Export Deformation Bones Only**_ 
+_Under *Data>Armature* make sure to toggle **Export Deformation Bones Only**_
 
 {{< hint info >}}
 **💡 Attention!**
