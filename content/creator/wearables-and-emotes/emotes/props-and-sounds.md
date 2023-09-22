@@ -37,7 +37,7 @@ The emote with their props must be exported all together in one single _.glb_ fi
 
 # **Naming Conventions:**
 
-In order for the emotes to work you must follow the following naming conventions. Otherwise the emote will not play correctly using the builder or in world.
+Naming conventions must be strictly followed for the emotes to work! Otherwise they will not play correctly neither in the builder nor in world.
 
 ### Armatures Name Conventions:
 
@@ -99,7 +99,7 @@ In order for all the animations to be exported, the clips should be added to the
 {{< hint info >}}
 **💡Animation Tip**
 
-In order to your props have a more smooth appearance you can scale from 0 to 1 in the first moment they appear and from 1 to 0 when they disappear. This will make the transitions much more fluid!
+Don’t leave the prop visible from the start! To avoid spoiling what’s about to happen and an abrupt transition, start the animation with the prop scaled down to 0 and only turn it to 1 when you want it to appear. Remember to scale back down to 0 by the end of the action. This will make the transitions much more fluid and cool! 
 {{< /hint >}}
 
 In Object Mode, select the avatar armature, select the respective animation clip in the Browse Action menu and click on the Push Down button.
@@ -125,7 +125,8 @@ _Select objects and press `Ctrl+J` to merge them together._
 
 # **Exporting**
 
-To export **be sure to select only both Avatar and Prop Armatures with its animations and the Prop mesh**. Then go to the export glb settings and be sure to export only selected objects and untoggle unnecessary features like _Shapekeys Animation_.
+To export **be sure to select only both Avatar and Prop Armatures with its animations and the Prop mesh**. Then go to the export glb settings and be sure to export only selected objects and untoggle unnecessary features like _Shapekeys Animation_. Always remember to enable Export Deformation Bones Only, so you don’t end up exporting unnecessary bones, like controls.
+
 
 <img src="/images/wearables-and-emotes/props-and-sound/05-export-props.png" width="600" />
 
