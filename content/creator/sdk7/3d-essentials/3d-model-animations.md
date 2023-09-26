@@ -76,7 +76,7 @@ const swimAnim = Animator.getClip(sharkEntity, "swim")
 `Animator.getClip` requires the following parameters:
 
 - `entity`: The entity of the `Animator` component that you want to query.
-- `name`: Striing for the name of the clip you want to fetch.
+- `clipName`: String for the name of the clip you want to fetch.
 
 `Animator.getClip` fetches a mutable version of the animation state, so you can modify values freely on what this function returns.
 
