@@ -152,6 +152,11 @@ You should **NOT** export the avatar mesh into the .glb.
 
 - While there is no limitation for size in the audio, the emote with props and sounds cannot be bigger than 3mb.
 
+{{< hint info >}}
+**💡 Attention!**
+Take into consideration that audio clips used in the emote must be original IP (Intellectual Property), having the rights for reproducing and follows the [Content Policy](https://decentraland.org/content/)criteria. 
+{{< /hint >}}
+
 ## Editing Sounds
 
 To add sounds to your emotes you can do it in different ways:
