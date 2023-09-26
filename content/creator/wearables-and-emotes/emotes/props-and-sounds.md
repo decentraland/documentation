@@ -33,7 +33,9 @@ The emote with their props must be exported all together in one single _.glb_ fi
 
 - The emote must have one animation for the avatar and one animation for the prop. _Currently multiple animations are not allowed._
 
-- Both animations (Avatar and Prop) must have the same keyframe lenght.
+- Both animations (Avatar and Prop) must have the same keyframe length.
+
+- Each animation cannot exceed more than 299 frames or 10 seconds.
 
 - The space boundaries are the same as standard emotes. For more information check [the space limitations](https://docs.decentraland.org/creator/emotes/creating-and-exporting-emotes/#the-animation-specifications).
 
@@ -69,6 +71,10 @@ Naming conventions must be strictly followed for the emotes to work! Otherwise t
 
 Before starting you animation, you will have to create a rig for the prop. If you’re not familiar with the process, check [Create a Rig](https://www.notion.so/Create-a-Rig-686e6f59a1604585b059f990a36b2d55?pvs=21) for more information on how to do it.
 
+Ensure that the prop object and armature have their origins located at the 0,0 location within Blender. Additionally, apply transformations to the prop object and armature, ensuring they are frozen at a scale of 1,1,1. This is crucial to prevent any potential issues with the prop's behavior when being utilized within the world or during animations.
+
+<img src="/images/wearables-and-emotes/props-and-sound/18-freeze-transforms.png" width="600" />
+
 ### Making the Prop Follow the Avatar Rig
 
 Some props might have to be attached to certain body parts, like a tennis racket to the hand. That can be done by simply adding a constraint. To do so, in **_Pose Mode_**, select the prop bone (the tennis racket one, for example), press **_CTRL + Shift + C_** on your keyborad and select **_Child of_** or just click on the **_Bone Constraint Properties_** tab and, in the drop down menu, select **_Child of_**.
@@ -85,24 +91,19 @@ Then, in **_Target_**, select the avatar armature and in **_Bone_** select the b
 
 _***Chlid of*** constraint menu. Keyframe the influence to turn it on and off._
 
-{{< hint info >}}
-**💡Animation Tip**
-
 If you use the slide to turn off the Influence, the prop will not maintain its previous position, making it hard to keep the animation fluid. To avoid having to manually fix the position, instead of using the slide, click on the X next to Influence, set a keyframe on it and another one on all the transform attributes. This way the prop will keep the same poistion as when the Influence was on!
-
-{{< /hint >}}
 
 <img src="/images/wearables-and-emotes/props-and-sound/17-influence.gif" width="600" />
 
-# **NLA Tracks**
-
-In order for all the animations to be exported, the clips should be added to the NLA Tracks. Make sure there’s only one animation clip for the avatar and another one for the prop, **they must have the exact same number of frames.**
-
 {{< hint info >}}
 **💡Animation Tip**
 
-Don’t leave the prop visible from the start! To avoid spoiling what’s about to happen and an abrupt transition, start the animation with the prop scaled down to 0 and only turn it to 1 when you want it to appear. Remember to scale back down to 0 by the end of the action. This will make the transitions much more fluid and cool! 
+Don’t leave the prop visible from the start! To avoid spoiling what’s about to happen and an abrupt transition, start the animation with the prop scaled down to 0.001 and only turn it to 1 when you want it to appear. Remember to scale back down to 0 by the end of the action. This will make the transitions much more fluid and cool! 
 {{< /hint >}}
+
+# **Exporting**
+
+In order for all the animations to be exported, the clips should be added to the NLA Tracks. Make sure there’s only one animation clip for the avatar and another one for the prop, **they must have the exact same number of frames.**
 
 In Object Mode, select the avatar armature, select the respective animation clip in the Browse Action menu and click on the Push Down button.
 
@@ -124,8 +125,6 @@ _Select objects and press `Ctrl+J` to merge them together._
 <img src="/images/wearables-and-emotes/props-and-sound/04-merge-mesh-02.png" width="400" />
 
 {{< /hint >}}
-
-# **Exporting**
 
 To export **be sure to select only both Avatar and Prop Armatures with its animations and the Prop mesh**. Then go to the export glb settings and be sure to export only selected objects and untoggle unnecessary features like _Shapekeys Animation_. Always remember to enable Export Deformation Bones Only, so you don’t end up exporting unnecessary bones, like controls.
 
@@ -157,7 +156,7 @@ You should **NOT** export the avatar mesh into the .glb.
 
 To add sounds to your emotes you can do it in different ways:
 
-1. **Edit your sounds directly on Blender - Basic**
+1. **Edit your sounds directly on Blender**
 
 One way to add sounds to your emotes is using the video sequencer editor that Blender provides.
 
@@ -181,7 +180,7 @@ Once you finished to edit your sounds you can export it going to _Render> Render
 
 <img src="/images/wearables-and-emotes/props-and-sound/10-export-sound.png" width="600" />
 
-2. **Render animation and add sound with a sound edit software - Pro**
+2. **Render animation and add sound with a sound edit software**
 
 While editing sounds directly in Blender can be convenient, it is not very flexible because the software is not primarily focused on sound editing. The available tools are very basic. If you want to add a more professional touch to your sounds, we recommend using dedicated sound editing software of your choice.
 
@@ -203,3 +202,4 @@ _Before rendering make sure you do a low sampling rendering to save time in your
 {{< /hint >}}
 
 Once this step is completed, use your video as a reference to create the corresponding sounds using your preferred sound editing software.
+
