@@ -35,7 +35,10 @@ This documentation explains the set up for Rig 1.0, its controls, and features.
 
 [Decentraland Blender Rig](/images/emotes/Avatar_File.blend)
 
+{{< hint info >}}
 If you're using Maya you can download this [Maya Rig](/images/emotes/DCL_Maya_Rig.ma) and [picker](/images/emotes/emoteAvatar.pkr) provided by [SparkleStudios](https://www.sparkles.studio/) ❤️. 
+{{< /hint >}}
+
 ## **Frame Rate**
 
 To getstarted, it’s important to check the frame rate. Decentraland’s animations must have a frame rate of **30 fps**. The rig file provided probably has that set up, but since Blender’s default value is 24 fps, it is best to double check before starting (a wrong frame rate will affect the speed of the animation). That option can be found in _Output Properties_ (the printer icon) under _Format_, as shown below:
@@ -60,7 +63,7 @@ In the rig file provided, there’s already an action, the _**Starting_Pose**_. 
 **💡 Hint!**
 
 If you want to do a loop animation, you don’t have to start the animation from the Starting Pose. Feel free to use the pose that makes more sense in your animation!\*\*
-{{< /hint >}}
+
 
 ## **Blender Interface for Animations**
 
