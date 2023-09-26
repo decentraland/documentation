@@ -29,6 +29,8 @@ The emote with their props must be exported all together in one single _.glb_ fi
 
 - No more than 2 materials and 2 textures for props.
 
+- No more than 62 bones for the armature.
+
 - The emote must have one animation for the avatar and one animation for the prop. _Currently multiple animations are not allowed._
 
 - Both animations (Avatar and Prop) must have the same keyframe lenght.
