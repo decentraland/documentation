@@ -198,7 +198,7 @@ If the number of frames of the animation can be divided by the sampling rate, th
 
 ## **File Size**
 
-The max file size is **3 MB**. If the file is over that after exporting, try checking if the mesh wasn’t exported by accident or if the animation isn’t over 10 seconds. If it is still over 1 MB, try experimenting with the Sampling Rate, as higher values will improve the optimization.
+The max file size is **3 MB**. If the file is over that after exporting, try checking if the mesh wasn’t exported by accident or if the animation isn’t over 10 seconds. If it is still over 3 MB, try experimenting with the Sampling Rate, as higher values will improve the optimization.
 
 # **Exporting**
 
