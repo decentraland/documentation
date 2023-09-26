@@ -33,8 +33,9 @@ You can find a more detailed explanation of the animation specifications [**belo
 
 This documentation explains the set up for Rig 1.0, its controls, and features.
 
-[Decentraland Blender Rig](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/BaseMale_Rig_1.0.blend)
+[Decentraland Blender Rig](/images/emotes/Avatar_File.blend)
 
+If you're using Maya you can download this [Maya Rig](/images/emotes/DCL_Maya_Rig.ma) and [picker](/images/emotes/emoteAvatar.pkr) provided by [SparkleStudios](https://www.sparkles.studio/) ❤️. 
 ## **Frame Rate**
 
 To getstarted, it’s important to check the frame rate. Decentraland’s animations must have a frame rate of **30 fps**. The rig file provided probably has that set up, but since Blender’s default value is 24 fps, it is best to double check before starting (a wrong frame rate will affect the speed of the animation). That option can be found in _Output Properties_ (the printer icon) under _Format_, as shown below:

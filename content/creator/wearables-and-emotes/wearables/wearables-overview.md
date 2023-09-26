@@ -26,7 +26,7 @@ By default, Decentraland Wearables are minted on the Polygon/Matic side-chain so
 
 Smart wearables are portable experiences that are turned on when the player puts on a certain item of clothing. Smart wearables can grant players new abilities, like a jetpack that lets them fly, or add a new layer of content on top of the rest of the world, like randomly placing coins to be collected throughout the whole of genesis city.
 
-To know how to create **Smart Wearables** you can follow this [guidelines.](https://docs.decentraland.org/creator/development-guide/sdk7/smart-wearables/)
+To know how to create **Smart Wearables** you can follow these [guidelines.](https://docs.decentraland.org/creator/development-guide/sdk7/smart-wearables/)
 
 {{< hint warning >}}
 Smart wearables, as a subset of wearables, possess the capability to integrate advanced interactions and functionalities. Consequently, proficient skills in coding are necessary to unlock their full potential and enhance their features.
