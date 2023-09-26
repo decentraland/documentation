@@ -208,7 +208,7 @@ See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadat
 
 ## Limitations
 
-> IMPORTANT: The entire smart wearable needs to fit within 2 MB. This includes the 3D model, thumbnail, code, libraries, sound files, additional 3D models, UI images, etc. This limit is for the uncompressed folder. The builder will not let you upload larger wearables than this.
+> IMPORTANT: The entire smart wearable needs to fit within 3MB. This includes the 3D model, thumbnail, code, libraries, sound files, additional 3D models, UI images, etc. This limit is for the uncompressed folder. The builder will not let you upload larger wearables than this.
 > To check the size of your portable experience, run `npm run pack`, the project size is specified in the output text of the command. You can also verify this by uncompressing the generated `smart-wearable.zip` file and checking the size of the folder.
 
 Smart wearables only run the portable experience for the player wearing the wearable. Other players don't see the effects. For example, if the portable experience renders a pet that follows the player, other players around won't see this pet. However, other players will see avatars perform animations that run as part of the wearable's scene, even [custom avatar animations]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#custom-animations">}}) uploaded as part of the smart wearable's files.
