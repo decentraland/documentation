@@ -100,7 +100,7 @@ The following fields can also optionally be included. These settings can also be
   - `hides`: List of categories of other wearables that should be hidden (but not unequipped) when equipping this wearable, in addition to the default of this category.
   - `tags`: Tags used to make the wearable searchable in the marketplace.
   - `representations`:
-    - `bodyShapes`: The list of avatar representations that can use this wearable. Eg, both `BaseMale` and `BaseFemale`.
+    - `bodyShapes`: The list of avatar representations that can use this wearable. All smart wearables must be available for both male and female body shapes.
     - `mainFile`: The main file with the 3D model of the wearable.
     - `contents`: The full list of files used to render the 3D model of the wearable. For example, the 3D model could include textures as separate files.
     - `overrideHides`: Any exceptions from the default _hide_ behavior of this wearable category.
