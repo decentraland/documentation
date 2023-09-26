@@ -105,7 +105,7 @@ If the entity was playing any other animations, `Animator.playSingleAnim` stops 
 `Animator.playSingleAnim` requires the following parameters:
 
 - `entity`: The entity of the `Animator` component that you want to affect.
-- `name`: String for the name of the clip you want to play.
+- `clipName`: String for the name of the clip you want to play.
 - `resetCursor`: _(optional)_ If _true_, it plays the animation from the start, even if the animation was previously paused. If _false_, it will keep playing the animation from where it was paused. Default: _true_.
 
 ```ts
