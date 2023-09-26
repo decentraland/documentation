@@ -183,7 +183,7 @@ To publish your smart wearable:
 2. Run `npm run pack` on your project folder. This generates a `smart-wearable.zip` file in your project folder.
 
 {{< hint warning >}}
-**📔 Note**: The output of `npm run pack` will indicate the size of the uncompressed exported project, it must be under 2MB. If larger than that, it won’t be accepted by the builder.
+**📔 Note**: The output of `npm run pack` will indicate the size of the uncompressed exported project, it must be under 3MB. If larger than that, it won’t be accepted by the builder.
 {{< /hint >}}
 
 3. Open the Builder, open the Collections tab, click + to upload a new wearable.
