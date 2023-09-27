@@ -14,7 +14,7 @@ Once you export your wearable, you’ll have to upload it to the builder. This d
 
 #### Uploading Your File
 
-Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, check [Creating a Collection](/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your wearable, just drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is an emote or wearable. **Remember that the collection max file size is 2MB**.
+Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, check [Creating a Collection](/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your wearable, just drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is an emote or wearable. **Remember that the collection max file size is 3MB**.
 
 <img src="/images/wearables-and-emotes/uploading-wearables/01_new_item.png" width="400" />
 
@@ -104,10 +104,11 @@ This is a brief statement describing your item that will be displayed in the mar
 
 ## **Overrides**
 
-Overrides determine which wearable categories or avatar body parts your item will hide. For instance, a hat with attached hair might need hiding the **Hair** category. A deep-sea diver helmet may require hiding head accessories like earrings, eyewear, tiaras, etc., which won’t be visible. Multiple options can be selected for each override.
+Overrides determine which Wearable categories or avatar body parts your item will hide. For instance, a hat with attached hair might need to hide the _Hair_ category. A deep-sea diver helmet may require hiding head accessories like earrings, eyewear, tiaras, etc., which wouldn’t be visible. Multiple options can be selected for each override.
 
-- **Base Body**: this refers to core avatar parts like the ***head*** and ***hands***. For example, if you’re creating a **Handwear** item such as a robot hand, you’ll likely need to hide ***hands*** to prevent overlap and clipping.
-- **Wearables**: this includes other wearable categories. You can hide multiple categories. 
+- **Base Body**: This refers to core avatar parts like the _head_ and _hands_. For example, if you’re creating a **Handwear** item such as a robot mechanic hand, you’ll likely need to hide _hands_ to prevent overlap and clipping.
+
+- **Wearables**: This includes other Wearable categories. You can hide multiple categories. For more details on each category and how items interact, refer to **[Creating Wearables](https://docs.decentraland.org/creator/wearables/creating-wearables/)**.
 
 {{< hint warning >}}
 Note: Overrides are suggested default settings for your wearables. However, users can choose to hide or unhide wearables from their backpack.
