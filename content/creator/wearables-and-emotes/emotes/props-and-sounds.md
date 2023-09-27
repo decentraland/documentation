@@ -206,5 +206,5 @@ _Before rendering make sure you do a low sampling rendering to save time in your
 
 {{< /hint >}}
 
-Once this step is completed, use your video as a reference to create the corresponding sounds using your preferred sound editing software.
+Once this step is completed, use your video as a reference to create the corresponding sounds using your preferred sound editing software. **Ensure that the video sequence matches the animation's framerate of 30 frames per second (fps)**
 
