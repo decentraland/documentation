@@ -27,16 +27,15 @@ This is the entry point to your scene's code. You could fit your entire scene's 
 
 In most cases, you'll only need to edit this and other .ts files to create your scene. It contains the code that generates the [entities, components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}) and [systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) of your scene.
 
-When running the scene, the contents of your `.ts` files are compiled to a single minified `.js` file, `bin/scene.js`. 
+When running the scene, the contents of your `.ts` files are compiled to a single minified `.js` file, `bin/scene.js`.
 
 {{< hint warning >}}
 **📔 Note**:  You can use another tool or language instead of TypeScript, so long as your scripts are contained within a single Javascript file (bin/scene.js). All provided type declarations are made in TypeScript, and other languages and transpilers are not officially supported.
 {{< /hint >}}
 
-
 ### scene.json
 
-The _scene.json_ file is a JSON formatted manifest for a scene in the world. A scene can span a single or multiple LAND parcels. The _scene.json_ manifest describes what objects exist in the scene, a list of any assets needed to render it, contact information for the parcel owner, and security settings. 
+The _scene.json_ file is a JSON formatted manifest for a scene in the world. A scene can span a single or multiple LAND parcels. The _scene.json_ manifest describes what objects exist in the scene, a list of any assets needed to render it, contact information for the parcel owner, and security settings.
 
 For more information see [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#metadata">}}). You can also read the original [specification proposal](https://github.com/decentraland/proposals/blob/master/dsp/0020.mediawiki) for this metadata.
 
@@ -62,7 +61,6 @@ Directories containing a _tsconfig.json_ file are root directories for TypeScrip
 
 When installing any additional libraries to your scene, an entry should be added automatically to this file. For installing Decentraland utils libraries, it shouldn't be necessary to manually do any changes to this file.
 
-
 ## Recommended file locations
 
 Keep in mind that when you deploy your scene to Decentraland, any assets or external libraries that are needed to use your scene must be either packaged inside the scene folder or available via a remote server.
@@ -82,11 +80,9 @@ We suggest using these folder names consistently for storing the different types
 **📔 Note**:  Supporting files for glTF models, like their texture image files or _.bin_ files, should always be placed in the same folder as the model's _.gltf_ or _.glb_ file.
 {{< /hint >}}
 
-
 {{< hint warning >}}
 **📔 Note**:  We recommend using always lower case names for all folders and file names, to avoid possible issues.
 {{< /hint >}}
-
 
 ## The dclignore file
 
