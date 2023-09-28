@@ -84,7 +84,7 @@ You can set the price of your wearable by clicking on **_Set Price_**. This can 
 
 You could also **_Make it Free_**, which means that the price will be set as 0 MANA and the beneficiary address will be null. Know that making it free (primary sale) does not prevent it from being sold at any price as a secondary sale.
 
-Don’t forget to set the beneficiary address, which is the one that will receive the MANA from your sales. You can use any Ethereum address you like. To automatically fill in the address you are logged in with, click **_I’m the Beneficiary._**
+Don’t forget to set the beneficiary address, which is the one that will receive the MANA from your sales. You can use any Ethereum address you like. To automatically fill in the address you are logged in with, click **_I’m the Beneficiary._**
 
 <img src="/images/wearables-and-emotes/uploading-wearables/12_set_price.png" width="400"/>
 
@@ -111,7 +111,7 @@ Overrides determine which Wearable categories or avatar body parts your item wil
 - **Wearables**: This includes other Wearable categories. You can hide multiple categories. For more details on each category and how items interact, refer to **[Creating Wearables](https://docs.decentraland.org/creator/wearables/creating-wearables/)**.
 
 {{< hint warning >}}
-Note: The overrides you select will be the suggested default settings for your Wearable. However, users can customize which Wearables are hidden or showing from the Backpack.
+Note: Overrides are suggested default settings for your wearables. However, users can choose to hide or unhide wearables from their backpack.
 {{< /hint >}}
 
 ## **Tags**
