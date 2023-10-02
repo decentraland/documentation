@@ -177,6 +177,10 @@ Keep in mind that a video file adds to the total size of the scene, which makes 
 
 We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
 
+{{< hint warning >}}
+**📔 Note**: Some video formats may be supported by the browser, but not while running a preview in the Decentraland Editor in Visual Studio Code. In these cases, you can open the scene preview in the browser as an alternative. See [this document](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_72.md#built-in-preview-for-some-audio-and-video-files) for more details on what video formats are supported in by Visual Studio code.
+{{< /hint >}}
+
 ## Start pause and stop a video
 
 To start playing the video or pause it, set the `playing` property to _true_ or _false_. If `playing` is set to false, the video is paused at the last frame shown.
