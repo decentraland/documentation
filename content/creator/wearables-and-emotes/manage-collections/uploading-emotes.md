@@ -24,6 +24,34 @@ You will be asked to enter a name for your emote, define its rarity, the categor
 
 <img src="/images/wearables-and-emotes/uploading-emotes/02_new_emote.png" width="400" />
 
+## **Uploading Emotes Using a .zip File**
+
+If the emote has sound (*mp3* or *ogg*) it must be zipped with the `.glb`. After that, just drag and drop the `.zip` to the builder. Also, it is possible to add a `.json` file along with the other assets in the same `.zip` to add name, description, rarity, category, play mode and/or tags. These are the definitions for each:
+
+  - `name`: Name of the Emote
+  - `description`: Description of your Emote (no more than 64 characters in total, counting spaces)
+  - `category`: Category of the Emote ("dance", "stunt", "greetings", "fun", "poses", "reactions", "horror", "miscellaneous")
+  - `rarity`: Rarity of the Item ("unique", "mythic", "legendary", "epic", "rare", "uncommon", "common")
+  - `play_mode`: Simple or Loop Animation ("simple", "loop")
+  - `tags`: Tags for easy finding in the marketplace.
+
+To add those definitions to the emote just create a text file, naming it **emote.json** and add the following lines as the example: 
+
+```
+{
+  "name": "Tennis Shot",
+  "description": "Show me you can do tennis",
+  "category": "fun",
+  "rarity":"epic",
+  "play_mode": "simple",
+  "tags":["tennis", "emote", "shot"]
+
+}
+
+```
+
+This way the builder is going to take all the .json information and it automatically to the emote. 
+
 ## **Rarity**
 
 Add rarity of the emote:

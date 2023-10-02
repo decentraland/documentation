@@ -96,7 +96,7 @@ The following inputs can be handled by any of the approaches to detect input eve
 - `InputAction.IA_FORWARD`: **W** key on a computer.
 - `InputAction.IA_LEFT`: **A** key on a computer.
 - `InputAction.IA_RIGHT`: **D** key on a computer.
-- `InputAction.IA_BACK`: **S** key on a computer.
+- `InputAction.IA_BACKWARD`: **S** key on a computer.
 - `InputAction.IA_WALK`: **Shift** key on a computer.
 
 Each `InputAction` is abstracted away from the literal input in the keyboard so that it can be mapped to different inputs depending on the device. For this same reason, not all buttons on the keyboard can be tracked for button events, only the buttons that are used for movement and interaction. This intentional limitation is to ensure that all content is compatible in the future with VR controllers, other kinds of game controllers, and mobile devices.
