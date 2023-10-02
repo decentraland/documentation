@@ -14,7 +14,7 @@ After generating your Smart Wearable using the [SDK7](/creator/development-guide
 
 #### Uploading Your File
 
-Remember that you need to create a collection before uploading your file. If you don’t know how to do that, check [Creating a Collection](creator/wearables-and-emotes/manage-collections/creating-collection/). To upload your Smart Wearable, drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is a Smart Wearable. **Remember that the collection max file size is 2MB**.
+Remember that you need to create a collection before uploading your file. If you don’t know how to do that, check [Creating a Collection](creator/wearables-and-emotes/manage-collections/creating-collection/). To upload your Smart Wearable, drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is a Smart Wearable. **Remember that the collection max file size is 3MB**.
 
 <img src="/images/wearables-and-emotes/uploading-smart-wearables/01_new_item.png" width="400" />
 
