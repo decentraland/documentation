@@ -69,7 +69,7 @@ Naming conventions must be strictly followed for the emotes to work! Otherwise t
 
 # **Getting Started**
 
-Before starting you animation, you will have to create a rig for the prop. If you’re not familiar with the process, check [Create a Rig](https://www.notion.so/Create-a-Rig-686e6f59a1604585b059f990a36b2d55?pvs=21) for more information on how to do it.
+Before starting you animation, you will have to create a rig for the prop. If you’re not familiar with the process, check [Create a Rig](https://docs.decentraland.org/creator/emotes/avatar-rig/) for more information on how to do it.
 
 Ensure that the prop object and armature have their origins located at the 0,0 location within Blender. Additionally, apply transformations to the prop object and armature, ensuring they are frozen at a scale of 1,1,1. This is crucial to prevent any potential issues with the prop's behavior when being utilized within the world or during animations.
 
