@@ -98,11 +98,15 @@ You can optionally also fetch references to each of the listed components direct
 
 ```ts
 // returns references to the entity and the first listed component
-const [entity, component1] of engine.getEntitiesWith(MyCustomComponent1, MyCustomComponent2)
+for (const [entity, component1] of engine.getEntitiesWith(MyCustomComponent1, MyCustomComponent2)){
+    // iterate over list of entities
+}
 
 
 // returns references to the entity and the first two listed components
-const [entity, component1, component2] of engine.getEntitiesWith(MyCustomComponent1, MyCustomComponent2)
+for (const [entity, component1, component2] of engine.getEntitiesWith(MyCustomComponent1, MyCustomComponent2)){
+    // iterate over list of entities
+}
 ```
 
 {{< hint warning >}}

@@ -1,6 +1,6 @@
 ---
 title: "Worlds Overview"
-slug: "/contributor/worlds/about"
+url: /creator/worlds/about
 weight: 1
 ---
 
@@ -122,7 +122,7 @@ A couple of optional custom settings can be specified in the `scene.json` when d
 {
   "worldConfiguration" : {
     "name": "my-name.dcl.eth",
-    "skybox": 36000,
+    "skyboxConfig": { "fixedTime": 36000 },
     "fixedAdapter": "offline:offline"
   }
 }

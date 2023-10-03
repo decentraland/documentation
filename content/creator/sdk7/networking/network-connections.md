@@ -93,17 +93,20 @@ To send a signed request, all you need to do is use the `signedFetch()` function
 ```ts
 executeTask(async () => {
   try {
-    let response = await signedFetch(callUrl, {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify(myBody),
+    let response = await signedFetch({ 
+			url: callUrl, 
+			init: {
+				headers: { "Content-Type": "application/json" },
+      	method: "POST",
+      	body: JSON.stringify(myBody)
+			}
     })
 
-    if (!response.text) {
+    if (!response.statusText) {
       throw new Error("Invalid response")
     }
 
-    let json = await JSON.parse(response.text)
+    let json = await JSON.parse(response.statusText)
 
     console.log("Response received: ", json)
   } catch {
@@ -112,9 +115,17 @@ executeTask(async () => {
 })
 ```
 
-The request will include an additional series of headers, containing a signed message and a set of metadata to interpret that. The signed message consists of all the contents of the request encrypted using the player's ephemeral key.
+The request includes an additional series of headers, containing a signed message and a set of metadata to interpret that. The signed message consists of all the contents of the request encrypted using the player's ephemeral key.
 
-The `signedFetch()` differs from the `fetch()` function in that the response is a promise of a full http message, expressed as a `FlatFetchInit` object. This includes the properties `text`, `ok`, `status`, `headers`, among others. By default, the To access the **body** of the response, parse the `text` property of the response as in the example above. If the response body is in json format, you can specify that in the `responseBodyType` and then access that from the `json` property in the response.
+The `signedFetch()` differs from the `fetch()` function in that the response is a promise of a full http message, expressed as a `FlatFetchResponse` object. This includes the following properties:
+
+- `body`
+- `headers`
+- `ok`
+- `status`
+- `statusText`
+
+By default, **body** is considered a string, which you can parse like in the example above. If the response body is in json format, you can specify that in the `responseBodyType` and then access that from the `json` property in the response.
 
 #### Validating a signed request
 

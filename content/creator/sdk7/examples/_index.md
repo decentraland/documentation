@@ -1,5 +1,4 @@
 ---
-title: Example scenes
 bookCollapseSection: true
-weight: 30
+weight: 15
 ---
