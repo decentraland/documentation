@@ -17,7 +17,7 @@ This document shows how to set up a basic rig in Blender. If you want to get mor
 
 ## **Adding the Armature**
 
-First of all, you’ll need to import your 3D model into Blender or, if you did it in Blender already, just open your blend file. In object mode, press **_Shift+A_** and select **_Armature_** on the menu, like show below. Then, in **_Object Data Properties_**, under **_Viewport Display_**, toggle **_In Front_**, so you can see the bone through the mesh. Mesh and armature should be aligned, so make sure the model is well positioned in the center of the world before adding the bones. The origin of the armature should be at 0,0,0 (X,Y,Z).
+First of all, you’ll need to import your 3D model into Blender or, if you did it in Blender already, just open your blend file. In object mode, press `Shift+A` and select **_Armature_** on the menu, like show below. Then, in **_Object Data Properties_**, under **_Viewport Display_**, toggle **_In Front_**, so you can see the bone through the mesh. Mesh and armature should be aligned, so make sure the model is well positioned in the center of the world before adding the bones. The origin of the armature should be at 0,0,0 (X,Y,Z).
 
 <img src="/images/3d-models-and-animations/create-rig/01_add_armature.gif" width="900" />
 
@@ -76,11 +76,11 @@ Symmetrize will only work if the bones are renamed properly. If it doesn’t mir
 
 ## **Skinning**
 
-Skinning is the process of binding the mesh to the armature. To do so, in **_Object Mode_**, select the mesh, then the armature and press **_CTRL+P > Armature Deform > With Automatic Weights._** Then, go to **_Pose Mode_** and test different poses to test the mesh deformation. Most of the time it will need some adjustments, as seen below.
+Skinning is the process of binding the mesh to the armature. To do so, in **_Object Mode_**, select the mesh, then the armature and press `CTRL+P` > **_Armature Deform > With Automatic Weights._** Then, go to **_Pose Mode_** and test different poses to test the mesh deformation. Most of the time it will need some adjustments, as seen below.
 
 <img src="/images/3d-models-and-animations/create-rig/08_skinning.gif" width="600" />
 
-_For the Skinning, make the mesh child of the armature by pressing CTRL+P and test it in Pose Mode._
+_For the Skinning, make the mesh child of the armature by pressing `CTRL+P` and test it in Pose Mode._
 
 If you feel like a bone has been misplaced or that the pivot point is not accurate, you can always go back to the armature’s **_Edit Mode_** and adjust it. This won’t affect the skinning at all and you can always use **_Symmetrize_** to mirror the changes.
 
@@ -116,9 +116,9 @@ _IK use in a mechanical arm._
 
 _IK use in cables._
 
-Since it’ll change the hierarchy of bones, it’s best to keep it as a separate setup. So the first thing you need to do is duplicate the bone chain that will be affected by the IK. Let’s use the leg as an example. Select the bones, press **_Shift+D_** to duplicate them and move them to a different layer by pressing **_M_** and selecting a different slot for it.
+Since it’ll change the hierarchy of bones, it’s best to keep it as a separate setup. So the first thing you need to do is duplicate the bone chain that will be affected by the IK. Let’s use the leg as an example. Select the bones, press `Shift+D` to duplicate them and move them to a different layer by pressing `M` and selecting a different slot for it.
 
-Remeber to rename the duplicated bones, adding IK to the name so you know they are part of the IK setup. And since they shouldn’t deform the mesh, select all them and in **_Bone Property_**, press and hold **_Alt_** and uncheck **_Deform_**.
+Remeber to rename the duplicated bones, adding IK to the name so you know they are part of the IK setup. And since they shouldn’t deform the mesh, select all them and in **_Bone Property_**, press and hold `Alt` and uncheck **_Deform_**.
 
 <img src="/images/3d-models-and-animations/create-rig/15_Duplicating_bones.gif" width="600" />
 
@@ -126,17 +126,18 @@ _Duplicate the bones and move them to a different layer._
 
 <img src="/images/3d-models-and-animations/create-rig/16_uncheck_deform.png" width="400" />
 
-_Select all the IK bones and, while holding Alt, uncheck Deform._
+_Select all the IK bones and, while holding `Alt`, uncheck Deform._
 
-Next, you’ll need to create a bone that’ll drive the IK chain. Select the head of the foot bone and extrude it on Y. Then, press **_Alt+P_** to unparent it because the IK bone can’t be part of the chain and can’t be connected to other bones. You’ll need to make the foot a child of the IK, so select the foot bone first and the IK bone last and press **_CTRL+P_** > **_Keep Offset_**.
+Next, you’ll need to create a bone that’ll drive the IK chain. Select the head of the foot bone and extrude it on Y. Then, press `Alt+P` to unparent it because the IK bone can’t be part of the chain and can’t be connected to other bones. You’ll need to make the foot a child of the IK, so select the foot bone first and the IK bone last and press `CTRL+P` > **_Keep Offset_**.
 
 <img src="/images/3d-models-and-animations/create-rig/17_IK_bone.gif" width="600" />
 
 _Creating an IK bone._
 
-In **_Pose Mode_**, click on the shin bone, press **_CTRL+Shift+C_** and select **_Inverse Kinematics_**. It will look all messed up, but don’t worry, it will be fixed once you change a few settings. With the shin selected, got to the **_Bone Constraint Properties_** as shown below.
+In **_Pose Mode_**, click on the shin bone, press `CTRL+Shift+C` and select **_Inverse Kinematics_**. It will look all messed up, but don’t worry, it will be fixed once you change a few settings. With the shin selected, got to the **_Bone Constraint Properties_** as shown below.
 
 <img src="/images/3d-models-and-animations/create-rig/18_constraint_tab.png" width="400" />
+
 _In Bone Constraint Properties you can edit the IK settings._
 
 For the **_Target_**, select **_Armature_**. Once you do that, an option called **_Bone_** will appear under Target. For that, select the IK bone you created. In **_Chain Length_** you will set the number of bones that should be affected by the IK. Since we are doing a leg, we want it to affect the shin and the thigh, so set it to **_2_**.
@@ -146,12 +147,13 @@ For the **_Target_**, select **_Armature_**. Once you do that, an option called 
 The Pole Target lets you control the direction in which the bones will bend. These are the steps to properly add a pole target (or pole vector) to the IK chain:
 
 - In **_Edit Mode_**, duplicate the thigh bone and place it anywhere.
-- Select the knee joint (or the tail of the thigh bone), press **_Shift+S_** > **_Cursor to Selected._**
-- Selected the duplicated thigh bone, press **_Shift+S_** > **_Selection to Cursor_**.
+- Select the knee joint (or the tail of the thigh bone), press `Shift+S` > **_Cursor to Selected._**
+- Selected the duplicated thigh bone, press `Shift+S` > **_Selection to Cursor_**.
 - In **_Transform Orientation_**, change it to **_Normal_** and in **_Tansform Pivot Point_** change it to **_Active Element_**.
 - Rotate the bone in X -90 (or 90, depending on the orientation you set) so it points forward and grab it in Y until it has a nice position in front of the leg. You can also scale it down a little bit.
 
 <img src="/images/3d-models-and-animations/create-rig/19_creating_pole_target.gif" width="600" />
+
 _Creating a Pole Target._
 
 Back into **_Pose Mode_**, select the shin again and go to the **_Bone Constraint Properties_**. For **_Pole Target_** select **_Armature_** and for **_Bone_**, select the pole target one you just created. If you show the deform bones, you will see that the pole target rotated the IK a little.
@@ -166,13 +168,13 @@ _The rotation can be fixed by changing the Pole Angle._
 
 That can be easily fixed by changing the **_Pole Angle_**. Usually -90° will do the trick, but you can always adjust it manually to make sure they are perfectly aligned.
 
-Finally, make both the IK bone and the pole target chilld of the root bone by selecting them both, then the root, press **_CTRL+P_** > **_Keep Offset_**.
+Finally, make both the IK bone and the pole target chilld of the root bone by selecting them both, then the root, press `CTRL+P` > **_Keep Offset_**.
 
 Move the thigh and shin to another layer since you won’t need them for animation, they are just part os the IK setup.
 
 ## **Binding Deform Bones to Non-Deforming Ones**
 
-The IK chain is all set up, but it should drive the deform bones and right now that’s not happening, but you can use constraints to fix that. In **_Pose Mode_**, select a bone from the IK chain first and the respective deforming bone last, press **_CTRL+Shift+C_** and select **_Copy Transforms_**. Do that for all the bones, which in the example are thigh, shin, foot and toes. The deform bones will have a green color to them, which means that they have a constraint. If you click on **_Bone Constraint Properties_**, you can see which constraint is being used and what bone is driving it.
+The IK chain is all set up, but it should drive the deform bones and right now that’s not happening, but you can use constraints to fix that. In **_Pose Mode_**, select a bone from the IK chain first and the respective deforming bone last, press `CTRL+Shift+C` and select **_Copy Transforms_**. Do that for all the bones, which in the example are thigh, shin, foot and toes. The deform bones will have a green color to them, which means that they have a constraint. If you click on **_Bone Constraint Properties_**, you can see which constraint is being used and what bone is driving it.
 
 <img src="/images/3d-models-and-animations/create-rig/22_constraints.gif" width="600" />
 
@@ -195,15 +197,15 @@ It’s good practice not to animate directly the deforming bones since you could
 
 The solution to this is to create a non-deforming skeleton that will drive the deforming one through constraints, and that can be animated safely, without risking breaking anything. You can also customize their shape to make it easier to identify a bone’s function. They will be the controls for your rig.
 
-The process for this is pretty much the same done for the IK setup. Duplicate all the bones (except the IK setup) with **_Shift+D_** and move them to a different layer by pressing **_M_** and picking another slot. Rename them all by adding **\_Control\_\_** or **\_CTRL\_\_** as a suffix so you know these are part of the controls hierarchy. Press **_A_** to select all them and in **_Bone Property_**, press and hold **_Alt_** and uncheck **_Deform_**.
+The process for this is pretty much the same done for the IK setup. Duplicate all the bones (except the IK setup) with `Shift+D` and move them to a different layer by pressing `M` and picking another slot. Rename them all by adding **Control_** or **CTRL_** as a suffix so you know these are part of the controls hierarchy. Press `A` to select all them and in **_Bone Property_**, press and hold `Alt` and uncheck **_Deform_**.
 
-Now you’ll have to add constraints to bind the two skeletons together. To make this process easier, you can change the bone shape by clicking on **_Object Data Properties_** and, under **_Viewport Display_**, change **_Display As_** from **_Octahedral_** to **_B-Bone_**. Then, press **_CTRL+Alt+S_** to scale the bones up a little bit so their are bigger than the original ones.
+Now you’ll have to add constraints to bind the two skeletons together. To make this process easier, you can change the bone shape by clicking on **_Object Data Properties_** and, under **_Viewport Display_**, change **_Display As_** from **_Octahedral_** to **_B-Bone_**. Then, press `CTRL+Alt+S` to scale the bones up a little bit so their are bigger than the original ones.
 
 <img src="/images/3d-models-and-animations/create-rig/24_b-bone_scale.gif" width="600" />
 
 _Change the bone shape and scale them up so it’s easier to differentiate between the two skeletons._
 
-For the constraints, select a control bonefirst and the respective deforming bone last, press **_CTRL+Shift+C_** and select **_Copy Transforms_**. Do that for all the control bones.
+For the constraints, select a control bonefirst and the respective deforming bone last, press `CTRL+Shift+C` and select **_Copy Transforms_**. Do that for all the control bones.
 
 You can separate the control bones into different groups and assign colors to them. Go to **_Pose Mode_** > **_Object Data Properties_** > **_Bone Groups_**. Click on the **_+_** icon to add a new group, rename it as you see fit and select a color for it. Then, select the bones you want to be part of that group and click on **_Assign_**. You can create as many groups as you like to keep everything organized. You can also move different bone groups to different layers.
 
@@ -211,7 +213,7 @@ You can separate the control bones into different groups and assign colors to th
 
 _Bone groups will help you keep your rig organized and more intuitive._
 
-An extra way to improve your rig is to customize the shape of the bones. To do that, go to Object Mode, press Shift+A to ad a mesh, like a circle, for example. To keep everything organized, create a collection for your shapes and move there the circle you just created. Go back to Pose Mode and, in **_Object Data Properties_** > **_Viewport Display_** check **_Shapes_**. Select the bone you want and then, in **_Bone Properties_**, click on **_Viewport Display_** > **_Custom Shape_**. In **_Custom object_**, select the circle in the outliner.
+An extra way to improve your rig is to customize the shape of the bones. To do that, go to **_Object Mode_**, press `Shift+A` to ad a mesh, like a circle, for example. To keep everything organized, create a collection for your shapes and move there the circle you just created. Go back to Pose Mode and, in **_Object Data Properties_** > **_Viewport Display_** check **_Shapes_**. Select the bone you want and then, in **_Bone Properties_**, click on **_Viewport Display_** > **_Custom Shape_**. In **_Custom object_**, select the circle in the outliner.
 
 <img src="/images/3d-models-and-animations/create-rig/26_bone_shape.gif" width="600" />
 
