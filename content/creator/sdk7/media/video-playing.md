@@ -96,6 +96,10 @@ To stream videos from an external URL, you must add the `ALLOW_MEDIA_HOSTNAMES` 
   ]
 ```
 
+{{< hint warning >}}
+**📔 Note**: You only need to include the domain, not the full URL. Do not include the "https://" section of the URL.
+{{< /hint >}}
+
 See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
 
 To launch your own video streaming server, we recommend using a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box. See
