@@ -10,11 +10,12 @@ Decentraland Cast is a specialized tool tailored for world owners and other auth
 
 Streaming via Decentraland Cast is an exclusive feature reserved for world owners and individuals who possess deployment rights. For more details on these rights, refer to the [Access Contol Lists]({{< ref "/creator/worlds/about.md#access-control-lists-acl" >}}) section.
 
-1. Select Your World: Visit Decentraland Cast, log in, and select the world to stream to.
+1. Visit [Decentraland Cast](https://cast.decentraland.org/)
+2. Select Your World: Log in and select the world to stream to.
 <!-- <image showing the world selector> -->
-2. Join the Session: Once the world is selected, a session will be joined. 
+3. Join the Session: Once the world is selected, a session will be joined. 
 <!-- <image Decentraland Cast UI> -->
-3. Share Screen or Camera Footage: If authorized, users have the option to either activate their cameras or share their screens directly within the app.
+4. Share Screen or Camera Footage: If authorized, users have the option to either activate their cameras or share their screens directly within the app.
 {{< hint warning >}}
 **📔 Note**: If you intend to stream a video along with its audio, it's advisable to utilize Google Chrome or a browser built on the Chrome engine. These browsers offer the functionality to easily share both video and audio directly from a browser tab.
 {{< /hint >}}
