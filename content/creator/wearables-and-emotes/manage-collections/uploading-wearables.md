@@ -111,7 +111,7 @@ Overrides determine which Wearable categories or avatar body parts your item wil
 - **Wearables**: This includes other Wearable categories. You can hide multiple categories. For more details on each category and how items interact, refer to **[Creating Wearables](https://docs.decentraland.org/creator/wearables/creating-wearables/)**.
 
 {{< hint warning >}}
-Note: Overrides are suggested default settings for your wearables. However, users can choose to hide or unhide wearables from their backpack.
+Note: The overrides you select will be the suggested default settings for your Wearable. However, users can customize which Wearables are hidden or showing from the Backpack.
 {{< /hint >}}
 
 ## **Tags**
