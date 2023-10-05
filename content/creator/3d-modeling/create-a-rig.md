@@ -126,6 +126,7 @@ _Duplicate the bones and move them to a different layer._
 
 <img src="/images/3d-models-and-animations/create-rig/16_uncheck_deform.png" width="400" />
 
+
 _Select all the IK bones and, while holding `Alt`, uncheck Deform._
 
 Next, you’ll need to create a bone that’ll drive the IK chain. Select the head of the foot bone and extrude it on Y. Then, press `Alt+P` to unparent it because the IK bone can’t be part of the chain and can’t be connected to other bones. You’ll need to make the foot a child of the IK, so select the foot bone first and the IK bone last and press `CTRL+P` > **_Keep Offset_**.
