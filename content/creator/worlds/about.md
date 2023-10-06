@@ -6,29 +6,57 @@ weight: 1
 
 Welcome to Decentraland Worlds! Here, you will discover everything about this service that empowers you to deploy self-contained scenes. These scenes are easily accessible through the Decentraland Explorer, providing you with a platform to experiment, unleash your creativity and explore new horizons.
 
-The term **Worlds** refers to scenes located beyond the boundaries of Genesis City. These Worlds serve various purposes, such as conducting experiments, creating new experiences, building a portfolio of scenes, or even serving as a Scene Preview Service for testing content before uploading it to Genesis City. Worlds scenes are associated with [Decentraland NAMEs](https://builder.decentraland.org/names), which are NAME NFTs within the DCL ecosystem. Acquiring a NAME requires 100 MANA and can be assigned to your avatar or LAND. Alternatively, you can purchase a NAME from a previous owner in the [Marketplace](https://market.decentraland.org/). These NAMEs are then utilized by the Decentraland Explorer to load the designated World.
 
-Worlds serve as a gateway for aspiring content creators, providing an accessible entry point to the platform and the freedom to experiment with scene creation. These isolated experiences come with certain limitations to ensure scalable growth:
+## What are Worlds? 
 
-- Scene Deployment Size: The maximum size allowed for scene deployment is 100 MB.
-- Concurrent User Limit: Each World scene can accommodate up to 100 users simultaneously.
+In Decentraland, **Worlds** refer to scenes located beyond the boundaries of Genesis City. These Worlds serve various purposes, such as:
+
+- Conducting experiments
+- Creating new experiences
+- Building a portfolio of scenes
+- Serving as a Scene Preview Service for testing content before uploading it to Genesis City
+
+Worlds scenes can be associated with [Decentraland NAMEs](https://builder.decentraland.org/names), which are NAME NFTs within the DCL ecosystem, or they can also be linked to [ENS Domains](https://ens.domains/), decentralized names that can now be applied to worlds. Acquiring a Decentraland NAME requires 100 MANA and can be assigned to your avatar, LAND, or ESTATE. Alternatively, you can purchase a NAME from a previous owner in the Marketplace. These NAMEs are then used by the Decentraland Explorer to load the designated World.
+
+Worlds serve as a gateway for aspiring content creators, providing an accessible entry point to the platform and the freedom to experiment with scene creation.
+
+## Storage Capacity for Worlds  
+
+The storage capacity for your Worlds is an essential consideration when deploying your scenes. It's important to note that the storage capacity differs between Decentraland NAMEs and ENS Names.
+### Decentraland NAMEs
+
+Decentraland NAME holders enjoy dynamic storage capacity within the Foundation Worlds server, which depends on their wallet holdings. The following rules govern this allocation:
+
+- Each Decentraland NAME grants 100 MB of storage capacity.
+- LAND and ESTATE holders receive an additional 100 MB of storage capacity for each LAND they own.
+- For every 2,000 MANA held in a wallet, an additional 100 MB of storage capacity is granted.
+
+The space in the Foundation World Server can be used to host as many scenes as users want, utilizing the Decentraland NAMEs they own. For instance, a user with a storage capacity of 500 MB could deploy a single world of 300 MB, another one of 200 MB, or perhaps five worlds, each of 100 MB. This flexibility allows users to create and manage their virtual experiences efficiently within the allocated storage space.
+
+The storage capacity for Decentraland NAMEs is calculated dynamically, adhering to the rules outlined above. If, by any chance, a user exceeds their allocated storage space – for instance, through asset sales or transfers to another wallet – they are provided with a 24-hour window to address the situation. Failure to do so will result in their Worlds becoming inaccessible after this grace period.
+
+To rectify the situation, users can either acquire more MANA, Decentraland NAMEs or LANDS and increase their storage capacity or undeploy existing scenes from the World Content Server to free up consumed space.
+
+### ENS Domains 
+
+In contrast, ENS Names have a fixed storage capacity of 25 MB per scene, regardless of the user's holdings. Users with ENS Names will not benefit from additional storage capacity based on MANA holdings or LAND ownership. 
+
+ENS Names are supported, opening the door for new content creators who may possess these NAMES and wish to conduct small proof of concepts or tests. 
 
 ## Publish a World
 
-Users have various options to publish content on their World:
+Users have various options to publish content on their World: 
+### 1. Using the Builder dApp (no-code)
 
-* [Builder dApp](https://builder.decentraland.org/scenes): web app and no coding skills needed.
-* Decentraland Editor: IDE for developing Decentraland scenes.
-* CLI: Advanced users can leverage the CLI for efficient content publishing.
+The Builder is the ideal choice for non-developers. Scenes can be created from scratch using the Scene Builder by simply dragging and dropping items into the scene. Smart Items can also be used for player interaction once the scene is deployed.
 
-## Using the Builder dApp (no-code)
+Creators can also use Templates, edit them, and then deploy them to their World. More templates from the Foundation will be uploaded over time. Another option is to use a scene from the Scene Pool. Anyone can get a scene from the pool, download it, and then import it into the Builder to edit it or deploy it to a World as it is. 
 
-The Builder is the go-to option for non-developers. Scenes can be created from scratch using the Scene Builder by dragging and dropping items into the scene. Smart Items can also be used for player interaction once the scene is deployed.
+When deploying a scene from the Builder, users will have the option to select either a Decentraland NAME or an ENS Domain held in their wallet.
 
-Creators can also use Templates, edit them, and then deploy them to their World. More templates from the Foundation will be uploaded over time.
-Another way is to use a scene from the Scene Pool. Anyone can get a scene from the pool, download it, and then Import it  in the Builder to edit it, or deploy it to a World as it is.
+The [Builder](https://builder.decentraland.org/worlds) also serves as the go-to place for visualizing your allocated space and monitoring how much is consumed by each Decentraland NAME or ENS Domain. Additionally, users can easily undeploy scenes to release storage space, view when their storage capacity is exceeded, and access comprehensive information about their Worlds, whether they are hosted on Decentraland NAMES or ENS Domains. 
 
-## Using the SDK and Editor
+### 2. Using the SDK and Editor
 
 The starting point for this product is having a scene that meets the size requirements mentioned above. If you wish to know more about how to create a scene, check out the [Decentraland SDK]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) documentation.
 
@@ -45,11 +73,11 @@ You need to specify under what **name** your deployment is to be made. Add the f
 }
 ```
 
-Of course, the **name** specified there needs to be owned as a Decentraland NAME token by the wallet signing the deployment (or by any wallet that has been given permission explicitly via Access Control Lists (ACL), as explained further down).
+The **name** specified en the `scene.json` can be either a Decentraland NAME or an ENS Domain and must be owned by the wallet signing the deployment (or by any wallet that has been given permission explicitly via Access Control Lists (ACL), as explained further down).
 
 Keep the following in mind:
-- The wallet signing the deployment must own the Decentraland NAME specified in the `scene.json` file
-- The total size of the scene must be less or equal to 100 MB
+- The wallet signing the deployment must own the NAME specified in the `scene.json` or have deployment permissions over the NAME
+- The total size of the scene must fit within the allowed space for the owning wallet
 - The scene has no parcel limitations (since January 2023)
 
 Some of the Worlds deployed to the Foundation's Worlds Content Server may be eligible for being listed in Decentraland Places. See [eligibility criteria]({{< ref "/content/creator/places/faq.md#worlds" >}}) for more details.
@@ -67,7 +95,7 @@ If you wish to opt-out from your Worlds being indexed in Places, you can add the
 }
 ```
 
-### Publish via the Decentraland Editor:
+### 3. Publish via the Decentraland Editor:
 
 1. Open VSCode in a Decentraland scene project.
 2. Click on the Decentraland icon on the left sidebar.
@@ -97,7 +125,7 @@ Once you run the command, you will be prompted to sign the deployment with your 
 ## Joining a World
 
 Once a scene is uploaded to the Worlds server you can access it by using the
-Decentraland Explorer with the following friendly URL `https://play.decentraland.org/world/NAME`, where `NAME` should be replaced by the Decentraland NAME to which the deployment was done to. You may use the NAME with or without the `.dcl.eth` suffix.
+Decentraland Explorer with the following friendly URL `https://play.decentraland.org/world/NAME`, where `NAME` should be replaced by the Decentraland NAME or ENS Domain to which the deployment was done to. You may use the NAME with or without the `.dcl.eth`, `.eth` suffixes.
 
 On the other hand, NAMEs also work as realms, so you can leverage the existing change realm mechanisms to access a world. One way would be by typing the `/changerealm NAME.dcl.eth` command in the chatbox and another possibility is by changing the query parameter in the Explorer URL: if your NAME is `my-name.dcl.eth` you can use the following URL to access the world: `https://play.decentraland.org/?realm=my-name.dcl.eth`
 
