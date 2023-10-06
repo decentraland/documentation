@@ -15,7 +15,7 @@ You can recognize these items because they have a lightning icon and a different
 
 <!--<screenshot>-->
 
-## Using items
+## Using items
 
 To use a smart item, simply drag it into your scene. Run a preview of your scene to interact with the item in its default way.
 
@@ -23,12 +23,12 @@ You can configure smart items to behave in custom ways. For example you can chan
 
 Some items you can find include:
 
-- Doors: By default doors are opened or closed when clicked. You can change this behavior to be triggered by buttons, trigger areas, etc.
-- Buttons: When clicked, they play sound and an animation as feedback. Add triggers to make them activate other smart items.
-- Levers: When clicked, they switch between two states. Make each position of the lever perform different triggers on other smart items.
-- Chests: Behave similar to doors, by default are opened or closed. You can place smaller items inside them.
-- Platforms: Move between two positions. Use their tween actions to control where they move to, their speed, etc.
-- Trigger area: This is an invisible item that can trigger other smart items when the player walks into its area.
+- **Doors**: By default doors are opened or closed when clicked. You can change this behavior to be triggered by buttons, trigger areas, etc.
+- **Buttons**: When clicked, they play sound and an animation as feedback. Add triggers to make them activate other smart items.
+- **Levers**: When clicked, they switch between two states. Make each position of the lever perform different triggers on other smart items.
+- **Chests**: Behave similar to doors, by default are opened or closed. You can place smaller items inside them.
+- **Platforms**: Move between two positions. Use their tween actions to control where they move to, their speed, etc.
+- **Trigger area**: This is an invisible item that can trigger other smart items when the player walks into its area.
 
 ## Configure an item
 
@@ -42,7 +42,7 @@ The **Triggers** component of a smart item can activate actions on any smart ite
 
 Triggers can also happen conditionally. For example, door smart items include two on_click triggers in its Triggers component: one opens the door if that door was closed, the other closes the door if it was open. For more details see [States and conditional logic](#states-and-conditional-logic).
 
-## Actions
+## Actions
 
 The **Actions** component lists actions that the item can carry out. Each smart item includes a set of pre-defined actions. You can customize existing actions or add new ones. The following types of actions are available:
 
@@ -83,8 +83,6 @@ To add a new trigger, click the **Add New Trigger Event** at the bottom of the T
 An action needs to be defined in the Actions component of the entity before you can trigger it. Triggers can only affect entities that have an Actions component.
 {{< /hint >}}
 
-## Invisible items
-
 ## About Playing Animations
 
 Use an action of type **play_animation** to run an animation on the 3D model of the smart item. The animation needs to already exist as part of the 3D model file. The **Select Animation** dropdown displays a list of all of the available animations in the 3D mode.
@@ -118,7 +116,7 @@ To make an item play a looping sound always, for example for ambience or music, 
 {{< hint info >}}
 **📔 Note**:
 A smart item can only play one sound at a time. Calling a second sound will interrupt any other sounds currently sounding. This also applies to sounds of the **AudioSource** component.
-If you need two sounds to sound together, consider adding an invisible entity in the same location to hold a _play_sound_ action.
+If you need two sounds to sound together, consider adding an invisible entity in the same location to hold a **play_sound** action.
 {{< /hint >}}
 
 See [sounds]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}) for more about playing sounds in Decentraland.
@@ -134,8 +132,6 @@ Tweens in rotation can also be relative or absolute. A relative rotation is adde
 Use the **Duration** field to set how long the whole movement should take, in seconds. Note that the slider goes up to 100 seconds, but you can also write a larger number manually if you need to.
 
 Tweens can follow different **Curve Types** that affect the rate of change over time. A **linear** curve (default), means that the speed of the change is constant from start to finish. There are plenty of options to chose, that draw differently shaped curves depending on if the beginning and/or end start slow, and how much. An **easeinexpo** curve starts slow and ends fast, increasing speed exponentially, on the contrary an **easeoutexpo** curve starts fast and ends slow.
-
-IMAGE
 
 {{< hint info >}}
 **💡 Tip**: Experiment with different movement curves. The differences are often subtle, but we subconsciously interpret information from how things move, like weight, friction, or even personality.
@@ -174,7 +170,7 @@ The triggerable area of an item always is shaped like a cube of 1m on each side,
 {{< hint info >}}
 **💡 Tip**: The best way to use trigger areas is through the Trigger Area smart item. This item comes with a visible shape that matches the triggerable area, and that you can easily adjust and scale to cover exactly the area you need. the item is only visible in the editor, it becomes invisible when running a preview of the scene.
 
-<img src="/images/editor/trigger.png" width="300"/>
+<img src="/images/editor/trigger.png" width="150"/>
 {{< /hint >}}
 
 ## Trigger on spawn
@@ -184,6 +180,12 @@ Triggers of type **on_spawn** activate an action when the scene is loaded. Inste
 For example, use this to make a platform move continually. Use an on*spawn trigger to activate a tween action. Then use \_on_state_change* triggers to keep it moving between two or more positions.
 
 <img src="/images/editor/on_spawn.png" width="300"/>
+
+## Invisible items
+
+Some items are not meant to be seen by the player, but are visible while editing your scene to make them easier to manage. This is the case for items like **Ambience**, **Trigger Area**, **Click Area**, etc.
+
+These items have a **Visibility** component set to invisible. This component doesn't affect the visibility of the items on the editor, but any item set to invisible isn't seen by players when running a preview.
 
 ## Making any item smart
 
