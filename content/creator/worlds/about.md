@@ -103,7 +103,7 @@ If you wish to opt-out from your Worlds being indexed in Places, you can add the
 4. Approve the transaction
 	- If you need to use Metamask on the browser, click **Open in Browser** to open this same window on a browser tab. Then approve the transaction on the Metamask browser extension.
 
-### Publish via the CLI
+### 4. Publish via the CLI
 
 To deploy a scene to a world via the CLI, you need to specify the target server in the deployment command-line and use the Worlds Content Server URL.
 
