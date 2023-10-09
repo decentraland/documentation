@@ -32,7 +32,7 @@ Decentraland NAME holders enjoy dynamic storage capacity within the Foundation W
 - LAND and ESTATE holders receive an additional 100 MB of storage capacity for each LAND they own.
 - For every 2,000 MANA held in a wallet, an additional 100 MB of storage capacity is granted.
 
-The space in the Foundation World Server can be used to host as many scenes as users want, utilizing the Decentraland NAMEs they own. For instance, a user with a storage capacity of 500 MB could deploy a single world of 300 MB, another one of 200 MB, or perhaps five worlds, each of 100 MB. This flexibility allows users to create and manage their virtual experiences efficiently within the allocated storage space.
+The space in the Foundation Worlds Content Server can be used to host as many scenes as users want, utilizing the Decentraland NAMEs they own. For instance, a user with a storage capacity of 500 MB could deploy a single world of 300 MB, another one of 200 MB, or perhaps five worlds, each of 100 MB. This flexibility allows users to create and manage their virtual experiences efficiently within the allocated storage space.
 
 The storage capacity for Decentraland NAMEs is calculated dynamically, adhering to the rules outlined above. If, by any chance, a user exceeds their allocated storage space – for instance, through asset sales or transfers to another wallet – they are provided with a 24-hour window to address the situation. Failure to do so will result in their Worlds becoming inaccessible after this grace period.
 
