@@ -36,7 +36,7 @@ The space in the Foundation Worlds Content Server can be used to host as many sc
 
 The storage capacity for Decentraland NAMEs is calculated dynamically, adhering to the rules outlined above. If, by any chance, a user exceeds their allocated storage space –for instance, through asset sales or transfers to another wallet– they are provided with a 24-hour window to address the situation. Failure to do so will result in their Worlds becoming inaccessible after this grace period.
 
-To rectify the situation, users can either acquire more MANA, Decentraland NAMEs or LANDS and increase their storage capacity or undeploy existing scenes from the World Content Server to free up consumed space.
+Once a blocking situation like this occurs, to rectify it, users can either acquire more MANA, Decentraland NAMEs or LANDS and increase their storage capacity or un-deploy existing scenes from the World Content Server to free up consumed space.
 
 ### ENS Domains 
 
