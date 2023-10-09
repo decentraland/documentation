@@ -16,7 +16,7 @@ In Decentraland, **Worlds** refer to scenes located beyond the boundaries of Gen
 - Building a portfolio of scenes
 - Serving as a Scene Preview Service for testing content before uploading it to Genesis City
 
-Worlds scenes can be associated with [Decentraland NAMEs](https://builder.decentraland.org/names), which are NAME NFTs within the DCL ecosystem, or they can also be linked to [ENS Domains](https://ens.domains/), decentralized names that can now be applied to worlds. Acquiring a Decentraland NAME requires 100 MANA and can be assigned to your avatar, LAND, or ESTATE. Alternatively, you can purchase a NAME from a previous owner in the Marketplace. These NAMEs are then used by the Decentraland Explorer to load the designated World.
+Worlds scenes can be associated with [Decentraland NAMEs](https://builder.decentraland.org/names), which are NAME NFTs within the DCL ecosystem, or they can also be linked to [ENS Domains](https://ens.domains/), decentralized names that can now be applied to worlds. Acquiring a new Decentraland NAME requires 100 MANA and can be assigned to your avatar, LAND, or ESTATE. Alternatively, you can purchase a NAME from a previous owner in the Marketplace. These NAMEs are then used by the Decentraland Explorer to load the designated World.
 
 Worlds serve as a gateway for aspiring content creators, providing an accessible entry point to the platform and the freedom to experiment with scene creation.
 
