@@ -22,7 +22,8 @@ Worlds serve as a gateway for aspiring content creators, providing an accessible
 
 ## Storage Capacity for Worlds  
 
-The storage capacity for your Worlds is an essential consideration when deploying your scenes. It's important to note that the storage capacity differs between Decentraland NAMEs and ENS Names.
+The storage capacity for your Worlds is an essential consideration when deploying your scenes. It is important to note that the storage capacity differs between Decentraland NAMEs and ENS Names.
+
 ### Decentraland NAMEs
 
 Decentraland NAME holders enjoy dynamic storage capacity within the Foundation Worlds server, which depends on their wallet holdings. The following rules govern this allocation:
