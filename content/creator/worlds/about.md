@@ -26,7 +26,7 @@ The storage capacity for your Worlds is an essential consideration when deployin
 
 ### Decentraland NAMEs
 
-Decentraland NAME holders enjoy dynamic storage capacity within the Foundation Worlds server, which depends on their wallet holdings. The following rules govern this allocation:
+Decentraland NAME holders enjoy dynamic storage capacity within the Foundation Worlds Content Server, which depends on their wallet holdings. The following rules govern this allocation:
 
 - Each Decentraland NAME grants 100 MB of storage capacity.
 - LAND and ESTATE holders receive an additional 100 MB of storage capacity for each LAND they own.
