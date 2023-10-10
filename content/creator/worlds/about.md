@@ -38,11 +38,11 @@ granted by Decentraland NAMEs and those from ENS domains.
 
 Decentraland NAME holders enjoy dynamic storage capacity within the Foundation Worlds Content Server, which depends on their wallet holdings. The following rules govern this allocation:
 
-* Each Decentraland NAME you own grants 100 MB of storage capacity (as well as a World).
-* Each Decentraland LAND parcel you own grants an additional 100 MB of storage capacity.
-* For every 2,000 MANA held in your wallet, an additional 100 MB of storage capacity is granted.
+* Each Decentraland NAME you own grants 100 Mb of storage capacity (as well as a World).
+* Each Decentraland LAND parcel you own grants an additional 100 Mb of storage capacity.
+* For every 2,000 MANA held in your wallet, an additional 100 Mb of storage capacity is granted.
 
-The space in the Foundation Worlds Content Server can be used to host scenes as large as users want, utilizing the Decentraland NAMEs they own and the combined space granted by their collective Decentraland assets. For instance, a user with multiple Worlds (granted by owning multiple NAMES) and a combined storage capacity of 500 MB could deploy one World with a 300 MB scene file and another World with a 200 MB scene file, or just one World with a 500 MB scene file. This flexibility allows users to create and manage their virtual experiences efficiently within the allocated server storage space.
+The space in the Foundation Worlds Content Server can be used to host scenes as large as users want, utilizing the Decentraland NAMEs they own and the combined space granted by their collective Decentraland assets. For instance, a user with multiple Worlds (granted by owning multiple NAMES) and a combined storage capacity of 500 Mb could deploy one World with a 300 Mb scene file and another World with a 200 Mb scene file, or just one World with a 500 Mb scene file. This flexibility allows users to create and manage their virtual experiences efficiently within the allocated server storage space.
 
 The maximum server storage capacity for your Decentraland Worlds is calculated dynamically, adhering to the rules outlined above. If, by any chance, a user exceeds their allocated storage space—for instance, through asset sales or transfers to another wallet– they will be provided with a 24-hour window to address the situation. Failure to do so will result in their Worlds becoming inaccessible after this grace period.
 
@@ -50,7 +50,7 @@ To regain access to a blocked World, users can either acquire more MANA, Decentr
 
 ### Worlds from ENS Domains
 
-In contrast, Worlds granted from ENS domains have a fixed maximum scene file size of 25 MB per World, regardless of the user’s other Decentraland holdings. Users with Worlds from ENS domains cannot increase their ENS World scene size limit by purchasing additional MANA or LAND.
+In contrast, Worlds granted from ENS domains have a fixed maximum scene file size of 25 Mb per World, regardless of the user’s other Decentraland holdings. Users with Worlds from ENS domains cannot increase their ENS World scene size limit by purchasing additional MANA or LAND.
 
 However, Worlds granted by ENS domain ownership serve as the perfect first step into realizing the creative freedom offered by Decentraland. At the same time, get your own little corner of the metaverse where you are free to begin transforming your ideas into reality.
 
@@ -89,7 +89,7 @@ The **name** specified en the `scene.json` can be either a Decentraland NAME or 
 Keep the following in mind:
 
 - The wallet signing the deployment must own the Decentraland NAME specified in the `scene.json` file
-- The total size of the scene must be less or equal to 100 MB
+- The total size of the scene must be less or equal to 100 Mb
 - The scene has no parcel limitations (since January 2023)
 
 Some of the Worlds deployed to the Foundation's Worlds Content Server may be eligible for being listed in Decentraland Places. See [eligibility criteria]({{< ref "/content/creator/places/faq.md#worlds" >}}) for more details.
@@ -147,7 +147,7 @@ If you are a LAND owner and you wish to deploy a World scene to the Genesis City
 Things to remember:
 
 * remove the `worldConfiguration` section from `scene.json`
-* the size limitation for Worlds (100 MB total size) is different from that for LAND parcels (15MB per parcel), so make sure your scene is sized correctly for deployments to Genesis City!
+* the size limitation for Worlds (100 Mb total size) is different from that for LAND parcels (15MB per parcel), so make sure your scene is sized correctly for deployments to Genesis City!
 
 ## World defaults
 
