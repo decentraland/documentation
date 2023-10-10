@@ -14,7 +14,7 @@ Once you export your wearable, you’ll have to upload it to the builder. This d
 
 #### Uploading Your File
 
-Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, check [Creating a Collection](/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your wearable, just drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is an emote or wearable. **Remember that the collection max file size is 2MB**.
+Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, check [Creating a Collection](/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your wearable, just drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is an emote or wearable. **Remember that the collection max file size is 3MB**.
 
 <img src="/images/wearables-and-emotes/uploading-wearables/01_new_item.png" width="400" />
 
@@ -84,7 +84,7 @@ You can set the price of your wearable by clicking on **_Set Price_**. This can 
 
 You could also **_Make it Free_**, which means that the price will be set as 0 MANA and the beneficiary address will be null. Know that making it free (primary sale) does not prevent it from being sold at any price as a secondary sale.
 
-Don’t forget to set the beneficiary address, which is the one that will receive the MANA from your sales. You can use any Ethereum address you like. To automatically fill in the address you are logged in with, click **_I’m the Beneficiary._**
+Don’t forget to set the beneficiary address, which is the one that will receive the MANA from your sales. You can use any Ethereum address you like. To automatically fill in the address you are logged in with, click **_I’m the Beneficiary._**
 
 <img src="/images/wearables-and-emotes/uploading-wearables/12_set_price.png" width="400"/>
 
@@ -103,7 +103,6 @@ Once you click on **_Preview_**, you will have the editor open. You can edit all
 This is a brief statement describing your item that will be displayed in the marketplace.
 
 ## **Overrides**
-
 
 Overrides determine which Wearable categories or avatar body parts your item will hide. For instance, a hat with attached hair might need to hide the _Hair_ category. A deep-sea diver helmet may require hiding head accessories like earrings, eyewear, tiaras, etc., which wouldn’t be visible. Multiple options can be selected for each override.
 

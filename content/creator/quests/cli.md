@@ -4,13 +4,33 @@ url: /creator/quests/cli
 weight: 5
 ---
 
-Use the Quests CLI to create, list, activate and deactivate your Quests.
+Use the Quests CLI to create, list, activate and deactivate your Quests. And also, you can use the CLI to open up the [Quests Manager]({{< ref "/content/creator/quests/manager.md" >}}).
 
 Before you can use the Quests CLI, ensure you have all the dependencies installed, and familiarize yourself with Decentraland's CLI. Read [Using the CLI]({{< ref "/content/creator/sdk7/getting-started/using-the-cli.md" >}}).
 
 ## Wallet signatures
 
 Before going into detail about each command, you should know that each command will require your signature (Ethereum Signature). The CLI uses this to generate the [authchain]({{< ref "/content/contributor/auth/authchain.md" >}}) and interact with the [Quests Server]({{< ref "/content/creator/quests/overview.md" >}}). To do that, the CLI will open the "Linker dApp" in your browser and ask you to sign a message.
+
+## Open up the Quest Manager
+
+The Quests Manager is a web app that allows you to create, edit and handle your quests, all via UI. With this tool you can avoid using the CLI and editing the quest JSON file manually.
+
+To open up the Quests Manager, use the following command:
+
+```bash
+$ npx @dcl/sdk-commands quests -m
+```
+
+Or
+
+```bash
+$ npx @dcl/sdk-commands quests --manager
+```
+
+A browser window will open up with the Quests Manager. If you are not logged in, you will be asked to do so. Once you are logged in, you can see all the Quests you created, edit them, activate or deactivate them. You can also create new ones using the [Quests Designer](https://github.com/decentraland/quests-desginer).
+
+For more documentation and details about the Quests Manager, read [Quests Manager]({{< ref "/content/creator/quests/manager.md" >}}).
 
 ## Create a new quest
 

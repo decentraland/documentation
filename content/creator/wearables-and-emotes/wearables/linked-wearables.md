@@ -291,7 +291,7 @@ Common errors that must be avoided when uploading batched items:
 - There's no `wearable.json` file in the zip.
 - The ZIP file doesn't have in its root directory the `wearable.json` file.
 - The `wearable.json` has an incorrect format or values.
-- The file is bigger than 2MBs. Linked Wearables have the same limitation as regular wearables in terms of size as the standard ones.
+- The file is bigger than 3MBs. Linked Wearables have the same limitation as regular wearables in terms of size as the standard ones.
 - The custom optional thumbnail image is not a png file.
 
 ## Seeing the wearables in world
@@ -503,14 +503,13 @@ In order for Linked Wearables to work, the third parties need to provide an API 
 
 1. `@GET /registry/:registry-id/address/:address/assets` - Retrieves a list of assets associated with a given address
 2. `@GET /registry/:registry-id/address/:address/assets/:id` - Validates if a DCL asset is owned by a user.
-3. `@POST /registry/:registry-id/ownership`that receives an array of data and performs validations in batch. 
+3. `@POST /registry/:registry-id/ownership`that receives an array of data and performs validations in batch.
 
 It's important to note that these endpoints are used to validate a user profile and what they are wearing, therefore there are performance SLA requirements to avoid harming the platform experience.  
 
 Considering that the client validates user profiles in batches so any delay in processing a single profile with LinkedWearables will impact the entire batch of users. This means that if the API performs slowly, it will negatively affect the overall performance of all users within that batch.
 
 To avoid damaging the platform performance all these endpoints **must have an average response below the 500ms**. This benchmark is crucial to prevent any degradation in the platform's overall performance.
-
 
 **Technical details and examples [here](https://adr.decentraland.org/adr/ADR-42).**
 
@@ -619,11 +618,11 @@ The API can do the following:
 }
 ```
 
-## Endpoint `@POST /registry/:registry-id/ownership` 
- 
-The client performs profile validations in batches, where multiple users' profiles are validated simultaneously. This endpoint is crucial to optimize performance and minimize the number of requests made to the resolver API. It enables parallel processing by sending a list of users and their corresponding items to be validated together. Its performance needs to be prioritized to prevent delays in rendering avatars within the virtual world. 
+## Endpoint `@POST /registry/:registry-id/ownership`
 
-Example **body** for the POST would be: 
+The client performs profile validations in batches, where multiple users' profiles are validated simultaneously. This endpoint is crucial to optimize performance and minimize the number of requests made to the resolver API. It enables parallel processing by sending a list of users and their corresponding items to be validated together. Its performance needs to be prioritized to prevent delays in rendering avatars within the virtual world.
+
+Example **body** for the POST would be:
 
 ```json
 [
@@ -638,8 +637,10 @@ Example **body** for the POST would be:
  ...
 ]
 ```
-and the expected response: 
-```json 
+
+and the expected response:
+
+```json
 [
  { 
    "urn_decentraland": "urn:decentraland:matic:collections-thirdparty:cryptohats:0xc04528c14c8ffd84c7c1fb6719b4a89853035cdd:1", 

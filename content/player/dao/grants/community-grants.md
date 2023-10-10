@@ -31,6 +31,7 @@ Every active grant must:
 * [Provide recognition](https://governance.decentraland.org/proposal/?id=b46b6cc0-0ff4-11ee-bb17-db98a4ce871d) of Decentraland DAO's Support
 * Be responsive to the DAO Committee and Core Unit communications.
 * Be ready to summarize how the grant funds were used every month.
+* Projects should be built or compatible with the last stable Decentraland SDK.
 
 ### 1- Core Unit  
 

@@ -54,7 +54,6 @@ GltfContainer.create(shark, {
 
 Animator.create(shark, {
 	states:[{
-			name: "swim",
 			clip: "swim",
 			playing: true,
 			loop: true
@@ -77,7 +76,7 @@ const swimAnim = Animator.getClip(sharkEntity, "swim")
 `Animator.getClip` requires the following parameters:
 
 - `entity`: The entity of the `Animator` component that you want to query.
-- `name`: The name of the animation state you want to fetch. If the animation state has no matching `name` property, it looks for matching `clip` properties.
+- `clipName`: String for the name of the clip you want to fetch.
 
 `Animator.getClip` fetches a mutable version of the animation state, so you can modify values freely on what this function returns.
 
@@ -106,7 +105,7 @@ If the entity was playing any other animations, `Animator.playSingleAnim` stops 
 `Animator.playSingleAnim` requires the following parameters:
 
 - `entity`: The entity of the `Animator` component that you want to affect.
-- `name`: String for the name of the animation state you want to play. If the animation state has no matching `name` property, it looks for matching `clip` properties.
+- `clipName`: String for the name of the clip you want to play.
 - `resetCursor`: _(optional)_ If _true_, it plays the animation from the start, even if the animation was previously paused. If _false_, it will keep playing the animation from where it was paused. Default: _true_.
 
 ```ts
@@ -131,7 +130,6 @@ Change this setting by setting the `loop` property in the `state` object.
 ```ts
 Animator.create(shark, {
 	states:[{
-			name: "bite",
 			clip: "bite",
 			playing: true,
 			loop: false
@@ -202,12 +200,10 @@ GltfContainer.create(shark, {
 
 Animator.create(shark, {
 	states:[{
-			name: "swim",
 			clip: "swim",
 			playing: true,
 			loop: true
 		}. {
-			name: "bite",
 			clip: "bite",
 			playing: true,
 			loop: true
@@ -235,7 +231,6 @@ Change the speed at which an animation is played by changing the `speed` propert
 ```ts
 Animator.create(shark, {
 	states:[{
-			name: "swim",
 			clip: "swim",
 			playing: true,
 			loop: true,
@@ -263,7 +258,6 @@ By default, `weight` is equal to _1_. The value of `weight` can't be any higher 
 ```ts
 Animator.create(shark, {
 	states:[{
-			name: "swim",
 			clip: "swim",
 			playing: true,
 			loop: true,

@@ -96,6 +96,10 @@ To stream videos from an external URL, you must add the `ALLOW_MEDIA_HOSTNAMES` 
   ]
 ```
 
+{{< hint warning >}}
+**📔 Note**: You only need to include the domain, not the full URL. Do not include the "https://" section of the URL.
+{{< /hint >}}
+
 See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
 
 To launch your own video streaming server, we recommend using a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box. See
@@ -176,6 +180,10 @@ The following file formats are supported:
 Keep in mind that a video file adds to the total size of the scene, which makes the scene take longer to download for players walking into your scene. The video size might also make you go over the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}), as you have a maximum of 15 MB per parcel to use. We recommend compressing the video as much as possible, so that it's less of a problem.
 
 We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
+
+{{< hint warning >}}
+**📔 Note**: Some video formats may be supported by the browser, but not while running a preview in the Decentraland Editor in Visual Studio Code. In these cases, you can open the scene preview in the browser as an alternative. See [this document](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_72.md#built-in-preview-for-some-audio-and-video-files) for more details on what video formats are supported in by Visual Studio code.
+{{< /hint >}}
 
 ## Start pause and stop a video
 

@@ -44,21 +44,21 @@ pointerEventsSystem.onPointerDown(
 The following list covers some of the default emotes that are available to all players, all of these are valid values for the `predefinedEmote` field:
 
 - `wave`
-- `fist_pump`
+- `fistpump`
 - `robot`
-- `raise_hand`
+- `raiseHand`
 - `clap`
 - `money`
 - `kiss`
 - `tik`
-- `hammer`,
+- `hammer`
 - `tektonik`
-- `dont_see`
-- `hands_air`
+- `dontsee`
+- `handsair`
 - `shrug`
 - `disco`
 - `dab`
-- `head_explode`
+- `headexplode`
 
 ## Custom animations
 
