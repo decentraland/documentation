@@ -20,7 +20,7 @@ Worlds are personal 3D spaces located beyond the boundaries of Genesis City. Wor
 * Testing scenes before deploying them to Genesis City
 
 You can get your own Decentraland World by getting a [Decentraland NAME](https://builder.decentraland.org/names), which are
-NAME NFTs within the DCL ecosystem, or you can get a World by having an [ENS domain](https://ens.domains), a decentralized name that is used across both Web2 & 3.
+NAME NFTs within the DCL ecosystem, or you can get a World by having an [ENS domain](https://ens.domains), a decentralized name that can be used across both Web2 & 3.
 
 Acquiring a Decentraland NAME requires 100 MANA and can be assigned to your avatar, LAND, or Estate. Alternatively, you can purchase an
 already-minted NAME from a previous owner in the Marketplace. These NAMEs are then used by the Decentraland Explorer to load the associated World.
@@ -38,7 +38,7 @@ granted by Decentraland NAMEs and those from ENS domains.
 
 Decentraland NAME holders enjoy dynamic storage capacity within the Foundation Worlds Content Server, which depends on their wallet holdings. The following rules govern this allocation:
 
-* Each Decentraland NAME you own grants 100 MB of storage capacity (as well as an additional World).
+* Each Decentraland NAME you own grants 100 MB of storage capacity (as well as a World).
 * Each Decentraland LAND parcel you own grants an additional 100 MB of storage capacity.
 * For every 2,000 MANA held in your wallet, an additional 100 MB of storage capacity is granted.
 
