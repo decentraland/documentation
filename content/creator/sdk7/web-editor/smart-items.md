@@ -13,7 +13,7 @@ Some of the items in the catalog of the Decentraland Editor are **Smart Items**.
 
 You can recognize these items because they have a lightning icon and a different colored background.
 
-<!--<screenshot>-->
+<img src="/images/editor/smart-items.jpg" width="300"/>
 
 ## Using items
 
@@ -34,13 +34,34 @@ Some items you can find include:
 
 When a smart item is selected, note that there are several fields, grouped into **components** on the right panel. Different smart items may have different components, depending on their functionality.
 
-The behavior of most items is controlled by the **Actions** and **Triggers** components. Actions are things that the item can do, for example play a sound, play an animation, move up, or become invisible. Triggers define what events make those actions happen, for example when the player clicks on the item, or walks into an area.
+The behavior of most items is controlled by the [**Actions**](#actions) and [**Triggers**](#triggers) components. Actions are things that the item can do, for example play a sound, play an animation, move up, or become invisible. Triggers define what events make those actions happen, for example when the player clicks on the item, or walks into an area.
 
 For example, in a door smart item, the **Actions** component includes "open" and "close" actions. The **Triggers** component in that item includes an "on_click" trigger that activates the "open" action when the door is clicked by the player.
 
 The **Triggers** component of a smart item can activate actions on any smart item in the scene, not just on that same smart item. For example, a button smart item can have a **Triggers** component that activates the "move up" action on a floating platform.
 
 Triggers can also happen conditionally. For example, door smart items include two on_click triggers in its Triggers component: one opens the door if that door was closed, the other closes the door if it was open. For more details see [States and conditional logic](#states-and-conditional-logic).
+
+## Interactions between items
+
+You can make items interact with each other, for example a button can open a door. To do this, one of the items needs to have at least one [Action](#actions) defined, and the other at least a [Trigger](#triggers). Since triggers can call actions in any item, you just have to select a different item on the trigger's dropdown.
+
+To make a button open a door:
+
+1. Add any button smart item and open its **Triggers** component.
+2. You'll see one default trigger event already defined that plays sound and an animation on the button itself. Click the + sign to add another action on that trigger event.
+3. Pick the smart item for the door you want to open, and the action "Open".
+
+<img src="/images/editor/button-to-door.png" width="300"/>
+
+{{< hint info >}}
+**💡 Tip**: You can also create a separate Trigger event to handle the door. Both the original and the new trigger event will be called every time the button is clicked.
+<img src="/images/editor/button-to-door2.png" width="300"/>
+{{< /hint >}}
+
+You can make any item trigger any action on any other item, as long as the action is defined. See [Triggers](#triggers) for more ways in which an action can be triggered.
+
+You can also use [states and conditional logic](#states-and-conditional-logic) to only trigger these actions if a condition is met. You can even check the state of a third item, like a power generator. For example, the button only opens the door if the state of the power generator is "On".
 
 ## Actions
 
