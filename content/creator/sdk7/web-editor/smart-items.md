@@ -17,9 +17,7 @@ You can recognize these items because they have a lightning icon and a different
 
 ## Using items
 
-To use a smart item, simply drag it into your scene. Run a preview of your scene to interact with the item in its default way.
-
-You can configure smart items to behave in custom ways. For example you can change what sounds a door plays when opened, how far a platform moves, etc. Select an item in the Editor to view all of its properties on the right.
+To use a smart item, drag it into the scene like any other item. It will already include a default behavior, run a scene preview try it out.
 
 Some items you can find include:
 
@@ -30,38 +28,47 @@ Some items you can find include:
 - **Platforms**: Move between two positions. Use their tween actions to control where they move to, their speed, etc.
 - **Trigger area**: This is an invisible item that can trigger other smart items when the player walks into its area.
 
+All smart items can be configured to behave in custom ways. For example, change what sounds a door plays when opened, how far a platform moves, etc.
+
 ## Configure an item
 
-When a smart item is selected, note that there are several fields, grouped into **components** on the right panel. Different smart items may have different components, depending on their functionality.
+Select an item in the Editor to view all of its properties on the right. Properties are grouped into [**components**]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}). Different smart items may have different components, depending on their functionality.
 
-The behavior of most items is controlled by the [**Actions**](#actions) and [**Triggers**](#triggers) components. Actions are things that the item can do, for example play a sound, play an animation, move up, or become invisible. Triggers define what events make those actions happen, for example when the player clicks on the item, or walks into an area.
+The behavior of most items is controlled by:
 
-For example, in a door smart item, the **Actions** component includes "open" and "close" actions. The **Triggers** component in that item includes an "on_click" trigger that activates the "open" action when the door is clicked by the player.
+- [**Actions**](#actions): The Actions component defines things that the item can do. For example play a sound, play an animation, move up, or become invisible.
+- [**Triggers**](#triggers): The Triggers component assigns what events make those actions happen. For example when the player clicks on the item, when the player walks into an area, or when the scene first loads.
 
-The **Triggers** component of a smart item can activate actions on any smart item in the scene, not just on that same smart item. For example, a button smart item can have a **Triggers** component that activates the "move up" action on a floating platform.
+For example, in a door smart item, the **Actions** component includes "Open" and "Close" actions. The **Triggers** component in that item includes an **on_click** trigger that activates the "Open" action when the door is clicked by the player.
 
-Triggers can also happen conditionally. For example, door smart items include two on_click triggers in its Triggers component: one opens the door if that door was closed, the other closes the door if it was open. For more details see [States and conditional logic](#states-and-conditional-logic).
+The triggers of a smart item can activate actions on any smart item in the scene, not just on that same smart item. For example, a button smart item can have a **Triggers** component that activates the "move up" action defined on the **Actions** component of a floating platform.
+
+Triggers can also happen conditionally. For example, door smart items include two **on_click** triggers in its Triggers component: one opens the door if that door was closed, the other closes the door if it was open. For more details see [States and conditional logic](#states-and-conditional-logic).
 
 ## Interactions between items
 
-You can make items interact with each other, for example a button can open a door. To do this, one of the items needs to have at least one [Action](#actions) defined, and the other at least a [Trigger](#triggers). Since triggers can call actions in any item, you just have to select a different item on the trigger's dropdown.
+Make items interact with each other.
 
-To make a button open a door:
+- One item needs to have at least one action defined in an [Actions](#actions) component
+- The other item needs a [Trigger](#triggers).
 
-1. Add any button smart item and open its **Triggers** component.
-2. You'll see one default trigger event already defined that plays sound and an animation on the button itself. Click the + sign to add another action on that trigger event.
-3. Pick the smart item for the door you want to open, and the action "Open".
+For example, to make a button open a door:
+
+1. Add any button smart item, open its **Triggers** component. It has a default trigger event that plays a sound and an animation for the button itself.
+2. Click the **+** sign next to those actions, to add another action on that trigger event.
+3. Select the smart item for the door on the first dropdown.
+4. On the second dropdown, select the "Open" action.
 
 <img src="/images/editor/button-to-door.png" width="300"/>
 
 {{< hint info >}}
-**💡 Tip**: You can also create a separate Trigger event to handle the door. Both the original and the new trigger event will be called every time the button is clicked.
+**💡 Tip**: You can also create a separate Trigger event to handle the door. Both trigger events are called every time the button is clicked.
 <img src="/images/editor/button-to-door2.png" width="300"/>
 {{< /hint >}}
 
-You can make any item trigger any action on any other item, as long as the action is defined. See [Triggers](#triggers) for more ways in which an action can be triggered.
+Any item can trigger any action from any other item, as long as the action is defined. See [Triggers](#triggers) for more ways in which an action can be triggered.
 
-You can also use [states and conditional logic](#states-and-conditional-logic) to only trigger these actions if a condition is met. You can even check the state of a third item, like a power generator. For example, the button only opens the door if the state of the power generator is "On".
+You can use [states and conditional logic](#states-and-conditional-logic) to only trigger an action if a condition is met. The condition can even check the state of a third smart item. For example, a button only opens the door if the a custom "power generator" smart item has its state set to "On".
 
 ## Actions
 
@@ -118,7 +125,7 @@ To learn more about animations and how you can create your own as part of a 3D m
 
 ## About Playing sounds
 
-Use an actions of type **play_sound** to play a sound file. You can play any sound file as long as it's imported into the scene project. The sound is heard positionally, from the location of the item, meaning they sound louder if the player is closer.
+Use an action of type **play_sound** to play a sound file. You can play any sound file as long as it's imported into the scene project. The sound is heard positionally, from the location of the item, meaning they sound louder if the player is closer.
 
 {{< hint info >}}
 **💡 Tip**: Instead of typing in the path to the sound file, you can drag it into the **Path** field from the file navigation menu on the bottom of the editor.
@@ -182,16 +189,19 @@ As an alternative, you can configure the **GLTF** component of the item, so that
 
 ## About Trigger areas
 
-To trigger an action when the player walks into or out of an area, use the **on_player_enters_area** and **on_player_leaves_area** trigger. The action will be activated every time that the player enters or leaves the area.
+To trigger an action when the player walks into or out of an area, use the Trigger Area smart item. The is is an [invisible item](#invisible-items), the orange cube is only visible in the editor, it becomes invisible when running a preview of the scene. You can easily adjust and scale the orange cube to cover exactly the area you need.
+
+<img src="/images/editor/trigger.png" width="150"/>
+
+Use the **on_player_enters_area** and **on_player_leaves_area** trigger types on the item's **Triggers** components. The actions on these trigger events are activated every time that the player enters or leaves the area.
 
 <img src="/images/editor/on_player_enters.png" width="300"/>
 
-The triggerable area of an item always is shaped like a cube of 1m on each side, it doesn't relate to the item's visible shape or its colliders. This triggerable shape can be stretched by changing the scale of the item.
-
 {{< hint info >}}
-**💡 Tip**: The best way to use trigger areas is through the Trigger Area smart item. This item comes with a visible shape that matches the triggerable area, and that you can easily adjust and scale to cover exactly the area you need. the item is only visible in the editor, it becomes invisible when running a preview of the scene.
+**📔 Note**:
+You can also use **on_player_enters_area** and **on_player_leaves_area** trigger events on any other smart item, but keep in mind that it can be challenging to know the surface covered by the trigger.
 
-<img src="/images/editor/trigger.png" width="150"/>
+The size of the triggerable area doesn't relate to the item's visible shape or its colliders, it's always a cube of 1m on each side, affected by the scale of the item.
 {{< /hint >}}
 
 ## Trigger on spawn
@@ -278,13 +288,15 @@ To use them on the Desktop [Decentraland Editor]({{< ref "/content/creator/sdk7/
 2. Paste the following lines on `index.ts`:
 
 ```ts
-import { createComponents, initComponents } from '@dcl/asset-packs'
-import { actionsSystem } from '@dcl/asset-packs/dist/src/actions'
-import { triggersSystem } from '@dcl/asset-packs/dist/src/triggers'
+import { initAssetPacks } from '@dcl/asset-packs/dist/scene-entrypoint'
 
-// This is only necessary if you are using items from asset packs
-createComponents(engine as any)
-initComponents(engine as any)
-engine.addSystem(actionsSystem)
-engine.addSystem(triggersSystem)
+// You can remove this if you don't use any asset packs
+initAssetPacks(engine, pointerEventsSystem, {
+  Animator,
+  AudioSource,
+  AvatarAttach,
+  Transform,
+  VisibilityComponent,
+  GltfContainer,
+})
 ```
