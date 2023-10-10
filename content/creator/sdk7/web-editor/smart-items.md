@@ -63,6 +63,7 @@ For example, to make a button open a door:
 
 {{< hint info >}}
 **💡 Tip**: You can also create a separate Trigger event to handle the door. Both trigger events are called every time the button is clicked.
+
 <img src="/images/editor/button-to-door2.png" width="300"/>
 {{< /hint >}}
 
@@ -161,6 +162,8 @@ Use the **Duration** field to set how long the whole movement should take, in se
 
 Tweens can follow different **Curve Types** that affect the rate of change over time. A **linear** curve (default), means that the speed of the change is constant from start to finish. There are plenty of options to chose, that draw differently shaped curves depending on if the beginning and/or end start slow, and how much. An **easeinexpo** curve starts slow and ends fast, increasing speed exponentially, on the contrary an **easeoutexpo** curve starts fast and ends slow.
 
+<img src="/images/editor/tweens.png" width="300"/>
+
 {{< hint info >}}
 **💡 Tip**: Experiment with different movement curves. The differences are often subtle, but we subconsciously interpret information from how things move, like weight, friction, or even personality.
 {{< /hint >}}
@@ -185,6 +188,8 @@ To trigger an action by clicking on an item, create an **on_click** trigger. The
 When using custom 3D models, the model must have an invisible collider geometry for it to be clickable. See [colliders]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#pointer-blocking" >}}).
 
 As an alternative, you can configure the **GLTF** component of the item, so that its **Visible Layer** of collision is set to **Pointer**.
+
+Another alternative is to add a **Click Area** smart item, to draw a cube that overlaps the item you want to click. The Click Area smart item is an [invisible item](#invisible-items).
 {{< /hint >}}
 
 ## About Trigger areas
@@ -218,7 +223,7 @@ Some items are not meant to be seen by the player, but are visible while editing
 
 These items have a **Visibility** component set to invisible. This component doesn't affect the visibility of the items on the editor, but any item set to invisible isn't seen by players when running a preview.
 
-## Making any item smart
+## Making any item smart
 
 Smart items are just regular items with an **Action** and/or **Trigger** component. You can add these components to any item in your scene. You can also import your own custom 3D models and add the same to those.
 
@@ -281,11 +286,11 @@ Use the **on_counter_change** trigger to perform an action every time the counte
 
 Smart items work out of the box on the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
 
-To use them on the Desktop [Decentraland Editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}), you may need to make a couple of adjustments. New scenes built from a fresh template already include everything necessary, also scenes exported from the Web Editor. Older scenes, or scenes built based on an older example may need the following:
+To use smart items on the Desktop [Decentraland Editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}), you may need to make minor adjustments. New scenes built from a fresh template already include everything necessary to use smart items, also scenes exported from the Web Editor. Older scenes, or scenes built based on an older example may need the following:
 
 1. Install the library `@dcl/asset-packs`. See [Manage Dependencies]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md" >}}) for how to install libraries in a project.
 
-2. Paste the following lines on `index.ts`:
+2. Paste the following lines on your scene's `index.ts` file:
 
 ```ts
 import { initAssetPacks } from '@dcl/asset-packs/dist/scene-entrypoint'
