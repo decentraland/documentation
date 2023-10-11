@@ -9,24 +9,29 @@ url: /creator/smart-items
 weight: 2
 ---
 
-Some of the items in the catalog of the Decentraland Editor are **Smart Items**. Players can interact with these,they also have configurable properties, and they can trigger actions on other smart items. For example, you can find doors that can be opened and closed, platforms that move up and down, or buttons and levers that can activate other items.
+Some of the items in the catalog of the Decentraland Editor are **Smart Items**. Players can interact with these, they have configurable properties, and they can trigger actions on other smart items. For example: doors that can be opened and closed, platforms that move up and down, or buttons and levers that can activate other items.
 
 You can recognize these items because they have a lightning icon and a different colored background.
 
 <img src="/images/editor/smart-items.jpg" width="300"/>
 
+{{< hint info >}}
+**📔 Note**:
+Smart items are available on both the web editor, and the desktop VS Studio Code extension. See [using smart items on VS Studio](#using-smart-items-on-vs-studio) if you encounter issues.
+{{< /hint >}}
+
 ## Using items
 
-To use a smart item, drag it into the scene like any other item. It will already include a default behavior, run a scene preview try it out.
+To use a smart item, drag it into the scene like any other item. All items include a default behavior, run a scene preview try it out.
 
-Some items you can find include:
+Here are some common items and their default behaviors:
 
-- **Doors**: By default doors are opened or closed when clicked. You can change this behavior to be triggered by buttons, trigger areas, etc.
-- **Buttons**: When clicked, they play sound and an animation as feedback. Add triggers to make them activate other smart items.
-- **Levers**: When clicked, they switch between two states. Make each position of the lever perform different triggers on other smart items.
-- **Chests**: Behave similar to doors, by default are opened or closed. You can place smaller items inside them.
-- **Platforms**: Move between two positions. Use their tween actions to control where they move to, their speed, etc.
-- **Trigger area**: This is an invisible item that can trigger other smart items when the player walks into its area.
+- **Doors**: Doors are opened or closed when clicked. You can change this behavior so they're opened by buttons, trigger areas, etc.
+- **Buttons**: When clicked, they play sound and an animation as feedback. Add more actions to their trigger events to activate other smart items.
+- **Levers**: When clicked, they switch between two states. Make each position of the lever perform different actions on other smart items.
+- **Chests**: They behave like doors, by default are opened or closed when clicking. You can place smaller items inside them.
+- **Platforms**: They move between two positions. Use their tween actions to control where they move to, their speed, etc.
+- **Trigger area**: An [invisible item](#invisible-items) that can trigger other smart items when the player walks into its area. See [About trigger areas](#about-trigger-areas).
 
 All smart items can be configured to behave in custom ways. For example, change what sounds a door plays when opened, how far a platform moves, etc.
 
@@ -47,22 +52,22 @@ Triggers can also happen conditionally. For example, door smart items include tw
 
 ## Interactions between items
 
-Make items interact with each other.
+To make items interact with each other:
 
-- One item needs to have at least one action defined in an [Actions](#actions) component
-- The other item needs a [Trigger](#triggers).
+- One item needs to have at least one action defined in an [Actions](#actions) component.
+- The other item needs a trigger in the [Triggers](#triggers) component that points to that action.
 
 For example, to make a button open a door:
 
 1. Add any button smart item, open its **Triggers** component. It has a default trigger event that plays a sound and an animation for the button itself.
-2. Click the **+** sign next to those actions, to add another action on that trigger event.
+2. Click the **+** sign next to **Assigned Actions**, to add a third action on that same trigger event.
 3. Select the smart item for the door on the first dropdown.
 4. On the second dropdown, select the "Open" action.
 
 <img src="/images/editor/button-to-door.png" width="300"/>
 
 {{< hint info >}}
-**💡 Tip**: You can also create a separate Trigger event to handle the door. Both trigger events are called every time the button is clicked.
+**💡 Tip**: You can instead create a new Trigger event that only handles the door's action. Both trigger events are called every time the button is clicked.
 
 <img src="/images/editor/button-to-door2.png" width="300"/>
 {{< /hint >}}
@@ -94,7 +99,7 @@ To add a new action to an item, click the **Add New Action** button at the botto
 
 ## Triggers
 
-The **Triggers** component defines triggers, these activate actions when a certain thing happens. The following types of triggers exist:
+The **Triggers** component defines trigger events, these activate actions when a certain event happens. The following types of trigger events exist:
 
 - **on_click**: When the player clicks on the item. See [About click triggers](#about-click-triggers)
 - **on_player_enters_area**: When the player enters an area. See [About trigger areas](#about-trigger-areas)
@@ -109,7 +114,7 @@ To add a new trigger, click the **Add New Trigger Event** at the bottom of the T
 
 {{< hint info >}}
 **📔 Note**:
-An action needs to be defined in the Actions component of the entity before you can trigger it. Triggers can only affect entities that have an Actions component.
+An action needs to be defined in the [Actions](#actions) component of the entity before you can trigger it. Triggers can only affect entities that have an Actions component.
 {{< /hint >}}
 
 ## About Playing Animations
@@ -120,7 +125,13 @@ The **Play Mode** field lets you select if an animation should play just once, o
 
 <img src="/images/editor/play-animation.png" width="300"/>
 
+Once the action is created, you can activate it via the [Triggers](#triggers) component of that same item or of any other item.
+
 Use the **stop_animation** action to stop all animations by the item, both looping and non-looping.
+
+{{< hint info >}}
+**💡 Tip**: To easily check the contents of a 3D model, to see what animations it includes and what they look like, a good tool is the [Babylon Sandbox](https://sandbox.babylonjs.com/). Just drag the 3D model file into the window. A dropdown with a list of its animations should appear on the bottom.
+{{< /hint >}}
 
 To learn more about animations and how you can create your own as part of a 3D model, see [Animations]({{< ref "/content/creator/3d-modeling/animations.md" >}}).
 
@@ -135,6 +146,8 @@ Use an action of type **play_sound** to play a sound file. You can play any soun
 Use the **Play Mode** field to chose if playing the sound once, or looping it continuously.
 
 <img src="/images/editor/play-sound.png" width="300"/>
+
+Once the action is created, you can activate it via the [Triggers](#triggers) component of that same item or of any other item.
 
 Use the **stop_sound** action to stop all sounds by the item, both looping and non-looping. This also stops sounds from the **AudioSource** component.
 
@@ -152,23 +165,27 @@ See [sounds]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}) for mo
 
 ## Moving, rotating, or scaling
 
-Use a **start_tween** action to change the position, scale, or rotation, of the item over a period of time. All **start_tween** actions start from the original state of the item, and change into to an ending state over a period of time.
+Use a **start_tween** action to change the **position**, **scale**, or **rotation**, of the item over a period of time. All **start_tween** actions start from the original state of the item, and change to an ending state over a period of time.
 
-Tweens in position can be relative or absolute. An absolute tween in position moves the item to a fixed position in relation to the scene. The item will move from wherever it is to that position. If it's already there, it won't appear to move. A relative tween in position moves the item a given amount from where it is now, for example a tween to a relative position of `1, 0, 0` moves the item 1 meter forward, in the direction it's currently facing. If you run the tween action a second time, the item will move another meter forward.
+Tweens in position can be relative or absolute. An absolute tween in position moves the item to a fixed position in relation to the scene. The item will move from wherever it is to that position. If it's already there, it won't appear to move. A relative tween in position moves the item a certain distance from where it is now, for example a tween to a relative position of `1, 0, 0` moves the item 1 meter forward, in the direction it's currently facing. If you run the tween action a second time, the item will move another meter forward.
 
 Tweens in rotation can also be relative or absolute. A relative rotation is added to the item's current rotation. An absolute tween in rotation will make the item face a specific direction, relative to the scene.
 
 Use the **Duration** field to set how long the whole movement should take, in seconds. Note that the slider goes up to 100 seconds, but you can also write a larger number manually if you need to.
 
+<img src="/images/editor/tweens.png" width="300"/>
+
+Once the action is created, you can activate it via the [Triggers](#triggers) component of that same item or of any other item.
+
 Tweens can follow different **Curve Types** that affect the rate of change over time. A **linear** curve (default), means that the speed of the change is constant from start to finish. There are plenty of options to chose, that draw differently shaped curves depending on if the beginning and/or end start slow, and how much. An **easeinexpo** curve starts slow and ends fast, increasing speed exponentially, on the contrary an **easeoutexpo** curve starts fast and ends slow.
 
-<img src="/images/editor/tweens.png" width="300"/>
+<img src="/images/editor/easing-functions.png" width="600"/>
 
 {{< hint info >}}
 **💡 Tip**: Experiment with different movement curves. The differences are often subtle, but we subconsciously interpret information from how things move, like weight, friction, or even personality.
 {{< /hint >}}
 
-Use **on_finish_tween** triggers in the **Triggers** component to activate an action after a tween has finished. Use [states and conditional logic](#states-and-conditional-logic) to describe a looping path for a floating platform, so that it constantly moves between two locations.
+Use **on_finish_tween** trigger events in the **Triggers** component to activate an action after a tween has finished. Use [states and conditional logic](#states-and-conditional-logic) to describe a looping path for a floating platform, so that it constantly moves between two locations.
 
 When an item performs a tween, this affects everything about the item. For example, if it changes scale, it changes the scale of its visible 3D model and also invisible collider geometry, the size of text, etc. If the item has any children (nested in the entity tree on the left), these child entities are also affected by the tween.
 
@@ -204,7 +221,7 @@ Use the **on_player_enters_area** and **on_player_leaves_area** trigger types on
 
 {{< hint info >}}
 **📔 Note**:
-You can also use **on_player_enters_area** and **on_player_leaves_area** trigger events on any other smart item, but keep in mind that it can be challenging to know the surface covered by the trigger.
+You can also use **on_player_enters_area** and **on_player_leaves_area** trigger events on any other smart item, but keep in mind that it can be challenging to know the area covered by the trigger.
 
 The size of the triggerable area doesn't relate to the item's visible shape or its colliders, it's always a cube of 1m on each side, affected by the scale of the item.
 {{< /hint >}}
@@ -213,7 +230,7 @@ The size of the triggerable area doesn't relate to the item's visible shape or i
 
 Triggers of type **on_spawn** activate an action when the scene is loaded. Instead of waiting for the player to interact with an item, the action runs right away.
 
-For example, use this to make a platform move continually. Use an on*spawn trigger to activate a tween action. Then use \_on_state_change* triggers to keep it moving between two or more positions.
+For example, use this to make a platform move continually. Use an **on_spawn** trigger to activate a tween action. Then use **on_state_change** triggers to keep it moving between two or more positions.
 
 <img src="/images/editor/on_spawn.png" width="300"/>
 
@@ -235,7 +252,7 @@ This allows for a huge amount of creative possibilities. Turn a candle into a le
 
 ## States and conditional logic
 
-Add conditions on a trigger, so that it only occurs if those conditions are met. For example, clicking on a door only activates the "open" action if it wasn't already open.
+Add conditions on a trigger, so that the action only occurs if those conditions are met. For example, clicking on a door only activates the "open" action if it wasn't already open.
 
 To add a condition, click the three dots icon next to **Trigger event** and select **Add Trigger Condition**.
 
@@ -246,7 +263,7 @@ A single trigger can include multiple conditions. Click the **+** icon to add mo
 
 ### States
 
-The **States** component is present on several smart items. It lists possible states that the smart item can be in. At any given time, the smart item is in one of these states. For example, a door can be "open" or "closed". The Open action sets the state to "open", the Close action sets the state to "closed".
+The **States** component is included on several smart items. It lists possible states that the smart item can be in. At any given time, the smart item is in one of these states. For example, a door can be "open" or "closed". The Open action sets the state to "open", the Close action sets the state to "closed".
 
 You can do the following things with states:
 
@@ -258,14 +275,14 @@ You can do the following things with states:
 
 <img src="/images/editor/set-state.png" width="300"/>
 
-3. React to changes in state via the **on_state_change** trigger.
+3. React to changes in state via the **on_state_change** trigger event.
 
 To toggle between two actions, define two triggers, each with a condition that checks a state. For example, doors have one trigger that activates the Open action, with a condition that first checks that the door's state is "closed", and another trigger that activates the Close action, with a condition that checks that the door's state is "open". Only one of the two is activated each time the player clicks on the door.
 
 <img src="/images/editor/door_conditions.png" width="300"/>
 
 {{< hint info >}}
-**💡 Tip**: Keep interactions between items simple. For example, avoid scenarios like having a button that opens a door by triggering three actions: play the door's animation, play the door's sound and change the door's state. Instead, make the button change the door's state. Then use an **on_state_change** trigger so that the door reacts with playing the animation and sound.
+**💡 Tip**: Keep interactions between items simple. For example, avoid scenarios like having a button that opens a door by triggering three actions: play the door's animation, play the door's sound and change the door's state. Instead, make the button change the door's state. Then use an **on_state_change** trigger so that the door itself handles playing the animation and sound whenever the state changes.
 {{< /hint >}}
 
 ### Counter
@@ -282,11 +299,23 @@ Use the **on_counter_change** trigger to perform an action every time the counte
 
 <img src="/images/editor/on_counter_change.png" width="300"/>
 
+On a condition, you can check if the value of the counter is
+
+- Greater than a given value
+- Lower than a given value
+- Equal to a given value
+
+{{< hint info >}}
+**💡 Tip**: To check for greater or equal, you can add two conditions to the trigger event, using the AND option.
+
+To make an action occur only once when passing a threshold, and not repeat on every increment after that, combine the counter with a **State** component. Set the State to "Done" whenever you reach the desired value, and add a condition to check this state on the trigger event.
+{{< /hint >}}
+
 ## Using smart items on VS Studio
 
-Smart items work out of the box on the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+Smart items work out of the box on the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}). They also work out of the box with fresh new scenes in the Desktop [Decentraland Editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}).
 
-To use smart items on the Desktop [Decentraland Editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}), you may need to make minor adjustments. New scenes built from a fresh template already include everything necessary to use smart items, also scenes exported from the Web Editor. Older scenes, or scenes built based on an older example may need the following:
+If using smart items on an older scene in the Desktop Decentraland Editor, or a scene built based on an older example, you may need to do the following adjustments:
 
 1. Install the library `@dcl/asset-packs`. See [Manage Dependencies]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md" >}}) for how to install libraries in a project.
 
