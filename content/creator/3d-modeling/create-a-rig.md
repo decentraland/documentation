@@ -63,7 +63,15 @@ _Press `Shift+N` to recalculate the bone roll._
 
 ## **Mirroring the Rig**
 
-You don’t have to create bones for both sides. Just do one side first and when you’ve fixed all the naming and bone orientation, select all the bones you want to mirror, click with the right mouse button and select **_Symmetrize_**. That way all the bones will be mirrored properly, with the right orientations.
+You don’t have to create bones for both sides. Just do one side first and when you’ve fixed all the naming and bone orientation, select all the bones you want to mirror, click with the right mouse button and select **_Symmetrize_**. That way all the bones will be mirrored properly, with the right orientations. Remember that in orderfor this tool to work, bones need to be named according to Blender’s naming convention. If there is a lower or upper case “L”, “R”, “left” or “right”, Blender handles the counterpart correctly.
+
+Some examples of proper naming convention:
+
+- Hand_L –> Hand_R
+- Hand.L –>Hand.R
+- HandLeft –> HandRight
+
+**All the examples above are valid, but chose only one and keep it consistent through the rig.**
 
 <img src="/images/3d-models-and-animations/create-rig/07_symmetrize.gif" width="600" />
 
