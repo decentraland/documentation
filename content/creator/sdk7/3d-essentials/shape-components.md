@@ -147,7 +147,7 @@ const primitiveEntity = engine.addEntity()
 
 MeshRenderer.setBox(primitiveEntity)
 
-Transform.ceate(primitiveEntity, {
+Transform.create(primitiveEntity, {
   position: { x: 8, y: 1, z: 8 },
   scale: { x: 4, y: 0.5, z: 4 },
 })
