@@ -69,7 +69,7 @@ Naming conventions must be strictly followed for the emotes to work! Otherwise t
 
 # **Getting Started**
 
-Before starting you animation, you will have to create a rig for the prop. If you’re not familiar with the process, check [Create a Rig](https://docs.decentraland.org/creator/emotes/avatar-rig/) for more information on how to do it.
+Before starting you animation, you will have to create a rig for the prop. If you’re not familiar with the process, check [Create a Rig](/creator/3d-modeling/create-a-rig) for more information on how to do it.
 
 Ensure that the prop object and armature have their origins located at the 0,0 location within Blender. Additionally, apply transformations to the prop object and armature, ensuring they are frozen at a scale of 1,1,1. This is crucial to prevent any potential issues with the prop's behavior when being utilized within the world or during animations.
 
@@ -98,7 +98,7 @@ If you use the slide to turn off the Influence, the prop will not maintain its p
 {{< hint info >}}
 **💡Animation Tip**
 
-Don’t leave the prop visible from the start! To avoid spoiling what’s about to happen and an abrupt transition, start the animation with the prop scaled down to 0.001 and only turn it to 1 when you want it to appear. Remember to scale back down to 0 by the end of the action. This will make the transitions much more fluid and cool! 
+Don’t leave the prop visible from the start! To avoid spoiling what’s about to happen and an abrupt transition, start the animation with the prop scaled down to 0.001 and only turn it to 1 when you want it to appear. Remember to scale back down to 0 by the end of the action. This will make the transitions much more fluid and cool!
 {{< /hint >}}
 
 # **Exporting**
@@ -128,7 +128,6 @@ _Select objects and press `Ctrl+J` to merge them together._
 
 To export **be sure to select only both Avatar and Prop Armatures with its animations and the Prop mesh**. Then go to the export glb settings and be sure to export only selected objects and untoggle unnecessary features like _Shapekeys Animation_. Always remember to enable Export Deformation Bones Only, so you don’t end up exporting unnecessary bones, like controls.
 
-
 <img src="/images/wearables-and-emotes/props-and-sound/05-export-props.png" width="600" />
 
 <img src="/images/wearables-and-emotes/props-and-sound/06-export-settings.png" width="600" />
@@ -154,7 +153,7 @@ You should **NOT** export the avatar mesh into the .glb.
 
 {{< hint info >}}
 **💡 Attention!**
-Take into consideration that audio clips used in the emote must be original IP (Intellectual Property), having the rights for reproducing and follows the [Content Policy](https://decentraland.org/content/)criteria. 
+Take into consideration that audio clips used in the emote must be original IP (Intellectual Property), having the rights for reproducing and follows the [Content Policy](https://decentraland.org/content/)criteria.
 {{< /hint >}}
 
 ## Editing Sounds
@@ -207,4 +206,3 @@ _Before rendering make sure you do a low sampling rendering to save time in your
 {{< /hint >}}
 
 Once this step is completed, use your video as a reference to create the corresponding sounds using your preferred sound editing software. **Ensure that the video sequence matches the animation's framerate of 30 frames per second (fps)**
-
