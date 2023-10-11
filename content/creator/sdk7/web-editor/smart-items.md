@@ -179,7 +179,7 @@ Once the action is created, you can activate it via the [Triggers](#triggers) co
 
 Tweens can follow different **Curve Types** that affect the rate of change over time. A **linear** curve (default), means that the speed of the change is constant from start to finish. There are plenty of options to chose, that draw differently shaped curves depending on if the beginning and/or end start slow, and how much. An **easeinexpo** curve starts slow and ends fast, increasing speed exponentially, on the contrary an **easeoutexpo** curve starts fast and ends slow.
 
-<img src="/images/editor/easing-functions.png" width="600"/>
+<img src="/images/editor/easing-functions.jpeg" width="600"/>
 
 {{< hint info >}}
 **💡 Tip**: Experiment with different movement curves. The differences are often subtle, but we subconsciously interpret information from how things move, like weight, friction, or even personality.
