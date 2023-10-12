@@ -42,6 +42,8 @@ Open your scene's _scene.json_ file and complete the following data:
 
 - **spawnPoints**: A set of coordinates inside the scene (relative to the scene's base parcel) where players spawn into. By default players spawn onto the _0,0,0_ location of the scene (bottom-left corner). Use this to start out in a specific location, set a region to prevent players from overlapping with each other when they first appear.
 
+- **tags**: A set of tags that describe your scene. These are used to help players and users explore Decentraland in a better way since they are able to find the content that they may be interested in. [See the list of available tags]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#tags" >}}).
+
 {{< hint warning >}}
 **📔 Note**:  See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for more details on how to set these parameters.
 {{< /hint >}}

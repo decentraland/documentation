@@ -352,3 +352,51 @@ executeTask(async () => {
 {{< hint warning >}}
 **📔 Note**: `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
 {{< /hint >}}
+
+## Tags
+
+You can add tags to your scene to help players and users explore Decentraland better. These tags are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're intreseted in.
+
+However, the valid tags for categorizing your scene (or place) on the Places dApp are restricted. You can only use a preselected list of tags and a maximum of 3 tags per scene.
+
+The tags you can use are:
+
+- `art`
+- `game`
+- `casino`
+- `social`
+- `music`
+- `fashion`
+- `crypto`
+- `education`
+- `shop`
+- `business`
+- `sports`
+
+For example, an Scene could be tagged as a `game` and a `casino` place by adding the following to the `scene.json`
+
+```json
+  "tags": [
+    "game",
+    "casino"
+  ],
+```
+
+After that, the scene will be listed on the Places dApp under the `game` and `casino` categories.
+
+Here is how the tag names look on the Places dApp:
+```json
+{
+  "art": "🎨 Art",
+  "game": "🕹️ Game",
+  "casino": "🃏 Casino",
+  "social": "👥 Social",
+  "music": "🎶 Music",
+  "fashion": "👠 Fashion",
+  "crypto": "🪙 Crypto",
+  "education": "📚 Education",
+  "shop": "🛍️ Shop",
+  "business": "🏢 Business",
+  "sports": "🏅 Sports",
+}
+```
