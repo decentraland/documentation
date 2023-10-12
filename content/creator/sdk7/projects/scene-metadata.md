@@ -282,13 +282,13 @@ The `rating` field is used to classify the content of your scene based on its ap
 - **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language. 
 - **🟡 `A` for Adults (18+)**: Choose this category if your scene features any of the following: intense offensive language, graphic violence, explicit sexual content and/or nudity, real money gambling, or substances like alcohol, tobacco, and drugs.
 
+<img src="/images/media/content-moderation-flag-icon.png" style="margin: 1rem; display: block;width: 200px;"/>
+
 ```json
  "scene": {
     "rating": "T"
   }
 ```
-
-<img src="/images/media/content-moderation-flag-icon.png" style="margin: 2rem auto; display: block;width: 90%;"/>
 
 ### Restricted Content
 There is a third category for scenes: 🔴 `R` for Restricted. This rating is manually applied by Content Moderators to scenes that violate Decentraland's [Content Policy](https://decentraland.org/content). Violations may include, but are not limited to:
@@ -301,7 +301,7 @@ There is a third category for scenes: 🔴 `R` for Restricted. This rating is ma
 - Promotion of terrorism/violence
 - IP/Copyright infringement
 
-Scenes with this rating won't load in the World. If your scene falls into this category, you should review and update it to comply with the [Content Policy](https://decentraland.org/content).
+Scenes with this rating won't load and no one will be able to interact with them. If your scene falls into this category, you should review and update it to comply with the [Content Policy](https://decentraland.org/content).
 
 {{< hint warning >}}
 **📔 Note**: Incorrectly categorizing your scene may result in player reports and subsequent moderation actions. For more details, refer to [Age Rating and Scene Reporting]({{< ref "/content/player/general/in-world-features/age-rating.md" >}}).
