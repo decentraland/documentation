@@ -294,9 +294,9 @@ Currently, only the following feature is handled like this:
 
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
-## Worlds Configuration 
+## Worlds Configuration
 
-When you are planning to upload yor scene to a Decentraland [World]({{< ref "/content/creator/worlds/about.md" >}}) instead of Genesis City, you must specify the NAME that you are going to target. On the other hand, if your world meets the requirements to be listed on [Places](https://places.decentraland.org/) (owning a LAND or having an active LAND rental contract), and you prefer not to list your scene, you can also configure it accordingly. 
+When you are planning to upload yor scene to a Decentraland [World]({{< ref "/content/creator/worlds/about.md" >}}) instead of Genesis City, you must specify the NAME that you are going to target. On the other hand, if your world meets the requirements to be listed on [Places](https://places.decentraland.org/) (owning a LAND or having an active LAND rental contract), and you prefer not to list your scene, you can also configure it accordingly.
 
 ```
 {
@@ -308,6 +308,7 @@ When you are planning to upload yor scene to a Decentraland [World]({{< ref "/co
   }
 }
 ```
+
 {{< hint warning >}}
 **📔 Note**: Attempting to upload a scene with the `worldConfiguration`` section to a Catalyst will result in the deployment being rejected.
 {{< /hint >}}
@@ -357,7 +358,7 @@ executeTask(async () => {
 
 You can add tags to your scene to help players and users explore Decentraland better. These tags are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're intreseted in.
 
-However, the valid tags for categorizing your scene (or place) on the Places dApp are restricted. You can only use a preselected list of tags and a maximum of 3 tags per scene.
+You can only use a preselected list of tags and a maximum of 3 tags per scene.
 
 The tags you can use are:
 
@@ -373,7 +374,7 @@ The tags you can use are:
 - `business`
 - `sports`
 
-For example, an Scene could be tagged as a `game` and a `casino` place by adding the following to the `scene.json`
+For example, an Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
 
 ```json
   "tags": [
@@ -385,6 +386,7 @@ For example, an Scene could be tagged as a `game` and a `casino` place by adding
 After that, the scene will be listed on the Places dApp under the `game` and `casino` categories.
 
 Here is how the tag names look on the Places dApp:
+
 ```json
 {
   "art": "🎨 Art",
@@ -397,6 +399,6 @@ Here is how the tag names look on the Places dApp:
   "education": "📚 Education",
   "shop": "🛍️ Shop",
   "business": "🏢 Business",
-  "sports": "🏅 Sports",
+  "sports": "🏅 Sports"
 }
 ```
