@@ -275,6 +275,38 @@ Simply add a `cameraTarget` field to the spawn point data. The value of `cameraT
 
 This example spawns a player on _5, 1, 4_ looking East at _10, 1, 4_. If the spawn position is a range, then the player's rotation will always match the indicated target. If there are multiple spawn points, each can have its own separate target.
 
+## Age Rating
+
+The `rating` field is used to classify the content of your scene based on its appropriateness for different age groups. It helps in filtering content for players. The rating is a **single-letter code** that you should add to your `scene.json` file. Here are the available options:
+
+- **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language. 
+- **🟡 `A` for Adults (18+)**: Choose this category if your scene features any of the following: intense offensive language, graphic violence, explicit sexual content and/or nudity, real money gambling, or substances like alcohol, tobacco, and drugs.
+
+```json
+ "scene": {
+    "rating": "T"
+  }
+```
+
+<img src="/images/media/content-moderation-flag-icon.png" style="margin: 2rem auto; display: block;width: 90%;"/>
+
+### Restricted Content
+There is a third category for scenes: 🔴 `R` for Restricted. This rating is manually applied by Content Moderators to scenes that violate Decentraland's [Content Policy](https://decentraland.org/content). Violations may include, but are not limited to:
+
+- Suspicious content or spam
+- Abusive or hateful content
+- Sexual or degrading content
+- Child abuse
+- Harassment or bullying
+- Promotion of terrorism/violence
+- IP/Copyright infringement
+
+Scenes with this rating won't load in the World. If your scene falls into this category, you should review and update it to comply with the [Content Policy](https://decentraland.org/content).
+
+{{< hint warning >}}
+**📔 Note**: Incorrectly categorizing your scene may result in player reports and subsequent moderation actions. For more details, refer to [Age Rating and Scene Reporting]({{< ref "/content/players/general/in-world-features/age-rating.md" >}}).
+{{< /hint >}}
+
 ## Required Permissions
 
 The `requiredPermissions` property manages various controlled features that could be used in an abusive way and damage a player's experience.
