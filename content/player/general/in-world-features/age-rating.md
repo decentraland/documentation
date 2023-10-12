@@ -51,7 +51,7 @@ There is a third category for scenes: 🔴 `R` for Restricted. Content under thi
 - IP/Copyright infringement
 
 ### Scene Reporting
-Scene creators set the age rating during the publishing process. If you encounter a scene that seems incorrectly rated, you can report it for review by the Content Moderation team, currently managed by the Decentraland Foundation support team.
+Scene creators are responsible for setting the age rating when they publish a scene. If you encounter a scene that seems incorrectly rated, you can report it for review by the Content Moderation team, currently managed by the Decentraland Foundation support team.
 
 Here's how:
 
@@ -61,15 +61,15 @@ Here's how:
 
 2) Review the **Current Rate** of the scene.
 
-3) Select in which category you thing it belongs.
+3) Choose the category that you believe the scene belongs to.
 
 <img src="/images/media/content-moderation-categories.png" style="margin: 1rem; display: block;width: 300px;"/>
 
-4) Select which issues you found in the scene.
+4) Identify the issues present in the scene.
 
 <img src="/images/media/content-moderation-options.png" style="margin: 1rem; display: block;width: 300px"/>
 
-5) Submit the report
+5) Submit the report.
 
 <img src="/images/media/content-moderation-report-sent.png" style="margin: 1rem; display: block;width: 300px;"/>
 
