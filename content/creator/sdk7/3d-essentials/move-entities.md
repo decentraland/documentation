@@ -9,7 +9,7 @@ url: /creator/development-guide/sdk7/move-entities/
 weight: 7
 ---
 
-To move, rotate or resize an entity in your scene over a period of time, use the `Tween` component. The engine carries out the desired transformation smoothly, showing updates on every frame until the specified duration is over.
+To move, rotate or resize an entity in your scene over a period of time, use the `Tween` component. The engine carries out the desired transformation smoothly, showing updates on every frame until the specified duration is over. Also the `Transform` component values of the affected entity gets updated in real time in case it's needed to make proximity checks in the scene code.
 
 ## Move between two points
 
@@ -280,6 +280,37 @@ TweenSequence.create(myEntity, {
 ```
 
 ### Keep spinning
+
+A basic "constant rotation" can be achieved with the `TweenSequence` component as well.
+
+```ts
+const myEntity = engine.addEntity()
+  Transform.create(myEntity, {
+    position: Vector3.create(8, 1, 8),
+  })
+  MeshRenderer.setBox(myEntity)
+  Tween.create(myEntity, {
+    mode: Tween.Mode.Rotate({
+      start: Quaternion.fromEulerDegrees(0, 0, 0),
+      end: Quaternion.fromEulerDegrees(0, 180, 0)
+    }),
+    duration: 700,
+    easingFunction: EasingFunction.EF_LINEAR
+  })
+  TweenSequence.create(myEntity, {
+    loop: TweenLoop.TL_RESTART,
+    sequence: [
+      {
+        mode: Tween.Mode.Rotate({
+          start: Quaternion.fromEulerDegrees(0, 180, 0),
+          end: Quaternion.fromEulerDegrees(0, 360, 0)
+        }),
+        duration: 700,
+        easingFunction: EasingFunction.EF_LINEAR
+      }
+    ]
+  })
+```
 
 ## On tween finished
 
