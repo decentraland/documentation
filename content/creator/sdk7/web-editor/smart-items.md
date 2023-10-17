@@ -102,8 +102,8 @@ To add a new action to an item, click the **Add New Action** button at the botto
 The **Triggers** component defines trigger events, these activate actions when a certain event happens. The following types of trigger events exist:
 
 - **On Click**: When the player clicks on the item. See [About click triggers](#about-click-triggers)
-- **On Player Enters Area**: When the player enters an area. See [About trigger areas](#about-trigger-areas)
-- **On Player Leaves Area**: When the player leaves an area. See [About trigger areas](#about-trigger-areas)
+- **Player Enters Area**: When the player enters an area. See [About trigger areas](#about-trigger-areas)
+- **Player Leaves Area**: When the player leaves an area. See [About trigger areas](#about-trigger-areas)
 - **On Spawn**: When the scene starts, or the item is spawned in the scene. See [Trigger on spawn](#trigger-on-spawn)
 
 See [states and conditional logic](#states-and-conditional-logic) to learn about other triggers related to logic conditions.
@@ -185,7 +185,7 @@ Tweens can follow different **Curve Types** that affect the rate of change over 
 **💡 Tip**: Experiment with different movement curves. The differences are often subtle, but we subconsciously interpret information from how things move, like weight, friction, or even personality.
 {{< /hint >}}
 
-Use **On Finish Tween** trigger events in the **Triggers** component to activate an action after a tween has finished. Use [states and conditional logic](#states-and-conditional-logic) to describe a looping path for a floating platform, so that it constantly moves between two locations.
+Use **On Tween End** trigger events in the **Triggers** component to activate an action after a tween has finished. Use [states and conditional logic](#states-and-conditional-logic) to describe a looping path for a floating platform, so that it constantly moves between two locations.
 
 When an item performs a tween, this affects everything about the item. For example, if it changes scale, it changes the scale of its visible 3D model and also invisible collider geometry, the size of text, etc. If the item has any children (nested in the entity tree on the left), these child entities are also affected by the tween.
 
