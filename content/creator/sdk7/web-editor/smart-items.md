@@ -252,7 +252,7 @@ This allows for a huge amount of creative possibilities. Turn a candle into a le
 
 ## States and conditional logic
 
-Add conditions on a trigger, so that the action only occurs if those conditions are met. For example, clicking on a door only activates the "open" action if it wasn't already open.
+Add conditions on a trigger, so that the action only occurs if those conditions are met. For example, clicking on a door only activates the "Open" action if it wasn't already open.
 
 To add a condition, click the three dots icon next to **Trigger event** and select **Add Trigger Condition**.
 
@@ -263,7 +263,7 @@ A single trigger can include multiple conditions. Click the **+** icon to add mo
 
 ### States
 
-The **States** component is included on several smart items. It lists possible states that the smart item can be in. At any given time, the smart item is in one of these states. For example, a door can be "open" or "closed". The Open action sets the state to "open", the Close action sets the state to "closed".
+The **States** component is included on several smart items. It lists possible states that the smart item can be in. At any given time, the smart item is in one of these states. For example, a door can be _Open_ or _Closed_. The Open action sets the state to _Open_, the Close action sets the state to _Closed_.
 
 You can do the following things with states:
 
@@ -277,9 +277,15 @@ You can do the following things with states:
 
 3. React to changes in state via the **On State Change** trigger event.
 
-To toggle between two actions, define two triggers, each with a condition that checks a state. For example, doors have one trigger that activates the Open action, with a condition that first checks that the door's state is "closed", and another trigger that activates the Close action, with a condition that checks that the door's state is "open". Only one of the two is activated each time the player clicks on the door.
+To toggle between two actions, define two triggers, each with a condition that checks a state. For example, doors have one trigger that activates the Open action, with a condition that first checks that the door's state is _Closed_, and another trigger that activates the Close action, with a condition that checks that the door's state is _Open_. Only one of the two is activated each time the player clicks on the door.
 
 <img src="/images/editor/door_conditions.png" width="300"/>
+
+You can add as many states as you want to a smart item. Just click the **Add New State** button to add another one to the list.
+
+<img src="/images/editor/new_state.png" width="300"/>
+
+One of the states is selected as the default, the item will always start in this state when the scene runs. You can assign a different state to be the default by clicking the three dots next to another one of the states and selecting **Set as Default**.
 
 {{< hint info >}}
 **💡 Tip**: Keep interactions between items simple. For example, avoid scenarios like having a button that opens a door by triggering three actions: play the door's animation, play the door's sound and change the door's state. Instead, make the button change the door's state. Then use an **On State Change** trigger so that the door itself handles playing the animation and sound whenever the state changes.
