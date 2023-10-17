@@ -44,11 +44,11 @@ The behavior of most items is controlled by:
 - [**Actions**](#actions): The Actions component defines things that the item can do. For example play a sound, play an animation, move up, or become invisible.
 - [**Triggers**](#triggers): The Triggers component assigns what events make those actions happen. For example when the player clicks on the item, when the player walks into an area, or when the scene first loads.
 
-For example, in a door smart item, the **Actions** component includes "Open" and "Close" actions. The **Triggers** component in that item includes an **on_click** trigger that activates the "Open" action when the door is clicked by the player.
+For example, in a door smart item, the **Actions** component includes "Open" and "Close" actions. The **Triggers** component in that item includes an **On Click** trigger that activates the "Open" action when the door is clicked by the player.
 
 The triggers of a smart item can activate actions on any smart item in the scene, not just on that same smart item. For example, a button smart item can have a **Triggers** component that activates the "move up" action defined on the **Actions** component of a floating platform.
 
-Triggers can also happen conditionally. For example, door smart items include two **on_click** triggers in its Triggers component: one opens the door if that door was closed, the other closes the door if it was open. For more details see [States and conditional logic](#states-and-conditional-logic).
+Triggers can also happen conditionally. For example, door smart items include two **On Click** triggers in its Triggers component: one opens the door if that door was closed, the other closes the door if it was open. For more details see [States and conditional logic](#states-and-conditional-logic).
 
 ## Interactions between items
 
@@ -80,14 +80,14 @@ You can use [states and conditional logic](#states-and-conditional-logic) to onl
 
 The **Actions** component lists actions that the item can carry out. Each smart item includes a set of pre-defined actions. You can customize existing actions or add new ones. The following types of actions are available:
 
-- **play_animation**: Plays an animation in the 3D model of the item. See [About playing animations](#about-playing-animations)
-- **stop_animation**: Stops all animations being played by the 3D model of the item.
-- **play_sound**: Plays a sound from a file, at the location of the item. See [About playing sounds](#about-playing-sounds)
-- **stop_sound**: Stops all sounds playing from the item.
-- **start_tween**: Makes a gradual change in position, rotation or scale over a given period. See [Moving, rotating or scaling](#moving-rotating-or-scaling).
-- **change_visibility**: Makes the item visible or invisible.
-- **attach_to_player**: Sets the item as a child of the player's avatar. For example to carry it on their hand or above their head.
-- **detach_from_player**: Detaches the item from the player's avatar.
+- **Play Animation**: Plays an animation in the 3D model of the item. See [About playing animations](#about-playing-animations)
+- **Stop Animation**: Stops all animations being played by the 3D model of the item.
+- **Play Sound**: Plays a sound from a file, at the location of the item. See [About playing sounds](#about-playing-sounds)
+- **Stop Sound**: Stops all sounds playing from the item.
+- **Start Tween**: Makes a gradual change in position, rotation or scale over a given period. See [Moving, rotating or scaling](#moving-rotating-or-scaling).
+- **Change Visibility**: Makes the item visible or invisible.
+- **Attach To Player**: Sets the item as a child of the player's avatar. For example to carry it on their hand or above their head.
+- **Detach From Player**: Detaches the item from the player's avatar.
 
 See [states and conditional logic](#states-and-conditional-logic) to learn about other actions related to logic conditions.
 
@@ -101,10 +101,10 @@ To add a new action to an item, click the **Add New Action** button at the botto
 
 The **Triggers** component defines trigger events, these activate actions when a certain event happens. The following types of trigger events exist:
 
-- **on_click**: When the player clicks on the item. See [About click triggers](#about-click-triggers)
-- **on_player_enters_area**: When the player enters an area. See [About trigger areas](#about-trigger-areas)
-- **on_player_leaves_area**: When the player leaves an area. See [About trigger areas](#about-trigger-areas)
-- **on_spawn**: When the scene starts, or the item is spawned in the scene. See [Trigger on spawn](#trigger-on-spawn)
+- **On Click**: When the player clicks on the item. See [About click triggers](#about-click-triggers)
+- **On Player Enters Area**: When the player enters an area. See [About trigger areas](#about-trigger-areas)
+- **On Player Leaves Area**: When the player leaves an area. See [About trigger areas](#about-trigger-areas)
+- **On Spawn**: When the scene starts, or the item is spawned in the scene. See [Trigger on spawn](#trigger-on-spawn)
 
 See [states and conditional logic](#states-and-conditional-logic) to learn about other triggers related to logic conditions.
 
@@ -119,7 +119,7 @@ An action needs to be defined in the [Actions](#actions) component of the entity
 
 ## About Playing Animations
 
-Use an action of type **play_animation** to run an animation on the 3D model of the smart item. The animation needs to already exist as part of the 3D model file. The **Select Animation** dropdown displays a list of all of the available animations in the 3D mode.
+Use an action of type **Play Animation** to run an animation on the 3D model of the smart item. The animation needs to already exist as part of the 3D model file. The **Select Animation** dropdown displays a list of all of the available animations in the 3D mode.
 
 The **Play Mode** field lets you select if an animation should play just once, or if it should keep looping.
 
@@ -127,7 +127,7 @@ The **Play Mode** field lets you select if an animation should play just once, o
 
 Once the action is created, you can activate it via the [Triggers](#triggers) component of that same item or of any other item.
 
-Use the **stop_animation** action to stop all animations by the item, both looping and non-looping.
+Use the **Stop Animation** action to stop all animations by the item, both looping and non-looping.
 
 {{< hint info >}}
 **💡 Tip**: To easily check the contents of a 3D model, to see what animations it includes and what they look like, a good tool is the [Babylon Sandbox](https://sandbox.babylonjs.com/). Just drag the 3D model file into the window. A dropdown with a list of its animations should appear on the bottom.
@@ -137,7 +137,7 @@ To learn more about animations and how you can create your own as part of a 3D m
 
 ## About Playing sounds
 
-Use an action of type **play_sound** to play a sound file. You can play any sound file as long as it's imported into the scene project. The sound is heard positionally, from the location of the item, meaning they sound louder if the player is closer.
+Use an action of type **Play Sound** to play a sound file. You can play any sound file as long as it's imported into the scene project. The sound is heard positionally, from the location of the item, meaning they sound louder if the player is closer.
 
 {{< hint info >}}
 **💡 Tip**: Instead of typing in the path to the sound file, you can drag it into the **Path** field from the file navigation menu on the bottom of the editor.
@@ -149,7 +149,7 @@ Use the **Play Mode** field to chose if playing the sound once, or looping it co
 
 Once the action is created, you can activate it via the [Triggers](#triggers) component of that same item or of any other item.
 
-Use the **stop_sound** action to stop all sounds by the item, both looping and non-looping. This also stops sounds from the **AudioSource** component.
+Use the **Stop Sound** action to stop all sounds by the item, both looping and non-looping. This also stops sounds from the **AudioSource** component.
 
 To make an item play a looping sound always, for example for ambience or music, it's easier to use the **AudioSource** component, instead of using Actions and Triggers. This component only requires that you provide a path to a file, and check the boxes **Start Playing** and **Loop**.
 
@@ -158,14 +158,14 @@ To make an item play a looping sound always, for example for ambience or music, 
 {{< hint info >}}
 **📔 Note**:
 A smart item can only play one sound at a time. Calling a second sound will interrupt any other sounds currently sounding. This also applies to sounds of the **AudioSource** component.
-If you need two sounds to sound together, consider adding an invisible entity in the same location to hold a **play_sound** action.
+If you need two sounds to sound together, consider adding an invisible entity in the same location to hold a **Play Sound** action.
 {{< /hint >}}
 
 See [sounds]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}) for more about playing sounds in Decentraland.
 
 ## Moving, rotating, or scaling
 
-Use a **start_tween** action to change the **position**, **scale**, or **rotation**, of the item over a period of time. All **start_tween** actions start from the original state of the item, and change to an ending state over a period of time.
+Use a **Start Tween** action to change the **position**, **scale**, or **rotation**, of the item over a period of time. All **Start Tween** actions start from the original state of the item, and change to an ending state over a period of time.
 
 Tweens in position can be relative or absolute. An absolute tween in position moves the item to a fixed position in relation to the scene. The item will move from wherever it is to that position. If it's already there, it won't appear to move. A relative tween in position moves the item a certain distance from where it is now, for example a tween to a relative position of `1, 0, 0` moves the item 1 meter forward, in the direction it's currently facing. If you run the tween action a second time, the item will move another meter forward.
 
@@ -185,7 +185,7 @@ Tweens can follow different **Curve Types** that affect the rate of change over 
 **💡 Tip**: Experiment with different movement curves. The differences are often subtle, but we subconsciously interpret information from how things move, like weight, friction, or even personality.
 {{< /hint >}}
 
-Use **on_finish_tween** trigger events in the **Triggers** component to activate an action after a tween has finished. Use [states and conditional logic](#states-and-conditional-logic) to describe a looping path for a floating platform, so that it constantly moves between two locations.
+Use **On Finish Tween** trigger events in the **Triggers** component to activate an action after a tween has finished. Use [states and conditional logic](#states-and-conditional-logic) to describe a looping path for a floating platform, so that it constantly moves between two locations.
 
 When an item performs a tween, this affects everything about the item. For example, if it changes scale, it changes the scale of its visible 3D model and also invisible collider geometry, the size of text, etc. If the item has any children (nested in the entity tree on the left), these child entities are also affected by the tween.
 
@@ -196,7 +196,7 @@ Each entity can only perform one tween at a time. For example, you can´t make a
 
 ## About click triggers
 
-To trigger an action by clicking on an item, create an **on_click** trigger. The action will be activated every time that the player clicks on the entity.
+To trigger an action by clicking on an item, create an **On Click** trigger. The action will be activated every time that the player clicks on the entity.
 
 <img src="/images/editor/on_click.png" width="300"/>
 
@@ -215,22 +215,22 @@ To trigger an action when the player walks into or out of an area, use the Trigg
 
 <img src="/images/editor/trigger.png" width="150"/>
 
-Use the **on_player_enters_area** and **on_player_leaves_area** trigger types on the item's **Triggers** components. The actions on these trigger events are activated every time that the player enters or leaves the area.
+Use the **On Player Enters Area** and **On Player Leaves Area** trigger types on the item's **Triggers** components. The actions on these trigger events are activated every time that the player enters or leaves the area.
 
 <img src="/images/editor/on_player_enters.png" width="300"/>
 
 {{< hint info >}}
 **📔 Note**:
-You can also use **on_player_enters_area** and **on_player_leaves_area** trigger events on any other smart item, but keep in mind that it can be challenging to know the area covered by the trigger.
+You can also use **On Player Enters Area** and **On Player Leaves Area** trigger events on any other smart item, but keep in mind that it can be challenging to know the area covered by the trigger.
 
 The size of the triggerable area doesn't relate to the item's visible shape or its colliders, it's always a cube of 1m on each side, affected by the scale of the item.
 {{< /hint >}}
 
 ## Trigger on spawn
 
-Triggers of type **on_spawn** activate an action when the scene is loaded. Instead of waiting for the player to interact with an item, the action runs right away.
+Triggers of type **On Spawn** activate an action when the scene is loaded. Instead of waiting for the player to interact with an item, the action runs right away.
 
-For example, use this to make a platform move continually. Use an **on_spawn** trigger to activate a tween action. Then use **on_state_change** triggers to keep it moving between two or more positions.
+For example, use this to make a platform move continually. Use an **On Spawn** trigger to activate a tween action. Then use **On State Change** triggers to keep it moving between two or more positions.
 
 <img src="/images/editor/on_spawn.png" width="300"/>
 
@@ -271,18 +271,18 @@ You can do the following things with states:
 
 <img src="/images/editor/condition.png" width="300"/>
 
-2. Change a state via the **set_state** action.
+2. Change a state via the **Set State** action.
 
 <img src="/images/editor/set-state.png" width="300"/>
 
-3. React to changes in state via the **on_state_change** trigger event.
+3. React to changes in state via the **On State Change** trigger event.
 
 To toggle between two actions, define two triggers, each with a condition that checks a state. For example, doors have one trigger that activates the Open action, with a condition that first checks that the door's state is "closed", and another trigger that activates the Close action, with a condition that checks that the door's state is "open". Only one of the two is activated each time the player clicks on the door.
 
 <img src="/images/editor/door_conditions.png" width="300"/>
 
 {{< hint info >}}
-**💡 Tip**: Keep interactions between items simple. For example, avoid scenarios like having a button that opens a door by triggering three actions: play the door's animation, play the door's sound and change the door's state. Instead, make the button change the door's state. Then use an **on_state_change** trigger so that the door itself handles playing the animation and sound whenever the state changes.
+**💡 Tip**: Keep interactions between items simple. For example, avoid scenarios like having a button that opens a door by triggering three actions: play the door's animation, play the door's sound and change the door's state. Instead, make the button change the door's state. Then use an **On State Change** trigger so that the door itself handles playing the animation and sound whenever the state changes.
 {{< /hint >}}
 
 ### Counter
@@ -291,11 +291,11 @@ Use the **Counter** component to keep track of a number, which can change as the
 
 When an entity has a Counter component, you can run the following actions on it:
 
-- **increment_counter**: Increment the value of the counter by 1.
-- **decrease_counter**: Decrease the value of the counter by 1.
-- **set_counter**: Set the value of the counter to a specific number, for example to set it back to 0.
+- **Increment Counter**: Increment the value of the counter by 1.
+- **Decrease Counter**: Decrease the value of the counter by 1.
+- **Set Counter**: Set the value of the counter to a specific number, for example to set it back to 0.
 
-Use the **on_counter_change** trigger to perform an action every time the counter's value changes. Add a condition to this trigger so that it only activates after passing a certain threshold.
+Use the **On Counter Change** trigger to perform an action every time the counter's value changes. Add a condition to this trigger so that it only activates after passing a certain threshold.
 
 <img src="/images/editor/on_counter_change.png" width="300"/>
 
