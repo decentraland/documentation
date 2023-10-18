@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 
+    NOTE:
+    Adding the `expanded` class to any `cover` div will make the box covered by default. In the
+    current version, all boxes start out visible. See also `main.js` next to this file, where the
+    cover click behavior is currently disabled. 
+  -->
+
+  <div class="architecture">
+    <div class="catalyst covered box palette-blue">
+      <div class="cover">
+        <h1>Decentraland Services</h1>
+        <p>Servers in a decentralized peer network</p>
+      </div>
+      
+      <div class="content">
+        <div class="comms box">
+          <div class="final content" onclick="onBoxClick('catalyst:comms')">
+            <h2>Comms</h2>
+            <p>Real-time social servers</p>
+          </div>
+        </div>
+
+        <div class="lambdas box">
+          <div class="final content" onclick="onBoxClick('catalyst:lambdas')">
+            <h2>Lambdas</h2>
+            <p>Collection of useful APIs</p>
+          </div>
+        </div>
+
+        <div class="ipfs box">
+          <div class="final content" onclick="onBoxClick('catalyst:ipfs')">
+            <h2>Content</h2>
+            <p>Replicated file system</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="explorer covered box palette-red">
+
+      <div class="content">
+        <div class="engine covered box">
+
+          <div class="content">
+            <div class="renderer box">
+              <div class="final content" onclick="onBoxClick('explorer:renderer')">
+                <h3>Renderer</h3>
+                <p>3D Graphics and Events</p>
+              </div>
+            </div>
+
+            <div class="state box">
+              <div class="final content" onclick="onBoxClick('explorer:state')">
+                <h3>State</h3>
+                <p>Entities and Components</p>
+              </div>
+            </div>
+
+            <div class="input box">
+              <div class="final content" onclick="onBoxClick('explorer:input')">
+                <h3>Input System</h3>
+                <p>Keyboard, Controller or Headset</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cover">
+            <h2>Game Engine</h2>
+            <p>Interface & Physics</p>
+          </div>
+        </div>
+
+        <div class="runtime covered box">
+
+          <div class="content">
+            <div class="library box">
+              <div class="final content" onclick="onBoxClick('runtime:library')">
+                <h3>Library</h3>
+                <p>Runtime-provided modules</p>
+              </div>
+            </div>
+
+            <div class="first scene box">
+              <div class="final content" onclick="onBoxClick('runtime:scene')">
+                <h3>Scene 1</h3>
+                <p>Code & assets</p>
+              </div>
+            </div>
+
+            <div class="second scene box">
+              <div class="final content" onclick="onBoxClick('runtime:scene')">
+                <h3>Scene 2</h3>
+                <p>Code & assets</p>
+              </div>
+            </div>
+
+            <div class="nth scene box">
+              <div class="final content" onclick="onBoxClick('runtime:scene')">
+                <h3>Scene <em>n</em></h3>
+                <p>Code & assets</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cover">
+            <h2>Scene Runtime</h2>
+            <p>Sandbox for community content</p>
+          </div>
+        </div>
+
+        <div class="comms box">
+          <div class="final content" onclick="onBoxClick('explorer:comms')">
+            <h2>Comms System</h2>
+            <p>Real-time social features</p>
+          </div>
+        </div>
+
+        <div class="files box">
+          <div class="final content" onclick="onBoxClick('explorer:files')">
+            <h2>Content System</h2>
+            <p>File downloader and cache</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover">
+        <h1>World Explorer</h1>
+        <p>Application for players</p>
+      </div>
+    </div>
+
+    <div class="cli covered box palette-green">
+      <div class="content">
+        <div class="compiler box">
+          <div class="final content" onclick="onBoxClick('cli:compiler')">
+            <h2>Compiler</h2>
+            <p>Code & asset processor</p>
+          </div>
+        </div>
+
+        <div class="compiler box">
+          <div class="final content" onclick="onBoxClick('cli:uploader')">
+            <h2>Uploader</h2>
+            <p>Content deployments</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover">
+        <h1>CLI</h1>
+        <p>Program for creators</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

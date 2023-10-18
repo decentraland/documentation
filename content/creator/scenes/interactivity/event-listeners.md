@@ -278,7 +278,7 @@ Event data includes only the ID of the player and a version number for that avat
 **💡 Tip**:  When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
 {{< /hint >}}
 
-When testing in preview, run the scene with `dcl start --web3` so that you connect with your wallet. Otherwise, you will be using a random avatar.
+When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 
 {{< hint warning >}}
 **📔 Note**:  This event is only triggered by changes to the current player, not by changes on the profiles of other nearby players.

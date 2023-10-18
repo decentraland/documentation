@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
-weight: 5
+weight: 7
 title: Explorer Renderer
 ---

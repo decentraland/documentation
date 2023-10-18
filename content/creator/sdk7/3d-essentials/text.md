@@ -42,7 +42,7 @@ TextShape.create(sign,{
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**:  `TextShape` components aren't clickable. `PointerHoverFeedback` comopnents aren't activated when used on entites that have a `TextShape` component.
+**📔 Note**:  `TextShape` components aren't clickable. `PointerEvents` comopnents aren't activated when used on entites that have a `TextShape` component.
 {{< /hint >}}
 
 ## Change the text value

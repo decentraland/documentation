@@ -73,10 +73,6 @@ Sound plays a double key role, don’t miss out on using it! On one hand it’s 
 
 Keep in mind that some players might be playing with their sound turned off. If you’re using sound as a way to provide scene instructions or a key piece in the game mechanics, try to also provide something visual to hint in the same direction. For example, you could display text at the bottom of the UI to accompany these sounds, like subtitles in a movie.
 
-#### Smart items
-
-We highly recommend that you read [this blog post](https://decentraland.org/blog/tutorials/tips-for-building-with-smart-items/) that shares valuable information about smart items that can aid in the usability and clarity of your scene.
-
 ## User Interface
 
 This section is aimed at helping you construct a narrative through the design of your scene that drives the player’s focus onto the elements that matter the most. Making good use of the tools described here can make their experience a lot more immersive and successful.

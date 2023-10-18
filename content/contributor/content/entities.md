@@ -12,7 +12,7 @@ The main file of an entity is the _manifest_, a JSON document describing the ent
 
 Since they are immutable, entities can't be updated in the traditional sense. Instead, they are replaced by new entities discoverable using the same stable [pointer]({{< relref "pointers" >}}). The newest version of an entity is said to be _active_.
 
-Every entitiy is signed by an owner (who is associated to an Ethereum account). The owner can later use the same signing keys to upload a new version of the entity and indicate that it replaces the old one. Content servers validate these signatures before accepting new entities, whether they come straight from a client or were relayed by another server.
+Every entity is signed by an owner (who is associated to an Ethereum account). The owner can later use the same signing keys to upload a new version of the entity and indicate that it replaces the old one. Content servers validate these signatures before accepting new entities, whether they come straight from a client or were relayed by another server.
 
 You can look at actually deployed entities in the [practice]({{< relref "practice" >}}) section.
 
@@ -25,6 +25,7 @@ There are five types of entities:
 - [**Wearables**]({{< relref "entity-types/wearables" >}}): clothing and items that players can add to their avatars.
 - [**Emotes**]({{< relref "entity-types/emotes" >}}): animations that a player's avatar can perform.
 - [**Stores**]({{< relref "entity-types/stores" >}}): marketplace sites for wearables and emotes that players can purchase.
+- [**Outfits**]({{< relref "entity-types/outfits" >}}): saved outfits for a specific player.
 
 All types follow the same procedures for creation, identification, ownership and hosting.
 
@@ -34,7 +35,7 @@ Every entity has certain common properties in its manifest, applicable to all ty
 
 | Field | Value |
 | ----- | --- |
-| `type` | One of `scene`, `profile`, `wearable`, `emote` or `store`.
+| `type` | One of `scene`, `profile`, `wearable`, `emote`, `store` or `outfits`.
 | `pointers` | An array of [pointers]({{< relref "pointers" >}}) associated to this entity.
 | `timestamp` | The Unix UTC timestamp when this entity was uploaded.
 | `content` | An array of references to additional [files]({{< relref "filesystem" >}}) in the entity's package.
@@ -106,9 +107,10 @@ The lifespan of a file is tied to the entity that contains it. For active entiti
 
 ## Ownership and Authentication {#ownership}
 
-{{< wip >}}
+To prove ownership and authorize actions around entities, the [authentication chain]({{< relref "../auth/authchain" >}}) mechanism is used.
 
-The [`decentraland-crypto`](https://github.com/decentraland/decentraland-crypto) repository contains the functionality for authenticating entities.
+The [`decentraland-crypto`](https://github.com/decentraland/decentraland-crypto) repository contains the implementation of all cryptographic procedures.
+
 
 ## Discovering and Downloading Entities
 

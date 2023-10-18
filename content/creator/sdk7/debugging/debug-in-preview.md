@@ -17,7 +17,7 @@ If the scene can't be compiled, you'll just see the grid on the ground, with not
 If this occurs, there are several places where you can look for error messages to help you understand what went wrong:
 
 1.  Check your code editor to make sure that it didn't mark any syntax or logic errors.
-2.  Check the output of the command line where you ran `dcl start`
+2.  Check the output of the command line where you ran `npm run start`
 3.  Check the JavaScript console in the browser for any other error messages. For example, when using Chrome you access this through `View > Developer > JavaScript console`.
 4.  If you're running a preview of a multiplayer scene that runs together with a local server, check the output of the command line window where you run the local server.
 
@@ -96,7 +96,7 @@ The other numbers in the panel refer to the usage of resources, they display the
 {{< /hint >}}
 
 
-
+<!-- 
 ## Run code only in preview
 
 You can detect if a scene is running as a preview or is already deployed in production, so that the same code behaves differently depending on the case. You can use this to add debugging logic to your code without the risk of forgetting to remove it and having it show in production.
@@ -118,7 +118,7 @@ executeTask(async () => {
 
 {{< hint warning >}}
 **📔 Note**:  `isPreviewMode()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay in returning data.
-{{< /hint >}}
+{{< /hint >}} -->
 
 
 ## Dependency versions
@@ -178,27 +178,34 @@ Check that your scene looks good at all times of day by switching the game clock
 
 Your 3D model's materials might not look the same as they did in the modeling tool you created it with. This is to be expected, as all 3D rendering engines have subtle differences in how they deal with light and materials.
 
+
 ## Avatars and accounts
 
-When you run a preview, you're assigned a random avatar each time you reload.
+To use the avatar that's linked to your active Metamask account, with access to all of your owned wearables, you need to run the preview in the browser with Web3.
 
-To use a consist avatar across your sessions, you can store an avatar profile by adding a `PLAYER` parameter to the URL with any string as its value. When using this, the preview will store your avatar’s settings locally on your browser, to retrieve them whenever you use the same string on the `PLAYER` parameter. For example, every time you open the preview with the URL `http://127.0.0.1:8000/?PLAYER=ringo`, you’ll have the same avatar.
+In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 
-To use the avatar that's linked to your active Metamask account, with access to all of your owned wearables, start the preview with:
-
-```
-dcl start --web3
-```
-
-## Connecting to Ethereum network
-
-If your scene makes use of transactions over the Ethereum network, for example if it prompts you to pay a sum in MANA to open a door, you must add an additional parameter to the command when launching the preview:
+With the CLI, you can start the preview with:
 
 ```
-dcl start --web3
+npm run start --web3
 ```
 
 Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL in the browser window.
+
+When running a preview normally, without a connected Web3 account, you're assigned a random avatar each time you reload.
+
+To use a consist guest avatar across your sessions, you can store an avatar profile by adding a `PLAYER` parameter to the URL with any string as its value. When using this, the preview will store your avatar’s settings locally on your browser, to retrieve them whenever you use the same string on the `PLAYER` parameter. For example, every time you open the preview with the URL `http://127.0.0.1:8000/?PLAYER=ringo`, you’ll have the same avatar.
+
+
+## Connecting to Ethereum network
+
+If your scene makes use of transactions over the Ethereum network, for example if it prompts you to pay a sum in MANA to open a door, you need to run the preview in the browser with Web3.
+
+In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
+
+Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL in the browser window.
+
 
 ### Using the Ethereum test network
 

@@ -39,7 +39,7 @@ Each event in the `commands` array has the following data:
 	- `origin`: _Vector3_ for the position where the ray originates (relative to the scene)
 	- `position`: _Vector3_ for the position where the ray intersected with the hit entity (relative to the scene)
 	- `length`: Length of the ray from its origin to the position where the hit against the entity occurred.
-	- `normalHit`: _Quaternion_ for the angle of the normal of the hit in world space.
+	- `normalHit`: _Vector3_ with a normalized direction vector, describing the angle of the normal of the hit in world space.
 
 
 ```ts
