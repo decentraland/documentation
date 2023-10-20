@@ -30,7 +30,7 @@ AvatarModifierArea.create(entity, {
   modifiers: [AvatarModifierType.HIDE_AVATARS],
 })
 
-Transform.create(childEntity, {
+Transform.create(entity, {
   position: Vector3.create(8, 0, 8),
 })
 ```
@@ -69,7 +69,7 @@ AvatarModifierArea.create(entity, {
   modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
 })
 
-Transform.create(childEntity, {
+Transform.create(entity, {
   position: Vector3.create(8, 0, 8),
 })
 ```
@@ -88,7 +88,7 @@ AvatarModifierArea.create(entity, {
   modifiers: [AvatarModifierType.AMT_DISABLE_PASSPORTS],
 })
 
-Transform.create(childEntity, {
+Transform.create(entity, {
   position: Vector3.create(8, 0, 8),
 })
 ```
@@ -147,7 +147,7 @@ AvatarModifierArea.create(entity, {
   excludeIds: ["0xx1...", "0xx2..."],
 })
 
-Transform.create(childEntity, {
+Transform.create(entity, {
   position: Vector3.create(8, 0, 8),
 })
 ```
@@ -174,7 +174,7 @@ executeTask(async () => {
     excludeIds: [userData.userId],
   })
 
-  Transform.create(childEntity, {
+  Transform.create(entity, {
     position: Vector3.create(8, 0, 8),
   })
 })
