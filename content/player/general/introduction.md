@@ -14,7 +14,7 @@ url: /player/general/introduction
 weight: 1
 ---
 
-<img src="/images/players/Homepage.png" width="600"/>
+<img src="/images/players/Homepage.png"/>
 
 Welcome to Decentraland’s vibrant, international community of creators & explorers! Here you’ll make new friends, experience community creations, attend diverse events, and unleash your creativity in a dynamic virtual world built by Decentraland citizens like you.
 
