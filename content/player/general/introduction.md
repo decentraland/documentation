@@ -18,7 +18,7 @@ Welcome to Decentraland’s vibrant, international community of creators & explo
 
 ## Decentraland is created and owned by its users—what does that mean?
 
-Decentraland has no one entity that controls the platform or its future. Decentraland’s code is open source, so anyone can [make improvements]({{< ref "/content/contributor/index.md" >}}) or build on top of it, and anyone can host the platform, so it can never be shut down.
+Decentraland has no one entity that controls the platform or its future. Decentraland’s code is open source, so anyone can [make improvements]({{< ref "/content/contributor/_index.md" >}}) or build on top of it, and anyone can host the platform, so it can never be shut down.
 
 The virtual world’s metropolis, Genesis City, is made up of individual LAND parcels, bought, sold, and [rented](https://decentraland.org/blog/announcements/land-rentals-become-an-easy-process-via-decentraland-s-marketplace) in Decentraland’s [Marketplace](https://market.decentraland.org/), and can be owned by anyone. Meanwhile, the platform’s operations and future are proposed, voted on, and decided by the community in [governance forums](https://governance.decentraland.org/).
 
@@ -26,7 +26,7 @@ Community creators design Decentraland’s unique [Wearables & Emotes](https://m
 
 [Daily events](https://events.decentraland.org/) are also organized by the community, ranging from concerts to art gallery openings and hang outs to game releases. Anyone can submit an event they’ve organized somewhere in Genesis City or in a [World](https://decentraland.org/blog/announcements/introducing-decentraland-worlds-beta-your-own-3d-space-in-the-metaverse), personal virtual spaces off of the main map.
 
-All this is what makes Decentraland a truly decentralized virtual world, owned by its community. [Jump into Decentraland](https://play.decentraland.org) and [explore](https://places.decentraland.org/) dynamic community content, built side-by-side, or even [contribute](({{< ref "/content/creator/index.md" >}}) to it yourself!
+All this is what makes Decentraland a truly decentralized virtual world, owned by its community. [Jump into Decentraland](https://play.decentraland.org) and [explore](https://places.decentraland.org/) dynamic community content, built side-by-side, or even [contribute](({{< ref "/content/creator/_index.md" >}}) to it yourself!
 
 
 
