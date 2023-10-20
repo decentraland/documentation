@@ -14,6 +14,8 @@ url: /player/general/introduction
 weight: 1
 ---
 
+<img src="/images/players/Homepage.png" width="600"/>
+
 Welcome to Decentraland’s vibrant, international community of creators & explorers! Here you’ll make new friends, experience community creations, attend diverse events, and unleash your creativity in a dynamic virtual world built by Decentraland citizens like you.
 
 ## Decentraland is created and owned by its users—what does that mean?
@@ -27,7 +29,3 @@ Community creators design Decentraland’s unique [Wearables & Emotes](https://m
 [Daily events](https://events.decentraland.org/) are also organized by the community, ranging from concerts to art gallery openings and hang outs to game releases. Anyone can submit an event they’ve organized somewhere in Genesis City or in a [World](https://decentraland.org/blog/announcements/introducing-decentraland-worlds-beta-your-own-3d-space-in-the-metaverse), personal virtual spaces off of the main map.
 
 All this is what makes Decentraland a truly decentralized virtual world, owned by its community. [Jump into Decentraland](https://play.decentraland.org) and [explore](https://places.decentraland.org/) dynamic community content, built side-by-side, or even [contribute](({{< ref "/content/creator/_index.md" >}}) to it yourself!
-
-
-
-
