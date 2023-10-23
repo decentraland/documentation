@@ -44,6 +44,9 @@ Open your scene's _scene.json_ file and complete the following data:
 
 - **tags**: A set of tags that describe your scene. These are used to help players and users explore Decentraland in a better way since they are able to find the content that they may be interested in. [See the list of available tags]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#tags" >}}).
 
+- **rating**: This is used to classify the content of your scene based on its appropriateness for different age groups (`T` for Teens or `A` for Adults). It helps in filtering content for players.
+
+
 {{< hint warning >}}
 **📔 Note**:  See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for more details on how to set these parameters.
 {{< /hint >}}

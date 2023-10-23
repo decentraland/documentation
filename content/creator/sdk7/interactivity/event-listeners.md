@@ -238,32 +238,6 @@ This event is useful if the player needs to change cursor modes and may need a h
 
 This can also be used in scenes where the player is expected to react fast, but the action can take a break while the player has the cursor unlocked.
 
-## Player goes idle
-
-Whenever the player is inactive for a full minute, without interacting with any input being picked up by the Decentraland explorer, we can consider the player to be idle. Whenever this happens, it creates an event that you can listen to.
-
-```ts
-import { onIdleStateChangedObservable} from '@dcl/sdk/observables'
-
-onIdleStateChangedObservable.add(({ isIdle }) => {
-  console.log("Idle State change: ", isIdle)
-})
-```
-
-{{< hint warning >}}
-**📔 Note**:  The `onIdleStateChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
-{{< /hint >}}
-
-
-The `isIdle` property is a boolean value that is _true_ when the player enters the idle mode and _false_ when the player leaves the idle mode.
-
-This event is especially useful for multiplayer scenes, when you might want to disconnect from the server players who are likely away from the machine or left Decentraland in a tab in the background.
-
-{{< hint warning >}}
-**📔 Note**:  The idle state is inferred based on the player not using the keyboard or mouse for a full minute. This can of course produce false positives, for example a player might be watching other players interact or watching a video stream, standing still but fully engaged. Be mindful of these corner cases and what the experience is like for a player who stands still for a while.
-{{< /hint >}}
-
-
 ## Player changes profile
 
 Whenever the player makes a change to their profile, the `onProfileChanged` event is called. These changes may include putting on different wearables, changing name, description, activating portable experiences, etc.
@@ -309,41 +283,6 @@ onSceneReadyObservable.add(() => {
 {{< hint warning >}}
 **📔 Note**:  The `onSceneReadyObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
 {{< /hint >}}
-
-
-## Video playing
-
-When a `VideoTexture` changes its playing status, the `onVideoEvent` observable receives an event.
-
-```ts
-import { onVideoEvent} from '@dcl/sdk/observables'
-
-onVideoEvent.add((data) => {
-  console.log("New Video Event ", data)
-})
-```
-
-{{< hint warning >}}
-**📔 Note**:  The `onVideoEvent` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
-{{< /hint >}}
-
-
-The input of a video event contains the following properties:
-
-- `videoClipId` ( _string_): The ID for the `VideoTexture` component that changed status.
-- `componentId` (_string_): The ID of the `VideoTexture` component that changed status.
-- `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default.
-- `totalVideoLength` (_number_ ): The length in seconds of the entire video. _-1_ if length is unknown.
-- `videoStatus`: The value for the new video status of the `VideoTexture`, expressed as a value from the `VideoStatus` enum. This enum can hold the following possible values:
-
-- `VideoStatus.NONE` = 0,
-- `VideoStatus.ERROR` = 1,
-- `VideoStatus.LOADING` = 2,
-- `VideoStatus.READY` = 3,
-- `VideoStatus.PLAYING` = 4,
-- `VideoStatus.BUFFERING` = 5
-
-Learn more about playing videos in Decentraland in [Video Playing]({{< ref "/content/creator/sdk7/media/video-playing.md" >}}).
 
 ## Player changes realm or island
 

@@ -13,7 +13,7 @@ weight: 1
 
 The Web Editor is a simple visual tool that lets you create and publish Decentraland scenes without the need to install anything.
 
-To access the web editor simply visit the [builder page](builder.decentraland.org) and go to **scenes** section. 
+To access the web editor simply visit the [builder page]https://builder.decentraland.org/scenes) and go to **scenes** section. 
 
 ## Create scene
 
