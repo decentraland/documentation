@@ -7,7 +7,7 @@ weight: 2
 
 Decentraland has as many realms as there are Catalyst with communications services, but there is one distinctive realm known as MAIN which exists outside the Catalysts network. The MAIN realm was specifically designed to streamline the user connection process, making it easier for users to interact and meet. It is constructed with a set of services capable of substituting the communication service of a Catalyst node. This realm serves as the default destination for users upon logging into Decentraland.
 
-<img src="/images/main-realm.png" width="600"/>
+<img src="/images/main-realm.png" width="800"/>
 
 The [realm provider](https://github.com/decentraland/realm-provider) services exposes an [/about](https://realm-provider.decentraland.org/main/about) endpoint with a realm description according to the [ADR-110: Realm description](https://adr.decentraland.org/adr/ADR-110). This provides the information to stablish a connection with the content management network, known as one of Catalyst node's services, and also supplies the connection details for the MAIN realm communication services. 
 
