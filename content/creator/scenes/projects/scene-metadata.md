@@ -326,9 +326,9 @@ Currently, only the following feature is handled like this:
 
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
-## Worlds Configuration 
+## Worlds Configuration
 
-When you are planning to upload yor scene to a Decentraland [World]({{< ref "/content/creator/worlds/about.md" >}}) instead of Genesis City, you must specify the NAME that you are going to target. On the other hand, if your world meets the requirements to be listed on [Places](https://places.decentraland.org/) (owning a LAND or having an active LAND rental contract), and you prefer not to list your scene, you can also configure it accordingly. 
+When you are planning to upload yor scene to a Decentraland [World]({{< ref "/content/creator/worlds/about.md" >}}) instead of Genesis City, you must specify the NAME that you are going to target. On the other hand, if your world meets the requirements to be listed on [Places](https://places.decentraland.org/) (owning a LAND or having an active LAND rental contract), and you prefer not to list your scene, you can also configure it accordingly.
 
 ```
 {
@@ -340,6 +340,7 @@ When you are planning to upload yor scene to a Decentraland [World]({{< ref "/co
   }
 }
 ```
+
 {{< hint warning >}}
 **📔 Note**: Attempting to upload a scene with the `worldConfiguration`` section to a Catalyst will result in the deployment being rejected.
 {{< /hint >}}
@@ -384,3 +385,52 @@ executeTask(async () => {
 {{< hint warning >}}
 **📔 Note**: `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
 {{< /hint >}}
+
+## Tags
+
+You can add tags to your scene to help players and users explore Decentraland better. These tags are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're intreseted in.
+
+You can only use a preselected list of tags and a maximum of 3 tags per scene.
+
+The tags you can use are:
+
+- `art`
+- `game`
+- `casino`
+- `social`
+- `music`
+- `fashion`
+- `crypto`
+- `education`
+- `shop`
+- `business`
+- `sports`
+
+For example, an Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
+
+```json
+  "tags": [
+    "game",
+    "casino"
+  ],
+```
+
+After that, the scene will be listed on the Places dApp under the `game` and `casino` categories.
+
+Here is how the tag names look on the Places dApp:
+
+```json
+{
+  "art": "🎨 Art",
+  "game": "🕹️ Game",
+  "casino": "🃏 Casino",
+  "social": "👥 Social",
+  "music": "🎶 Music",
+  "fashion": "👠 Fashion",
+  "crypto": "🪙 Crypto",
+  "education": "📚 Education",
+  "shop": "🛍️ Shop",
+  "business": "🏢 Business",
+  "sports": "🏅 Sports"
+}
+```
