@@ -74,7 +74,7 @@ Also, all tweens include the following required properties:
 - `duration`: How many milliseconds it takes to move between the two positions
 - `easingFunction`: What easing function to use. See [Non-linear tweens](#non-linear-tweens)
 
-### Rotate with a pivot point
+### Rotate with a pivot point
 
 When rotating an entity, the rotation is always in reference to the entity's center coordinate. To rotate an entity using another set of coordinates as a pivot point, create a second (invisible) entity with the pivot point as its position and make it a parent of the entity you want to rotate.
 
@@ -325,7 +325,7 @@ engine.addSystem(() => {
 })
 ```
 
-## Simultaneous tweens
+## Simultaneous tweens
 
 An entity can only have one `Tween` component, and each tween component can only perform one transformation at a time. For example, you can´t make an entity move sideways and also rotate at the same time. As a workaround, you can use parented entities. For example, you can have an invisible parent entity that moves sideways, with a visible child that rotates.
 
