@@ -37,7 +37,6 @@ ReactEcsRenderer.setUiRenderer(() => (
     value="Click me"
     variant="primary"
     uiTransform={{ width: 100, height: 100 }}
-    variant={{ color: Color4.Green() }}
     onMouseDown={() => {
       console.log('Clicked on the UI')
     }}
