@@ -33,7 +33,7 @@ To report a bug, you'll need a GitHub account. Follow these steps:
 
 4. Click **Submit new issue**.
 
-  <img src="/images/submit-issue.png" width="300" />
+  <img src="/images/submit-issue.png" width="200" />
 
 Developers may ask follow-up questions on your ticket if they need clarifications or additional information. You'll receive email notifications of updates to your bug report.
 
