@@ -25,14 +25,17 @@ Before submitting a bug report, please ensure the following:
 To report a bug, you'll need a GitHub account. Follow these steps:
 
 1. Visit the following link: [New Issue Page](https://github.com/decentraland/sdk/issues/new/choose)
+
 2. Click **Get Started** next to **Bug Report**.
    ![Bug Report](/images/report-bug.png)
+
 3. Complete all the fields in the template. The template provides instructions for each section. The more details you can provide, the quicker our developers can identify and resolve the issue.
+
 4. Click **Submit new issue**.
 
 Developers may ask follow-up questions on your ticket if they need clarifications or additional information. You'll receive email notifications of updates to your bug report.
 
-Additional Tips for Bug Reports:
+**Additional Tips for Bug Reports:**
 
 - Create a separate issue for each bug. If you encounter multiple issues, make sure to create a new issue for each one.
 - Avoid lengthy explanations. Only include relevant command-line or console output or scene code when necessary.
@@ -40,7 +43,7 @@ Additional Tips for Bug Reports:
 
 ## Using the Decentraland Playground
 
-Providing code snippets that demonstrate the problem is highly beneficial for the dev team. Reproducibility is crucial. If a bug can't be reproduced, it's challenging to diagnose and fix.
+Providing code snippets that demonstrate the problem is extremely useful. Reproducibility is crucial. If a bug can't be reproduced, it's challenging to diagnose and fix.
 
 You can paste code snippets within your issue text, but the best way to provide code snippets is by using the [Decentraland Playground](https://playground.decentraland.org/). Follow these steps:
 
@@ -53,6 +56,10 @@ You can paste code snippets within your issue text, but the best way to provide 
 Using the playground simplifies issue reproduction and ensures that anyone opening the link can see the same output, regardless of their operating system, SDK version, Node version, etc. It also facilitates quick iteration to identify affected conditions and pinpoint the issue's cause.
 
 Keep your example as concise as possible, while still reproducing the issue. A simpler example helps eliminate ambiguity about the problem's source.
+
+{{< hint warning >}}
+**📔 Note**: It's not possible to import assets to your scene on the Playground. So if reproducing the issue requires importing a 3D model or a sound file, it won't be possible to display there.
+{{< /hint >}}
 
 ## Editing Documentation
 
