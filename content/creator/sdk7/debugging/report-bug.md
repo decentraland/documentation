@@ -32,7 +32,8 @@ To report a bug, you'll need a GitHub account. Follow these steps:
 3. Complete all the fields in the template. The template provides instructions for each section. The more details you can provide, the quicker our developers can identify and resolve the issue.
 
 4. Click **Submit new issue**.
-   <img src="/images/submit-issue.png" width="300" />
+
+  <img src="/images/submit-issue.png" width="300" />
 
 Developers may ask follow-up questions on your ticket if they need clarifications or additional information. You'll receive email notifications of updates to your bug report.
 
