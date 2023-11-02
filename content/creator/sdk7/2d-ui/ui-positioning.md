@@ -95,9 +95,9 @@ examples:
 
 Use `width` and `height` to set the size of the entity. The following kinds of values are supported:
 
-- `auto`: The size adapts to fit the content inside. This is very convenient for text that may vary in length.
+- `auto`: The size adapts to fit the content inside. This is very convenient for text that may vary in length. Write the value as "auto".
 - Percentage: As a percentage of the parent's measurements. Write the value as a string that ends in "%", for example `10 %`.
-- Pixels: Write the value as a number. Note that screens with high pixel density
+- Pixels: Write the value as a number.
 
 Note that these properties affect the **default** size of that item, the size of the item before any flex grow and flex shrink calculations are performed. The final size may be interpreted differently based on the size of the parent entity, and the Flexbox properties that are set.
 
@@ -105,6 +105,11 @@ Note that these properties affect the **default** size of that item, the size of
 **📔 Note**: In properties that support both numbers and strings, to set the value in pixels, write a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`. You can also set a pixel value as a string by ending the string in `px`, for example `200px`.
 
 When values are expressed as a percentage, they're always in relation to the parent's container. If the entity has no parents, then the value is a percentage of the whole screen. If values are expressed in pixels, they are absolute, and not affected by the parent's scale.
+
+**📔 Note**: For the `auto` width/height to work, the following rules apply:
+- The UiTransform that uses width/height as “auto” should have `alignSelf`: `“center”`/`“flex-start”`/`“flex-end”` OR `positionType: “absolute”`
+- If the UiTransform of a child use `positionType: “absolute”`, the parent won’t adapt to its size/position
+- If the UiTransform of a child uses any position overwrite, the parent won’t adapt to its size/position 
 {{< /hint >}}
 
 These other properties are also available to adjust size in a more advanced way:
