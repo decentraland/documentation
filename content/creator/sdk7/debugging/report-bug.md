@@ -22,7 +22,7 @@ Before submitting a bug report, please ensure the following:
 
 ## Reporting a bug
 
-To report a bug, you'll need a GitHub account. Follow these steps:
+To report a bug with the SDK, you'll need a GitHub account. Follow these steps:
 
 1. Visit the following link: [New Issue Page](https://github.com/decentraland/sdk/issues/new/choose)
 
@@ -36,6 +36,10 @@ To report a bug, you'll need a GitHub account. Follow these steps:
   <img src="/images/submit-issue.png" width="200" />
 
 Developers may ask follow-up questions on your ticket if they need clarifications or additional information. You'll receive email notifications of updates to your bug report.
+
+{{< hint warning >}}
+**📔 Note**: For any issues not related to the SDK please contact the support team. To reach out, please visit this page [intercom.decentraland.org](https://intercom.decentraland.org/) or send us an email to [hello@decentraland.org](mailto:hello@decentraland.org). You can also find us on [Discord](https://decentraland.org/discord/). The team is available to help out from Monday-Sunday, 12pm to 9pm UTC and will do its best to get back in touch as soon as possible. You can expect a reply within 60 min on Discord during the above time frame and within 24h on email.
+{{< /hint >}}
 
 **Additional Tips for Bug Reports:**
 
