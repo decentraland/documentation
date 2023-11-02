@@ -106,10 +106,10 @@ Note that these properties affect the **default** size of that item, the size of
 
 When values are expressed as a percentage, they're always in relation to the parent's container. If the entity has no parents, then the value is a percentage of the whole screen. If values are expressed in pixels, they are absolute, and not affected by the parent's scale.
 
-**📔 Note**: For the `auto` width/height to work the following rules apply:
+**📔 Note**: For the `auto` width/height to work, the following rules apply:
 - The UiTransform that uses width/height as “auto” should have `alignSelf`: `“center”`/`“flex-start”`/`“flex-end”` OR `positionType: “absolute”`
-- If children UiTransforms use `positionType: “absolute”`, the parent won’t adapt to their size/position
-- If children UiTransforms use any position overwrite, the parent won’t adapt to their size/position 
+- If the UiTransform of a child use `positionType: “absolute”`, the parent won’t adapt to its size/position
+- If the UiTransform of a child uses any position overwrite, the parent won’t adapt to its size/position 
 {{< /hint >}}
 
 These other properties are also available to adjust size in a more advanced way:
