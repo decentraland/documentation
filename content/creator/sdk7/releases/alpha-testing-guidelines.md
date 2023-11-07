@@ -1,7 +1,7 @@
 ---
 date: 2022-11-04
 title: SDK7 feedback guidelines
-description:
+description: Guidelines on how to provide feedback about SDK7
 categories:
   - development-guide
 aliases:
@@ -9,7 +9,7 @@ aliases:
 	- /creator/development-guide/sdk7/alpha-testing-guidelines/
 type: Document
 url: /creator/development-guide/sdk7/testing-guidelines/
-weight: 2000
+weight: 20
 ---
 
 ## Documentation
