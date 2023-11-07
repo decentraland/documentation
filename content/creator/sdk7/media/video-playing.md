@@ -83,7 +83,34 @@ See [Streaming using Decentraland cast](#streaming-using-decentraland-cast) for 
 
 The source of the streaming must be an _https_ URL (_http_ URLs aren't supported), and the source should have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it. If this is not the case, you might need to set up a server to act as a proxy and expose the stream in a valid way.
 
-To launch your own video streaming server, we recommend using a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box. See
+There are a number of options for streaming video. The simplest option is to use a managed hosting provider like [Vimeo](https://vimeo.com/) ,  [Livepeer Studio](https://livepeer.studio/) or [Serraform](https://serraform.gitbook.io/streaming-docs/guides/decentraland-playback) where you pay a fee to the provider to manage all the streaming infrastructure.
+
+The other recommended alternative is to set up your own server, using free software but paying for hosting on a platform like [Digital Ocean](https://try.digitalocean.com/developerbrand/?_campaign=emea_brand_kw_en_cpc&_adgroup=digitalocean_exact_exact&_keyword=digitalocean&_device=c&_adposition=&_content=conversion&_medium=cpc&_source=bing&msclkid=160bfc160a2a1bab9bbf9933594bd9c5&utm_source=bing&utm_medium=cpc&utm_campaign=emea_brand_kw_en_cpc&utm_term=digitalocean&utm_content=DigitalOcean%20Exact_Exact) or [Cloudflare](https://www.cloudflare.com/products/cloudflare-stream/). You can deploy something like a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box.
+
+All these options have pros and cons for different scenarios. You should evaluate what's best for you taking into account your needs, technical skills and budget.
+
+## Setting up OBS for successful streaming
+
+[OBS](https://obsproject.com/) is a popular and free tool for managing your streams.
+
+Whether you are using a venue’s stream key or your own RTMP server, your settings in OBS are important for the success of your stream. You should aim for a solid, consistent connection.
+
+### Simple OBS set-up
+
+The following simple set-up is recommended:
+
+- Bitrate 2500kbps (which will work with all Decentraland venues)
+- Audio bitrate 160kbps
+- Video encoder preset: Hardware NVENC
+- Audio Encoder AAC
+- Broadest Resolution: 720 (any greater causes issues in DCL)
+- Frame rate 30fps
+
+### Advice for new streamers
+
+- Early sound checks are essential to test your set up with the venue.
+- Small errors like a digit wrong in the stream key are the most likely to mess up the stream.
+- Do not go above 720 resolution or a bitrate of 2500 kbps.
 
 ## Streaming using Decentraland Cast
 
