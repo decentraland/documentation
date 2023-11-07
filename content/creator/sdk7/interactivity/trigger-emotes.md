@@ -85,9 +85,13 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
-## Required permissions
+## Required permissions in smart wearables and portable experiences
 
-Before you can play avatar animations, either predefined or custom, you must add the `ALLOW_TO_TRIGGER_AVATAR_EMOTE` permission to the `scene.json` file. If not yet present, create a `requiredPermissions` property at root level in the JSON file to assign it this permission.
+{{< hint warning >}}
+**📔 Note**: Permissions are only relevant in [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) and [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). Normal scenes (both in parcels or in Worlds) are free to use avatar animations and are not affected by permissions.
+{{< /hint >}}
+
+Smart wearables and portable experiences are only allowed to use this functionality if they add a corresponding permissions on the `scene.json` file. This applies to both predefined and custom animations. This is granted via the `ALLOW_TO_TRIGGER_AVATAR_EMOTE` permission.
 
 ```json
   "requiredPermissions": [
@@ -96,7 +100,3 @@ Before you can play avatar animations, either predefined or custom, you must add
 ```
 
 See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
-
-{{< hint warning >}}
-**📔 Note**: To prevent abusive behavior that might damage a player's experience, the ability to make a player perform an emote is handled as a permission. Currently, this permission has no effect in how the player experiences the scene.
-{{< /hint >}}
