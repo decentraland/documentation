@@ -70,7 +70,7 @@ Each `state` object keeps track of if an animation is currently playing.
 
 > `import { Animator } from "@dcl/sdk/ecs"`
 
-See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}).
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
 {{< /hint >}}
 
 ## Fetch an animation
