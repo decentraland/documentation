@@ -79,28 +79,9 @@ VideoPlayer.create(screen, {
 
 See [Streaming using Decentraland cast](#streaming-using-decentraland-cast) for details on how to use this third alternative method.
 
-
 ## About External Streaming
 
 The source of the streaming must be an _https_ URL (_http_ URLs aren't supported), and the source should have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it. If this is not the case, you might need to set up a server to act as a proxy and expose the stream in a valid way.
-
-To stream videos from an external URL, you must add the `ALLOW_MEDIA_HOSTNAMES` permission to the `requiredPermissions` list in the `scene.json` file. You must also include the list of high-level domains where you'll be streaming from under `allowedMediaHostnames`.
-
-```json
-"requiredPermissions": [
-    "ALLOW_MEDIA_HOSTNAMES"
-  ],
-   "allowedMediaHostnames": [
-    "somehost.com",
-    "otherhost.xyz"
-  ]
-```
-
-{{< hint warning >}}
-**📔 Note**: You only need to include the domain, not the full URL. Do not include the "https://" section of the URL.
-{{< /hint >}}
-
-See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
 
 To launch your own video streaming server, we recommend using a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box. See
 
@@ -112,7 +93,6 @@ You can livestream from your camera or share your screen using [Decentraland Cas
 **📔 Note**: Decentraland cast is only available to use in a World, not in scenes published to Genesis City. See [Decentraland Cast]({{< ref "/creator/worlds/cast.md">}}) for more information. As Worlds have a limited capacity of maximum 100 players at a time, this streaming method can only reach that maximum amount.
 {{< /hint >}}
 
-
 Call `getActiveVideoStreams` to fetch a list of all live streams active in the current World. The example below uses the first stream returned by this method:
 
 ```ts
@@ -121,7 +101,7 @@ if (streams.length > 0) {
   const stream = streams[0]
   VideoPlayer.createOrReplace(screen, {
     src: stream.trackSid,
-    playing: true
+    playing: true,
   })
   console.log(`playing ${stream.identity} ${stream.sourceType} stream`)
 }
@@ -132,7 +112,6 @@ Each stream returned by `getActiveVideoStreams` contains the following fields:
 - `trackSid`: contains a unique track id that allow the player to play the video stream
 - `identity` : the address of the person that is streaming
 - `sourceType`: can be `VideoTrackSourceType.VTST_SCREEN_SHARE` or `VideoTrackSourceType.VTST_CAMERA`
-
 
 ## Video Materials
 
@@ -291,11 +270,10 @@ import {
   Entity,
   VideoPlayer,
   videoEventsSystem,
-  VideoState
+  VideoState,
 } from '@dcl/sdk/ecs'
 
 // ... Create videoPlayerEntity with VideoPlayer component, Transform, MeshRenderer.setPlane(), etc. ...
-
 
 videoEventsSystem.registerVideoEventsEntity(
   { entity: videoPlayerEntity },
@@ -338,7 +316,6 @@ videoEventsSystem.registerVideoEventsEntity(
   }
 )
 ```
-
 
 The videoEvent object passed as an input for the function contains the following properties:
 
