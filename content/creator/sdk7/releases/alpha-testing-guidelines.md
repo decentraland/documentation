@@ -5,8 +5,8 @@ description: Guidelines on how to provide feedback about SDK7
 categories:
   - development-guide
 aliases:
-	- /creator/development-guide/sdk7/beta-testing-guidelines/
-	- /creator/development-guide/sdk7/alpha-testing-guidelines/
+  - /creator/development-guide/sdk7/beta-testing-guidelines/
+  - /creator/development-guide/sdk7/alpha-testing-guidelines/
 type: Document
 url: /creator/development-guide/sdk7/testing-guidelines/
 weight: 20
