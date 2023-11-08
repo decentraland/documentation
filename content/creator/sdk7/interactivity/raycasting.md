@@ -131,6 +131,14 @@ raycastSystem.registerTargetEntityRaycast(
 )
 ```
 
+{{< hint warning >}}
+**📔 Note**: `raycastSystem`, `RaycastQueryType` and `ColliderLayer` must be imported via
+
+> `import { raycastSystem, RaycastQueryType, ColliderLayer } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
+
 ## Raycast result
 
 The callback function that handles the raycast receives an object containing data about the ray itself, and any entities that were hit.

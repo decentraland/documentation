@@ -142,3 +142,11 @@ The `EngineInfo`component holds the following data:
 - `frame_number`: Frame counter of the engine
 - `total_runtime`: Total runtime of this scene in seconds
 - `tick_number`: Tick counter of the scene as per [ADR-148](https://adr.decentraland.org/adr/ADR-148)
+
+{{< hint warning >}}
+**📔 Note**: The `EngineInfo` component must be imported via
+
+> `import { Vector3, Quaternion } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}

@@ -23,7 +23,7 @@ Our SDK includes the following components:
 
 - **The Decentraland Editor**: An extension for Visual Studio Code that allows you to create scenes, preview and debug, and publish. [Read more]({{< ref "/content/creator/sdk7/getting-started/decentraland-editor.md" >}})
 - **The Decentraland ECS**: A TypeScript package containing the framework of helper methods that allows you to create interactive experiences. Use it to create and manipulate objects in the scene and also to facilitate in-world transactions between players or other applications. ( [latest ECS reference](https://github.com/decentraland/ecs-reference/blob/master/docs-latest/decentraland-ecs.md))
-- **Scene examples**: Take inspiration and coding best practices from the [scene examples]([https://github.com/decentraland-scenes/Awesome-Repository#examples](https://studios.decentraland.org/resources?sdk_version=SDK7)).
+- **Scene examples**: Take inspiration and coding best practices from the [scene examples](<[https://github.com/decentraland-scenes/Awesome-Repository#examples](https://studios.decentraland.org/resources?sdk_version=SDK7)>).
 
 ## Requirements
 
@@ -34,7 +34,6 @@ You must have the following:
 - **Visual Studio Code**: Dowload it [here](https://code.visualstudio.com/). Beyond hosting the Decentraland Editor extension, it helps you create scenes a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
 
 - **The Decentraland Editor SDK7**: An extension for Visual Studio code that exposes many common functionalities as buttons in the UI. [How to install it]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
-
 
 ## Supported languages and syntax
 
@@ -60,26 +59,24 @@ You can also run a scene locally on your machine by running a preview from the C
 
 ## Entities and Components
 
-Three dimensional scenes in Decentraland are based on an [Entity-Component-System](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system) architecture, where everything in a scene is an _entity_. Entities have _components_, each component gives the entity it belongs to specific properties. A door entity is likely to have at least a Transform component (that sets position, rotation & scale) and another to provide it a shape. Components are just a place to store data, they don’t carry out any actions by themselves. 
+Three dimensional scenes in Decentraland are based on an [Entity-Component-System](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system) architecture, where everything in a scene is an _entity_. Entities have _components_, each component gives the entity it belongs to specific properties. A door entity is likely to have at least a Transform component (that sets position, rotation & scale) and another to provide it a shape. Components are just a place to store data, they don’t carry out any actions by themselves.
 
 <img src="/images/media/ecs-components-new.png" alt="nested entities" width="400"/>
 
-
 ```ts
 export function main() {
-	// Create an entity
-	const door = engine.addEntity()
+  // Create an entity
+  const door = engine.addEntity()
 
-	// Give the entity a position via a transform component
-	Transform.create(door, {
-		position: Vector3.create(5, 1, 5)
-	})
+  // Give the entity a position via a transform component
+  Transform.create(door, {
+    position: Vector3.create(5, 1, 5),
+  })
 
-	// Give the entity a visible shape via a GltfContainer component
-	GltfContainer.create(door)
+  // Give the entity a visible shape via a GltfContainer component
+  GltfContainer.create(door)
 }
 ```
-
 
 Entities may be nested inside other entities to form a tree structure. If you're familiar with web development, you might find it useful to think of entities as elements in a DOM tree and of components as the attributes of each of these elements.
 
@@ -87,9 +84,8 @@ Entities may be nested inside other entities to form a tree structure. If you're
 
 Entities are an abstract concept. An entity is just an id, that is used as a reference to group different components.
 
-
 See [Entities and components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}) for an in-depth look of both these concepts and how they're used by Decentraland scenes.
- 
+
 ### Custom components
 
 The default set of components (like `Transform`, `GltfContainer`, `Material`, etc) are interpreted by the engine and have direct consequences on how the entity will look, its position, if it emits sounds, etc.
@@ -98,35 +94,33 @@ You can also define _custom components_ to store data that might be useful to th
 
 See [Custom Components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) for more information.
 
-
 ## Systems
 
 Entities and components are places to store information about the objects in a scene. _Systems_ hold functions that change the information that's stored in components over time.
 
-Systems are where we implement game logic, they carry out the actions that need to be updated or checked periodically on every tick of the game loop. 
+Systems are where we implement game logic, they carry out the actions that need to be updated or checked periodically on every tick of the game loop.
 
 A system is a pure and simple function that gets called once on every tick (up to 30 times a second), following the [_update pattern_](http://gameprogrammingpatterns.com/update-method.html).
 
 ```ts
 // Basic system
 function mySystem() {
-  console.log("my system is running")
+  console.log('my system is running')
 }
 
 engine.addSystem(mySystem)
 
 // System with dt
 function mySystemDT(dt: number) {
-  console.log("time since last frame:  ", dt)
- }
- 
+  console.log('time since last frame:  ', dt)
+}
+
 engine.addSystem(mySystemDT)
 ```
 
 A single scene can have 0 or many systems running at the same time. Systems can be turned on or off at different moments during the scene’s duration. It’s generally a good practice to keep independent behaviors in separate systems.
 
 See [Systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) for more details about how systems are used in a scene.
-
 
 ### The game loop
 
@@ -159,11 +153,10 @@ If you attempt to iterate over all the entities in the scene on every tick of th
 ```ts
 // Define a System
 function boxHeightSystem(dt: number) {
-
-  // query for entities that include both MeshRenderer and Transform components	
+  // query for entities that include both MeshRenderer and Transform components
   for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
     const transform = Transform.get(entity)
-    console.log("a box is at height:  ", transform.position.y)
+    console.log('a box is at height:  ', transform.position.y)
   }
 }
 
@@ -177,19 +170,17 @@ If you start writing code directly in `index.ts`, your code may be lacking some 
 
 To avoid that scenario, it's always recommended to write out your scene's initial loading code using the `main()` function (on the `index.ts` file) as an entrypoint. This function runs only once all of the scene's initial context is already loaded, this includes anything added via the Decentraland Editor's UI.
 
-You can write your code outside the `main()` function when: 
+You can write your code outside the `main()` function when:
+
 - The code is indirectly called by `main()`
 - The code defines a system, or adds a system to the engine
 - The code is inside an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}})
-
-
 
 {{< hint warning >}}
 **📔 Note**: By the time the code inside an async function or a system is first executed, everything in the scene is already properly initialized.
 
 [Custom Components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) must always be written outside the `main()` function, in a separate file. They need to be interpreted before `main()` is executed.
 {{< /hint >}}
-
 
 ## Mutability
 
@@ -212,7 +203,6 @@ mutableTransform.position.y = 2
 
 See [mutable data]({{< ref "/content/creator/sdk7/programming-patterns/mutable-data.md" >}}) for more details.
 
-
 ## Putting it all together
 
 The _engine_ is what sits in between _entities_, and _components_ on one hand and _systems_ on the other.
@@ -225,25 +215,27 @@ After all the systems run, the components on each entity will have new values. W
 
 ```ts
 export function main() {
-	// Create an entity
-	const cube = engine.addEntity()
+  // Create an entity
+  const cube = engine.addEntity()
 
-	// Give the entity a position via a transform component
-	Transform.create(cube, {
-		position: Vector3.create(5, 1, 5)
-	})
+  // Give the entity a position via a transform component
+  Transform.create(cube, {
+    position: Vector3.create(5, 1, 5),
+  })
 
-	// Give the entity a visible shape via a MeshRenderer component
-	MeshRenderer.setBox(cube)
+  // Give the entity a visible shape via a MeshRenderer component
+  MeshRenderer.setBox(cube)
 }
 
 // Define a System
 function rotationSystem(dt: number) {
-
-  // query for entities that include both MeshRenderer and Transform components	
+  // query for entities that include both MeshRenderer and Transform components
   for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
     const transform = Transform.getMutable(entity)
-    transform.rotation = Quaternion.multiply(transform.rotation, Quaternion.fromAngleAxis(dt * 10, Vector3.Up()))
+    transform.rotation = Quaternion.multiply(
+      transform.rotation,
+      Quaternion.fromAngleAxis(dt * 10, Vector3.Up())
+    )
   }
 }
 
@@ -267,7 +259,7 @@ The decoupling works by using RPC protocol, this protocol assigns a small part o
 
 We have also abstracted the communication protocol. This allows us to run the scenes locally in a WebWorker.
 
-We don't want developers to intervene with the internals of the engine or even need to know what lies inside the engine. We need to ensure a consistent experience for players throughout the Decentraland map, and mistakes are more likely to happen at that "low" level. 
+We don't want developers to intervene with the internals of the engine or even need to know what lies inside the engine. We need to ensure a consistent experience for players throughout the Decentraland map, and mistakes are more likely to happen at that "low" level.
 
 This decoupling is also important to prevent neighbor scenes from interfering with the experience of players while they're on someone else's scene. A player might have multiple nearby scenes loaded at the same time, each running their own code. Some actions (like opening external links, or moving the player) are only permitted when the player is standing on that particular scene, not if the scene is loaded but the player is outside.
 
@@ -289,7 +281,7 @@ Transform.create(myEntity, {
 MeshRenderer.setBox(myEntity)
 
 function mySystem(dt: number) {
-	console.log("system running")
+  console.log('system running')
 }
 
 engine.addSystem(mySystem)
@@ -300,26 +292,26 @@ To make it run as part of your scene, you can reference from `index.ts` in the f
 ```ts
 // on extraContent.ts
 
-export function addEntities(){
-	const myEntity = engine.addEntity()
-	Transform.create(myEntity, {
-	position: { x: 8, y: 0, z: 8 },
-	})
-	MeshRenderer.setBox(myEntity)
+export function addEntities() {
+  const myEntity = engine.addEntity()
+  Transform.create(myEntity, {
+    position: { x: 8, y: 0, z: 8 },
+  })
+  MeshRenderer.setBox(myEntity)
 }
 
 export function mySystem(dt: number) {
-	console.log("system running")
+  console.log('system running')
 }
 
 /////////////////////////////
 
 // on index.ts
 
-import {addEntities, mySystem} from "/extraContent"
+import { addEntities, mySystem } from '/extraContent'
 
-export function main(){
-	addEntities()
+export function main() {
+  addEntities()
 }
 
 engine.addSystem(mySystem)
@@ -327,6 +319,33 @@ engine.addSystem(mySystem)
 
 The exception to this rule are the definitions of custom components. These must not be accessed via the `main()` function entry point, as they need to be interpreted before everything else.
 
+## Imports
+
+All functions, objects, components and other elements used by the scene must be imported into each file to use them. This is a consequence of [tree-shaking](#tree-shaking), as it avoids packaging the entire SDK and instead only includes the parts the scene uses.
+
+Snippets throughout the documentation omit the import lines at the start of every file to keep them clean, but for them to work you must add them to the scene.
+
+When Using VS Studio Code to write your scenes, the smart auto-complete options should take care of handling imports for you when you write, without you having to be aware of this.
+
+When you paste a snippet into your scene, however, you will likely see some elements marked in red, which are not imported into that file. To fix this:
+
+- Click on each underlined word
+- Click on the light-bulb icon on the left of the line
+- Select **Add Import From <path>**
+- An import line appears at the start of the file.
+
+<img src="/images/media/imports.png" alt="nested entities" width="400"/>
+
+If there are many different things to import, you can also select **Add all missing imports** from the same dropdown.
+
+Note that imports must be made to every file where an element is used.
+
+VS Studio Code should be able to resolve the correct paths to your imports on its own. If for whatever reason its having trouble doing that, a trick is to paste the following empty import statements at the start of your file. VS Studio should be able to take it from there.
+
+```ts
+import {} from '@dcl/sdk/ecs'
+import {} from '@dcl/sdk/math'
+```
 
 ## SDK Versions
 
@@ -341,7 +360,5 @@ To do so, open the Decentraland Editor tab, and press the `+` sign to install th
 See [manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-dependencies.md" >}}) for more details.
 
 {{< hint warning >}}
-**📔 Note**:  Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.
+**📔 Note**: Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.
 {{< /hint >}}
-
-

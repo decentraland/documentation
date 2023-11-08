@@ -63,6 +63,14 @@ Material.setPbrMaterial(meshEntity, {
 })
 ```
 
+{{< hint warning >}}
+**📔 Note**: The `Material` component must be imported via
+
+> `import { Material } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
+
 ## Material colors
 
 Give a material a plain color. In a PBR Material, you set the `albedoColor` field. Albedo colors respond to light and can include shades on them.

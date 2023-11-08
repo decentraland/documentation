@@ -53,9 +53,16 @@ The effects of an `AvatarModifierArea` are calculated locally for each player. Y
 If the area hides avatars, then the players that don't have the area in their local version of the scene will see all avatars normally. Even those that experience themselves as hidden. Players that do have the area will experience themselves and all other avatars as affected by the area when they enter it.
 
 {{< hint warning >}}
-**📔 Note**:  Avatar modifier areas are affected by the _position_ and _rotation_ of the Transform component of their host entity, but they're not affected by the _scale_.
+**📔 Note**: Avatar modifier areas are affected by the _position_ and _rotation_ of the Transform component of their host entity, but they're not affected by the _scale_.
 {{< /hint >}}
 
+{{< hint warning >}}
+**📔 Note**: The `AvatarModifierArea`component must be imported via
+
+> `import { AvatarModifierArea } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 #### Hide avatars
 
@@ -113,14 +120,12 @@ If a player's current camera mode doesn't match that of the `CameraModeArea`, th
 Use `CameraModeArea` in regions where players would have a significantly better experience by using a specific camera mode. For example, first person is ideal if the player needs to click on small object, or third person may be useful for players to notice some entity that your scene has attached over their head. Don't assume players know how to switch camera modes, many first-time players might not know they have the option, or not remember the key to do it.
 
 {{< hint warning >}}
-**📔 Note**:  Camera modifier areas are affected by the _position_ and _rotation_ of the Transform component of their host entity, but they're not affected by the _scale_.
+**📔 Note**: Camera modifier areas are affected by the _position_ and _rotation_ of the Transform component of their host entity, but they're not affected by the _scale_.
 {{< /hint >}}
-
 
 {{< hint warning >}}
-**📔 Note**:  If you overlap multiple camera modifier areas, the last one to be instanced by your scene's code will take priority over the others.
+**📔 Note**: If you overlap multiple camera modifier areas, the last one to be instanced by your scene's code will take priority over the others.
 {{< /hint >}}
-
 
 When creating an `CameraModeArea` component, you must provide the following:
 
@@ -144,7 +149,7 @@ const entity = engine.addEntity()
 AvatarModifierArea.create(entity, {
   area: Vector3.create(4, 3, 4),
   modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
-  excludeIds: ["0xx1...", "0xx2..."],
+  excludeIds: ['0xx1...', '0xx2...'],
 })
 
 Transform.create(entity, {
@@ -153,14 +158,13 @@ Transform.create(entity, {
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Make sure the player IDs are all written with lower-case letters. Use `.toLowerCase()` if necessary.
+**📔 Note**: Make sure the player IDs are all written with lower-case letters. Use `.toLowerCase()` if necessary.
 {{< /hint >}}
-
 
 Modifier areas run locally on each player's instance, the list of excluded IDs can be different for each player. In the example below, each player excludes their own ID from a modifier that hides avatars, so that they each view their own avatar and no others.
 
 ```ts
-import { getUserData } from "~system/UserIdentity"
+import { getUserData } from '~system/UserIdentity'
 
 executeTask(async () => {
   let userData = await getUserData()
@@ -185,11 +189,11 @@ executeTask(async () => {
 If the list of excluded IDs is going to be periodically changed (for example based on players entering or leaving an area), make sure that the list is kept in order. Perform a `.sort()` on the array, so that the list remains in the same order each time it's passed. In that way, only the changes to the list are be computed. This can otherwise have a significant impact on the scene's performance.
 
 ```ts
-  AvatarModifierArea.create(entity, {
-    area: Vector3.create(16, 5, 16),
-    modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
-    excludeIds: [myAvatarList.sort()],
-  })
+AvatarModifierArea.create(entity, {
+  area: Vector3.create(16, 5, 16),
+  modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+  excludeIds: [myAvatarList.sort()],
+})
 ```
 
 {{< /hint >}}
@@ -201,9 +205,8 @@ It can be tough to know exactly what parts of the scene your modifier areas cove
 To verify the positions of a `AvatarModifierArea` or a `CameraModeArea`, give the entity holding it a `MeshRenderer` component with a `box` shape, and set the scale to the same size as the `area` of the modifier area.
 
 {{< hint warning >}}
-**📔 Note**:  Modifier areas aren't affected by the `scale` property of the transform, their size is based on their `area` property.
+**📔 Note**: Modifier areas aren't affected by the `scale` property of the transform, their size is based on their `area` property.
 {{< /hint >}}
-
 
 ```ts
 const entity = engine.addEntity()
@@ -224,6 +227,5 @@ MeshRenderer.setBox(entity)
 To activate the effects of the modifier area, the player's head or torso should enter the area. It won't take effect if only the feet of the player are covered. Make sure the player can't easily evade the area by jumping.
 
 {{< hint warning >}}
-**📔 Note**:  The full area should fit inside the limits of your scene.
+**📔 Note**: The full area should fit inside the limits of your scene.
 {{< /hint >}}
-
