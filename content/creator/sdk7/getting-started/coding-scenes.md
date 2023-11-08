@@ -340,6 +340,13 @@ If there are many different things to import, you can also select **Add all miss
 
 Note that imports must be made to every file where an element is used.
 
+VS Studio Code should be able to resolve the correct paths to your imports on its own. If for whatever reason its having trouble doing that, a trick is to paste the following empty import statements at the start of your file. VS Studio should be able to take it from there.
+
+```ts
+import {} from '@dcl/sdk/ecs'
+import {} from '@dcl/sdk/math'
+```
+
 ## SDK Versions
 
 When developing a new scene, you use the `@latest` stable SDK release by default.
