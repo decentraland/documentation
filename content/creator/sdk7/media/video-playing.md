@@ -79,30 +79,38 @@ VideoPlayer.create(screen, {
 
 See [Streaming using Decentraland cast](#streaming-using-decentraland-cast) for details on how to use this third alternative method.
 
-
 ## About External Streaming
 
 The source of the streaming must be an _https_ URL (_http_ URLs aren't supported), and the source should have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it. If this is not the case, you might need to set up a server to act as a proxy and expose the stream in a valid way.
 
-To stream videos from an external URL, you must add the `ALLOW_MEDIA_HOSTNAMES` permission to the `requiredPermissions` list in the `scene.json` file. You must also include the list of high-level domains where you'll be streaming from under `allowedMediaHostnames`.
+There are a number of options for streaming video. The simplest option is to use a managed hosting provider like [Vimeo](https://vimeo.com/) ,  [Livepeer Studio](https://livepeer.studio/) or [Serraform](https://serraform.gitbook.io/streaming-docs/guides/decentraland-playback) where you pay a fee to the provider to manage all the streaming infrastructure.
 
-```json
-"requiredPermissions": [
-    "ALLOW_MEDIA_HOSTNAMES"
-  ],
-   "allowedMediaHostnames": [
-    "somehost.com",
-    "otherhost.xyz"
-  ]
-```
+The other recommended alternative is to set up your own server, using free software but paying for hosting on a platform like [Digital Ocean](https://try.digitalocean.com/developerbrand/?_campaign=emea_brand_kw_en_cpc&_adgroup=digitalocean_exact_exact&_keyword=digitalocean&_device=c&_adposition=&_content=conversion&_medium=cpc&_source=bing&msclkid=160bfc160a2a1bab9bbf9933594bd9c5&utm_source=bing&utm_medium=cpc&utm_campaign=emea_brand_kw_en_cpc&utm_term=digitalocean&utm_content=DigitalOcean%20Exact_Exact) or [Cloudflare](https://www.cloudflare.com/products/cloudflare-stream/). You can deploy something like a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box.
 
-{{< hint warning >}}
-**📔 Note**: You only need to include the domain, not the full URL. Do not include the "https://" section of the URL.
-{{< /hint >}}
+All these options have pros and cons for different scenarios. You should evaluate what's best for you taking into account your needs, technical skills and budget.
 
-See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
+## Setting up OBS for successful streaming
 
-To launch your own video streaming server, we recommend using a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box. See
+[OBS](https://obsproject.com/) is a popular and free tool for managing your streams.
+
+Whether you are using a venue’s stream key or your own RTMP server, your settings in OBS are important for the success of your stream. You should aim for a solid, consistent connection.
+
+### Simple OBS set-up
+
+The following simple set-up is recommended:
+
+- Bitrate 2500kbps (which will work with all Decentraland venues)
+- Audio bitrate 160kbps
+- Video encoder preset: Hardware NVENC
+- Audio Encoder AAC
+- Broadest Resolution: 720 (any greater causes issues in DCL)
+- Frame rate 30fps
+
+### Advice for new streamers
+
+- Early sound checks are essential to test your set up with the venue.
+- Small errors like a digit wrong in the stream key are the most likely to mess up the stream.
+- Do not go above 720 resolution or a bitrate of 2500 kbps.
 
 ## Streaming using Decentraland Cast
 
@@ -112,7 +120,6 @@ You can livestream from your camera or share your screen using [Decentraland Cas
 **📔 Note**: Decentraland cast is only available to use in a World, not in scenes published to Genesis City. See [Decentraland Cast]({{< ref "/creator/worlds/cast.md">}}) for more information. As Worlds have a limited capacity of maximum 100 players at a time, this streaming method can only reach that maximum amount.
 {{< /hint >}}
 
-
 Call `getActiveVideoStreams` to fetch a list of all live streams active in the current World. The example below uses the first stream returned by this method:
 
 ```ts
@@ -121,7 +128,7 @@ if (streams.length > 0) {
   const stream = streams[0]
   VideoPlayer.createOrReplace(screen, {
     src: stream.trackSid,
-    playing: true
+    playing: true,
   })
   console.log(`playing ${stream.identity} ${stream.sourceType} stream`)
 }
@@ -132,7 +139,6 @@ Each stream returned by `getActiveVideoStreams` contains the following fields:
 - `trackSid`: contains a unique track id that allow the player to play the video stream
 - `identity` : the address of the person that is streaming
 - `sourceType`: can be `VideoTrackSourceType.VTST_SCREEN_SHARE` or `VideoTrackSourceType.VTST_CAMERA`
-
 
 ## Video Materials
 
@@ -291,11 +297,10 @@ import {
   Entity,
   VideoPlayer,
   videoEventsSystem,
-  VideoState
+  VideoState,
 } from '@dcl/sdk/ecs'
 
 // ... Create videoPlayerEntity with VideoPlayer component, Transform, MeshRenderer.setPlane(), etc. ...
-
 
 videoEventsSystem.registerVideoEventsEntity(
   { entity: videoPlayerEntity },
@@ -338,7 +343,6 @@ videoEventsSystem.registerVideoEventsEntity(
   }
 )
 ```
-
 
 The videoEvent object passed as an input for the function contains the following properties:
 

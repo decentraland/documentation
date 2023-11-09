@@ -1,16 +1,16 @@
 ---
 date: 2022-11-04
-title: SDK7 beta testing guidelines
-description: Play live audio streams in your scene.
+title: SDK7 feedback guidelines
+description: Guidelines on how to provide feedback about SDK7
 categories:
   - development-guide
 aliases:
   - /creator/development-guide/sdk7/beta-testing-guidelines/
+  - /creator/development-guide/sdk7/alpha-testing-guidelines/
 type: Document
-url: /creator/development-guide/sdk7/alpha-testing-guidelines/
-weight: 2000
+url: /creator/development-guide/sdk7/testing-guidelines/
+weight: 20
 ---
-
 
 ## Documentation
 
@@ -27,13 +27,12 @@ If you run into any issues, please copy a URL to the current setup of your scene
 Install the SDK 7 version of the editor on VS Studio Code. To install it, simply search in the extension market for **Decentraland Editor SDK7**.
 
 {{< hint warning >}}
-**📔 Note**:  Notice that scenes that use SDK7 don't have the `decentraland-ecs` package installed. Instead, they have the `@dcl/sdk` package.
+**📔 Note**: Notice that scenes that use SDK7 don't have the `decentraland-ecs` package installed. Instead, they have the `@dcl/sdk` package.
 {{< /hint >}}
 
 ## In production
 
 You can deploy scenes with SDK7 via the **Publish Scene** button on the Editor.
-
 
 ## Example scenes
 
@@ -54,12 +53,4 @@ A couple of features are intended to be re-implemented in future releases follow
 
 ## Reporting issues
 
-See the list of existing known issues [here](https://github.com/orgs/decentraland/projects/20/views/13).
-
-If you run into any bugs, please report an issue in the [SDK](https://github.com/decentraland/sdk/issues) repository.
-
-We ask you to please detail how to reproduce the issue as much as possible. The ideal way to report a bug is to include a link to the [playground](https://decentraland.github.io/sdk-playground/), showcasing a minimal scene where this issue can be observed. Click the **Share** button in the playground to copy a URL that includes the code that you're currently using. That way, the issue is 100% reproducible by whoever is debugging it.
-
-## Submit feedback
-
-Once you've had a chance to try the new SDK, please fill in the [feedback form](https://form.typeform.com/to/YDwCljEz).
+If you encounter a problem, please see [Report a bug]({{< ref "/content/creator/sdk7/debugging/report-bug.md">}}).

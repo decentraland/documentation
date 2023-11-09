@@ -19,26 +19,30 @@ When dragging entities via the Inspector, in the [Decentraland Editor]({{< ref "
 
 <img src="/images/media/ecs-simple-components-new.png" alt="nested entities" width="400"/>
 
-
 ```ts
 // Create a new entity
 const ball = engine.addEntity()
-  
+
 // Give this entity a shape, to make it visible
 SphereShape.create(ball)
 
 // Give this entity a Transform component
 Transform.create(ball, {
-	  position: Vector3.create(5, 1, 5),
-	  scale: Vector3.create(1, 1, 1),
-	  rotation: Quaternion.Zero()
+  position: Vector3.create(5, 1, 5),
+  scale: Vector3.create(1, 1, 1),
+  rotation: Quaternion.Zero(),
 })
 ```
 
-To move, rotate or resize an entity in your scene over a period of time, change the values on this component incrementally, frame by frame. See [Move entities]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md" >}}) for more details and best practices. 
+To move, rotate or resize an entity in your scene over a period of time, change the values on this component incrementally, frame by frame. See [Move entities]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md" >}}) for more details and best practices.
 
-<!-- You can also use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve this more easily.
--->
+{{< hint warning >}}
+**📔 Note**: `Vector3` and `Quaternion` must be imported via
+
+> `import { Vector3, Quaternion } from "@dcl/sdk/math"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 ## Position
 
@@ -47,7 +51,7 @@ To move, rotate or resize an entity in your scene over a period of time, change 
 ```ts
 // Create a new entity
 const ball = engine.addEntity()
-  
+
 // Create transform with a predefined position
 Transform.create(ball, {
 	  position: Vector3.create(5, 1, 5)
@@ -68,7 +72,6 @@ mutableTransform.position.y = 1
 mutableTransform.position.z = 3
 ```
 
-
 When setting a position, keep the following considerations in mind:
 
 - The numbers in a position vector represent _meters_ (unless the entity is a child of a scaled entity).
@@ -81,11 +84,11 @@ When setting a position, keep the following considerations in mind:
 
   > Note: You can change the base parcel of a scene by editing the `base` attribute of _scene.json_.
 
-- To better orient yourself, use your _left_ hand: 
+- To better orient yourself, use your _left_ hand:
 
-	- your index finger (pointing forward) is the _z_ axis
-	- your middle finger (pointing sideways) is the _x_ axis
-	- your thumb (pointing up) is the _y_ axis.
+  - your index finger (pointing forward) is the _z_ axis
+  - your middle finger (pointing sideways) is the _x_ axis
+  - your thumb (pointing up) is the _y_ axis.
 
 - If an entity is a child of another, then `x:0, y:0, z:0` refers to the center of its parent entity, wherever it is in the scene.
 
@@ -102,7 +105,7 @@ When setting a position, keep the following considerations in mind:
 ```ts
 // Create a new entity
 const cube = engine.addEntity()
-  
+
 // Create transform with a predefined rotation of 0
 Transform.create(cube, {
 	  rotation: Quaternion.Zero()
@@ -123,7 +126,6 @@ mutableTransform.rotation.y = 1
 mutableTransform.rotation.z = 0.3
 mutableTransform.rotation.w = 0
 ```
-
 
 You can also set the rotation field with [_Euler_ angles](https://en.wikipedia.org/wiki/Euler_angles), the more common _x_, _y_ and _z_ notation with numbers that go from 0 to 360 that most people are familiar with. To use Euler angles, use one of the following notations:
 
@@ -152,7 +154,6 @@ const transform = Transform.getMutable(cube)
 const eulerAngle = Quaternion.toEuler(transform.rotation)
 ```
 
-
 <!--
 ### Add Rotations
 
@@ -172,8 +173,6 @@ myTransform.rotate(new Vector3(1, 0, 0), 15)
 Note that this produces a different result than if you simply set the initial rotation to `(15, 90, 0)`. In the example, the rotation along the X axis doesn't occur along the original X axis of the Transform, but instead it occurs along the _tilted_ X axis that results from the initial rotation.
 
 -->
-
-
 
 ## Face the player
 
@@ -200,20 +199,19 @@ Billboard.create(cube, {})
 You can configure how the billboard behaves with the following parameters:
 
 - `billboardMode`: Uses a value of the `BillboardMode` to set its behavior:
-	- `BillboardMode.BM_ALL`: The entity rotates to face the player on all of its rotation axis. If the player is high above the entity, the entity will face up.
-	- `BillboardMode.BM_NONE`: The entity won't rotate at all.
-	- `BillboardMode.BM_X`:  The entity has its _x_ rotation axis fixed.
-	- `BillboardMode.BM_Y`: The entity has its _y_ rotation axis fixed. It only rotates left and right, not up and down. It stays perpendicular to the ground if the player is above or below the entity.
-	- `BillboardMode.BM_Z`: The entity has its _z_ rotation axis fixed.
-
+  - `BillboardMode.BM_ALL`: The entity rotates to face the player on all of its rotation axis. If the player is high above the entity, the entity will face up.
+  - `BillboardMode.BM_NONE`: The entity won't rotate at all.
+  - `BillboardMode.BM_X`: The entity has its _x_ rotation axis fixed.
+  - `BillboardMode.BM_Y`: The entity has its _y_ rotation axis fixed. It only rotates left and right, not up and down. It stays perpendicular to the ground if the player is above or below the entity.
+  - `BillboardMode.BM_Z`: The entity has its _z_ rotation axis fixed.
 
 ```ts
 // flat billboard
 const perpendicularPlane = engine.addEntity()
 
 Transform.create(perpendicularPlane, {
-    position: Vector3.create(8, 1, 8),
-  })
+  position: Vector3.create(8, 1, 8),
+})
 
 PlaneShape.create(perpendicularPlane)
 
@@ -225,18 +223,18 @@ Billboard.create(perpendicularPlane, {
 const textLabel = engine.addEntity()
 
 Transform.create(textLabel, {
-    position: Vector3.create(6, 1 ,6),
-  })
+  position: Vector3.create(6, 1, 6),
+})
 
 TextShape.create(textLabel, {
-    text: "This text is always readable",
-  })
+  text: 'This text is always readable',
+})
 
 Billboard.create(textLabel)
 ```
 
 {{< hint info >}}
-**💡 Tip**:  Billboards are very handy to add to _text_ entities, since it makes them always legible.
+**💡 Tip**: Billboards are very handy to add to _text_ entities, since it makes them always legible.
 {{< /hint >}}
 
 The `rotation` value of the entity's `Transform` component doesn't change as the billboard follows players around.
@@ -244,38 +242,33 @@ The `rotation` value of the entity's `Transform` component doesn't change as the
 If an entity has both a `Billboard` component and `Transform` component with `rotation` values, players will see the entity rotating as a billboard. If the billboard doesn't affect all axis, the remaining axis will be rotated according to the `Transform` component.
 
 {{< hint warning >}}
-**📔 Note**:  If there are multiple players present at the same time, each will see the entities with billboard mode facing them. Billboard rotations are calculated locally for each player, and don't affect what others see.
+**📔 Note**: If there are multiple players present at the same time, each will see the entities with billboard mode facing them. Billboard rotations are calculated locally for each player, and don't affect what others see.
 {{< /hint >}}
-
 
 ## Face a set of coordinates
 
-For entity A to look at entity B: 
+For entity A to look at entity B:
 
-	1) Subtract the position of entity A from entity B to get a vector that describes the distance between them.
-	2) Normalize that vector, so it has a length of 1, maintaining its direction.
-	3) Use `Quaternion.lookRotation` to get a Quaternion rotation that describes rotating in that direction.
-	4) Set that Quaternion as the rotation of entity A
-
-
+    1) Subtract the position of entity A from entity B to get a vector that describes the distance between them.
+    2) Normalize that vector, so it has a length of 1, maintaining its direction.
+    3) Use `Quaternion.lookRotation` to get a Quaternion rotation that describes rotating in that direction.
+    4) Set that Quaternion as the rotation of entity A
 
 ```ts
-export function turn(entity:Entity, target: ReadOnlyVector3){
-	const transform = Transform.getMutable(entity)
-	const difference = Vector3.subtract( target, transform.position)
-	const normalizedDifference = Vector3.normalize(difference)
-	transform.rotation = Quaternion.lookRotation(normalizedDifference)
+export function turn(entity: Entity, target: ReadOnlyVector3) {
+  const transform = Transform.getMutable(entity)
+  const difference = Vector3.subtract(target, transform.position)
+  const normalizedDifference = Vector3.normalize(difference)
+  transform.rotation = Quaternion.lookRotation(normalizedDifference)
 }
 ```
 
-<!-- 
+<!--
  corr the Transform component to orient an entity fo face a specific point in space by simply passing it that point's coordinates. This is a way to avoid dealing with the math for calculating the necessary angles.
 
 This field requires a _Vector3_ object as a value, or any object with _x_, _y_ and _z_ attributes. This vector indicates the coordinates of the position of the point in the scene to look at.
 
 The `lookAt()` function has a second optional argument that sets the global direction for _up_ to use as reference. For most cases, you won't need to set this field. -->
-
-
 
 ## Scale
 
@@ -287,11 +280,10 @@ You can either use the `set()` operation to provide a value for each of the thre
 
 The default scale is 1, so assign a value larger to 1 to stretch an entity or smaller than 1 to shrink it.
 
-
 ```ts
 // Create a new entity
 const ball = engine.addEntity()
-  
+
 // Create transform with a predefined position
 Transform.create(ball, {
 	  scale: Vector3.create(5, 5, 5)
@@ -326,18 +318,17 @@ If a parent entity is scaled, all position values of its children are also scale
 const parentEntity = engine.addEntity()
 const childEntity = engine.addEntity()
 
-
 // Create a transform for the parent
 Transform.create(parentEntity, {
-	  position: Vector3.create(3, 1, 1),
-	  scale: Vector3.create(0.5, 0.5, 0.5)
-	})
+  position: Vector3.create(3, 1, 1),
+  scale: Vector3.create(0.5, 0.5, 0.5),
+})
 
 // Create a transform for the child, and assign it as a child
 Transform.create(childEntity, {
-	  position: Vector3.create(0, 1, 0),
-	  parent: parentEntity
-	})
+  position: Vector3.create(0, 1, 0),
+  parent: parentEntity,
+})
 ```
 
 In this example, the child entity will be scaled down to 0.5, since its parent has that scale. The child entity's position will also be relative to its parent. We have to add the parent's position plus that of the child. In this case, since the parent is scaled to half its size, the transformation of the child is also scaled down proportionally. In absolute terms, the child is positioned at `{ x: 3, y: 1.5, z: 1 }`. If the parent had a `rotation`, this would also affect the child's final position, as it changes the axis in which the child is shifted.
@@ -354,14 +345,14 @@ You can pick different anchor points on the avatar, most of these points are lin
 
 ```ts
 // Attach to loacl player
-AvatarAttach.create(myEntity,{
-    anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
+AvatarAttach.create(myEntity, {
+  anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
 // Attach to another player, by ID
-AvatarAttach.create(myEntity,{
-    avatarId: '0xAAAAAAAAAAAAAAAAA',
-    anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
+AvatarAttach.create(myEntity, {
+  avatarId: '0xAAAAAAAAAAAAAAAAA',
+  anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 ```
 
@@ -383,7 +374,7 @@ The following anchor points are available on the player:
 Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to other players who are seeing that player. If an entity is attached to the default local player, each player will experience the entity as attached to their own avatar.
 
 {{< hint warning >}}
-**📔 Note**:  Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
+**📔 Note**: Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
 {{< /hint >}}
 
 The `AvatarAttach` component overwrites the `Transform` component. A single entity can have both an `AvatarAttach` and a `Transform` component at the same time but the values on the `Transform` component are ignored.
@@ -393,10 +384,10 @@ If you need to position an entity with an offset from the anchor point on the av
 ```ts
 // Create parent entity
 const parentEntity = engine.addEntity()
-  
+
 // Attach parent entity to player
-AvatarAttach.create(parentEntity,{
-    anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
+AvatarAttach.create(parentEntity, {
+  anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
 // Create child entity
@@ -405,9 +396,9 @@ let childEntity = engine.addEntity()
 MeshRenderer.setCylinder(childEntity)
 
 Transform.create(childEntity, {
-    scale: Vector3.create(0.2, 0.2, 0.2),
-    position: Vector3.create(0, 0.4, 0),
-	parent: parentEntity
+  scale: Vector3.create(0.2, 0.2, 0.2),
+  position: Vector3.create(0, 0.4, 0),
+  parent: parentEntity,
 })
 ```
 
@@ -416,18 +407,18 @@ Transform.create(childEntity, {
 To attach an entity to the avatar of another player, you must provide the user's ID in the field `avatarId`. There are [various ways]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >}}) to obtain this data.
 
 {{< hint warning >}}
-**📔 Note**:  For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
+**📔 Note**: For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
 {{< /hint >}}
 
 Fetch the `userId` for all other nearby players via `getConnectedPlayers()`
 
 ```ts
-import { getConnectedPlayers } from "~system/Players"
+import { getConnectedPlayers } from '~system/Players'
 
 executeTask(async () => {
   let players = await getConnectedPlayers()
   players.forEach((player) => {
-    console.log("player is nearby: ", player.userId)
+    console.log('player is nearby: ', player.userId)
   })
 })
 ```
@@ -435,24 +426,23 @@ executeTask(async () => {
 Using it together with `AvatarAttach`, you could use the following code to add a cube floating over the head of every other player in the scene:
 
 ```ts
-import { getConnectedPlayers } from "~system/Players"
+import { getConnectedPlayers } from '~system/Players'
 
 executeTask(async () => {
   let players = await getConnectedPlayers()
-  if(!players.length) return
+  if (!players.length) return
   players.forEach((player) => {
-	const myEntity = engine.addEntity()
-	MeshRenderer.setBox(myEntity)
-	AvatarAttach.create(myEntity, {
-		anchorPointId: AvatarAnchorPoint.LEFT_HAND,
-		avatarId: player.userId
-  	})
+    const myEntity = engine.addEntity()
+    MeshRenderer.setBox(myEntity)
+    AvatarAttach.create(myEntity, {
+      anchorPointId: AvatarAnchorPoint.LEFT_HAND,
+      avatarId: player.userId,
+    })
   })
 })
 ```
 
 See other ways to fetch other user's IDs in [Get Player Data]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >}}).
-
 
 ## Scene boundaries
 
@@ -465,7 +455,7 @@ The position of entities in your scene is constantly being checked as they move,
 A grid on the scene's ground shows the limits of the scene, which by default rage from 0 to 16 on the _x_ and _z_ axis, and up to 20 on the _y_ axis. You're free to place entities underground, below 0 on the _y_ axis.
 
 {{< hint info >}}
-**💡 Tip**:  If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
+**💡 Tip**: If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
 {{< /hint >}}
 
 It's important to note that the _entire_ 3D model must be within the scene's bounds. This includes the model's _bounding box_. Some 3D models may have bounding boxes that unnecessarily extend beyond the meshes themselves, and it can sometimes be tricky to tell when this happens. When an entity extends beyond the scene's boundaries, in the preview you'll see a cube that marks these bounding boxes. The entire cube must fit within your scene.

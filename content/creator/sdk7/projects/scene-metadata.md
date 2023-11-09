@@ -279,7 +279,7 @@ This example spawns a player on _5, 1, 4_ looking East at _10, 1, 4_. If the spa
 
 The `rating` field is used to classify the content of your scene based on its appropriateness for different age groups. It helps in filtering content for players. The rating is a **single-letter code** that you should add to your `scene.json` file. Here are the available options:
 
-- **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language. 
+- **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language.
 - **🟡 `A` for Adults (18+)**: Choose this category if your scene features any of the following: intense offensive language, graphic violence, explicit sexual content and/or nudity, real money gambling, or substances like alcohol, tobacco, and drugs.
 
 <img src="/images/media/content-moderation-flag-icon.png" style="margin: 1rem; display: block;width: 200px;"/>
@@ -291,6 +291,7 @@ The `rating` field is used to classify the content of your scene based on its ap
 ```
 
 ### Restricted Content
+
 There is a third category for scenes: 🔴 `R` for Restricted. This rating is manually applied by Content Moderators to scenes that violate Decentraland's [Content Policy](https://decentraland.org/content). Violations may include, but are not limited to:
 
 - Suspicious content or spam
@@ -311,44 +312,29 @@ Scenes with this rating won't load and no one will be able to interact with them
 
 The `requiredPermissions` property manages various controlled features that could be used in an abusive way and damage a player's experience.
 
+{{< hint warning >}}
+**📔 Note**: Permissions are only relevant in [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) and [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). Normal scenes (both in parcels or in Worlds) are not affected by these permissions, and are free to use the corresponding functionality.
+{{< /hint >}}
+
 The corresponding features are blocked from being used by the scene, unless the permission is requested in the `scene.json` file.
 
 ```json
 "requiredPermissions": [
-    "ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE"
+    "ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE",
+		"OPEN_EXTERNAL_LINK",
   ],
 ```
 
-Currently, the following permissions are managed on all content:
+Currently, the following permissions are managed on smart wearables and portable experiences:
 
 - `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}})
 - `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >}})
-- `ALLOW_MEDIA_HOSTNAMES`: Refers to fetching resources (including images, video streams, and audio streams) from external sources rather than being limited to the files stored in the scene folder. You must also list the allowlisted high-level domains you will be fetching resources from.
-  `json
-"requiredPermissions": [
-	"ALLOW_MEDIA_HOSTNAMES"
-],
-"allowedMediaHostnames": [
-	"somehost.com",
-	"otherhost.xyz"
-]
-`
-  {{< hint warning >}}
-  **📔 Note**: The `allowedMediaHostnames` lists only the high-level domains from where your assets are being requested. If there are any chained requests, these don't need to be explicitly listed. For example, if a video streaming service forwards content from a network of alternative servers, you only need to list the original URL you'll be explicitly calling from your code, not those other servers.
-  {{< /hint >}}
-
-Portable experiences and smart wearables are also affected by the following permissions:
-
 - `USE_WEB3_API`: Refers to interacting with the player's browser wallets, to make transactions or sign messages.
 - `USE_FETCH`: Refers to sending http requests to 3rd party servers, using `fetch` or `signedFetch`
 - `USE_WEBSOCKET`: Refers to opening websocket connections with 3rd party servers
 - `OPEN_EXTERNAL_LINK`: Refers to prompting the player to open links to external sites
 
 If a `requiredPermissions` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
-
-{{< hint warning >}}
-**📔 Note**: In future releases, when a player enters a scene that has items listed in the `requiredPermissions` property, the scene will prompt the player to grant these permissions. The player will be able to decline these permissions for that scene.
-{{< /hint >}}
 
 ## Feature Toggles
 
