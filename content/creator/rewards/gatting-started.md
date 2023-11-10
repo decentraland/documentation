@@ -43,7 +43,7 @@ When you create a new campaign it doesn't have any item on its stock, so you nee
 
 <img src="/images/rewards/without-supply.png" alt="without supply" style="width:100%; margin: 0 auto;display: block;" width="2296" hegiht="1012" />
 
-Any campaign can't deliver rewards if you don't grant minting permissions first, to do it, follow [this guide]({{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md" >}}#adding-minters-to-the-collection) using the campaign address (which you can find below its name) as the minters address.
+Rewards cannot be distributed through a campaign without granting minting permissions first, to do it, follow [this guide]({{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md" >}}#adding-minters-to-the-collection) using the campaign address (which you can find below its name) as the minters address.
 
 Once you have granted minting permissions, and the transaction is confirmed, you can add items to the campaign stock. To do it, click on the **Add supply** button to see all collections the campaign has minting permissions on.
 
