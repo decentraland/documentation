@@ -63,7 +63,7 @@ Priority and Group fields are advance features that will be covered in a dedicat
 
 ## Create a dispenser to deliver the rewards
 
-Dispensers are the way to send or claim rewards from the stock, each one have a key that you need to authenticate against the HTTP API. UI doesn't show any key, but you can get it by clicking on the **Copy** button.
+Dispensers are the way to send or claim rewards from the stock, each one has a key that you need to authenticate against the HTTP API. The UI doesn't show any key, but you can get it by clicking on the **Copy** button.
 
 Upon creating a new campaign, a default dispenser with a "master key" is provided for testing purposes only. To establish a new dispenser, simply click the **Add dispenser** button.
 
