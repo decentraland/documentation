@@ -4,7 +4,7 @@ url: /creator/rewards/tx
 weight: 4
 ---
 
-The "transactions" tab allow creators to monitor the status of the transactions that are being processed by the Rewards service showing the status of each transaction, its hash, the momento it was created, and the amount of *Gwei* spend.
+The "transactions" tab allows creators to monitor the status of the transactions that are being processed by the Rewards service showing the status of each transaction, its hash, the moment it was created, and the amount of *Gwei* spent.
 
 <img src="/images/rewards/transactions.png" alt="Transactions" width="2310" hegiht="1144" />
 
