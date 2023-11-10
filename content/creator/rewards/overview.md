@@ -22,4 +22,4 @@ It handle most of the logic involve on minting items on the blockchain, includin
 
 ## Limitations
 
-Although the service offers some automation protections to prevent minting wearable massively to one person, it is impossible to be 100% accurate. **We do not recommended to use Rewards to mint Wearable/Emotes with a rarity lower than [EPIC]({{< ref "/content/creator/wearables-and-emotes/manage-collections/creating-a-collection.md" >}}#rarity)**.
+Although the service offers some automation protections to prevent minting wearable massively to one person, it is impossible to be 100% accurate. **It is NOT recommended to use Rewards to mint Wearable/Emotes with a rarity lower than [EPIC]({{< ref "/content/creator/wearables-and-emotes/manage-collections/creating-a-collection.md" >}}#rarity)**.
