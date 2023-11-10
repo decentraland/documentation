@@ -9,7 +9,7 @@ weight: 2
 Before starting to use the Rewards Service, make sure you have a collection [approved and ready to mint]({{< ref "/creator/wearables-and-emotes/publishing/publishing-collections.md" >}}).
 
 ## Create your first campaign
-
+A campaign refers to an incentivized initiative designed to boost user engagement through reward offerings. In this section, you'll discover the campaign configuration details, along with the prerequisites for initiating the distribution of rewards.
 Enter to the [Rewards Service](https://rewards.decentraland.org/), connect your wallet, click on the **Campaigns** tab, and finally click on the **Create Campaign** button. You will be redirected to the campaign creation page.
 
 <img src="/images/rewards/create-campaign-page.png" alt="Creating new campaign" style="width:100%; max-width: 600px; margin: 0 auto;display: block;" width="1480" hegiht="1532" />
