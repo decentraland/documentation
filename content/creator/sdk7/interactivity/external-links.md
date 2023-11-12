@@ -18,7 +18,7 @@ To teleport a player to another scene, call the following function, indicating t
 ```ts
 import { teleportTo } from "~system/RestrictedActions"
 
-teleportTo('-51,1')
+teleportTo({ worldCoordinates: { x: -51, y: 1 } })
 ```
 
 Players are presented a confirmation screen before they are teleported, this screen displays information from the destination scene’s `scene.json file`, including the scene `name`, `description` and `navmapThumbnail`. See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for details on how to set this data.
