@@ -13,7 +13,7 @@ This section explains how to integrate Rewards with your scene, server, or quest
 
 ## With your scene
 
-You can integrate Rewards directly on your scene, but this expose all your logic to the user, so we don't recommend for minting items with a rarity lower that [EPIC]({{< ref "/content/creator/wearables-and-emotes/manage-collections/creating-a-collection.md" >}}#rarity). It would be best to assume that users with enough knowledge and time could resolve captchas, even change their IP to eventually mint all the available items, and then sell them on the marketplace. The only real incentive to prevent this is having enough items to mint to ensure that everyone is getting a wearable/emote.
+Rewards can be integrated directly into scenes, but this exposes all the logic to the user, so it is not recommended for minting items with a rarity lower than [EPIC]({{< ref "/content/creator/wearables-and-emotes/manage-collections/creating-a-collection.md" >}}#rarity). Consider the possibility that users possessing adequate knowledge and time could potentially solve captchas, alter their IP addresses, and subsequently mint all the available items, ultimately selling them on the marketplace. The only real incentive to prevent this is having enough items to mint to ensure that everyone is getting a wearable/emote.
 
 ### Recommended dispenser flags
 
