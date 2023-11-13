@@ -65,10 +65,6 @@ Material.setPbrMaterial(screen, {
 
 To use a video from an external streaming URL, just change step 2 so that the `src` property in the `VideoPlayer` component references the path to the file.
 
-{{< hint warning >}}
-**📔 Note**: For a video stream to work in your scene, you must also edit the `scene.json` to allow streaming, and add the domains you want to stream from to the allowlist. See [About streaming](#about-streaming).
-{{< /hint >}}
-
 ```ts
 // #2
 VideoPlayer.create(screen, {
