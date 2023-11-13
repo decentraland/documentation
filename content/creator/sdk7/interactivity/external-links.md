@@ -16,9 +16,9 @@ You can add links from your scene out to other content, either to other scenes o
 To teleport a player to another scene, call the following function, indicating the coordinates that you want players to teleport to.
 
 ```ts
-import { teleportTo } from "~system/RestrictedActions"
+import { requestTeleport } from '~system/UserActionModule';
 
-teleportTo('-51,1')
+requestTeleport({ destination: "-51,1" })
 ```
 
 Players are presented a confirmation screen before they are teleported, this screen displays information from the destination scene’s `scene.json file`, including the scene `name`, `description` and `navmapThumbnail`. See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for details on how to set this data.
