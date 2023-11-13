@@ -24,7 +24,7 @@ When dragging entities via the Inspector, in the [Decentraland Editor]({{< ref "
 const ball = engine.addEntity()
 
 // Give this entity a shape, to make it visible
-SphereShape.create(ball)
+MeshRenderer.setSphere(ball)
 
 // Give this entity a Transform component
 Transform.create(ball, {
