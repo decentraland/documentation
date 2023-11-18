@@ -355,7 +355,7 @@ You can install the `@next` SDK release if you want to leverage or preview upcom
 
 To do so, open the Decentraland Editor tab, and press the `+` sign to install the following:
 
-`@dcl/skd@next`
+`@dcl/sdk@next`
 
 See [manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-dependencies.md" >}}) for more details.
 
