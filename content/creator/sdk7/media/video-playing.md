@@ -358,7 +358,7 @@ The videoEvent object passed as an input for the function contains the following
 
 ### Latest video event
 
-Query a video for its last state change by using `getLatestVideoEvent`. This function returns an object with a `currentState` property, with one of the following values from the `VideoState` enum, indicating the current state of the video:
+Query a video for its last state change by using `getVideoState`. This function returns an object with a `currentState` property, with one of the following values from the `VideoState` enum, indicating the current state of the video:
 
 - `VideoState.VS_READY`
 - `VideoState.VS_NONE`
@@ -371,7 +371,7 @@ Query a video for its last state change by using `getLatestVideoEvent`. This fun
 
 ```ts
 function mySystem() {
-  const latestVideoEvent = getLatestVideoEvent(videoPlayerEntity)
+  const latestVideoEvent = getVideoState(videoPlayerEntity)
   console.log(latestVideoEvent.currentState)
 }
 ```
