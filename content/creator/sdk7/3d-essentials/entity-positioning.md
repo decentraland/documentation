@@ -402,6 +402,10 @@ Transform.create(childEntity, {
 })
 ```
 
+{{< hint warning >}}
+**📔 Note**: If the attached entity has colliders, these colliders could block the player's movement. Consider dissabling the physics layer of the entity's colliders. See [Collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}})
+{{< /hint >}}
+
 ### Obtain an avatarId
 
 To attach an entity to the avatar of another player, you must provide the user's ID in the field `avatarId`. There are [various ways]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >}}) to obtain this data.
