@@ -5,31 +5,53 @@ description: Sync scene state between players.
 categories:
   - development-guide
 type: Document
+aliases:
+  - /creator/development-guide/sdk7/remote-scene-considerations/
 url: /creator/development-guide/sdk7/serverless-multiplayer/
 weight: 2
 ---
 
-When a player enters a Decentraland scene, each player downloads and runs that scene's code independently on their own machine.
+Decentraland runs scenes locally in a player's browser. By default, players are able to see each other and interact directly, but each one interacts with the environment independently. Changes in the environment aren't shared between players by default. You need to implement this manually.
 
-To share changes in the scene with other players, mark entities as synced
+Allowing all players to see a scene as having the same content in the same state is extremely important to for players to interact in more meaningful ways. Without this, if a player opens a door and walks into a house, other players will see that door as still closed, and the first player will appear to walk directly through the closed door to other players.
 
-There are other alternatives to sharing changes across all players changes:
+There are three ways to keep the scene state that all players see in sync:
 
-- Use a server, see link
-- Send explicit MessageBus messages
+- **Mark an entity as synced**: The easiest option. See [Marked an entity as synced](#mark-an-entity-as-synced)
+- **Send Explicit MessageBus Messages**: Manually send and listen for specific messages. See [Send explicit MessageBus messages](#send-explicit-messagebus-messages)
+- **Use a Server**: See [authoritative server]({{< ref "/content/creator/sdk7/networking/authoritative-server.md" >}}). This option is more work to set up, but is recommendable if there are incentives to exploit your scene.
 
-## Mark an entity as synced
+The first two options are simpler, as they require no server. The downside is that you rely more on player's connection speeds, and the scene state is not persisted if players leave.
+
+## Mark an Entity as Synced
+
+To mark an entity as synced, use the `syncEntity` function:
 
 ```ts
-const houseEntity = engine.addEntity()
-syncEntity(houseEntity, [Transform.componentId], Entities.HOUSE)
+const doorEntity = engine.addEntity()
+
+syncEntity(doorEntity, [Transform.componentId, Animator.componentId], 1)
 ```
 
-Not all entities need to be synced, and not all components from those entities either. For example if the 3D model of a tree is always going to be in the same spot, you can leave it unsynced. You only need to sync things that will change over time.
+The `syncEntity` function takes the following inputs:
 
-If you have a cube that changes color when clicked, but the shape will always be a cube, you only need to sync the `Material` component, not the `MeshRenderer`. If the cube plays a sound when changing color, and you want all other player to hear that sound too, you can also sync the `AudioSource` component.
+- **entityId**: A reference to the entity to sync, by its local id
+- **componentIds**: A list of the components that need to be synced from that entity. This is an array that may contain as many entities as needed. All values should be the component's `componentId` property
+- **entityEnumId**: (optional) A unique id that is used consistently by all players, see [link].
 
-Tip: If the data you want to share doesn't exist as a component, define a custom component that holds that data! The component could be applied to a single placeholder entity in the scene.
+Not all entities or components need to be synced. Static elements like a tree that remains in the same spot don't require syncing. Of the entities you do sync, only the components that change over time should be synchronized. If, for example, a cube changes color on click, only the Material component needs to be synced, not the MeshRenderer or the Transform.
+
+{{< hint info >}}
+**💡 Tip**: If the data you want to share doesn't exist as a component, define a [custom component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) that holds that data. It might make sense to apply a single copy of that component to a placeholder entity.
+{{< /hint >}}
+
+#### About the sync id
+
+The entityEnumId of an entity must be unique. It is not necessarily the same as the local entityId assigned on `engine.addEntity()`. While the entity ID is automatically generated and may vary between players, the networkId must be explicitly defined for each entity and be unique.
+
+For example if a race condition makes one part of the scene load before another. Maybe for player A the door is the entity 512, but for player B its 513, so when one player opens the door, another player sees the whole building move.
+
+Tip: Create an enum in your scene, to keep clear references to each syncable id in your scene.
 
 ```ts
 enum Entities {
@@ -38,28 +60,13 @@ enum Entities {
 }
 ```
 
-We use the Entities enum to tag the entity with an unique identifier, so every client knows which entity you are modifying, no matter the order they are created
+Use the Entities enum to tag the entity with a unique identifier, ensuring that every client recognizes the modified entity, regardless of creation order.
 
-### About the sync id
+#### Player-specific entities
 
-The networkId of an entity must be unique.
-Note that the networkId is not necessarily the same as the local entityId assigned on `engine.addEntity()`.
+In cases where a single entity is used by the code on several player instances (e.g., a door), you must assign a entityEnumId to that entity to ensure all players deal with the same entity. However, for entities created as a result of player interactions that only need to be seen by other players, there is no need to define a entityEnumId.
 
-The entity id is generated automatically, and may vary between players that load the same scene, for example if a race condition makes one part of the scene load before another. Maybe for client A the door is the entity 512, but for client B its 513, so when one player opens the door, another player sees the whole building move.
-
-The networkId MUST be explicitly defined for each entity and unique.
-
-Tip: Create an enum in your scene, to keep clear references to each syncable id in your scene.
-
-### Player-specific entities
-
-There are cases where it's not necessary to assign a networkId
-
-If a same entity is used by the code on several player´s instances (like a door), then it's important to assign a networkId to that entity.
-
-This is not the case for entities that are created as a result of a player interaction, with code that is only executed on that player's instance, but that need to be seen by other players.
-
-For example, in a snowball fight scene, every time a player throws a snowball, they're instancing a new entity. Players can see each other's snowballs, but only the player that creates the ball runs the code that controls the ball's behavior. In these cases, we don't need to define a networkId.
+For example, in a snowball fight scene, every time a player throws a snowball, they're instancing a new entity. Players can see each other's snowballs, but only the player that creates the ball executes the code that controls the ball's behavior. In these cases, we don't need to define a networkId.
 
 ```ts
 function onThrow() {
@@ -70,11 +77,9 @@ function onThrow() {
 }
 ```
 
-The client that runs this code will create an UNIQUE entity and will be sent to the others.
+#### Parented entities
 
-## Parented entities
-
-The parent of an entity is defined via the `Transform` component, however this points to the local entity id of the parent, which could vary (link to above). To parent an entity that should be snyced, use `parentEntity()`.
+The parent of an entity is defined via the `Transform` component, however this points to the local entity id of the parent, which could vary (link to above). To sync parented entities, use the `parentEntity()` function.
 
 ```ts
 import { syncEntity, parentEntity } from '@dcl/sdk/network'
@@ -90,6 +95,8 @@ parentEntity(childEntity, parentEntity)
 
 Every client will know how to map this entity because the ParentNetwork has the pointers to the parent entity. But we are still having an issue, the parent is not defined. We need to tell the renderer that the child entity has a parent property.
 
+both the parent and the child need to be synced
+
 getParent
 
 removeParent
@@ -97,3 +104,141 @@ removeParent
 getChildren
 
 getFistChild
+
+## Send Explicit MessageBus Messages
+
+#### Initiate a message bus
+
+Create a message bus object to handle the methods that are needed to send and receive messages between players.
+
+```ts
+import { MessageBus } from '@dcl/sdk/message-bus'
+
+const sceneMessageBus = new MessageBus()
+```
+
+#### Send messages
+
+Use the `.emit` command of the message bus to send a message to all other players in the scene.
+
+```ts
+import { MessageBus } from '@dcl/sdk/message-bus'
+
+const sceneMessageBus = new MessageBus()
+
+const myEntity = engine.addEntity()
+MeshRenderer.setBox(myEntity)
+MeshCollider.setBox(myEntity)
+
+pointerEventsSystem.onPointerDown(
+  {
+    entity: myEntity,
+    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
+  },
+  function () {
+    sceneMessageBus.emit('box1Clicked', {})
+  }
+)
+```
+
+Each message can contain a payload as a second argument. The payload is of type `Object`, and can contain any relevant data you wish to send.
+
+```ts
+import { MessageBus } from '@dcl/sdk/message-bus'
+
+const sceneMessageBus = new MessageBus()
+
+sceneMessageBus.emit('spawn', { position: { x: 10, y: 2, z: 10 } })
+```
+
+{{< hint info >}}
+**💡 Tip**: If you need a single message to include data from more than one variable, create a custom type to hold all this data in a single object.
+{{< /hint >}}
+
+#### Receive messages
+
+To handle messages from all other players in that scene, use `.on`. When using this function, you provide a message string and define a function to execute. For each time that a message with a matching string arrives, the given function is executed once.
+
+```ts
+import { MessageBus } from '@dcl/sdk/message-bus'
+
+const sceneMessageBus = new MessageBus()
+
+type NewBoxPosition = {
+  position: { x: number; y: number; z: number }
+}
+
+sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
+  const myEntity = engine.addEntity()
+  Transform.create(myEntity, {
+    position: { x: info.position.x, y: info.position.y, z: info.position.z },
+  })
+  MeshRenderer.setBox(myEntity)
+  MeshCollider.setBox(myEntity)
+})
+```
+
+{{< hint warning >}}
+**📔 Note**: Messages that are sent by a player are also picked up by that same player. The `.on` method can't distinguish between a message that was emitted by that same player from a message emitted from other players.
+{{< /hint >}}
+
+#### Full MessageBus example
+
+This example uses a message bus to send a new message every time the main cube is clicked, generating a new cube in a random position. The message includes the position of the new cube, so that all players see these new cubes in the same positions.
+
+```ts
+import { MessageBus } from '@dcl/sdk/message-bus'
+
+/// --- Create message bus ---
+const sceneMessageBus = new MessageBus()
+
+// Cube factory
+function createCube(x: number, y: number, z: number): Entity {
+  const meshEntity = engine.addEntity()
+  Transform.create(meshEntity, { position: { x, y, z } })
+  MeshRenderer.setBox(meshEntity)
+  MeshCollider.setBox(meshEntity)
+
+  // When a cube is clicked, send message to spawn another one
+  pointerEventsSystem.onPointerDown(
+    {
+      entity: myEntity,
+      opts: { button: InputAction.IA_PRIMARY, hoverText: 'Press E to spawn' },
+    },
+    function () {
+      sceneMessageBus.emit('spawn', {
+        position: {
+          x: 1 + Math.random() * 8,
+          y: Math.random() * 8,
+          z: 1 + Math.random() * 8,
+        },
+      })
+    }
+  )
+
+  return meshEntity
+}
+
+// Init
+createCube(8, 1, 8)
+
+// define type of data
+type NewBoxPosition = {
+  position: { x: number; y: number; z: number }
+}
+
+// on spawn message, create new cube
+sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
+  createCube(info.position.x, info.position.y, info.position.z)
+})
+```
+
+## Test a multiplayer scene locally
+
+If you launch a scene preview and open it in two (or more) different browser windows, each open window will be interpreted as a separate player, and a mock communications server will keep these players in sync.
+
+Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
+
+{{< hint warning >}}
+**📔 Note**: Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
+{{< /hint >}}
