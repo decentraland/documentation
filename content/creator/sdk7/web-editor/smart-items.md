@@ -32,6 +32,9 @@ Here are some common items and their default behaviors:
 - **Chests**: They behave like doors, by default are opened or closed when clicking. You can place smaller items inside them.
 - **Platforms**: They move between two positions. Use their tween actions to control where they move to, their speed, etc.
 - **Trigger area**: An [invisible item](#invisible-items) that can trigger other smart items when the player walks into its area. See [About trigger areas](#about-trigger-areas).
+- **Video Player**: A screen for showing videos or live streams. See [Playing Videos](#playing-videos).
+- **Audio Stream**: Play audio from a live stream. See [Playing Audio Streams](#playing-audio-streams)
+- **NFT**: Display an NFT image as a portrait. See [Displaying NFTs](#displaying-nfts)
 
 All smart items can be configured to behave in custom ways. For example, change what sounds a door plays when opened, how far a platform moves, etc.
 
@@ -85,9 +88,26 @@ The **Actions** component lists actions that the item can carry out. Each smart 
 - **Play Sound**: Plays a sound from a file, at the location of the item. See [About playing sounds](#about-playing-sounds)
 - **Stop Sound**: Stops all sounds playing from the item.
 - **Start Tween**: Makes a gradual change in position, rotation or scale over a given period. See [Moving, rotating or scaling](#moving-rotating-or-scaling).
-- **Change Visibility**: Makes the item visible or invisible.
+- **Set Visibility**: Makes the item visible or invisible.
 - **Attach To Player**: Sets the item as a child of the player's avatar. For example to carry it on their hand or above their head.
 - **Detach From Player**: Detaches the item from the player's avatar.
+- **Open Link**: Opens a link to an external website.
+  {{< hint info >}}
+  **📔 Note**:
+  This action can only happen as a result of clicking on an item. It can't be triggered by walking into a trigger area.
+  {{< /hint >}}
+- **Teleport Player**: Teleport a player to the coordinates of another scene in Decentraland. Players will appear in the spawn-point of the destination scene.
+- **Play Emote**: Make the player's avatar perform an animation.
+- **Show Text**: Display text on the screen's UI, to be hidden after a few seconds. Ideal hints, dialog lines, notifications, etc.
+- **Hide Text**: Hides any UI text that might be currently displayed.
+- **Start Delay**: Delays another action of the same item by as many seconds as you need.
+- **Stop Delay**: Cancels any delayed actions on the item.
+- **Start Loop**: Replays an action from the same item recurrently at a given interval.
+- **Stop Loop**: Cancels any looped actions on the item.
+- **Play Video Stream**: See [Playing Videos](#playing-videos).
+- **Stop Video Stream**: Stop any videos currently played.
+- **Play Audio Stream**: [Playing Audio Streams](#playing-audio-streams)
+- **Stop Audio Stream**: Stop any audio streams currently playing.
 
 See [states and conditional logic](#states-and-conditional-logic) to learn about other actions related to logic conditions.
 
@@ -233,6 +253,67 @@ Triggers of type **On Spawn** activate an action when the scene is loaded. Inste
 For example, use this to make a platform move continually. Use an **On Spawn** trigger to activate a tween action. Then use **On State Change** triggers to keep it moving between two or more positions.
 
 <img src="/images/editor/on_spawn.png" width="300"/>
+
+## Playing videos
+
+Play videos from either:
+
+- **Local files**: Upload a video file as part of the scene, then point the _URL_ field to the path to that file.
+- **Stream from a URL**: Point to a live or pre-recorded stream on the web, for example from Vimeo.
+  {{< hint info >}}
+  **📔 Note**:
+  You can't stream a video from YouTube or similar sites, as these only allow displaying their content in their branded HTML widget. See See [About External Streaming]({{< ref "/content/creator/sdk7/media/video-playing.md#about-external-streaming" >}}) for options and tips.
+  {{< /hint >}}
+- **Stream live from DCL Cast**: This simplified service lets you easily set up a live stream as a scene owner. See [Decentraland Cast]({{< ref "/creator/worlds/cast.md">}}).
+
+There are two options for when to play a video:
+
+- Configure the **Video Player** component of the item directly. This makes the video start playing as soon as the scene loads.
+  <img src="/images/editor/video-from-start.png" width="300"/>
+- Define an Action of type **Play Video Stream**. This lets you trigger the playing of the video as the result of a player interaction, like walking into a room, or pushing a button.
+  <img src="/images/editor/video-from-action.png" width="300"/>
+
+You can configure the volume of the video's sounds. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
+
+You can also configure the video to either loop or play once.
+
+{{< hint warning >}}
+**📔 Note**: Avoid playing more than one video at any given time in your scene, because it can severely impact performance for players. Always stop other videos before playing a second video.
+{{< /hint >}}
+
+## Playing audio streams
+
+Play an audio stream from a URL.
+
+{{< hint info >}}
+**📔 Note**:
+Not all streaming services allow you to play their audio outside their site. The following are some examples that work in Decentraland:
+
+```ts
+RAVE = ‘https://icecast.ravepartyradio.org/ravepartyradio-192.mp3’
+DELTA = ‘https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e’
+GRAFFITI = ‘https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5’
+SIGNS = ‘https://edge.singsingmusic.net/MC2.mp3’
+JAZZ = ‘https://live.vegascity.fm/radio/8010/the_flamingos.mp3’
+```
+
+{{< /hint >}}
+
+You can adjust the volume of your stream. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
+
+## Displaying NFTs
+
+To display an NFT on Ethereum mainnet on a picture frame, you must provide a valid URN including the NFT's contract and ID. For example:
+
+```
+urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536
+```
+
+See [Required permissions]({{< ref "/content/creator/sdk7/media/display-a-certified-nft.md#">}}) for more details.
+
+You can also configure a background color, this is particularly useful for NFTs with a transparent background.
+
+You can also chose a **frame style**, to frame the NFT in a variety of different styles, classic and modern.
 
 ## Invisible items
 
