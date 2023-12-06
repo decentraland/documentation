@@ -419,5 +419,7 @@ initAssetPacks(engine, pointerEventsSystem, {
   Transform,
   VisibilityComponent,
   GltfContainer,
+	Material,
+	VideoPlayer
 })
 ```
