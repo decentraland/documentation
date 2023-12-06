@@ -37,6 +37,21 @@ Set the volume of the `AudioStream` component by changing its `volume` property.
 
 Switch the `AudioStream` component on or off by setting its `playing` property to _true_ or _false_.
 
+{{< hint info >}}
+**📔 Note**:
+Not all streaming services allow you to play their audio outside their site. The following are some examples that work in Decentraland:
+
+```ts
+RAVE = ‘https://icecast.ravepartyradio.org/ravepartyradio-192.mp3’
+DELTA = ‘https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e’
+GRAFFITI = ‘https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5’
+SIGNS = ‘https://edge.singsingmusic.net/MC2.mp3’
+JAZZ = ‘https://live.vegascity.fm/radio/8010/the_flamingos.mp3’
+```
+
+{{< /hint >}}
+
+<!--
 To stream audio into a scene, you must add the `ALLOW_MEDIA_HOSTNAMES` permission to the `requiredPermissions` list in the `scene.json` file. You must also include the list of high-level domains where you'll be streaming from under `allowedMediaHostnames`.
 
 ```json
@@ -49,4 +64,4 @@ To stream audio into a scene, you must add the `ALLOW_MEDIA_HOSTNAMES` permissio
   ]
 ```
 
-See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
+See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details. -->
