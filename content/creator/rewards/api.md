@@ -27,7 +27,7 @@ Make sure you have your dispenser key (a.k.a campaign key). Use this key to send
 ```ts
 // User data is only required if your code is running on a Decentraland scene
 import { getUserData } from '@decentraland/Identity'
-const user = await getUserData()
+const user = await getUserData({})
 
 const request = await fetch('https://rewards.decentraland.org/api/rewards', {
   method: 'POST',
@@ -116,7 +116,7 @@ For dispensers with this flag enabled, you need to slightly modify the code, as 
 import { signedFetch } from '@decentraland/SignedFetch'
 import { getUserData } from '@decentraland/Identity'
 
-const user = await getUserData()
+const user = await getUserData({})
 const request = await signedFetch({
   url:'https://rewards.decentraland.org/api/rewards',
   init:{
@@ -203,7 +203,7 @@ You then need to include the captcha id and value that resolves the captcha in t
 import { signedFetch } from '@decentraland/SignedFetch'
 import { getUserData } from '@decentraland/Identity'
 
-const user = await getUserData()
+const user = await getUserData({})
 const request = await signedFetch({
   url: 'https://rewards.decentraland.org/api/rewards',
   init: {
@@ -272,11 +272,11 @@ With this flag enabled, users will need to be connected to a Decentraland Cataly
 <div id="connected-to-decentraland-code"></div>
 
 ```tsx {hl_lines=[1,5,14]}
-import { getCurrentRealm } from '@decentraland/EnvironmentAPI'
+import { getRealm } from "~system/Runtime"
 import { getUserData } from '@decentraland/Identity'
 
-const user = await getUserData()
-const realm = await getCurrentRealm()
+const user = await getUserData({})
+const realm = await getRealm({})
 const request = await signedFetch({
   url: 'https://rewards.decentraland.org/api/rewards',
   init: {
