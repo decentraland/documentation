@@ -117,9 +117,9 @@ import { signedFetch } from '@decentraland/SignedFetch'
 import { getUserData } from '@decentraland/Identity'
 
 const user = await getUserData()
-const request = await signedFetch(
-  'https://rewards.decentraland.org/api/rewards',
-  {
+const request = await signedFetch({
+  url:'https://rewards.decentraland.org/api/rewards',
+  init:{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ const request = await signedFetch(
       beneficiary: user.publicKey,
     }),
   }
-)
+})
 
 const response = await request.json()
 console.log(response)
@@ -204,9 +204,9 @@ import { signedFetch } from '@decentraland/SignedFetch'
 import { getUserData } from '@decentraland/Identity'
 
 const user = await getUserData()
-const request = await signedFetch(
-  'https://rewards.decentraland.org/api/rewards',
-  {
+const request = await signedFetch({
+  url: 'https://rewards.decentraland.org/api/rewards',
+  init: {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -218,7 +218,7 @@ const request = await signedFetch(
       captcha_value: '[CAPTCHA_VALUE]', // "dbdcbf" or "DBDCBF"
     }),
   }
-)
+})
 
 const response = await request.json()
 console.log(response)
@@ -277,9 +277,9 @@ import { getUserData } from '@decentraland/Identity'
 
 const user = await getUserData()
 const realm = await getCurrentRealm()
-const request = await signedFetch(
-  'https://rewards.decentraland.org/api/rewards',
-  {
+const request = await signedFetch({
+  url: 'https://rewards.decentraland.org/api/rewards',
+  init: {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -290,7 +290,7 @@ const request = await signedFetch(
       catalyst: realm.domain,
     }),
   }
-)
+})
 
 const response = await request.json()
 console.log(response)
