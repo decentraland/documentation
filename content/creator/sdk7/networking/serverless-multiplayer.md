@@ -11,17 +11,17 @@ url: /creator/development-guide/sdk7/serverless-multiplayer/
 weight: 2
 ---
 
-Decentraland runs scenes locally in a player's browser. By default, players are able to see each other and interact directly, but each one interacts with the environment independently. Changes in the environment aren't shared between players by default. You need to implement this manually.
+Decentraland runs scenes locally in a player's browser. By default, players are able to see each other and interact directly, but each player interacts with the environment independently. Changes in the environment aren't shared between players by default.
 
-Allowing all players to see a scene as having the same content in the same state is extremely important to for players to interact in more meaningful ways. Without this, if a player opens a door and walks into a house, other players will see that door as still closed, and the first player will appear to walk directly through the closed door to other players.
+Seeing the same content in the same state is extremely important for players to interact in more meaningful ways.
 
 There are three ways to keep the scene state that all players see in sync:
 
 - **Mark an entity as synced**: The easiest option. See [Marked an entity as synced](#mark-an-entity-as-synced)
 - **Send Explicit MessageBus Messages**: Manually send and listen for specific messages. See [Send explicit MessageBus messages](#send-explicit-messagebus-messages)
-- **Use a Server**: See [authoritative server]({{< ref "/content/creator/sdk7/networking/authoritative-server.md" >}}). This option is more work to set up, but is recommendable if there are incentives to exploit your scene.
+- **Use a Server**: See [authoritative server]({{< ref "/content/creator/sdk7/networking/authoritative-server.md" >}}). This option is more complicated to set up, but is recommendable if players have incentives to exploit your scene.
 
-The first two options are simpler, as they require no server. The downside is that you rely more on player's connection speeds, and the scene state is not persisted if players leave.
+The first two options are simpler, as they require no server. The downside is that you rely more on player's connection speeds, and the scene state is not persisted when all players leave the scene.
 
 ## Mark an Entity as Synced
 
