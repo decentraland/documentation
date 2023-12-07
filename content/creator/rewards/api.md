@@ -117,7 +117,8 @@ import { signedFetch } from '@decentraland/SignedFetch'
 import { getUserData } from '@decentraland/Identity'
 
 const user = await getUserData({})
-const request = await signedFetch({
+if(!user || !user.data || user.data.publicKey) return
+const response = await signedFetch({
   url:'https://rewards.decentraland.org/api/rewards',
   init:{
     method: 'POST',
@@ -126,13 +127,16 @@ const request = await signedFetch({
     },
     body: JSON.stringify({
       campaign_key: '[DISPENSER_KEY]',
-      beneficiary: user.publicKey,
+      beneficiary: user.data.publicKey,
     }),
   }
 })
 
-const response = await request.json()
-console.log(response)
+if (!response || !response.body) {
+    throw new Error('Invalid response')
+}
+let json = await JSON.parse(response.body)
+console.log(json)
 
 // Response:
 //
@@ -204,7 +208,8 @@ import { signedFetch } from '@decentraland/SignedFetch'
 import { getUserData } from '@decentraland/Identity'
 
 const user = await getUserData({})
-const request = await signedFetch({
+if(!user || !user.data || !user.data.publicKey) return
+const response = await signedFetch({
   url: 'https://rewards.decentraland.org/api/rewards',
   init: {
     method: 'POST',
@@ -213,15 +218,18 @@ const request = await signedFetch({
     },
     body: JSON.stringify({
       campaign_key: '[DISPENSER_KEY]',
-      beneficiary: user.publicKey,
+      beneficiary: user.data.publicKey,
       captcha_id: '[CAPTCHA_ID]', // "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7"
       captcha_value: '[CAPTCHA_VALUE]', // "dbdcbf" or "DBDCBF"
     }),
   }
 })
 
-const response = await request.json()
-console.log(response)
+if (!response || !response.body) {
+    throw new Error('Invalid response')
+}
+let json = await JSON.parse(response.body)
+console.log(json)
 
 // Response:
 //
@@ -277,7 +285,8 @@ import { getUserData } from '@decentraland/Identity'
 
 const user = await getUserData({})
 const realm = await getRealm({})
-const request = await signedFetch({
+if(!user || !user.data || !user.data.publicKey || !realm || !realm.baseUrl) return
+const response = await signedFetch({
   url: 'https://rewards.decentraland.org/api/rewards',
   init: {
     method: 'POST',
@@ -286,14 +295,17 @@ const request = await signedFetch({
     },
     body: JSON.stringify({
       campaign_key: '[DISPENSER_KEY]',
-      beneficiary: user.publicKey,
-      catalyst: realm.domain,
+      beneficiary: user.data.publicKey,
+      catalyst: realm.baseUrl,
     }),
   }
 })
 
-const response = await request.json()
-console.log(response)
+if (!response || !response.body) {
+    throw new Error('Invalid response')
+}
+let json = await JSON.parse(response.body)
+console.log(json)
 
 // Response:
 //
