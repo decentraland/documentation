@@ -197,3 +197,9 @@ Select the objects you want to change the name and just replace the default obje
 - For shapes that should have rounded sides, set them to be *smooth* rather than adding additional faces.
 - Make sure the *normals* of all faces are facing outwards instead of inwards. If there are faces in your model that seem not to be there when you render it, this is most likely the cause.
 - Bake the rotation and scale of your meshes, so that their bounding boxes don’t extend out unnecessarily.
+
+{{< hint danger >}}
+**❗Warning**  
+Never make the scale of a mesh 0 on any of its axes (x, y, or z). This may cause issues on the engine. If you have to, use a small number that is practically equal to 0.
+{{< /hint >}}
+
