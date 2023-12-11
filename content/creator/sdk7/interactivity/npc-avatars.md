@@ -50,6 +50,10 @@ The following optional fields are also available:
 See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
 {{< /hint >}}
 
+{{< hint warning >}}
+**📔 Note**: The URN fields must follow the same format used for [NFTShapes]({{< ref "/content/creator/sdk7/media/display-a-certified-nft.md" >}}): `urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
+{{< /hint >}}
+
 ## Animations
 
 Avatars play default idle animations while still.

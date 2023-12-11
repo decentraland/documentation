@@ -101,25 +101,25 @@ swimAnim.looping = false
 
 The `.playing` field in an animation state determines if the animation is currently playing. Note that multiple animations may be playing in a single 3D model at the same time.
 
-Use the `Animator.playSingleAnim()` function on an `AnimationState` object.
+Use the `Animator.playSingleAnimation()` function on an `AnimationState` object.
 
 ```ts
-Animator.playSingleAnim(sharkEntity, 'swim')
+Animator.playSingleAnimation(sharkEntity, 'swim')
 ```
 
-If the entity was playing any other animations, `Animator.playSingleAnim` stops them.
+If the entity was playing any other animations, `Animator.playSingleAnimation` stops them.
 
-`Animator.playSingleAnim` requires the following parameters:
+`Animator.playSingleAnimation` requires the following parameters:
 
 - `entity`: The entity of the `Animator` component that you want to affect.
 - `clipName`: String for the name of the clip you want to play.
 - `resetCursor`: _(optional)_ If _true_, it plays the animation from the start, even if the animation was previously paused. If _false_, it will keep playing the animation from where it was paused. Default: _true_.
 
 ```ts
-Animator.playSingleAnim(sharkEntity, 'swim', false)
+Animator.playSingleAnimation(sharkEntity, 'swim', false)
 ```
 
-The following table summarizes how `Animator.playSingleAnim()` behaves, using different values for the `resetCursor` property:
+The following table summarizes how `Animator.playSingleAnimation()` behaves, using different values for the `resetCursor` property:
 
 |                            | `reset` = _false_ (default)     | `reset` = _true_      |
 | -------------------------- | ------------------------------- | --------------------- |
@@ -149,19 +149,19 @@ If `looping` is set to _false_, the animation plays just once and then stops, st
 
 ## Stop an animation
 
-To stop all animations that an entity is playing, use `Animator.stopAnims()`.
+To stop all animations that an entity is playing, use `Animator.stopAllAnimations()`.
 
 ```ts
-Animator.stopAnims(shark)
+Animator.stopAllAnimations(shark)
 ```
 
-`Animator.stopAnims` requires the following parameters:
+`Animator.stopAllAnimations` requires the following parameters:
 
 - `entity`: The entity of the `Animator` component that you want to affect.
 - `resetCursor`: _(optional)_ If _true_, it returns to the posture in the first frame of the animation. If _false_, stays paused in its current posture. Default: _true_.
 
 {{< hint warning >}}
-**📔 Note**: When playing an animation with `Animator.playSingleAnim`, this function handles stopping all other animations behind the scenes. You don't need to explicitly stop other animations in that case.
+**📔 Note**: When playing an animation with `Animator.playSingleAnimation`, this function handles stopping all other animations behind the scenes. You don't need to explicitly stop other animations in that case.
 {{< /hint >}}
 
 When an animation finishes playing a non-looping animation, by default the 3D model remains in the last posture it had. To change this default behavior so that when the animation ends it goes back to the first posture, set the `shouldReset` property to _true_.
@@ -180,7 +180,7 @@ Animator.create(shark, {
 })
 ```
 
-You can also use `Animator.stopAnims()` at any time to explicitly set the posture back to the first frame in the animation.
+You can also use `Animator.stopAllAnimations()` at any time to explicitly set the posture back to the first frame in the animation.
 
 {{< hint warning >}}
 **📔 Note**: Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
