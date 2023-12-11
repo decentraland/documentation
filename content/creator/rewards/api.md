@@ -27,7 +27,7 @@ Make sure you have your dispenser key (a.k.a campaign key). Use this key to send
 ```ts
 // User data is only required if your code is running on a Decentraland scene
 import { getUserData } from '@decentraland/Identity'
-const user = await getUserData()
+const user = await getUserData({})
 
 const request = await fetch('https://rewards.decentraland.org/api/rewards', {
   method: 'POST',
@@ -116,23 +116,27 @@ For dispensers with this flag enabled, you need to slightly modify the code, as 
 import { signedFetch } from '@decentraland/SignedFetch'
 import { getUserData } from '@decentraland/Identity'
 
-const user = await getUserData()
-const request = await signedFetch(
-  'https://rewards.decentraland.org/api/rewards',
-  {
+const user = await getUserData({})
+if(!user || !user.data || user.data.publicKey) return
+const response = await signedFetch({
+  url:'https://rewards.decentraland.org/api/rewards',
+  init:{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       campaign_key: '[DISPENSER_KEY]',
-      beneficiary: user.publicKey,
+      beneficiary: user.data.publicKey,
     }),
   }
-)
+})
 
-const response = await request.json()
-console.log(response)
+if (!response || !response.body) {
+    throw new Error('Invalid response')
+}
+let json = await JSON.parse(response.body)
+console.log(json)
 
 // Response:
 //
@@ -203,25 +207,29 @@ You then need to include the captcha id and value that resolves the captcha in t
 import { signedFetch } from '@decentraland/SignedFetch'
 import { getUserData } from '@decentraland/Identity'
 
-const user = await getUserData()
-const request = await signedFetch(
-  'https://rewards.decentraland.org/api/rewards',
-  {
+const user = await getUserData({})
+if(!user || !user.data || !user.data.publicKey) return
+const response = await signedFetch({
+  url: 'https://rewards.decentraland.org/api/rewards',
+  init: {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       campaign_key: '[DISPENSER_KEY]',
-      beneficiary: user.publicKey,
+      beneficiary: user.data.publicKey,
       captcha_id: '[CAPTCHA_ID]', // "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7"
       captcha_value: '[CAPTCHA_VALUE]', // "dbdcbf" or "DBDCBF"
     }),
   }
-)
+})
 
-const response = await request.json()
-console.log(response)
+if (!response || !response.body) {
+    throw new Error('Invalid response')
+}
+let json = await JSON.parse(response.body)
+console.log(json)
 
 // Response:
 //
@@ -272,28 +280,32 @@ With this flag enabled, users will need to be connected to a Decentraland Cataly
 <div id="connected-to-decentraland-code"></div>
 
 ```tsx {hl_lines=[1,5,14]}
-import { getCurrentRealm } from '@decentraland/EnvironmentAPI'
+import { getRealm } from "~system/Runtime"
 import { getUserData } from '@decentraland/Identity'
 
-const user = await getUserData()
-const realm = await getCurrentRealm()
-const request = await signedFetch(
-  'https://rewards.decentraland.org/api/rewards',
-  {
+const user = await getUserData({})
+const realm = await getRealm({})
+if(!user || !user.data || !user.data.publicKey || !realm || !realm.baseUrl) return
+const response = await signedFetch({
+  url: 'https://rewards.decentraland.org/api/rewards',
+  init: {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       campaign_key: '[DISPENSER_KEY]',
-      beneficiary: user.publicKey,
-      catalyst: realm.domain,
+      beneficiary: user.data.publicKey,
+      catalyst: realm.baseUrl,
     }),
   }
-)
+})
 
-const response = await request.json()
-console.log(response)
+if (!response || !response.body) {
+    throw new Error('Invalid response')
+}
+let json = await JSON.parse(response.body)
+console.log(json)
 
 // Response:
 //
