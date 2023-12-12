@@ -103,7 +103,7 @@ About once a day, the Decentraland content servers run a process to compress eve
 
 ## Connectivity
 
-If your scene connects to any 3rd party servers or uses the [messagebus]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages" >}}) to send messages between players, there are also some things you might want to keep in mind.
+If your scene connects to any servers or uses the [messagebus]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages" >}}) to send messages between players, there are also some things you might want to keep in mind.
 
 - Your scene should only have one active WebSockets connection at a time.
 - HTTP calls are funneled by the engine so that only one is handled at a time. Any additional requests are queued internally and must wait till other requests are completed. This queuing process is handled automatically, you don't need to do anything.
