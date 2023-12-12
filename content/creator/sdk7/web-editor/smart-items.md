@@ -153,6 +153,17 @@ Use the **Stop Animation** action to stop all animations by the item, both loopi
 **💡 Tip**: To easily check the contents of a 3D model, to see what animations it includes and what they look like, a good tool is the [Babylon Sandbox](https://sandbox.babylonjs.com/). Just drag the 3D model file into the window. A dropdown with a list of its animations should appear on the bottom.
 {{< /hint >}}
 
+To play animations from the beginning, instead of as an action, use the **Animator component**. This component is automatically added to any item with a model that includes animations, and lists all of the animations existing in the model. Check **Start Playing** for the animation to be always on.
+
+<img src="/images/editor/animator-component.png" width="300"/>
+
+Other properties allow you to do the following:
+
+- **Loop:** Make the animation play in a loop, instead of just once
+- **Weight:** Make the animation less intense. Bone movements are averaged out with other animations that are also playing, or with the default pose.
+- **Speed:** Make the animation go slower or faster.
+- **Should Reset:** If ticked once the animation finishes, the model goes back to the default pose, instead of remaining on the final pose of the animation. This is ignored if the animation loops.
+
 To learn more about animations and how you can create your own as part of a 3D model, see [Animations]({{< ref "/content/creator/3d-modeling/animations.md" >}}).
 
 ## About Playing sounds
@@ -419,7 +430,7 @@ initAssetPacks(engine, pointerEventsSystem, {
   Transform,
   VisibilityComponent,
   GltfContainer,
-	Material,
-	VideoPlayer
+  Material,
+  VideoPlayer,
 })
 ```
