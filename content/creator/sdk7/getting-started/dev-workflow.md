@@ -86,7 +86,7 @@ To run a preview of your scene, open a Visual Studio Code window on your project
 **💡 Tip**: If you get stuck trying to debug an issue, visit the [Decentraland Discord server](https://dcl.gg/discord) to get help from other developers.
 {{< /hint >}}
 
-_Optional_: Your scene`s mechanics might rely on a server to carry out player validations, permanent data storage, or other functionalities. See [Authoritative servers]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}})
+_Optional_: Your scene`s mechanics might rely on a 3rd party server to carry out player validations, permanent data storage, or other functionalities. See [Authoritative servers]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}})
 
 ## Publish to the test server
 
