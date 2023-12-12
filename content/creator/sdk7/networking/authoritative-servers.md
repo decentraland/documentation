@@ -1,6 +1,6 @@
 ---
 date: 2018-01-10
-title: Authoritative servers
+title: 3rd party servers
 description: Using a server to sync changes in the scene for all players
 categories:
   - development-guide
@@ -17,9 +17,9 @@ Allowing all players to see a scene as having the same content in the same state
 - **Send Explicit MessageBus Messages**: Manually send and listen for specific messages. See [Send explicit MessageBus messages]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages" >}})
 - **Use a Server**: This document deals with this option. This option is more work to set up, but is recommendable if there are incentives to exploit your scene.
 
-## Types of authoritative servers
+## Types of servers
 
-An authoritative server may have different levels of involvement with the scene:
+A server may have different levels of involvement with the scene:
 
 - API + DB: This is useful for scenes where changes don't happen constantly and where it's acceptable to have minor delays in syncing. When a player changes something, it sends an HTTP request to a REST API that stores the new scene state in a data base. Changes remained stored for any new player that visits the scene at a later date. The main limitation is that new changes from other players aren't notified to players who are already there, messages can't be pushed from the server to players. Players must regularly send requests the server to get the latest state.
 
@@ -29,15 +29,15 @@ An authoritative server may have different levels of involvement with the scene:
 
 - Websockets: This alternative is more robust, as it establishes a two-way communications channel between player and server. Updates can be sent from the server, you could even have game logic run on or validated on the server. This enables real time interaction and makes more fast paced games possible. It's also more secure, as each message between player and server is part of a session that is opened, no need to validate each message.
 
-## Example scenes with authoritative server
+## Example scenes with dedicated server
 
 - [API + DB](https://github.com/decentraland-scenes/Awesome-Repository#use-an-api-as-db)
 
 - [Websockets](https://github.com/decentraland-scenes/Awesome-Repository#websockets)
 
-## Preview scenes with authoritative servers
+## Preview scenes with dedicated servers
 
-To preview a scene that uses an authoritative server, you must run both the scene and the server it relies on. The server can be run locally in the same machine as the preview, as an easier way to test it.
+To preview a scene that uses a 3rd party server, you must run both the scene and the server it relies on. The server can be run locally in the same machine as the preview, as an easier way to test it.
 
 To start the server, go to the `/server` folder and run `npm run start`.
 
@@ -57,7 +57,7 @@ See how to obtain the realm for each player in [get player data]({{< ref "/conte
 
 ## Multiplayer persistance
 
-Unlike local scenes that are newly mounted each time a player walks into them, scenes that use authoritative servers have a life span that extends well beyond when the player enters and leaves the scene.
+Unlike local scenes that are newly mounted each time a player walks into them, scenes that use 3rd party servers have a life span that extends well beyond when the player enters and leaves the scene.
 
 You must therefore design the experience taking into account that player won't always find the scene in the same initial state.
 Any changes made to the scene will linger on for other players to find, you must make sure that these don't interfere with future player's experiences in an undesired way.

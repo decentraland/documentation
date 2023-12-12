@@ -19,11 +19,15 @@ There are three ways to sync the scene state, so that all players see the same:
 
 - **Mark an entity as synced**: The easiest option. See [Marked an entity as synced](#mark-an-entity-as-synced)
 - **Send Explicit MessageBus Messages**: Manually send and listen for specific messages. See [Send explicit MessageBus messages](#send-explicit-messagebus-messages)
-- **Use a Server**: See [authoritative server]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}). This option is more complicated to set up, but is recommendable if players have incentives to exploit your scene.
+- **Use a Server**: See [3rd party servers]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}). This option is more complicated to set up, but is recommendable if players have incentives to exploit your scene.
 
 The first two options are simpler, as they require no server. The downside is that you rely more on player's connection speeds, and the scene state is not persisted when all players leave the scene.
 
 ## Mark an Entity as Synced
+
+{{< hint warning >}}
+**📔 Note**: This feature is currently in alpha state. Its syntax could potentially undergo changes on the next few releases.
+{{< /hint >}}
 
 To mark an entity as synced, use the `syncEntity` function:
 

@@ -309,4 +309,4 @@ This event includes the following fields:
 
 As players move through the map, they may switch islands to be grouped with those players who are now closest to them. Islands also shift their borders dynamically to fit a manageable group of people in each. So even if a player stands still they could be changed island as others enter and leave surrounding scenes.
 
-If your scene relies on an [authoritative server]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}) to sync changes between players in real time, then you may want to only share data between players that are grouped in a same realm+island, so it's a good practice to change rooms in the 3rd party server whenever players change island.
+If your scene relies on an [3rd party server]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}) to sync changes between players in real time, then you may want to only share data between players that are grouped in a same realm+island, so it's a good practice to change rooms in the 3rd party server whenever players change island.
