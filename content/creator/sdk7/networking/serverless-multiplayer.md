@@ -25,6 +25,10 @@ The first two options are simpler, as they require no server. The downside is th
 
 ## Mark an Entity as Synced
 
+{{< hint warning >}}
+**📔 Note**: This feature is currently in alpha state. Its syntax could potentially undergo changes on the next few releases.
+{{< /hint >}}
+
 To mark an entity as synced, use the `syncEntity` function:
 
 ```ts
