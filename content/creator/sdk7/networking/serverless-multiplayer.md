@@ -115,7 +115,7 @@ When parenting entities via the `parentEntity()` function, you can also make use
 - **removeParent()**: Undo the effects of `parentEntity()`. It requires that you pass only the child entity. The entity's new parent becomes the scene's root entity. The original parent entity is not removed from the scene.
 - **getParent()**: Returns the parent entity of an entity you passed.
 - **getChildren()**: Returns the list of children of the entity you passed, as an iterable.
-- **getFistChild()**: Returns the first child on the list for the entity you passed.
+- **getFirstChild()**: Returns the first child on the list for the entity you passed.
 
 ```ts
 import { syncEntity, parentEntity } from '@dcl/sdk/network'
@@ -133,7 +133,7 @@ const getParentResult = getParent(childEntity)
 // returns parentEntity
 
 // getFirstChild
-const getFistChildResult = getFistChild(parentEntity)
+const getFirstChildResult = getFirstChild(parentEntity)
 // returns childEntity
 
 // getChildren
