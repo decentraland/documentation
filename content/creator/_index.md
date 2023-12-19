@@ -32,7 +32,6 @@ The Editor is an all-in-one content creation tool. It's intended for users of an
 There are a number of tools that can help with arranging 3d models into position in a Decentraland scene. You still need to resort to the SDK to add interactivity to these items, but setting positions visually is a big help.
 
 - [**DCL Edit**](https://dcl-edit.com/): A community-built tool that allows you to drag and drop 3d models into your scene. You can then work on adding interactivity to the resulting scene using the SDK.
-- [**Legacy Builder**](https://builder.decentraland.org): a simple drag and drop editor. No coding required, some items include built-in functionality. You can start a scene with the Builder, and then export it to continue working on it with the SDK.
 
   Read the [documentation]({{< ref "/content/creator/builder/builder-101.md" >}}).
 
