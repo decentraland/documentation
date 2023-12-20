@@ -194,7 +194,7 @@ The `UiCanvasInformation` component holds the following information:
 
 ```ts
 export function Main(){
-  let canvas = UiCanvasInformation.get(engine.rootEntity)
+  let canvas = UiCanvasInformation.get(engine.RootEntity)
 	console.log("CANVAS DIMENSIONS: ", canvas.width, canvas.height)
 })
 ```

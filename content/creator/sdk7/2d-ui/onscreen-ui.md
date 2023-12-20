@@ -36,7 +36,8 @@ To display a UI in your scene, use the `ReactEcsRenderer.setUiRenderer()` functi
 Each entity is defined as an HTML-like node, with properties for each of its components.
 
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
   <UiEntity
@@ -55,7 +56,8 @@ ReactEcsRenderer.setUiRenderer(uiMenu)
 You can also define an entity structure and render it, all in one same command.
 
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
@@ -91,7 +93,8 @@ The following components are available to use in the UI:
 Like with HTML tags, you can define components as self-closing or nest one within another.
 
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 ReactEcsRenderer.setUiRenderer(() => (
   // parent entity
