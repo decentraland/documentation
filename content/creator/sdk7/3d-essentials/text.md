@@ -72,7 +72,6 @@ The `TextShape` component has several properties that can be set to style the te
 - `font`: Value from the enum `Font`.
 - `fontSize`: _number_.
 - `textColor`: _Color4_ object. _Color4_ objects store an _RBG_ color as three numbers from 0 to 1, plus _alpha_ for transparency. See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details.
-- `opacity`: _number_. Set it to less than 1 to make the text translucid.
 
 ```ts
 TextShape.create(sign, {
@@ -87,17 +86,18 @@ TextShape.create(sign, {
 
 Text shapes can use fonts from the enum `Font`. This enum currently includes the following fonts:
 
-- `Font.F_LIBERATION_SANS`
-- `Font.F_SANS_SERIF`.
+- `Font.FSansSerif`
+- `Font.FSerif`
+- `Font.FMonospace`
 
-By default uses it uses `Font.F_LIBERATION_SANS`.
+By default uses it uses `Font.FSansSerif`.
 
 ```ts
 TextShape.create(sign, {
   text: 'Hello World',
   textColor: { r: 1, g: 0, b: 0 },
   fontSize: 5,
-  font: Font.F_SANS_SERIF,
+  font: Font.FSansSerif,
 })
 ```
 

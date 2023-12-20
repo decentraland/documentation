@@ -188,6 +188,13 @@ raycastSystem.registerLocalDirectionRaycast(
 )
 ```
 
+{{< hint warning >}}
+**📔 Note**: You can get a raycast result from hitting an entity on a different scene. This may be especially useful when creating portable experiences or smart wearables, that can react to the surroundings.
+
+However, note that currently you can only obtain raycast responses when the collision is with conent in a scene done with SDK7. Older SDK6 scenes won't return any hit result.
+{{< /hint >}}
+
+
 ## Collision layers
 
 It's a good practice to only check for collisions against entities that are relevant, to make the scene more performant. The `collisionMask` field allows to to list only specific collision layers, which can include the physics layer (that blocks player movement), the pointer layer (which is used for pointer events), and 8 custom layers that you can assign freely to whatever your needs are. See [collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}}). By default, all layers are detected.

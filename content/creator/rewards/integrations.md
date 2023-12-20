@@ -32,11 +32,11 @@ import { signedFetch } from '@decentraland/SignedFetch'
 import { getCurrentRealm } from '@decentraland/EnvironmentAPI'
 
 // 1. Get captcha challenge to show to the user
-const captchaRequest = await fetch(
-  `https://rewards.decentraland.org/api/captcha`
-)
+const request = await fetch(`https://rewards.decentraland.org/api/captcha`, {
+  method: 'POST',
+})
 const captcha = await request.json()
-console.log(captcha)
+console.log('CAPTCHA DATA: ', captcha)
 
 // Response:
 //
@@ -51,13 +51,16 @@ console.log(captcha)
 //   }
 // }
 
-// 2. Get user data
+// 2. Display captcha for player to complete
+// See example in studios.decentraland.org/resources
+
+// 3. Get user data
 const user = await getUserData()
 
-// 3. Get current realm
+// 4. Get current realm
 const realm = await getCurrentRealm()
 
-// 4. Send request to assign a wearable/emote
+// 5. Send request to assign a wearable/emote
 const assignRequest = await signedFetch(
   'https://rewards.decentraland.org/api/rewards',
   {

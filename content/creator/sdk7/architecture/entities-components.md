@@ -161,6 +161,10 @@ const mutableChildTransform = Transform.getMutable(childEntity)
 mutableChildTransform.parent = engine.RootEntity
 ```
 
+{{< hint warning >}}
+**📔 Note**: When dealing with nested entities that are synced with other players, use the `parentEntity()` function instead of the `parent` entity in the Transform. See [Parented entities]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#parented-entities" >}})
+{{< /hint >}}
+
 ## Get an entity by ID
 
 Every entity in your scene has a unique number _id_. You can retrieve a component that refers to a specific entity from the engine based on this ID.
