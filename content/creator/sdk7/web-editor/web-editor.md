@@ -13,7 +13,7 @@ weight: 1
 
 The Web Editor is a simple visual tool that lets you create and publish Decentraland scenes without the need to install anything.
 
-To access the web editor simply visit the [builder page]https://builder.decentraland.org/scenes) and go to **scenes** section. 
+To access the web editor simply visit the [builder page](https://builder.decentraland.org/scenes) and go to **scenes** section. 
 
 ## Create scene
 
@@ -73,12 +73,12 @@ If a scene is too large to upload, try this:
 
 Scenes created with the Builder in SDK6 can be easily migrated to SDK7 using the builder. To do this:
 
-1. Select an SDK6 scene from the list
+1. Select an SDK6 scene from the project list
 2. Press the **Edit scene** button
 3. Select "Use decentraland web editor (SDK7)" option
 4. Press the **Migrate now** button. If needed, you can also save a copy of the scene in SDK6. 
 
 {{< hint danger >}}
 **❗Warning**  
-If the migrated scene contains smart items, these will be removed from the scene. SDK7 doesn't support smart items yet.  
+If the migrated scene contains smart items, these will be removed from the scene. Smart items are not seamlessly migrated.  
 {{< /hint >}}
