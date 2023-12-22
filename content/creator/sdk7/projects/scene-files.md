@@ -30,7 +30,7 @@ In most cases, you'll only need to edit this and other .ts files to create your 
 When running the scene, the contents of your `.ts` files are compiled to a single minified `.js` file, `bin/scene.js`.
 
 {{< hint warning >}}
-**📔 Note**:  You can use another tool or language instead of TypeScript, so long as your scripts are contained within a single Javascript file (bin/scene.js). All provided type declarations are made in TypeScript, and other languages and transpilers are not officially supported.
+**📔 Note**: You can use another tool or language instead of TypeScript, so long as your scripts are contained within a single Javascript file (bin/scene.js). All provided type declarations are made in TypeScript, and other languages and transpilers are not officially supported.
 {{< /hint >}}
 
 ### scene.json
@@ -45,9 +45,10 @@ All of this metadata is optional for previewing the scene locally, but part of i
 
 This file provides information to NPM that allows it to identify the project, as well as handle the project's dependencies. Decentraland scenes require one main package:
 
-- **decentraland-ecs**: the fundamental dependency of the Decentraland SDK, including all the definitions and types for the engine, components, systems, etc.
+- **@dcl/sdk**: The fundamental dependency of the Decentraland SDK, including definitions and types for the engine, components, systems, etc.
+- **@dcl/js-runtime**: A series of type declarations that makes the integration of @dcl/sdk smoother.
 
-Your scene may include any number of other packages, for example to include [libraries](https://github.com/decentraland-scenes/Awesome-Repository#Libraries) that can help make the writing of code easier, or enable special functionalities.
+Your scene may include any number of other packages, for example to include [libraries](https://studios.decentraland.org/resources?sdk_version=SDK7&resource_type=Library) that can help make the writing of code easier, or enable special functionalities.
 
 ### package-lock.json
 
@@ -77,11 +78,11 @@ We suggest using these folder names consistently for storing the different types
 - _.ts_ definitions for systems `/src/systems`
 
 {{< hint warning >}}
-**📔 Note**:  Supporting files for glTF models, like their texture image files or _.bin_ files, should always be placed in the same folder as the model's _.gltf_ or _.glb_ file.
+**📔 Note**: Supporting files for glTF models, like their texture image files or _.bin_ files, should always be placed in the same folder as the model's _.gltf_ or _.glb_ file.
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**:  We recommend using always lower case names for all folders and file names, to avoid possible issues.
+**📔 Note**: We recommend using always lower case names for all folders and file names, to avoid possible issues.
 {{< /hint >}}
 
 ## The dclignore file

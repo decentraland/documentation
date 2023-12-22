@@ -31,9 +31,11 @@ A server may have different levels of involvement with the scene:
 
 ## Example scenes with dedicated server
 
-- [API + DB](https://github.com/decentraland-scenes/Awesome-Repository#use-an-api-as-db)
+API + DB:
 
-- [Websockets](https://github.com/decentraland-scenes/Awesome-Repository#websockets)
+- [Leaderboard](https://github.com/decentraland/sdk7-goerli-plaza/tree/main/leader-board)
+- [Guestbook](https://github.com/decentraland/sdk7-goerli-plaza/tree/main/guest-book-api)
+- [Validate authenticity](https://github.com/decentraland/sdk7-goerli-plaza/tree/main/validate-player-authenticity)
 
 ## Preview scenes with dedicated servers
 
