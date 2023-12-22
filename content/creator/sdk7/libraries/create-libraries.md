@@ -69,13 +69,23 @@ Install your npm package into a scene by running `npm i <package-name>`. Then bu
 
 If you need to continually make small adjustments to your library and test them, it can get exhausting to have to commit changes and then wait for the npm publication to complete before you can try out the new version in a scene. Fortunately, there's a much faster alternative for running tests with your library.
 
-1. Make sure the scene repo has all of its dependencies built, run `npm i`.
-2. Make sure the library repo has all of its dependencies built, run `npm i`.
-3. On your library's folder run `npm link <library-name> <path to scene>`.
-4. On the library folder, run `npm run build`.
-5. On the library folder run `npm link`.
-6. On your test scene folder run `npm link <library name>`, using the name with which your library is exposed on NPM.
-7. Run your scene with `npm run start`
+In a **test scene project**:
+
+1. Add this script to the `scripts` list in package.json:
+`"link-sdk": "cd node_modules/@dcl/sdk && npm link && cd ../js-runtime"`
+2. Run `npm install`
+3. Run `npm link-sdk`
+
+In the **library project**:
+
+1. Run `npm install`
+2. Run `npm build`
+1. Run `npm link`
+2. Run: `npm link @dcl/sdk @dcl/js-runtime`
+
+Back in the **test scene project**:
+
+1. Run: `npm link <library name>`
 
 {{< hint danger >}}
 **❗Warning**: The order of these steps is important. It may not work in another order.
@@ -84,8 +94,13 @@ If you need to continually make small adjustments to your library and test them,
 This will keep your scene synced to the version of the library that's directly in your local drive. For any changes to the library that you want to test, just run `npm run build` on the library folder, no need to publish changes to GitHub or NPM.
 
 {{< hint info >}}
-**💡 Tip**:  To verify that the linking was successful, check your scene's `package.json` file. On your library's it should show a local folder path instead of a version number.
+**💡 Tip**:  To verify that the linking was successful, run `npm ls --link`. You should see the library name pointing to the folder on your local files.
 {{< /hint >}}
+
+If you make changes to the library, you must run `npm build` to update them. To avoid having to do that every time:
+
+1. Add the script "start": "tsc -p tsconfig.json --watch" to the library
+2. Run `npm start` on the library
 
 When you're finished testing, remember to unlink the library.
 
