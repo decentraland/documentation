@@ -70,7 +70,7 @@ mutableText.text = 'new string'
 The `TextShape` component has several properties that can be set to style the text. Below are some of the most common:
 
 - `font`: Value from the enum `Font`.
-- `fontSize`: _number_.
+- `fontSize`: _number_. An entiy with font 10 is 1 meter tall.
 - `textColor`: _Color4_ object. _Color4_ objects store an _RBG_ color as three numbers from 0 to 1, plus _alpha_ for transparency. See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details.
 
 ```ts
@@ -100,6 +100,10 @@ TextShape.create(sign, {
   font: Font.FSansSerif,
 })
 ```
+
+{{< hint warning >}}
+**📔 Note**: Currently, all fonts are rendered as Sans Serif. This is a known issue to fix in the future.
+{{< /hint >}}
 
 {{< hint info >}}
 **💡 Tip**: If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.

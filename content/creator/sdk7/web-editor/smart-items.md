@@ -423,3 +423,7 @@ initAssetPacks(engine, pointerEventsSystem, {
 	VideoPlayer
 })
 ```
+
+{{< hint warning >}}
+**📔 Note**: The smart items asset pack is not displayed at all on scenes that don't have this dependency installed.
+{{< /hint >}}
