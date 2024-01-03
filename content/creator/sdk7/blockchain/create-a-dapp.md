@@ -64,7 +64,7 @@ Before launching your dApp into production, we recommend testing it first.
 
 ## Decentraland smart contracts
 
-In the following link you can find is a list of Etherum smart contracts relevant to the Decentraland ecosystem. The list includes the contracts in mainnet as well as in other Ethereum test networks.
+In the following link you can find a list of Etherum smart contracts relevant to the Decentraland ecosystem. The list includes the contracts in mainnet as well as in other Ethereum test networks.
 
 [contracts.decentraland.org](https://contracts.decentraland.org/links)
 
