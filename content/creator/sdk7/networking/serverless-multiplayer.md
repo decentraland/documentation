@@ -49,7 +49,7 @@ Not all entities or components need to be synced. Static elements like a tree th
 **💡 Tip**: If the data you want to share doesn't exist as a component, define a [custom component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) that holds that data.
 {{< /hint >}}
 
-#### About the enum id
+### About the enum id
 
 The entityEnumId of an entity must be unique. It is not necessarily the same as the local entityId assigned on `engine.addEntity()`. The entity ID is automatically generated and may vary between players. The entityEnumId of an entity must be explicitly defined in the code and be unique.
 
@@ -89,7 +89,7 @@ function onThrow() {
 }
 ```
 
-#### Parented entities
+#### Parented entities
 
 The parent of an entity is normally defined via `parent` property in the `Transform` component. This property however points to the local entity id of the parent, which could vary, see [About enum id](#about-the-enum-id). To parent entities that need to be synced, or that have children that need to be synced, use the `parentEntity()` function instead of the `Transform`.
 

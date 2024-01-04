@@ -23,7 +23,12 @@ It's also a good practice to assign custom [collision layers]({{< ref "/content/
 
 ## Create a ray
 
-All rays have a point of origin and a direction. The point of origin is based on an entity's position, taking the values on the entity's Transform component. The direction of a ray can be defined in 4 different ways: - **local**: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading. - **global**: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down. - **global target**: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful for example to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space. - **target entity**: Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities.
+All rays have a point of origin and a direction. The point of origin is based on an entity's position, taking the values on the entity's Transform component. The direction of a ray can be defined in 4 different ways: 
+
+- **local**: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading. 
+- **global**: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down. 
+- **global target**: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful for example to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space. 
+- **target entity**: Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities.
 
 The following code creates a raycast with a local direction:
 

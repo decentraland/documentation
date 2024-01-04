@@ -424,4 +424,9 @@ initAssetPacks(engine, pointerEventsSystem, {
 })
 ```
 
+
+{{< hint warning >}}
+**📔 Note**: The smart items asset pack is not displayed at all on scenes that don't have this dependency installed.
+{{< /hint >}}
+
 When using the desktop editor, you can combine smart items with behavior from custom code. See [Combine with code]({{< ref "/content/creator/sdk7/web-editor/combine-with-code.md" >}}).
