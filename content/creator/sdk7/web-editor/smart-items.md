@@ -413,17 +413,20 @@ import { initAssetPacks } from '@dcl/asset-packs/dist/scene-entrypoint'
 
 // You can remove this if you don't use any asset packs
 initAssetPacks(engine, pointerEventsSystem, {
-  Animator,
-  AudioSource,
-  AvatarAttach,
-  Transform,
-  VisibilityComponent,
-  GltfContainer,
+	Animator,
+	AudioSource,
+	AvatarAttach,
+	Transform,
+	VisibilityComponent,
+	GltfContainer,
 	Material,
-	VideoPlayer
+	VideoPlayer,
 })
 ```
+
 
 {{< hint warning >}}
 **📔 Note**: The smart items asset pack is not displayed at all on scenes that don't have this dependency installed.
 {{< /hint >}}
+
+When using the desktop editor, you can combine smart items with behavior from custom code. See [Combine with code]({{< ref "/content/creator/sdk7/web-editor/combine-with-code.md" >}}).

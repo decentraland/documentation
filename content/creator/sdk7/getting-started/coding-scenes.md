@@ -23,7 +23,7 @@ Our SDK includes the following components:
 
 - **The Decentraland Editor**: An extension for Visual Studio Code that allows you to create scenes, preview and debug, and publish. [Read more]({{< ref "/content/creator/sdk7/getting-started/decentraland-editor.md" >}})
 - **The Decentraland ECS**: A TypeScript package containing the framework of helper methods that allows you to create interactive experiences. Use it to create and manipulate objects in the scene and also to facilitate in-world transactions between players or other applications. ( [latest ECS reference](https://github.com/decentraland/ecs-reference/blob/master/docs-latest/decentraland-ecs.md))
-- **Scene examples**: Take inspiration and coding best practices from the [scene examples](<[https://github.com/decentraland-scenes/Awesome-Repository#examples](https://studios.decentraland.org/resources?sdk_version=SDK7)>).
+- **Scene examples**: Take inspiration and coding best practices from the [scene examples](https://studios.decentraland.org/resources?sdk_version=SDK7).
 
 ## Requirements
 
