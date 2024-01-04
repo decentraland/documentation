@@ -71,7 +71,7 @@ If you need to continually make small adjustments to your library and test them,
 In a **test scene project**:
 
 1. Add this script to the `scripts` list in package.json:
-   `"link-sdk": "cd node_modules/@dcl/sdk && npm link && cd ../js-runtime"`
+   `"link-sdk": "cd node_modules/@dcl/sdk && npm link && cd ../js-runtime && npm link"`
 2. Run `npm install`
 3. Run `npm link-sdk`
 
