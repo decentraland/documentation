@@ -254,7 +254,7 @@ For example, use this to make a platform move continually. Use an **On Spawn** t
 
 <img src="/images/editor/on_spawn.png" width="300"/>
 
-## Playing videos
+## Playing videos
 
 Play videos from either:
 
@@ -281,7 +281,7 @@ You can also configure the video to either loop or play once.
 **📔 Note**: Avoid playing more than one video at any given time in your scene, because it can severely impact performance for players. Always stop other videos before playing a second video.
 {{< /hint >}}
 
-## Playing audio streams
+## Playing audio streams
 
 Play an audio stream from a URL.
 
@@ -301,19 +301,42 @@ JAZZ = ‘https://live.vegascity.fm/radio/8010/the_flamingos.mp3’
 
 You can adjust the volume of your stream. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
 
-## Displaying NFTs
+## Displaying NFTs
 
-To display an NFT on Ethereum mainnet on a picture frame, you must provide a valid URN including the NFT's contract and ID. For example:
+To display an NFT on Ethereum mainnet on a picture frame, you must configure the **NFTShape** component. You must provide the following fields:
 
-```
-urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536
-```
+- Network
+  {{< hint info >}}
+  **📔 Note**:
+  Currently **ethereum** is the only supported network.
+  {{< /hint >}}
+- Contract: The smart contract for the NFT collection.
+- Token: The token ID of this particular NFT collectible.
 
-See [Required permissions]({{< ref "/content/creator/sdk7/media/display-a-certified-nft.md#">}}) for more details.
+<img src="/images/editor/nft-shape.png" width="300"/>
+
+You can obtain this information from [OpenSea](https://opensea.io), by checking the **Details** tab under the NFT image.
+
+<img src="/images/editor/opensea.png" width="300"/>
+
+{{< hint info >}}
+**📔 Note**:
+You can also obtain this information from the opensea URL. For example, if the NFT's URL is the following:
+
+> `https://opensea.io/assets/ethereum/0x32b7495895264ac9d0b12d32afd435453458b1c6/1956`
+
+You can complete the fields with the following:
+
+- Network: ethereum
+- Contract: 0x32b7495895264ac9d0b12d32afd435453458b1c6
+- Token: 1956
+  {{< /hint >}}
 
 You can also configure a background color, this is particularly useful for NFTs with a transparent background.
 
-You can also chose a **frame style**, to frame the NFT in a variety of different styles, classic and modern.
+You can also chose a **Frame style**, to frame the NFT in a variety of different styles, classic and modern.
+
+See [Display an NFT]({{< ref "/content/creator/sdk7/media/display-a-certified-nft.md#">}}) for more details.
 
 ## Invisible items
 
