@@ -58,8 +58,8 @@ See [Publishing options]({{< ref "/content/creator/sdk7/publishing/publishing-op
 
 When creating a new scene, choose amongst several base template scenes that include some basic code and 3d models. Use these to get started faster.
 
-- [Awesome repository](https://github.com/decentraland-scenes/Awesome-Repository): here you can find a large collection of example scenes, each showcasing different mechanics that you can borrow. You can also clone any of these scenes and use it as a starting point.
-- [Helper libraries](https://github.com/decentraland-scenes/Awesome-Repository#Libraries): these can simplify many common tasks.
+- [Example scenes](https://studios.decentraland.org/resources?sdk_version=SDK7): here you can find a large collection of example scenes, each showcasing different mechanics that you can borrow. You can also clone any of these scenes and use it as a starting point.
+- [Helper libraries](https://studios.decentraland.org/resources?sdk_version=SDK7&resource_type=Library): these can simplify many common tasks.
 
 ## Art assets
 
@@ -127,5 +127,5 @@ Decentraland is a community project, the community of creators learns together a
 - Join the [Decentraland Discord server](https://dcl.gg/discord) and help other developers in need of advice.
 - Share your scene's code as an open source repo on GitHub.
 - Build a minimal example to share a specific reusable mechanic, as an open source repo on GitHub.
-- Make a PR to the Awesome Repository to include your scenes.
+- Make a PR to the [Examples Repository](https://github.com/decentraland/sdk7-goerli-plaza) to include your scenes.
 - Write a library that encapsulates the complexity of common challenges, so others can overcome them easily.

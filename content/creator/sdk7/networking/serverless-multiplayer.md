@@ -21,7 +21,7 @@ There are three ways to sync the scene state, so that all players see the same:
 - **Send Explicit MessageBus Messages**: Manually send and listen for specific messages. See [Send explicit MessageBus messages](#send-explicit-messagebus-messages)
 - **Use a Server**: See [3rd party servers]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}). This option is more complicated to set up, but is recommendable if players have incentives to exploit your scene.
 
-The first two options are simpler, as they require no server. The downside is that you rely more on player's connection speeds, and the scene state is not persisted when all players leave the scene.
+The first two options are covered in this document. They are simpler, as they require no server. The downside is that you rely more on player's connection speeds, and the scene state is not persisted when all players leave the scene.
 
 ## Mark an Entity as Synced
 
@@ -43,42 +43,45 @@ The `syncEntity` function takes the following inputs:
 - **componentIds**: A list of the components that need to be synced from that entity. This is an array that may contain as many entities as needed. All values should be `componentId` properties.
 - **entityEnumId**: (optional) A unique id that is used consistently by all players, see [About enum id](#about-the-enum-id).
 
-Not all entities or components need to be synced. Static elements like a tree that remains in the same spot don't require syncing. On entities you do sync, only the components that change over time should be synchronized. If, for example, a cube changes color on click, only the Material component needs to be synced, not the MeshRenderer or the Transform.
+Not all entities or components need to be synced. Static elements like a tree that remains in the same spot don't require syncing. On entities you do sync, only the components that change over time should be synchronized. For example, if a cube changes color when clicked, you should only sync the Material component, not the MeshRenderer or the Transform, as those will never change.
 
 {{< hint info >}}
 **💡 Tip**: If the data you want to share doesn't exist as a component, define a [custom component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) that holds that data.
 {{< /hint >}}
 
-### About the enum id
+### About the enum id
 
-The entityEnumId of an entity must be unique. It is not necessarily the same as the local entityId assigned on `engine.addEntity()`. The entity ID is automatically generated and may vary between players. The entityEnumId of an entity must be explicitly defined in the code and be unique.
+The **entityEnumId** of an entity must be unique. It's not related to the local entityId assigned on `engine.addEntity()`, that is automatically generated and may vary between players running the same scene. The entityEnumId of an entity must be explicitly defined in the code and be unique.
 
-This is important to avoid inconsistencies if a race condition makes one part of the scene load before another. Maybe for player A the door in the scene is the entity _512_, but for player B that same door is entity _513_. In that case, if player A opens the door, player B instead sees the whole building move.
+Explicitly setting this ID is important to avoid inconsistencies if a race condition makes one part of the scene load before another. Maybe for player A the door in the scene is the entity _512_, but for player B that same door is entity _513_. In that case, if player A opens the door, player B instead sees the whole building move.
 
 {{< hint info >}}
 **💡 Tip**: Create an enum in your scene, to keep clear references to each syncable id in your scene.
 
 ```ts
-enum Entities {
-  HOUSE = 1,
-  DOOR = 2,
+enum EntityEnumId {
+  DOOR = 1,
+  DRAW_BRIDGE = 2,
+  ELEVATOR = 3
 }
 
 syncEntity(
   doorEntity,
   [Transform.componentId, Animator.componentId],
-  Entities.DOOR
+  EntityEnumId.DOOR
 )
 ```
 
-Use the Entities enum to tag the entity with a unique identifier, ensuring that every client recognizes the modified entity, regardless of creation order.
+Here the EntityEnumId enum is used to tag entities with a unique identifier, ensuring that every client recognizes the modified entity, regardless of creation order.
 {{< /hint >}}
 
-#### Player-specific entities
+#### Entities created by a player
 
-If an entity is created as a result of a player interaction, and other players can only see this entity, but not affect its behavior, there is no need to define a entityEnumId.
+If an entity is created as a result of a player interaction, and this entity should be synced with other players, the entity doesn't need an entityEnumId. You can use `syncEntity()` passing only the entity and the list of components. A unique value for entityEnumId is assigned automatically behind the curtains.
 
-For example, in a snowball fight scene, every time a player throws a snowball, they're instancing a new entity. Players can see each other's snowballs, but only the player that creates the ball executes the code that controls the ball's behavior. The snowball doesn't need a unique entityEnumId.
+All entities instanced on scene initiation need to have a manually-assigned ID. That's to ensure that all players use the same ID on each. When a single player is in charge of instancing an entity, explicit IDs are not needed. Other players get updates about this new entity with an ID already assigned, so there is no risk of ID mismatches.
+
+For example, in a snowball fight scene, every time a player throws a snowball, they're instancing a new entity that gets synced with other players. The snowball doesn't need a unique entityEnumId.
 
 ```ts
 function onThrow() {
@@ -89,19 +92,22 @@ function onThrow() {
 }
 ```
 
+
 #### Parented entities
 
 The parent of an entity is normally defined via `parent` property in the `Transform` component. This property however points to the local entity id of the parent, which could vary, see [About enum id](#about-the-enum-id). To parent entities that need to be synced, or that have children that need to be synced, use the `parentEntity()` function instead of the `Transform`.
 
 ```ts
 import { syncEntity, parentEntity } from '@dcl/sdk/network'
-const parentEntity = engine.addEntity()
-Transform.create(parentEntity, { position: somePosition })
-syncEntity(parent, [])
-const childEntity: Entity = engine.addEntity()
-syncEntity(childEntity, [Transform.componentId])
 
-parentEntity(childEntity, parentEntity)
+const parent = engine.addEntity()
+Transform.create(parent, { position: somePosition })
+syncEntity(parent, [])
+
+const child: Entity = engine.addEntity()
+syncEntity(child, [Transform.componentId])
+
+parentEntity(child, parent)
 ```
 
 Note that both the parent and the child are synced with `syncEntity`, so all players have a common understanding of what ids are used by both entities. This is necessary even if the parent's components may never need to change. In this example, the `syncEntity` includes an empty array of components, to avoid syncing any unnecessary components.
@@ -110,7 +116,7 @@ Note that both the parent and the child are synced with `syncEntity`, so all pla
 **📔 Note**: If an entity is parented by both the `parentEntity()` and also the `parent` property in the `Transform` component, the property in the `Transform` component is ignored.
 {{< /hint >}}
 
-When parenting entities via the `parentEntity()` function, you can also make use of the following helper functions:
+When entities are parented via the `parentEntity()` function, you can also make use of the following helper functions:
 
 - **removeParent()**: Undo the effects of `parentEntity()`. It requires that you pass only the child entity. The entity's new parent becomes the scene's root entity. The original parent entity is not removed from the scene.
 - **getParent()**: Returns the parent entity of an entity you passed.
@@ -119,29 +125,31 @@ When parenting entities via the `parentEntity()` function, you can also make use
 
 ```ts
 import { syncEntity, parentEntity } from '@dcl/sdk/network'
-const parentEntity = engine.addEntity()
-Transform.create(parentEntity, { position: somePosition })
-syncEntity(parent, [])
-const childEntity: Entity = engine.addEntity()
-syncEntity(childEntity, [Transform.componentId])
 
-// sets parentEntity as parent
-parentEntity(childEntity, parentEntity)
+const parent = engine.addEntity()
+Transform.create(parent, { position: somePosition })
+syncEntity(parent, [])
+
+const child: Entity = engine.addEntity()
+syncEntity(child, [Transform.componentId])
+
+// sets parent as parent
+parentEntity(child, parent)
 
 // getParent
-const getParentResult = getParent(childEntity)
-// returns parentEntity
+const getParentResult = getParent(child)
+// returns parent
 
 // getFirstChild
-const getFirstChildResult = getFirstChild(parentEntity)
-// returns childEntity
+const getFirstChildResult = getFirstChild(parent)
+// returns child
 
 // getChildren
-const getChildrenResult = Array.from(getChildren(parentEntity))
-// returns [childEntity]
+const getChildrenResult = Array.from(getChildren(parent))
+// returns [child]
 
-// removes parent from childEntity
-removeParent(childEntity)
+// removes parent from child
+removeParent(child)
 ```
 
 ## Send Explicit MessageBus Messages
