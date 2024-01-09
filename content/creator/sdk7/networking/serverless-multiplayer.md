@@ -100,14 +100,14 @@ The parent of an entity is normally defined via `parent` property in the `Transf
 ```ts
 import { syncEntity, parentEntity } from '@dcl/sdk/network'
 
-const parentEntity = engine.addEntity()
-Transform.create(parentEntity, { position: somePosition })
+const parent = engine.addEntity()
+Transform.create(parent, { position: somePosition })
 syncEntity(parent, [])
 
-const childEntity: Entity = engine.addEntity()
-syncEntity(childEntity, [Transform.componentId])
+const child: Entity = engine.addEntity()
+syncEntity(child, [Transform.componentId])
 
-parentEntity(childEntity, parentEntity)
+parentEntity(child, parent)
 ```
 
 Note that both the parent and the child are synced with `syncEntity`, so all players have a common understanding of what ids are used by both entities. This is necessary even if the parent's components may never need to change. In this example, the `syncEntity` includes an empty array of components, to avoid syncing any unnecessary components.
@@ -126,30 +126,30 @@ When entities are parented via the `parentEntity()` function, you can also make 
 ```ts
 import { syncEntity, parentEntity } from '@dcl/sdk/network'
 
-const parentEntity = engine.addEntity()
-Transform.create(parentEntity, { position: somePosition })
+const parent = engine.addEntity()
+Transform.create(parent, { position: somePosition })
 syncEntity(parent, [])
 
-const childEntity: Entity = engine.addEntity()
-syncEntity(childEntity, [Transform.componentId])
+const child: Entity = engine.addEntity()
+syncEntity(child, [Transform.componentId])
 
-// sets parentEntity as parent
-parentEntity(childEntity, parentEntity)
+// sets parent as parent
+parentEntity(child, parent)
 
 // getParent
-const getParentResult = getParent(childEntity)
-// returns parentEntity
+const getParentResult = getParent(child)
+// returns parent
 
 // getFirstChild
-const getFirstChildResult = getFirstChild(parentEntity)
-// returns childEntity
+const getFirstChildResult = getFirstChild(parent)
+// returns child
 
 // getChildren
-const getChildrenResult = Array.from(getChildren(parentEntity))
-// returns [childEntity]
+const getChildrenResult = Array.from(getChildren(parent))
+// returns [child]
 
-// removes parent from childEntity
-removeParent(childEntity)
+// removes parent from child
+removeParent(child)
 ```
 
 ## Send Explicit MessageBus Messages
