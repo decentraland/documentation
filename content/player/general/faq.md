@@ -30,6 +30,10 @@ A PC or Mac running Chrome, Firefox or Brave. See [hardware requirements]({{< re
 
   While it may be technically possible to use another browser, we recommend Chrome, Firefox or Brave to ensure optimal performance.
 
+## Can I login with my email or social media account?
+
+Yes! You can easely login with your email address or social media account.
+
 ## Do I need a wallet to play in Decentraland?
 
 If you want to fully enjoy the Decentraland experience, we recommend you get yourself a digital wallet. Digital wallets work as your personal account, keeping all your digital assets (such as names, collectibles, LANDs) and in-world progress safe.
@@ -71,11 +75,15 @@ Their maximum issuance is:
 
 ## Can I claim my Avatar name later?
 
-Yes. Visit the <a href="https://builder.decentraland.org/names">Names</a> page in the Builder to claim it. All you need is an installed digital wallet and at least 100 MANA to burn. Another alternative is to buy a name in the <a target="_blank" href="https://market.decentraland.org/">Decentraland Marketplace</a>.
+Yes. Visit the <a href="https://decentraland.org/builder/names">Names</a> page in the Builder to claim it. All you need is an installed digital wallet and at least 100 MANA to burn. Another alternative is to buy a name in the <a target="_blank" href="https://market.decentraland.org/">Decentraland Marketplace</a>.
 
 ## How can I block or report a player?
 
 Click on another player’s Avatar to see their card, then click on the tab block to view options. By blocking a player you will still see them on screen but they won’t be able to write to you on the chat window. If you report a player, you will be able to bring a player’s conduct to the attention of <a href="https://dcl.gg/discord">Decentraland’s Community</a>.
+
+## How can I report a scene?
+
+Locate the Flag Scene button (Beneath the mini map). Select a category that you believe the scene belongs to. Indetify the issues present in the scene and submit the report.
 
 ## What is LAND?
 
@@ -114,15 +122,15 @@ The Ethereum LAND smart contract registers any changes to the state of a parcel 
 
 ## How is content distributed?
 
-The visual, audio and three dimensional content of Decentraland will be stored in a network of content servers. Anyone can submit a server to join this network, but it must be voted on by the community. This is handled by a <a href="https://dao.decentraland.org/en/">Decentralized Autonomous Organization (DAO)</a>. When you visit Decentraland, the content needed to render your location will be pulled from the content servers. Each LAND token, stored on the Ethereum blockchain, is associated with an x,y location within the world and links to the content for that location.
+The visual, audio and three dimensional content of Decentraland will be stored in a network of content servers. Anyone can submit a server to join this network, but it must be voted on by the community. This is handled by a <a href="https://decentraland.org/dao/">Decentralized Autonomous Organization (DAO)</a>. When you visit Decentraland, the content needed to render your location will be pulled from the content servers. Each LAND token, stored on the Ethereum blockchain, is associated with an x,y location within the world and links to the content for that location.
 
 ## What tools should I use to start building in Decentraland?
 
 There are two ways to create 3D content for Decentraland:
 
-- The <a href="https://builder.decentraland.org/">Builder</a> is an easy drag and drop visual tool. You have access to a large library of pre-made items, including interactive items that react to player feedback. You can also import and use your own custom 3D models.
+- The <a href="https://decentraland.org/builder/">Builder</a> is an easy drag and drop visual tool. You have access to a large library of pre-made items, including interactive items that react to player feedback. You can also import and use your own custom 3D models.
 
-- The <a href="https://docs.decentraland.org/getting-started/installation-guide/">SDK</a> is for creating scenes writing code, which gives you much more power and flexibility.
+- The <a href="https://docs.decentraland.org/creator/development-guide/sdk7/installation-guide/">SDK</a> is for creating scenes writing code, which gives you much more power and flexibility.
 
 Both tools can also be combined. You can create a scene visually with the Builder, then export it and work with its code to add interactive functionality. You can also use the SDK to create <a href="https://docs.decentraland.org/development-guide/smart-items/">custom smart items</a> and place these using the Builder.
 
@@ -148,4 +156,5 @@ Yes. You are free to decide whether you will charge other players to access your
 
 ## I need support! Where can I contact you?
 
-Join our <a href="https://dcl.gg/discord">Discord</a> and visit our #help channel to ask whatever questions you have. We’ll answer as soon as possible. Our friendly community members can help too. While you’re there why not check out some of the other channels to learn more about Decentraland?
+In case of any questions or issues, please reach out to us at hello@decentraland.org or visit <a href="https://intercom.decentraland.org/>Support</a>.
+You can also join our <a href="https://dcl.gg/discord">Discord</a> and visit our #help channel to ask whatever questions you have. We’ll answer as soon as possible. Our friendly community members can help too. While you’re there why not check out some of the other channels to learn more about Decentraland?
