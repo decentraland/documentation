@@ -56,7 +56,7 @@ Yes! In addition to burning MANA in exchange for LAND, users will be able to tra
 
 ## Some players have fancy wearables. How can I get them?
 
-The Avatar editor provides a big selection of wearables and accessories – all for free. You can also buy exclusive wearables in the <a href="https://market.decentraland.org/">Decentraland Marketplace</a> or earn them by participating in different events.
+The Avatar editor provides a big selection of wearables and accessories – all for free. You can also buy exclusive wearables in the <a href="https://decentraland.org/marketplace/">Decentraland Marketplace</a> or earn them by participating in different events.
 
 ## What do the collectibles colors mean?
 
@@ -75,7 +75,7 @@ Their maximum issuance is:
 
 ## Can I claim my Avatar name later?
 
-Yes. Visit the <a href="https://decentraland.org/builder/names">Names</a> page in the Builder to claim it. All you need is an installed digital wallet and at least 100 MANA to burn. Another alternative is to buy a name in the <a target="_blank" href="https://market.decentraland.org/">Decentraland Marketplace</a>.
+Yes. Visit the <a href="https://decentraland.org/builder/names">Names</a> page in the Builder to claim it. All you need is an installed digital wallet and at least 100 MANA to burn. Another alternative is to buy a name in the <a target="_blank" href="https://decentraland.org/marketplace/">Decentraland Marketplace</a>.
 
 ## How can I block or report a player?
 
@@ -99,7 +99,7 @@ Like LAND, an estate is a non-fungible digital asset. An estate is an associatio
 
 ## How can I buy LAND or Estates in Decentraland?
 
-You can visit the <a href="https://market.decentraland.org/">Decentraland Marketplace</a> to browse through all of the available LANDs or Estates of LAND that are currently for sale.
+You can visit the <a href="https://decentraland.org/marketplace/">Decentraland Marketplace</a> to browse through all of the available LANDs or Estates of LAND that are currently for sale.
 On December 15th, 2017, we held our first LAND auction, called the Terraform Event, to distribute the first parcels of LAND to the community. The auction concluded in January 2018 and LAND tokens have been distributed to participants.
 
 ## What does ‘owning’ virtual LAND mean and how does it work?
@@ -156,5 +156,5 @@ Yes. You are free to decide whether you will charge other players to access your
 
 ## I need support! Where can I contact you?
 
-In case of any questions or issues, please reach out to us at hello@decentraland.org or visit <a href="https://intercom.decentraland.org/>Support</a>.
+In case of any questions or issues, please reach out to us at hello@decentraland.org or visit <a href="https://intercom.decentraland.org/">Support</a>.
 You can also join our <a href="https://dcl.gg/discord">Discord</a> and visit our #help channel to ask whatever questions you have. We’ll answer as soon as possible. Our friendly community members can help too. While you’re there why not check out some of the other channels to learn more about Decentraland?
