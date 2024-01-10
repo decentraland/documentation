@@ -32,7 +32,7 @@ A PC or Mac running Chrome, Firefox or Brave. See [hardware requirements]({{< re
 
 ## Can I login with my email or social media account?
 
-Yes! You can easely login with your email address or social media account.
+Yes! You can easily login with your email address or social media account.
 
 ## Do I need a wallet to play in Decentraland?
 
