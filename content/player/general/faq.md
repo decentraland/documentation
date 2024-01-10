@@ -83,7 +83,7 @@ Click on another player’s Avatar to see their card, then click on the tab bloc
 
 ## How can I report a scene?
 
-Locate the Flag Scene button (Beneath the mini map). Select a category that you believe the scene belongs to. Indetify the issues present in the scene and submit the report.
+Locate the Flag Scene button (Beneath the mini map). Select a category that you believe the scene belongs to. Identify the issues present in the scene and submit the report.
 
 ## What is LAND?
 
