@@ -29,11 +29,11 @@ The following measures are recommended to reduce the risk of exploits in this sc
 ```tsx
 import { getUserData } from '@decentraland/Identity'
 import { signedFetch } from '@decentraland/SignedFetch'
-import { getCurrentRealm } from '@decentraland/EnvironmentAPI'
+import { getRealm } from '~system/Runtime'
 
 // 1. Get captcha challenge to show to the user
 const request = await fetch(`https://rewards.decentraland.org/api/captcha`, {
-  method: 'POST',
+	method: 'POST',
 })
 const captcha = await request.json()
 console.log('CAPTCHA DATA: ', captcha)
@@ -58,24 +58,24 @@ console.log('CAPTCHA DATA: ', captcha)
 const user = await getUserData()
 
 // 4. Get current realm
-const realm = await getCurrentRealm()
+const realmInfo = await getRealm({})
 
 // 5. Send request to assign a wearable/emote
 const assignRequest = await signedFetch(
-  'https://rewards.decentraland.org/api/rewards',
-  {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      campaign_key: '[DISPENSER_KEY]', // dispenser key
-      beneficiary: user.publicKey, // ethereum address
-      catalyst: realm.domain, // catalyst domain
-      captcha_id: captcha.data.id, // "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7"
-      captcha_value: '[CAPTCHA_VALUE]', // "123456"
-    }),
-  }
+	'https://rewards.decentraland.org/api/rewards',
+	{
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			campaign_key: '[DISPENSER_KEY]', // dispenser key
+			beneficiary: user.publicKey, // ethereum address
+			catalyst: realmInfo.baseUrl, // catalyst domain
+			captcha_id: captcha.data.id, // "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7"
+			captcha_value: '[CAPTCHA_VALUE]', // "123456"
+		}),
+	}
 )
 
 const reward = await assignRequest.json()
@@ -167,14 +167,14 @@ Any of the other flags will make your integration more complex or, depending on 
 
 ```tsx
 const request = await fetch('https://rewards.decentraland.org/api/rewards', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    campaign_key: '[DISPENSER_KEY]',
-    beneficiary: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942', // ethereum address
-  }),
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
+	},
+	body: JSON.stringify({
+		campaign_key: '[DISPENSER_KEY]',
+		beneficiary: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942', // ethereum address
+	}),
 })
 
 const response = await request.json()
