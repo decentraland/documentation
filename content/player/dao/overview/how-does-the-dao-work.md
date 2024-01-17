@@ -44,7 +44,6 @@ The DAO Committee is overseen by the SAB, which has the ability to pause and can
 
 Every on-chain transaction initiated by the DAO Committee has an automatic 24-hour delay before it is completed, allowing the SAB or the Committee to revoke the transaction.
 
-![Photo 1](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/DAO%20Committee.png?raw=true)
 ## Security Advisory Board (SAB)
 
 The Security Advisory Board acts as a guarantor of Decentraland’s smart contract security, and is tasked with overseeing the work of the DAO Committee and responding to vulnerability and bug reports in any of Decentraland’s contracts. 
@@ -56,31 +55,7 @@ Any time a modification is to be made to the LAND or Estate contracts, the updat
 The SAB has the ability to pause, resume, or cancel any action taken by the DAO Committee.
 
 Initiating the addition or removal of a member of the SAB can be done by kickstarting a Governance proposal process on [governance.decentraland.org](https://governance.decentraland.org).
-![Photo 2](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Security%20Advisory%20Board.png?raw=true)
-## Wearables Curation Committee
 
-The Curation Committee is responsible for reviewing and approving wearables and emotes submitted by the Decentraland community.
-![Photo 3](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Wearables%20Curation%20Last.png?raw=true)
-## Revocations Committee
-
-The Revocations Committee is responsible for reviewing cases raised by the community regarding Grants Program and has the responsibility to provide a resolution, which may be to revoke a vesting contract as a final action.
-![Photo 4](https://github.com/lordlikedao/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Revocation.png?raw=true)
-## Governance Squad
-
-Governance Squad is responsible for developing, enhancing and maintaining the technological infrastructure and decision-making tools of the DAO.
-![Photo 5](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Governance%20Squad.png?raw=true)
-## Facilitation Squad
-
-Facilitation Squad is responsible for managing communications and aligning different stakeholders, fostering collective decision-making and efficient governance operations. 
-![Photo 6](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Facilitation%20.png?raw=true)
-## Grants Support Squad
-
- Grants Support Squad has the responsibility of being in constant dialogue with the grantees community, to understand their needs and provide support to their blockers and requests.
-![Photo 7](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Grant%20Support.png?raw=true)
-## Strategic Unit Squad
-
-Strategic Unit Squad is responsible for building consensus around strategic DAO operations and developing governance guidelines.
-![Photo 8](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Strategic%20Unit.png?raw=true)
 ## The Forum
 
 The [Decentraland Forum](https://forum.decentraland.org) is the communication hub for the DAO. Everytime a new proposal is created, an accompanying thread is opened automatically on the Forum under the [Governance section](https://forum.decentraland.org/c/governance/). These proposal topics can be found either by browsing the Forum, or by clicking the “Discuss in the Forum'' button on any proposal’s detail page in the Governance UI. These threads are a space where voters can discuss the various impacts and issues that might result from a proposal.
