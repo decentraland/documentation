@@ -78,7 +78,7 @@ In a **test scene project**:
 In the **library project**:
 
 1. Run `npm install`
-2. Run `npm build`
+2. Run `npm run build`
 3. Run `npm link`
 4. Run: `npm link @dcl/sdk @dcl/js-runtime`
 
