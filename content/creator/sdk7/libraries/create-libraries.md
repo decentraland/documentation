@@ -73,7 +73,7 @@ In a **test scene project**:
 1. Add this script to the `scripts` list in package.json:
    `"link-sdk": "cd node_modules/@dcl/sdk && npm link && cd ../js-runtime && npm link"`
 2. Run `npm install`
-3. Run `npm link-sdk`
+3. Run `npm run link-sdk`
 
 In the **library project**:
 
@@ -85,6 +85,7 @@ In the **library project**:
 Back in the **test scene project**:
 
 1. Run: `npm link <library name>`
+2. Run `npm run build`
 
 {{< hint danger >}}
 **❗Warning**: The order of these steps is important. It may not work in another order.
