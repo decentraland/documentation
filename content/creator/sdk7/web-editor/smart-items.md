@@ -344,9 +344,23 @@ Some items are not meant to be seen by the player, but are visible while editing
 
 These items have a **Visibility** component set to invisible. This component doesn't affect the visibility of the items on the editor, but any item set to invisible isn't seen by players when running a preview.
 
+## Multiplayer
+
+All smart items are multiplayer by default. This means that if multiple players are in the scene, the changes that one player does are seen by all other players. For example, if one player opens a door, all other players see it open too.
+
+Note that the state of the item is only kept as long as there are players in the scene. If all players go away, the door will revert back to its default closed state.
+
+By default, all items share their updates on only the components that are relevant to their normal behavior. You can change this list by looking for the item's **Multiplayer** component and checking the boxes for the components you want to share.
+
+For example, a door shares its `Animator` so all see the opening animations, its `AudioSource` so all hear its sound, and its `State` so all keep track of if it's currently open or closed. The door doesn't share its `Visibility` component, because the door is usually always visible. If you include actions to trigger its visibility on and off, you might want to have this component ticked too, so that changes are synced between all players.
+
 ## Making any item smart
 
 Smart items are just regular items with an **Action** and/or **Trigger** component. You can add these components to any item in your scene. You can also import your own custom 3D models and add the same to those.
+
+To add components to an item click the **Plus Icon** next to the item name, and select what component to add from the dropdown list.
+
+<img src="/images/editor/add-component.png" width="300"/>
 
 This allows for a huge amount of creative possibilities. Turn a candle into a lever that opens up a secret passage behind a book shelf, play mysterious sounds from inside a well, make diamonds into collectable items that shrink to 0 when clicked. There are tons of imaginative ways to combine these mechanics!
 
@@ -446,7 +460,6 @@ initAssetPacks(engine, pointerEventsSystem, {
 	VideoPlayer,
 })
 ```
-
 
 {{< hint warning >}}
 **📔 Note**: The smart items asset pack is not displayed at all on scenes that don't have this dependency installed.
