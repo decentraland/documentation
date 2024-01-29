@@ -15,27 +15,27 @@ For button and click events performed by the player, see [Button events]({{< ref
 
 ## Player enters or leaves scene
 
-Whenever an avatar steps inside or out of the parcels of land that make up your scene, or teleports in or out, this creates an event you can listen to. This event is triggered by all avatars, including the player's.
+Whenever an avatar steps inside or out of the parcels of land that make up your scene, or teleports in or out, this creates an event you can listen to.
 
-TODO
-players.onEnterScene
-players.onLeaveScene
+<!-- TODO
+This event is triggered by all avatars, including the player's. -->
 
 ```ts
-import {
-	onEnterSceneObservable,
-	onLeaveSceneObservable,
-} from '@dcl/sdk/observables'
+import { onEnterScene, onLeaveScene } from '@dcl/sdk/src/players'
 
-onEnterSceneObservable.add((player) => {
-	console.log('player entered scene: ', player.userId)
-})
+export function main() {
+	onEnterScene((player) => {
+		console.log('ENTERED SCENE', player)
+	})
 
-onLeaveSceneObservable.add((player) => {
-	console.log('player left scene: ', player.userId)
-})
+	onLeaveScene((player) => {
+		console.log('LEFT SCENE', player)
+	})
+}
 ```
 
+<!--
+TODO
 #### Only current player
 
 You can filter out the triggered events to only react to the player's avatar, rather than other avatars that may be around.
@@ -66,61 +66,56 @@ executeTask(async () => {
 })
 ```
 
-This example first obtains the player's id, then subscribes to the events and compares the `userId` returned by the event to that of the player.
+This example first obtains the player's id, then subscribes to the events and compares the `userId` returned by the event to that of the player. -->
 
 #### Query all players in scene
 
-You can also get the full list of players who are currently on your scene and being rendered by calling `getPlayersInScene()`.
-
-TODO
+Go over the full list of players who are currently on your scene by looking iterating over all entities with a `PlayerIdentityData` component.
 
 ```ts
 import { getPlayersInScene } from '~system/Players'
 
-executeTask(async () => {
-	let connectedPlayers = await getPlayersInScene({})
-	connectedPlayers.players.forEach((player) => {
-		console.log('player was already here: ', player.userId)
-	})
-})
+export function main() {
+	for (const [entity, data, transform] of engine.getEntitiesWith(
+		PlayerIdentityData,
+		Transform
+	)) {
+		console.log('PLAYER: ', { entity, data, transform })
+	}
+}
 ```
 
 ## Player changes camera mode
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when on 3rd person.
 
-The following system regularly checks the player's camera mode:
-
-TODO CameraMode.onChange()
+The following snippet uses the `onChange` function to fire an event each time the camera changes. It also fires an event when the scene loads, with the player's initial camera mode.
 
 ```ts
-let previousCameraMode: CameraType
-
-engine.addSystem(function cameraModeCheck() {
-	let cameraEntity = CameraMode.get(engine.CameraEntity)
-
-	if (!cameraEntity) return
-
-	if (cameraEntity.mode !== previousCameraMode) {
-		previousCameraMode = cameraEntity.mode
-		if (cameraEntity.mode == CameraType.CT_THIRD_PERSON) {
-			console.log('The player is using the 3rd person camera')
-		} else {
-			console.log('The player is using the 1st person camera')
-		}
-	}
-})
+export function main() {
+	CameraMode.onChange(engine.CameraEntity, (cameraComponent) => {
+		console.log('Camera mode changed', cameraComponent?.mode)
+		// 0 = first person
+		// 1 = third person
+	})
+}
 ```
 
 See [Check player's camera mode]({{< ref "/content/creator/sdk7/interactivity/user-data.md#check-the-players-camera-mode">}}).
 
 ## Player plays animation
 
-TODO: New component + .onChange
+TODO
 
-Whenever the player plays an emote (dance, clap, wave, etc), you can detect this event.
+Use the `onChange` function on the `onPlayerExpressionObservable` component to fire an event each time the player plays an emote (dance, clap, wave, etc).
 
 ```ts
+export function main() {
+	AvatarEmoteCommand.onChange(engine.PlayerEntity, (emote) => {
+		console.log('Emote played: ', emote)
+	})
+}
+
 import { onPlayerExpressionObservable } from '@dcl/sdk/observables'
 
 onPlayerExpressionObservable.add(({ expressionId }) => {
@@ -142,8 +137,8 @@ The event includes the following information:
 
 ## Player changes profile
 
-TODO: Wearables.onChange()
-& Avatar.onChange()
+TODO: AvatarEquippedData.onChange()
+& AvatarBase.onChange()
 
 Whenever the player makes a change to their profile, the `onProfileChanged` event is called. These changes may include putting on different wearables, changing name, description, activating portable experiences, etc.
 
