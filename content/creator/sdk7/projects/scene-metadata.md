@@ -9,7 +9,7 @@ url: /creator/development-guide/sdk7/scene-metadata/
 weight: 1
 ---
 
-A scene is a Decentraland project that is spatially delimited, and is mapped to one or several LAND parcels. If a scene is deployed to the Decentraland Genesis City map, players can experience it by visiting the scene's coordinates. If a scene is deployed to a [World]({{< ref "/content/creator/sdk7/worlds/about.md" >}}), players can visit it via URL.
+A scene is a Decentraland project that is spatially delimited, and is mapped to one or several LAND parcels. If a scene is deployed to the Decentraland Genesis City map, players can experience it by visiting the scene's coordinates. If a scene is deployed to a [World]({{< ref "/content/creator/worlds/about.md" >}}), players can visit it via URL.
 
 See [Files in a scene]({{< ref "/content/creator/sdk7/projects/scene-files.md" >}}) for a list of what files are used in a scene project.
 
