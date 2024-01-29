@@ -13,7 +13,7 @@ weight: 1
 
 The Web Editor is a simple visual tool that lets you create and publish Decentraland scenes without the need to install anything.
 
-To access the web editor simply visit the [builder page](https://builder.decentraland.org/scenes) and go to **scenes** section. 
+To access the web editor simply visit the [builder page](https://builder.decentraland.org/scenes) and go to **scenes** section.
 
 ## Create scene
 
@@ -27,9 +27,20 @@ To build something to deploy to LAND parcels you own, make sure the shape of the
 📔 Note: The scene creation flow currently only supports rectangular-shaped scenes.
 {{< /hint >}}
 
-#### Add items
+## Moving around
+
+To find your way around the editor:
+
+- Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
+- Use **S** and **D** to move sideways.
+- Click the mouse and drag to rotate. You can click either with the Right or the Left button. It's recommended to use the Right button, since with the Left you might accidentally select an item.
+- Press **Space bar** to reset the camera back to the default position
+
+## Add items
 
 Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene. There’s a great variety!
+
+You can also use the search box. Note that when you're inside an asset pack, the search only looks in that asset pack.
 
 To place an item, click and drag the item to a specific location in the scene. All your changes are saved automatically.
 
@@ -69,6 +80,14 @@ If a scene is too large to upload, try this:
 📔 Note: You can only upload scenes that have been built with the Builder. You can’t upload a scene that was built with the SDK or modified with it.
 {{< /hint >}}
 
+## Lock or hide items
+
+You might find it handy to sometimes lock an item, to prevent accidentally selecting and moving it. This is especially useful for background items, like the ground, or a building. To lock an item, look for it on the item tree on the left, hover over it, and select the lock icon. You can toggle this behavior on and off via that same icon.
+
+You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Editor window, not to players entering the scene. To hide an item, look for it on the item tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
+
+![](/images/editor/hide-lock-item.png)
+
 ## Migrate from SDK6 to SDK7
 
 Scenes created with the Builder in SDK6 can be easily migrated to SDK7 using the builder. To do this:
@@ -76,7 +95,7 @@ Scenes created with the Builder in SDK6 can be easily migrated to SDK7 using the
 1. Select an SDK6 scene from the project list
 2. Press the **Edit scene** button
 3. Select "Use decentraland web editor (SDK7)" option
-4. Press the **Migrate now** button. If needed, you can also save a copy of the scene in SDK6. 
+4. Press the **Migrate now** button. If needed, you can also save a copy of the scene in SDK6.
 
 {{< hint danger >}}
 **❗Warning**  
