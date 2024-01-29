@@ -61,3 +61,11 @@ Below are links to the full code of several dApps that we built around Decentral
 Before launching your dApp into production, we recommend testing it first.
 
 - [dAppeteer](https://github.com/decentraland/dappeteer): We put this framework together to help you run tests on your dApp.
+
+## Decentraland smart contracts
+
+In the following link you can find a list of Etherum smart contracts relevant to the Decentraland ecosystem. The list includes the contracts in mainnet as well as in other Ethereum test networks.
+
+[contracts.decentraland.org](https://contracts.decentraland.org/links)
+
+

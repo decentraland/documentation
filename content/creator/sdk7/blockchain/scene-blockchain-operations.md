@@ -418,3 +418,10 @@ import { sendAsync } from "~system/EthereumController"
 // send a message
 await sendAsync({id:1, method: "myMethod", jsonParams:"{ myParam: myValue }" })
 ```
+
+## Decentraland smart contracts
+
+In the following link you can find a list of Etherum smart contracts relevant to the Decentraland ecosystem. The list includes the contracts in mainnet as well as in other Ethereum test networks.
+
+[contracts.decentraland.org](https://contracts.decentraland.org/links)
+

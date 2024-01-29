@@ -93,6 +93,12 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 **💡 Tip**:  `npm run deploy` runs a `npm run build`, which checks the scene for type errors more strictly than running `npm run start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `npm run deploy  --skip-build`  to skip the `npm run build` step and deploy the scene as it is.
 {{< /hint >}}
 
+
+When publishing to a [Decentraland World]({{< ref "/content/creator/worlds/about.md" >}}) , use the following command instead:
+
+`npm run deploy -- --target-content https://worlds-content-server.decentraland.org`
+
+
 ## Publish from a hardware wallet
 
 Instead of storing your LAND tokens in a Metamask account, you may find it more secure to store them in a hardware wallet device, such as a [Ledger](https://www.ledger.com/) or a [Trezor](https://trezor.io/), that's physically plugged in to your computer.

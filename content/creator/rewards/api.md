@@ -6,9 +6,7 @@ weight: 5
 
 This section explains how you can interact with the Rewards service using the API and add some extra security to your dispensers.
 
-{{< hint warning >}}
-⚠️ There is no way to prevent users from farming wearables/emotes. All security measures described in this section are meant to avoid automation, but you should assume that users are capable of manually switching between multiple accounts to get more than one of your rewards.
-{{< /hint >}}
+See [API SPEC](https://decentraland.org/rewards/docs/api/) for the full details with expected inputs and outputs of each method.
 
 - [Assigning Wearables/Emotes](#assigning-wearables-emotes)
 - [Date rage](#date-rage)
@@ -17,6 +15,10 @@ This section explains how you can interact with the Rewards service using the AP
 - [Captcha](#captcha)
 - [Connected to Decentraland](#connected-to-decentraland)
 - [Position inside Decentraland](#position-inside-decentraland)
+
+{{< hint warning >}}
+⚠️ There is no way to prevent users from farming wearables/emotes. All security measures described in this section are meant to avoid automation, but you should assume that users are capable of manually switching between multiple accounts to get more than one of your rewards.
+{{< /hint >}}
 
 ## Assigning Wearables/Emotes
 

@@ -11,16 +11,15 @@ weight: 1
 
 Libraries are a great way to share solutions to common problems. Complex challenges can be approached once, the solutions encapsulated into a library, and whenever they come up you just need to write one line of code. By sharing libraries with the community, we can make the productivity of all creators grow exponentially.
 
-Currently, these libraries in the [Awesome Repository](https://github.com/decentraland-scenes/Awesome-Repository#Libraries) are available for all to use. We encourage you to create and share your own as well.
+Currently, these libraries in the [Examples page](https://studios.decentraland.org/resources?sdk_version=SDK7&resource_type=Library) are available for all to use. We encourage you to create and share your own as well.
 
 By using the CLI and following the steps detailed here, you can avoid most of the complexity that comes with creating a library that is compatible with Decentraland scenes and is easy to share with others.
 
 ## Create a library
 
 {{< hint warning >}}
-**📔 Note**:  Make sure you're using Node version 16.x or newer before you build your library.
+**📔 Note**: Make sure you're using Node version 16.x or newer before you build your library.
 {{< /hint >}}
-
 
 To create your own library and share it via NPM, do the following:
 
@@ -72,20 +71,21 @@ If you need to continually make small adjustments to your library and test them,
 In a **test scene project**:
 
 1. Add this script to the `scripts` list in package.json:
-`"link-sdk": "cd node_modules/@dcl/sdk && npm link && cd ../js-runtime"`
+   `"link-sdk": "cd node_modules/@dcl/sdk && npm link && cd ../js-runtime && npm link"`
 2. Run `npm install`
-3. Run `npm link-sdk`
+3. Run `npm run link-sdk`
 
 In the **library project**:
 
 1. Run `npm install`
-2. Run `npm build`
-1. Run `npm link`
-2. Run: `npm link @dcl/sdk @dcl/js-runtime`
+2. Run `npm run build`
+3. Run `npm link`
+4. Run: `npm link @dcl/sdk @dcl/js-runtime`
 
 Back in the **test scene project**:
 
 1. Run: `npm link <library name>`
+2. Run `npm run build`
 
 {{< hint danger >}}
 **❗Warning**: The order of these steps is important. It may not work in another order.
@@ -94,7 +94,7 @@ Back in the **test scene project**:
 This will keep your scene synced to the version of the library that's directly in your local drive. For any changes to the library that you want to test, just run `npm run build` on the library folder, no need to publish changes to GitHub or NPM.
 
 {{< hint info >}}
-**💡 Tip**:  To verify that the linking was successful, run `npm ls --link`. You should see the library name pointing to the folder on your local files.
+**💡 Tip**: To verify that the linking was successful, run `npm ls --link`. You should see the library name pointing to the folder on your local files.
 {{< /hint >}}
 
 If you make changes to the library, you must run `npm build` to update them. To avoid having to do that every time:
@@ -108,34 +108,30 @@ When you're finished testing, remember to unlink the library.
 
 2. Then in the library run`npm unlink`
 
-
-
-
 ## Versioning
 
 Versions of your library are published automatically to `npm` with a `@latest` and a `@next` flag.
 
 The `@next` flag always points to the last commit on the `main` branch. This version may be unstable as the last changes might not be tested. Users of your library can install it (at their own risk) by doing `npm i <library name>@next`.
 
-The `@latest` flag points to the last stable release of the library. This is what users of your library should be installing normally. It's the version that npm fetches when they do `npm i <library name>`. 
+The `@latest` flag points to the last stable release of the library. This is what users of your library should be installing normally. It's the version that npm fetches when they do `npm i <library name>`.
 
 To make the `@latest` flag point to your latest commits, you'll need to make a **release** of your library on GitHub.
 
 1. Open your project's GitHub page. Open the **Releases** link, on the right margin of the page.
 
-	![](/images/media/release-versions.png)
+   ![](/images/media/release-versions.png)
 
-2. Click **Draft new release**. 
+2. Click **Draft new release**.
 3. On **Chose tag** write a name for your new version, for example "1.1.0". Also write a name on **Release Title**. This is often the same name, "1.1.0".
 
-	> Important: The tag must be a number, with no additional letters or symbols. The number must be higher than the previous published releases.
+   > Important: The tag must be a number, with no additional letters or symbols. The number must be higher than the previous published releases.
 
-4. Describe your release, so that users know what's new. 
+4. Describe your release, so that users know what's new.
 
-	> Tip: Click the button **Auto generate release notes** to print out all the commits since the last release.
+   > Tip: Click the button **Auto generate release notes** to print out all the commits since the last release.
 
 5. Hit **Publish Release**. This action triggers a new automatic publication to npm with the `@latest` flag. Users of your library will now be downloading this version.
-
 
 ## Notes on usability
 

@@ -127,7 +127,7 @@ npm i -g decentraland@latest
 npm i decentraland-ecs@latest
 ```
 
-If you're using any of the [utils libraries](https://github.com/decentraland-scenes/Awesome-Repository#Libraries) make sure those are also up to date, as older versions of these libraries may not be compatible with newer versions of `decentraland-ecs`.
+If you're using any of the [utils libraries](https://studios.decentraland.org/resources?sdk_version=SDK7&resource_type=Library) make sure those are also up to date, as older versions of these libraries may not be compatible with newer versions of `decentraland-ecs`.
 
 The `decentraland-ecs` library has in turn a couple of internal dependencies that are installed with it: the `renderer` and the `kernel`. Each `decentraland-ecs` version is paired with its corresponding versions of both. In occasions, it may be useful to try switching versions of these dependencies independently, to better pinpoint where an issue has originated. You can force your preview to use a different version of the `renderer` or of the `kernel` by simply providing the url parameters `renderer-version` and `kernel-version`, pointing at a specific commit.
 
