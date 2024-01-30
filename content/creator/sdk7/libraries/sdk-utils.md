@@ -6,4 +6,4 @@ weight: 1
 
 [SDK 7 Utils](https://github.com/decentraland/sdk7-utils)
 
-<iframe src="https://github.com/decentraland/sdk7-utils" />
+<iframe src="https://github.com/decentraland/sdk7-utils/blob/main/README.md" />
