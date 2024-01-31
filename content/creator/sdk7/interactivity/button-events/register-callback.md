@@ -15,7 +15,10 @@ If you need to add the same behavior to multiple similar entities, consider usin
 
 The Register callback approach is especially useful if you want to describe a behavior that affects a single entity, as it's more straight forward.
 
-For an entity to be interactive, it must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). See [obstacles]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#obstacles" >}}) for more details.
+{{< hint warning >}}
+**📔 Note**:  
+For an entity to be interactive, it **must** have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). See [obstacles]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#obstacles" >}}) for more details.
+{{< /hint >}}
 
 ## Pointer down
 
