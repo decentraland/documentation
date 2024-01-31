@@ -17,8 +17,7 @@ For button and click events performed by the player, see [Button events]({{< ref
 
 Whenever an avatar steps inside or out of the parcels of land that make up your scene, or teleports in or out, this creates an event you can listen to.
 
-<!-- TODO
-This event is triggered by all avatars, including the player's. -->
+This event is triggered by all avatars, including the player's.
 
 ```ts
 import { onEnterScene, onLeaveScene } from '@dcl/sdk/src/players'
@@ -34,39 +33,35 @@ export function main() {
 }
 ```
 
-<!--
-TODO
-#### Only current player
+### Only current player
 
 You can filter out the triggered events to only react to the player's avatar, rather than other avatars that may be around.
 
 ```ts
-import { getUserData } from '~system/UserIdentity'
-import {
-	onEnterSceneObservable,
-	onLeaveSceneObservable,
-} from '@dcl/sdk/observables'
+import { getPlayer, onEnterScene, onLeaveScene } from '@dcl/sdk/src/players'
 
-executeTask(async () => {
-	let myPlayer = await getUserData({})
+export function main() {
+	let myPlayer = getPlayer()
 
-	onEnterSceneObservable.add((player) => {
-		console.log('player entered scene: ', player.userId)
-		if (player.userId === myPlayer.data?.userId) {
-			console.log('I entered the scene!')
+	onEnterScene((player) => {
+		console.log('ENTERED SCENE', player)
+
+		if (myPlayer && player.userId == myPlayer.userId) {
+			console.log('THIS IS ME')
 		}
 	})
 
-	onLeaveSceneObservable.add((player) => {
-		console.log('player left scene: ', player.userId)
-		if (player.userId === myPlayer.data?.userId) {
-			console.log('I left the scene!')
+	onLeaveScene((player) => {
+		console.log('LEFT SCENE', player)
+
+		if (myPlayer && player.userId == myPlayer.userId) {
+			console.log('THIS IS ME')
 		}
 	})
-})
+}
 ```
 
-This example first obtains the player's id, then subscribes to the events and compares the `userId` returned by the event to that of the player. -->
+This example first obtains the player's id, then subscribes to the events and compares the `userId` returned by the event to that of the player.
 
 #### Query all players in scene
 
@@ -105,66 +100,70 @@ See [Check player's camera mode]({{< ref "/content/creator/sdk7/interactivity/us
 
 ## Player plays animation
 
-TODO
-
-Use the `onChange` function on the `onPlayerExpressionObservable` component to fire an event each time the player plays an emote (dance, clap, wave, etc).
+Use the `onChange` function on the `AvatarEmoteCommand` component to fire an event each time the player plays an emote. This includes both base emotes (dance, clap, wave, etc) and emotes from tokens.
 
 ```ts
+import { AvatarEmoteCommand } from '@dcl/sdk/ecs'
+
 export function main() {
 	AvatarEmoteCommand.onChange(engine.PlayerEntity, (emote) => {
-		console.log('Emote played: ', emote)
+		console.log('Emote played: ', emote.emoteUrn)
 	})
 }
-
-import { onPlayerExpressionObservable } from '@dcl/sdk/observables'
-
-onPlayerExpressionObservable.add(({ expressionId }) => {
-	console.log('Expression: ', expressionId)
-})
 ```
 
 The event includes the following information:
 
-- expressionId: Name of the emote performed (ie: _wave_, _clap_, _kiss_)
+- `emoteUrn`: Name of the emote performed (ie: _wave_, _clap_, _kiss_)
+- `loop`: If the emote is looping or playing once
+- `timestamp`: When the emote was triggered.
 
-{{< hint warning >}}
-**📔 Note**: This event is triggered any time the player makes an emote and the scene is loaded. The player could be standing in a nearby scene when this happens.
-{{< /hint >}}
-
-{{< hint warning >}}
-**📔 Note**: The `onPlayerExpressionObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
-{{< /hint >}}
+You can also detect emotes form other players in the scene, simply pass a reference to the other player instead of `engine.PlayerEntity`.
 
 ## Player changes profile
 
-TODO: AvatarEquippedData.onChange()
-& AvatarBase.onChange()
-
-Whenever the player makes a change to their profile, the `onProfileChanged` event is called. These changes may include putting on different wearables, changing name, description, activating portable experiences, etc.
+Use the `onChange` function on the `AvatarEquippedData` to fire an event each time the player changes one of their wearables, or their listed emotes on the quick access wheel. Similarly, use the `onChange` function on the `AvatarBase` to fire an event each time the player changes their base avatar properties, like hair color, skin color, avatar shape, or name.
 
 ```ts
-import { onProfileChanged } from '@dcl/sdk/observables'
+import { AvatarEquippedData, AvatarBase } from '@dcl/sdk/ecs'
 
-onProfileChanged.add((profileData) => {
-	console.log('Own profile data is ', profileData)
-})
+export function main() {
+	AvatarEquippedData.onChange(engine.PlayerEntity, (equipped) => {
+		if (!equipped) return
+		console.log('New wearables list: ', equipped.wearableUrns)
+		console.log('New emotes list : ', equipped.emoteUrns)
+	})
+
+	AvatarBase.onChange(engine.PlayerEntity, (body) => {
+		if (!body) return
+		console.log('New eyes color: ', body.eyesColor)
+		console.log('New skin color: ', body.skinColor)
+		console.log('New hair color: ', body.hairColor)
+		console.log('New body URN: ', body.bodyShapeUrn)
+	})
+}
 ```
 
-{{< hint warning >}}
-**📔 Note**: The `onProfileChanged` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
-{{< /hint >}}
+The event on `AvatarEquippedData` includes the following information:
 
-Event data includes only the ID of the player and a version number for that avatar's profile, according to the catalyst server. Every time a change is propagated, the version number increases by 1.
+- `wearableUrns`: The list of wearables that the player currently has equipped.
+- `emoteUrns`: The list of emotes that the player currently has equipped in the quick access wheel.
 
-When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data">}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+The event on `AvatarBase` includes the following information:
+
+- `name`: The player's name.
+- `bodyShapeUrn`: The ids corresponding to male or female body type.
+- `skinColor`: Player skin color as a `Color4`
+- `eyeColor`: Player eye color as a `Color4`
+- `hairColor`: Player hair color as a `Color4`
+
+You can also detect changes in wearables or avatars form other players in the scene, simply pass a reference to the other player instead of `engine.PlayerEntity`.
 
 {{< hint info >}}
 **💡 Tip**: When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 {{< /hint >}}
 
-{{< hint warning >}}
-**📔 Note**: This event is only triggered by changes to the current player, not by changes on the profiles of other nearby players.
-{{< /hint >}}
+You can also detect changes on the profiles of other players in the scene, simply pass a reference to the other player instead of `engine.PlayerEntity`.
 
 ## Deprecated functions
 

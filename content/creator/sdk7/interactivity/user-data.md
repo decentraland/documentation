@@ -48,26 +48,6 @@ engine.addSystem(getPlayerPosition)
   - In 1st person: Similar to the direction in which the avatar is facing, expressed as a quaternion. May be rounded slightly differently from the player's rotation.
   - In 3rd person: May vary depending on camera movements.
 
-```ts
-const cube = engine.addEntity()
-
-Transform.create(cube, {
-	position: Vector3.create(3, 1, 3),
-})
-
-MeshRenderer.setBox(cube)
-
-function CubeRotateSystem() {
-	if (!Transform.has(engine.PlayerEntity)) return
-	const transform = Transform.getMutable(cube)
-	transform.rotation = Transform.get(engine.PlayerEntity).rotation
-}
-
-engine.addSystem(CubeRotateSystem)
-```
-
-The example above uses the player's rotation to set that of a cube in the scene.
-
 {{< hint warning >}}
 **📔 Note**: Avoid referring to the `engine.PlayerEntity` or the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
 
@@ -79,6 +59,8 @@ If you refer to these entities in a system, they will always be available, becau
 All players in the scene have a `Transform` component. This component is read only in avatars. To fetch the positions of all players, [iterate over all entities with]({{< ref "/content/creator/sdk7/architecture/querying-components.md#" >}}) a `PlayerIdentityData` component.
 
 ```ts
+import { PlayerIdentityData } from '@dcl/sdk/ecs'
+
 for (const [entity, data, transform] of engine.getEntitiesWith(
 	PlayerIdentityData,
 	Transform
@@ -91,66 +73,86 @@ The code above iterates over all entities with a `Transform` and a `PlayerIdenti
 
 ## Get player data
 
-Use `players.getPlayerData()` to fetch data about the current player, or any other player in the scene.
+Use `getPlayer()` to fetch data about the current player, or any other player in the scene.
 
-TODO: Snippet
+```ts
+import { getPlayer } from '@dcl/sdk/src/players'
 
-`players.getPlayerData()` returns the following:
+export function main() {
+	createCube(5, 1, 5)
+
+	let myPlayer = getPlayer()
+
+	if (myPlayer) {
+		console.log('Name : ', myPlayer.name)
+		console.log('UserId : ', myPlayer.userId)
+	}
+}
+```
+
+`getPlayer()` returns the following:
 
 - `name`: _(string)_ The player's user name, as others see in-world
 - `userId`: _(string)_ A UUID string that identifies the player. If the player has a public key, this field will have the same value as the public key.
 - `isGuest`: _(boolean)_ Indicates if the player has a public key. _True_ if the player is a guest account without a public key.
+- `position`: _(Vector3)_ The position of the avatar in the scene.
 - `avatar`: A nested object with data about the player's base avatar and appearance.
-- `wearables`: A nested object with data about the player's equipped wearables and emotes.
+- `wearables`: An array of identifiers for each of the wearables that the player is currently wearing. For example `urn:decentraland:off-chain:base-avatars:green_hoodie`. All wearables have a similar identifier, even if they're NFTs.
+- `emotes`: An array of identifiers for each of the emotes that the player currently has equipped in the quick access wheel.
+- `entity`: A reference to the player entity. This can be handy to pass to other functions, or to add custom components to it.
 
 The `avatar` object has the following nested information:
 
-- `bodyShape`:
-
-- `name`: The player's name.
 - `bodyShapeUrn`: An identifier for the avatar's general body shape. Either `urn:decentraland:off-chain:base-avatars:BaseFemale` for female or `urn:decentraland:off-chain:base-avatars:BaseMale` for male.
 - `skinColor`: Player skin color as a `Color4`
-- `eyeColor`: Player eye color as a `Color4`
+- `eyesColor`: Player eye color as a `Color4`
 - `hairColor`: Player hair color as a `Color4`
+- `name`: The player's name.
 
-The `wearables` object has the following information
+```ts
+import { getPlayer } from '@dcl/sdk/src/players'
 
-- `wearables`: `WearableId[]` An array of identifiers for each of the wearables that the player is currently wearing. For example `urn:decentraland:off-chain:base-avatars:green_hoodie`. All wearables have a similar identifier, even if they're NFTs.
-- `wearable_urns`: An array of identifiers for each of the wearables that the player is currently wearing. For example `urn:decentraland:off-chain:base-avatars:green_hoodie`. All wearables have a similar identifier, even if they're NFTs.
-- `emotes_urns`: An array of identifiers for each of the emotes that the player currently has equipped in the quick access wheel.
+export function main() {
+	createCube(5, 1, 5)
 
-TODO: Snippet
+	let myPlayer = getPlayer()
 
-{{< hint warning >}}
-**📔 Note**: The `players.getPlayerData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
-{{< /hint >}}
+	if (myPlayer) {
+		console.log('Is Guest: ', myPlayer.isGuest)
+		console.log('Name : ', myPlayer.name)
+		console.log('UserId : ', myPlayer.userId)
+		console.log('Avatar shape : ', myPlayer.position)
+		console.log('Avatar shape : ', myPlayer.avatar?.bodyShapeUrn)
+		console.log('Avatar eyes color : ', myPlayer.avatar?.eyesColor)
+		console.log('Avatar hair color : ', myPlayer.avatar?.hairColor)
+		console.log('Wearables on : ', myPlayer.wearables)
+		console.log('Emotes available : ', myPlayer.emotes)
+	}
+}
+```
 
 {{< hint info >}}
 **💡 Tip**: When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 {{< /hint >}}
 
-To get the data for a specific player in the scene, different from the current player, run `players.getPlayerData()` with an object with a `userId` property.
-
-TODO: Snippet
-
-TODO: How to get IDs from other players
-
-players.onEnterScene
-players.onLeaveScene
-
-You can obtain the current player's id from `myProfile.userId`:
+To get the data for a specific player in the scene, different from the current player, run `getPlayer()` with an object with a `userId` property.
 
 ```ts
-import { myProfile } from '@dcl/sdk/network'
+import { getPlayer } from '@dcl/sdk/src/players'
 
-export function main() {
-	console.log('UserId: ', myProfile.userId)
+for (const [entity, data, transform] of engine.getEntitiesWith(
+	PlayerIdentityData,
+	Transform
+)) {
+	let player = getPlayer({ userId: data.address })
+	console.log('PLAYER : ', player?.name)
 }
 ```
 
-`players.getPlayerData()` can only fetch data from players who are currently standing in the same scene, they don't have to necessarily be in visual range, but they should be connected to the same comms island. To try this out in preview, open a second tab and log in with a different account, and have both players stand inside the scene.
+The snippet above iterates over all the entities with a `PlayerIdentityData` component, meaning all the avatar entities in the scene. It then runs the `getPlayer()` for that entity.
 
-TODO: CHECK THIS:
+`getPlayer()` can only fetch data from players who are currently standing in the same scene, they don't have to necessarily be in visual range, but they should be connected to the same comms island. To try this out in preview, open a second tab and log in with a different account, and have both players stand inside the scene.
+
 {{< hint warning >}}
 **📔 Note**: User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
 {{< /hint >}}
@@ -197,7 +199,7 @@ The `avatar` object has the following nested information:
 The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#avatar-portraits">}}).
 {{< /hint >}}
 
-Unlike `players.getPlayerData()`, this option is not limited to just the players who are currently in the same scene, or even in the same server. With this approach you can fetch data from any player that has logged onto the servers in the past.
+Unlike `getPlayer()`, this option is not limited to just the players who are currently in the same scene, or even in the same server. With this approach you can fetch data from any player that has logged onto the servers in the past.
 
 If you know which server the player you want to query is connected to, you can get more up-to-date data by sending your requests to that specific server. For example, if the player changes clothes, this information will be available instantly in the player's server, but will likely take a couple of minutes to propagate to the `peer.decentraland.org` server.
 
@@ -334,7 +336,7 @@ As more players connect and disconnect, you can pic
 
 ## Player data components
 
-Instead of using `players.getPlayerData()`, you can read data directly from a series of components that store the data on each player entity. The following components exist:
+Instead of using `getPlayer()`, you can read data directly from a series of components that store the data on each player entity. The following components exist:
 
 - `PlayerIdentityData`: Stores the player address and an `isGuest` property to flag guest accounts.
 - `AvatarBase`: Stores data about the base avatar, including:
@@ -344,8 +346,8 @@ Instead of using `players.getPlayerData()`, you can read data directly from a se
   - `eyeColor`: Player eye color as a `Color4`
   - `hairColor`: Player hair color as a `Color4`
 - `AvatarEquippedData`: The list of equipped wearables and emotes.
-  - `wearable_urns`: The list of wearables that the player currently has equipped.
-  - `emotes_urns`: The list of emotes that the player currently has equipped in the quick access wheel.
+  - `wearableUrns`: The list of wearables that the player currently has equipped.
+  - `emoteUrns`: The list of emotes that the player currently has equipped in the quick access wheel.
 
 ```ts
 for (const [entity, data, base, attach, transform] of engine.getEntitiesWith(
@@ -381,7 +383,7 @@ executeTask(async () => {
 
 ## Get detailed info about a player's wearables
 
-The `players.getPlayerData()` function returns only a list of wearable ids, without information about each wearable. Maybe you want to check for any wearable of a specific category (eg: hats), or any wearable of a specific rarity (eg: Mythic), for that you'll need to fetch more detailed information about the player's wearables.
+The `getPlayer()` function returns only a list of wearable ids, without information about each wearable. Maybe you want to check for any wearable of a specific category (eg: hats), or any wearable of a specific rarity (eg: Mythic), for that you'll need to fetch more detailed information about the player's wearables.
 
 Make a [REST API call]({{< ref "/content/creator/sdk7/networking/network-connections.md#call-a-rest-api">}}) to the following URL, to obtain a full updated list of all wearables that are currently usable, with details about each.
 
