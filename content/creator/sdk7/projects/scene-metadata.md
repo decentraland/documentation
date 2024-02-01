@@ -369,9 +369,9 @@ On the `scene.json` file, these toggles are managed under `featureToggles`. The 
 
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
-## Categories and Tags
+## Categories
 
-You can add categories and tags to your scene to help players and users explore Decentraland better. These are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're interested in.
+You can add categories to your scene to help players and users explore Decentraland better. These are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're interested in.
 
 **Categories** need to be chosen from a pre-defined list of options:
 
@@ -389,9 +389,11 @@ You can add categories and tags to your scene to help players and users explore 
 
 A scene can belong to more than one category, it can have a maximum of 3 listed categories.
 
-**Tags** are an open-ended list. You can write any word you want into the list.
+<!-- **Tags** are an open-ended list. You can write any word you want into the list. -->
 
-In the `scene.json` both categories and tags are listed in the `tags` array. If a string matches any of the predefined categories, it's treated as a category, if it doesn't it's treated as a tag.
+In the `scene.json` categories are listed in the `tags` array.
+
+<!-- If a string matches any of the predefined categories, it's treated as a category, if it doesn't it's treated as a tag. -->
 
 These are the predefined categories:
 
@@ -407,14 +409,12 @@ These are the predefined categories:
 - `business`
 - `sports`
 
-For example, an Scene could be tagged as `game` and `casino`, and have tags for `underwater` and `pet-friendly` by adding the following to the `scene.json`
+For example, an Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
 
 ```json
   "tags": [
     "game",
     "casino",
-    "underwater",
-    "pet-friendly"
   ],
 ```
 
