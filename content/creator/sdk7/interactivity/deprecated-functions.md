@@ -284,7 +284,7 @@ executeTask(async () => {
 })
 ```
 
-Both `getUserData()` and `getPlayerData()` return the same data structure available via the content API. See [Data from any player]({{< ref "/content/creator/sdk7/sdk7/interactivity/user-data.md#data-from-any-player">}})
+Both `getUserData()` and `getPlayerData()` return the same data structure available via the content API. See [Data from any player]({{< ref "/content/creator/sdk7/interactivity/user-data.md#data-from-any-player">}})
 
 `getPlayerData()` can only fetch data from players who are currently nearby. They don't have to be necessarily standing in the same scene, but in visual range, that's because this information is being fetched from the local engine that's rendering these avatars. To try this out in preview, open a second tab and log in with a different account.
 
