@@ -54,7 +54,7 @@ engine.addSystem(getPlayerPosition)
 If you refer to these entities in a system, they will always be available, because the first execution of the system is called once the scene is already properly initialized.
 {{< /hint >}}
 
-### Positions from all players
+## Fetch all players
 
 All players in the scene have a `Transform` component. This component is read only in avatars. To fetch the positions of all players, [iterate over all entities with]({{< ref "/content/creator/sdk7/architecture/querying-components.md#" >}}) a `PlayerIdentityData` component.
 
@@ -69,7 +69,9 @@ for (const [entity, data, transform] of engine.getEntitiesWith(
 }
 ```
 
-The code above iterates over all entities with a `Transform` and a `PlayerIdentityData` component, and logs their data.
+The code above iterates over all entities with a `Transform` and a `PlayerIdentityData` component, and logs their data. You can use this same method to get any of the available data of all players.
+
+See [Event listeners]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-locks-or-unlocks-cursor" >}}) to learn how to detect and react when new players join into the scene.
 
 ## Get player data
 
@@ -212,7 +214,6 @@ If you know which server the player you want to query is connected to, you can g
 This example combines `myProfile.userId` and `getRealm()` to obtain the player's data directly from the server that the player is on:
 
 ```ts
-import { getUserData } from '~system/UserIdentity'
 import { getRealm } from '~system/Runtime'
 import { myProfile } from '@dcl/sdk/network'
 
@@ -238,101 +239,6 @@ async function fetchPlayerData() {
 
 fetchPlayerData()
 ```
-
-### Deprecated player data methods
-
-To obtain information from the current player that's running the scene, use `getUserData()`.
-
-The example below imports the `~system/UserIdentity` namespace and runs `getUserData()`.
-
-```ts
-import { getUserData } from '~system/UserIdentity'
-
-executeTask(async () => {
-	let userData = await getUserData({})
-	console.log(userData.data)
-})
-```
-
-You can obtain data from other players that are nearby, by calling `getPlayerData()`, passing the id of a Decentraland account.
-
-```ts
-import { getPlayerData } from '~system/Players'
-
-executeTask(async () => {
-	let userData = await getPlayerData({ userId: '0x….' })
-	console.log(userData)
-})
-```
-
-Both `getUserData()` and `getPlayerData()` return the same data structure available via the content API. See [Data from any player](#data-from-any-player)
-
-`getPlayerData()` can only fetch data from players who are currently nearby. They don't have to be necessarily standing in the same scene, but in visual range, that's because this information is being fetched from the local engine that's rendering these avatars. To try this out in preview, open a second tab and log in with a different account.
-
-{{< hint warning >}}
-**📔 Note**: User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
-{{< /hint >}}
-
-<!--
-To know what players are being rendered in the surroundings, use `getConnectedPlayers()`. This function returns an array with the ids of all the players that are currently being rendered, which are all eligible to call with `getPlayerData()`. You can pair this with listening for new players connecting and disconnecting by using `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable`.
-
-```ts
-import { getConnectedPlayers } from '~system/Players'
-
-// Get already connected players
-executeTask(async () => {
-	let connectedPlayers = await getConnectedPlayers({})
-	connectedPlayers.players.forEach((player) => {
-		console.log('player is nearby: ', player.userId)
-	})
-})
-
-// Event when player connects
-onPlayerConnectedObservable.add((player) => {
-	console.log('player entered: ', player.userId)
-})
-
-// Event when player disconnects
-onPlayerDisconnectedObservable.add((player) => {
-	console.log('player left: ', player.userId)
-})
-```
-
-{{< hint warning >}}
-**📔 Note** : `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` will be deprecated on future versions of the SDK.
-{{< /hint >}}
-
-As an alternative, you can use `getPlayersInScene()` to only fetch the players that are standing within the scene boundaries and also being rendered. You can pair this with listening to new players entering and leaving the scene by using `onEnterSceneObservable` and `onLeaveSceneObservable`.
-
-```ts
-import { getPlayersInScene } from '~system/Players'
-
-// Get all players already in scene
-executeTask(async () => {
-	let connectedPlayers = await getPlayersInScene({})
-	connectedPlayers.players.forEach((player) => {
-		console.log('player is nearby: ', player.userId)
-	})
-})
-
-// Event when player enters scene
-onEnterSceneObservable.add((player) => {
-	console.log('player entered scene: ', player.userId)
-})
-
-// Event when player leaves scene
-onLeaveSceneObservable.add((player) => {
-	console.log('player left scene: ', player.userId)
-})
-```
-
-{{< hint info >}}
-**💡 Tip**: Read more about `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` in [Player connects or disconnects]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-connects-or-disconnects">}}) and about about `onEnterSceneObservable` and `onLeaveSceneObservable` in [Player enters or leaves scene]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene">}}).
-{{< /hint >}}
-
-Listen for events when players connect and disconnect
-As more players connect and disconnect, you can pic
--->
 
 ## Player data components
 
@@ -390,7 +296,7 @@ Make a [REST API call]({{< ref "/content/creator/sdk7/networking/network-connect
 `${playerRealm.realmInfo.baseUrl}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`
 
 {{< hint warning >}}
-**📔 Note**: To construct this URL, you must obtain the realm (likely with with `getRealm()`) and the player's id (likely with `getUserData()`)
+**📔 Note**: To construct this URL, you must obtain the realm (likely with with `getRealm()`) and the player's id (likely with `getPlayer()`)
 {{< /hint >}}
 
 This feature could be used together with fetching info about the player, to for example only allow players to enter a place if they are wearing any wearable from the halloween collection, or any wearable that is of _legendary_ rarity.
@@ -400,12 +306,12 @@ This feature could be used together with fetching info about the player, to for 
 {{< /hint >}}
 
 ```ts
-import { getUserData } from '~system/UserIdentity'
+import { getPlayer } from '@dcl/sdk/src/players'
 import { getRealm } from '~system/Runtime'
 
 async function fetchWearablesData() {
 	try {
-		let player = await getUserData({})
+		let userData = getPlayer({})
 		const realm = await getRealm({})
 
 		const url =
@@ -483,6 +389,8 @@ executeTask(async () => {
 	console.log(isLocked)
 })
 ```
+
+See [Event listeners]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-locks-or-unlocks-cursor" >}}) to see how to easily react to changes in the cursor state.
 
 The `PointerLock` component of the `engine.CameraEntity` is read-only, you can't force the player to lock or unlock the cursor.
 
