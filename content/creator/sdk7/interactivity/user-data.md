@@ -254,6 +254,10 @@ Instead of using `getPlayer()`, you can read data directly from a series of comp
 - `AvatarEquippedData`: The list of equipped wearables and emotes.
   - `wearableUrns`: The list of wearables that the player currently has equipped.
   - `emoteUrns`: The list of emotes that the player currently has equipped in the quick access wheel.
+- `AvatarEmoteCommand`: Info about emotes that the player is currently playing. It includes:
+  - `emoteUrn`: The URN for the last emote played by the player, since they entered the scene
+  - `loop`: True if the emote is being looped
+  - `timestamp`: The time when this emote was triggered
 
 ```ts
 for (const [entity, data, base, attach, transform] of engine.getEntitiesWith(

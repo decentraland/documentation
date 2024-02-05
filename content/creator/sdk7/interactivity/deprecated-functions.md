@@ -257,7 +257,7 @@ onSceneReadyObservable.add(() => {
 ## Deprecated player data methods
 
 {{< hint warning >}}
-**📔 Note**: The `getUserData()` and `getPlayerData()` functions are deprecated from SDK v7.4.x. Use `getPlayer()` instead. See [Scene lifecycle]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-user-data" >}}).
+**📔 Note**: The `getUserData()` and `getPlayerData()` functions are deprecated from SDK v7.4.x. Use `getPlayer()` instead. See [User data]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-user-data" >}}).
 {{< /hint >}}
 
 To obtain information from the current player that's running the scene, use `getUserData()`.
@@ -290,4 +290,63 @@ Both `getUserData()` and `getPlayerData()` return the same data structure availa
 
 {{< hint warning >}}
 **📔 Note**: User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
+{{< /hint >}}
+
+The `getUserPublicKey()` and `getUserAccount()` functions are also deprecated. Please use `getPlayer()` instead. See [User data]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-user-data" >}}).
+
+## Get skybox time
+
+{{< hint warning >}}
+**📔 Note**: The `getDecentralandTime()` function is deprecated from SDK v7.x.x. Use `getWorldTime()` instead. See [Get Decentraland Time]({{< ref "/content/creator/sdk7/interactivity/runtime-data.md#get-decentraland-time" >}}).
+{{< /hint >}}
+
+```ts
+import { getDecentralandTime } from '~system/EnvironmentApi'
+
+executeTask(async () => {
+	let time = await getDecentralandTime({})
+	console.log(time)
+})
+```
+
+## Get realm
+
+{{< hint warning >}}
+**📔 Note**: The `getCurrentRealm()` function is deprecated from SDK v7.x.x. Use `getRealm()` instead. See [Get Realm Data]({{< ref "/content/creator/sdk7/interactivity/runtime-data.md#get-realm-data" >}}).
+{{< /hint >}}
+
+```ts
+import { getCurrentRealm } from '@decentraland/EnvironmentAPI'
+
+async function fetchPlayerData() {
+	const playerRealm = await getCurrentRealm()
+
+	console.log(playerRealm.domain)
+}
+
+fetchPlayerData()
+```
+
+## Is preview mode
+
+{{< hint warning >}}
+**📔 Note**: The `isPreviewMode()` function is deprecated from SDK v7.x.x. Use `getRealm()` instead, which contains a `preview` property. See [Get Realm Data]({{< ref "/content/creator/sdk7/interactivity/runtime-data.md#get-realm-data" >}}).
+{{< /hint >}}
+
+```ts
+import { isPreviewMode } from '~system/EnvironmentAPI'
+
+executeTask(async () => {
+	const preview: boolean = await isPreviewMode({})
+
+	if (preview) {
+		console.log('Running in preview')
+	}
+})
+```
+
+## Crypto functions
+
+{{< hint warning >}}
+**📔 Note**: The functions `requirePayment()`, `signMessage()`, `convertMessageToObject()` are deprecated. Use the `sendAsync()` function instead. See [Scene blockchain operations]({{< ref "/content/creator/sdk7/blockchain/scene-blockchain-operations.md#" >}}). There are also libraries that can help simplify some common use cases with these functions.
 {{< /hint >}}
