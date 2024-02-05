@@ -72,7 +72,7 @@ Governance Squad is responsible for developing, enhancing and maintaining the te
 ## Facilitation Squad
 
 Facilitation Squad is responsible for managing communications and aligning different stakeholders, fostering collective decision-making and efficient governance operations. 
-![Photo 6](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Facilitation%20.png?raw=true)
+![Photo 6](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Facilitation%20last.png?raw=true)
 ## Grants Support Squad
 
  Grants Support Squad has the responsibility of being in constant dialogue with the grantees community, to understand their needs and provide support to their blockers and requests.
