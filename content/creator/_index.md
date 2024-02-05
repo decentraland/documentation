@@ -22,7 +22,12 @@ The Decentraland SDK is a collection of tools to allow you to create scenes. The
 
 ### The Decentraland Editor
 
-The Editor is an all-in-one content creation tool. It's intended for users of any knowledge level, combining a graphical interface with code editing capabilities. Both technical and non-technical creators will benefit from using it.
+**Web version:** The web version of the Decentraland Editor is a lightweight tool that requires no installation. It allows you to use an easy drag and drop interface to create scenes. [Smart items]({{< ref "/content/creator/sdk7/web-editor/smart-items.md" >}}) are a powerful tool that allows you to configure different kinds of interactions without writing any code.
+
+[Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+
+
+**Desktop version:** The desktop version of the Decentraland Editor is an all-in-one content creation tool. It's intended for users of any knowledge level, combining a graphical interface with code editing capabilities. Both technical and non-technical creators will benefit from using it.
 
 [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
