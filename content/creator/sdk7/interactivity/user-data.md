@@ -240,7 +240,7 @@ async function fetchPlayerData() {
 fetchPlayerData()
 ```
 
-## Player data components
+## Player data components
 
 Instead of using `getPlayer()`, you can read data directly from a series of components that store the data on each player entity. The following components exist:
 
