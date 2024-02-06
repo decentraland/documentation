@@ -294,7 +294,7 @@ Both `getUserData()` and `getPlayerData()` return the same data structure availa
 
 The `getUserPublicKey()` and `getUserAccount()` functions are also deprecated. Please use `getPlayer()` instead. See [User data]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-user-data" >}}).
 
-## Get skybox time
+## Get skybox time
 
 {{< hint warning >}}
 **📔 Note**: The `getDecentralandTime()` function is deprecated from SDK v7.x.x. Use `getWorldTime()` instead. See [Get Decentraland Time]({{< ref "/content/creator/sdk7/interactivity/runtime-data.md#get-decentraland-time" >}}).
@@ -309,7 +309,7 @@ executeTask(async () => {
 })
 ```
 
-## Get realm
+## Get realm
 
 {{< hint warning >}}
 **📔 Note**: The `getCurrentRealm()` function is deprecated from SDK v7.x.x. Use `getRealm()` instead. See [Get Realm Data]({{< ref "/content/creator/sdk7/interactivity/runtime-data.md#get-realm-data" >}}).
