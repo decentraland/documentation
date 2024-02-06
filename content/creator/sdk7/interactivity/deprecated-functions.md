@@ -11,97 +11,6 @@ weight: 100
 
 The following functions are legacy. They still work, but in most cases there are better alternative ways to obtain the same information or achieve the same results.
 
-## Player clicks on another player
-
-Whenever the player clicks on another player, you can detect an event.
-
-```ts
-import { onPlayerClickedObservable } from '@dcl/sdk/observables'
-
-onPlayerClickedObservable.add((clickEvent) => {
-	console.log('Clicked ', clickEvent.userId, ' details: ', clickEvent.ray)
-})
-```
-
-{{< hint warning >}}
-**📔 Note**: The `onPlayerClickedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
-
-As an alternative, you can attach an invisible collider to the player and detect clicks against this.
-{{< /hint >}}
-
-{{< hint warning >}}
-**📔 Note**: Both the player performing the click and the player being clicked must be standing within the parcels of the scene. This listener only detects events of the current player clicking on other players, not those of clicks performed by other players.
-{{< /hint >}}
-
-The event includes the following data:
-
-- `userId`: The id of the clicked player
-- `ray`: Data about the ray traced by the click
-  - `direction`: _Vector3_ A normalized Vector3 that represents the direction from the point of origin of the click to the hit point of the click.
-  - `distance`: _number_ The distance in meters from the point of origin to the hit point.
-  - `origin`: _Vector3_ The point of origin of the click, the position of the player who did the click, relative to the scene.
-
-{{< hint info >}}
-**💡 Tip**: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md" >}}).
-{{< /hint >}}
-
-## Player locks/unlocks cursor
-
-{{< hint warning >}}
-**📔 Note**: The `onPointerLockedStateChange` event is deprecated from SDK v7.x. See [Event listeners]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-locks-or-unlocks-cursor" >}}) for a non-deprecated alternative.
-{{< /hint >}}
-
-Players can switch between two cursor modes: _locked cursor_ mode to control the camera or _unlocked cursor_ mode for moving the cursor freely over the UI.
-
-Players unlock the cursor by clicking the _Right mouse button_ or pressing the _Esc_ key, and lock the cursor back by clicking anywhere in the screen.
-
-This `onPointerLockedStateChange` event is activated each time a player switches between these two modes, while near the scene.
-
-```ts
-import { onPointerLockedStateChange } from '@dcl/sdk/observables'
-
-onPointerLockedStateChange.add(({ locked }) => {
-	if (locked) {
-		console.log('Pointer has been locked')
-	} else {
-		console.log('Pointer has been unlocked')
-	}
-})
-```
-
-{{< hint warning >}}
-**📔 Note**: This event is triggered even if the player is not standing directly inside the scene.
-{{< /hint >}}
-
-## Player changes realm or island
-
-Players in decentraland exist in separate _realms_, and in separate _islands_ within each realm. Players in different realms or islands cant see each other, interact or chat with each other, even if they're standing on the same parcels.
-
-Each time the player changes realms or island, the `onRealmChangedObservable` event gets called.
-
-```ts
-import { onRealmChangedObservable } from '@dcl/sdk/observables'
-
-onRealmChangedObservable.add((realmChange) => {
-	console.log('PLAYER CHANGED ISLAND TO ', realmChange.room)
-})
-```
-
-{{< hint warning >}}
-**📔 Note**: The `onRealmChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
-{{< /hint >}}
-
-This event includes the following fields:
-
-- **serverName**: _string_; The catalyst server name.
-- **room**: _string_; The island name.
-- **displayName**: _string_; The catalyst server name followed by a _-_ and the island name. For example `unicorn-x011`.
-- **domain**: _string_; The url to the catalyst server being used.
-
-As players move through the map, they may switch islands to be grouped with those players who are now closest to them. Islands also shift their borders dynamically to fit a manageable group of people in each. So even if a player stands still they could be changed island as others enter and leave surrounding scenes.
-
-If your scene relies on an [3rd party server]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}) to sync changes between players in real time, then you may want to only share data between players that are grouped in a same realm+island, so it's a good practice to change rooms in the 3rd party server whenever players change island.
-
 ## Player enters or leaves scene
 
 {{< hint warning >}}
@@ -344,6 +253,99 @@ executeTask(async () => {
 	}
 })
 ```
+
+
+## Player clicks on another player
+
+Whenever the player clicks on another player, you can detect an event.
+
+```ts
+import { onPlayerClickedObservable } from '@dcl/sdk/observables'
+
+onPlayerClickedObservable.add((clickEvent) => {
+	console.log('Clicked ', clickEvent.userId, ' details: ', clickEvent.ray)
+})
+```
+
+{{< hint warning >}}
+**📔 Note**: The `onPlayerClickedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+
+As an alternative, you can attach an invisible collider to the player and detect clicks against this.
+{{< /hint >}}
+
+{{< hint warning >}}
+**📔 Note**: Both the player performing the click and the player being clicked must be standing within the parcels of the scene. This listener only detects events of the current player clicking on other players, not those of clicks performed by other players.
+{{< /hint >}}
+
+The event includes the following data:
+
+- `userId`: The id of the clicked player
+- `ray`: Data about the ray traced by the click
+  - `direction`: _Vector3_ A normalized Vector3 that represents the direction from the point of origin of the click to the hit point of the click.
+  - `distance`: _number_ The distance in meters from the point of origin to the hit point.
+  - `origin`: _Vector3_ The point of origin of the click, the position of the player who did the click, relative to the scene.
+
+{{< hint info >}}
+**💡 Tip**: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md" >}}).
+{{< /hint >}}
+
+## Player locks/unlocks cursor
+
+{{< hint warning >}}
+**📔 Note**: The `onPointerLockedStateChange` event is deprecated from SDK v7.x. See [Event listeners]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-locks-or-unlocks-cursor" >}}) for a non-deprecated alternative.
+{{< /hint >}}
+
+Players can switch between two cursor modes: _locked cursor_ mode to control the camera or _unlocked cursor_ mode for moving the cursor freely over the UI.
+
+Players unlock the cursor by clicking the _Right mouse button_ or pressing the _Esc_ key, and lock the cursor back by clicking anywhere in the screen.
+
+This `onPointerLockedStateChange` event is activated each time a player switches between these two modes, while near the scene.
+
+```ts
+import { onPointerLockedStateChange } from '@dcl/sdk/observables'
+
+onPointerLockedStateChange.add(({ locked }) => {
+	if (locked) {
+		console.log('Pointer has been locked')
+	} else {
+		console.log('Pointer has been unlocked')
+	}
+})
+```
+
+{{< hint warning >}}
+**📔 Note**: This event is triggered even if the player is not standing directly inside the scene.
+{{< /hint >}}
+
+## Player changes realm or island
+
+Players in decentraland exist in separate _realms_, and in separate _islands_ within each realm. Players in different realms or islands cant see each other, interact or chat with each other, even if they're standing on the same parcels.
+
+Each time the player changes realms or island, the `onRealmChangedObservable` event gets called.
+
+```ts
+import { onRealmChangedObservable } from '@dcl/sdk/observables'
+
+onRealmChangedObservable.add((realmChange) => {
+	console.log('PLAYER CHANGED ISLAND TO ', realmChange.room)
+})
+```
+
+{{< hint warning >}}
+**📔 Note**: The `onRealmChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}), based on regularly querying data rather than events.
+{{< /hint >}}
+
+This event includes the following fields:
+
+- **serverName**: _string_; The catalyst server name.
+- **room**: _string_; The island name.
+- **displayName**: _string_; The catalyst server name followed by a _-_ and the island name. For example `unicorn-x011`.
+- **domain**: _string_; The url to the catalyst server being used.
+
+As players move through the map, they may switch islands to be grouped with those players who are now closest to them. Islands also shift their borders dynamically to fit a manageable group of people in each. So even if a player stands still they could be changed island as others enter and leave surrounding scenes.
+
+If your scene relies on an [3rd party server]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}) to sync changes between players in real time, then you may want to only share data between players that are grouped in a same realm+island, so it's a good practice to change rooms in the 3rd party server whenever players change island.
+
 
 ## Crypto functions
 
