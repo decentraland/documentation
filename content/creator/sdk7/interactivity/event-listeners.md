@@ -24,10 +24,12 @@ import { onEnterScene, onLeaveScene } from '@dcl/sdk/src/players'
 
 export function main() {
 	onEnterScene((player) => {
+		if(!player) return
 		console.log('ENTERED SCENE', player)
 	})
 
 	onLeaveScene((userId) => {
+		if(!userId) return
 		console.log('LEFT SCENE', userId)
 	})
 }
@@ -47,18 +49,20 @@ export function main() {
 	let myPlayer = getPlayer()
 
 	onEnterScene((player) => {
+		if(!player) return
 		console.log('ENTERED SCENE', player)
 
 		if (myPlayer && player.userId == myPlayer.userId) {
-			console.log('THIS IS ME')
+			console.log('I CAME IN')
 		}
 	})
 
-	onLeaveScene((player) => {
-		console.log('LEFT SCENE', player)
+	onLeaveScene((userId) => {
+		if(!userId) return
+		console.log('LEFT SCENE', userId)
 
-		if (myPlayer && player.userId == myPlayer.userId) {
-			console.log('THIS IS ME')
+		if (myPlayer && userId == myPlayer.userId) {
+			console.log('I LEFT')
 		}
 	})
 }
@@ -92,6 +96,7 @@ The following snippet uses the `onChange` function to fire an event each time th
 ```ts
 export function main() {
 	CameraMode.onChange(engine.CameraEntity, (cameraComponent) => {
+		if(!cameraComponent) return
 		console.log('Camera mode changed', cameraComponent?.mode)
 		// 0 = first person
 		// 1 = third person
@@ -110,6 +115,7 @@ import { AvatarEmoteCommand } from '@dcl/sdk/ecs'
 
 export function main() {
 	AvatarEmoteCommand.onChange(engine.PlayerEntity, (emote) => {
+		if(!emote) return
 		console.log('Emote played: ', emote.emoteUrn)
 	})
 }
