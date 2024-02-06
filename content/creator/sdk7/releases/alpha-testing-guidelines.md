@@ -41,16 +41,6 @@ You can find more example scenes written with SDK7 here:
 - [SDK7 Scene Template](https://github.com/decentraland/sdk7-scene-template)
 - [Goerli Plaza](https://github.com/decentraland/sdk7-goerli-plaza)
 
-<!-- ## Pending features
-
-A couple of features are intended to be re-implemented in future releases following Data Oriented Programming principles. These for now are still exposed as legacy functions that are marked as deprecated.
-
-- Functions to get player data, like `getUserData`, `getPlayersInScene`, or
-- Functions to get data about the context, like `getDecentralandTime`, `getRealm`, `getPlatform`, `getPortableExperiencesLoaded`
-- Observables for player events like `onEnterSceneObservable`, `onLeaveSceneObservable`, `onPlayerExpressionObservable`, `onPlayerClickedObservable`, `onPointerLockedStateChange`, `onIdleStateChangedObservable`, or `onProfileChanged`
-- Observables for other events like `onSceneReadyObservable`, `onRealmChangedObservable`
-- The MessageBus -->
-
 ## Reporting issues
 
 If you encounter a problem, please see [Report a bug]({{< ref "/content/creator/sdk7/debugging/report-bug.md">}}).

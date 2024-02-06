@@ -53,9 +53,9 @@ To specify under what **name** to make your deployment, add the following sectio
 
 ```json
 {
-  "worldConfiguration": {
-    "name": "my-name.dcl.eth"
-  }
+	"worldConfiguration": {
+		"name": "my-name.dcl.eth"
+	}
 }
 ```
 
@@ -70,6 +70,7 @@ Open the Decentraland tab and click the three-dots icon at the top, and select *
 ### Using the CLI
 
 Run:
+
 ```
 npm run deploy --target-content https://worlds-content-server.decentraland.org
 ```
@@ -102,20 +103,20 @@ Another approach is to query to view a player's portable experiences, and take a
 
 ```ts
 import {
-  spawn,
-  getPortableExperiencesLoaded,
-  kill,
-} from "~system/PortableExperiences"
+	spawn,
+	getPortableExperiencesLoaded,
+	kill,
+} from '~system/PortableExperiences'
 
 executeTask(async () => {
-  const { loaded } = await getPortableExperiencesLoaded({})
+	const { loaded } = await getPortableExperiencesLoaded({})
 
-  for (const portableExperience of loaded) {
-    const { ens, name, pid } = portableExperience
-    if (name === 'some-name.dcl.eth') {
-      await kill({ pid })
-    }
-  }
+	for (const portableExperience of loaded) {
+		const { ens, name, pid } = portableExperience
+		if (name === 'some-name.dcl.eth') {
+			await kill({ pid })
+		}
+	}
 })
 ```
 
@@ -137,7 +138,7 @@ Portable experiences only run for the player that activates it. Other players do
 
 - When positioning an entity, note that positions are global, relative to the 0,0 coordinates of Genesis Plaza.
 - To react to nearby players:
-  - use `getConnectedPlayers()` to know what players are already there, and `onPlayerConnectedObservable` / `onPlayerDisconnectedObservable` to track other players coming and going.
+  - See [Fetch all players]({{< ref "/content/creator/sdk7/interactivity/user-data.md#fetch-all-players" >}}) to know how to obtain data from other players in the surroundings.
   - Be mindful that the loading of the portable experience, surrounding scenes and other players may occur in different orders depending on the situation. If the player enters Decentraland with the portable experience already on, it’s likely that your portable experience will load before other players do. On the other hand, tf the player first loads into a scene and then activates the portable experience, it’s likely that other players will already be loaded by the time the portable experience starts running.
   - For multiplayer experiences, wait till the player is connected to an island inside their realm. Run `getRealm()` and check for the ‘room’ field. If the ‘room’ field is null, the player is not yet connected to an island and other players won’t be loaded yet. You can periodically check this every 1 second till the ‘room’ field is present, and only initialize your logic then.
 - To interact with surrounding scenes:

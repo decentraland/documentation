@@ -46,33 +46,27 @@ The default `wearable.json` file looks like this:
 
 ```json
 {
-  "data": {
-    "replaces": [],
-    "hides": [],
-    "tags": [
-      "special",
-      "new",
-      "eyebrows"
-    ],
-    "representations": [
-      {
-        "bodyShapes": [
-          "urn:decentraland:off-chain:base-avatars:BaseMale",
-          "urn:decentraland:off-chain:base-avatars:BaseFemale"
-        ],
-        "mainFile": "glasses.glb",
-        "contents": [
-          "glasses.glb"
-        ],
-        "overrideHides": [],
-        "overrideReplaces": []
-      }
-    ],
-    "category": "eyewear"
-  },
-  "name": "Portable Experience Example",
-  "description": "This feature is in Alpha state.",
-  "rarity": "mythic"
+	"data": {
+		"replaces": [],
+		"hides": [],
+		"tags": ["special", "new", "eyebrows"],
+		"representations": [
+			{
+				"bodyShapes": [
+					"urn:decentraland:off-chain:base-avatars:BaseMale",
+					"urn:decentraland:off-chain:base-avatars:BaseFemale"
+				],
+				"mainFile": "glasses.glb",
+				"contents": ["glasses.glb"],
+				"overrideHides": [],
+				"overrideReplaces": []
+			}
+		],
+		"category": "eyewear"
+	},
+	"name": "Portable Experience Example",
+	"description": "This feature is in Alpha state.",
+	"rarity": "mythic"
 }
 ```
 
@@ -96,6 +90,7 @@ The following fields are required in `wearable.json`:
 The following fields can also optionally be included. These settings can also be configured from the Builder UI, once you upload the smart wearable.
 
 - `data`: Includes the following
+
   - `replaces`: List of categories of other wearables that should be unequipped when equipping this wearable, in addition to the default of this category. Eg: When putting on a cape top-body, also hide feet.
   - `hides`: List of categories of other wearables that should be hidden (but not unequipped) when equipping this wearable, in addition to the default of this category.
   - `tags`: Tags used to make the wearable searchable in the marketplace.
@@ -165,7 +160,7 @@ To test how the smart wearable behaves in the context of a scene, you can also r
 
 - When positioning an entity, note that positions are global, relative to the 0,0 coordinates of Genesis Plaza.
 - To react to nearby players:
-  - use `getConnectedPlayers()` to know what players are already there, and `onPlayerConnectedObservable` / `onPlayerDisconnectedObservable` to track other players coming and going.
+  - See [Fetch all players]({{< ref "/content/creator/sdk7/interactivity/user-data.md#fetch-all-players" >}}) to know how to obtain data from other players in the surroundings.
   - Be mindful that the loading of the smart wearable, surrounding scenes and other players may occur in different orders depending on the situation. If the player enters Decentraland with the smart wearable already on, it’s likely that your wearable's global scene will load before other players do. On the other hand, if the player first loads into a scene and then puts on the wearable, it’s likely that other players will already be loaded by the time the wearable's scene starts running.
   - For multiplayer experiences, wait till the player is connected to an island inside their realm. Fetch the realm data and check for the ‘room’ field. If the ‘room’ field is null, the player is not yet connected to an island and other players won’t be loaded yet. You can periodically check this every 1 second till the ‘room’ field is present, and only initialize your logic then.
 - To interact with surrounding scenes:
