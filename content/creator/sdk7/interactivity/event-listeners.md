@@ -27,11 +27,14 @@ export function main() {
 		console.log('ENTERED SCENE', player)
 	})
 
-	onLeaveScene((player) => {
-		console.log('LEFT SCENE', player)
+	onLeaveScene((userId) => {
+		console.log('LEFT SCENE', userId)
 	})
 }
 ```
+On the `onEnterScene` event, the function can access all of the data returned by [get player data]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data">}}) via the `player` property.
+On the `onLeaveScene` event, the function only has access to the player's ID.
+
 
 ### Only current player
 
