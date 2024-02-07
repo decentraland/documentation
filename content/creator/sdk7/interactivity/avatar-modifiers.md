@@ -26,12 +26,12 @@ Add an entity with an `AvatarModifierArea` component and position this entity by
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-  area: Vector3.create(4, 3, 4),
-  modifiers: [AvatarModifierType.HIDE_AVATARS],
+	area: Vector3.create(4, 3, 4),
+	modifiers: [AvatarModifierType.HIDE_AVATARS],
 })
 
 Transform.create(entity, {
-  position: Vector3.create(8, 0, 8),
+	position: Vector3.create(8, 0, 8),
 })
 ```
 
@@ -72,12 +72,12 @@ When a player walks into an `AvatarModifierArea` that has the `AvatarModifierTyp
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-  area: Vector3.create(4, 3, 4),
-  modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+	area: Vector3.create(4, 3, 4),
+	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
 })
 
 Transform.create(entity, {
-  position: Vector3.create(8, 0, 8),
+	position: Vector3.create(8, 0, 8),
 })
 ```
 
@@ -91,12 +91,12 @@ When a player walks into an `AvatarModifierArea` that has the `AvatarModifierTyp
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-  area: Vector3.create(4, 3, 4),
-  modifiers: [AvatarModifierType.AMT_DISABLE_PASSPORTS],
+	area: Vector3.create(4, 3, 4),
+	modifiers: [AvatarModifierType.AMT_DISABLE_PASSPORTS],
 })
 
 Transform.create(entity, {
-  position: Vector3.create(8, 0, 8),
+	position: Vector3.create(8, 0, 8),
 })
 ```
 
@@ -110,8 +110,8 @@ Players are normally free to switch between first and third person camera by pre
 const entity = engine.addEntity()
 
 CameraModeArea.create(entity, {
-  area: Vector3.create(4, 3, 4),
-  mode: CameraType.CT_FIRST_PERSON,
+	area: Vector3.create(4, 3, 4),
+	mode: CameraType.CT_FIRST_PERSON,
 })
 ```
 
@@ -147,13 +147,13 @@ This example hides all avatars in an area, except those of players with specific
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-  area: Vector3.create(4, 3, 4),
-  modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
-  excludeIds: ['0xx1...', '0xx2...'],
+	area: Vector3.create(4, 3, 4),
+	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+	excludeIds: ['0xx1...', '0xx2...'],
 })
 
 Transform.create(entity, {
-  position: Vector3.create(8, 0, 8),
+	position: Vector3.create(8, 0, 8),
 })
 ```
 
@@ -164,24 +164,24 @@ Transform.create(entity, {
 Modifier areas run locally on each player's instance, the list of excluded IDs can be different for each player. In the example below, each player excludes their own ID from a modifier that hides avatars, so that they each view their own avatar and no others.
 
 ```ts
-import { getUserData } from '~system/UserIdentity'
+import { getPlayer } from '@dcl/sdk/src/players'
 
-executeTask(async () => {
-  let userData = await getUserData()
-  if (!userData) return
+export function main() {
+	let userData = getPlayer()
+	if (!userData) return
 
-  const entity = engine.addEntity()
+	const entity = engine.addEntity()
 
-  AvatarModifierArea.create(entity, {
-    area: Vector3.create(16, 5, 16),
-    modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
-    excludeIds: [userData.userId],
-  })
+	AvatarModifierArea.create(entity, {
+		area: Vector3.create(16, 5, 16),
+		modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+		excludeIds: [userData.userId],
+	})
 
-  Transform.create(entity, {
-    position: Vector3.create(8, 0, 8),
-  })
-})
+	Transform.create(entity, {
+		position: Vector3.create(8, 0, 8),
+	})
+}
 ```
 
 {{< hint danger >}}
@@ -190,9 +190,9 @@ If the list of excluded IDs is going to be periodically changed (for example bas
 
 ```ts
 AvatarModifierArea.create(entity, {
-  area: Vector3.create(16, 5, 16),
-  modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
-  excludeIds: [myAvatarList.sort()],
+	area: Vector3.create(16, 5, 16),
+	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+	excludeIds: [myAvatarList.sort()],
 })
 ```
 
@@ -212,13 +212,13 @@ To verify the positions of a `AvatarModifierArea` or a `CameraModeArea`, give th
 const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
-  area: Vector3.create(8, 3, 8),
-  modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+	area: Vector3.create(8, 3, 8),
+	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
 })
 
 Transform.create(entity, {
-  position: Vector3.create(8, 0, 8),
-  scale: Vector3.create(8, 3, 8),
+	position: Vector3.create(8, 0, 8),
+	scale: Vector3.create(8, 3, 8),
 })
 
 MeshRenderer.setBox(entity)

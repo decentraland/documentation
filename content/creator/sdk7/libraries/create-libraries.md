@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/sdk7/create-libraries/
-weight: 1
+weight: 3
 ---
 
 Libraries are a great way to share solutions to common problems. Complex challenges can be approached once, the solutions encapsulated into a library, and whenever they come up you just need to write one line of code. By sharing libraries with the community, we can make the productivity of all creators grow exponentially.
@@ -154,14 +154,14 @@ Try your best to make your library easy to use for other creators. Our assumptio
    * @public
    */
   export function clamp(value: number, min: number, max: number) {
-    let result = value
+  	let result = value
 
-    if (value > max) {
-      result = max
-    } else if (value < min) {
-      result = min
-    }
-    return result
+  	if (value > max) {
+  		result = max
+  	} else if (value < min) {
+  		result = min
+  	}
+  	return result
   }
   ```
 
