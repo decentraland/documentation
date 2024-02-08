@@ -10,7 +10,7 @@ The `wearables` field in a player's [profile]({{< relref "profiles" >}}) contain
 
 Every wearable belongs to a _category_, indicating the spot it takes on the avatar's body, and can hide or replace other categories (for example, a long dress may be worn as top clothing but entirely cover the legs).
 
-There are 16 wearable categories, referenced in various metadata fields: `hair`, `head`, `eyes`, `eyebrows`, `facial_hair`, `mouth`, `upper_body`, `lower_body`, `feet`, `hat`, `helmet`, `mask`, `tiara`, `top_head`, `earring`, `eyewear`, `skin`.
+There are 18 wearable categories, referenced in various metadata fields: `body_shape`, `hair`, `eyes`, `eyebrows`, `facial_hair`, `mouth`, `upper_body`, `lower_body`, `feet`, `hat`, `helmet`, `mask`, `tiara`, `top_head`, `earring`, `eyewear`, `skin` and `hands_wear`.
 
 Wearable entities include files in GLB format for different body shapes.
 
