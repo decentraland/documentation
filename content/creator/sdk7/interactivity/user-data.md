@@ -49,9 +49,9 @@ engine.addSystem(getPlayerPosition)
   - In 3rd person: May vary depending on camera movements.
 
 {{< hint warning >}}
-**📔 Note**: Avoid referring to the `engine.PlayerEntity` or the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+**📔 Note**: Avoid referring to the `engine.PlayerEntity` or the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, use these inside the `main()` function, or on a function indirectly called by `main()`. You can also encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
 
-If you refer to these entities in a system, they will always be available, because the first execution of the system is called once the scene is already properly initialized.
+Another option is to refer to these entities inside a system. There they will always be available, because the first execution of the system is called once the scene is already properly initialized.
 {{< /hint >}}
 
 ## Fetch all players
@@ -374,9 +374,9 @@ The `CameraMode` component of the `engine.CameraEntity` is read-only, you can't 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when in 3rd person.
 
 {{< hint warning >}}
-**📔 Note**: Avoid referring to the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entity is not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+**📔 Note**: Avoid referring to the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, use these inside the `main()` function, or on a function indirectly called by `main()`. You can also encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
 
-If you refer to this entity in a system, it will always be available, because the first execution of the system is called once the scene is already properly initialized.
+Another option is to refer to this entity inside a system. It will always be available, because the first execution of the system is called once the scene is already properly initialized.
 {{< /hint >}}
 
 ## Check if the player has the cursor locked
@@ -388,10 +388,10 @@ Players unlock the cursor by clicking the _Right mouse button_ or pressing the _
 Check the `PointerLock` component of the scene's [camera entity]({{< ref "/content/creator/sdk7/architecture/entities-components.md#reserved-entities" >}}) to find out what the current cursor mode is.
 
 ```ts
-executeTask(async () => {
+export function main() {
 	const isLocked = PointerLock.get(engine.CameraEntity).isPointerLocked
 	console.log(isLocked)
-})
+}
 ```
 
 See [Event listeners]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-locks-or-unlocks-cursor" >}}) to see how to easily react to changes in the cursor state.
@@ -399,7 +399,7 @@ See [Event listeners]({{< ref "/content/creator/sdk7/interactivity/event-listene
 The `PointerLock` component of the `engine.CameraEntity` is read-only, you can't force the player to lock or unlock the cursor.
 
 {{< hint warning >}}
-**📔 Note**: Avoid referring to the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entity is not initialized yet. To avoid this problem, encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
+**📔 Note**: Avoid referring to the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, use these inside the `main()` function, or on a function indirectly called by `main()`. You can also encapsulate the behavior in an async [`executeTask` block]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md#the-executetask-function" >}}).
 
-If you refer to this entity in a system, it will always be available, because the first execution of the system is called once the scene is already properly initialized.
+Another option is to refer to the entity inside a system. It will always be available, because the first execution of the system is called once the scene is already properly initialized.
 {{< /hint >}}
