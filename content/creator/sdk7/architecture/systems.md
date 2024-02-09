@@ -211,7 +211,7 @@ An instance of a system can be added or removed from the engine to turn it on or
 
 If a system is defined but isn't added to the engine, its function isn't called by the engine.
 
-To remove a system, you must first create a pointer to it when adding it to the engine, so that you can refer to the system later.
+To remove a system, you must first give it a name when adding it to the engine, so that you can refer to the system later.
 
 ```ts
 // declare system
@@ -219,11 +219,11 @@ function mySystem(dt: number){
   console.log("delay since last tick: ", dt)
 }
 
-// add system (making a pointer)
-const mySystemInstance = engine.addSystem(mySystem)
+// add system (giving it a priority and name)
+engine.addSystem(mySystem, 1, "DelaySystem")
 
 // remove system
-engine.removeSystem(mySystemInstance)
+engine.removeSystem("DelaySystem")
 ```
 
-Note that to remove the system you need a pointer to the _instance_ of the system, not to the system's class. In the above example, `engine.removeSystem()` is not being passed `mySystem` (the system class declaration). It's being passed `mySystemInstance` (the instance that was added to the engine). A scene can potentially have multiple instances of a same system running together, so you need to tell the engine which one of those to remove.
+A scene can potentially have multiple instances of a same system running together, so you need to tell the engine which one of those to remove.
