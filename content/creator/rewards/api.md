@@ -28,53 +28,57 @@ Make sure you have your dispenser key (a.k.a campaign key). Use this key to send
 
 ```ts
 // User data is only required if your code is running on a Decentraland scene
-import { getUserData } from '@decentraland/Identity'
-const user = await getUserData({})
+import { getPlayer } from '@dcl/sdk/src/players'
 
-const request = await fetch('https://rewards.decentraland.org/api/rewards', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    campaign_key: '[DISPENSER_KEY]',
-    beneficiary: user.publicKey,
-    // or
-    // beneficiary: "0x0f5d2fb29fb7d3cfee444a200298f468908cc942"
-  }),
-})
+export async function main() {
+	const user = getPlayer()
+	if (!user || user.userId) return
 
-const response = await request.json()
-console.log(response)
+	const request = await fetch('https://rewards.decentraland.org/api/rewards', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			campaign_key: '[DISPENSER_KEY]',
+			beneficiary: user.userId,
+			// or
+			// beneficiary: "0x0f5d2fb29fb7d3cfee444a200298f468908cc942"
+		}),
+	})
 
-// Response:
-//
-// {
-//   ok: true,
-//   data: [
-//     {
-//       id: '00000000-0000-0000-0000-000000000000',
-//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
-//       campaign_id: '00000000-0000-0000-0000-000000000000',
-//       campaign_key: "[DISPENSER_KEY]",
-//       status: 'assigned',
-//       chain_id: 137,
-//       airdrop_type: 'CollectionV2IssueToken',
-//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
-//       value: '0',
-//       group: null,
-//       priority: 2144355453,
-//       transaction_id: null,
-//       transaction_hash: null,
-//       token: 'Polygon sunglasses',
-//       image:
-//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
-//       assigned_at: '2021-09-24T01:30:16.770Z',
-//       created_at: '2021-09-24T01:25:14.534Z',
-//       updated_at: '2021-09-24T01:25:14.534Z',
-//     }
-//   ]
-// }
+	const response = await request.json()
+	console.log(response)
+
+	// Response:
+	//
+	// {
+	//   ok: true,
+	//   data: [
+	//     {
+	//       id: '00000000-0000-0000-0000-000000000000',
+	//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
+	//       campaign_id: '00000000-0000-0000-0000-000000000000',
+	//       campaign_key: "[DISPENSER_KEY]",
+	//       status: 'assigned',
+	//       chain_id: 137,
+	//       airdrop_type: 'CollectionV2IssueToken',
+	//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
+	//       value: '0',
+	//       group: null,
+	//       priority: 2144355453,
+	//       transaction_id: null,
+	//       transaction_hash: null,
+	//       token: 'Polygon sunglasses',
+	//       image:
+	//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
+	//       assigned_at: '2021-09-24T01:30:16.770Z',
+	//       created_at: '2021-09-24T01:25:14.534Z',
+	//       updated_at: '2021-09-24T01:25:14.534Z',
+	//     }
+	//   ]
+	// }
+}
 ```
 
 This call to the API will assign (and eventually mint) a wearable/emote to the user. The response includes useful information about the wearable/emote that is going to be minted, including the image, the name, and id.
@@ -116,58 +120,60 @@ For dispensers with this flag enabled, you need to slightly modify the code, as 
 
 ```tsx {hl_lines=[1,5]}
 import { signedFetch } from '@decentraland/SignedFetch'
-import { getUserData } from '@decentraland/Identity'
+import { getPlayer } from '@dcl/sdk/src/players'
 
-const user = await getUserData({})
-if(!user || !user.data || user.data.publicKey) return
-const response = await signedFetch({
-  url:'https://rewards.decentraland.org/api/rewards',
-  init:{
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      campaign_key: '[DISPENSER_KEY]',
-      beneficiary: user.data.publicKey,
-    }),
-  }
-})
+export async function main() {
+	const user = getPlayer()
+	if (!user || user.userId) return
+	const response = await signedFetch({
+		url: 'https://rewards.decentraland.org/api/rewards',
+		init: {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				campaign_key: '[DISPENSER_KEY]',
+				beneficiary: user.userId,
+			}),
+		},
+	})
 
-if (!response || !response.body) {
-    throw new Error('Invalid response')
+	if (!response || !response.body) {
+		throw new Error('Invalid response')
+	}
+	let json = await JSON.parse(response.body)
+	console.log(json)
+
+	// Response:
+	//
+	// {
+	//   ok: true,
+	//   data: [
+	//     {
+	//       id: '00000000-0000-0000-0000-000000000000',
+	//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
+	//       campaign_id: '00000000-0000-0000-0000-000000000000',
+	//       campaign_key: "[DISPENSER_KEY]",
+	//       status: 'assigned',
+	//       chain_id: 137,
+	//       airdrop_type: 'CollectionV2IssueToken',
+	//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
+	//       value: '0',
+	//       group: null,
+	//       priority: 2144355453,
+	//       transaction_id: null,
+	//       transaction_hash: null,
+	//       token: 'Polygon sunglasses',
+	//       image:
+	//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
+	//       assigned_at: '2021-09-24T01:30:16.770Z',
+	//       created_at: '2021-09-24T01:25:14.534Z',
+	//       updated_at: '2021-09-24T01:25:14.534Z',
+	//     }
+	//   ]
+	// }
 }
-let json = await JSON.parse(response.body)
-console.log(json)
-
-// Response:
-//
-// {
-//   ok: true,
-//   data: [
-//     {
-//       id: '00000000-0000-0000-0000-000000000000',
-//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
-//       campaign_id: '00000000-0000-0000-0000-000000000000',
-//       campaign_key: "[DISPENSER_KEY]",
-//       status: 'assigned',
-//       chain_id: 137,
-//       airdrop_type: 'CollectionV2IssueToken',
-//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
-//       value: '0',
-//       group: null,
-//       priority: 2144355453,
-//       transaction_id: null,
-//       transaction_hash: null,
-//       token: 'Polygon sunglasses',
-//       image:
-//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
-//       assigned_at: '2021-09-24T01:30:16.770Z',
-//       created_at: '2021-09-24T01:25:14.534Z',
-//       updated_at: '2021-09-24T01:25:14.534Z',
-//     }
-//   ]
-// }
 ```
 
 ## Captcha
@@ -207,60 +213,62 @@ You then need to include the captcha id and value that resolves the captcha in t
 
 ```tsx {hl_lines=[13,14]}
 import { signedFetch } from '@decentraland/SignedFetch'
-import { getUserData } from '@decentraland/Identity'
+import { getPlayer } from '@dcl/sdk/src/players'
 
-const user = await getUserData({})
-if(!user || !user.data || !user.data.publicKey) return
-const response = await signedFetch({
-  url: 'https://rewards.decentraland.org/api/rewards',
-  init: {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      campaign_key: '[DISPENSER_KEY]',
-      beneficiary: user.data.publicKey,
-      captcha_id: '[CAPTCHA_ID]', // "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7"
-      captcha_value: '[CAPTCHA_VALUE]', // "dbdcbf" or "DBDCBF"
-    }),
-  }
-})
+export async function main() {
+	const user = await getPlayer()
+	if (!user || !user.userId) return
+	const response = await signedFetch({
+		url: 'https://rewards.decentraland.org/api/rewards',
+		init: {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				campaign_key: '[DISPENSER_KEY]',
+				beneficiary: user.userId,
+				captcha_id: '[CAPTCHA_ID]', // "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7"
+				captcha_value: '[CAPTCHA_VALUE]', // "dbdcbf" or "DBDCBF"
+			}),
+		},
+	})
 
-if (!response || !response.body) {
-    throw new Error('Invalid response')
+	if (!response || !response.body) {
+		throw new Error('Invalid response')
+	}
+	let json = await JSON.parse(response.body)
+	console.log(json)
+
+	// Response:
+	//
+	// {
+	//   ok: true,
+	//   data: [
+	//     {
+	//       id: '00000000-0000-0000-0000-000000000000',
+	//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
+	//       campaign_id: '00000000-0000-0000-0000-000000000000',
+	//       campaign_key: "[DISPENSER_KEY]",
+	//       status: 'assigned',
+	//       chain_id: 137,
+	//       airdrop_type: 'CollectionV2IssueToken',
+	//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
+	//       value: '0',
+	//       group: null,
+	//       priority: 2144355453,
+	//       transaction_id: null,
+	//       transaction_hash: null,
+	//       token: 'Polygon sunglasses',
+	//       image:
+	//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
+	//       assigned_at: '2021-09-24T01:30:16.770Z',
+	//       created_at: '2021-09-24T01:25:14.534Z',
+	//       updated_at: '2021-09-24T01:25:14.534Z',
+	//     }
+	//   ]
+	// }
 }
-let json = await JSON.parse(response.body)
-console.log(json)
-
-// Response:
-//
-// {
-//   ok: true,
-//   data: [
-//     {
-//       id: '00000000-0000-0000-0000-000000000000',
-//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
-//       campaign_id: '00000000-0000-0000-0000-000000000000',
-//       campaign_key: "[DISPENSER_KEY]",
-//       status: 'assigned',
-//       chain_id: 137,
-//       airdrop_type: 'CollectionV2IssueToken',
-//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
-//       value: '0',
-//       group: null,
-//       priority: 2144355453,
-//       transaction_id: null,
-//       transaction_hash: null,
-//       token: 'Polygon sunglasses',
-//       image:
-//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
-//       assigned_at: '2021-09-24T01:30:16.770Z',
-//       created_at: '2021-09-24T01:25:14.534Z',
-//       updated_at: '2021-09-24T01:25:14.534Z',
-//     }
-//   ]
-// }
 ```
 
 ## Connected to Decentraland
@@ -282,61 +290,63 @@ With this flag enabled, users will need to be connected to a Decentraland Cataly
 <div id="connected-to-decentraland-code"></div>
 
 ```tsx {hl_lines=[1,5,14]}
-import { getRealm } from "~system/Runtime"
-import { getUserData } from '@decentraland/Identity'
+import { getRealm } from '~system/Runtime'
+import { getPlayer } from '@dcl/sdk/src/players'
 
-const user = await getUserData({})
-const realm = await getRealm({})
-if(!user || !user.data || !user.data.publicKey || !realm || !realm.baseUrl) return
-const response = await signedFetch({
-  url: 'https://rewards.decentraland.org/api/rewards',
-  init: {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      campaign_key: '[DISPENSER_KEY]',
-      beneficiary: user.data.publicKey,
-      catalyst: realm.baseUrl,
-    }),
-  }
-})
+export async function main() {
+	const user = await getPlayer()
+	const realm = await getRealm({})
+	if (!user || !user.userId || !realm || !realm.baseUrl) return
+	const response = await signedFetch({
+		url: 'https://rewards.decentraland.org/api/rewards',
+		init: {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				campaign_key: '[DISPENSER_KEY]',
+				beneficiary: user.userId,
+				catalyst: realm.baseUrl,
+			}),
+		},
+	})
 
-if (!response || !response.body) {
-    throw new Error('Invalid response')
+	if (!response || !response.body) {
+		throw new Error('Invalid response')
+	}
+	let json = await JSON.parse(response.body)
+	console.log(json)
+
+	// Response:
+	//
+	// {
+	//   ok: true,
+	//   data: [
+	//     {
+	//       id: '00000000-0000-0000-0000-000000000000',
+	//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
+	//       campaign_id: '00000000-0000-0000-0000-000000000000',
+	//       campaign_key: "[DISPENSER_KEY]",
+	//       status: 'assigned',
+	//       chain_id: 137,
+	//       airdrop_type: 'CollectionV2IssueToken',
+	//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
+	//       value: '0',
+	//       group: null,
+	//       priority: 2144355453,
+	//       transaction_id: null,
+	//       transaction_hash: null,
+	//       token: 'Polygon sunglasses',
+	//       image:
+	//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
+	//       assigned_at: '2021-09-24T01:30:16.770Z',
+	//       created_at: '2021-09-24T01:25:14.534Z',
+	//       updated_at: '2021-09-24T01:25:14.534Z',
+	//     }
+	//   ]
+	// }
 }
-let json = await JSON.parse(response.body)
-console.log(json)
-
-// Response:
-//
-// {
-//   ok: true,
-//   data: [
-//     {
-//       id: '00000000-0000-0000-0000-000000000000',
-//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
-//       campaign_id: '00000000-0000-0000-0000-000000000000',
-//       campaign_key: "[DISPENSER_KEY]",
-//       status: 'assigned',
-//       chain_id: 137,
-//       airdrop_type: 'CollectionV2IssueToken',
-//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
-//       value: '0',
-//       group: null,
-//       priority: 2144355453,
-//       transaction_id: null,
-//       transaction_hash: null,
-//       token: 'Polygon sunglasses',
-//       image:
-//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
-//       assigned_at: '2021-09-24T01:30:16.770Z',
-//       created_at: '2021-09-24T01:25:14.534Z',
-//       updated_at: '2021-09-24T01:25:14.534Z',
-//     }
-//   ]
-// }
 ```
 
 ## Position inside Decentraland

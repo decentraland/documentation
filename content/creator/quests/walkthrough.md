@@ -139,7 +139,7 @@ Filling out a couple more details in our quest the final configuration looks as 
 ```json
 {
   "name": "Prepare for Battle",
-  "image_url": "https://raw.githubusercontent.com/decentraland/sdk7-goerli-plaza/main/Gnark/images/scene-thumbnail.png",
+  "imageUrl": "https://raw.githubusercontent.com/decentraland/sdk7-goerli-plaza/main/Gnark/images/scene-thumbnail.png",
   "definition": {
     "steps": [
       {

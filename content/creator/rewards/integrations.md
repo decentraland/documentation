@@ -27,88 +27,90 @@ The following measures are recommended to reduce the risk of exploits in this sc
 ### Example
 
 ```tsx
-import { getUserData } from '@decentraland/Identity'
+import { getPlayer } from '@dcl/sdk/src/players'
 import { signedFetch } from '@decentraland/SignedFetch'
-import { getCurrentRealm } from '@decentraland/EnvironmentAPI'
+import { getRealm } from '~system/Runtime'
 
-// 1. Get captcha challenge to show to the user
-const request = await fetch(`https://rewards.decentraland.org/api/captcha`, {
-  method: 'POST',
-})
-const captcha = await request.json()
-console.log('CAPTCHA DATA: ', captcha)
+export function main() {
+	// 1. Get captcha challenge to show to the user
+	const request = await fetch(`https://rewards.decentraland.org/api/captcha`, {
+		method: 'POST',
+	})
+	const captcha = await request.json()
+	console.log('CAPTCHA DATA: ', captcha)
 
-// Response:
-//
-// {
-//   "ok": true,
-//   "data": {
-//     "width": 300,
-//     "height": 100,
-//     "id": "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7",
-//     "expires_at": "2023-11-08T12:49:44.457Z",
-//     "image": "https://rewards2-assets-prd-05e0ac2.decentraland.org/catpcha/9e6b2d07-b47b-4204-ae87-9c4dea48f9b7.png"
-//   }
-// }
+	// Response:
+	//
+	// {
+	//   "ok": true,
+	//   "data": {
+	//     "width": 300,
+	//     "height": 100,
+	//     "id": "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7",
+	//     "expires_at": "2023-11-08T12:49:44.457Z",
+	//     "image": "https://rewards2-assets-prd-05e0ac2.decentraland.org/catpcha/9e6b2d07-b47b-4204-ae87-9c4dea48f9b7.png"
+	//   }
+	// }
 
-// 2. Display captcha for player to complete
-// See example in studios.decentraland.org/resources
+	// 2. Display captcha for player to complete
+	// See example in studios.decentraland.org/resources
 
-// 3. Get user data
-const user = await getUserData()
+	// 3. Get user data
+	const user = getPlayer()
 
-// 4. Get current realm
-const realm = await getCurrentRealm()
+	// 4. Get current realm
+	const realmInfo = await getRealm({})
 
-// 5. Send request to assign a wearable/emote
-const assignRequest = await signedFetch(
-  'https://rewards.decentraland.org/api/rewards',
-  {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      campaign_key: '[DISPENSER_KEY]', // dispenser key
-      beneficiary: user.publicKey, // ethereum address
-      catalyst: realm.domain, // catalyst domain
-      captcha_id: captcha.data.id, // "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7"
-      captcha_value: '[CAPTCHA_VALUE]', // "123456"
-    }),
-  }
-)
+	// 5. Send request to assign a wearable/emote
+	const assignRequest = await signedFetch(
+		'https://rewards.decentraland.org/api/rewards',
+		{
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				campaign_key: '[DISPENSER_KEY]', // dispenser key
+				beneficiary: user.userId, // ethereum address
+				catalyst: realmInfo.baseUrl, // catalyst domain
+				captcha_id: captcha.data.id, // "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7"
+				captcha_value: '[CAPTCHA_VALUE]', // "123456"
+			}),
+		}
+	)
 
-const reward = await assignRequest.json()
-console.log(reward)
+	const reward = await assignRequest.json()
+	console.log(reward)
 
-// Response:
-//
-// {
-//   ok: true,
-//   data: [
-//     {
-//       id: '00000000-0000-0000-0000-000000000000',
-//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
-//       campaign_id: '00000000-0000-0000-0000-000000000000',
-//       campaign_key: "[DISPENSER_KEY]",
-//       status: 'assigned',
-//       chain_id: 137,
-//       airdrop_type: 'CollectionV2IssueToken',
-//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
-//       value: '0',
-//       group: null,
-//       priority: 2144355453,
-//       transaction_id: null,
-//       transaction_hash: null,
-//       token: 'Polygon sunglasses',
-//       image:
-//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
-//       assigned_at: '2021-09-24T01:30:16.770Z',
-//       created_at: '2021-09-24T01:25:14.534Z',
-//       updated_at: '2021-09-24T01:25:14.534Z',
-//     }
-//   ]
-// }
+	// Response:
+	//
+	// {
+	//   ok: true,
+	//   data: [
+	//     {
+	//       id: '00000000-0000-0000-0000-000000000000',
+	//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
+	//       campaign_id: '00000000-0000-0000-0000-000000000000',
+	//       campaign_key: "[DISPENSER_KEY]",
+	//       status: 'assigned',
+	//       chain_id: 137,
+	//       airdrop_type: 'CollectionV2IssueToken',
+	//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
+	//       value: '0',
+	//       group: null,
+	//       priority: 2144355453,
+	//       transaction_id: null,
+	//       transaction_hash: null,
+	//       token: 'Polygon sunglasses',
+	//       image:
+	//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
+	//       assigned_at: '2021-09-24T01:30:16.770Z',
+	//       created_at: '2021-09-24T01:25:14.534Z',
+	//       updated_at: '2021-09-24T01:25:14.534Z',
+	//     }
+	//   ]
+	// }
+}
 ```
 
 ## With Quest the service
@@ -167,14 +169,14 @@ Any of the other flags will make your integration more complex or, depending on 
 
 ```tsx
 const request = await fetch('https://rewards.decentraland.org/api/rewards', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    campaign_key: '[DISPENSER_KEY]',
-    beneficiary: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942', // ethereum address
-  }),
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
+	},
+	body: JSON.stringify({
+		campaign_key: '[DISPENSER_KEY]',
+		beneficiary: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942', // ethereum address
+	}),
 })
 
 const response = await request.json()

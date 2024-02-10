@@ -20,7 +20,7 @@ const myAvatar = engine.addEntity()
 AvatarShape.create(myAvatar)
 
 Transform.create(myAvatar, {
-  position: Vector3.create(4, 0.25, 5),
+	position: Vector3.create(4, 0.25, 5),
 })
 ```
 
@@ -63,14 +63,14 @@ To play animations on the avatar, set the `expressionTriggerId` string to the na
 ```ts
 const myAvatar = engine.addEntity()
 AvatarShape.create(myAvatar, {
-  id: '',
-  emotes: [],
-  wearables: [],
-  expressionTriggerId: 'robot',
+	id: '',
+	emotes: [],
+	wearables: [],
+	expressionTriggerId: 'robot',
 })
 
 Transform.create(myAvatar, {
-  position: Vector3.create(4, 0.25, 5),
+	position: Vector3.create(4, 0.25, 5),
 })
 ```
 
@@ -79,28 +79,23 @@ Transform.create(myAvatar, {
 The following snippet creates an NPC avatar that uses the same wearables that the player currently has on. This could be used in a scene as a manequin, to show off a particular wearable or emote combined with the player's current outfit.
 
 ```ts
-import { getUserData } from '~system/UserIdentity'
+import { getPlayer } from '@dcl/sdk/src/players'
 
-executeTask(async () => {
-  let userData = await getUserData({})
-  console.log(userData.data)
+export function main() {
+	let userData = getPlayer()
+	console.log(userData)
 
-  if (
-    !userData.data ||
-    !userData.data.avatar ||
-    !userData.data.avatar.wearables
-  )
-    return
+	if (!userData || !userData.wearables) return
 
-  const myAvatar = engine.addEntity()
-  AvatarShape.create(myAvatar, {
-    id: 'Manequin',
-    emotes: [],
-    wearables: userData.data?.avatar?.wearables,
-  })
+	const myAvatar = engine.addEntity()
+	AvatarShape.create(myAvatar, {
+		id: 'Manequin',
+		emotes: [],
+		wearables: userData.wearables,
+	})
 
-  Transform.create(myAvatar, {
-    position: Vector3.create(4, 0.25, 5),
-  })
-})
+	Transform.create(myAvatar, {
+		position: Vector3.create(4, 0.25, 5),
+	})
+}
 ```

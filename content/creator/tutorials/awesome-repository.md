@@ -1,11 +1,8 @@
 ---
-title: Awesome Repository
+title: Awesome Repository (Deprecated)
 url: /creator/tutorials/sample-scenes/
 BookHref: https://github.com/decentraland-scenes/awesome-repository#tutorials
-aliases:
-  - /examples/tutorials/
-  - /examples/sample-scenes/
-
+weight: 10
 ---
 
 Awesome Repository

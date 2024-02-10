@@ -28,9 +28,9 @@ MeshRenderer.setSphere(ball)
 
 // Give this entity a Transform component
 Transform.create(ball, {
-  position: Vector3.create(5, 1, 5),
-  scale: Vector3.create(1, 1, 1),
-  rotation: Quaternion.Zero(),
+	position: Vector3.create(5, 1, 5),
+	scale: Vector3.create(1, 1, 1),
+	rotation: Quaternion.Zero(),
 })
 ```
 
@@ -210,24 +210,24 @@ You can configure how the billboard behaves with the following parameters:
 const perpendicularPlane = engine.addEntity()
 
 Transform.create(perpendicularPlane, {
-  position: Vector3.create(8, 1, 8),
+	position: Vector3.create(8, 1, 8),
 })
 
 PlaneShape.create(perpendicularPlane)
 
 Billboard.create(perpendicularPlane, {
-  billboardMode: BillboardMode.BM_Y,
+	billboardMode: BillboardMode.BM_Y,
 })
 
 // text label
 const textLabel = engine.addEntity()
 
 Transform.create(textLabel, {
-  position: Vector3.create(6, 1, 6),
+	position: Vector3.create(6, 1, 6),
 })
 
 TextShape.create(textLabel, {
-  text: 'This text is always readable',
+	text: 'This text is always readable',
 })
 
 Billboard.create(textLabel)
@@ -256,10 +256,10 @@ For entity A to look at entity B:
 
 ```ts
 export function turn(entity: Entity, target: ReadOnlyVector3) {
-  const transform = Transform.getMutable(entity)
-  const difference = Vector3.subtract(target, transform.position)
-  const normalizedDifference = Vector3.normalize(difference)
-  transform.rotation = Quaternion.lookRotation(normalizedDifference)
+	const transform = Transform.getMutable(entity)
+	const difference = Vector3.subtract(target, transform.position)
+	const normalizedDifference = Vector3.normalize(difference)
+	transform.rotation = Quaternion.lookRotation(normalizedDifference)
 }
 ```
 
@@ -320,14 +320,14 @@ const childEntity = engine.addEntity()
 
 // Create a transform for the parent
 Transform.create(parentEntity, {
-  position: Vector3.create(3, 1, 1),
-  scale: Vector3.create(0.5, 0.5, 0.5),
+	position: Vector3.create(3, 1, 1),
+	scale: Vector3.create(0.5, 0.5, 0.5),
 })
 
 // Create a transform for the child, and assign it as a child
 Transform.create(childEntity, {
-  position: Vector3.create(0, 1, 0),
-  parent: parentEntity,
+	position: Vector3.create(0, 1, 0),
+	parent: parentEntity,
 })
 ```
 
@@ -339,20 +339,54 @@ You can use an invisible entity with no shape component as a parent, to wrap a s
 
 ## Attach an entity to an avatar
 
-To fix an entity's position to an avatar, add an `AvatarAttach` component to the entity.
+There are three methods to attach an entity to the player:
+
+- Make it a child of the to the **Avatar Entity**
+- Make it a child of the to the **Camera Entity**
+- Use the **AvatarAttach component**
+
+The simplest way to attach an entity to the avatar is to set the parent as the [reserved entity]({{< ref "/content/creator/sdk7/architecture/entities-components.md#reserved-entities" >}}) `engine.PlayerEntity`. The entity will then move together with the player's position.
+
+```ts
+let childEntity = engine.addEntity()
+
+MeshRenderer.setCylinder(childEntity)
+
+Transform.create(childEntity, {
+	scale: Vector3.create(0.2, 0.2, 0.2),
+	position: Vector3.create(0, 0.4, 0),
+	parent: engine.PlayerEntity,
+})
+```
+
+You can also set an entity to the [reserved entity]({{< ref "/content/creator/sdk7/architecture/entities-components.md#reserved-entities" >}}) `engine.CameraEntity`. When using the camera entity in first person, the attached entity will follow the camera's movements. This is ideal to keep something always in view, for example for keeping the 3D model of the gun always in view, even when the camera points up.
+
+```ts
+let childEntity = engine.addEntity()
+
+MeshRenderer.setCylinder(childEntity)
+
+Transform.create(childEntity, {
+	scale: Vector3.create(0.2, 0.2, 0.2),
+	position: Vector3.create(0, 0.4, 0),
+	parent: engine.CameraEntity,
+})
+```
+
+To attach an object to one of the avatar´s bones, and have it move together with the avatar's animations, add an `AvatarAttach` component to the entity.
 
 You can pick different anchor points on the avatar, most of these points are linked to the player's armature and follow the player's animations. For example, when using the right hand anchor point the attached entity will move when the avatar waves or swings their arms while running, just as if the player was holding the entity in their hand.
 
 ```ts
 // Attach to loacl player
 AvatarAttach.create(myEntity, {
-  anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
+	anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
 // Attach to another player, by ID
 AvatarAttach.create(myEntity, {
-  avatarId: '0xAAAAAAAAAAAAAAAAA',
-  anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
+	avatarId: '0xAAAAAAAAAAAAAAAAA',
+	anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 ```
 
@@ -387,7 +421,7 @@ const parentEntity = engine.addEntity()
 
 // Attach parent entity to player
 AvatarAttach.create(parentEntity, {
-  anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
+	anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
 // Create child entity
@@ -396,9 +430,9 @@ let childEntity = engine.addEntity()
 MeshRenderer.setCylinder(childEntity)
 
 Transform.create(childEntity, {
-  scale: Vector3.create(0.2, 0.2, 0.2),
-  position: Vector3.create(0, 0.4, 0),
-  parent: parentEntity,
+	scale: Vector3.create(0.2, 0.2, 0.2),
+	position: Vector3.create(0, 0.4, 0),
+	parent: parentEntity,
 })
 ```
 
@@ -406,7 +440,9 @@ Transform.create(childEntity, {
 **📔 Note**: If the attached entity has colliders, these colliders could block the player's movement. Consider dissabling the physics layer of the entity's colliders. See [Collision layers]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >}})
 {{< /hint >}}
 
-### Obtain an avatarId
+### Attach to other players
+
+You can use the `AvatarAttach` component to attach an entity to another player. To do this, you must know the player's id.
 
 To attach an entity to the avatar of another player, you must provide the user's ID in the field `avatarId`. There are [various ways]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >}}) to obtain this data.
 
@@ -414,35 +450,28 @@ To attach an entity to the avatar of another player, you must provide the user's
 **📔 Note**: For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
 {{< /hint >}}
 
-Fetch the `userId` for all other nearby players via `getConnectedPlayers()`
+Fetch the `userId` for all other nearby players via `getPlayer()`
 
 ```ts
-import { getConnectedPlayers } from '~system/Players'
-
 executeTask(async () => {
-  let players = await getConnectedPlayers()
-  players.forEach((player) => {
-    console.log('player is nearby: ', player.userId)
-  })
+	for (const [entity, data] of engine.getEntitiesWith(PlayerIdentityData)) {
+		console.log('Player id: ', data.address)
+	}
 })
 ```
 
 Using it together with `AvatarAttach`, you could use the following code to add a cube floating over the head of every other player in the scene:
 
 ```ts
-import { getConnectedPlayers } from '~system/Players'
-
 executeTask(async () => {
-  let players = await getConnectedPlayers()
-  if (!players.length) return
-  players.forEach((player) => {
-    const myEntity = engine.addEntity()
-    MeshRenderer.setBox(myEntity)
-    AvatarAttach.create(myEntity, {
-      anchorPointId: AvatarAnchorPoint.LEFT_HAND,
-      avatarId: player.userId,
-    })
-  })
+	for (const [entity, data] of engine.getEntitiesWith(PlayerIdentityData)) {
+		const myEntity = engine.addEntity()
+		MeshRenderer.setBox(myEntity)
+		AvatarAttach.create(myEntity, {
+			anchorPointId: AvatarAnchorPoint.LEFT_HAND,
+			avatarId: player.userId,
+		})
+	}
 })
 ```
 
