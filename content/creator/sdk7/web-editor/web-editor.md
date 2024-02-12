@@ -80,6 +80,28 @@ If a scene is too large to upload, try this:
 📔 Note: You can only upload scenes that have been built with the Builder. You can’t upload a scene that was built with the SDK or modified with it.
 {{< /hint >}}
 
+## Scene limitations
+
+Decentraland scenes need to follow certain limitations, to be able to run them one next to another. There is a maximum number of materials, textures, triangles, etc, that is proportional to the number of parcels in the scene. See [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) for more details.
+
+If the content in your scene exceeds any of these limits, the editor will notify this on the bottom-left corner.
+
+<img src="/images/editor/triangle-limit1.png" width="300" />
+
+You can expand this menu to view details.
+
+<img src="/images/editor/triangle-limit2.png" width="300" />
+
+{{< hint info >}}
+**💡 Tip**: If you're building a Decentraland World, you can always add more parcels to increase your limits.
+{{< /hint >}}
+
+The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any of the models in your scene extend beyond the limits, the editor will mark these in red.
+
+<img src="/images/editor/out-of-bounds.png" width="300" />
+
+Note that these checks don't look at the visible geometry of the meshes, but rather they look at the bounding boxes of these meshes, as this is more performant. Learn more about [Bounding Boxes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
+
 ## Lock or hide items
 
 You might find it handy to sometimes lock an item, to prevent accidentally selecting and moving it. This is especially useful for background items, like the ground, or a building. To lock an item, look for it on the item tree on the left, hover over it, and select the lock icon. You can toggle this behavior on and off via that same icon.
