@@ -74,6 +74,10 @@ Transform.create(myAvatar, {
 })
 ```
 
+{{< hint warning >}}
+**📔 Note**: The above only works with the predefined emotes (like `clap` or `wave`). It currently doesn't work with custom emotes from NFTs or local files.
+{{< /hint >}}
+
 ## Copy wearables from player
 
 The following snippet creates an NPC avatar that uses the same wearables that the player currently has on. This could be used in a scene as a manequin, to show off a particular wearable or emote combined with the player's current outfit.
