@@ -210,18 +210,20 @@ To verify the positions of a `AvatarModifierArea` or a `CameraModeArea`, give th
 
 ```ts
 const entity = engine.addEntity()
+const areaSize = Vector3.create(8, 3, 8)
 
 AvatarModifierArea.create(entity, {
-	area: Vector3.create(8, 3, 8),
+	area: areaSize,
 	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
 })
 
 Transform.create(entity, {
 	position: Vector3.create(8, 0, 8),
-	scale: Vector3.create(8, 3, 8),
+	scale: areaSize,
 })
 
 MeshRenderer.setBox(entity)
+Material.setPbrMaterial(entity, { albedoColor: Color4.create(0.5, 0.5, 0.5, 0.5) })
 ```
 
 To activate the effects of the modifier area, the player's head or torso should enter the area. It won't take effect if only the feet of the player are covered. Make sure the player can't easily evade the area by jumping.
