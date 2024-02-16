@@ -49,7 +49,7 @@ bin/*.map
 
 {{< hint danger >}}
 **❗Warning** Having the source maps uploaded as part of your scene might make it easier for bad actors to exploit your scene, or steal your code. Make sure you understand the risks of doing this.
-{{< /hint danger >}}
+{{< /hint >}}
 
 ### See debug panel
 
