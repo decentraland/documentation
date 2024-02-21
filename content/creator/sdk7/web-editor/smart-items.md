@@ -458,6 +458,9 @@ initAssetPacks(engine, pointerEventsSystem, {
 	GltfContainer,
 	Material,
 	VideoPlayer,
+  	UiTransform,
+  	UiText,
+  	UiBackground
 })
 ```
 
