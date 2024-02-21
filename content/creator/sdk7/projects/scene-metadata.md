@@ -25,93 +25,6 @@ This opens up the scene menu, where you can configure multiple properties.
 
 Alternatively, you can directly edit the `scene.json` file, where all of these values are stored.
 
-## Scene parcels
-
-When [deploying]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) a scene, the content is uploaded to the coordinates assigned in the scene configuration. A scene can include a single parcel, or a list of up to dozens of them.
-
-Edit this on the second tab of the scene menu in the Editor.
-
-<img src="/images/editor/scene-parcels.png" alt="Scene name" width="300"/>
-
-The default scene has its coordinates set to _0,0_, this information is not necessary to change while developing a scene offline, unless you need to occupy multiple parcels. You will need to change this before deploying, to coordinates where you do have deploy permissions.
-
-You can also change the scene coordinates on the `scene.json` file:
-
-```json
- "scene": {
-    "parcels": [
-      "54,-14"
-    ],
-    "base": "54,-14"
-  }
-```
-
-The `base` field defines which parcel to consider the base parcel. If your scene has a single parcel, the base should be that parcel. If your scene has multiple parcels, the base should be the bottom-left (South-West) parcel. All entity positions will be measured in reference to the South-West corner of this parcel.
-
-To display multiple parcels in the scene preview, list as many parcels as you intend to use. They don't need to be the exact parcels you'll deploy to, but they should all be adjacent and arranged in the same way in relation to each other.
-
-```json
- "scene": {
-    "parcels": [
-      "54,-14",  "55,-14"
-    ],
-    "base": "54,-14"
-  }
-```
-
-{{< hint warning >}}
-**📔 Note**: The largest scene size you can set is of 45 x 45 parcels.
-{{< /hint >}}
-
-
-### Set parcels via the command line
-
-You can set the parcels in your scene by running the `npx update-parcels` command in your scene folder. This is especially useful for large scenes, as you don't need to list every parcel involved.
-
-**Single parcel**
-
-Pass a single argument with the scene coords. This coordinate is also set as the base parcel.
-
-`npx update-parcels <parcel>`
-
-For example:
-
-`npx update-parcels 15,-26`
-
-**Multiple parcels**
-
-Pass two arguments: the South-West and the North-East parcels. The South-West parcel is also set as the base parcel.
-
-`npx update-parcels <parcel> <parcel>`
-
-{{< hint info >}}
-**💡 Tip**: The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
-{{< /hint >}}
-
-For example:
-
-`npx update-parcels 15,-26 17,-24`
-
-This command generates a 3x3 scene, with its base parcel in `15,-26`.
-
-**Customize Base Parcel**
-
-Pass three arguments: the South-West and the North-East parcels, and the parcel to use as a base parcel.
-
-`npx update-parcels <parcel> <parcel> <parcel>`
-
-{{< hint warning >}}
-**📔 Note**: The base parcel must be one of the parcels in the scene.
-{{< /hint >}}
-
-**Non-square scenes**
-
-The above commands all generate rectangular-shaped scenes. Decentraland scenes can have L shapes or other configurations. You can generate a larger square with `npx update-parcels` and then manually remove excess parcels from the `scene.json` file.
-
-{{< hint warning >}}
-**📔 Note**: The base parcel must be one of the parcels in the scene.
-{{< /hint >}}
-
 ## Scene title, description, and image
 
 It's very important to give your scene a title, a description and a thumbnail image to attract players to your scene and so they know what to expect.
@@ -134,9 +47,120 @@ The image on `navmapThumbnail` should be a path to an image file in the project 
 
 In case you want other developers to be able to reach out to you, you can also add contact information to your scene.
 
+
+## Categories
+
+
+You can add categories to your scene to help players and users explore Decentraland better. These are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're interested in.
+
+**Categories** need to be chosen from a pre-defined list of options:
+
+- 🎨 Art
+- 🕹️ Game
+- 🃏 Casino
+- 👥 Social
+- 🎶 Music
+- 👠 Fashion
+- 🪙 Crypto
+- 📚 Education
+- 🛍️ Shop
+- 🏢 Business
+- 🏅 Sports
+
+A scene can belong to more than one category, it can have a maximum of 3 listed categories.
+
+<!-- **Tags** are an open-ended list. You can write any word you want into the list. -->
+
+In the `scene.json` categories are listed in the `tags` array.
+
+<!-- If a string matches any of the predefined categories, it's treated as a category, if it doesn't it's treated as a tag. -->
+
+These are the predefined categories:
+
+- `art`
+- `game`
+- `casino`
+- `social`
+- `music`
+- `fashion`
+- `crypto`
+- `education`
+- `shop`
+- `business`
+- `sports`
+
+For example, an Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
+
+```json
+  "tags": [
+    "game",
+    "casino",
+  ],
+```
+
+After that, the scene is listed on the Places dApp under the `game` and `casino` categories.
+
+## Age Rating
+
+The **Age Rating** field is used to classify the content of your scene based on its appropriateness for different age groups. It helps in filtering content for players. The following options are available:
+
+- **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language.
+- **🟡 `A` for Adults (18+)**: Choose this category if your scene features any of the following: intense offensive language, graphic violence, explicit sexual content and/or nudity, real money gambling, or substances like alcohol, tobacco, and drugs.
+
+When editing the Age Rating via the `scene.json`, rating is a **single-letter code**, write either **T** for teens, or **A** for adults.
+
+<img src="/images/media/content-moderation-flag-icon.png" style="margin: 1rem; display: block;width: 200px;"/>
+
+```json
+ "scene": {
+    "rating": "T"
+  }
+```
+
+### Restricted Content
+
+There is a third category for scenes: 🔴 `R` for Restricted. This rating is manually applied by Content Moderators to scenes that violate Decentraland's [Content Policy](https://decentraland.org/content). Violations may include, but are not limited to:
+
+- Suspicious content or spam
+- Abusive or hateful content
+- Sexual or degrading content
+- Child abuse
+- Harassment or bullying
+- Promotion of terrorism/violence
+- IP/Copyright infringement
+
+Scenes with this rating won't load and no one will be able to interact with them. If your scene falls into this category, you should review and update it to comply with the [Content Policy](https://decentraland.org/content).
+
+{{< hint warning >}}
+**📔 Note**: Incorrectly categorizing your scene may result in player reports and subsequent moderation actions. For more details, refer to [Age Rating and Scene Reporting]({{< ref "/content/player/general/in-world-features/age-rating.md" >}}).
+{{< /hint >}}
+
+## Feature Toggles
+
+There are certain features that can be disabled in specific scenes so that players can't use these abusively. Configure these on the **Settings** tab of the scene settings.
+
+<img src="/images/media/spawn-point.png" alt="Scene name" width="200"/>
+
+Currently, only the following feature is handled like this:
+
+- **Voice Chat**: Refers to players using their microphones to have conversations over voice chat with other nearby players.
+
+- **Disable Portable Experiences**: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) but also [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
+
+On the `scene.json` file, these toggles are managed under `featureToggles`. The corresponding features are enabled by default, unless specified as _disabled_ in the `scene.json` file.
+
+```json
+"featureToggles": {
+    "voiceChat": "disabled",
+    "portableExperiences": "enabled" | "disabled" | "hideUi"
+},
+```
+
+If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
+
 ## Spawn location
 
-The **Spawn Settings** define where players spawn when they access your scene directly, either by directly typing in the coordinates into the browser or teleporting.
+The **Spawn Settings** in the **Settings** tab define where players spawn when they access your scene directly, either by directly typing in the coordinates into the browser or teleporting.
 
 <img src="/images/media/spawn-point.png" alt="Scene name" width="200"/>
 
@@ -288,41 +312,6 @@ Simply add a `cameraTarget` field to the spawn point data. The value of `cameraT
 
 This example spawns a player on _5, 1, 4_ looking East at _10, 1, 4_. If the spawn position is a range, then the player's rotation will always match the indicated target. If there are multiple spawn points, each can have its own separate target.
 
-## Age Rating
-
-The **Age Rating** field is used to classify the content of your scene based on its appropriateness for different age groups. It helps in filtering content for players. The following options are available:
-
-- **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language.
-- **🟡 `A` for Adults (18+)**: Choose this category if your scene features any of the following: intense offensive language, graphic violence, explicit sexual content and/or nudity, real money gambling, or substances like alcohol, tobacco, and drugs.
-
-When editing the Age Rating via the `scene.json`, rating is a **single-letter code**, write either **T** for teens, or **A** for adults.
-
-<img src="/images/media/content-moderation-flag-icon.png" style="margin: 1rem; display: block;width: 200px;"/>
-
-```json
- "scene": {
-    "rating": "T"
-  }
-```
-
-### Restricted Content
-
-There is a third category for scenes: 🔴 `R` for Restricted. This rating is manually applied by Content Moderators to scenes that violate Decentraland's [Content Policy](https://decentraland.org/content). Violations may include, but are not limited to:
-
-- Suspicious content or spam
-- Abusive or hateful content
-- Sexual or degrading content
-- Child abuse
-- Harassment or bullying
-- Promotion of terrorism/violence
-- IP/Copyright infringement
-
-Scenes with this rating won't load and no one will be able to interact with them. If your scene falls into this category, you should review and update it to comply with the [Content Policy](https://decentraland.org/content).
-
-{{< hint warning >}}
-**📔 Note**: Incorrectly categorizing your scene may result in player reports and subsequent moderation actions. For more details, refer to [Age Rating and Scene Reporting]({{< ref "/content/player/general/in-world-features/age-rating.md" >}}).
-{{< /hint >}}
-
 ## Required Permissions
 
 The `requiredPermissions` property manages various controlled features that could be used in an abusive way and damage a player's experience.
@@ -351,79 +340,91 @@ Currently, the following permissions are managed on smart wearables and portable
 
 If a `requiredPermissions` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
-## Feature Toggles
+## Scene parcels
 
-There are certain features that can be disabled in specific scenes so that players can't use these abusively. Configure these on the **Settings** tab of the scene settings.
+When [deploying]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) a scene, the content is uploaded to the coordinates assigned in the scene configuration. A scene can include a single parcel, or a list of up to dozens of them.
 
-<img src="/images/media/spawn-point.png" alt="Scene name" width="200"/>
+Edit this on the second tab of the scene menu in the Editor.
 
-Currently, only the following feature is handled like this:
+<img src="/images/editor/scene-parcels.png" alt="Scene name" width="300"/>
 
-- **Voice Chat**: Refers to players using their microphones to have conversations over voice chat with other nearby players.
+The default scene has its coordinates set to _0,0_, this information is not necessary to change while developing a scene offline, unless you need to occupy multiple parcels. You will need to change this before deploying, to coordinates where you do have deploy permissions.
 
-- **Disable Portable Experiences**: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) but also [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
-
-On the `scene.json` file, these toggles are managed under `featureToggles`. The corresponding features are enabled by default, unless specified as _disabled_ in the `scene.json` file.
+You can also change the scene coordinates on the `scene.json` file:
 
 ```json
-"featureToggles": {
-    "voiceChat": "disabled",
-    "portableExperiences": "enabled" | "disabled" | "hideUi"
-},
+ "scene": {
+    "parcels": [
+      "54,-14"
+    ],
+    "base": "54,-14"
+  }
 ```
 
-If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
+The `base` field defines which parcel to consider the base parcel. If your scene has a single parcel, the base should be that parcel. If your scene has multiple parcels, the base should be the bottom-left (South-West) parcel. All entity positions will be measured in reference to the South-West corner of this parcel.
 
-## Categories
-
-You can add categories to your scene to help players and users explore Decentraland better. These are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're interested in.
-
-**Categories** need to be chosen from a pre-defined list of options:
-
-- 🎨 Art
-- 🕹️ Game
-- 🃏 Casino
-- 👥 Social
-- 🎶 Music
-- 👠 Fashion
-- 🪙 Crypto
-- 📚 Education
-- 🛍️ Shop
-- 🏢 Business
-- 🏅 Sports
-
-A scene can belong to more than one category, it can have a maximum of 3 listed categories.
-
-<!-- **Tags** are an open-ended list. You can write any word you want into the list. -->
-
-In the `scene.json` categories are listed in the `tags` array.
-
-<!-- If a string matches any of the predefined categories, it's treated as a category, if it doesn't it's treated as a tag. -->
-
-These are the predefined categories:
-
-- `art`
-- `game`
-- `casino`
-- `social`
-- `music`
-- `fashion`
-- `crypto`
-- `education`
-- `shop`
-- `business`
-- `sports`
-
-For example, an Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
+To display multiple parcels in the scene preview, list as many parcels as you intend to use. They don't need to be the exact parcels you'll deploy to, but they should all be adjacent and arranged in the same way in relation to each other.
 
 ```json
-  "tags": [
-    "game",
-    "casino",
-  ],
+ "scene": {
+    "parcels": [
+      "54,-14",  "55,-14"
+    ],
+    "base": "54,-14"
+  }
 ```
 
-After that, the scene is listed on the Places dApp under the `game` and `casino` categories.
+{{< hint warning >}}
+**📔 Note**: The largest scene size you can set is of 45 x 45 parcels.
+{{< /hint >}}
+
+### Set parcels via the command line
+
+You can set the parcels in your scene by running the `npx update-parcels` command in your scene folder. This is especially useful for large scenes, as you don't need to list every parcel involved.
+
+**Single parcel**
+
+Pass a single argument with the scene coords. This coordinate is also set as the base parcel.
+
+`npx update-parcels <parcel>`
+
+For example:
+
+`npx update-parcels 15,-26`
+
+**Multiple parcels**
+
+Pass two arguments: the South-West and the North-East parcels. The South-West parcel is also set as the base parcel.
+
+`npx update-parcels <parcel> <parcel>`
+
+{{< hint info >}}
+**💡 Tip**: The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
+{{< /hint >}}
+
+For example:
+
+`npx update-parcels 15,-26 17,-24`
+
+This command generates a 3x3 scene, with its base parcel in `15,-26`.
+
+**Customize Base Parcel**
+
+Pass three arguments: the South-West and the North-East parcels, and the parcel to use as a base parcel.
+
+`npx update-parcels <parcel> <parcel> <parcel>`
+
+{{< hint warning >}}
+**📔 Note**: The base parcel must be one of the parcels in the scene.
+{{< /hint >}}
+
+**Non-square scenes**
+
+The above commands all generate rectangular-shaped scenes. Decentraland scenes can have L shapes or other configurations. You can generate a larger square with `npx update-parcels` and then manually remove excess parcels from the `scene.json` file.
+
+{{< hint warning >}}
+**📔 Note**: The base parcel must be one of the parcels in the scene.
+{{< /hint >}}
 
 ## Fetch metadata from scene code
 
