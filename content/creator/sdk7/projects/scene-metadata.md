@@ -59,6 +59,11 @@ To display multiple parcels in the scene preview, list as many parcels as you in
   }
 ```
 
+{{< hint warning >}}
+**📔 Note**: The largest scene size you can set is of 45 x 45 parcels.
+{{< /hint >}}
+
+
 ### Set parcels via the command line
 
 You can set the parcels in your scene by running the `npx update-parcels` command in your scene folder. This is especially useful for large scenes, as you don't need to list every parcel involved.
