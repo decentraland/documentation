@@ -47,7 +47,9 @@ The image on `navmapThumbnail` should be a path to an image file in the project 
 
 In case you want other developers to be able to reach out to you, you can also add contact information to your scene.
 
+
 ## Categories
+
 
 You can add categories to your scene to help players and users explore Decentraland better. These are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're interested in.
 
@@ -371,6 +373,10 @@ To display multiple parcels in the scene preview, list as many parcels as you in
     "base": "54,-14"
   }
 ```
+
+{{< hint warning >}}
+**📔 Note**: The largest scene size you can set is of 45 x 45 parcels.
+{{< /hint >}}
 
 ### Set parcels via the command line
 
