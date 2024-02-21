@@ -80,9 +80,59 @@ If a scene is too large to upload, try this:
 📔 Note: You can only upload scenes that have been built with the Builder. You can’t upload a scene that was built with the SDK or modified with it.
 {{< /hint >}}
 
-## Lock or hide items
+## Scene limitations
 
-You might find it handy to sometimes lock an item, to prevent accidentally selecting and moving it. This is especially useful for background items, like the ground, or a building. To lock an item, look for it on the item tree on the left, hover over it, and select the lock icon. You can toggle this behavior on and off via that same icon.
+Decentraland scenes need to follow certain limitations, to be able to run them one next to another. There is a maximum number of materials, textures, triangles, etc, that is proportional to the number of parcels in the scene. See [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) for more details.
+
+If the content in your scene exceeds any of these limits, the editor will notify this on the bottom-left corner.
+
+<img src="/images/editor/triangle-limit1.png" width="300" />
+
+You can expand this menu to view details.
+
+<img src="/images/editor/triangle-limit2.png" width="300" />
+
+{{< hint info >}}
+**💡 Tip**: If you're building a Decentraland World, you can always add more parcels to increase your limits.
+{{< /hint >}}
+
+The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any of the models in your scene extend beyond the limits, the editor will mark these in red.
+
+<img src="/images/editor/out-of-bounds.png" width="300" />
+
+Note that these checks don't look at the visible geometry of the meshes, but rather they look at the bounding boxes of these meshes, as this is more performant. Learn more about [Bounding Boxes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
+
+## Scene settings
+
+Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series of scene-level properties to edit.
+
+<img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
+
+This opens up the scene menu, where you can configure multiple properties including title and thumbnail, scene category and age rating, player spawn locations, and feature toggles. See [Scene Metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}).
+
+## The entity tree
+
+On the left margin, you'll see a tree structure with all of the entities in the scene. This includes all of the items you add, as well as a few default ones.
+
+Instead of selecting an item by clicking on it from the 3D view of the scne, you can select it from the tree view. Click the right-mouse button on an entity to reveal more options: you can rename, delete, or duplicate, also create a child entity, or add a component to the entity.
+
+Entities follow a hierarchy that can have as many levels as you want. Establish a parent-child relationship between two entities by dragging one item onto another on the tree. A child entity inherits the position of the parent, so when the parent moves, it carries any children with it. This can be practical while building a scene, for example you can set glasses and plates as children of a table, and then move the table without needing to readjust anything else. It can also be important when interacting with the scene, for items to move together.
+
+<img src="/images/editor/item-hierarchy.png" alt="Scene name" width="124"/>
+
+You can also minimize or expand the children of an entity to keep the view simple, this action has no effect on the scene.
+
+### Special entities
+
+The scene includes a couple of special entities that you can see in the entity tree.
+
+- **Scene**: This refers to the root entity, everything you add in the scene is a child of this entity. You can open it to view [scene settings](#scene-settings).
+- **Player**: The player's avatar. You can add special components to this entity that can change gameplay mechanics. You can also drag other entities to be children of the avatar. If an entity is a child of the avatar, its position will be fixed to the player. Use this for example to add a floating marker over the player's head, that follows the player around.
+- **Camera**: The player's camera. You can drag other entities to be children of the camera. If an entity is a child of the camera, its position will be fixed on screen. Use this for example to display a gun in a shooter game, that is always in view even if the player points up or down.
+
+### Lock or hide items
+
+You might find it handy to sometimes lock an item, to prevent accidentally selecting and moving it. This is especially useful for background items, like the ground, or a building. To lock an item, look for it on the entity tree on the left, hover over it, and select the lock icon. You can toggle this behavior on and off via that same icon.
 
 You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Editor window, not to players entering the scene. To hide an item, look for it on the item tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
 

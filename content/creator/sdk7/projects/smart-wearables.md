@@ -185,10 +185,31 @@ To publish your smart wearable:
 
 4. Drag your compressed `smart-wearable.zip` file into the Builder, verify that all the information is accurate.
 
-> Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model):
-
-    a) Select only Male and complete the process
-    b) Open the wearables in the editor, click the three dot options button, select “upload female representation”, and upload the 3D model for the female shape.
+> Note: If your wearable contains different model representations, you need to do a workaround:
+>  <ol type="a">
+>    <li>In your project, create a new folder for each representation(<code>male</code> and <code>female</code>), and put the 3D model for each representation in its corresponding folder.</li>
+>    <li>Update your <code>wearable.json</code> file to include the new representations.</li>
+>
+> ```lang-json
+> "representations": [{
+>   "bodyShapes": ["urn:decentraland:off-chain:base-avatars:BaseMale"],
+>   "mainFile": "male/glasses.glb",
+>   "contents": ["male/glasses.glb"],
+>   "overrideHides": [],
+>   "overrideReplaces": []
+> },
+> {
+>   "bodyShapes": ["urn:decentraland:off-chain:base-avatars:BaseFemale"],
+>   "mainFile": "female/glasses.glb",
+>   "contents": ["female/glasses.glb"],
+>   "overrideHides": [],
+>   "overrideReplaces": []
+> }],
+> ```
+>
+>    <li>Run <code>npm run pack</code> to generate a new smart-wearable.zip file.</li>
+>    <li>Drag the new smart-wearable.zip file into the Builder.</li>
+>  </ol>
 
 5. Open the editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
 6. Create a new collection with this and perhaps other wearables.

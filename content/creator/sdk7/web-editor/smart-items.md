@@ -96,8 +96,10 @@ The **Actions** component lists actions that the item can carry out. Each smart 
   **📔 Note**:
   This action can only happen as a result of clicking on an item. It can't be triggered by walking into a trigger area.
   {{< /hint >}}
+- **Move Player**: Change the position of the player to a set of local coordinates inside the scene. It's only possible to move the player inside the same scene.
 - **Teleport Player**: Teleport a player to the coordinates of another scene in Decentraland. Players will appear in the spawn-point of the destination scene.
-- **Play Emote**: Make the player's avatar perform an animation.
+- **Play Emote**: Make the player's avatar perform one of the default avatar animations (eg: wave, or clap).
+- **Play Custom Emote**: Make the player's avatar perform a custom animation, from a file uploaded to the scene.
 - **Show Text**: Display text on the screen's UI, to be hidden after a few seconds. Ideal hints, dialog lines, notifications, etc.
 - **Hide Text**: Hides any UI text that might be currently displayed.
 - **Start Delay**: Delays another action of the same item by as many seconds as you need.
@@ -458,6 +460,9 @@ initAssetPacks(engine, pointerEventsSystem, {
 	GltfContainer,
 	Material,
 	VideoPlayer,
+  	UiTransform,
+  	UiText,
+  	UiBackground
 })
 ```
 
