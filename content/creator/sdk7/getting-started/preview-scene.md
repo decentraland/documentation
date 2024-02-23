@@ -34,18 +34,6 @@ Optionally click **Open in browser**, over the top margin of the tab to run the 
 
 ## Using the CLI
 
-### Before you begin
-
-Please make sure you first install the CLI tools by running the following command:
-
-```bash
-npm install -g decentraland
-```
-
-See the [Installation Guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}) for more details instructions.
-
-### Preview a scene
-
 To preview a scene run the following command on the scene's main folder:
 
 ```bash

@@ -9,7 +9,6 @@ url: /creator/development-guide/sdk7/debug-in-preview/
 weight: 1
 ---
 
-
 Running a preview provides some useful debugging information and tools to help you understand how the scene is rendered. The preview mode provides indicators that show parcel boundaries and the orientation of the scene.
 
 If the scene can't be compiled, you'll just see the grid on the ground, with nothing rendered on it.
@@ -24,7 +23,7 @@ If this occurs, there are several places where you can look for error messages t
 If an entity is located or extends beyond the limits of the scene, it will be displayed in red to indicate this, with a red bounding box to mark its boundaries. Nothing in your scene can extend beyond the scene limits. This won't stop the scene from being rendered locally, but it will stop the offending entities form being rendered in Decentraland.
 
 {{< hint info >}}
-**💡 Tip**:  Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md#deploy-to-the-test-environment">}})
+**💡 Tip**: Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md#deploy-to-the-test-environment">}})
 {{< /hint >}}
 
 ## Use the console
@@ -35,7 +34,6 @@ You can also add `debugger` commands or use the `sources` tab in the developer t
 
 Once you deploy the scene, you won't be able to see the messages printed to console when you visit the scene in-world. If you need to check these messages on the deployed scene, you can turn the scene's console messages back on adding the following parameter to the URL: `DEBUG_SCENE_LOG`.
 
-
 ## Add breakpoints in the Decentraland Editor
 
 Using the Decentraland Editor, you can add breakpoints to your scene's code. When running a preview, whenever the code passes through these breakpoints, it pauses execution. A **Debug** panel opens, showing the current values of all variables at that point in time.
@@ -44,12 +42,11 @@ This is especially useful to validate that the data at a given point in time is 
 
 Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
-
 1. Open VSCode in a Decentraland scene project.
 2. Click on the Debugger icon on the left sidebar.
 3. Click on `Run and Debug` and select `Decentraland` (this step is not necessary if your project already has a `.vscode/launch.json` file).
 4. Click on `Run`. A browser should open.
-5. Try setting a breakpoint and interacting with the scene in a way it will step on that line. 
+5. Try setting a breakpoint and interacting with the scene in a way it will step on that line.
 
 ## View scene stats
 
@@ -60,9 +57,8 @@ Open the scene's stats by expanding the debug menu and toggling **FPS Panel**. T
 The first section shows the renderer's _FPS_ (Frames Per Second). This value will tend to be lower as the scene grows in complexity, try to always keep this value above 25 FPS, to ensure a good experience for your players. The FPS will vary depending on the machine you run this in.
 
 {{< hint warning >}}
-**📔 Note**:  The renderer's FPS is not the same as the scene's updates of the game loop per second. The scene's logic is capped at 30 FPS, the renderer's FPS can go up to 60 or more.
+**📔 Note**: The renderer's FPS is not the same as the scene's updates of the game loop per second. The scene's logic is capped at 30 FPS, the renderer's FPS can go up to 60 or more.
 {{< /hint >}}
-
 
 ### Memory JS
 
@@ -71,7 +67,6 @@ The second section displays the memory use on the browser. Always try to keep th
 ### General
 
 The third section includes general information about how the scene is running. What Catalyst realm, and what Ethereum network is being used, also how many other players are around currently being rendered.
-
 
 ### Scene
 
@@ -92,11 +87,14 @@ The processed messages and message queue refer to the messages sent by your scen
 The other numbers in the panel refer to the usage of resources, they display the total count of each item that's currently being managed in memory. Compare these values to the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}). Keep in mind that the maximum allowed number for these values is proportional to the amount of parcels in the scene. If your scene tries to render an entity that exceeds these values, for example if it has too many triangles, it risks being too heavy to run for players in the scene.
 
 {{< hint warning >}}
-**📔 Note**:  Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
+**📔 Note**: Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
 {{< /hint >}}
 
+## Report a bug
 
-<!-- 
+If you encounter a problem that is not with your scene, but instead with the Decentraland SDK in general, please see [Report a bug]({{< ref "/content/creator/sdk7/debugging/report-bug.md">}}).
+
+<!--
 ## Run code only in preview
 
 You can detect if a scene is running as a preview or is already deployed in production, so that the same code behaves differently depending on the case. You can use this to add debugging logic to your code without the risk of forgetting to remove it and having it show in production.
@@ -120,7 +118,6 @@ executeTask(async () => {
 **📔 Note**:  `isPreviewMode()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay in returning data.
 {{< /hint >}} -->
 
-
 ## Dependency versions
 
 Running a Decentraland scene locally depends on two main libraries: `decentraland` (the CLI, which is installed globally on your machine) and `decentraland-ecs`, which is installed on each project folder. Make sure both of those are up to date, as any issues you're experiencing might already be fixed in newer versions. There may also be compatibility problems when attempting to run with one of these two outdated and the other up to date. You can run the following commands to update both these libraries to the latest stable version:
@@ -130,7 +127,7 @@ npm i -g decentraland@latest
 npm i decentraland-ecs@latest
 ```
 
-If you're using any of the [utils libraries](https://github.com/decentraland-scenes/Awesome-Repository#Libraries) make sure those are also up to date, as older versions of these libraries may not be compatible with newer versions of `decentraland-ecs`.
+If you're using any of the [utils libraries](https://studios.decentraland.org/resources?sdk_version=SDK7&resource_type=Library) make sure those are also up to date, as older versions of these libraries may not be compatible with newer versions of `decentraland-ecs`.
 
 The `decentraland-ecs` library has in turn a couple of internal dependencies that are installed with it: the `renderer` and the `kernel`. Each `decentraland-ecs` version is paired with its corresponding versions of both. In occasions, it may be useful to try switching versions of these dependencies independently, to better pinpoint where an issue has originated. You can force your preview to use a different version of the `renderer` or of the `kernel` by simply providing the url parameters `renderer-version` and `kernel-version`, pointing at a specific commit.
 
@@ -178,7 +175,6 @@ Check that your scene looks good at all times of day by switching the game clock
 
 Your 3D model's materials might not look the same as they did in the modeling tool you created it with. This is to be expected, as all 3D rendering engines have subtle differences in how they deal with light and materials.
 
-
 ## Avatars and accounts
 
 To use the avatar that's linked to your active Metamask account, with access to all of your owned wearables, you need to run the preview in the browser with Web3.
@@ -197,7 +193,6 @@ When running a preview normally, without a connected Web3 account, you're assign
 
 To use a consist guest avatar across your sessions, you can store an avatar profile by adding a `PLAYER` parameter to the URL with any string as its value. When using this, the preview will store your avatar’s settings locally on your browser, to retrieve them whenever you use the same string on the `PLAYER` parameter. For example, every time you open the preview with the URL `http://127.0.0.1:8000/?PLAYER=ringo`, you’ll have the same avatar.
 
-
 ## Connecting to Ethereum network
 
 If your scene makes use of transactions over the Ethereum network, for example if it prompts you to pay a sum in MANA to open a door, you need to run the preview in the browser with Web3.
@@ -205,7 +200,6 @@ If your scene makes use of transactions over the Ethereum network, for example i
 In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 
 Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL in the browser window.
-
 
 ### Using the Ethereum test network
 
@@ -218,11 +212,9 @@ Any transactions that you accept while viewing the scene in this mode will only 
 If you open a second preview window on your machine, you will enter the scene with a different avatar. The avatars on both tabs will be able to see each other and interact, although currently they might have inconsistent names and wearables on.
 
 {{< hint warning >}}
-**📔 Note**:  You can't open multiple tabs using the same account. So if your URL has a hardcoded `PLAYER` parameter with the same string on multiple tabs, or you're connecting to Metamask on more than one tab, it won't be possible to load them all. Each simultaneous tab should load a different account.
+**📔 Note**: You can't open multiple tabs using the same account. So if your URL has a hardcoded `PLAYER` parameter with the same string on multiple tabs, or you're connecting to Metamask on more than one tab, it won't be possible to load them all. Each simultaneous tab should load a different account.
 {{< /hint >}}
-
 
 If the scene uses the MessageBus to send messages between players, these will work between the different tabs.
 
 If the scene connects to a third party server via websockets, these connections should also work independently on each tab, as separate players.
-

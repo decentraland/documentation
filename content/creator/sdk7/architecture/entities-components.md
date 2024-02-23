@@ -39,16 +39,16 @@ The example below shows some basic operations for declaring, and configuring bas
 
 ```ts
 export function main() {
-  // Create an entity
-  const door = engine.addEntity()
+	// Create an entity
+	const door = engine.addEntity()
 
-  // Give the entity a position via a transform component
-  Transform.create(door, {
-    position: Vector3.create(5, 1, 5),
-  })
+	// Give the entity a position via a transform component
+	Transform.create(door, {
+		position: Vector3.create(5, 1, 5),
+	})
 
-  // Give the entity a visible shape via a GltfContainer component
-  GltfContainer.create(door)
+	// Give the entity a visible shape via a GltfContainer component
+	GltfContainer.create(door)
 }
 ```
 
@@ -64,14 +64,14 @@ To remove an entity from the engine, use `engine.removeEntity()`
 
 ```ts
 export function main() {
-  // Create an entity
-  const door = engine.addEntity()
+	// Create an entity
+	const door = engine.addEntity()
 
-  // Give the entity a visible shape via a GltfContainer component
-  GltfContainer.create(door)
+	// Give the entity a visible shape via a GltfContainer component
+	GltfContainer.create(door)
 
-  // Remove entity
-  engine.removeEntity(door)
+	// Remove entity
+	engine.removeEntity(door)
 }
 ```
 
@@ -81,27 +81,27 @@ To remove an entity and also all of its children (and any children of its childr
 
 ```ts
 export function main() {
-  // Create parent entity
-  const door = engine.addEntity()
+	// Create parent entity
+	const door = engine.addEntity()
 
-  // Create child entity
-  const doorKnob = engine.addEntity()
+	// Create child entity
+	const doorKnob = engine.addEntity()
 
-  // Give the entities a visible shape
-  GltfContainer.create(door, {
-    src: 'models/door.glb',
-  })
-  GltfContainer.create(doorKnob, {
-    src: 'models/doorKnob.glb',
-  })
+	// Give the entities a visible shape
+	GltfContainer.create(door, {
+		src: 'models/door.glb',
+	})
+	GltfContainer.create(doorKnob, {
+		src: 'models/doorKnob.glb',
+	})
 
-  // Parent
-  Transform.create(doorKnob, {
-    parent: door,
-  })
+	// Parent
+	Transform.create(doorKnob, {
+		parent: door,
+	})
 
-  // Remove both parent and children
-  removeEntityWithChildren(engine, door)
+	// Remove both parent and children
+	removeEntityWithChildren(engine, door)
 }
 ```
 
@@ -125,15 +125,15 @@ To set an entity as the parent of another, the child entity must have a `Transfo
 
 ```ts
 export function main() {
-  // Create entities
-  const parentEntity = engine.addEntity()
+	// Create entities
+	const parentEntity = engine.addEntity()
 
-  const childEntity = engine.addEntity()
+	const childEntity = engine.addEntity()
 
-  // Set parent
-  Transform.create(childEntity, {
-    parent: parentEntity,
-  })
+	// Set parent
+	Transform.create(childEntity, {
+		parent: parentEntity,
+	})
 }
 ```
 
@@ -161,6 +161,10 @@ const mutableChildTransform = Transform.getMutable(childEntity)
 mutableChildTransform.parent = engine.RootEntity
 ```
 
+{{< hint warning >}}
+**📔 Note**: When dealing with nested entities that are synced with other players, use the `parentEntity()` function instead of the `parent` entity in the Transform. See [Parented entities]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#parented-entities" >}})
+{{< /hint >}}
+
 ## Get an entity by ID
 
 Every entity in your scene has a unique number _id_. You can retrieve a component that refers to a specific entity from the engine based on this ID.
@@ -182,7 +186,7 @@ When using the Decentraland Editor and adding entities via the drag-and-drop ins
 
 ```ts
 function main() {
-  const door = engine.getEntityOrNullByName('door3')
+	const door = engine.getEntityOrNullByName('door3')
 }
 ```
 
@@ -194,21 +198,21 @@ You're free to perform any action on an entity fetched via this method, like add
 
 ```ts
 function main() {
-  // fetch entity
-  const door = engine.getEntityOrNullByName('door-3')
-  // verify that the entity exists
-  if (door) {
-    // add a pointer events callback
-    pointerEventsSystem.onPointerDown(
-      {
-        entity: door,
-        opts: { button: InputAction.IA_PRIMARY, hoverText: 'Open' },
-      },
-      function () {
-        // open door
-      }
-    )
-  }
+	// fetch entity
+	const door = engine.getEntityOrNullByName('door-3')
+	// verify that the entity exists
+	if (door) {
+		// add a pointer events callback
+		pointerEventsSystem.onPointerDown(
+			{
+				entity: door,
+				opts: { button: InputAction.IA_PRIMARY, hoverText: 'Open' },
+			},
+			function () {
+				// open door
+			}
+		)
+	}
 }
 ```
 
@@ -216,9 +220,9 @@ All the entities added via the inspector have a `Name` component, you can iterat
 
 ```ts
 function main() {
-  for (const [entity, name] of engine.getEntitiesWith(Name)) {
-    console.log({ entity, name })
-  }
+	for (const [entity, name] of engine.getEntitiesWith(Name)) {
+		console.log({ entity, name })
+	}
 }
 ```
 
@@ -230,7 +234,7 @@ To prevent this error, you can use `.createOrReplace` instead of `.create`. This
 
 ```ts
 Transform.createOrReplace(door, {
-  position: Vector3.create(5, 1, 5),
+	position: Vector3.create(5, 1, 5),
 })
 ```
 
@@ -244,17 +248,17 @@ You can access components of an entity by using the entity's `.get()` or the `ge
 
 ```ts
 export function main() {
-  // Create entity
-  const box = engine.addEntity()
+	// Create entity
+	const box = engine.addEntity()
 
-  // Create and add component to that entity
-  Transform.create(box)
+	// Create and add component to that entity
+	Transform.create(box)
 
-  // Get read-only version of component
-  let transform = Transform.get(box)
+	// Get read-only version of component
+	let transform = Transform.get(box)
 
-  // Get mutable version of component
-  let transform = Transform.getMutable(box)
+	// Get mutable version of component
+	let transform = Transform.getMutable(box)
 }
 ```
 
@@ -322,6 +326,30 @@ const hasTransform = Transform.has(myEntity)
 {{< hint info >}}
 **💡 Tip**: You can also [query components]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}) to fetch a full list of components that hold a specific component, or a specific set of components. Do not iterate over all entities in the scene manually to check each with a `has()`, that approach is a lot less efficient.
 {{< /hint >}}
+
+## Check for changes on a component
+
+Use the `onChange` function to run a callback function any time that the values of the component change for a given entity. This works on any component, and is a great shortcut for helping keep your code readable.
+
+The callback function can include an input parameter that contains the new state of the component.
+
+```ts
+Transform.onChange(cubeEntity, (newTransform) => {
+	if (!newTransform) return
+	console.log(
+		'Cube position changed: ',
+		newTransform.position,
+		newTransform.rotation
+	)
+})
+
+VisibilityComponent.onChange(cubeEntity, (newVisibilityComponent) => {
+	if (!newVisibilityComponent) return
+	console.log('Cube visibility changed: ', newVisibilityComponent.visible)
+})
+```
+
+If the component is removed from the entity, then the function is called with an input of `undefined`.
 
 ## Reserved entities
 

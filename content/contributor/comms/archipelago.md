@@ -2,7 +2,7 @@
 title: "Archipelago"
 sidebartitle: "Archipelago"
 url: "/contributor/comms/archipelago"
-weight: 2
+weight: 3
 ---
 
 Archipelago is the realm service that groups nearby players into islands, reassigning them as they move around and providing the information required to connect to the actual backend that will relay their messages.

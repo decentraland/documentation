@@ -67,8 +67,8 @@ type OnUpdateCallback = (instance: QuestInstance) => void
 The `QuestInstance` type is used in several methods. The `QuestInstance` type has the same fields as `QuestInstanceProtocol` **but** with no `undefined` fields (the `undefined` are caused by `proto`, and it's impossible that these fields are `undefined`). A `QuestInstance` (or `QuestInstanceProtocol`) is an instance of a specific Quest and it contains the state (or progress) of the player in that specific Quest. The `QuestInstance` type has the following fields:
 
 - `id`: The id of the Quest Instance. It's a unique identifier of the player's Quest Instance.
-- `quest`: The Quest object defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
-- `state`: The progress of the player along the Quest defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
+- `quest`: The Quest object defined in the Quest's protocol file [here](https://github.com/decentraland/protocol/blob/main/proto/decentraland/quests/definitions.proto).
+- `state`: The progress of the player along the Quest defined in the Quest's protocol file [here](https://github.com/decentraland/protocol/blob/main/proto/decentraland/quests/definitions.proto).
 
 ## Quest client methods
 
@@ -82,7 +82,7 @@ The following methods are available in the Quests Client:
 **📔 Note**: Quests that are fully completed cannot be aborted, only partially completed quests. A player can't do a same quest more than once.
 {{< /hint >}}
 
-- `sendEvent`: Use this function send a custom event to the Quest RPC Service. The function receives an `Action` (action item with its type and parameters), representing an action that the player has already completed in the scene. The function returns an `EventResponse` object that contains the result of the request, both in case of an error or success. Both `Action` and `EventResponse` are defined in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
+- `sendEvent`: Use this function send a custom event to the Quest RPC Service. The function receives an `Action` (action item with its type and parameters), representing an action that the player has already completed in the scene. The function returns an `EventResponse` object that contains the result of the request, both in case of an error or success. Both `Action` and `EventResponse` are defined in the Quest's protocol file [here](https://github.com/decentraland/protocol/blob/main/proto/decentraland/quests/definitions.proto).
 
 - `onStarted`: Use this function to register one or multiple callbacks that are called when the player starts your Quest. Callbacks will only be called when the user starts the Quest that matches the Quest ID passed when creating the client instance. Use these callbacks for the scene to react to the start of your Quest. The callback receives an `QuestInstance` object that contains the information of the Quest that the player has started.
 
@@ -291,7 +291,7 @@ When an action is of type `CUSTOM`, you must use the `sendEvent` function to upd
 
 Like with other functions from the quest client, you can use an event emitter to route events from anywhere in your scene's code to the context where the quest client object is initialized. A good practice is to define an "action" event with mitt that includes all of the data about the action. That way you only need to create a single listener, that handles all the actions from your scene.
 
-Come back to the `events.ts` file iny your scene, to define a type of event that sends an `Action` object. For this, you need to import the `Action` type provided by the Quests Client library and defined in the Quest's Protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
+Come back to the `events.ts` file iny your scene, to define a type of event that sends an `Action` object. For this, you need to import the `Action` type provided by the Quests Client library and defined in the Quest's Protocol file [here](https://github.com/decentraland/protocol/blob/main/proto/decentraland/quests/definitions.proto).
 
 ```typescript
 // events.ts
@@ -467,7 +467,7 @@ type QuestInstance = {
 - `quest`: The Quest object. Find more information about the Quest object [here]({{< ref "/content/creator/quests/define.md" >}}).
 - `state`: The progress of the player on the Quest.
 
-Find details about the `Quest` and `QuestState` types in the Quest's protocol file [here](https://github.com/decentraland/quests/blob/main/docs/quests.proto).
+Find details about the `Quest` and `QuestState` types in the Quest's protocol file [here](https://github.com/decentraland/protocol/blob/main/proto/decentraland/quests/definitions.proto).
 
 {{< hint info >}}
 **💡 Tip**: When there are changes to the scene's state that reflect the player's progress throughout the quest, always make the changes via this function, rather than as a direct consequence of the player's action. That way, if for whatever reason the quest service is not successful, the scene will remain in a consistent state with the player's progress.

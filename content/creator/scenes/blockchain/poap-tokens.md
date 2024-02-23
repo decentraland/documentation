@@ -11,7 +11,11 @@ url: /creator/development-guide/poap-tokens
 weight: 3
 ---
 
-[Proof Of Attendance Protocol (POAP)](https://app.poap.xyz) tokens are tokens on the [Gnosis Chain](https://www.xdaichain.com/) (Formerly xDai) Ethereum side-chain that serve as evidence of having been to an event. These tokens have become quite popular in Decentraland events. Scenes can gift these tokens to players that visit an event, or to players that achieve a special challenge in a scene.
+{{< hint warning >}}
+**📔 Note**:  POAP tokens no longer support working for virtual events hosted in Decentraland. We recommend adding an external link to the POAP event page, for players to perform the claim their token in that other tab.
+{{< /hint >}}
+
+<!-- [Proof Of Attendance Protocol (POAP)](https://app.poap.xyz) tokens are tokens on the [Gnosis Chain](https://www.xdaichain.com/) (Formerly xDai) Ethereum side-chain that serve as evidence of having been to an event. These tokens have become quite popular in Decentraland events. Scenes can gift these tokens to players that visit an event, or to players that achieve a special challenge in a scene.
 
 The Decentraland Foundation has set up a free server that you can use to manage the sending of POAP tokens. This document explains how you can use this server to enable your scene to give away POAP tokens to players who visit.
 
@@ -194,4 +198,4 @@ If you wish to do something more custom, this scene is also a great starting poi
 
 {{< hint warning >}}
 **📔 Note**:  The claiming of the POAP will not work when running the scene in preview or on a test server, as the Decentraland POAP server can't validate that the request comes from a player in Decentraland. You will need to deploy the scene to production to test fully.
-{{< /hint >}}
+{{< /hint >}}-->

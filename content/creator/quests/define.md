@@ -123,16 +123,16 @@ The following set of types are supported, each with their corresponding paramete
     }
 ```
 
-- **Emote**: This action item is used to check if the player has played an emote. This action is detected by the Quest Client library's system helpers. The `parameters` are the coordinates of the parcel of LAND on the Decentraland map where the player has to play the emote, and the `emote_id` of the emote that the player has to play. The `parameters` are:
+- **Emote**: This action item is used to check if the player has played an emote. This action is detected by the Quest Client library's system helpers. The `parameters` are the coordinates of the parcel of LAND on the Decentraland map where the player has to play the emote, and the `id` of the emote that the player has to play. The `parameters` are:
 
   - `x`: The x coordinate of the location.
   - `y`: The y coordinate of the location.
-  - `emote_id`: The `emote_id` of the emote that the player has to play.
+  - `id`: The `id` of the emote that the player has to play.
 
 ```typescript
     {
         type: "EMOTE",
-        parameters: { "x": string, "y": string, "emote_id": string }
+        parameters: { "x": string, "y": string, "id": string }
     }
 ```
 

@@ -21,7 +21,7 @@ Streaming via Decentraland Cast is an exclusive feature reserved for world owner
 {{< /hint >}}
 
 <!-- <image showing the Decentraland Cast controls bar> -->
-4. Flawless Integration: Decentraland Cast’s integration with the world ensures uninterrupted communication, allowing users to effortlessly send, receive, and listen to chat and voice messages.
+5. Flawless Integration: Decentraland Cast’s integration with the world ensures uninterrupted communication, allowing users to effortlessly send, receive, and listen to chat and voice messages.
 <!-- <image showing the screen and chat Decentraland Cast UI>
 <image showing the screen and chat in the World>-->
 
@@ -33,8 +33,10 @@ Streaming via Decentraland Cast is an exclusive feature reserved for world owner
 {{< /hint >}}
 3. Ensure that there is an open session in Decentraland Cast.
 4. Join the world and test the streaming being showcased.
-{{< hint warning >}}
-**📔 Note**: Since the session in Decentraland Cast is the same LiveKit session within the world, one address can be presented in either the World or the Decentraland Cast session, but not in both simultaneously. If this occurs, one of the sessions will be disconnected. For testing purposes, it is recommended to enter the world as a guest so the Decentraland Cast session remains live.
+
+{{< hint danger >}}
+**❗Warning**  
+Since the session in Decentraland Cast is the same LiveKit session within the world, one address can be presented in either the World or the Decentraland Cast session, but not in both simultaneously. If this occurs, the whole casting session will be disconnected for all users. For testing purposes, it is recommended to enter the world as a guest so the Decentraland Cast session remains live.
 {{< /hint >}}
 
 ## Spectating

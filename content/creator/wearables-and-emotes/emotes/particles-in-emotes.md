@@ -1,6 +1,7 @@
 ---
 date: 2022-09-01
 title: Particles in Emotes 2.0
+add-particles-to-bones
 description: How to export particles in your Emotes using Armature
 categories:
   - emotes

@@ -88,9 +88,9 @@ The **name** specified en the `scene.json` can be either a Decentraland NAME or 
 
 Keep the following in mind:
 
-- The wallet signing the deployment must own the Decentraland NAME specified in the `scene.json` file
-- The total size of the scene must be less or equal to 100 Mb
+- The wallet signing the deployment must own the NAME specified in the `scene.json` file
 - The scene has no parcel limitations (since January 2023)
+- All Worlds are automatically listed on the Places page unless you opt out as detailed below
 
 Some of the Worlds deployed to the Foundation's Worlds Content Server may be eligible for being listed in Decentraland Places. See [eligibility criteria]({{< ref "/content/creator/places/faq.md#worlds" >}}) for more details.
 
