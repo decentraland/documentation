@@ -82,6 +82,14 @@ MeshRenderer.setBox(myCube)
 MeshRenderer.setSphere(myCube)
 ```
 
+{{< hint warning >}}
+**📔 Note**: The `MeshRenderer` component must be imported via
+
+> `import { MeshRenderer } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
+
 ## 3D models
 
 For more complex shapes, you can build a 3D model in an external tool like Blender and then import them in _.glTF_ or _.glb_ (binary _.glTF_). [glTF](https://www.khronos.org/gltf) (GL Transmission Format) is an open project by Khronos providing a common, extensible format for 3D assets that is both efficient and highly interoperable with modern web technologies.
@@ -102,11 +110,19 @@ The `src` field is required, you must give it a value when constructing the comp
 **💡 Tip**: We recommend keeping your models separate in a `/models` folder inside your scene.
 {{< /hint >}}
 
-glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this. 
+glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this.
 
 To prevent players from walking through a 3D model, or to make a model clickable, you must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}), which may be embedded in the model or provided via a `MeshCollider` component.
 
 Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
+
+{{< hint warning >}}
+**📔 Note**: The `GltfContainer` component must be imported via
+
+> `import { GltfContainer } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 ### Free libraries for 3D models
 

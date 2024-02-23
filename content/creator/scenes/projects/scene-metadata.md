@@ -243,6 +243,38 @@ Simply add a `cameraTarget` field to the spawn point data. The value of `cameraT
 
 This example spawns a player on _5, 1, 4_ looking East at _10, 1, 4_. If the spawn position is a range, then the player's rotation will always match the indicated target. If there are multiple spawn points, each can have its own separate target.
 
+## Age Rating
+
+The `rating` field is used to classify the content of your scene based on its appropriateness for different age groups. It helps in filtering content for players. The rating is a **single-letter code** that you should add to your `scene.json` file. Here are the available options:
+
+- **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language. 
+- **🟡 `A` for Adults (18+)**: Choose this category if your scene features any of the following: intense offensive language, graphic violence, explicit sexual content and/or nudity, real money gambling, or substances like alcohol, tobacco, and drugs.
+
+<img src="/images/media/content-moderation-flag-icon.png" style="margin: 1rem; display: block;width: 200px;"/>
+
+```json
+ "scene": {
+    "rating": "T"
+  }
+```
+
+### Restricted Content
+There is a third category for scenes: 🔴 `R` for Restricted. This rating is manually applied by Content Moderators to scenes that violate Decentraland's [Content Policy](https://decentraland.org/content). Violations may include, but are not limited to:
+
+- Suspicious content or spam
+- Abusive or hateful content
+- Sexual or degrading content
+- Child abuse
+- Harassment or bullying
+- Promotion of terrorism/violence
+- IP/Copyright infringement
+
+Scenes with this rating won't load and no one will be able to interact with them. If your scene falls into this category, you should review and update it to comply with the [Content Policy](https://decentraland.org/content).
+
+{{< hint warning >}}
+**📔 Note**: Incorrectly categorizing your scene may result in player reports and subsequent moderation actions. For more details, refer to [Age Rating and Scene Reporting]({{< ref "/content/player/general/in-world-features/age-rating.md" >}}).
+{{< /hint >}}
+
 ## Required Permissions
 
 The `requiredPermissions` property manages various controlled features that could be used in an abusive way and damage a player's experience.
@@ -294,9 +326,9 @@ Currently, only the following feature is handled like this:
 
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
-## Worlds Configuration 
+## Worlds Configuration
 
-When you are planning to upload yor scene to a Decentraland [World]({{< ref "/content/creator/worlds/about.md" >}}) instead of Genesis City, you must specify the NAME that you are going to target. On the other hand, if your world meets the requirements to be listed on [Places](https://places.decentraland.org/) (owning a LAND or having an active LAND rental contract), and you prefer not to list your scene, you can also configure it accordingly. 
+When you are planning to upload yor scene to a Decentraland [World]({{< ref "/content/creator/worlds/about.md" >}}) instead of Genesis City, you must specify the NAME that you are going to target. On the other hand, if your world meets the requirements to be listed on [Places](https://places.decentraland.org/) (owning a LAND or having an active LAND rental contract), and you prefer not to list your scene, you can also configure it accordingly.
 
 ```
 {
@@ -308,6 +340,7 @@ When you are planning to upload yor scene to a Decentraland [World]({{< ref "/co
   }
 }
 ```
+
 {{< hint warning >}}
 **📔 Note**: Attempting to upload a scene with the `worldConfiguration`` section to a Catalyst will result in the deployment being rejected.
 {{< /hint >}}
@@ -352,3 +385,52 @@ executeTask(async () => {
 {{< hint warning >}}
 **📔 Note**: `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
 {{< /hint >}}
+
+## Tags
+
+You can add tags to your scene to help players and users explore Decentraland better. These tags are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're intreseted in.
+
+You can only use a preselected list of tags and a maximum of 3 tags per scene.
+
+The tags you can use are:
+
+- `art`
+- `game`
+- `casino`
+- `social`
+- `music`
+- `fashion`
+- `crypto`
+- `education`
+- `shop`
+- `business`
+- `sports`
+
+For example, an Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
+
+```json
+  "tags": [
+    "game",
+    "casino"
+  ],
+```
+
+After that, the scene will be listed on the Places dApp under the `game` and `casino` categories.
+
+Here is how the tag names look on the Places dApp:
+
+```json
+{
+  "art": "🎨 Art",
+  "game": "🕹️ Game",
+  "casino": "🃏 Casino",
+  "social": "👥 Social",
+  "music": "🎶 Music",
+  "fashion": "👠 Fashion",
+  "crypto": "🪙 Crypto",
+  "education": "📚 Education",
+  "shop": "🛍️ Shop",
+  "business": "🏢 Business",
+  "sports": "🏅 Sports"
+}
+```

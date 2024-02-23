@@ -42,6 +42,11 @@ Open your scene's _scene.json_ file and complete the following data:
 
 - **spawnPoints**: A set of coordinates inside the scene (relative to the scene's base parcel) where players spawn into. By default players spawn onto the _0,0,0_ location of the scene (bottom-left corner). Use this to start out in a specific location, set a region to prevent players from overlapping with each other when they first appear.
 
+- **tags**: A set of tags that describe your scene. These are used to help players and users explore Decentraland in a better way since they are able to find the content that they may be interested in. [See the list of available tags]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#tags" >}}).
+
+- **rating**: This is used to classify the content of your scene based on its appropriateness for different age groups (`T` for Teens or `A` for Adults). It helps in filtering content for players.
+
+
 {{< hint warning >}}
 **📔 Note**:  See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for more details on how to set these parameters.
 {{< /hint >}}
@@ -87,6 +92,12 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 {{< hint info >}}
 **💡 Tip**:  `npm run deploy` runs a `npm run build`, which checks the scene for type errors more strictly than running `npm run start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `npm run deploy  --skip-build`  to skip the `npm run build` step and deploy the scene as it is.
 {{< /hint >}}
+
+
+When publishing to a [Decentraland World]({{< ref "/content/creator/worlds/about.md" >}}) , use the following command instead:
+
+`npm run deploy -- --target-content https://worlds-content-server.decentraland.org`
+
 
 ## Publish from a hardware wallet
 

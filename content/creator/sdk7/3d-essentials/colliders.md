@@ -57,6 +57,14 @@ MeshCollider.setBox(myCollider)
 
 The shape used by the `MeshCollider` doesn't need to necessarily match the one used by the `MeshRenderer`. You can also add a `MeshCollider` to an entity that has a 3D model from a `GLTFContainer` component, or to an entity that has no visible shape at all.
 
+{{< hint warning >}}
+**📔 Note**: The `MeshCollider` component and `ColliderLayer` must be imported via
+
+> `import { MeshCollider, ColliderLayer } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
+
 ## Colliders on 3D models
 
 3D models can be assigned colliders on two different geometry levels:
@@ -97,6 +105,14 @@ GltfContainer.create(myEntity, {
 ```
 
 See [3D models](/creator/3d-modeling/3d-models) for more details on how to add collider invisible geometry to a 3D model.
+
+{{< hint warning >}}
+**📔 Note**: The `GltfContainer` component and `ColliderLayer` must be imported via
+
+> `import { GltfContainer, ColliderLayer } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 ### Animated models
 
@@ -148,7 +164,7 @@ Only shapes that have colliders can be activated with [pointer events]({{< ref "
 By default, a MeshCollider affects both the Physics and the Pointer layers, but you can change this value to only affect one, or neither, and to affect custom layers instead.
 
 {{< hint warning >}}
-**📔 Note**: Besides colliders, an entity also needs to have a `PointerEvents` component to respond to pointer events. The `pointerEventsSystem` helpers also take care of this requirment. 
+**📔 Note**: Besides colliders, an entity also needs to have a `PointerEvents` component to respond to pointer events. The `pointerEventsSystem` helpers also take care of this requirment.
 {{< /hint >}}
 
 ```ts
@@ -189,7 +205,7 @@ GltfContainer.create(myEntity, {
 // don't respond to collisions of any kind, with either the visible or the invisible geometry:
 GltfContainer.create(myEntity, {
   src: '/models/myModel.gltf',
-  invisibleMeshesCollisionMask: ColliderLayer.CL_NONE
+  invisibleMeshesCollisionMask: ColliderLayer.CL_NONE,
 })
 ```
 

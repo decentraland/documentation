@@ -47,7 +47,7 @@ The following fields can be configured, all of them are optional:
 Simple color:
 
 ```ts
-import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
@@ -65,7 +65,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 Repeated texture pattern:
 
 ```ts
-import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
@@ -77,7 +77,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 		textureMode: 'center'
 		texture: {
 			src: "images/brick-wall-texture.png",
-			textureWrapping: 'repeat'
+			wrapMode: 'repeat'
 		}
 	}}
   >

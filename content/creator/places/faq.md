@@ -1,6 +1,6 @@
 ---
 date: 2023-08-22
-title: FAQ
+title: Places FAQ
 description: Places FAQ
 type: Document
 url: /creator/places/faq

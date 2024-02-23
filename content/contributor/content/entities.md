@@ -18,7 +18,7 @@ You can look at actually deployed entities in the [practice]({{< relref "practic
 
 ## Entity Types {#types}
 
-There are five types of entities:
+There are seven types of entities:
 
 - [**Scenes**]({{< relref "entity-types/scenes" >}}): virtual spaces in the world with their own objects and behavior.
 - [**Profiles**]({{< relref "entity-types/profiles" >}}): information about a specific player, such as their name and avatar.

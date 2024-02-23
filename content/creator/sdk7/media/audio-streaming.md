@@ -14,32 +14,44 @@ You can stream audio from a URL. This is useful to play music directly from an i
 The audio in the source must be in one of the following formats: `.mp3`, `ogg`, or `aac`. The source must also be an _https_ URL (_http_ URLs aren't supported), and the source should have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it. If this is not the case, you might need to set up a server to act as a proxy and expose the stream in a valid way.
 
 {{< hint warning >}}
-**📔 Note**:  To instead play a pre-recorded sound in your scene, see [Sounds]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}).
+**📔 Note**: To instead play a pre-recorded sound in your scene, see [Sounds]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}).
 {{< /hint >}}
-
-
 
 To add an audio stream into your scene, simply add an `AudioStream` component to an entity:
 
 ```ts
 const streamEntity = engine.addEntity()
 
-AudioStream.create(streamEntity,{
-	url: "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3",
-	playing: true,
-	volume: 0.8
+AudioStream.create(streamEntity, {
+  url: 'https://icecast.ravepartyradio.org/ravepartyradio-192.mp3',
+  playing: true,
+  volume: 0.8,
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**:  The streamed sound isn't positional, it will be heard at a consistent volume throughout your entire scene. If a player steps out of the scene, they will not hear the streaming at all.
+**📔 Note**: The streamed sound isn't positional, it will be heard at a consistent volume throughout your entire scene. If a player steps out of the scene, they will not hear the streaming at all.
 {{< /hint >}}
-
 
 Set the volume of the `AudioStream` component by changing its `volume` property.
 
 Switch the `AudioStream` component on or off by setting its `playing` property to _true_ or _false_.
 
+{{< hint info >}}
+**📔 Note**:
+Not all streaming services allow you to play their audio outside their site. The following are some examples that work in Decentraland:
+
+```ts
+RAVE = ‘https://icecast.ravepartyradio.org/ravepartyradio-192.mp3’ << not working
+DELTA = ‘https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e’
+GRAFFITI = ‘https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5’
+SIGNS = ‘https://edge.singsingmusic.net/MC2.mp3’ << not working
+JAZZ = ‘https://live.vegascity.fm/radio/8010/the_flamingos.mp3’ << not working
+```
+
+{{< /hint >}}
+
+<!--
 To stream audio into a scene, you must add the `ALLOW_MEDIA_HOSTNAMES` permission to the `requiredPermissions` list in the `scene.json` file. You must also include the list of high-level domains where you'll be streaming from under `allowedMediaHostnames`.
 
 ```json
@@ -52,4 +64,4 @@ To stream audio into a scene, you must add the `ALLOW_MEDIA_HOSTNAMES` permissio
   ]
 ```
 
-See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
+See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details. -->

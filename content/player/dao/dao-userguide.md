@@ -44,11 +44,18 @@ To view your current voting power, navigate to the **Voting Power** tab.
 
 #### How is voting power calculated?
 
-Voting power is represented as **“VP”**. MANA, NAME and LAND contribute to your total voting power as follows:
+Voting power is represented as **“VP”**. MANA, NAME, LAND, and Legacy Wearables contribute to your total voting power as follows:
 
 * 1 MANA contributes 1 VP
 * 1 NAME contributes 100 VP
 * 1 LAND parcel contributes 2000 VP
+* The following Legacy Wearables Collections contribute 1 VP for each **uncommon**, 5 VP for each **rare**, 10 VP for each **epic**, 100 VP for each **legendary**, and 1000 VP for each **mythic**:
+  - [Community Contest Collection](https://etherscan.io/address/0x32b7495895264ac9d0b12d32afd435453458b1c6)
+  - [DCL Public Explorer Launch Collection](https://etherscan.io/address/0xd35147be6401dcb20811f2104c33de8e97ed6818)
+  - [Exclusive Masks Collection](https://etherscan.io/address/0xc04528c14c8ffd84c7c1fb6719b4a89853035cdd)
+  - [Halloween 2019 Collection](https://etherscan.io/address/0xc1f4b0eea2bd6690930e6c66efd3e197d620b9c2)
+  - [My Crypto Heroes Collection](https://etherscan.io/address/0xf64dc33a192e056bb5f0e5049356a0498b502d50)
+  - [Xmass 2019 Collection](https://etherscan.io/address/0xc3af02c0fd486c8e9da5788b915d6fff3f049866)
 * Each Estate is worth 2000 multiplied by the number of single LAND parcels in that Estate. For example, an Estate with 2 parcels will contribute 4000 VP to your total voting power.
 
 #### What happens if your voting power changes before a proposal closes?
