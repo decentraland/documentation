@@ -1,7 +1,7 @@
 ---
-date: 2022-09-01
+date: 2024-23-02
 title: Particles in Emotes 2.0
-description: How to export particles in your Emotes suing Armature
+description: How to export particles in your Emotes using Armature
 categories:
   - emotes
 type: Document
