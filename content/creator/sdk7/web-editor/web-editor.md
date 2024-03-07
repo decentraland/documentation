@@ -122,7 +122,7 @@ Entities follow a hierarchy that can have as many levels as you want. Establish 
 
 You can also minimize or expand the children of an entity to keep the view simple, this action has no effect on the scene.
 
-### Special entities
+### Special entities
 
 The scene includes a couple of special entities that you can see in the entity tree.
 
