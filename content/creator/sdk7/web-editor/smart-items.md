@@ -441,33 +441,6 @@ To make an action occur only once when passing a threshold, and not repeat on ev
 
 Smart items work out of the box on the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}). They also work out of the box with fresh new scenes in the Desktop [Decentraland Editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}).
 
-If using smart items on an older scene in the Desktop Decentraland Editor, or a scene built based on an older example, you may need to do the following adjustments:
-
-1. Install the library `@dcl/asset-packs`. See [Manage Dependencies]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md" >}}) for how to install libraries in a project.
-
-2. Paste the following lines on your scene's `index.ts` file:
-
-```ts
-import { initAssetPacks } from '@dcl/asset-packs/dist/scene-entrypoint'
-
-// You can remove this if you don't use any asset packs
-initAssetPacks(engine, pointerEventsSystem, {
-	Animator,
-	AudioSource,
-	AvatarAttach,
-	Transform,
-	VisibilityComponent,
-	GltfContainer,
-	Material,
-	VideoPlayer,
-  	UiTransform,
-  	UiText,
-  	UiBackground
-})
-```
-
-{{< hint warning >}}
-**📔 Note**: The smart items asset pack is not displayed at all on scenes that don't have this dependency installed.
-{{< /hint >}}
+Smart items may not work on an older scene in the Desktop Decentraland Editor. If they don't, update your scene to use SDK version 7.4.5 or newer.
 
 When using the desktop editor, you can combine smart items with behavior from custom code. See [Combine with code]({{< ref "/content/creator/sdk7/web-editor/combine-with-code.md" >}}).
