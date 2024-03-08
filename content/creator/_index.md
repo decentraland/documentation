@@ -70,7 +70,7 @@ Chose from the following options:
 - **LAND in Genesis City**: This is the main open world in Decentraland, which is split up in 16x16 meter parcels. Buy one or several adjacent parcels in the [Marketplace](https://decentraland.org/marketplace/lands), and deploy your scene there.
 - **Decentraland Worlds**: [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) are your own spaces in the metaverse. All you need is to own a [Decentraland name](https://decentraland.org/marketplace/names/claim), and you can publish a scene as big as you want!
 
-<!-- TODO: more info here -->
+See [Kinds of projects]({{< ref "/content/creator/sdk7/projects/kinds-of-projects.md" >}}) to better understand the different options.
 
 See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) for details and special options when publishing a scene, to either Genesis City or Worlds.
 
