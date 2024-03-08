@@ -12,7 +12,7 @@ aliases:
 weight: 2
 ---
 
-Creative possibilities in Decentraland:
+All creators are welcome! In Decentraland you have a wide range of Creative possibilities:
 
 - Scenes
 - Wearables & Smart Wearables
