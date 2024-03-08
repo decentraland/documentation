@@ -57,7 +57,7 @@ See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for t
 
 To make your scene interactive:
 
-- Use the editor's UI to drop [Smart items] into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
+- Use the Editor's UI to drop [Smart Items]({{< ref "/content/creator/sdk7/web-editor/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
 - Use the SDK to write code and do anything you can imagine. Learn to use the SDK:
   - [Quick start]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}): follow this mini tutorial for a quick crash course.
   - [Development workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}): read this to understand scene creation from end to end.
