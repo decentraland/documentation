@@ -68,7 +68,7 @@ To make your scene interactive:
 Chose from the following options:
 
 - **LAND in Genesis City**: This is the main open world in Decentraland, which is split up in 16x16 meter parcels. Buy one or several adjacent parcels in the [Marketplace](https://decentraland.org/marketplace/lands), and deploy your scene there.
-- **Decentraland Worlds**: Worlds are your own spaces in the metaverse. All you need is to own a [Decentraland name](https://decentraland.org/marketplace/names/claim), and you can publish a scene as big as you want!
+- **Decentraland Worlds**: [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) are your own spaces in the metaverse. All you need is to own a [Decentraland name](https://decentraland.org/marketplace/names/claim), and you can publish a scene as big as you want!
 
 <!-- TODO: more info here -->
 
