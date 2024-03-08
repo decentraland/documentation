@@ -28,11 +28,13 @@ All creators are welcome! In Decentraland you have a wide range of Creative poss
 
 [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
 
-<img src="/images/intro/web-editor.png" width="600" />
+  <img src="/images/intro/web-editor.png" width="600" />
 
 **Desktop Editor:** An all-in-one content creation tool. For users of any knowledge level, combining a graphical interface with code editing capabilities.
 
 [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+
+  <img src="/images/intro/desktop-editor.png" width="600" />
 
 {{< hint warning >}}
 **📔 Note**: There are also community-built tools for creating Decentraland scenes:
@@ -66,9 +68,12 @@ To make your scene interactive:
   <img src="/images/intro/smart-items.png" width="600" />
 
 - Use the SDK to write code and do anything you can imagine. Learn to use the SDK:
+
   - [Quick start]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}): follow this mini tutorial for a quick crash course.
   - [Development workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}): read this to understand scene creation from end to end.
   - [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7): dive right into working example scenes.
+
+  <img src="/images/intro/sdk-code.png" width="600" />
 
 ### Publishing your scene
 
@@ -77,7 +82,7 @@ Chose from the following options:
 - **LAND in Genesis City**: This is the main open world in Decentraland, which is split up in 16x16 meter parcels. Buy one or several adjacent parcels in the [Marketplace](https://decentraland.org/marketplace/lands), and deploy your scene there.
 - **Decentraland Worlds**: [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) are your own spaces in the metaverse. All you need is to own a [Decentraland name](https://decentraland.org/marketplace/names/claim), and you can publish a scene as big as you want!
 
-See [Kinds of projects]({{< ref "/content/creator/sdk7/projects/kinds-of-projects.md" >}}) to better understand the different options.
+See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
 
 See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) for details and special options when publishing a scene, to either Genesis City or Worlds.
 
