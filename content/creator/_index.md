@@ -28,6 +28,8 @@ All creators are welcome! In Decentraland you have a wide range of Creative poss
 
 [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
 
+<img src="/images/intro/web-editor.png" width="600" />
+
 **Desktop Editor:** An all-in-one content creation tool. For users of any knowledge level, combining a graphical interface with code editing capabilities.
 
 [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
@@ -45,7 +47,10 @@ All creators are welcome! In Decentraland you have a wide range of Creative poss
 Decentraland scenes are made up of 3D models.
 
 - Chose from the wide catalog of default assets in The Decentraland Editor. These are ready to go and optimized for using in Decentraland
+  <img src="/images/intro/items.png" width="600" />
+
 - Craft your own 3D models using Blender or your preferred 3D tools. Then import them into the Decentraland Editor.
+  <img src="/images/intro/blender.png" width="600" />
 
 {{< hint warning >}}
 **📔 Note**: Content in Decentraland should stay within certain [size limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) to ensure your scene runs smoothly.
@@ -58,6 +63,8 @@ See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for t
 To make your scene interactive:
 
 - Use the Editor's UI to drop [Smart Items]({{< ref "/content/creator/sdk7/web-editor/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
+  <img src="/images/intro/smart-items.png" width="600" />
+
 - Use the SDK to write code and do anything you can imagine. Learn to use the SDK:
   - [Quick start]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}): follow this mini tutorial for a quick crash course.
   - [Development workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}): read this to understand scene creation from end to end.
