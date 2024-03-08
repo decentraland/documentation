@@ -14,11 +14,11 @@ weight: 2
 
 All creators are welcome! In Decentraland you have a wide range of Creative possibilities:
 
-- Scenes
-- Wearables & Smart Wearables
-- Emotes
+- [Scenes](#scenes)
+- [Wearables & Smart Wearables](#wearables)
+- [Emotes](#emotes)
 
-## Scenes
+# Scenes
 
 3D content in Decentraland is made up of scenes, each scene occupies a finite amount of space and is displayed one next to the other for players to freely walk through them.
 
@@ -49,9 +49,11 @@ All creators are welcome! In Decentraland you have a wide range of Creative poss
 Decentraland scenes are made up of 3D models.
 
 - Chose from the wide catalog of default assets in The Decentraland Editor. These are ready to go and optimized for using in Decentraland
+
   <img src="/images/intro/items.png" width="600" />
 
 - Craft your own 3D models using Blender or your preferred 3D tools. Then import them into the Decentraland Editor.
+
   <img src="/images/intro/blender.png" width="600" />
 
 {{< hint warning >}}
@@ -86,7 +88,7 @@ See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.
 
 See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) for details and special options when publishing a scene, to either Genesis City or Worlds.
 
-## Wearables
+# Wearables
 
 Wearables are items of clothing that player avatars can wear. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?section=wearables&vendor=decentraland&page=1&sortBy=newest&status=on_sale).
 
@@ -94,7 +96,7 @@ Learn everything about [Creating wearables]({{< ref "/content/creator/wearables-
 
 You can also combine a wearable with code from the SDK to create a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). This turns on a portable interactive experience whenever the player puts on the wearable, and can be used in all sorts of creative ways.
 
-## Emotes
+# Emotes
 
 Emotes are animations that a player's avatar can do. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?assetType=item&section=emotes&vendor=decentraland&page=1&sortBy=newest&status=on_sale).
 
