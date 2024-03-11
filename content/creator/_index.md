@@ -24,6 +24,8 @@ All creators are welcome! In Decentraland you have a wide range of Creative poss
 
 ### Tools
 
+Use these tools to create Decentraland scenes:
+
 - **Web Editor:** A lightweight tool, with no installation. Use an easy drag and drop interface to create scenes.
 
   [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
@@ -67,6 +69,7 @@ See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for t
 To make your scene interactive:
 
 - Use the UI of either the the Web Editor or the Desktop Editor to drop [Smart Items]({{< ref "/content/creator/sdk7/web-editor/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
+
   <img src="/images/intro/smart-items.png" width="600" />
 
 - For developers that want to incorporate custom logic, use the SDK in the Desktop Editor to write code and do anything you can imagine. Learn to use the SDK:
@@ -75,7 +78,7 @@ To make your scene interactive:
   - [Development workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}): read this to understand scene creation from end to end.
   - [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7): dive right into working example scenes.
 
-  <img src="/images/intro/sdk-code.png" width="600" />
+    <img src="/images/intro/sdk-code.png" width="600" />
 
 ### Publishing your scene
 
