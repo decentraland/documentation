@@ -24,15 +24,15 @@ All creators are welcome! In Decentraland you have a wide range of Creative poss
 
 ### Tools
 
-**Web Editor:** A lightweight tool, with no installation. Use an easy drag and drop interface to create scenes.
+- **Web Editor:** A lightweight tool, with no installation. Use an easy drag and drop interface to create scenes.
 
-[Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+  [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
 
   <img src="/images/intro/web-editor.png" width="600" />
 
-**Desktop Editor:** An all-in-one content creation tool. For users of any knowledge level, combining a graphical interface with code editing capabilities.
+- **Desktop Editor:** An all-in-one content creation tool. For users of any knowledge level, combining a graphical interface with code editing capabilities.
 
-[Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+  [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
   <img src="/images/intro/desktop-editor.png" width="600" />
 
@@ -48,11 +48,11 @@ All creators are welcome! In Decentraland you have a wide range of Creative poss
 
 Decentraland scenes are made up of 3D models.
 
-- Chose from the wide catalog of default assets in The Decentraland Editor. These are ready to go and optimized for using in Decentraland
+- Chose from the wide catalog of default assets in both the Web Editor and the Desktop Editor. These are ready to go and optimized for using in Decentraland
 
   <img src="/images/intro/items.png" width="600" />
 
-- Craft your own 3D models using Blender or your preferred 3D tools. Then import them into the Decentraland Editor.
+- Craft your own 3D models using Blender or your preferred 3D tools. Then import them into either the the Web Editor or the Desktop Editor.
 
   <img src="/images/intro/blender.png" width="600" />
 
@@ -66,10 +66,10 @@ See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for t
 
 To make your scene interactive:
 
-- Use the Editor's UI to drop [Smart Items]({{< ref "/content/creator/sdk7/web-editor/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
+- Use the UI of either the the Web Editor or the Desktop Editor to drop [Smart Items]({{< ref "/content/creator/sdk7/web-editor/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
   <img src="/images/intro/smart-items.png" width="600" />
 
-- Use the SDK to write code and do anything you can imagine. Learn to use the SDK:
+- For developers that want to incorporate custom logic, use the SDK in the Desktop Editor to write code and do anything you can imagine. Learn to use the SDK:
 
   - [Quick start]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}): follow this mini tutorial for a quick crash course.
   - [Development workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}): read this to understand scene creation from end to end.
@@ -79,7 +79,7 @@ To make your scene interactive:
 
 ### Publishing your scene
 
-Chose from the following options:
+In both the the Web Editor and the Desktop Editor you can chose from the following options:
 
 - **LAND in Genesis City**: This is the main open world in Decentraland, which is split up in 16x16 meter parcels. Buy one or several adjacent parcels in the [Marketplace](https://decentraland.org/marketplace/lands), and deploy your scene there.
 - **Decentraland Worlds**: [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) are your own spaces in the metaverse. All you need is to own a [Decentraland name](https://decentraland.org/marketplace/names/claim), and you can publish a scene as big as you want!
@@ -94,7 +94,7 @@ Wearables are items of clothing that player avatars can wear. These are sold as 
 
 Learn everything about [Creating wearables]({{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >}}).
 
-You can also combine a wearable with code from the SDK to create a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). This turns on a portable interactive experience whenever the player puts on the wearable, and can be used in all sorts of creative ways.
+You can also combine a wearable with code from the SDK to create a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). This turns on a global scene whenever the player puts on the wearable, and can be used in all sorts of creative ways. See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
 
 # Emotes
 
