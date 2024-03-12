@@ -149,5 +149,5 @@ Scenes created with the Builder in SDK6 can be easily migrated to SDK7 using the
 
 {{< hint danger >}}
 **❗Warning**  
-If the migrated scene contains smart items, these will be removed from the scene. Smart items are not seamlessly migrated.  
+If the migrated scene contains [Smart items]({{< ref "/content/creator/sdk7/web-editor/smart-items.md" >}}), these will be removed from the scene. Smart items are not seamlessly migrated.  
 {{< /hint >}}
