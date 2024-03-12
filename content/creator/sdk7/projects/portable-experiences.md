@@ -20,7 +20,7 @@ Smart Wearables are a kind of portable experience that is associated to a wearab
 
 ## Getting started
 
-### Using the Editor
+#### Using the Editor
 
 Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}), then:
 
@@ -33,7 +33,7 @@ This command creates the basic files and structure for a new portable experience
 
 - `scene.json` is a lot shorter, it doesn’t include properties that are irrelevant to a portable experience, like parcels or spawn points.
 
-### Using the CLI
+#### Using the CLI
 
 1. Open a command line in a new folder and run
 
@@ -63,11 +63,13 @@ To specify under what **name** to make your deployment, add the following sectio
 **📔 Note**: Each NAME references a single portable experience or world. If your name already pointed to a world, deploying a portable experience will override that content.
 {{< /hint >}}
 
-### Using the Editor
+Make sure you're either using the Ethereum account that owns this name, or an account that has been given permissions to deploy to this name.
+
+#### Using the Editor
 
 Open the Decentraland tab and click the three-dots icon at the top, and select **Publish scene to your world**.
 
-### Using the CLI
+#### Using the CLI
 
 Run:
 
@@ -76,6 +78,12 @@ npm run deploy --target-content https://worlds-content-server.decentraland.org
 ```
 
 ## Lifecycle of a portable experience in a scene
+
+Portable expereinces need to be activated by a scene, either in Genesis City or a world. 
+
+1) The player visits the scene that activates the portable experience. The scene can spawn the portable experience right away or use custom logic to do it after the player does an action.
+2) The player is prompted about the portable experience, including details about the requested permissions. The portable experience is only activated if the player gives conscent.
+3) The player will now carry the portable experience with them wherever they go for the rest of the session, including teleporting or jumping to worlds. If the player reloads the browser window, it will be gone.
 
 To spawn a portable experience from your scene, use the `spawn()` function. To terminate a portable experience, use `kill()`. In both cases, you just need yo know the DCL name where the Portable experience was deployed.
 
@@ -129,6 +137,11 @@ An alternative to terminating portable experiences is to change the behavior of 
 To prevent abuse, certain features aren't permitted on portable experiences by default, and require adding a permission flag.
 
 See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
+
+{{< hint warning >}}
+**📔 Note**: Players are notified about the required flags by the portable experience. Avoid adding permissions you don't need, since it can make players distrust your portable experience and reject it.
+{{< /hint >}}
+
 
 ## Limitations
 
