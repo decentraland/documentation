@@ -158,16 +158,17 @@ Funds for grants are made available to the beneficiary address via vesting contr
 
 The DAO has an income of 1.8M MANA every month and it has set up a limit control to not spend more than 70% of such a stream. This mitigates the risk of running out of funds, securing the long-standing operations of the DAO. The Decentraland Grants Program is divided into four periods (Q1, Q2, Q3, Q4), effective since January 1st, 2023. At the beginning of each quarter the maximum amount of money that can be allocated through the Grants Program is defined using the formula: 5,500,000 * MANA_PRICE * 0.7. This means the DAO at maximum capacity will be spending 70% of the MANA received from the vesting contract.
 
-The DAO agreed on a [governance proposal](https://governance.decentraland.org/proposal/?id=bfab7b70-7b75-11ed-ad27-015f26e7c35c) on limits for each category of grants. The DAO refreshes and recalculates the category budgets using the MANA price at the beginning of each quarter. When a category reaches its budget, No more grant requests will be accepted for that category.
+The DAO agreed on a [governance proposal](https://decentraland.org/governance/proposal/?id=e0fd0b17-a304-4c57-8897-4a830280d74c) on limits for each category of grants. The DAO refreshes and recalculates the category budgets using the MANA price at the beginning of each quarter. When a category reaches its budget, No more grant requests will be accepted for that category.
 
- The [allocation per category](https://github.com/Decentraland-DAO/transparency/blob/main/src/budgets.json) is the following:
+ The [allocation per category](https://github.com/Decentraland-DAO/transparency/blob/main/src/budgets.json) is the following starting on Q2 2024 (April):
 
 * Platform 50% 
 * In-World Building 15% 
-* Core Units 15% 
-* Sponsorship 10% 
-* Accelerator 7% 
-* Social Media Content 5% 
-* Documentation 3% 
+* Core Unit 15% 
+* Community Experiences 10% 
+* Sponsorship 2% 
+* Accelerator 2% 
+* Social Media Content 4% 
+* Documentation 2% 
 
 
