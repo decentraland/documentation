@@ -13,7 +13,7 @@ There are different types of content that you can make for Decentraland.
 
 <img src="/images/content-types.png" width="600" />
 
-## Scenes
+## Scenes
 
 Decentraland scenes can either be hosted in Parcels in Genesis City or in Worlds.
 
@@ -45,7 +45,7 @@ Worlds offer a few options to customize the scene sky box, which aren't availabl
 
 Global scenes can transform the already existing landscape of Decentraland, adding layers of interactivity and gameplay. These are scenes that are not constrained to only run on certain parcels of LAND or certain Worlds. Players carry them with them wherever they go.
 
-### Portable Experience
+### Portable Experience
 
 A portable experience is linked to a NAME token. NAME tokens can be bought in the [Marketplace](https://decentraland.org/marketplace/names/claim). You can claim any name you want as long as it's not claimed yet.
 
@@ -57,7 +57,7 @@ Portable experiences can be activated as part of the interactive code of a scene
 
 Players are prompted asking if they want to run this portable experience, and if they do they'll carry it with them wherever they go for the rest of their session. [Learn more]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}).
 
-### Smart Wearables
+### Smart Wearables
 
 Smart wearables are linked to Wearable tokens. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?section=wearables&vendor=decentraland&page=1&sortBy=newest&status=on_sale).
 
