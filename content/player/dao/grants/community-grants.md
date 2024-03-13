@@ -26,7 +26,7 @@ Grants can be requested by completing a proposal form within the [DAO](https://g
 
 ## Grant categories and requirements
 
-Grant requests can fall under one of seven broad categories: **Core Unit, Platform, Documentation, In-world Content, Social Media Content, Sponsorship, and Accelerator.** These categories represent areas of Decentraland that benefit most from community contributions.
+Grant requests can fall under one of eight broad categories: **Core Unit, Platform, Documentation, In-world Building, Community Experiences, Social Media Content, Sponsorship, and Accelerator.** These categories represent areas of Decentraland that benefit most from community contributions.
 
 Every active grant must:
 * Comply with Decentraland’s [Content Policy](https://decentraland.org/content),  [Terms of Use](https://decentraland.org/terms), and [Code of Ethics](https://decentraland.org/ethics).
@@ -79,8 +79,8 @@ Documentation grantees focus on the creation of free educational content about h
 * The number of contributions to Decentraland Documentation
 * The number of contributions to the Awesome Repository.
 
-### 4- In-World Content 
-In-World Content granteesdevelop attractive experiences in Decentraland that generate retention of users. The experiences can take the form of scenes, games, and events, in any case, consumed by players through the reference client.
+### 4- In-World Building 
+In-World Content grantees develop attractive experiences in Decentraland that generate retention of users. The experiences can take the form of scenes, games, and events, in any case, consumed by players through the reference client.
 
 **Requirements:**
 
@@ -91,7 +91,22 @@ In-World Content granteesdevelop attractive experiences in Decentraland that gen
 * Newley populated land, Active Users, Returning Users, Time on Scene.
 * Events created and number of attendees to the event.
 	
-### 5- Social Media Content  
+### 5- Community Experiences  
+Aims to bring people together in-world to generate community engagement. This can include creating wearables and emotes, or organizing events to gather with others and ignite fun community interactions. A proven track record of organizing and facilitating community events, initiatives, or educational programs is highly valuable.
+
+**Requirements:**
+
+* Define how your project will contribute to community building in the Decentraland Ecosystem.
+* Development of attractive experiences in Decentraland that generate retention of users in the form of events, exchanges of wearables, emotes or other interactions consumed by players in-world.
+* The proposal should include how you will collaborate with other community builders, Core Units, or projects to foster cross-community partnerships.
+* The proposal should include the development of resources, tutorials, or guides that help explore the Decentraland Metaverse or onboarding new community members for these experiences.
+
+**Performance metrics:**
+
+* Number of community members engaged or impacted through Community Experiences initiatives. This can be measured by event attendees, wearables minted, or other pertinent metrics based on the specific proposal.
+* Feedback and testimonials from community members regarding the value and impact of the proposal’s contributions. This can be shown in the monthly updates of the grant as quotes from users who come to the community building experiences or other stakeholders. - Growth and activity metrics of the community platforms, scenes in-world forums, or social media groups facilitated by these Community Builders.
+
+* ### 6- Social Media Content  
 Grantees from this category produce content on social media platforms such as Twitch, Twitter, Youtube, Tik Tok, and Discord. The grant aims to reach new users and keep them engaged.
 
 **Requirements:**
@@ -105,7 +120,7 @@ Grantees from this category produce content on social media platforms such as Tw
 * Engagement metrics (likes, retweets, reach, retention)
 * Mentions in other media outlets.
 	
-### 6- Sponsorship    
+### 7- Sponsorship    
 Grantees applying to this category hold conferences, side events, community meetups, hackathons, and contest prices that target audiences relevant to Decentraland.
 
 **Requirements:**
@@ -119,7 +134,7 @@ Grantees applying to this category hold conferences, side events, community meet
 * Evidence of the project execution (photos, videos, publications).
 * Mentions in media outlets.
 	
-### 7- Accelerator  
+### 8- Accelerator  
 A private company or revenue-generating initiative looking forward to receiving an investment from the DAO.
 
 **Requirements:**
