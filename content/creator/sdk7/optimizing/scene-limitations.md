@@ -31,7 +31,7 @@ Below are the maximum number of elements that a scene is allowed to render at th
 
   > Important: Only entities that are currently being rendered in the scene are counted for these limits. If your scene switches between 3D models, what matters is the rendered models at any point in time, not the total sum. Player avatars and any items brought by a player from outside the scene don't count for calculating these limits either.
 
-- **File size:**  In Genesis City -`15 MB per parcel - 300 MB max`. In a World - `100 MB`. Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages. You can see the full list of files being published and their sizes before you confirm a deployment.
+- **File size:** In Genesis City -`15 MB per parcel - 300 MB max`. For Worlds, see [World size](#world-size). Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages. You can see the full list of files being published and their sizes before you confirm a deployment.
 
 - **File count:** `200 files per parcel` Total count of the files uploaded. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages.
 
@@ -41,8 +41,6 @@ Below are the maximum number of elements that a scene is allowed to render at th
 
 See [Performance Optimization]({{< ref "/content/creator/sdk7/optimizing/performance-optimization.md" >}}) for tips about how you can keep your scene below these limits and make it run smoother for players.
 
-
-
 ## Scene boundaries
 
 When running a preview, any content that is located outside the parcel boundaries is highlighted in red when rendered. If any content is outside these boundaries, you won't be allowed to deploy this scene to Decentraland.
@@ -51,7 +49,7 @@ If the tip of a large object leaves the boundaries, this object is considered ou
 
 A single parcel scene measures 16 meters x 16 meters. If the scene has multiple parcels, the dimensions vary depending on the arrangement of the parcels.
 
-It's possible to position entities underground, to either hide them or to have only a portion of them emerge. A scene can't have tunnels that go below the default ground height, players can't travel below the `y = 0` height. 
+It's possible to position entities underground, to either hide them or to have only a portion of them emerge. A scene can't have tunnels that go below the default ground height, players can't travel below the `y = 0` height.
 
 ## Shader limitations
 
@@ -85,17 +83,20 @@ Examples of other valid sizes:
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Although textures of arbitrary sizes sometimes work, they are also often rendered with bugs and are more unstable. We strongly advise that all your textures match these sizes.
+**📔 Note**: Although textures of arbitrary sizes sometimes work, they are also often rendered with bugs and are more unstable. We strongly advise that all your textures match these sizes.
 {{< /hint >}}
 
-
-## Worlds
+## World Size
 
 Decentraland [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) have different limitations, since they are loaded as single scenes.
 
-- **File size:**  `100 MB`. Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages. You can see the full list of files being published and their sizes before you confirm a deployment.
+- Worlds published to Decentraland NAMEs have at least `100 MB`. That number can be increased by owning additional NAMEs, LAND and MANA on that same account account.
 
-- **Max file size** `50 MB per file` No individual file of any type in the scene can exceed 50 MB, no matter how many parcels the scene has.
+- Worlds published to ENS domains have a limit of `25MB` that cannot be expanded.
 
-All other limits are per parcel, including triangles, materials, etc.
+See [Worlds Size Limit]({{< ref "/content/creator/worlds/about.md#worlds-size-limit" >}}) for more details.
+
+Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages. You can see the full list of files being published and their sizes before you confirm a deployment.
+
+All other limits in worlds are per parcel, including triangles, materials, etc.
 Since adding more parcels to a world is free, you can add up to 45x45 parcels to your scene, and have the corresponding limits to that parcel count.
