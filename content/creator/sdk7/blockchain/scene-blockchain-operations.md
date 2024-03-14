@@ -22,7 +22,7 @@ When running a preview of a scene that uses one of the ethereum libraries, you m
 If using the CLI, run the preview with:
 
 ```
-npm run start --web3
+npm run start -- --web3
 ```
 
 <!--

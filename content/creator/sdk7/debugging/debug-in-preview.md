@@ -184,7 +184,7 @@ In the Decentraland Editor, open the Decentraland tab and hover your mouse over 
 With the CLI, you can start the preview with:
 
 ```
-npm run start --web3
+npm run start -- --web3
 ```
 
 Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL in the browser window.
