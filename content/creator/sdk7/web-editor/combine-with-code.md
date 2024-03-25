@@ -9,7 +9,7 @@ url: /creator/editor-plus-code
 weight: 5
 ---
 
-The Decentraland Editor plus custom code is a very powerful combination for creating content. You can use the visual editor to position items intuitively, and then write code that interacts with these items with complete freedom. You can even place a smart item, that has its own default behavior, and write code that reacts to when the item is activated.
+The Decentraland Editor plus custom code is a very powerful combination for creating content. You can use the Visual Editor to position items intuitively, and then write code that interacts with these items with complete freedom. You can even place a smart item, that has its own default behavior, and write code that reacts to when the item is activated.
 
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
@@ -30,11 +30,11 @@ To edit the code in a scene created with the [web editor]({{< ref "/content/crea
 2. This will download a _.zip_ file, extract it.
 3. Open the extracted folder with Visual Studio Code. The folder must be open at the root of the project.
 
-Once you're done, you can edit the files under the `/src` folder to add behavior with code to your scene. You can also open the **Inspector** to keep editing items visually, just like in the web editor.
+Once you're done, you can edit the files under the `/src` folder to add behavior with code to your scene. You can also open the **Visual Editor** to keep editing items visually, just like in the web editor.
 
 ## Reference an item
 
-When using the Decentraland Editor and adding entities via the drag-and-drop inspector, each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the inspector's UI, in the tree view on the left.
+When using the Decentraland Editor and adding entities via the drag-and-drop Visual Editor, each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the Visual Editor's UI, in the tree view on the left.
 
 ```ts
 function main() {
@@ -45,7 +45,7 @@ function main() {
 <img src="/images/editor/check-name.png" width="600" />
 
 {{< hint warning >}}
-**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the Editor´s inspector may not yet be instanced.
+**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the Visual Editor may not yet be instanced.
 {{< /hint >}}
 
 You're free to perform any action on an entity fetched via this method, like add or remove components, modify values of existing components, or remove the entity from the engine.
@@ -70,7 +70,7 @@ function main() {
 }
 ```
 
-All the entities added via the inspector have a `Name` component, you can also iterate over all of them like this:
+All the entities added via the Visual Editor have a `Name` component, you can also iterate over all of them like this:
 
 ```ts
 function main() {
@@ -150,6 +150,5 @@ function main() {
 ```
 
 {{< hint info >}}
-**💡 Tip**:  If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/sdk7/web-editor/smart-items.md#making-any-item-smart" >}})
+**💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/sdk7/web-editor/smart-items.md#making-any-item-smart" >}})
 {{< /hint >}}
-
