@@ -43,7 +43,8 @@ Use these tools to create Decentraland scenes:
 
 - [**DCL Edit**](https://dcl-edit.com/): Drag and drop 3d models into your scene. You can then work on adding interactivity to the resulting scene using the SDK.
 - [**Unity Exporter Toolkit**](https://github.com/PolygonalMind/dcl-dev-exportersdk7-release): Build in Unity, with a number of pre-built interactive modules. Export a fully-working Decentraland scene.
-- [**Virtual Land Manager**](https://vlm.gg/): Metaverse Content Management & Analytics. Control various aspects of your scene in real time with the ability to develop your own highly customized controls. View historical graphs of user activity, track your own custom user interactions, export a list of names and wallet addresses currently in your scene, and more.
+- [**Virtual Land Manager**](https://vlm.gg/): Control various aspects of your scene in real time, including highly customized controls. Includes analytics: View historical user activity, track custom interactions, export lists of players in scene, and more.
+- [**In-World Builder**](https://decentraland.org/play/?realm=https%3A%2F%2Fworlds.dcl-iwb.co%2Fworld%2FBuilderWorld.dcl.eth): Create a scene without leaving the Decentraland explorer. Use various default items or upload your own, without needing to deploy or own land.
 
 {{< /hint >}}
 
