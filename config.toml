@@ -96,7 +96,7 @@ enableGitInfo = true
 
   # Intercom App ID
   IntercomAppId = ''
-  images = ['images/logo.svg']
+  images = ['images/og-logo.png']
   [params.social]
     twitter = 'decentraland'
 
