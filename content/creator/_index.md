@@ -9,7 +9,7 @@ url: /creator
 aliases:
   - /content-intro/
   - /development-guide/content-intro/
-weight: 2
+weight: 1
 ---
 
 All creators are welcome! In Decentraland you have a wide range of Creative possibilities:
