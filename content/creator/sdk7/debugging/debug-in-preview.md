@@ -32,7 +32,13 @@ Output messages to console (using `console.log()`). You can then view these mess
 
 You can also add `debugger` commands or use the `sources` tab in the developer tools menu to add breakpoints and pause execution while you interact with the scene in real time.
 
-Once you deploy the scene, you won't be able to see the messages printed to console when you visit the scene in-world. If you need to check these messages on the deployed scene, you can turn the scene's console messages back on adding the following parameter to the URL: `DEBUG_SCENE_LOG`.
+When in preview, the console doesn't display messages from the engine. These are often not relevant to your scene, but if you need to see them add the following parameter to the URL:
+
+`&DEBUG_LOGS`
+
+Once you deploy the scene, you won't be able to see the messages printed to console when you visit the scene in-world. If you need to check these messages on the deployed scene, you can turn the scene's console messages back on adding the following parameter to the URL:
+
+`DEBUG_SCENE_LOG`.
 
 ## Add breakpoints in the Decentraland Editor
 

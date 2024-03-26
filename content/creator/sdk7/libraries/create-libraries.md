@@ -13,7 +13,7 @@ Libraries are a great way to share solutions to common problems. Complex challen
 
 Currently, these libraries in the [Examples page](https://studios.decentraland.org/resources?sdk_version=SDK7&resource_type=Library) are available for all to use. We encourage you to create and share your own as well.
 
-By using the CLI and following the steps detailed here, you can avoid most of the complexity that comes with creating a library that is compatible with Decentraland scenes and is easy to share with others.
+By following the steps detailed here, you can avoid most of the complexity that comes with creating a library that is compatible with Decentraland scenes and is easy to share with others.
 
 ## Create a library
 
@@ -23,19 +23,22 @@ By using the CLI and following the steps detailed here, you can avoid most of th
 
 To create your own library and share it via NPM, do the following:
 
-1. In an empty folder, run `npx @dcl/sdk-commands init`, then select the option `Library`.
+1. Create a new empty folder, and open a new VS Studio Code window there.
+
+2. Select the Decentraland tab on Visual Studio's left margin sidebar
+3. Click **Create Project**, then select **Library**
 
    This will create all of the default files and dependencies for a Decentraland library.
 
-2. Set a unique `name` in `package.json`. This is the name that will be used when publishing to NPM, make sure there isn't some other existing project using that name on npm. Also fill in the description and any tags to help others find your library.
+4. Set a unique `name` in `package.json`. This is the name that will be used when publishing to NPM, make sure there isn't some other existing project using that name on npm. Also fill in the description and any tags to help others find your library.
 
-3. Create a new _public_ GitHub repository for your project.
+5. Create a new _public_ GitHub repository for your project.
 
    The project is configured to use github actions to publish a new version of the package on every push to `main`.
 
    In the `package.json` file, make sure that in `repository` you point the `url` field to your repo's URL. That way it's easy to find for users navigating [npmjs.com](https://www.npmjs.com).
 
-4. Get an NPM token:
+6. Get an NPM token:
 
    1. Create an account or log in to https://www.npmjs.com/.
    2. Go to **Account > Access Tokens > Generate new Token**
@@ -43,15 +46,15 @@ To create your own library and share it via NPM, do the following:
 
       The success message includes a string for the newly generated token. Copy this string and store it somewhere safe.
 
-5. In your github repository, go to **Settings > Secrets > Actions**, then click **New Repository Secret**.
+7. In your github repository, go to **Settings > Secrets > Actions**, then click **New Repository Secret**.
 
    Name your secret **NPM_TOKEN**, and paste the string from the NPM token as its value.
 
-6. Push a change (any change) to the main branch of your GitHub repo and the package will be published.
+8. Push a change (any change) to the main branch of your GitHub repo and the package will be published.
 
    That's it, now the package can be installed by anyone using `npm i <package-name>`! You can now find your library if you search for it by name in [npmjs.com](https://www.npmjs.com).
 
-7. Flesh out the `/src` folder of your project with all the functionality you want to expose and push changes to GitHub.
+9. Flesh out the `/src` folder of your project with all the functionality you want to expose and push changes to GitHub.
 
 ## Develop
 

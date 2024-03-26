@@ -26,9 +26,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 3. Click the **Run Scene** button.
 
-   This opens a new tab in Visual Studio Code, running the Decentraland scene, just like in a web browser tab.
-
-Optionally click **Open in browser**, over the top margin of the tab to run the preview in a web browser window.
+   This opens a browser tab running the Decentraland scene.
 
 ## Using the CLI
 

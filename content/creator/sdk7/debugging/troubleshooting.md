@@ -42,7 +42,7 @@ Ideally, the loading of the code in your scene should follow a clear sequential 
 
 To fix these dependencies, you often must resort to calling functions or object constructors passing references to already instanced entities/objects in the function arguments; Instead of hard-coding references to these entities/objects in the function, which may or may not already be instanced.
 
-## Issues when running the Editor Inspector
+## Issues when running the Visual Editor
 
 ### Issue: The editor never finishes loading the scene, it may say something like "Can't connect to server".
 

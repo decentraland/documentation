@@ -113,8 +113,7 @@ If you wish to opt-out from your Worlds being indexed in Places, you can add the
 1. Open VSCode in a Decentraland scene project.
 2. Click on the Decentraland icon on the left sidebar.
 3. Click on the three-dot menu at the top right of the sidebar, next to the green reload arrow button, select **Publish Scene To Your World**
-4. Approve the transaction
-   - If you need to use Metamask on the browser, click **Open in Browser** to open this same window on a browser tab. Then approve the transaction on the Metamask browser extension.
+4. Approve the transaction.
 
 ### 4. Publish via the CLI
 
