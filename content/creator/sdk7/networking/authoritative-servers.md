@@ -37,6 +37,10 @@ API + DB:
 - [Guestbook](https://github.com/decentraland/sdk7-goerli-plaza/tree/main/guest-book-api)
 - [Validate authenticity](https://github.com/decentraland/sdk7-goerli-plaza/tree/main/validate-player-authenticity)
 
+{{< hint info >}}
+**💡 Tip**: To avoid downloading the entire repo, with dozens of scenes, and just copy one project, see [Scene from example]({{< ref "/content/creator/sdk7/getting-started/scene-from-example.md" >}}).
+{{< /hint >}}
+
 ## Preview scenes with dedicated servers
 
 To preview a scene that uses a 3rd party server, you must run both the scene and the server it relies on. The server can be run locally in the same machine as the preview, as an easier way to test it.

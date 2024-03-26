@@ -15,7 +15,7 @@ See [Files in a scene]({{< ref "/content/creator/sdk7/projects/scene-files.md" >
 
 ## Metadata
 
-To edit a scene's metadata from the Decentraland Editor, open the Inspector, and click the **pencil icon**.
+To edit a scene's metadata from a UI, open Visual Editor, and click the **pencil icon**.
 
 <img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
 
@@ -47,9 +47,7 @@ The image on `navmapThumbnail` should be a path to an image file in the project 
 
 In case you want other developers to be able to reach out to you, you can also add contact information to your scene.
 
-
 ## Categories
-
 
 You can add categories to your scene to help players and users explore Decentraland better. These are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're interested in.
 

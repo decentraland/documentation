@@ -28,7 +28,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 
 1. Open a command line in a new folder and run
 
-`npx sdk-commands init --project smart-wearable`
+`npx @dcl/sdk-commands init --project smart-wearable`
 
 This command creates the basic files and structure for a new smart wearable.
 
