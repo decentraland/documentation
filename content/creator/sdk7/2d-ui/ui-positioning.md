@@ -143,9 +143,7 @@ By default, child entities are positioned in relation to the top-left corner of 
 
   - `hidden`: Overflowing entities are made invisible.
   - `visible`: Overflowing entities break out of the margins of the parent.
-  - `scroll`: The parent becomes scrollable, allowing to view the full extent of the children by scrolling.
-
-<!-- TODO: Check that scrolling really works -->
+  <!-- - `scroll`: The parent becomes scrollable, allowing to view the full extent of the children by scrolling.-->
 
 - `flexWrap`: The flex wrap property is set on containers and controls what happens when children overflow the size of the container along the main axis. By default children are forced into a single line (which can shrink entities). If wrapping is allowed items are wrapped into multiple lines along the main axis if needed. wrap reverse behaves the same, but the order of the lines is reversed. This property takes its value from the `FlexWrapType` type.
 
