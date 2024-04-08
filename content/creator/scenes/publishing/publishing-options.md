@@ -8,8 +8,8 @@ type: Document
 url: /creator/development-guide/publishing-permissions
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/publishing/publishing-options.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/publishing/publishing-options.md" >}}).
 {{< /hint >}}
 
 To invite others to visit a scene you built, you'll need to publish it in Decentraland. To do this, you'll need to have deploy permissions to Decentraland parcels or own a Decentraland [NAME](https://builder.decentraland.org/names) in order to deploy to a Decentraland World.

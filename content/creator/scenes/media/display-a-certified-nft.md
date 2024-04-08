@@ -13,8 +13,8 @@ url: /creator/development-guide/display-a-certified-nft
 weight: 3
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/media/display-a-certified-nft.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/media/display-a-certified-nft.md" >}}).
 {{< /hint >}}
 
 You can display a 2D NFT (Non-Fungible Token) that you own in your Decentraland scenes.

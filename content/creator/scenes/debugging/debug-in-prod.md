@@ -11,8 +11,8 @@ url: /creator/development-guide/debug-in-prod
 weight: 2
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/debugging/debug-in-prod.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/debugging/debug-in-prod.md" >}}).
 {{< /hint >}}
 
 When running a scene that's already deployed to land in Decentraland, there are a number of things you can try out to debug it.

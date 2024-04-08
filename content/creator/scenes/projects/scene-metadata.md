@@ -11,8 +11,8 @@ url: /creator/development-guide/scene-metadata
 weight: 1
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}).
 {{< /hint >}}
 
 All scenes have a `scene.json` file where you can set metadata for the scene. Some fields in this file are predefined with information that's necessary for the Decentraland client.

@@ -11,8 +11,8 @@ url: /creator/development-guide/troubleshooting
 weight: 3
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/debugging/troubleshooting.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/debugging/troubleshooting.md" >}}).
 {{< /hint >}}
 
 # Issues when running preview

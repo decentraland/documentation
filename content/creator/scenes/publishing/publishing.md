@@ -14,8 +14,8 @@ type: Document
 url: /creator/development-guide/publishing
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}).
 {{< /hint >}}
 
 ## Before you begin

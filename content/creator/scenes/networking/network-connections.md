@@ -10,8 +10,8 @@ aliases:
 url: /creator/development-guide/network-connections
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/networking/network-connections.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/networking/network-connections.md" >}}).
 {{< /hint >}}
 
 Your scene can leverage external services that expose APIs, you can use this to obtain updated price data, weather data or any other kind of information exposed by an API.

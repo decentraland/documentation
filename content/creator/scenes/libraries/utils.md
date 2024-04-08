@@ -11,8 +11,8 @@ url: /creator/development-guide/utils
 weight: 2
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/libraries/libraries.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/libraries/libraries.md" >}}).
 {{< /hint >}}
 
 The **Decentraland ECS Utils** library includes a number of helpful pre-built tools that include components, methods, and systems. They offer simple solutions to common scenarios that you're likely to run into while building scenes.

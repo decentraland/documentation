@@ -11,8 +11,8 @@ url: /creator/development-guide/external-links
 weight: 6
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/external-links.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/external-links.md" >}}).
 {{< /hint >}}
 
 You can add links from your scene out to other content, either to other scenes or to external websites.

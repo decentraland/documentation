@@ -11,8 +11,8 @@ type: Document
 url: /creator/development-guide/remote-scene-considerations
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}).
 {{< /hint >}}
 
 Decentraland runs scenes locally in a player's browser. By default, players are able to see each other and interact directly, but each one interacts with the environment independently. Changes in the environment aren't shared between players by default. You need to implement this manually.

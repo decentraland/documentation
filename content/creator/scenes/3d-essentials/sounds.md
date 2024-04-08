@@ -11,8 +11,8 @@ url: /creator/development-guide/sounds
 weight: 4
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}).
 {{< /hint >}}
 
 Sound is a great way to provide feedback to player actions and events, background sounds can also give your scene more context and improve the player's immersion into it.

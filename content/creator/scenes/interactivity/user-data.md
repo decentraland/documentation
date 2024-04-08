@@ -11,8 +11,8 @@ url: /creator/development-guide/user-data
 weight: 5
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/user-data.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/user-data.md" >}}).
 {{< /hint >}}
 
 ## Track player position and rotation

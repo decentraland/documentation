@@ -13,8 +13,8 @@ url: /creator/development-guide/click-events
 weight: 1
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}).
 {{< /hint >}}
 
 Decentraland accepts events from pointer clicks, a primary button and a secondary button.

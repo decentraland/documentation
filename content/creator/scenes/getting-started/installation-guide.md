@@ -14,8 +14,8 @@ url: /creator/development-guide/installation-guide
 weight: 3
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}).
 {{< /hint >}}
 
 The Decentraland Editor is a Visual Studio extension, that allows you to build, preview and deploy Decentraland scenes.

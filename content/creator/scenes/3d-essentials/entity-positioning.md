@@ -12,8 +12,8 @@ url: /creator/development-guide/entity-positioning
 weight: 1
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md" >}}).
 {{< /hint >}}
 
 You can set the _position_, _rotation_ and _scale_ of an entity by using the `Transform` component. This can be used on any entity, which can also a primitive shape component (cube, sphere, plane, etc) or a 3D model component (`GLTFShape`).
