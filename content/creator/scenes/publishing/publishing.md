@@ -14,11 +14,15 @@ type: Document
 url: /creator/development-guide/publishing
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}).
+{{< /hint >}}
+
 ## Before you begin
 
 Make sure of the following:
 
-- Your scene complies with all of the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}). Most of these are validated each time you run a preview of your scene.
+- Your scene complies with all of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}). Most of these are validated each time you run a preview of your scene.
 
 - You have a [Metamask](https://metamask.io/) account, or another wallet that's accessible via Wallet Connect, and that your LAND parcels are owned by that account or have permissions.
 

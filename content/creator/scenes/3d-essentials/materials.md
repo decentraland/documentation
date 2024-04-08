@@ -11,6 +11,10 @@ url: /creator/development-guide/materials
 weight: 3
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}).
+{{< /hint >}}
+
 ## Materials
 
 Materials can be applied to entities that use primitive shapes (cube, sphere, plane, etc) by setting them as a component.
@@ -51,7 +55,7 @@ const myMaterial = new BasicMaterial()
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Basic materials have some property names that are different from those in normal materials. For example it uses `texture` instead of `albedoTexture`.
+**📔 Note**: Basic materials have some property names that are different from those in normal materials. For example it uses `texture` instead of `albedoTexture`.
 {{< /hint >}}
 
 ## Material colors
@@ -65,7 +69,7 @@ myMaterial.albedoColor = new Color3(0.5, 0, 0.5)
 ```
 
 {{< hint warning >}}
-**📔 Note**:  If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `new Color3(15, 0, 0)` produces a very bright red glowing color.
+**📔 Note**: If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `new Color3(15, 0, 0)` produces a very bright red glowing color.
 {{< /hint >}}
 
 You can also pick predetermined colors using the following functions of the `Color3` object:
@@ -102,7 +106,7 @@ let green = Color3.Random()
 If you prefer to specify a color using hexadecimal values, as is often done in JavaScript web development, you can do so using the `.FromHexString()` function
 
 ```ts
-let gray = Color3.FromHexString("#CCCCCCC")
+let gray = Color3.FromHexString('#CCCCCCC')
 ```
 
 The `Color3` object also includes a lot of other functions to add, substract, compare, lerp, or convert the format of colors.
@@ -131,12 +135,12 @@ const myMaterial = new Material()
 
 // This system changes the value of colorRatio every frame, and sets a new color on the material
 export class ColorSystem implements ISystem {
-  update(dt: number) {
-    myMaterial.albedoColor = Color3.Lerp(red, yellow, colorRatio)
-    if (colorRatio < 1) {
-      colorRatio += 0.01
-    }
-  }
+	update(dt: number) {
+		myMaterial.albedoColor = Color3.Lerp(red, yellow, colorRatio)
+		if (colorRatio < 1) {
+			colorRatio += 0.01
+		}
+	}
 }
 
 // Add the system to the engine
@@ -157,7 +161,7 @@ const myEntity = new Entity()
 myEntity.addComponent(new BoxShape())
 
 //Create texture
-const myTexture = new Texture("materials/wood.png")
+const myTexture = new Texture('materials/wood.png')
 
 //Create a material
 const myMaterial = new Material()
@@ -173,8 +177,8 @@ While creating a texture, you can also pass additional parameters:
 - `wrap`: Determines how a texture is tiled onto an object (see [Texture Wrapping](#texture-wrapping))
 
 ```ts
-let smokeTexture = new Texture("textures/smoke-puff3.png", {
-  wrap: 0,
+let smokeTexture = new Texture('textures/smoke-puff3.png', {
+	wrap: 0,
 })
 ```
 
@@ -184,7 +188,7 @@ You can point the texture of your material to an external URL instead of an inte
 
 ```ts
 const myTexture = new Texture(
-  "https://wearable-api.decentraland.org/v2/collections/community_contest/wearables/cw_tuxedo_tshirt_upper_body/thumbnail"
+	'https://wearable-api.decentraland.org/v2/collections/community_contest/wearables/cw_tuxedo_tshirt_upper_body/thumbnail'
 )
 
 const myMaterial = new Material()
@@ -203,7 +207,7 @@ const myEntity = new Entity()
 myEntity.addComponent(new BoxShape())
 
 //Create texture
-const myTexture = new Texture("materials/wood.png")
+const myTexture = new Texture('materials/wood.png')
 
 //Create material and configure its fields
 const myMaterial = new BasicMaterial()
@@ -223,10 +227,10 @@ const myEntity = new Entity()
 myEntity.addComponent(new BoxShape())
 
 //Create texture
-const myTexture = new Texture("materials/wood.png")
+const myTexture = new Texture('materials/wood.png')
 
 //Create second texture
-const myBumpTexture = new Texture("materials/woodBump.png")
+const myBumpTexture = new Texture('materials/woodBump.png')
 
 //Create material and configure its fields
 const myMaterial = new Material()
@@ -240,7 +244,7 @@ myEntity.addComponent(myMaterial)
 In the example above, the image for the material is located in a `materials` folder, which is located at root level of the scene project folder.
 
 {{< hint info >}}
-**💡 Tip**:  We recommend keeping your texture image files separate in a `/materials` folder inside your scene.
+**💡 Tip**: We recommend keeping your texture image files separate in a `/materials` folder inside your scene.
 
 A material can have multiple layers of texture, you can see what these are on a source code editor by clicking `.` and letting the autocomplete menu show you the list.
 {{< /hint >}}
@@ -254,7 +258,7 @@ You set _u_ and _v_ coordinates on the 2D image of the texture to correspond to 
 ```ts
 //Create material and configure fields
 const myMaterial = new BasicMaterial()
-let myTexture = new Texture("materials/atlas.png", { wrap: 1, samplingMode: 0 })
+let myTexture = new Texture('materials/atlas.png', { wrap: 1, samplingMode: 0 })
 myMaterial.texture = myTexture
 
 //Create shape component
@@ -262,21 +266,21 @@ const plane = new PlaneShape()
 
 // map the texture to each of the four corners of the plane
 plane.uvs = [
-  0, 0.75,
+	0, 0.75,
 
-  0.25, 0.75,
+	0.25, 0.75,
 
-  0.25, 1,
+	0.25, 1,
 
-  0, 1,
+	0, 1,
 
-  0, 0.75,
+	0, 0.75,
 
-  0.25, 0.75,
+	0.25, 0.75,
 
-  0.25, 1,
+	0.25, 1,
 
-  0, 1,
+	0, 1,
 ]
 
 //Create entity and assign shape and material
@@ -289,7 +293,7 @@ The following example includes a function that simplifies the setting of uvs. Th
 
 ```ts
 const myMaterial = new BasicMaterial()
-let myTexture = new Texture("materials/atlas.png", { wrap: 1, samplingMode: 0})
+let myTexture = new Texture('materials/atlas.png', { wrap: 1, samplingMode: 0 })
 myMaterial.texture = myTexture
 
 const myPlane = new Entity()
@@ -301,33 +305,33 @@ myPlane.addComponent(myMaterial)
 plane.uvs = setUVs(3, 3)
 
 function setUVs(rows: number, cols: number) {
-  return [
-    // North side of unrortated plane
-    0, //lower-left corner
-    0,
+	return [
+		// North side of unrortated plane
+		0, //lower-left corner
+		0,
 
-    cols, //lower-right corner
-    0,
+		cols, //lower-right corner
+		0,
 
-    cols, //upper-right corner
-    rows,
+		cols, //upper-right corner
+		rows,
 
-    0, //upper left-corner
-    rows,
+		0, //upper left-corner
+		rows,
 
-    // South side of unrortated plane
-    cols, // lower-right corner
-    0,
+		// South side of unrortated plane
+		cols, // lower-right corner
+		0,
 
-    0, // lower-left corner
-    0,
+		0, // lower-left corner
+		0,
 
-    0, // upper-left corner
-    rows,
+		0, // upper-left corner
+		rows,
 
-    cols, // upper-right corner
-    rows,
-  ]
+		cols, // upper-right corner
+		rows,
+	]
 }
 ```
 
@@ -340,17 +344,17 @@ You can also define how the texture is tiled if the mapping spans more than the 
 - `MIRROR`: As in wrap, the texture is repeated as many times as it fits, but the orientation of these repetitions is mirrored.
 
 {{< hint warning >}}
-**📔 Note**:  The `wrap` property must be set when instancing the texture, after that it's a read-only property.
+**📔 Note**: The `wrap` property must be set when instancing the texture, after that it's a read-only property.
 {{< /hint >}}
 
 ```ts
-let myTexture = new Texture("materials/atlas.png", { wrap: 2 })
+let myTexture = new Texture('materials/atlas.png', { wrap: 2 })
 ```
 
 The example above sets the wrapping mode to `MIRROR`.
 
 {{< hint warning >}}
-**📔 Note**:  Uv properties are currently only available on `PlaneShape` and on `BoxShape` components.
+**📔 Note**: Uv properties are currently only available on `PlaneShape` and on `BoxShape` components.
 {{< /hint >}}
 
 #### Texture scaling
@@ -358,7 +362,7 @@ The example above sets the wrapping mode to `MIRROR`.
 When textures are stretched or shrinked to a different size from the original texture image, this can sometimes create artifacts. In a 3D environment, the effects of perspective cause this naturally. There are various [texture filtering](https://en.wikipedia.org/wiki/Texture_filtering) algorithms that exist to compensate for this in different ways. The `Texture` object uses the _bilinear_ algorithm by default, but it lets you configure it to use the _nearest neighbor_ or _trilinear_ algorithms instead by setting the `samplingMode` property.
 
 ```ts
-const myTexture = new Texture("materials/myTexture.png", { samplingMode: 1 })
+const myTexture = new Texture('materials/myTexture.png', { samplingMode: 1 })
 ```
 
 The example above uses a nearest neighbor algorithm. This setting is ideal for pixel art style graphics, as the contours will remain sharply marked as the texture is seen larger on screen instead of being blurred.
@@ -368,7 +372,7 @@ The example above uses a nearest neighbor algorithm. This setting is ideal for p
 To display a thumbnail image of any player, create an `AvatarTexture`, passing the address of an existing player. This creates a texture from a 256x256 image of the player, showing head and shoulders. The player is displayed wearing the set of wearables that the current server last recorded.
 
 ```ts
-let myTexture = new AvatarTexture("0xAAAAAAAAAAAAAAAAA")
+let myTexture = new AvatarTexture('0xAAAAAAAAAAAAAAAAA')
 const myMaterial = new Material()
 myMaterial.albedoTexture = myTexture
 ```
@@ -386,7 +390,7 @@ To make a material with texture transparent:
 - Set an image in `alphaTexture`.
 
 {{< hint warning >}}
-**📔 Note**:  This must be a single-channel image. In this image use the color red to determine what parts of the real texture should be transparent.
+**📔 Note**: This must be a single-channel image. In this image use the color red to determine what parts of the real texture should be transparent.
 {{< /hint >}}
 
 - Optionally set the `transparencyMode` to: - `OPAQUE`: No transparency at all - `ALPHATEST`: Each pixel is either completely opaque or completely transparent, based on a threshold. - `ALPHABLEND`: Intermediate values are possible based on the value of each pixel.
@@ -394,8 +398,8 @@ To make a material with texture transparent:
 * If you set the `transparencyMode` to `ALPHATEST`, you can fine tune the threshold used to determine if each pixel is transparent or not. Set the `alphaTest` property between _0_ and _1_. By default its value is _0.5_.
 
 ```ts
-const myTexture = new Texture("materials/texture.png")
-const alphaTexture = new Texture("materials/alpha.png")
+const myTexture = new Texture('materials/texture.png')
+const alphaTexture = new Texture('materials/alpha.png')
 
 // Material with ALPHABLEND
 const myMaterial = new Material()

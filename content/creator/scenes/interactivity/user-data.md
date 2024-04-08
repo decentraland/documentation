@@ -11,6 +11,10 @@ url: /creator/development-guide/user-data
 weight: 5
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/user-data.md" >}}).
+{{< /hint >}}
+
 ## Track player position and rotation
 
 The `Camera` object exposes information about the player's point of view in your scene.
@@ -30,15 +34,15 @@ The example above logs the player's position and rotation.
 
 ```ts
 class CubeRotateSystem implements ISystem {
-  entity: Entity
-  constructor(entity: Entity) {
-    this.entity = entity
-  }
+	entity: Entity
+	constructor(entity: Entity) {
+		this.entity = entity
+	}
 
-  update() {
-    const transform = this.entity.getComponent(Transform)
-    transform.rotation = Camera.instance.rotation
-  }
+	update() {
+		const transform = this.entity.getComponent(Transform)
+		transform.rotation = Camera.instance.rotation
+	}
 }
 
 const cube = new Entity()
@@ -52,7 +56,7 @@ engine.addSystem(new CubeRotateSystem(cube))
 The example above uses the player's rotation to set that of a cube in the scene.
 
 {{< hint warning >}}
-**📔 Note**:  The `Camera.instance` data is updated at a throttled rate of 10 times per second. Due to this, positions & rotations may lag slightly in relation to the scene that runs at 30 FPS under ideal conditions.
+**📔 Note**: The `Camera.instance` data is updated at a throttled rate of 10 times per second. Due to this, positions & rotations may lag slightly in relation to the scene that runs at 30 FPS under ideal conditions.
 {{< /hint >}}
 
 <!--
@@ -71,7 +75,7 @@ The following data can be fetched from a player:
 - `version`: _(number)_ A version number that increases by one every time the player changes any of their settings. Use this if you encounter conflicting data, to know what version is more recent.
 
 {{< hint warning >}}
-**📔 Note**:  For any Ethereum transactions with the player, always use the `publicKey` field, instead of the `userId`, to avoid dealing with non-existing wallets.
+**📔 Note**: For any Ethereum transactions with the player, always use the `publicKey` field, instead of the `userId`, to avoid dealing with non-existing wallets.
 {{< /hint >}}
 
 The `avatar` object has the following nested information:
@@ -91,7 +95,6 @@ The `avatar` object has the following nested information:
 The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/scenes/3d-essentials/materials.md#avatar-portraits" >}}) ).
 {{< /hint >}}
 
-
 #### Data from current player
 
 To obtain information from the current player that's running the scene, use `getUserData()`.
@@ -99,24 +102,22 @@ To obtain information from the current player that's running the scene, use `get
 The example below imports the `Identity` library and runs `getUserData()`.
 
 ```ts
-import { getUserData } from "@decentraland/Identity"
+import { getUserData } from '@decentraland/Identity'
 
 executeTask(async () => {
-  let data = await getUserData()
-  log(data)
+	let data = await getUserData()
+	log(data)
 })
 ```
 
 The function returns the entire set of data described above, including address, name, wearables, snapshots, etc.
-
-
 
 {{< hint info >}}
 **💡 Tip**: When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**: The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**📔 Note**: The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
 #### Data from nearby players
@@ -124,76 +125,76 @@ The function returns the entire set of data described above, including address, 
 You can obtain data from other players that are nearby, by calling `getPlayerData()`, passing the id of a Decentraland account.
 
 ```ts
-import { getPlayerData } from "@decentraland/Players"
+import { getPlayerData } from '@decentraland/Players'
 
 executeTask(async () => {
-  let data = await getPlayerData({ userId: "0x…." })
-  log(data)
+	let data = await getPlayerData({ userId: '0x….' })
+	log(data)
 })
 ```
 
 The function returns the entire set of data described above, including address, name, wearables, snapshots, etc.
 
 {{< hint info >}}
-**💡 Tip**:  The `getPlayerData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**💡 Tip**: The `getPlayerData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
 `getPlayerData()` can only fetch data from players who are currently nearby. They don't have to be necessarily standing in the same scene, but in visual range, that's because this information is being fetched from the local engine that's rendering these avatars. To try this out in preview, open a second tab and log in with a different account.
 
 {{< hint warning >}}
-**📔 Note**:  User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
+**📔 Note**: User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
 {{< /hint >}}
 
 To know what players are being rendered in the surroundings, use `getConnectedPlayers()`. This function returns an array with the ids of all the players that are currently being rendered, which are all eligible to call with `getPlayerData()`. You can pair this with listening for new players connecting and disconnecting by using `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable`.
 
 ```ts
-import { getConnectedPlayers } from "@decentraland/Players"
+import { getConnectedPlayers } from '@decentraland/Players'
 
 // Get already connected players
 executeTask(async () => {
-  let players = await getConnectedPlayers()
-  players.forEach((player) => {
-    log("player is nearby: ", player.userId)
-  })
+	let players = await getConnectedPlayers()
+	players.forEach((player) => {
+		log('player is nearby: ', player.userId)
+	})
 })
 
 // Event when player connects
 onPlayerConnectedObservable.add((player) => {
-  log("player entered: ", player.userId)
+	log('player entered: ', player.userId)
 })
 
 // Event when player disconnects
 onPlayerDisconnectedObservable.add((player) => {
-  log("player left: ", player.userId)
+	log('player left: ', player.userId)
 })
 ```
 
 As an alternative, you can use `getPlayersInScene()` to only fetch the players that are standing within the scene boundaries and also being rendered. You can pair this with listening to new players entering and leaving the scene by using `onEnterSceneObservable` and `onLeaveSceneObservable`.
 
 ```ts
-import { getPlayersInScene } from "@decentraland/Players"
+import { getPlayersInScene } from '@decentraland/Players'
 
 // Get all players already in scene
 executeTask(async () => {
-  let players = await getPlayersInScene()
-  players.forEach((player) => {
-    log("player is nearby: ", player.userId)
-  })
+	let players = await getPlayersInScene()
+	players.forEach((player) => {
+		log('player is nearby: ', player.userId)
+	})
 })
 
 // Event when player enters scene
 onEnterSceneObservable.add((player) => {
-  log("player entered scene: ", player.userId)
+	log('player entered scene: ', player.userId)
 })
 
 // Event when player leaves scene
 onLeaveSceneObservable.add((player) => {
-  log("player left scene: ", player.userId)
+	log('player left scene: ', player.userId)
 })
 ```
 
 {{< hint info >}}
-**💡 Tip**:  Read more about `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` in [Player connects or disconnects]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-connects-or-disconnects" >}}) and about about `onEnterSceneObservable` and `onLeaveSceneObservable` in [Player enters or leaves scene]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-enters-or-leaves-scene" >}}).
+**💡 Tip**: Read more about `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` in [Player connects or disconnects]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-connects-or-disconnects" >}}) and about about `onEnterSceneObservable` and `onLeaveSceneObservable` in [Player enters or leaves scene]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-enters-or-leaves-scene" >}}).
 {{< /hint >}}
 
 Listen for events when players connect and disconnect
@@ -208,7 +209,7 @@ This information is exposed in the following URL, appending the player's user id
 `https://peer.decentraland.org/lambdas/profile/<player user id>`
 
 {{< hint info >}}
-**💡 Tip**:  Try the URL out in a browser to see how the response is structured.
+**💡 Tip**: Try the URL out in a browser to see how the response is structured.
 {{< /hint >}}
 
 Unlike `getPlayerData()`, this option is not limited to just the players who are currently being rendered in the surroundings. With this approach you can fetch data from any player that has logged onto the servers in the past.
@@ -218,32 +219,32 @@ If you know which server the player you want to query is connected to, you can g
 `https://<player server>/lambdas/profile/<player user id>`
 
 {{< hint info >}}
-**💡 Tip**:  You can obtain the current player's server by doing `getCurrentRealm().domain`.
+**💡 Tip**: You can obtain the current player's server by doing `getCurrentRealm().domain`.
 {{< /hint >}}
 
 This example combines `getUserData()` and `getCurrentRealm()` to obtain the player's data directly from the server that the player is on:
 
 ```ts
-import { getUserData } from "@decentraland/Identity"
-import { getCurrentRealm } from "@decentraland/EnvironmentAPI"
+import { getUserData } from '@decentraland/Identity'
+import { getCurrentRealm } from '@decentraland/EnvironmentAPI'
 
 async function fetchPlayerData() {
-  const userData = await getUserData()
-  const playerRealm = await getCurrentRealm()
+	const userData = await getUserData()
+	const playerRealm = await getCurrentRealm()
 
-  let url = `{playerRealm.domain}/lambdas/profile/{userData.userId}`.toString()
-  log("using URL: ", url)
+	let url = `{playerRealm.domain}/lambdas/profile/{userData.userId}`.toString()
+	log('using URL: ', url)
 
-  try {
-    let response = await fetch(url)
-    let json = await response.json()
+	try {
+		let response = await fetch(url)
+		let json = await response.json()
 
-    log("full response: ", json)
-    log("player is wearing :", json[0].metadata.avatars[0].avatar.wearables)
-    log("player owns :", json[0].metadata.avatars[0].inventory)
-  } catch {
-    log("an error occurred while reaching for player data")
-  }
+		log('full response: ', json)
+		log('player is wearing :', json[0].metadata.avatars[0].avatar.wearables)
+		log('player owns :', json[0].metadata.avatars[0].inventory)
+	} catch {
+		log('an error occurred while reaching for player data')
+	}
 }
 
 fetchPlayerData()
@@ -256,17 +257,17 @@ As an alternative to `getUserData()`, you can obtain a player's public Ethereum 
 The example below imports the `Identity` library and runs `getUserPublicKey()` to get the public key of the player's Ethereum account and log it to console. The player must be logged into their Metamask account on their browser for this to work.
 
 ```ts
-import { getUserPublicKey } from "@decentraland/Identity"
+import { getUserPublicKey } from '@decentraland/Identity'
 
 const publicKeyRequest = executeTask(async () => {
-  const publicKey = await getUserPublicKey()
-  log(publicKey)
-  return publicKey
+	const publicKey = await getUserPublicKey()
+	log(publicKey)
+	return publicKey
 })
 ```
 
 {{< hint info >}}
-**💡 Tip**:  The `getUserPublicKey()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**💡 Tip**: The `getUserPublicKey()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
 ## Get Decentraland Time
@@ -276,16 +277,16 @@ Decentraland follows a day/night cycle that takes 2 hours to be completed, so th
 Use `getDecentralandTime()` to fetch the time of day that the player is experiencing inside Decentraland.
 
 ```ts
-import { getDecentralandTime } from "@decentraland/EnvironmentAPI"
+import { getDecentralandTime } from '@decentraland/EnvironmentAPI'
 
 executeTask(async () => {
-  let time = await getDecentralandTime()
-  log(time.seconds)
+	let time = await getDecentralandTime()
+	log(time.seconds)
 })
 ```
 
 {{< hint info >}}
-**💡 Tip**:  The `getDecentralandTime()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**💡 Tip**: The `getDecentralandTime()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
 `getDecentralandTime()` returns an object with a `seconds` property. This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the `seconds` value is _36000_, it corresponds to _10 AM_.
@@ -295,18 +296,18 @@ In Decentraland time, the sun always rises at 6:15 and sets at 19:50.
 You could use this information to change the scene accordingly, for example to play bird sounds when there's daylight and crickets when it's dark, or to turn the emissive materials on street lamps when it's dark.
 
 ```ts
-import { getDecentralandTime } from "@decentraland/EnvironmentAPI"
+import { getDecentralandTime } from '@decentraland/EnvironmentAPI'
 
 executeTask(async () => {
-  let time = await getDecentralandTime()
-  log(time.seconds)
-  if (time.seconds < 6.25 * 60 * 60 || time.seconds > 19.85 * 60 * 60) {
-    // night time
-    log("playing cricket sounds")
-  } else {
-    // day time
-    log("playing bird sounds")
-  }
+	let time = await getDecentralandTime()
+	log(time.seconds)
+	if (time.seconds < 6.25 * 60 * 60 || time.seconds > 19.85 * 60 * 60) {
+		// night time
+		log('playing cricket sounds')
+	} else {
+		// day time
+		log('playing bird sounds')
+	}
 })
 ```
 
@@ -317,16 +318,16 @@ Players in decentraland exist in several separate _realms_. Players in different
 If your scene sends data to a [3rd party server]({{< ref "/content/creator/scenes/networking/remote-scene-considerations.md" >}}) to sync changes between players in real time, then it's often important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
 
 ```ts
-import { getCurrentRealm } from "@decentraland/EnvironmentAPI"
+import { getCurrentRealm } from '@decentraland/EnvironmentAPI'
 
 executeTask(async () => {
-  let realm = await getCurrentRealm()
-  log(`You are in the realm: `, realm.displayName)
+	let realm = await getCurrentRealm()
+	log(`You are in the realm: `, realm.displayName)
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**:  The `getCurrentRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
+**📔 Note**: The `getCurrentRealm()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
 Decentraland handles its communications between players (including player positions, chat, messageBus messages and smart item state changes) through a decentralized network of communication servers, each of these servers is called a **Realm**. Each one of these servers can support multiple separate **rooms** (also called **islands**), each grouping a different set of players that are near each other on the Decentraland map.
@@ -336,10 +337,10 @@ The `getCurrentRealm()` function returns the following information:
 - `displayName`: _(string)_ The full address of the realm, composed of the server + the room
 - `domain`: _(string)_ The URL of the server the player is connected to
 - `serverName`: _(string)_ The name of the server the player is connected to
-- `room`: _(string)_  The name of the room the player is connected to, in some versions of comms, this is a 1-to-1 map to the island name
+- `room`: _(string)_ The name of the room the player is connected to, in some versions of comms, this is a 1-to-1 map to the island name
 
 {{< hint warning >}}
-**📔 Note**:  The `layer` property is deprecated, and should be avoided.
+**📔 Note**: The `layer` property is deprecated, and should be avoided.
 {{< /hint >}}
 
 As players move through the map, they may switch rooms to be grouped with those players who are now closest to them. Rooms also shift their borders dynamically to fit a manageable group of people, so even if a player stands still, as players enter and leave the world, the player could find themselves on another room. Players in a same `room` are communicated, and will share messages across the MessageBus even if they;re too far to see each other. Players in a same server but in different rooms are not currently communicating, but they might get communicated as they move around the map and change rooms.
@@ -347,7 +348,7 @@ As players move through the map, they may switch rooms to be grouped with those 
 See [onRealmChangedObservable]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-changes-realm-or-island" >}}) for how to detect changes regarding the player's realm or island.
 
 {{< hint warning >}}
-**📔 Note**:  When the scene first loads, there might not yet be a room assigned for the player. The explorer will eventually assign a room to the player, but this can sometimes occur a couple of seconds after the scene is loaded.
+**📔 Note**: When the scene first loads, there might not yet be a room assigned for the player. The explorer will eventually assign a room to the player, but this can sometimes occur a couple of seconds after the scene is loaded.
 {{< /hint >}}
 
 ## Get player platform
@@ -357,16 +358,16 @@ Players can access Decentraland via various platforms, currently via the browser
 Use `getPlatform()` to know what platform the current player is running Decentraland on.
 
 ```ts
-import { getPlatform, Platform } from "@decentraland/EnvironmentAPI"
+import { getPlatform, Platform } from '@decentraland/EnvironmentAPI'
 
 executeTask(async () => {
-  let data = await getPlatform()
-  log(data)
-  if (data === Platform.BROWSER) {
-    log("In browser")
-  } else if (data === Platform.DESKTOP) {
-    log("In native desktop app")
-  }
+	let data = await getPlatform()
+	log(data)
+	if (data === Platform.BROWSER) {
+		log('In browser')
+	} else if (data === Platform.DESKTOP) {
+		log('In native desktop app')
+	}
 })
 ```
 
@@ -380,14 +381,12 @@ As a scene creator, you may want to limit what players wearing portable experien
 
 ```ts
 executeTask(async () => {
-  let portableExperiences = await getPortableExperiencesLoaded()
-  log(portableExperiences)
+	let portableExperiences = await getPortableExperiencesLoaded()
+	log(portableExperiences)
 })
 ```
 
 `getPortableExperiencesLoaded()` returns an array of objects, each of these objects includes an `id` attribute. In the case of wearables, the id is the wearable's URN.
-
-
 
 ## Get detailed info about a player's wearables
 
@@ -398,48 +397,44 @@ Make a [REST API call]({{< ref "/content/creator/scenes/networking/network-conne
 `${playerRealm.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`
 
 {{< hint warning >}}
-**📔 Note**:  To construct this URL, you must obtain the realm (likely with with `getCurrentRealm()`) and the player's id (likely with `getUserData()`)
+**📔 Note**: To construct this URL, you must obtain the realm (likely with with `getCurrentRealm()`) and the player's id (likely with `getUserData()`)
 {{< /hint >}}
 
 This feature could be used together with fetching info about the player, to for example only allow players to enter a place if they are wearing any wearable from the halloween collection, or any wearable that is of _legendary_ rarity.
 
 {{< hint info >}}
-**💡 Tip**:  Try the URL out in a browser to see how the response is structured.
+**💡 Tip**: Try the URL out in a browser to see how the response is structured.
 {{< /hint >}}
 
 ```ts
-import { getUserData } from "@decentraland/Identity"
-import { getCurrentRealm } from "@decentraland/EnvironmentAPI"
+import { getUserData } from '@decentraland/Identity'
+import { getCurrentRealm } from '@decentraland/EnvironmentAPI'
 
 async function fetchWearablesData() {
+	try {
+		let player = await getUserData()
+		const playerRealm = await getCurrentRealm()
 
-  try {
-    let player = await getUserData()
-    const playerRealm = await getCurrentRealm()
+		let url =
+			`${playerRealm.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`.toString()
+		log('using URL: ', url)
 
-    let url = `${playerRealm.domain}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`.toString()
-    log("using URL: ", url)
+		let response = await fetch(url)
+		let json = await response.json()
 
-
-    let response = await fetch(url)
-    let json = await response.json()
-
-    log("full response: ", json)
-
-  } catch {
-    log("an error occurred while reaching for wearables data")
-  }
+		log('full response: ', json)
+	} catch {
+		log('an error occurred while reaching for wearables data')
+	}
 }
 
 executeTask(fetchWearablesData)
 ```
 
-
-
 ## Check the player's camera mode
 
 {{< hint warning >}}
-**📔 Note**:  `Camera.instance.cameraMode` is currently deprecated and is not always reliable. The recommended approach is to track camera change events with `onCameraModeChangedObservable`. This event is fired once when the scene first obtains information about the player's current camera mode, and then any time the player changes camera mode while in or around your scene. See [Event Listeners]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-changes-camera-mode" >}}).
+**📔 Note**: `Camera.instance.cameraMode` is currently deprecated and is not always reliable. The recommended approach is to track camera change events with `onCameraModeChangedObservable`. This event is fired once when the scene first obtains information about the player's current camera mode, and then any time the player changes camera mode while in or around your scene. See [Event Listeners]({{< ref "/content/creator/scenes/interactivity/event-listeners.md#player-changes-camera-mode" >}}).
 {{< /hint >}}
 
 Players can either be using a 1st or 3rd person camera when exploring Decentraland. Check which of these the player is using by checking the value `Camera.instance.cameraMode`.
@@ -448,16 +443,16 @@ The value of this property can either be `CameraMode.FirstPerson` or `CameraMode
 
 ```ts
 if (Camera.instance.cameraMode == CameraMode.FirstPerson) {
-  log("The player is using the 1st person camera")
+	log('The player is using the 1st person camera')
 } else {
-  log("The player is using the 3rd person camera")
+	log('The player is using the 3rd person camera')
 }
 ```
 
 The `Camera.instance.cameraMode` property is read-only, you can't force the player to change camera mode.
 
 {{< hint info >}}
-**💡 Tip**:  To encourage players to use a particular camera mode in your scene, display a UI message advising them to switch modes whenever they use the wrong one.
+**💡 Tip**: To encourage players to use a particular camera mode in your scene, display a UI message advising them to switch modes whenever they use the wrong one.
 {{< /hint >}}
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when in 3rd person.

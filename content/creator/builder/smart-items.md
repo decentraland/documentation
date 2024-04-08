@@ -75,7 +75,7 @@ The _Tools_ smart item is a super versatile collection of tools that can act upo
 - _Print Message_: Display a text message on the player's screen for a given amount of seconds. The message can be just for the player that triggered the action, or for all players in the scene.
 
 {{< hint info >}}
-**💡 Tip**:  You can call as many actions as you want in succession, using the _When transition finished_ field in the _Move Item_, _Rotate Item_ and _Scale Item_ actions.
+**💡 Tip**: You can call as many actions as you want in succession, using the _When transition finished_ field in the _Move Item_, _Rotate Item_ and _Scale Item_ actions.
 {{< /hint >}}
 
 ## Multiplayer
@@ -93,7 +93,3 @@ If there's a key in your scene that's essential for progressing, it's possible f
 - _An item in my scene should be clickable, but can't be clicked_.
 
 Make sure that it's not being obstructed by something else. You can't click through other items. Some items have a _collider mesh_ that has a simplified geometry that may be obstructing your item, even though its visible shape doesn't seem to be doing it. Try moving the item to see what happens.
-
-## Custom smart items
-
-Besides the default collection of smart items that come with the Builder, you can develop your own to import into your Builder account and use freely. This requires writing code using the SDK. See [smart items]({{< ref "/content/creator/scenes/projects/smart-items.md" >}}) for instructions.

@@ -11,6 +11,10 @@ url: /creator/development-guide/event-listeners
 weight: 8
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md" >}}).
+{{< /hint >}}
+
 There are several events that the scene can subscribe to, to know the actions of the player while in or near the scene.
 
 For button and click events performed by the player, see [Button events]({{< ref "/content/creator/scenes/interactivity/click-events.md" >}}).
@@ -21,24 +25,24 @@ Whenever another player starts or stops being rendered by the local engine, this
 
 ```ts
 onPlayerConnectedObservable.add((player) => {
-  log("player entered: ", player.userId)
+	log('player entered: ', player.userId)
 })
 
 onPlayerDisconnectedObservable.add((player) => {
-  log("player left: ", player.userId)
+	log('player left: ', player.userId)
 })
 ```
 
 Keep in mind that if other players are already being rendered in the surroundings before the player has loaded your scene, this event won't notify the newly loaded scene of the already existing players. If you need to keep track of all current players, you can query for existing players upon scene loading, and then listen to this event for updates.
 
 ```ts
-import { getConnectedPlayers } from "@decentraland/Players"
+import { getConnectedPlayers } from '@decentraland/Players'
 
 executeTask(async () => {
-  let players = await getConnectedPlayers()
-  players.forEach((player) => {
-    log("player was already here: ", player.userId)
-  })
+	let players = await getConnectedPlayers()
+	players.forEach((player) => {
+		log('player was already here: ', player.userId)
+	})
 })
 ```
 
@@ -48,16 +52,16 @@ Whenever an avatar steps inside or out of the parcels of land that make up your 
 
 ```ts
 onEnterSceneObservable.add((player) => {
-  log("player entered scene: ", player.userId)
+	log('player entered scene: ', player.userId)
 })
 
 onLeaveSceneObservable.add((player) => {
-  log("player left scene: ", player.userId)
+	log('player left scene: ', player.userId)
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**:  This event only responds to players that are currently being rendered locally. In large scenes where the scene size exceeds the visual range, players entering in the opposite corner may not be registered. If the number of players in the region exceeds the capabilities of an island on Decentraland servers, players that are not sharing a same island aren't visible and are not tracked by these events either.
+**📔 Note**: This event only responds to players that are currently being rendered locally. In large scenes where the scene size exceeds the visual range, players entering in the opposite corner may not be registered. If the number of players in the region exceeds the capabilities of an island on Decentraland servers, players that are not sharing a same island aren't visible and are not tracked by these events either.
 {{< /hint >}}
 
 #### Only current player
@@ -65,24 +69,24 @@ onLeaveSceneObservable.add((player) => {
 You can filter out the triggered events to only react to the player's avatar, rather than other avatars that may be around.
 
 ```ts
-import { getUserData } from "@decentraland/Identity"
+import { getUserData } from '@decentraland/Identity'
 
 executeTask(async () => {
-  let myPlayer = await getUserData()
+	let myPlayer = await getUserData()
 
-  onEnterSceneObservable.add((player) => {
-    log("player entered scene: ", player.userId)
-    if (player.userId === myPlayer?.userId) {
-      log("I entered the scene!")
-    }
-  })
+	onEnterSceneObservable.add((player) => {
+		log('player entered scene: ', player.userId)
+		if (player.userId === myPlayer?.userId) {
+			log('I entered the scene!')
+		}
+	})
 
-  onLeaveSceneObservable.add((player) => {
-    log("player left scene: ", player.userId)
-    if (player.userId === myPlayer?.userId) {
-      log("I left the scene!")
-    }
-  })
+	onLeaveSceneObservable.add((player) => {
+		log('player left scene: ', player.userId)
+		if (player.userId === myPlayer?.userId) {
+			log('I left the scene!')
+		}
+	})
 })
 ```
 
@@ -93,13 +97,13 @@ This example first obtains the player's id, then subscribes to the events and co
 You can also get the full list of players who are currently on your scene and being rendered by calling `getPlayersInScene()`.
 
 ```ts
-import { getPlayersInScene } from "@decentraland/Players"
+import { getPlayersInScene } from '@decentraland/Players'
 
 executeTask(async () => {
-  let players = await getPlayersInScene()
-  players.forEach((player) => {
-    log("player was already here: ", player.userId)
-  })
+	let players = await getPlayersInScene()
+	players.forEach((player) => {
+		log('player was already here: ', player.userId)
+	})
 })
 ```
 
@@ -161,7 +165,7 @@ When the player changes the camera mode between 1st and 3rd person in or near yo
 
 ```ts
 onCameraModeChangedObservable.add(({ cameraMode }) => {
-  log("Camera mode changed:", cameraMode)
+	log('Camera mode changed:', cameraMode)
 })
 ```
 
@@ -173,7 +177,7 @@ The values of the returned property can be:
 This event is fired once when the scene first obtains information about the player's current camera mode, and then any time the player changes camera mode while in or around your scene.
 
 {{< hint info >}}
-**💡 Tip**:  To encourage players to use a particular camera mode in your scene, display a UI message advising them to switch modes whenever they use the wrong one.
+**💡 Tip**: To encourage players to use a particular camera mode in your scene, display a UI message advising them to switch modes whenever they use the wrong one.
 {{< /hint >}}
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when on 3rd person.
@@ -184,7 +188,7 @@ Whenever the player plays an emote (dance, clap, wave, etc), you can detect this
 
 ```ts
 onPlayerExpressionObservable.add(({ expressionId }) => {
-  log("Expression: ", expressionId)
+	log('Expression: ', expressionId)
 })
 ```
 
@@ -200,7 +204,7 @@ Whenever the player clicks on another player, you can detect an event.
 
 ```ts
 onPlayerClickedObservable.add((clickEvent) => {
-  log("Clicked ", clickEvent.userId, " details: ", clickEvent.ray)
+	log('Clicked ', clickEvent.userId, ' details: ', clickEvent.ray)
 })
 ```
 
@@ -226,16 +230,16 @@ This `onPointerLockedStateChange` event is activated each time a player switches
 
 ```ts
 onPointerLockedStateChange.add(({ locked }) => {
-  if (locked) {
-    log("Pointer has been locked")
-  } else {
-    log("Pointer has been unlocked")
-  }
+	if (locked) {
+		log('Pointer has been locked')
+	} else {
+		log('Pointer has been unlocked')
+	}
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**:  This event is triggered even if the player is not standing directly inside the scene.
+**📔 Note**: This event is triggered even if the player is not standing directly inside the scene.
 {{< /hint >}}
 
 The `locked` property from this event is a boolean value that is _true_ when the player locks the cursor and _false_ when the player unlocks the cursor.
@@ -250,7 +254,7 @@ Whenever the player is inactive for a full minute, without interacting with any 
 
 ```ts
 onIdleStateChangedObservable.add(({ isIdle }) => {
-  log("Idle State change: ", isIdle)
+	log('Idle State change: ', isIdle)
 })
 ```
 
@@ -259,7 +263,7 @@ The `isIdle` property is a boolean value that is _true_ when the player enters t
 This event is especially useful for multiplayer scenes, when you might want to disconnect from the server players who are likely away from the machine or left Decentraland in a tab in the background.
 
 {{< hint warning >}}
-**📔 Note**:  The idle state is inferred based on the player not using the keyboard or mouse for a full minute. This can of course produce false positives, for example a player might be watching other players interact or watching a video stream, standing still but fully engaged. Be mindful of these corner cases and what the experience is like for a player who stands still for a while.
+**📔 Note**: The idle state is inferred based on the player not using the keyboard or mouse for a full minute. This can of course produce false positives, for example a player might be watching other players interact or watching a video stream, standing still but fully engaged. Be mindful of these corner cases and what the experience is like for a player who stands still for a while.
 {{< /hint >}}
 
 ## Player changes profile
@@ -268,20 +272,20 @@ Whenever the player makes a change to their profile, the `onProfileChanged` even
 
 ```ts
 onProfileChanged.add((profileData) => {
-  log("Own profile data is ", profileData)
+	log('Own profile data is ', profileData)
 })
 ```
 
 Event data includes only the ID of the player and a version number for that avatar's profile, according to the catalyst server. Every time a change is propagated, the version number increases by 1.
 
 {{< hint info >}}
-**💡 Tip**:  When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+**💡 Tip**: When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
 {{< /hint >}}
 
 When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 
 {{< hint warning >}}
-**📔 Note**:  This event is only triggered by changes to the current player, not by changes on the profiles of other nearby players.
+**📔 Note**: This event is only triggered by changes to the current player, not by changes on the profiles of other nearby players.
 {{< /hint >}}
 
 ## Scene finished loading
@@ -290,7 +294,7 @@ When the scene finishes loading, the `onSceneReadyObservable` gets called. This 
 
 ```ts
 onSceneReadyObservable.add(() => {
-  log("SCENE LOADED")
+	log('SCENE LOADED')
 })
 ```
 
@@ -300,7 +304,7 @@ When a `VideoTexture` changes its playing status, the `onVideoEvent` observable 
 
 ```ts
 onVideoEvent.add((data) => {
-  log("New Video Event ", data)
+	log('New Video Event ', data)
 })
 ```
 
@@ -329,7 +333,7 @@ Each time the player changes realms or island, the `onRealmChangedObservable` ev
 
 ```ts
 onRealmChangedObservable.add((realmChange) => {
-  log("PLAYER CHANGED ISLAND TO ", realmChange.room)
+	log('PLAYER CHANGED ISLAND TO ', realmChange.room)
 })
 ```
 

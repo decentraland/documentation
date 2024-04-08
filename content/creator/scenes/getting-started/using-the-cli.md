@@ -9,6 +9,9 @@ url: /creator/development-guide/cli
 weight: 15
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/getting-started/using-the-cli.md" >}}).
+{{< /hint >}}
 
 To build scenes for Decentraland you an either use
 
@@ -20,11 +23,11 @@ Both tools allow you to compile and preview your scene in an "off-chain" develop
 Although the Editor is easier to use, the CLI allows you more flexibility, and can be easily used in automated processes.
 
 {{< hint warning >}}
-**📔 Note**:  The Editor uses the CLI behind the scenes.
+**📔 Note**: The Editor uses the CLI behind the scenes.
 {{< /hint >}}
 
 {{< hint info >}}
-**💡 Tip**:  See [Instalation guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}) for instructions on how to install the Editor.
+**💡 Tip**: See [Instalation guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}) for instructions on how to install the Editor.
 {{< /hint >}}
 
 The Decentraland CLI is distributed via [npm](https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm).
@@ -75,7 +78,7 @@ You can confirm that it worked by checking the `package.json` file for the scene
 
 Run `dcl init` on an empty folder to populate it with the default files of a Decentraland project.
 
-The CLI then prompts you to chose what kind of project, if you want to build a [scene]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}), a [workspace]({{< ref "/content/creator/scenes/projects/workspaces.md" >}}) or a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). If selecting a scene, the CLI prompts you about what base project to use as a starting point.
+The CLI then prompts you to chose what kind of project, if you want to build a [scene]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}), a workspace or a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). If selecting a scene, the CLI prompts you about what base project to use as a starting point.
 
 ## Run a preview
 

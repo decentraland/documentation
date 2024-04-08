@@ -10,12 +10,16 @@ aliases:
 url: /creator/development-guide/text
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).
+{{< /hint >}}
+
 Add text to a scene using the `TextShape` component. This text sits in a position
 
 Text in Decentraland supports all _utf8_ characters, this includes oriental and special characters.
 
 {{< hint warning >}}
-**📔 Note**:  This component is useful for in-world labels and UIs that exist in the 3D space of the scene, not for the player's 2D HUD UI.
+**📔 Note**: This component is useful for in-world labels and UIs that exist in the 3D space of the scene, not for the player's 2D HUD UI.
 {{< /hint >}}
 
 The `TextShape` component is mutually exclusive with other shape components like primitive shapes and glTF 3D models, see [Shape components]({{< ref "/content/creator/scenes/3d-essentials/shape-components.md" >}}) for more details.
@@ -28,16 +32,16 @@ The following example shows how to create a `TextShape` component and add it to 
 
 ```ts
 const myEntity = new Entity()
-const myText = new TextShape("Hello World!")
+const myText = new TextShape('Hello World!')
 myEntity.addComponent(myText)
 ```
 
 {{< hint warning >}}
-**📔 Note**:  If the entity with the text component is a child of another entity, then it will be affected by the parent's scale. If the parent is scaled unevenly, this will result in the text also being stretched or compressed.
+**📔 Note**: If the entity with the text component is a child of another entity, then it will be affected by the parent's scale. If the parent is scaled unevenly, this will result in the text also being stretched or compressed.
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**:  `TextShape` components aren't clickable. `OnPointerDown`, `OnPointerUp`, `OnHoverEnter`, and `OnHoverExit` comopnents aren't activated when used on entites that have a `TextShape` component.
+**📔 Note**: `TextShape` components aren't clickable. `OnPointerDown`, `OnPointerUp`, `OnHoverEnter`, and `OnHoverExit` comopnents aren't activated when used on entites that have a `TextShape` component.
 {{< /hint >}}
 
 ## Change the text value
@@ -47,7 +51,7 @@ When creating a new text component, you assign it a string to display. This stri
 If you want to change the string displayed by the component, you can do so at any time by changing the `value` field.
 
 ```ts
-myEntity.getComponent(TextShape).value = "new string"
+myEntity.getComponent(TextShape).value = 'new string'
 ```
 
 ## Basic text properties
@@ -66,7 +70,7 @@ The `TextShape` component has several properties that can be set to style the te
 - `opacity`: _number_. Set it to less than 1 to make the text translucid.
 
 ```ts
-const myText = new TextShape("Hello World!")
+const myText = new TextShape('Hello World!')
 myText.fontSize = 30
 myText.color = Color3.Blue()
 myText.font = new Font(Fonts.SansSerif)
@@ -79,7 +83,7 @@ By default, text in Decenrtaland uses the font `LiberationSans`. To use another 
 When instancing a `Font`, you need to pass it a value from the `Fonts` enum. This enum is a list that contains all the supported fonts.
 
 ```ts
-const myText = new TextShape("Hello World!")
+const myText = new TextShape('Hello World!')
 myText.font = new Font(Fonts.SansSerif)
 ```
 
@@ -92,7 +96,7 @@ The following fonts are currently supported:
 - SansSerif_Semibold
 
 {{< hint info >}}
-**💡 Tip**:  If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
+**💡 Tip**: If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
 {{< /hint >}}
 
 You can share a same instanced `Font` object accross multiple `TextShape` components.
@@ -100,10 +104,10 @@ You can share a same instanced `Font` object accross multiple `TextShape` compon
 ```ts
 const sfFont = new Font(Fonts.SansSerif)
 
-const myText = new TextShape("Hello World!")
+const myText = new TextShape('Hello World!')
 myText.font = sfFont
 
-const myText2 = new TextShape("Bye World!")
+const myText2 = new TextShape('Bye World!')
 myText2.font = sfFont
 ```
 
@@ -122,7 +126,7 @@ The `TextShape` component creates a text box that has a size, padding, etc.
 - `zIndex`: _number_. Useful for when multiple flat entities occupy the same space, it determines which one to show in front.
 
 {{< hint info >}}
-**💡 Tip**:  If a text is meant to float in space, it's a good idea to add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}) so that the text rotates to always face the player and be legible.
+**💡 Tip**: If a text is meant to float in space, it's a good idea to add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}) so that the text rotates to always face the player and be legible.
 {{< /hint >}}
 
 ## Text shadow and outline properties
@@ -135,7 +139,7 @@ The text has no shadow by default, but you can set the following values to give 
 - `shadowColor`: _Color3_ object. _Color3_ objects store an _RBG_ color as three numbers from 0 to 1.
 
 ```ts
-myEntity.addComponent(new TextShape("Text with shadow"))
+myEntity.addComponent(new TextShape('Text with shadow'))
 myEntity.getComponent(TextShape).shadowColor = Color3.Gray()
 myEntity.getComponent(TextShape).shadowOffsetY = 1
 myEntity.getComponent(TextShape).shadowOffsetX = -1
@@ -151,7 +155,7 @@ Every letter can also have an outline in a different color surrounding its perim
 If you want your text to span multiple lines, use `\n` as part of the string. The following example has two separate lines of text:
 
 ```ts
-myEntity.addComponent(new TextShape("This is one line. \nThis is another line"))
+myEntity.addComponent(new TextShape('This is one line. \nThis is another line'))
 ```
 
 You can also set up the following properties related to texts with multiple lines:

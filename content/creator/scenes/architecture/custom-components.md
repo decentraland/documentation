@@ -11,6 +11,10 @@ url: /creator/development-guide/custom-components
 weight: 3
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}).
+{{< /hint >}}
+
 ## Custom components
 
 If you need to store information about an entity that isn't handled by the default components of the SDK (see [component reference](https://github.com/decentraland/ecs-reference) ), then you can create a custom type of component on your scene.
@@ -20,10 +24,10 @@ Tip: Custom components can be defined in your scene's `game.ts` file, but for la
 A component can store as many fields as you want.
 
 ```ts
-@Component("wheelSpin")
+@Component('wheelSpin')
 export class WheelSpin {
-  spinning: boolean
-  speed: number
+	spinning: boolean
+	speed: number
 }
 ```
 
@@ -53,14 +57,14 @@ Each entity that has the component added to it is instancing a new copy of it, h
 Adding a constructor to a component allows you to configure its values in the same expression as you create an instance of it.
 
 ```ts
-@Component("wheelSpin")
+@Component('wheelSpin')
 export class WheelSpin {
-  spinning: boolean
-  speed: number
-  constructor(spinning: boolean, speed: number) {
-    this.spinning = spinning
-    this.speed = speed
-  }
+	spinning: boolean
+	speed: number
+	constructor(spinning: boolean, speed: number) {
+		this.spinning = spinning
+		this.speed = speed
+	}
 }
 ```
 
@@ -75,7 +79,7 @@ wheel.addComponent(new WheelSpin(true, 10))
 ```
 
 {{< hint info >}}
-**💡 Tip**:  If you use a source code editor, when instancing a component that has a constructor, you can see what the parameters are by mousing over the expression.
+**💡 Tip**: If you use a source code editor, when instancing a component that has a constructor, you can see what the parameters are by mousing over the expression.
 {{< /hint >}}
 
 <!-- img -->
@@ -83,14 +87,14 @@ wheel.addComponent(new WheelSpin(true, 10))
 You can make the parameters optional by setting default values on each. If there are default values and you don't declare the parameters when instancing a component, it will use the default.
 
 ```ts
-@Component("wheelSpin")
+@Component('wheelSpin')
 export class WheelSpin {
-  spinning: boolean
-  speed: number
-  constructor(spinning?: boolean = false, speed?: number = 3) {
-    this.spinning = spinning
-    this.speed = speed
-  }
+	spinning: boolean
+	speed: number
+	constructor(spinning?: boolean = false, speed?: number = 3) {
+		this.spinning = spinning
+		this.speed = speed
+	}
 }
 ```
 
@@ -133,6 +137,6 @@ You may want to add a component that simply flags an entity to differentiate it 
 This is especially useful when using [Component groups]({{< ref "/content/creator/scenes/architecture/component-groups.md" >}}). Since component groups list entities based on components they own, a simple flag component can tell entities apart from others.
 
 ```ts
-@Component("myFlag")
+@Component('myFlag')
 export class MyFlag {}
 ```

@@ -13,6 +13,10 @@ url: /creator/development-guide/click-events
 weight: 1
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}).
+{{< /hint >}}
+
 Decentraland accepts events from pointer clicks, a primary button and a secondary button.
 
 Clicks can be done either with a mouse, a touch screen, a VR controller or some other device, these all generate the same type of event.
@@ -20,7 +24,7 @@ Clicks can be done either with a mouse, a touch screen, a VR controller or some 
 The primary and secondary buttons map respectively to the E and F key on a keyboard.
 
 {{< hint warning >}}
-**📔 Note**:  Entities that don't have a shape component, or that have their shape's `visible` field set to _false_ don't respond to pointer events.
+**📔 Note**: Entities that don't have a shape component, or that have their shape's `visible` field set to _false_ don't respond to pointer events.
 {{< /hint >}}
 
 ## Pointer event components
@@ -36,14 +40,14 @@ const myEntity = new Entity()
 myEntity.addComponent(new BoxShape())
 
 myEntity.addComponent(
-  new OnPointerDown((e) => {
-    log("myEntity was clicked", e)
-  })
+	new OnPointerDown((e) => {
+		log('myEntity was clicked', e)
+	})
 )
 ```
 
 {{< hint info >}}
-**💡 Tip**:  To keep your code easier to read, the function in the `OnPointerDown` can consist of just a call to a separate function that contains all of the logic.
+**💡 Tip**: To keep your code easier to read, the function in the `OnPointerDown` can consist of just a call to a separate function that contains all of the logic.
 {{< /hint >}}
 
 The `OnPointerDown` component has a second optional parameter, this parameter is an object that can include multiple properties about the event. These properties are explained in greater detail in the next few sub-sections.
@@ -68,9 +72,9 @@ const myEntity = new Entity()
 myEntity.addComponent(new BoxShape())
 
 myEntity.addComponent(
-  new OnPointerUp((e) => {
-    log("pointer up", e)
-  })
+	new OnPointerUp((e) => {
+		log('pointer up', e)
+	})
 )
 ```
 
@@ -91,12 +95,12 @@ const myEntity = new Entity()
 myEntity.addComponent(new BoxShape())
 
 myEntity.addComponent(
-  new OnPointerDown(
-    (e) => {
-      log("myEntity was clicked", e)
-    },
-    { button: ActionButton.POINTER }
-  )
+	new OnPointerDown(
+		(e) => {
+			log('myEntity was clicked', e)
+		},
+		{ button: ActionButton.POINTER }
+	)
 )
 ```
 
@@ -108,16 +112,16 @@ You can also display a toast message in the UI that lets the player know what ha
 
 ```ts
 myEntity.addComponent(
-  new OnPointerDown(
-    (e) => {
-      log("myEntity clicked", e)
-    },
-    {
-      button: ActionButton.PRIMARY,
-      showFeedback: true,
-      hoverText: "open",
-    }
-  )
+	new OnPointerDown(
+		(e) => {
+			log('myEntity clicked', e)
+		},
+		{
+			button: ActionButton.PRIMARY,
+			showFeedback: true,
+			hoverText: 'open',
+		}
+	)
 )
 ```
 
@@ -128,7 +132,7 @@ In the example above, the second argument of the `OnPointerDown` component has a
 - `hoverText`: String to display in the UI while the player points at the entity. By default, this string spells _Interact_, unless `showFeedback` is _false_.
 
 {{< hint info >}}
-**💡 Tip**:  The `hoverText` string should describe the action that happens when interacting. For example `Open`, `Activate`, `Grab`, `Select`. These strings should be as short as possible, to avoid stealing too much focus from the player.
+**💡 Tip**: The `hoverText` string should describe the action that happens when interacting. For example `Open`, `Activate`, `Grab`, `Select`. These strings should be as short as possible, to avoid stealing too much focus from the player.
 {{< /hint >}}
 
 The `hoverText` of an `OnPointerUp` component is only displayed while the player is already holding down the corresponding key and pointing at the entity.
@@ -137,21 +141,21 @@ If an entity has both an `OnPointerDown` and an `OnPointerUp` component, the hin
 
 ```ts
 myEntity.addComponent(
-  new OnPointerDown(
-    (e) => {
-      log("myEntity clicked", e)
-    },
-    { button: ActionButton.PRIMARY, showFeedback: true, hoverText: "Drag" }
-  )
+	new OnPointerDown(
+		(e) => {
+			log('myEntity clicked', e)
+		},
+		{ button: ActionButton.PRIMARY, showFeedback: true, hoverText: 'Drag' }
+	)
 )
 
 myEntity.addComponent(
-  new OnPointerUp(
-    (e) => {
-      log("myEntity released", e)
-    },
-    { button: ActionButton.PRIMARY, showFeedback: true, hoverText: "Drop" }
-  )
+	new OnPointerUp(
+		(e) => {
+			log('myEntity released', e)
+		},
+		{ button: ActionButton.PRIMARY, showFeedback: true, hoverText: 'Drop' }
+	)
 )
 ```
 
@@ -161,17 +165,17 @@ By default, entities are only clickable when the player is within a close range 
 
 ```ts
 myEntity.addComponent(
-  new OnPointerDown(
-    (e) => {
-      log("myEntity clicked", e)
-    },
-    {
-      button: ActionButton.PRIMARY,
-      showFeedback: true,
-      hoverText: "Activate",
-      distance: 8,
-    }
-  )
+	new OnPointerDown(
+		(e) => {
+			log('myEntity clicked', e)
+		},
+		{
+			button: ActionButton.PRIMARY,
+			showFeedback: true,
+			hoverText: 'Activate',
+			distance: 8,
+		}
+	)
 )
 ```
 
@@ -186,12 +190,12 @@ const myEntity = new Entity()
 myEntity.addComponent(new BoxShape())
 
 myEntity.addComponent(
-  new OnPointerDown(
-    (e) => {
-      log("Click distance: " + e.length)
-    },
-    { button: ActionButton.PRIMARY }
-  )
+	new OnPointerDown(
+		(e) => {
+			log('Click distance: ' + e.length)
+		},
+		{ button: ActionButton.PRIMARY }
+	)
 )
 ```
 
@@ -206,18 +210,18 @@ const myEntity = new Entity()
 myEntity.addComponent(new BoxShape())
 
 myEntity.addComponent(
-  new OnPointerDown(
-    (e) => {
-      if (e.buttonId == 0) {
-        log("Clicked pointer")
-      } else if (e.buttonId == 1) {
-        log("Pressed primary button")
-      } else if (e.buttonId == 2) {
-        log("Pressed secondary button")
-      }
-    },
-    { button: ActionButton.ANY }
-  )
+	new OnPointerDown(
+		(e) => {
+			if (e.buttonId == 0) {
+				log('Clicked pointer')
+			} else if (e.buttonId == 1) {
+				log('Pressed primary button')
+			} else if (e.buttonId == 2) {
+				log('Pressed secondary button')
+			}
+		},
+		{ button: ActionButton.ANY }
+	)
 )
 ```
 
@@ -247,7 +251,7 @@ To see how the meshes inside the model are named, you must open the 3D model wit
 <img src="/images/media/mesh-names.png" alt="Mesh internal names in an editor" width="250"/>
 
 {{< hint info >}}
-**💡 Tip**:  You can also learn the name of the clicked mesh by logging it and reading it off console.
+**💡 Tip**: You can also learn the name of the clicked mesh by logging it and reading it off console.
 {{< /hint >}}
 
 You access the `meshName` property as part of the `hit` object, that's returned by the click event.
@@ -256,21 +260,21 @@ In the example below we have a house model that includes a mesh named `firePlace
 
 ```ts
 houseEntity.addComponent(
-  new OnPointerDown(
-    (e) => {
-      log("button A Down", e.hit.meshName)
-      if (e.hit.meshName === "firePlace") {
-        // light fire
-        fireAnimation.play()
-      }
-    },
-    { button: ActionButton.POINTER, showFeeback: false }
-  )
+	new OnPointerDown(
+		(e) => {
+			log('button A Down', e.hit.meshName)
+			if (e.hit.meshName === 'firePlace') {
+				// light fire
+				fireAnimation.play()
+			}
+		},
+		{ button: ActionButton.POINTER, showFeeback: false }
+	)
 )
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Since the `OnPointerDown` component belongs to the whole entity, the on-hover feedback would be seen when hovering over any part of the entity. In this case, any part of the house, not just the fireplace. For that reason, we set the `showFeedback` argument of the `OnPointerDown` component to _false_, so that no on-hover feedback is shown. For a better player experience, it's recommended to instead have the fireplace as a separate entity and maintain the on-hover feedback.
+**📔 Note**: Since the `OnPointerDown` component belongs to the whole entity, the on-hover feedback would be seen when hovering over any part of the entity. In this case, any part of the house, not just the fireplace. For that reason, we set the `showFeedback` argument of the `OnPointerDown` component to _false_, so that no on-hover feedback is shown. For a better player experience, it's recommended to instead have the fireplace as a separate entity and maintain the on-hover feedback.
 {{< /hint >}}
 
 ## Global button events
@@ -307,7 +311,7 @@ The `subscribe()` method takes four arguments:
 - `fn`: The function to execute each time the event occurs.
 
 {{< hint warning >}}
-**📔 Note**:  Other keys on the PC keyboard aren't tracked for future cross-platform compatibility, as this limited set of keys can be mapped to a joystick. For detecting key-strokes when writing text, check the [UIInputBox]({{< ref "/content/creator/scenes/interactivity/onscreen-ui.md" >}}).
+**📔 Note**: Other keys on the PC keyboard aren't tracked for future cross-platform compatibility, as this limited set of keys can be mapped to a joystick. For detecting key-strokes when writing text, check the [UIInputBox]({{< ref "/content/creator/scenes/interactivity/onscreen-ui.md" >}}).
 {{< /hint >}}
 
 ```ts
@@ -315,13 +319,13 @@ The `subscribe()` method takes four arguments:
 const input = Input.instance
 
 // button down event
-input.subscribe("BUTTON_DOWN", ActionButton.POINTER, false, (e) => {
-  log("pointer Down", e)
+input.subscribe('BUTTON_DOWN', ActionButton.POINTER, false, (e) => {
+	log('pointer Down', e)
 })
 
 // button up event
-input.subscribe("BUTTON_UP", ActionButton.POINTER, false, (e) => {
-  log("pointer Up", e)
+input.subscribe('BUTTON_UP', ActionButton.POINTER, false, (e) => {
+	log('pointer Up', e)
 })
 ```
 
@@ -330,7 +334,7 @@ The example above logs messages and the contents of the event object every time 
 The event objects of both the `BUTTON_DOWN` and the `BUTTON_UP` contain various useful properties. See [Properties of button events](#properties-of-button-events) for more details.
 
 {{< hint warning >}}
-**📔 Note**:  The code for subscribing an input event only needs to be executed once, the `subscribe()` method keeps polling for the event. Don't add this into a system's `update()` function, as that would register a new listener on every frame.
+**📔 Note**: The code for subscribing an input event only needs to be executed once, the `subscribe()` method keeps polling for the event. Don't add this into a system's `update()` function, as that would register a new listener on every frame.
 {{< /hint >}}
 
 #### Detect hit entities
@@ -350,15 +354,15 @@ Raycasting is not available when detecting basic movement keys. It's only availa
 The ray of a global button event only detects entities that have a collider mesh. Primitive shapes have a collider mesh on by default, 3D models need to have one built into them.
 
 {{< hint info >}}
-**💡 Tip**:  See [Colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}}) for details on how to add collider meshes to a 3D model.
+**💡 Tip**: See [Colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}}) for details on how to add collider meshes to a 3D model.
 {{< /hint >}}
 
 ```ts
-input.subscribe("BUTTON_DOWN", ActionButton.POINTER, true, (e) => {
-  if (e.hit) {
-    let hitEntity = engine.entities[e.hit.entityId]
-    hitEntity.addComponent(greenMaterial)
-  }
+input.subscribe('BUTTON_DOWN', ActionButton.POINTER, true, (e) => {
+	if (e.hit) {
+		let hitEntity = engine.entities[e.hit.entityId]
+		hitEntity.addComponent(greenMaterial)
+	}
 })
 ```
 
@@ -367,7 +371,7 @@ The example above checks if any entities were hit, and if so it fetches the enti
 The event data returns a string for the `entityId`. If you want to reference the actual entity by that ID to affect it in some way, use `engine.entities[e.hit.entityId]`.
 
 {{< hint warning >}}
-**📔 Note**:  We recommend that when possible you use the approach of adding an `OnPointerDown` component to each entity you want to make interactive, instead of using a global button event. The scene's code isn't able to hint to a player that an entity is interactive when hovering on it unless the entity has an `OnPointerDown`, `OnPointerUp`, or `OnClick` component.
+**📔 Note**: We recommend that when possible you use the approach of adding an `OnPointerDown` component to each entity you want to make interactive, instead of using a global button event. The scene's code isn't able to hint to a player that an entity is interactive when hovering on it unless the entity has an `OnPointerDown`, `OnPointerUp`, or `OnClick` component.
 {{< /hint >}}
 
 #### Tracking player movements
@@ -401,15 +405,15 @@ You can use this to hint that something is interactable in some custom way, like
 
 ```ts
 myEntity.addComponent(
-  new OnPointerHoverEnter((e) => {
-    log("Started Pointing at entity")
-  })
+	new OnPointerHoverEnter((e) => {
+		log('Started Pointing at entity')
+	})
 )
 
 myEntity.addComponent(
-  new OnPointerHoverExit((e) => {
-    log("Stopped Pointing at entity")
-  })
+	new OnPointerHoverExit((e) => {
+		log('Stopped Pointing at entity')
+	})
 )
 ```
 
@@ -417,19 +421,19 @@ On the `OnPointerHoverEnter` component, you can set a maximum distance, to only 
 
 ```ts
 myEntity.addComponent(
-  new OnPointerHoverEnter(
-    (e) => {
-      log("Started Pointing at entity")
-    },
-    {
-      distance: 8,
-    }
-  )
+	new OnPointerHoverEnter(
+		(e) => {
+			log('Started Pointing at entity')
+		},
+		{
+			distance: 8,
+		}
+	)
 )
 ```
 
 {{< hint info >}}
-**💡 Tip**:  Note that all entities with an `OnPointerDown` component by default show a UI hint when hovered over. You can disable this UI hint by setting the `showFeeback` property on the `OnPointerDown` component to false.
+**💡 Tip**: Note that all entities with an `OnPointerDown` component by default show a UI hint when hovered over. You can disable this UI hint by setting the `showFeeback` property on the `OnPointerDown` component to false.
 {{< /hint >}}
 
 ## Button state
@@ -452,19 +456,17 @@ As an example, you can implement this in a system's `update()` function to check
 
 ```ts
 class ButtonChecker implements ISystem {
-  update() {
-    if (Input.instance.isButtonPressed(ActionButton.FORWARD).BUTTON_DOWN) {
-      log("player walking forward")
-    } else {
-      log("player not walking forward")
-    }
-  }
+	update() {
+		if (Input.instance.isButtonPressed(ActionButton.FORWARD).BUTTON_DOWN) {
+			log('player walking forward')
+		} else {
+			log('player not walking forward')
+		}
+	}
 }
 
 engine.addSystem(new ButtonChecker())
 ```
-
-
 
 ## OnClick Component - DEPRECATED
 
@@ -477,9 +479,9 @@ const myEntity = new Entity()
 myEntity.addComponent(new BoxShape())
 
 myEntity.addComponent(
-  new OnClick((e) => {
-    log("myEntity clicked")
-  })
+	new OnClick((e) => {
+		log('myEntity clicked')
+	})
 )
 ```
 
@@ -505,6 +507,5 @@ myEntity.addComponent(
 -->
 
 {{< hint warning >}}
-**📔 Note**:  Entities that don't have a shape component, or that have their shape's `visible` field set to _false_ can't be clicked.
+**📔 Note**: Entities that don't have a shape component, or that have their shape's `visible` field set to _false_ can't be clicked.
 {{< /hint >}}
-

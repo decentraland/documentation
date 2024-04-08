@@ -11,6 +11,10 @@ url: /creator/development-guide/systems
 weight: 2
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}).
+{{< /hint >}}
+
 Decentraland scenes rely on _systems_ to update the information stored in each entity's [components]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}) as the scene changes.
 
 ![](/images/media/ecs-big-picture-old.png)
@@ -22,14 +26,14 @@ The following example shows a basic system declaration:
 ```ts
 // Define the system
 export class MoveSystem implements ISystem {
-  // This function is executed on every frame
-  update() {
-    // Iterate over the entities in an component group
-    for (let entity of myEntityGroup.entities) {
-      let transform = entity.getComponent(Transform)
-      transform.translate(Vector3.Forward)
-    }
-  }
+	// This function is executed on every frame
+	update() {
+		// Iterate over the entities in an component group
+		for (let entity of myEntityGroup.entities) {
+			let transform = entity.getComponent(Transform)
+			transform.translate(Vector3.Forward)
+		}
+	}
 }
 
 // Add system to engine
@@ -39,7 +43,7 @@ engine.addSystem(new MoveSystem())
 In the example above, the system `MoveSystem` executes the `update()` function of each frame of the game loop, changing position of every entity in the scene.
 
 {{< hint warning >}}
-**📔 Note**:  You must add a _System_ to the engine before its functions can be called.
+**📔 Note**: You must add a _System_ to the engine before its functions can be called.
 {{< /hint >}}
 
 All systems act upon entities, changing the values stored in the entity's components.
@@ -47,7 +51,7 @@ All systems act upon entities, changing the values stored in the entity's compon
 ![](/images/media/ecs-system.png)
 
 {{< hint info >}}
-**💡 Tip**:  As a simpler alternative to create custom systems, you can use the helpers in the [utils library](https://github.com/decentraland/decentraland-ecs-utils). The library creates systems in the background that handle common tasks like moving or rotating entities. In most cases, this library only requires a single line of code to apply these behaviors.
+**💡 Tip**: As a simpler alternative to create custom systems, you can use the helpers in the [utils library](https://github.com/decentraland/decentraland-ecs-utils). The library creates systems in the background that handle common tasks like moving or rotating entities. In most cases, this library only requires a single line of code to apply these behaviors.
 {{< /hint >}}
 
 You can have multiple systems in your scene to decouple different behaviors, making your code cleaner and easier to scale. For example, one system might handle physics, another might make an entity move back and forth continuously, another could handle the AI of characters.
@@ -76,12 +80,12 @@ const movableEntities = engine.getComponentGroup(Physics)
 
 // Create system
 export class PhysicsSystem implements ISystem {
-  update(dt: number) {
-    // Iterate over component group
-    for (let entity of movableEntities.entities) {
-      // Calculate effect of physics
-    }
-  }
+	update(dt: number) {
+		// Iterate over component group
+		for (let entity of movableEntities.entities) {
+			// Calculate effect of physics
+		}
+	}
 }
 ```
 
@@ -93,10 +97,10 @@ If you create the entity in the same file as you define the system, then you can
 
 ```ts
 export class UpdateScore implements ISystem {
-  update(dt: number) {
-    log(score.points)
-    // ...
-  }
+	update(dt: number) {
+		log(score.points)
+		// ...
+	}
 }
 
 const game = new Entity()
@@ -111,14 +115,14 @@ Since systems are also objects, you are free to add variables to them, and also 
 
 ```ts
 export class UpdateScore implements ISystem {
-  score: GameScore // the type is a custom component
-  constructor(scoreComponent) {
-    this.score = scoreComponent
-  }
-  update(dt: number) {
-    log(this.score.points)
-    // update values the score object
-  }
+	score: GameScore // the type is a custom component
+	constructor(scoreComponent) {
+		this.score = scoreComponent
+	}
+	update(dt: number) {
+		log(this.score.points)
+		// update values the score object
+	}
 }
 ```
 
@@ -134,7 +138,7 @@ engine.addSystem(new UpdateScore(score))
 ```
 
 {{< hint warning >}}
-**📔 Note**:  You could store this data in a custom object instead of an custom component, for more simplicity.
+**📔 Note**: You could store this data in a custom object instead of an custom component, for more simplicity.
 {{< /hint >}}
 
 ## Execute when an entity is added
@@ -145,9 +149,9 @@ Each time a new entity is added to the engine, this function is called once, pas
 
 ```ts
 export class mySystem implements ISystem {
-  onAddEntity(entity: Entity) {
-    // Code to run once
-  }
+	onAddEntity(entity: Entity) {
+		// Code to run once
+	}
 }
 ```
 
@@ -159,9 +163,9 @@ Each time an entity is removed from the engine, this function is called once, pa
 
 ```ts
 export class mySystem implements ISystem {
-  onRemoveEntity(entity: Entity){
-    // Code to run once
-  }
+	onRemoveEntity(entity: Entity) {
+		// Code to run once
+	}
 }
 ```
 
@@ -171,14 +175,13 @@ The `activate()` function is another boilerplate function that is executed once 
 
 ```ts
 export class mySystem implements ISystem {
-  activate(){
-    // Code to run once
-  }
+	activate() {
+		// Code to run once
+	}
 }
 ```
 
 This can be useful when you have a system that must first carry out some initial steps, for example creating a set of materials of different colors that the update function of the system then switches between. The advantage of using the `activate` function instead of just executing these steps as soon as the scene starts, is that if your scene never uses the system, these steps won't be executed.
-
 
 ## Delta time between frames
 
@@ -186,9 +189,9 @@ The `update()` method always receives an argument called `dt` of type `number` (
 
 ```ts
 export class mySystem implements ISystem {
-  update(dt: number) {
-    // Update scene
-  }
+	update(dt: number) {
+		// Update scene
+	}
 }
 ```
 
@@ -218,14 +221,14 @@ If you want a system to execute something at a regular time interval, you can do
 let timer: number = 10
 
 export class LoopSystem {
-  update(dt: number) {
-    if (timer > 0) {
-      timer -= dt
-    } else {
-      timer = 10
-      // DO SOMETHING
-    }
-  }
+	update(dt: number) {
+		if (timer > 0) {
+			timer -= dt
+		} else {
+			timer = 10
+			// DO SOMETHING
+		}
+	}
 }
 ```
 
@@ -233,14 +236,14 @@ For more complex use cases, where there may be multiple loops being created dyna
 
 ```ts
 // define custom component
-@Component("timer")
+@Component('timer')
 export class Timer {
-  totalTime: number
-  timeLeft: number
-  constructor(time: number) {
-    this.totalTime = time
-    this.timeLeft = time
-  }
+	totalTime: number
+	timeLeft: number
+	constructor(time: number) {
+		this.totalTime = time
+		this.timeLeft = time
+	}
 }
 
 // component group to list all entities with a Timer component
@@ -248,17 +251,17 @@ export const timers = engine.getComponentGroup(Timer)
 
 // system to update all timers
 export class LoopSystem {
-  update(dt: number) {
-    for (let timerEntity of timers.entities) {
-      let timer = timerEntity.getComponent(Timer)
-      if (timer.timeLeft > 0) {
-        timer.timeLeft -= dt
-      } else {
-        timer.timeLeft = timer.totalTime
-        // DO SOMETHING
-      }
-    }
-  }
+	update(dt: number) {
+		for (let timerEntity of timers.entities) {
+			let timer = timerEntity.getComponent(Timer)
+			if (timer.timeLeft > 0) {
+				timer.timeLeft -= dt
+			} else {
+				timer.timeLeft = timer.totalTime
+				// DO SOMETHING
+			}
+		}
+	}
 }
 ```
 

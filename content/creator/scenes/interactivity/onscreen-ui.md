@@ -11,6 +11,10 @@ url: /creator/development-guide/onscreen-ui
 weight: 9
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/2d-ui/onscreen-ui.md" >}}).
+{{< /hint >}}
+
 There are several special component types that are meant for using in a 2D screen space as part of the UI, instead of in the 3D world space. These components are displayed fixed on the player's screen.
 
 UI elements are only visible when the player is standing inside the scene's LAND parcels, as neighboring scenes might have their own UI to display. When the player clicks the _close UI_ button, on the bottom-right corner of the screen, all UI elements go away.
@@ -33,11 +37,11 @@ const canvas = new UICanvas()
 
 // Create a textShape component, setting the canvas as parent
 const text = new UIText(canvas)
-text.value = "Hello world!"
+text.value = 'Hello world!'
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Create only one `UICanvas` per scene. To have different menus that appear at different times, make them all children of the same `UICanvas`, and set their visibility at that level.
+**📔 Note**: Create only one `UICanvas` per scene. To have different menus that appear at different times, make them all children of the same `UICanvas`, and set their visibility at that level.
 {{< /hint >}}
 
 ## Types of UI content
@@ -69,7 +73,7 @@ All UI components have several fields you can set to determine the position of t
 - `positionX`, `positionY`: the position of the top-left corner of the component, relative to the parent. By default, to the top-left corner of its parent. If the `hAlign` or `vAlign` properties are set, then `positionX` and `positionY` offset the UI component relative to the position of these alignment properties.
 
 {{< hint info >}}
-**💡 Tip**:  When measuring from the top, the numbers for `positionY` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `positionX` to 20 and `positionY` to -20.
+**💡 Tip**: When measuring from the top, the numbers for `positionY` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `positionX` to 20 and `positionY` to -20.
 {{< /hint >}}
 
 - `paddingLeft`, `paddingRight`, `paddingTop`, `paddingBottom`: padding space to leave empty around. To set these fields in pixels, write the value as a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`
@@ -80,11 +84,11 @@ All UI components have several fields you can set to determine the position of t
 const canvas = new UICanvas()
 
 const message = new UIText(canvas)
-message.value = "Close UI"
+message.value = 'Close UI'
 message.fontSize = 15
 message.width = 120
 message.height = 30
-message.vAlign = "bottom"
+message.vAlign = 'bottom'
 message.positionX = -80
 ```
 
@@ -107,12 +111,12 @@ const canvas = new UICanvas()
 
 const inventoryContainer = new UIContainerStack(canvas)
 inventoryContainer.adaptWidth = true
-inventoryContainer.width = "40%"
+inventoryContainer.width = '40%'
 inventoryContainer.positionY = 100
 inventoryContainer.positionX = 10
 inventoryContainer.color = Color4.White()
-inventoryContainer.hAlign = "left"
-inventoryContainer.vAlign = "top"
+inventoryContainer.hAlign = 'left'
+inventoryContainer.vAlign = 'top'
 inventoryContainer.stackOrientation = UIStackOrientation.VERTICAL
 ```
 
@@ -155,8 +159,8 @@ You can make a UI element partly transparent by setting its `opacity` property t
 const canvas = new UICanvas()
 
 const rect = new UIContainerRect(canvas)
-rect.width = "100%"
-rect.height = "100%"
+rect.width = '100%'
+rect.height = '100%'
 rect.color = Color4.Blue()
 rect.opacity = 0.5
 ```
@@ -183,15 +187,15 @@ Fonts are set as a _Font object_. Font objects are initiated with a value from t
 const canvas = new UICanvas()
 
 const myText = new UIText(canvas)
-myText.value = "Hello"
+myText.value = 'Hello'
 myText.font = new Font(Fonts.SansSerif)
 myText.fontSize = 20
-myText.positionX = "15px"
+myText.positionX = '15px'
 myText.color = Color4.Blue()
 ```
 
 {{< hint info >}}
-**💡 Tip**:  If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
+**💡 Tip**: If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
 {{< /hint >}}
 
 You can share a same instanced `Font` object accross multiple `UIText` components.
@@ -200,14 +204,13 @@ You can share a same instanced `Font` object accross multiple `UIText` component
 const sfFont = new Font(Fonts.SansSerif)
 
 const myText = new UIText(canvas)
-myText.value = "Hello"
+myText.value = 'Hello'
 myText.font = sfFont
 
 const myText2 = new UIText(canvas)
-myText2.value = "World"
+myText2.value = 'World'
 myText2.font = sfFont
 ```
-
 
 #### Multiline text
 
@@ -218,7 +221,7 @@ const canvas = new UICanvas()
 
 const myText = new UIText(canvas)
 myText.value =
-  "Hello World, this message is quite long and won't fit in a single line. I hope that's not a problem."
+	"Hello World, this message is quite long and won't fit in a single line. I hope that's not a problem."
 myText.fontSize = 20
 myText.adaptWidth = false
 myText.textWrapping = true
@@ -232,7 +235,7 @@ const canvas = new UICanvas()
 
 const myText = new UIText(canvas)
 myText.value =
-  "Hello World,\nthis message is quite long and won't fit in a single line.\nI hope that's not a problem."
+	"Hello World,\nthis message is quite long and won't fit in a single line.\nI hope that's not a problem."
 myText.fontSize = 20
 ```
 
@@ -254,7 +257,7 @@ The `UIImage` component has the following fields to crop a sub-section of the or
 When constructing a `UIImage` component, you must pass a `Texture` component as an argument. Read more about `Texture` components in [materials]({{< ref "/content/creator/scenes/3d-essentials/materials.md" >}}).
 
 ```ts
-let imageAtlas = "images/image-atlas.jpg"
+let imageAtlas = 'images/image-atlas.jpg'
 let imageTexture = new Texture(imageAtlas)
 
 const canvas = new UICanvas()
@@ -299,15 +302,15 @@ Clickable UI elements also have an `OnClick` property, that lets you add a funct
 ```ts
 const canvas = new UICanvas()
 
-const clickableImage = new UIImage(canvas, new Texture("icon.png"))
-clickableImage.name = "clickable-image"
-clickableImage.width = "92px"
-clickableImage.height = "91px"
+const clickableImage = new UIImage(canvas, new Texture('icon.png'))
+clickableImage.name = 'clickable-image'
+clickableImage.width = '92px'
+clickableImage.height = '91px'
 clickableImage.sourceWidth = 92
 clickableImage.sourceHeight = 91
 clickableImage.isPointerBlocker = true
 clickableImage.onClick = new OnPointerDown(() => {
-  // DO SOMETHING
+	// DO SOMETHING
 })
 ```
 
@@ -316,11 +319,11 @@ clickableImage.onClick = new OnPointerDown(() => {
 -->
 
 {{< hint warning >}}
-**📔 Note**:  To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
+**📔 Note**: To click on a UI component, players must first unlock the cursor from the view control. They do this by clicking the _right mouse button_ or hitting `Esc`.
 {{< /hint >}}
 
 {{< hint info >}}
-**💡 Tip**:  If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
+**💡 Tip**: If you want to add text over a button, keep in mind that the text needs to have the `isPointerBlocker` property set to `false`, otherwise players might be clicking the text instead of the button.
 {{< /hint >}}
 
 ## Input text
@@ -331,22 +334,22 @@ Input boxes can be added to the UI to provide a place to type in text. You add a
 const canvas = new UICanvas()
 
 const textInput = new UIInputText(canvas)
-textInput.width = "80%"
-textInput.height = "25px"
-textInput.vAlign = "bottom"
-textInput.hAlign = "center"
+textInput.width = '80%'
+textInput.height = '25px'
+textInput.vAlign = 'bottom'
+textInput.hAlign = 'center'
 textInput.fontSize = 10
-textInput.placeholder = "Write message here"
-textInput.positionY = "200px"
+textInput.placeholder = 'Write message here'
+textInput.positionY = '200px'
 textInput.isPointerBlocker = true
 
 textInput.onTextSubmit = new OnTextSubmit((x) => {
-  const text = new UIText(textInput)
-  text.value = "<USER-ID> " + x.text
-  text.width = "100%"
-  text.height = "20px"
-  text.vAlign = "top"
-  text.hAlign = "left"
+	const text = new UIText(textInput)
+	text.value = '<USER-ID> ' + x.text
+	text.width = '100%'
+	text.height = '20px'
+	text.vAlign = 'top'
+	text.hAlign = 'left'
 })
 ```
 
@@ -367,10 +370,9 @@ When the player interacts with the component, you can use the following events t
 
 ```ts
 textInput.onChanged = new OnChanged((data: { value: string }) => {
-  inputTextState = data.value
+	inputTextState = data.value
 })
 ```
-
 
 ## Open the UI
 
@@ -385,16 +387,16 @@ The following code adds a cube to the world-space of the scene that opens the UI
 ```ts
 const uiTrigger = new Entity()
 const transform = new Transform({
-  position: new Vector3(5, 1, 5),
-  scale: new Vector3(0.3, 0.3, 0.3),
+	position: new Vector3(5, 1, 5),
+	scale: new Vector3(0.3, 0.3, 0.3),
 })
 uiTrigger.addComponent(transform)
 
 uiTrigger.addComponent(
-  new OnPointerDown(() => {
-    canvas.visible = true
-    canvas.isPointerBlocker = true
-  })
+	new OnPointerDown(() => {
+		canvas.visible = true
+		canvas.isPointerBlocker = true
+	})
 )
 
 uiTrigger.addComponent(new BoxShape())
@@ -414,18 +416,18 @@ If the UI is clickable, or has clickable parts, you should also set the `isPoint
 ```ts
 const canvas = new UICanvas()
 
-const close = new UIImage(canvas, new Texture("icon.png"))
-close.name = "clickable-image"
-close.width = "120px"
-close.height = "30px"
+const close = new UIImage(canvas, new Texture('icon.png'))
+close.name = 'clickable-image'
+close.width = '120px'
+close.height = '30px'
 close.sourceWidth = 92
 close.sourceHeight = 91
-close.vAlign = "bottom"
+close.vAlign = 'bottom'
 close.isPointerBlocker = true
 close.onClick = new OnPointerDown(() => {
-  log("clicked on the close image")
-  canvas.visible = false
-  canvas.isPointerBlocker = false
+	log('clicked on the close image')
+	canvas.visible = false
+	canvas.isPointerBlocker = false
 })
 ```
 

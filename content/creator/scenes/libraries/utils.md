@@ -11,8 +11,11 @@ url: /creator/development-guide/utils
 weight: 2
 ---
 
-The **Decentraland ECS Utils** library includes a number of helpful pre-built tools that include components, methods, and systems. They offer simple solutions to common scenarios that you're likely to run into while building scenes.
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/libraries/libraries.md" >}}).
+{{< /hint >}}
 
+The **Decentraland ECS Utils** library includes a number of helpful pre-built tools that include components, methods, and systems. They offer simple solutions to common scenarios that you're likely to run into while building scenes.
 
 - [Gradual Movement](#gradual-movement)
   - [Move an entity](#move-an-entity)
@@ -50,55 +53,53 @@ The **Decentraland ECS Utils** library includes a number of helpful pre-built to
 
 ### Via the Editor
 
-
 Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
-1) Open your scene's folder using Visual Studio Code. 
+1. Open your scene's folder using Visual Studio Code.
 
 {{< hint warning >}}
-**📔 Note**:  The Visual Studio window must be at the root folder of the scene project.
+**📔 Note**: The Visual Studio window must be at the root folder of the scene project.
 {{< /hint >}}
 
-2) Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
+2. Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
 
-3) Click the `+` icon on the header of the **Dependencies** view.
+3. Click the `+` icon on the header of the **Dependencies** view.
 
-4) Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `react`.
+4. Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `react`.
 
 {{< hint warning >}}
-**📔 Note**:  If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
+**📔 Note**: If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
 {{< /hint >}}
 
-5) If it is a Decentraland library (ie. `decentraland-ecs-utils`) select `Yes`, otherwise `No`.
+5. If it is a Decentraland library (ie. `decentraland-ecs-utils`) select `Yes`, otherwise `No`.
 
-
-6) Import the library into the scene's script. Add this line at the start of your `game.ts` file, or any other TypeScript files that require it:
+6. Import the library into the scene's script. Add this line at the start of your `game.ts` file, or any other TypeScript files that require it:
 
 ```ts
 import * as utils from '@dcl/ecs-scene-utils'
 ```
 
-7) In your TypeScript file, write `utils.` and let the suggestions of your IDE show the available helpers.
+7. In your TypeScript file, write `utils.` and let the suggestions of your IDE show the available helpers.
 
 ### Via the CLI
 
 To use any of the helpers provided by the utils library
 
-1) Install it as an `npm` package. Run this command in your scene's project folder:
+1. Install it as an `npm` package. Run this command in your scene's project folder:
 
 ```
 npm install @dcl/ecs-scene-utils -B
 ```
 
-2) Run `dcl start` or `dcl build` so the dependencies are correctly installed.
+2. Run `dcl start` or `dcl build` so the dependencies are correctly installed.
 
-3) Import the library into the scene's script. Add this line at the start of your `game.ts` file, or any other TypeScript files that require it:
+3. Import the library into the scene's script. Add this line at the start of your `game.ts` file, or any other TypeScript files that require it:
 
 ```ts
 import * as utils from '@dcl/ecs-scene-utils'
 ```
 
-4) In your TypeScript file, write `utils.` and let the suggestions of your IDE show the available helpers.
+4. In your TypeScript file, write `utils.` and let the suggestions of your IDE show the available helpers.
 
 ## Gradual Movement
 
@@ -183,7 +184,7 @@ The curved path is composed of multiple straight line segments put together. You
 - `numberOfSegments`: How many straight-line segments to use to construct the curve.
 
 {{< hint info >}}
-**💡 Tip**:  Each segment takes at least one frame to complete. Avoid using more than 30 segments per second in the duration of the path, or the entity will move significantly slower while it stops for each segment.
+**💡 Tip**: Each segment takes at least one frame to complete. Avoid using more than 30 segments per second in the duration of the path, or the entity will move significantly slower while it stops for each segment.
 {{< /hint >}}
 
 This example moves an entity over through a curve that's subdivided into 40 segments, over a period of 5 seconds. The curve passes through four key points.
@@ -279,9 +280,9 @@ box.addComponent(new utils.KeepRotatingComponent(Quaternion.Euler(0, 45, 0)))
 
 // Listen for click
 box.addComponent(
-  new OnPointerDown(() => {
-    box.getComponent(utils.KeepRotatingComponent).stop()
-  })
+	new OnPointerDown(() => {
+		box.getComponent(utils.KeepRotatingComponent).stop()
+	})
 )
 
 // Add entity to engine
@@ -336,13 +337,13 @@ The following example moves a box following an ease-in rate:
 
 ```ts
 box.addComponent(
-  new utils.MoveTransformComponent(
-    StartPos,
-    EndPos,
-    2,
-    null,
-    utils.InterpolationType.EASEINQUAD
-  )
+	new utils.MoveTransformComponent(
+		StartPos,
+		EndPos,
+		2,
+		null,
+		utils.InterpolationType.EASEINQUAD
+	)
 )
 ```
 
@@ -356,9 +357,9 @@ The following example logs a message when the box finishes its movement. The exa
 
 ```ts
 box.addComponent(
-  new utils.MoveTransformComponent(StartPos, EndPos, 2, () => {
-    log('finished moving box')
-  })
+	new utils.MoveTransformComponent(StartPos, EndPos, 2, () => {
+		log('finished moving box')
+	})
 )
 ```
 
@@ -372,16 +373,16 @@ The following example logs a messages when the box finishes each segment of the 
 
 ```ts
 box.addComponent(
-  new utils.FollowPathComponent(
-    path,
-    2,
-    () => {
-      log('finished moving box')
-    },
-    () => {
-      log('finished a segment of the path')
-    }
-  )
+	new utils.FollowPathComponent(
+		path,
+		2,
+		() => {
+			log('finished moving box')
+		},
+		() => {
+			log('finished a segment of the path')
+		}
+	)
 )
 ```
 
@@ -420,22 +421,22 @@ redMaterial.albedoColor = Color3.Red()
 
 // Add a Toggle component
 box.addComponent(
-  new utils.ToggleComponent(utils.ToggleState.Off, value => {
-    if (value == utils.ToggleState.On) {
-      //set color to green
-      box.addComponentOrReplace(greenMaterial)
-    } else {
-      //set color to red
-      box.addComponentOrReplace(redMaterial)
-    }
-  })
+	new utils.ToggleComponent(utils.ToggleState.Off, (value) => {
+		if (value == utils.ToggleState.On) {
+			//set color to green
+			box.addComponentOrReplace(greenMaterial)
+		} else {
+			//set color to red
+			box.addComponentOrReplace(redMaterial)
+		}
+	})
 )
 
 //listen for click on the box and toggle it's state
 box.addComponent(
-  new OnPointerDown(event => {
-    box.getComponent(utils.ToggleComponent).toggle()
-  })
+	new OnPointerDown((event) => {
+		box.getComponent(utils.ToggleComponent).toggle()
+	})
 )
 
 // Add entity to engine
@@ -462,24 +463,24 @@ let Pos2 = new Vector3(1, 1, 2)
 
 //toggle for wine bottle
 box.addComponent(
-  new utils.ToggleComponent(utils.ToggleState.Off, value => {
-    if (value == utils.ToggleState.On) {
-      box.addComponentOrReplace(
-        new utils.MoveTransformComponent(Pos1, Pos2, 0.5)
-      )
-    } else {
-      box.addComponentOrReplace(
-        new utils.MoveTransformComponent(Pos2, Pos1, 0.5)
-      )
-    }
-  })
+	new utils.ToggleComponent(utils.ToggleState.Off, (value) => {
+		if (value == utils.ToggleState.On) {
+			box.addComponentOrReplace(
+				new utils.MoveTransformComponent(Pos1, Pos2, 0.5)
+			)
+		} else {
+			box.addComponentOrReplace(
+				new utils.MoveTransformComponent(Pos2, Pos1, 0.5)
+			)
+		}
+	})
 )
 
 //listen for click on the box and toggle it's state
 box.addComponent(
-  new OnPointerDown(event => {
-    box.getComponent(utils.ToggleComponent).toggle()
-  })
+	new OnPointerDown((event) => {
+		box.getComponent(utils.ToggleComponent).toggle()
+	})
 )
 
 // Add entity to engine
@@ -509,9 +510,9 @@ easterEgg.addComponent(easterEggShape)
 
 // add a delayed function
 easterEgg.addComponent(
-  new utils.Delay(100000, () => {
-    easterEgg.getComponent(BoxShape).visible = true
-  })
+	new utils.Delay(100000, () => {
+		easterEgg.getComponent(BoxShape).visible = true
+	})
 )
 
 // add entity to scene
@@ -537,9 +538,9 @@ box.addComponent(new BoxShape())
 
 // add a function to run when clicked
 box.addComponent(
-  new OnPointerDown(() => {
-    box.addComponent(new utils.ExpireIn(500))
-  })
+	new OnPointerDown(() => {
+		box.addComponent(new utils.ExpireIn(500))
+	})
 )
 
 // add entity to scene
@@ -564,10 +565,10 @@ box.addComponent(new Transform())
 
 // add a repeated function
 box.addComponent(
-  new utils.Interval(500, () => {
-    let randomSize = Math.random()
-    box.getComponent(Transform).scale.setAll(randomSize)
-  })
+	new utils.Interval(500, () => {
+		let randomSize = Math.random()
+		box.getComponent(Transform).scale.setAll(randomSize)
+	})
 )
 
 // add entity to scene
@@ -617,19 +618,19 @@ let triggerBox = new utils.TriggerBoxShape()
 
 //create trigger for entity
 box.addComponent(
-  new utils.TriggerComponent(
-    triggerBox, //shape
-    {
-      onCameraEnter : () => {
-	  log('triggered!')
-	  box.getComponent(Transform).position = new Vector3(
-		1 + Math.random() * 14,
-		0,
-		1 + Math.random() * 14
-	        )
-      }
-    }
-  )
+	new utils.TriggerComponent(
+		triggerBox, //shape
+		{
+			onCameraEnter: () => {
+				log('triggered!')
+				box.getComponent(Transform).position = new Vector3(
+					1 + Math.random() * 14,
+					0,
+					1 + Math.random() * 14
+				)
+			},
+		}
+	)
 )
 
 //add entity to engine
@@ -637,7 +638,7 @@ engine.addEntity(box)
 ```
 
 {{< hint warning >}}
-**📔 Note**:  The trigger shape can be positioned or stretched, but it can't be rotated on any axis. This is a design decision taken for performance reasons. To cover a slanted area, we recommend adding multiple triggers if applicable.
+**📔 Note**: The trigger shape can be positioned or stretched, but it can't be rotated on any axis. This is a design decision taken for performance reasons. To cover a slanted area, we recommend adding multiple triggers if applicable.
 {{< /hint >}}
 
 Each trigger area has a shape for its area to check for collisions, which is completely independent of the visible shape of the entity. The shape of the area can either be determined by a `TriggerBoxShape` or a `TriggerSphereShape`. When instancing these, can set the scale and an offset position. By default, the trigger shape starts in the same position as the entity that has the `TriggerComponent`.
@@ -658,10 +659,10 @@ You can optionally configure a custom shape and size for the player's trigger ar
 
 ```ts
 utils.TriggerSystem.instance.setCameraTriggerShape(
-  new utils.TriggerBoxShape(
-    new Vector3(0.5, 1.8, 0.5),
-    new Vector3(0, -0.91, 0)
-  )
+	new utils.TriggerBoxShape(
+		new Vector3(0.5, 1.8, 0.5),
+		new Vector3(0, -0.91, 0)
+	)
 )
 ```
 
@@ -900,16 +901,16 @@ The `sendRequest()` function has a single required argument:
 
 ```ts
 async function request() {
-  let response = await utils.sendRequest(
-    'https://events.decentraland.org/api/events/?limit=5'
-  )
+	let response = await utils.sendRequest(
+		'https://events.decentraland.org/api/events/?limit=5'
+	)
 
-  log(response)
+	log(response)
 }
 ```
 
 {{< hint warning >}}
-**📔 Note**:  The sendRequest() function is asynchronous, since it must wait for the external server to respond back before it can return a response. If you need your code to access the data on the request's response, you must use the sendRequest() within an `async` block of code, and add an `await` to the function.
+**📔 Note**: The sendRequest() function is asynchronous, since it must wait for the external server to respond back before it can return a response. If you need your code to access the data on the request's response, you must use the sendRequest() within an `async` block of code, and add an `await` to the function.
 {{< /hint >}}
 
 The `sendRequest()` function also lets you use the following arguments, for sending more advanced requests:
@@ -958,7 +959,7 @@ The `addLabel()` function also lets you set the following:
 - `textOffset`: Offset from parent entity's position. By default 1.5 meters above the parent.
 
 {{< hint info >}}
-**💡 Tip**:  The `addLabel()` function returns the created entity used for the text. You can then tweak this entity in any way you choose.
+**💡 Tip**: The `addLabel()` function returns the created entity used for the text. You can then tweak this entity in any way you choose.
 {{< /hint >}}
 
 ## Debug helpers
@@ -968,7 +969,7 @@ The `addLabel()` function also lets you set the following:
 Render a simple clickable cube to use as a trigger when debugging a scene with `addTestCube()`.
 
 {{< hint warning >}}
-**📔 Note**:  The test cube is only shown in preview, unless configured to appear also in production.
+**📔 Note**: The test cube is only shown in preview, unless configured to appear also in production.
 {{< /hint >}}
 
 The `addTestCube()` function has just two required arguments:
@@ -978,7 +979,7 @@ The `addTestCube()` function has just two required arguments:
 
 ```ts
 utils.addTestCube({ position: new Vector3(2, 1, 2) }, () => {
-  log('Cube clicked')
+	log('Cube clicked')
 })
 ```
 
@@ -991,14 +992,14 @@ The `addTestCube()` function also lets you set the following:
 - `keepInProduction`: If true, it will be visible for players in-world once the scene is deployed. Otherwise, the cube is only present when previewing he scene locally.
 
 {{< hint info >}}
-**💡 Tip**:  The `addTestCube()` function returns the created entity for the cube. You can then tweak this entity in any way you choose. `addTestCube()` is an async function (because the function first checks if you're in preview or in production). If you need the function to return the cube (instead of a promise of a cube) use it inside an async block of code with an await on the `addTestCube()` function.
+**💡 Tip**: The `addTestCube()` function returns the created entity for the cube. You can then tweak this entity in any way you choose. `addTestCube()` is an async function (because the function first checks if you're in preview or in production). If you need the function to return the cube (instead of a promise of a cube) use it inside an async block of code with an await on the `addTestCube()` function.
 {{< /hint >}}
 
 ```ts
 async function addMyCube() {
-  myCube = await utils.addTestCube({ position: new Vector3(0, 0, 1) }, () => {
-    log('Cube clicked')
-  })
+	myCube = await utils.addTestCube({ position: new Vector3(0, 0, 1) }, () => {
+		log('Cube clicked')
+	})
 }
 ```
 
@@ -1058,78 +1059,78 @@ engine.addEntity(box)
 
 //Use IAction to define action for scaling
 class ScaleAction implements utils.ActionsSequenceSystem.IAction {
-  hasFinished: boolean = false
-  entity: Entity
-  scale: Vector3
+	hasFinished: boolean = false
+	entity: Entity
+	scale: Vector3
 
-  constructor(entity: Entity, scale: Vector3) {
-    this.entity = entity
-    this.scale = scale
-  }
+	constructor(entity: Entity, scale: Vector3) {
+		this.entity = entity
+		this.scale = scale
+	}
 
-  //Method when action starts
-  onStart(): void {
-    const transform = this.entity.getComponent(Transform)
-    this.hasFinished = false
+	//Method when action starts
+	onStart(): void {
+		const transform = this.entity.getComponent(Transform)
+		this.hasFinished = false
 
-    this.entity.addComponentOrReplace(
-      new utils.ScaleTransformComponent(
-        transform.scale,
-        this.scale,
-        1.5,
-        () => {
-          this.hasFinished = true
-        },
-        utils.InterpolationType.EASEINQUAD
-      )
-    )
-  }
-  //Method to run on every frame
-  update(dt: number): void {}
-  //Method to run at the end
-  onFinish(): void {}
+		this.entity.addComponentOrReplace(
+			new utils.ScaleTransformComponent(
+				transform.scale,
+				this.scale,
+				1.5,
+				() => {
+					this.hasFinished = true
+				},
+				utils.InterpolationType.EASEINQUAD
+			)
+		)
+	}
+	//Method to run on every frame
+	update(dt: number): void {}
+	//Method to run at the end
+	onFinish(): void {}
 }
 
 //Use IAction to define action for movement
 class MoveAction implements utils.ActionsSequenceSystem.IAction {
-  hasFinished: boolean = false
-  entity: Entity
-  position: Vector3
+	hasFinished: boolean = false
+	entity: Entity
+	position: Vector3
 
-  constructor(entity: Entity, position: Vector3) {
-    this.entity = entity
-    this.position = position
-  }
+	constructor(entity: Entity, position: Vector3) {
+		this.entity = entity
+		this.position = position
+	}
 
-  //Method when action starts
-  onStart(): void {
-    const transform = this.entity.getComponent(Transform)
+	//Method when action starts
+	onStart(): void {
+		const transform = this.entity.getComponent(Transform)
 
-    this.entity.addComponentOrReplace(
-      new utils.MoveTransformComponent(
-        transform.position,
-        this.position,
-        4,
-        () => {
-          this.hasFinished = true
-        }
-      )
-    )
-  }
-  //Method to run on every frame
-  update(dt: number): void {}
-  //Method to run at the end
-  onFinish(): void {}
+		this.entity.addComponentOrReplace(
+			new utils.MoveTransformComponent(
+				transform.position,
+				this.position,
+				4,
+				() => {
+					this.hasFinished = true
+				}
+			)
+		)
+	}
+	//Method to run on every frame
+	update(dt: number): void {}
+	//Method to run at the end
+	onFinish(): void {}
 }
 
 //Use sequence builder to create a sequence
 const sequence = new utils.ActionsSequenceSystem.SequenceBuilder()
-  .while(() => !boxClicked)
-  .then(new ScaleAction(box, new Vector3(1.5, 1.5, 1.5)))
-  .then(new ScaleAction(box, new Vector3(0.5, 0.5, 0.5)))
-  .endWhile()
-  .then(new ScaleAction(box, new Vector3(1, 1, 1)))
-  .then(new MoveAction(box, new Vector3(1, 0, 1)))
+	.while(() => !boxClicked)
+	.then(new ScaleAction(box, new Vector3(1.5, 1.5, 1.5)))
+	.then(new ScaleAction(box, new Vector3(0.5, 0.5, 0.5)))
+	.endWhile()
+	.then(new ScaleAction(box, new Vector3(1, 1, 1)))
+	.then(new MoveAction(box, new Vector3(1, 0, 1)))
 
 //Create a sequence system, and add it to the engine to run the sequence
 engine.addSystem(new utils.ActionsSequenceSystem(sequence))
