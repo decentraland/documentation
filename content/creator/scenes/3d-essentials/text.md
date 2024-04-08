@@ -10,8 +10,8 @@ aliases:
 url: /creator/development-guide/text
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).
 {{< /hint >}}
 
 Add text to a scene using the `TextShape` component. This text sits in a position

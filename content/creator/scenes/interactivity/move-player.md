@@ -11,8 +11,8 @@ url: /creator/development-guide/move-player
 weight: 2
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}}).
 {{< /hint >}}
 
 To change the player's position in the scene, use the `movePlayerTo()` function. This function takes two arguments:

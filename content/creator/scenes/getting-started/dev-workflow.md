@@ -27,8 +27,8 @@ This document outlines the steps recommended for developing a scene for Decentra
 - [Iterate](#iterate)
 - [Giving back](#giving-back)
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}).
 {{< /hint >}}
 
 ## Install the Decentraland Editor

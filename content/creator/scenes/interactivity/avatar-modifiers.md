@@ -11,8 +11,8 @@ url: /creator/development-guide/avatar-modifiers
 weight: 3
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md" >}}).
 {{< /hint >}}
 
 ## Avatar Modifiers

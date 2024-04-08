@@ -11,8 +11,8 @@ url: /creator/development-guide/component-groups
 weight: 4
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}).
 {{< /hint >}}
 
 Each component group keeps track of a list of entities that have all the required [components]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}).

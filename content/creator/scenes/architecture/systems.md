@@ -11,8 +11,8 @@ url: /creator/development-guide/systems
 weight: 2
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}).
 {{< /hint >}}
 
 Decentraland scenes rely on _systems_ to update the information stored in each entity's [components]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}) as the scene changes.
