@@ -12,8 +12,8 @@ url: /creator/development-guide/second-layer
 weight: 2
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/blockchain/second-layer.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/blockchain/second-layer.md" >}}).
 {{< /hint >}}
 
 ## About second layer solutions

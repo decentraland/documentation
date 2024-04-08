@@ -12,8 +12,8 @@ url: /creator/development-guide/scene-files
 weight: 2
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/projects/scene-files.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/projects/scene-files.md" >}}).
 {{< /hint >}}
 
 After [creating a new scene](https://docs.decentraland.org/#create-your-first-scene) using the CLI, the scene folder will have a series of files with default content.

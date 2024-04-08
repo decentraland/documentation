@@ -11,8 +11,8 @@ url: /creator/development-guide/event-listeners
 weight: 8
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md" >}}).
 {{< /hint >}}
 
 There are several events that the scene can subscribe to, to know the actions of the player while in or near the scene.

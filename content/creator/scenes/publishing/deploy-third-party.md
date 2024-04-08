@@ -12,8 +12,8 @@ type: Document
 url: /creator/development-guide/deploy-third-party
 ---
 
-{{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/publishing/deploy-third-party.md" >}}).
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/publishing/deploy-third-party.md" >}}).
 {{< /hint >}}
 
 If you do not possess any parcels in Decentraland or a Decentraland [NAME](https://builder.decentraland.zone/names) to publish your scene to a [World]({{< ref "/content/creator/worlds/about.md" >}}), or if you are not yet prepared to [deploy]({{< ref "/content/creator/scenes/publishing/publishing.md#the-test-server" >}}) your scene to Decentraland, there is an alternative option available. You can upload a preview of your scene to run as an application on server.
