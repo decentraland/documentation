@@ -13,7 +13,7 @@ weight: 2
 ---
 
 {{< hint warning >}}
-**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/media/vide-playing.md" >}}).
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/media/video-playing.md" >}}).
 {{< /hint >}}
 
 There are two different ways you can show a video in a scene. One is to stream the video from an external source, the other is to pack the video file with the scene and play it from there.

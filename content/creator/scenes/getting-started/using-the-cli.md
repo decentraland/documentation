@@ -78,7 +78,7 @@ You can confirm that it worked by checking the `package.json` file for the scene
 
 Run `dcl init` on an empty folder to populate it with the default files of a Decentraland project.
 
-The CLI then prompts you to chose what kind of project, if you want to build a [scene]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}), a [workspace]({{< ref "/content/creator/scenes/projects/workspaces.md" >}}) or a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). If selecting a scene, the CLI prompts you about what base project to use as a starting point.
+The CLI then prompts you to chose what kind of project, if you want to build a [scene]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}), a workspace or a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). If selecting a scene, the CLI prompts you about what base project to use as a starting point.
 
 ## Run a preview
 

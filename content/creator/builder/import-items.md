@@ -72,7 +72,3 @@ If an imported model includes animations, the first animation that's packed into
 Note that you don't have any control over when the animation starts or stops, or which one is played in case of several animations.
 
 If there are multiple players in the scene, they may be seeing the animation out of sync from each other.
-
-## Smart items
-
-You can also import your own custom smart items that have built-in interactive behavior, following the same steps as for uploading a model. See [smart items]({{< ref "/content/creator/scenes/projects/smart-items.md" >}}).
