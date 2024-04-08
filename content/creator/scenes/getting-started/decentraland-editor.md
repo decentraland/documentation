@@ -9,6 +9,10 @@ url: /creator/development-guide/editor/
 weight: 5
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/getting-started/decentraland-editor.md" >}}).
+{{< /hint >}}
+
 ## Install the editor
 
 See the [Installation guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
@@ -23,7 +27,6 @@ The Decentraland editor is an extension of Visual Studio Code, built for easing 
 
 Ultimately the editor will offer many no-code options for placing items, and setting component parameters via graphical UIs. The first version of the editor aims for simplifying the experience of coding scenes by removing the command line from the list of tools you need to use. It offers UI options for:
 
-
 - **Create projects**: Scaffold a new project of various types: scene, library, portable experience, and smart item. See [Create a project]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}).
 - **Run scenes**: preview your scenes within VSCode, or launch in a browser. See [Run preview]({{< ref "/content/creator/scenes/getting-started/preview-scene.md" >}}).
 - **Debug scenes**: Add breakpoints to the code, to pause execution and see current state of all variables at that point in time. See [Debug in preview]({{< ref "/content/creator/scenes/debugging/debug-in-preview.md#add-breakpoints-in-the-decentraland-editor" >}}).
@@ -36,7 +39,6 @@ Ultimately the editor will offer many no-code options for placing items, and set
 If you run into any bugs, please report an issue in the [Editor](https://github.com/decentraland/editor) repository.
 
 We ask you to please detail how to reproduce the issue as much as possible.
-
 
 ## Submit feedback
 

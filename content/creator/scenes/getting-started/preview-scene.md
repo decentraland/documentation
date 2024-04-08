@@ -15,6 +15,10 @@ url: /creator/development-guide/preview-scene
 weight: 4
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md" >}}).
+{{< /hint >}}
+
 Once you have [built a new scene]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) or downloaded a [scene example](https://github.com/decentraland-scenes/Awesome-Repository#examples) you can preview it locally.
 
 ## Using the editor

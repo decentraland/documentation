@@ -11,6 +11,10 @@ url: /creator/development-guide/raycasting
 weight: 7
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}).
+{{< /hint >}}
+
 Raycasting is a fundamental tool in game development. With raycasting, you can trace an imaginary line in space, and query if any entities are intersected by the line. This is useful for calculating lines of sight, trajectories of bullets, pathfinding algorithms and many other applications.
 
 When a player clicks or pushes the primary or secondary button, a ray is traced from the player's position in the direction they are looking, see [button events]({{< ref "/content/creator/scenes/interactivity/click-events.md" >}}) for more details about this. This document covers how to trace an invisible ray from any arbitrary position and direction, independent of player actions, which you can use in many other scenarios.
@@ -38,9 +42,9 @@ let originPos = new Vector3(2, 1, 4)
 let direction = new Vector3(0, 1, 1)
 
 let ray: Ray = {
-  origin: originPos,
-  direction: direction,
-  distance: 10,
+	origin: originPos,
+	direction: direction,
+	distance: 10,
 }
 ```
 
@@ -91,17 +95,17 @@ let originPos = new Vector3(2, 1, 4)
 let direction = new Vector3(0, 1, 1)
 
 let ray: Ray = {
-  origin: originPos,
-  direction: direction,
-  distance: 10,
+	origin: originPos,
+	direction: direction,
+	distance: 10,
 }
 
 physicsCast.hitFirst(
-  ray,
-  (e) => {
-    log(e.entity.entityId)
-  },
-  0
+	ray,
+	(e) => {
+		log(e.entity.entityId)
+	},
+	0
 )
 ```
 
@@ -114,19 +118,19 @@ let originPos = new Vector3(2, 1, 4)
 let direction = new Vector3(0, 1, 1)
 
 let ray: Ray = {
-  origin: originPos,
-  direction: direction,
-  distance: 10,
+	origin: originPos,
+	direction: direction,
+	distance: 10,
 }
 
 physicsCast.hitAll(
-  ray,
-  (e) => {
-    for (let entityHit of e.entities) {
-      log(entityHit.entity.entityId)
-    }
-  },
-  0
+	ray,
+	(e) => {
+		for (let entityHit of e.entities) {
+			log(entityHit.entity.entityId)
+		}
+	},
+	0
 )
 ```
 
@@ -156,24 +160,24 @@ let originPos = new Vector3(2, 1, 4)
 let direction = new Vector3(0, 1, 1)
 
 let ray: Ray = {
-  origin: originPos,
-  direction: direction,
-  distance: 10,
+	origin: originPos,
+	direction: direction,
+	distance: 10,
 }
 
 physicsCast.hitFirst(
-  ray,
-  (e) => {
-    if (e.didHit) {
-      engine.entities[e.entity.entityId].addComponentOrReplace(hitMaterial)
-    }
-  },
-  0
+	ray,
+	(e) => {
+		if (e.didHit) {
+			engine.entities[e.entity.entityId].addComponentOrReplace(hitMaterial)
+		}
+	},
+	0
 )
 ```
 
 {{< hint info >}}
-**💡 Tip**:  To reference an entity based on its ID, use the engine's `entities` array, like this: `engine.entities[e.entity.entityId]`.
+**💡 Tip**: To reference an entity based on its ID, use the engine's `entities` array, like this: `engine.entities[e.entity.entityId]`.
 {{< /hint >}}
 
 The example below does the same, but dealing with an array of entities returned from the `hitAll()` function:
@@ -185,23 +189,23 @@ let originPos = new Vector3(2, 1, 4)
 let direction = new Vector3(0, 1, 1)
 
 let ray: Ray = {
-  origin: originPos,
-  direction: direction,
-  distance: 10,
+	origin: originPos,
+	direction: direction,
+	distance: 10,
 }
 
 physicsCast.hitAll(
-  ray,
-  (e) => {
-    if (e.didHit) {
-      for (let entityHit of e.entities) {
-        engine.entities[entityHit.entity.entityId].addComponentOrReplace(
-          hitMaterial
-        )
-      }
-    }
-  },
-  0
+	ray,
+	(e) => {
+		if (e.didHit) {
+			for (let entityHit of e.entities) {
+				engine.entities[entityHit.entity.entityId].addComponentOrReplace(
+					hitMaterial
+				)
+			}
+		}
+	},
+	0
 )
 ```
 
@@ -220,23 +224,23 @@ let id1: number = 0
 let id2: number = 1
 
 class RaycastSystem implements ISystem {
-  update(dt: number) {
-    PhysicsCast.instance().hitFirst(
-      Ray1,
-      (e) => {
-        // Do stuff
-      },
-      id1
-    )
+	update(dt: number) {
+		PhysicsCast.instance().hitFirst(
+			Ray1,
+			(e) => {
+				// Do stuff
+			},
+			id1
+		)
 
-    PhysicsCast.instance().hitFirst(
-      Ray2,
-      (e) => {
-        // Do stuff
-      },
-      id2
-    )
-  }
+		PhysicsCast.instance().hitFirst(
+			Ray2,
+			(e) => {
+				// Do stuff
+			},
+			id2
+		)
+	}
 }
 
 engine.addSystem(new RaycastSystem())

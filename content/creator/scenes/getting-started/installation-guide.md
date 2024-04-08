@@ -14,6 +14,10 @@ url: /creator/development-guide/installation-guide
 weight: 3
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}).
+{{< /hint >}}
+
 The Decentraland Editor is a Visual Studio extension, that allows you to build, preview and deploy Decentraland scenes.
 
 <img src="/images/editor/editor-header.png" alt="Header" width="100%"/>
@@ -24,17 +28,15 @@ The Decentraland Editor is a Visual Studio extension, that allows you to build, 
 
 To install the Decentraland Editor:
 
-1) Install  <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+1. Install <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
 
-2) Open Visual Studio Code, and open the <img src="/images/editor/vscode-extensions.png" alt="Header" width="25"/> **extensions** marketplace. 
+2. Open Visual Studio Code, and open the <img src="/images/editor/vscode-extensions.png" alt="Header" width="25"/> **extensions** marketplace.
 
-3) Search for the <img src="/images/editor/dcl-logo.png" alt="Header" width="25"/> **Decentraland Editor SDK6** extension and click **Install**.
+3. Search for the <img src="/images/editor/dcl-logo.png" alt="Header" width="25"/> **Decentraland Editor SDK6** extension and click **Install**.
 
-	<img src="/images/editor/editor-installation.png" alt="Header" width="100%"/>
+<img src="/images/editor/editor-installation.png" alt="Header" width="100%"/>
 
-4) You'll then need to **restart Visual Studio** to use the extension.
-
-
+4. You'll then need to **restart Visual Studio** to use the extension.
 
 ## Troubleshooting
 

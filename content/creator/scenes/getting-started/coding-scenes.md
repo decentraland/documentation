@@ -23,6 +23,10 @@ url: /creator/development-guide/coding-scenes
 weight: 10
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}).
+{{< /hint >}}
+
 ## The development tools
 
 At a very high level, the **Decentraland Software Development Kit** (SDK) allows you to do the following:
@@ -141,14 +145,14 @@ const myGroup = engine.getComponentGroup(Transform)
 
 // Define a System
 export class RotatorSystem implements ISystem {
-  // The update function runs on every frame of the game loop
-  update() {
-    // The function iterates over all the entities in myGroup
-    for (let entity of myGroup.entities) {
-      const transform = entity.getComponent(Transform)
-      transform.rotate(Vector3.Left(), 0.1)
-    }
-  }
+	// The update function runs on every frame of the game loop
+	update() {
+		// The function iterates over all the entities in myGroup
+		for (let entity of myGroup.entities) {
+			const transform = entity.getComponent(Transform)
+			transform.rotate(Vector3.Left(), 0.1)
+		}
+	}
 }
 
 // Add the system to the engine
@@ -159,9 +163,9 @@ const cube = new Entity()
 
 // Give the entity a transform component
 cube.addComponent(
-  new Transform({
-    position: new Vector3(5, 1, 5),
-  })
+	new Transform({
+		position: new Vector3(5, 1, 5),
+	})
 )
 
 // Give the entity a box shape
@@ -189,7 +193,6 @@ We have also abstracted the communication protocol. This allows us to run the sc
 
 We don't want developers to intervene with the internals of the engine or even need to know what lies inside the engine. We need to ensure a consistent experience for players throughout the Decentraland map, and mistakes are more likely to happen at that "low" level.
 
-
 ## SDK Versions
 
 When developing a new scene, you use the `@latest` stable SDK release by default.
@@ -203,6 +206,5 @@ To do so, open the Decentraland Editor tab, and press the `+` sign to install th
 See [manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-dependencies.md" >}}) for more details.
 
 {{< hint warning >}}
-**📔 Note**:  Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.
+**📔 Note**: Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.
 {{< /hint >}}
-

@@ -11,6 +11,10 @@ url: /creator/development-guide/scene-metadata
 weight: 1
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}).
+{{< /hint >}}
+
 All scenes have a `scene.json` file where you can set metadata for the scene. Some fields in this file are predefined with information that's necessary for the Decentraland client.
 
 You're also free to add any fields that you wish. In the future, custom fields can then be checked by alternative clients, or other scripts embedded in interactive inventory items.
@@ -247,7 +251,7 @@ This example spawns a player on _5, 1, 4_ looking East at _10, 1, 4_. If the spa
 
 The `rating` field is used to classify the content of your scene based on its appropriateness for different age groups. It helps in filtering content for players. The rating is a **single-letter code** that you should add to your `scene.json` file. Here are the available options:
 
-- **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language. 
+- **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language.
 - **🟡 `A` for Adults (18+)**: Choose this category if your scene features any of the following: intense offensive language, graphic violence, explicit sexual content and/or nudity, real money gambling, or substances like alcohol, tobacco, and drugs.
 
 <img src="/images/media/content-moderation-flag-icon.png" style="margin: 1rem; display: block;width: 200px;"/>
@@ -259,6 +263,7 @@ The `rating` field is used to classify the content of your scene based on its ap
 ```
 
 ### Restricted Content
+
 There is a third category for scenes: 🔴 `R` for Restricted. This rating is manually applied by Content Moderators to scenes that violate Decentraland's [Content Policy](https://decentraland.org/content). Violations may include, but are not limited to:
 
 - Suspicious content or spam
@@ -363,27 +368,27 @@ The example bleow shows the path to obtain several of the more common fields you
 import { getParcel } from '@decentraland/ParcelIdentity'
 
 executeTask(async () => {
-  const parcel = await getParcel()
+	const parcel = await getParcel()
 
-  // parcels
-  log('parcels: ', parcel.land.sceneJsonData.scene.parcels)
-  log('base parcel: ', parcel.land.sceneJsonData.scene.base)
+	// parcels
+	log('parcels: ', parcel.land.sceneJsonData.scene.parcels)
+	log('base parcel: ', parcel.land.sceneJsonData.scene.base)
 
-  // spawn points
-  log('spawnpoints: ', parcel.land.sceneJsonData.spawnPoints)
+	// spawn points
+	log('spawnpoints: ', parcel.land.sceneJsonData.spawnPoints)
 
-  // general scene data
-  log('title: ', parcel.land.sceneJsonData.display?.title)
-  log('author: ', parcel.land.sceneJsonData.contact?.name)
-  log('email: ', parcel.land.sceneJsonData.contact?.email)
+	// general scene data
+	log('title: ', parcel.land.sceneJsonData.display?.title)
+	log('author: ', parcel.land.sceneJsonData.contact?.name)
+	log('email: ', parcel.land.sceneJsonData.contact?.email)
 
-  // other info
-  log('tags: ', parcel.land.sceneJsonData.tags)
+	// other info
+	log('tags: ', parcel.land.sceneJsonData.tags)
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**: `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
+**📔 Note**: `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
 {{< /hint >}}
 
 ## Tags
@@ -421,16 +426,16 @@ Here is how the tag names look on the Places dApp:
 
 ```json
 {
-  "art": "🎨 Art",
-  "game": "🕹️ Game",
-  "casino": "🃏 Casino",
-  "social": "👥 Social",
-  "music": "🎶 Music",
-  "fashion": "👠 Fashion",
-  "crypto": "🪙 Crypto",
-  "education": "📚 Education",
-  "shop": "🛍️ Shop",
-  "business": "🏢 Business",
-  "sports": "🏅 Sports"
+	"art": "🎨 Art",
+	"game": "🕹️ Game",
+	"casino": "🃏 Casino",
+	"social": "👥 Social",
+	"music": "🎶 Music",
+	"fashion": "👠 Fashion",
+	"crypto": "🪙 Crypto",
+	"education": "📚 Education",
+	"shop": "🛍️ Shop",
+	"business": "🏢 Business",
+	"sports": "🏅 Sports"
 }
 ```

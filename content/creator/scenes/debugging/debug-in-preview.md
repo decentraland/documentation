@@ -11,6 +11,9 @@ url: /creator/development-guide/debug-in-preview
 weight: 1
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/debugging/debug-in-preview.md" >}}).
+{{< /hint >}}
 
 Running a preview provides some useful debugging information and tools to help you understand how the scene is rendered. The preview mode provides indicators that show parcel boundaries and the orientation of the scene.
 
@@ -26,7 +29,7 @@ If this occurs, there are several places where you can look for error messages t
 If an entity is located or extends beyond the limits of the scene, it will be displayed in red to indicate this, with a red bounding box to mark its boundaries. Nothing in your scene can extend beyond the scene limits. This won't stop the scene from being rendered locally, but it will stop the offending entities form being rendered in Decentraland.
 
 {{< hint info >}}
-**💡 Tip**:  Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/scenes/getting-started/dev-workflow.md#deploy-to-the-test-environment" >}})
+**💡 Tip**: Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/scenes/getting-started/dev-workflow.md#deploy-to-the-test-environment" >}})
 {{< /hint >}}
 
 ## Use the console
@@ -45,13 +48,11 @@ This is especially useful to validate that the data at a given point in time is 
 
 Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
-
 1. Open VSCode in a Decentraland scene project.
 2. Click on the Debugger icon on the left sidebar.
 3. Click on `Run and Debug` and select `Decentraland` (this step is not necessary if your project already has a `.vscode/launch.json` file).
 4. Click on `Run`. A browser should open.
-5. Try setting a breakpoint and interacting with the scene in a way it will step on that line. 
-
+5. Try setting a breakpoint and interacting with the scene in a way it will step on that line.
 
 ## View scene stats
 
@@ -72,10 +73,10 @@ Click the _Y_ key to open the Panel. This panel displays the following informati
 
 The processed messages and message queue refer to the messages sent by your scene's code to the engine. These are useful to know if your scene is running more operations than the engine can support. If many messages get queued up, that's usually a bad sign.
 
-The other numbers in the panel refer to the usage of resources, in relation to the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}). Keep in mind that the maximum allowed number for these values is proportional to the amount of parcels in the scene. If your scene tries to render an entity that exceeds these values, for example if it has too many triangles, it won't be rendered in-world once deployed.
+The other numbers in the panel refer to the usage of resources, in relation to the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}). Keep in mind that the maximum allowed number for these values is proportional to the amount of parcels in the scene. If your scene tries to render an entity that exceeds these values, for example if it has too many triangles, it won't be rendered in-world once deployed.
 
 {{< hint warning >}}
-**📔 Note**:  Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
+**📔 Note**: Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
 {{< /hint >}}
 
 ## Run code only in preview
@@ -97,7 +98,7 @@ executeTask(async () => {
 ```
 
 {{< hint warning >}}
-**📔 Note**:  `isPreviewMode()` needs to be run as an [async function]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the response may delay in returning data.
+**📔 Note**: `isPreviewMode()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay in returning data.
 {{< /hint >}}
 
 ## Dependency versions
@@ -175,7 +176,6 @@ When running a preview normally, without a connected Web3 account, you're assign
 
 To use a consist guest avatar across your sessions, you can store an avatar profile by adding a `PLAYER` parameter to the URL with any string as its value. When using this, the preview will store your avatar’s settings locally on your browser, to retrieve them whenever you use the same string on the `PLAYER` parameter. For example, every time you open the preview with the URL `http://127.0.0.1:8000/?PLAYER=ringo`, you’ll have the same avatar.
 
-
 ## Connecting to Ethereum network
 
 If your scene makes use of transactions over the Ethereum network, for example if it prompts you to pay a sum in MANA to open a door, you need to run the preview in the browser with Web3.
@@ -201,10 +201,9 @@ Any transactions that you accept while viewing the scene in this mode will only 
 If you open a second preview window on your machine, you will enter the scene with a different avatar. The avatars on both tabs will be able to see each other and interact, although currently they might have inconsistent names and wearables on.
 
 {{< hint warning >}}
-**📔 Note**:  You can't open multiple tabs using the same account. So if your URL has a hardcoded `PLAYER` parameter with the same string on multiple tabs, or you're connecting to Metamask on more than one tab, it won't be possible to load them all. Each simultaneous tab should load a different account.
+**📔 Note**: You can't open multiple tabs using the same account. So if your URL has a hardcoded `PLAYER` parameter with the same string on multiple tabs, or you're connecting to Metamask on more than one tab, it won't be possible to load them all. Each simultaneous tab should load a different account.
 {{< /hint >}}
 
 If the scene uses the MessageBus to send messages between players, these will work between the different tabs.
 
 If the scene connects to a third party server via websockets, these connections should also work independently on each tab, as separate players.
-

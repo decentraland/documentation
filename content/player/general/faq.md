@@ -65,13 +65,14 @@ The Avatar editor provides a big selection of wearables and accessories – all 
 Each collectible is assigned a rarity category, represented by a different name and color and denoting supply of collectible.
 
 Their maximum issuance is:
-  - Common: 100000
-  - Uncommon: 10000
-  - Rare: 5000
-  - Epic: 1000
-  - Legendary: 100
-  - Mythic: 10
-  - Unique: 1
+
+- Common: 100000
+- Uncommon: 10000
+- Rare: 5000
+- Epic: 1000
+- Legendary: 100
+- Mythic: 10
+- Unique: 1
 
 ## Can I claim my Avatar name later?
 
@@ -91,7 +92,7 @@ LAND is a non-fungible digital asset maintained in an Ethereum smart contract. L
 
 ## How large is a tile of LAND?
 
-Land parcels are 16m x 16m, or 52ft x 52ft. Height is restricted based on [these limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}).
+Land parcels are 16m x 16m, or 52ft x 52ft. Height is restricted based on [these limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
 
 ## What is an Estate?
 

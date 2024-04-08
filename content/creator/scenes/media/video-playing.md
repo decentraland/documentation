@@ -12,12 +12,16 @@ url: /creator/development-guide/video-playing
 weight: 2
 ---
 
+{{< hint warning >}}
+**📔 Note**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/media/vide-playing.md" >}}).
+{{< /hint >}}
+
 There are two different ways you can show a video in a scene. One is to stream the video from an external source, the other is to pack the video file with the scene and play it from there.
 
 In both cases, you assign the video to a `VideoTexture`, which can be used on a [material]({{< ref "/content/creator/scenes/3d-essentials/materials.md" >}}) and then applied to any [primitive shape]({{< ref "/content/creator/scenes/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
 
 {{< hint info >}}
-**💡 Tip**:  Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
+**💡 Tip**: Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
 {{< /hint >}}
 
 ## Show a video
@@ -39,7 +43,7 @@ This example uses a video stream:
 ```ts
 // #1
 const myVideoClip = new VideoClip(
-  'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875'
+	'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875'
 )
 
 // #2
@@ -52,20 +56,19 @@ myMaterial.roughness = 1
 myMaterial.specularIntensity = 0
 myMaterial.metallic = 0
 
-
 // #4
 const screen = new Entity()
 screen.addComponent(new PlaneShape())
 screen.addComponent(
-  new Transform({
-    position: new Vector3(8, 1, 8),
-  })
+	new Transform({
+		position: new Vector3(8, 1, 8),
+	})
 )
 screen.addComponent(myMaterial)
 screen.addComponent(
-  new OnPointerDown(() => {
-    myVideoTexture.playing = !myVideoTexture.playing
-  })
+	new OnPointerDown(() => {
+		myVideoTexture.playing = !myVideoTexture.playing
+	})
 )
 engine.addEntity(screen)
 
@@ -76,13 +79,12 @@ myVideoTexture.play()
 To use a video file, just change the first step to reference the path to the file:
 
 ```ts
-const myVideoClip = new VideoClip("videos/myVideo.mp3")
+const myVideoClip = new VideoClip('videos/myVideo.mp3')
 ```
 
 ## Video Materials
 
 To many, the default properties of a material make the video look quite opaque for a screen, but you can enhance that by altering other properties of the material.
-
 
 ```ts
 const myMaterial = new Material()
@@ -93,7 +95,6 @@ myMaterial.metallic = 0
 ```
 
 If you want the screen to glow a little, you can even set the `emissiveTexture` of the material to the same `VideoTexture` as the `albedoTexture`.
-
 
 ```ts
 const myMaterial = new Material()
@@ -124,7 +125,7 @@ The following file formats are supported:
 - _.ogg_
 - _.webm_
 
-Keep in mind that a video file adds to the total size of the scene, which makes the scene take longer to download for players walking into your scene. The video size might also make you go over the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}), as you have a maximum of 15 MB per parcel to use. We recommend compressing the video as much as possible, so that it's less of a problem.
+Keep in mind that a video file adds to the total size of the scene, which makes the scene take longer to download for players walking into your scene. The video size might also make you go over the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}), as you have a maximum of 15 MB per parcel to use. We recommend compressing the video as much as possible, so that it's less of a problem.
 
 We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
 
