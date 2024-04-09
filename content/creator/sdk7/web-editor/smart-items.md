@@ -15,10 +15,6 @@ You can recognize these items because they have a lightning icon and a different
 
 <img src="/images/editor/smart-items.jpg" width="300"/>
 
-{{< hint info >}}
-**📔 Note**:
-Smart items are available on both the web editor, and the desktop VS Studio Code extension. See [using smart items on VS Studio](#using-smart-items-on-vs-studio) if you encounter issues.
-{{< /hint >}}
 
 ## Using items
 
@@ -37,6 +33,11 @@ Here are some common items and their default behaviors:
 - **NFT**: Display an NFT image as a portrait. See [Displaying NFTs](#displaying-nfts)
 
 All smart items can be configured to behave in custom ways. For example how far a platform moves, or what a button activates.
+
+{{< hint info >}}
+**📔 Note**:
+Smart items are available on both the web editor, and the desktop VS Studio Code extension. See [using smart items on VS Studio](#using-smart-items-on-vs-studio) if you encounter issues.
+{{< /hint >}}
 
 ## Configure an item
 
@@ -59,7 +60,7 @@ Each item has its own specific settings, that may vary from one item to another.
 
 All items have an **Advanced Mode** that lets you configure almost anything about them. This includes things like what sounds are played, or in what direction a platform moves. You can also add custom actions that include all kinds of things, like teleporting the player, playing avatar animations, attaching an item to the player's hands, etc. You can also add conditional logic, to only activate something in certain scenarios. See [Smart Items - Advanced]({{< ref "/content/creator/sdk7/web-editor/smart-items-advanced.md" >}}).
 
-<img src="/images/editor/advanced-mode.jpg" width="300"/>
+<img src="/images/editor/advanced-mode.png" width="300"/>
 
 ## Referencing other items
 
@@ -67,11 +68,11 @@ You can call another's item's actions, so that they happen every time the item i
 
 For example here's a button that opens or closes a door. Each time the button is pressed, the door will either open or close.
 
-<img src="/images/editor/button-to-door.jpg" width="300"/>
+<img src="/images/editor/button-to-door.png" width="300"/>
 
 Here's a lever that opens a door when activated, and closes that door when deactivated.
 
-<img src="/images/editor/lever-to-door.jpg" width="300"/>
+<img src="/images/editor/lever-to-door.png" width="300"/>
 
 You can add as many different actions from different items to be triggered together. Just click **+ Assign Action**.
 
