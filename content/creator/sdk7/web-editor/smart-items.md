@@ -15,7 +15,6 @@ You can recognize these items because they have a lightning icon and a different
 
 <img src="/images/editor/smart-items.jpg" width="300"/>
 
-
 ## Using items
 
 To use a smart item, drag it into the scene like any other item. All items include a default behavior, run a scene preview try it out.
@@ -62,7 +61,7 @@ All items have an **Advanced Mode** that lets you configure almost anything abou
 
 <img src="/images/editor/advanced-mode.png" width="300"/>
 
-## Referencing other items
+## Referencing other items
 
 You can call another's item's actions, so that they happen every time the item is activated. Just select the item you want to call, from a list of all items in the scene, then select an action. Different items expose different actions.
 
