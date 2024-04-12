@@ -196,20 +196,25 @@ By default, all items share their updates on only the components that are releva
 The Health Bar smart item allows you to build several game mechanics. It can be used in various ways:
 
 - Nest it under the Player node to display the player's health over the avatar
+
   <img src="/images/editor/nested-under-player.png" width="300"/>
 
 - Nest it under the Camera node to display it on the player's UI
+
   <img src="/images/editor/nested-under-camera.png" width="300"/>
 
 - Nest it under literally any item in the scene to control that item's health
+
   <img src="/images/editor/nested-under-barrel.png" width="300"/>
 
 When there's a health bar present, other items can add of subtract health from it.
 
 - Items like the **Spikes** or **Robot Enemy** can lower health
+
   <img src="/images/editor/reduce-health.png" width="300"/>
 
 - items like **First Aid** or the **Healing Pad** can restore it.
+
   <img src="/images/editor/restore-health.png" width="300"/>
 
 Note that these can affect not only the player's health, but anything with a health bar.
