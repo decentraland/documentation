@@ -112,6 +112,7 @@ There are two options for when to play a video:
 
 - Configure the **Video Player** component of the item directly. This makes the video start playing as soon as the scene loads.
   <img src="/images/editor/video-from-start.png" width="300"/>
+
 - Define an Action of type **Play Video Stream**. This lets you trigger the playing of the video as the result of a player interaction, like walking into a room, or pushing a button. See [Smart Items - Advanced]({{< ref "/content/creator/sdk7/web-editor/smart-items-advanced.md" >}}).
   <img src="/images/editor/video-from-action.png" width="300"/>
 
@@ -195,8 +196,10 @@ The Health Bar smart item allows you to build several game mechanics. It can be 
 
 - Nest it under the Player node to display the player's health over the avatar
   <img src="/images/editor/nested-under-player.png" width="300"/>
+
 - Nest it under the Camera node to display it on the player's UI
   <img src="/images/editor/nested-under-camera.png" width="300"/>
+
 - Nest it under literally any item in the scene to control that item's health
   <img src="/images/editor/nested-under-barrel.png" width="300"/>
 
@@ -204,6 +207,7 @@ When there's a health bar present, other items can add of subtract health from i
 
 - Items like the **Spikes** or **Robot Enemy** can lower health
   <img src="/images/editor/reduce-health.png" width="300"/>
+
 - items like **First Aid** or the **Healing Pad** can restore it.
   <img src="/images/editor/restore-health.png" width="300"/>
 
