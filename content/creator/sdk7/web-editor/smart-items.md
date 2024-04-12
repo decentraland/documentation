@@ -114,6 +114,7 @@ There are two options for when to play a video:
   <img src="/images/editor/video-from-start.png" width="300"/>
 
 - Define an Action of type **Play Video Stream**. This lets you trigger the playing of the video as the result of a player interaction, like walking into a room, or pushing a button. See [Smart Items - Advanced]({{< ref "/content/creator/sdk7/web-editor/smart-items-advanced.md" >}}).
+
   <img src="/images/editor/video-from-action.png" width="300"/>
 
 You can configure the volume of the video's sounds. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
