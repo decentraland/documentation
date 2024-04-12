@@ -112,7 +112,9 @@ There are two options for when to play a video:
 
 - Configure the **Video Player** component of the item directly. This makes the video start playing as soon as the scene loads.
   <img src="/images/editor/video-from-start.png" width="300"/>
+
 - Define an Action of type **Play Video Stream**. This lets you trigger the playing of the video as the result of a player interaction, like walking into a room, or pushing a button. See [Smart Items - Advanced]({{< ref "/content/creator/sdk7/web-editor/smart-items-advanced.md" >}}).
+
   <img src="/images/editor/video-from-action.png" width="300"/>
 
 You can configure the volume of the video's sounds. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
@@ -179,6 +181,52 @@ You can also chose a **Frame style**, to frame the NFT in a variety of different
 
 See [Display an NFT]({{< ref "/content/creator/sdk7/media/display-a-certified-nft.md#">}}) for more details.
 
+## Multiplayer
+
+All smart items are multiplayer by default. This means that if multiple players are in the scene, the changes that one player does are seen by all other players. For example, if one player opens a door, all other players see it open too.
+
+Note that the state of the item is only kept as long as there are players in the scene. If all players go away, the door will revert back to its default closed state.
+
+By default, all items share their updates on only the components that are relevant to their normal behavior. You can change this in the [Advanced View]({{< ref "/content/creator/sdk7/web-editor/smart-items-advanced.md" >}}).
+
+## Health bars
+
+<img src="/images/editor/health-bar.png" width="300"/>
+
+The Health Bar smart item allows you to build several game mechanics. It can be used in various ways:
+
+- Nest it under the Player node to display the player's health over the avatar
+
+  <img src="/images/editor/nested-under-player.png" width="300"/>
+
+- Nest it under the Camera node to display it on the player's UI
+
+  <img src="/images/editor/nested-under-camera.png" width="300"/>
+
+- Nest it under literally any item in the scene to control that item's health
+
+  <img src="/images/editor/nested-under-barrel.png" width="300"/>
+
+When there's a health bar present, other items can add of subtract health from it.
+
+- Items like the **Spikes** or **Robot Enemy** can lower health
+
+  <img src="/images/editor/reduce-health.png" width="300"/>
+
+- items like **First Aid** or the **Healing Pad** can restore it.
+
+  <img src="/images/editor/restore-health.png" width="300"/>
+
+Note that these can affect not only the player's health, but anything with a health bar.
+
+You must configure the Health Bar to define what will happen when the health equals 0. You might respawn the player to the position of a **Respawn Pad** smart item, reset the counter for their score, respawn any enemies, display a UI text, or whatever makes sense in your game logic.
+
+Add a health bar nested under the **Wooden Door** smart item, and it can be destroyed by the player using the **Sword** smart item, but also from an explosion from the **Barrel** or the attack of the **Robot Enemy**. For this, you must configure the health bar so that it performs an action on its parent item.
+
+<img src="/images/editor/wall-with-health.png" width="300"/>
+
+Weapons like the **Sword** can be picked up by the player, and then used to cause damage on any other item with a health bar that's near the player when performing the action.
+
 ## Invisible items
 
 Some items are not meant to be seen by the player, but are visible while editing your scene to make them easier to manage. This is the case for items like **Ambience**, **Trigger Area**, **Click Area**, etc.
@@ -187,14 +235,6 @@ Some items are not meant to be seen by the player, but are visible while editing
 **📔 Note**:
 In the advanced mode, these items have a **Visibility** component set to invisible. This component doesn't affect the visibility of the items on the editor, but any item set to invisible isn't seen by players when running a preview.
 {{< /hint >}}
-
-## Multiplayer
-
-All smart items are multiplayer by default. This means that if multiple players are in the scene, the changes that one player does are seen by all other players. For example, if one player opens a door, all other players see it open too.
-
-Note that the state of the item is only kept as long as there are players in the scene. If all players go away, the door will revert back to its default closed state.
-
-By default, all items share their updates on only the components that are relevant to their normal behavior. You can change this in the [Advanced View]({{< ref "/content/creator/sdk7/web-editor/smart-items-advanced.md" >}}).
 
 ## Using smart items on VS Studio
 
