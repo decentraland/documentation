@@ -191,7 +191,7 @@ By default, all items share their updates on only the components that are releva
 
 ## Health bars
 
-<img src="/images/editor/health-bar.png" width="300"/>
+<img src="/images/editor/health-bar.png" width="150"/>
 
 The Health Bar smart item allows you to build several game mechanics. It can be used in various ways:
 
