@@ -193,21 +193,21 @@ By default, all items share their updates on only the components that are releva
 
 <img src="/images/editor/health-bar.png" width="150"/>
 
-The Health Bar smart item allows you to build several game mechanics. It can be used in various ways:
+The **Health Bar** smart item is a great building block for several game mechanics. It can be used in various ways:
 
-- Nest it under the Player node to display the player's health over the avatar
+- Nest it under the **Player** to display the player's health over the avatar
 
   <img src="/images/editor/nested-under-player.png" width="300"/>
 
-- Nest it under the Camera node to display it on the player's UI
+- Nest it under the **Camera** to display it fixed on the UI
 
   <img src="/images/editor/nested-under-camera.png" width="300"/>
 
-- Nest it under literally any item in the scene to control that item's health
+- Nest it under literally any item in the scene to keep track of that item's health
 
   <img src="/images/editor/nested-under-barrel.png" width="300"/>
 
-When there's a health bar present, other items can add of subtract health from it.
+Other items can interact with the health bar to add of subtract health from it.
 
 - Items like the **Spikes** or **Robot Enemy** can lower health
 
@@ -217,11 +217,11 @@ When there's a health bar present, other items can add of subtract health from i
 
   <img src="/images/editor/restore-health.png" width="300"/>
 
-Note that these can affect not only the player's health, but anything with a health bar.
-
 You must configure the Health Bar to define what will happen when the health equals 0. You might respawn the player to the position of a **Respawn Pad** smart item, reset the counter for their score, respawn any enemies, display a UI text, or whatever makes sense in your game logic.
 
-Add a health bar nested under the **Wooden Door** smart item, and it can be destroyed by the player using the **Sword** smart item, but also from an explosion from the **Barrel** or the attack of the **Robot Enemy**. For this, you must configure the health bar so that it performs an action on its parent item.
+You can also trigger actions when the health is lower than a certain value, for example play a special music or show a UI hint when health is less than 3.
+
+Health bars can be configured to affect anything! For example, add a health bar nested under the **Wooden Door** smart item. This bar can have its health lowered by the player using the **Sword** smart item, but also from an explosion from the **Barrel** or the attack of the **Robot Enemy**. For this to work, configure the health bar so that it performs an action on its parent item when its value is 0.
 
 <img src="/images/editor/wall-with-health.png" width="300"/>
 
