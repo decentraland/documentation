@@ -5,10 +5,11 @@ description: The Data Oriented Programming is a powerful approach to programming
 categories:
   - development-guide
 type: Document
+aliases:
+  - /creator/development-guide/data-oriented-programming
 url: /creator/development-guide/sdk7/data-oriented-programming
 weight: 7
 ---
-
 
 Data Oriented Programming is a powerful approach to programming that results in big improvements to performance. It focuses on treating _data_ as the cental element, all else is organized around it, to either access or modify that data. This approach is also very multiplayer friendly, as it makes the data that needs to be synchronized between players easier and faster to access.
 
@@ -51,4 +52,3 @@ Suppose that your scene has a system that needs to update the open/door state of
 If your code follows a Data Oriented approach, on the other hand, it's very likely that all those 12 booleans will be in the same box. This is because all these booleans are part of a single array that was recorded into memory at once. You're never explicitly organizing how this data fits into memory, so in the worst case scenario the array could end up split across two boxes. But even in that worst scenario, 2 trips is much better than 12.
 
 Checking the state of every door on every frame sounds like a lot of work, but it's actually super quick if all the data is already in the memory cache. If your data is neatly organized, your scene can run processes like these over a lot of entities and still run really fast.
-

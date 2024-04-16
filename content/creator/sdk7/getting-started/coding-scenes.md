@@ -5,6 +5,21 @@ description: This set will help you understand how things work in the client and
 categories:
   - development-guide
 type: Document
+aliases:
+  - /documentation/introduction/
+  - /docs/sdk-overview/
+  - /docs/command-line-interface/
+  - /docs/sdk-quick-start-guide/
+  - /sdk-reference/introduction/
+  - /sdk-reference/scriptable-scene/
+  - /development-guide/scriptable-scene/
+  - /documentation/tsx-coding-guide/
+  - /development-guide/typescript-tips/
+  - /decentraland/SDK-Overview/
+  - /sdk-reference/SDK-Overview/
+  - /getting-started/coding-scenes/
+  - /development-guide/coding-scenes/
+  - /creator/development-guide/coding-scenes
 url: /creator/development-guide/sdk7/coding-scenes/
 weight: 10
 ---
@@ -65,16 +80,16 @@ Three dimensional scenes in Decentraland are based on an [Entity-Component-Syste
 
 ```ts
 export function main() {
-  // Create an entity
-  const door = engine.addEntity()
+	// Create an entity
+	const door = engine.addEntity()
 
-  // Give the entity a position via a transform component
-  Transform.create(door, {
-    position: Vector3.create(5, 1, 5),
-  })
+	// Give the entity a position via a transform component
+	Transform.create(door, {
+		position: Vector3.create(5, 1, 5),
+	})
 
-  // Give the entity a visible shape via a GltfContainer component
-  GltfContainer.create(door)
+	// Give the entity a visible shape via a GltfContainer component
+	GltfContainer.create(door)
 }
 ```
 
@@ -105,14 +120,14 @@ A system is a pure and simple function that gets called once on every tick (up t
 ```ts
 // Basic system
 function mySystem() {
-  console.log('my system is running')
+	console.log('my system is running')
 }
 
 engine.addSystem(mySystem)
 
 // System with dt
 function mySystemDT(dt: number) {
-  console.log('time since last frame:  ', dt)
+	console.log('time since last frame:  ', dt)
 }
 
 engine.addSystem(mySystemDT)
@@ -153,11 +168,11 @@ If you attempt to iterate over all the entities in the scene on every tick of th
 ```ts
 // Define a System
 function boxHeightSystem(dt: number) {
-  // query for entities that include both MeshRenderer and Transform components
-  for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
-    const transform = Transform.get(entity)
-    console.log('a box is at height:  ', transform.position.y)
-  }
+	// query for entities that include both MeshRenderer and Transform components
+	for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
+		const transform = Transform.get(entity)
+		console.log('a box is at height:  ', transform.position.y)
+	}
 }
 
 // Add the system to the engine
@@ -215,28 +230,28 @@ After all the systems run, the components on each entity will have new values. W
 
 ```ts
 export function main() {
-  // Create an entity
-  const cube = engine.addEntity()
+	// Create an entity
+	const cube = engine.addEntity()
 
-  // Give the entity a position via a transform component
-  Transform.create(cube, {
-    position: Vector3.create(5, 1, 5),
-  })
+	// Give the entity a position via a transform component
+	Transform.create(cube, {
+		position: Vector3.create(5, 1, 5),
+	})
 
-  // Give the entity a visible shape via a MeshRenderer component
-  MeshRenderer.setBox(cube)
+	// Give the entity a visible shape via a MeshRenderer component
+	MeshRenderer.setBox(cube)
 }
 
 // Define a System
 function rotationSystem(dt: number) {
-  // query for entities that include both MeshRenderer and Transform components
-  for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
-    const transform = Transform.getMutable(entity)
-    transform.rotation = Quaternion.multiply(
-      transform.rotation,
-      Quaternion.fromAngleAxis(dt * 10, Vector3.Up())
-    )
-  }
+	// query for entities that include both MeshRenderer and Transform components
+	for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
+		const transform = Transform.getMutable(entity)
+		transform.rotation = Quaternion.multiply(
+			transform.rotation,
+			Quaternion.fromAngleAxis(dt * 10, Vector3.Up())
+		)
+	}
 }
 
 // Add the system to the engine
@@ -276,12 +291,12 @@ For example, suppose you have a file named `extraContent.ts` with the following 
 
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: { x: 8, y: 0, z: 8 },
+	position: { x: 8, y: 0, z: 8 },
 })
 MeshRenderer.setBox(myEntity)
 
 function mySystem(dt: number) {
-  console.log('system running')
+	console.log('system running')
 }
 
 engine.addSystem(mySystem)
@@ -293,15 +308,15 @@ To make it run as part of your scene, you can reference from `index.ts` in the f
 // on extraContent.ts
 
 export function addEntities() {
-  const myEntity = engine.addEntity()
-  Transform.create(myEntity, {
-    position: { x: 8, y: 0, z: 8 },
-  })
-  MeshRenderer.setBox(myEntity)
+	const myEntity = engine.addEntity()
+	Transform.create(myEntity, {
+		position: { x: 8, y: 0, z: 8 },
+	})
+	MeshRenderer.setBox(myEntity)
 }
 
 export function mySystem(dt: number) {
-  console.log('system running')
+	console.log('system running')
 }
 
 /////////////////////////////
@@ -311,7 +326,7 @@ export function mySystem(dt: number) {
 import { addEntities, mySystem } from '/extraContent'
 
 export function main() {
-  addEntities()
+	addEntities()
 }
 
 engine.addSystem(mySystem)

@@ -5,10 +5,12 @@ description: Learn when and how to run asynchronous functions in your scene's co
 categories:
   - development-guide
 type: Document
+aliases:
+  - /development-guide/async-functions/
+  - /creator/development-guide/async-functions
 url: /creator/development-guide/sdk7/async-functions/
 weight: 1
 ---
-
 
 ## Overview
 
@@ -30,9 +32,8 @@ For example:
 - When performing a transaction on the blockchain
 
 {{< hint warning >}}
-**📔 Note**:  Keep in mind that several frames of your scene might be rendered before the task finishes executing. Make sure your scene's code is flexible enough to handle the in-between scenarios while the asynchronous task is being completed.
+**📔 Note**: Keep in mind that several frames of your scene might be rendered before the task finishes executing. Make sure your scene's code is flexible enough to handle the in-between scenarios while the asynchronous task is being completed.
 {{< /hint >}}
-
 
 ## Run an async function
 
@@ -41,7 +42,7 @@ Mark any function as `async` so that it runs on a separate thread from the scene
 ```ts
 // declare async function
 async function myAsyncTask() {
-  // run function's steps
+	// run function's steps
 }
 
 // call async function
@@ -56,8 +57,8 @@ The `executeTask()` function executes a lambda function asynchronously, in a sep
 
 ```ts
 executeTask(async () => {
-  let data = await myAsyncTask()
-  console.log(data)
+	let data = await myAsyncTask()
+	console.log(data)
 })
 
 // rest of the code keeps being executed
@@ -69,14 +70,13 @@ The `then` function takes in a lambda function as an argument, that only gets ex
 
 ```ts
 myAsyncTask().then((data) => {
-  console.log(data)
+	console.log(data)
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**:  It's generally better to use the `executeTask` approach rather than the `then` function. In this example, the scene won't be considered fully loaded by the explorer till the `myAsyncTask()` function is completed, which may affect load times. Also, if relying too much on the `then` function at multiple nested levels, you can end up with what's known as "callback hell", where the code can become very hard to read and maintain.
+**📔 Note**: It's generally better to use the `executeTask` approach rather than the `then` function. In this example, the scene won't be considered fully loaded by the explorer till the `myAsyncTask()` function is completed, which may affect load times. Also, if relying too much on the `then` function at multiple nested levels, you can end up with what's known as "callback hell", where the code can become very hard to read and maintain.
 {{< /hint >}}
-
 
 ## PointerEvents and RayCast functions
 
@@ -85,16 +85,14 @@ When your scene uses a `PointerEvent` or a `RayCast` component, the calculations
 You then need to create a system to process these results in the frame when they arrive.
 
 {{< hint warning >}}
-**📔 Note**:  If you handle clicks via the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach, you don't need to explicitly create a system to handle this, but the same occurs in the background.
+**📔 Note**: If you handle clicks via the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach, you don't need to explicitly create a system to handle this, but the same occurs in the background.
 {{< /hint >}}
-
 
 See [click events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}) and [raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}).
 
 {{< hint info >}}
-**💡 Tip**:  If the processing of the results of a raycast takes a lot of calculations (like running a path-finding algorithm) you might want to run that computation in an asynchronous function.
+**💡 Tip**: If the processing of the results of a raycast takes a lot of calculations (like running a path-finding algorithm) you might want to run that computation in an asynchronous function.
 {{< /hint >}}
-
 
 ## The await statement
 
@@ -103,13 +101,13 @@ An `await` statement forces the execution to wait for a response before moving o
 ```ts
 // declare function
 async function myAsyncTask() {
-  try {
-    let response = await fetch(callUrl)
-    let json = await response.json()
-    console.log(json)
-  } catch {
-    console.log("failed to reach the URL")
-  }
+	try {
+		let response = await fetch(callUrl)
+		let json = await response.json()
+		console.log(json)
+	} catch {
+		console.log('failed to reach the URL')
+	}
 }
 
 // call function
