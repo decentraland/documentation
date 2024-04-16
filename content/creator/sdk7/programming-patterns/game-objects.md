@@ -5,12 +5,15 @@ description: Use the game object pattern to make your code more readable and eas
 categories:
   - development-guide
 type: Document
+aliases:
+  - /development-guide/game-objects
+  - /creator/development-guide/game-objects
 url: /creator/development-guide/sdk7/game-objects/
 weight: 3
 ---
 
 <!-- TODO: all -->
-<!-- 
+<!--
 As your scene becomes more complicated, it's useful to put some of the logic into separate game object files. By doing this, you can keep the main code for the scene clean and simple to read, while encapsulating reusable parts that control several entities in the scene.
 
 A Game Object holds all the properties and methods for a type of entity you might find in your scene, for example a door or a button or a monster. Thanks to this abstraction, the files with your scene's main logic can instance full game objects through just one line of code. You can also call the methods on these objects with the same ease.

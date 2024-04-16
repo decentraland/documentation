@@ -5,6 +5,9 @@ description: Recommended guidelines for producing your first MVP scene or experi
 categories:
   - design-experience
 type: Document
+aliases:
+  - /documentation/mvp-guidelines/
+  - /design-experience/mvp-guidelines/
 url: /creator/design-experience/mvp-guidelines
 weight: 1
 ---
@@ -99,9 +102,8 @@ Failing quickly allows you to develop your experience by creating successive pro
 In game design, a persistent core loop is the fundamental “game loop” that drives player actions and the game’s response to those actions. These persistent loops extend to any form of virtual experience (like those provided by Districts).
 
 {{< hint warning >}}
-**📔 Note**:  The Decentraland client borrows some architectural ideas from [React.js](https://reactjs.org/) and only renders a scene when a change has taken place, not at a constant rate.
+**📔 Note**: The Decentraland client borrows some architectural ideas from [React.js](https://reactjs.org/) and only renders a scene when a change has taken place, not at a constant rate.
 {{< /hint >}}
-
 
 **What are transactional layers?**
 

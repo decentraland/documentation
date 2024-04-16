@@ -3,6 +3,9 @@ date: 2022-12-19
 title: Decentraland Editor
 description: About the Decentraland Editor
 type: Document
+aliases:
+  - /creator/development-guide/editor/editor-beta-testing-guidelines/
+  - /creator/development-guide/editor/
 url: /creator/development-guide/sdk7/editor/
 weight: 3
 ---
