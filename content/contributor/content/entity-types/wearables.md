@@ -65,7 +65,7 @@ Wearables share most of their basic fields with [emotes]({{< relref "emotes" >}}
 | `description` | An extended description for this wearable.
 | `image` | The [internal filename]({{< relref "../entities#files" >}}) of a picture for this wearable.
 | `thumbnail` | The [internal filename]({{< relref "../entities#files" >}}) of a 256x256 version of the `image`.
-| `rarity` | One of `common`, `uncommon`, `rare`, `epic`, `legendary`, `mythic` or `unique`.
+| `rarity` | One of `common`, `uncommon`, `rare`, `epic`, `legendary`, `exotic`, `mythic` or `unique`.
 | `i18n` | An array of translations for the `name` field.
 | `collectionAddress` | The Ethereum address for the collection that contains this wearable.
 | `metrics` | Some useful measurements about the animations (see below).

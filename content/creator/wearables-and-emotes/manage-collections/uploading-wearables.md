@@ -36,6 +36,7 @@ Select the Rarity of your item.
 | --------- | --------------- |
 | Unique    | 1               |
 | Mythic    | 10              |
+| Exotic    | 50              |
 | Legendary | 100             |
 | Epic      | 1,000           |
 | Rare      | 5,000           |

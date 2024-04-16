@@ -31,7 +31,7 @@ If the emote has sound (*mp3* or *ogg*) it must be zipped with the `.glb`. After
   - `name`: Name of the Emote
   - `description`: Description of your Emote (no more than 64 characters in total, counting spaces)
   - `category`: Category of the Emote ("dance", "stunt", "greetings", "fun", "poses", "reactions", "horror", "miscellaneous")
-  - `rarity`: Rarity of the Item ("unique", "mythic", "legendary", "epic", "rare", "uncommon", "common")
+  - `rarity`: Rarity of the Item ("unique", "mythic", "legendary", "epic", "rare", "exotic", "uncommon", "common")
   - `play_mode`: Simple or Loop Animation ("simple", "loop")
   - `tags`: Tags for easy finding in the marketplace.
 
@@ -60,6 +60,7 @@ Add rarity of the emote:
 | --------- | --------------- |
 | Unique    | 1               |
 | Mythic    | 10              |
+| Exotic    | 50              |
 | Legendary | 100             |
 | Epic      | 1,000           |
 | Rare      | 5,000           |
