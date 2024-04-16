@@ -64,7 +64,7 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ### Via the Decentraland Editor
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 {{< hint warning >}}
 **📔 Note**: Deployment to Worlds is not yet supported from the Editor.

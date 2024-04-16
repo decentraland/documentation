@@ -182,7 +182,7 @@ Scenes are community-developed bundles of behavior and assets, and offer the var
 **Learn more:**
 
 - [Scene protocol documentation]({{< relref "../content/entity-types/scenes" >}})
-- [Scene creator documentation]({{< ref "/creator/scenes/getting-started/sdk-101" >}})
+- [Scene creator documentation]({{< ref "/creator/sdk7/getting-started/sdk-101" >}})
 - [Foundation Explorer scene system](#fwe-scene)
 
 <div id="explorer:comms"></div> <!-- stable ID for diagram -->

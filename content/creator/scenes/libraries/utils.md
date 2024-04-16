@@ -53,7 +53,7 @@ The **Decentraland ECS Utils** library includes a number of helpful pre-built to
 
 ### Via the Editor
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 1. Open your scene's folder using Visual Studio Code.
 
