@@ -187,6 +187,6 @@ In order to grant permission for publishing a scene to another wallet you have t
 
 - Make sure to have the latest version of Decentraland CLI (v3.20.0 or later).
 - Make sure you own the NAME for which you want to manage the ACL.
-- Use command `dcl world-acl NAME.dcl.eth grant 0x1..` where `0x1...` is the addresses of user receiving the permission.
+- Use command `dcl world-acl NAME.dcl.eth grant 0x1..` where `0x1...` is the address of user receiving the permission.
 
 By default, `world-acl` will act on `worlds-content-server.decentraland.org`. If you are using a different hosting provider, make sure to add `--target-content https://your-hosting.com` to each of the subcommands (`show`, `grant` and `revoke`).
