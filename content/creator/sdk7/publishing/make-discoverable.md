@@ -6,6 +6,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/sdk7/make-discoverable
+weight: 3
 ---
 
 Decentraland offers a vast array of content. You must ensure your scene stands out and connects with its audience. Here are some key strategies:
