@@ -244,7 +244,8 @@ For example, a door shares its `Animator` so all see the opening animations, its
 
 ## Making any item smart
 
-<iframe height="300" src="https://www.youtube.com/embed/qXjQxMC97H0?si=3xMKy_OYqaqyHGlT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<iframe height="300" src="https://www.youtube.com/embed/qXjQxMC97H0?si=3xMKy_OYqaqyHGlT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen></iframe>
 
 Smart items are just regular items with an **Action** and/or **Trigger** component. You can add these components to any item in your scene. You can also import your own custom 3D models and add the same to those.
 
@@ -260,7 +261,8 @@ This allows for a huge amount of creative possibilities. Turn a candle into a le
 
 ## States and conditional logic
 
-<iframe height="300" src="https://www.youtube.com/embed/hXSiPO81KJA?si=p-m-uyzPGAqEadzt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<iframe height="300" src="https://www.youtube.com/embed/hXSiPO81KJA?si=p-m-uyzPGAqEadzt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen></iframe>
 
 Add conditions on a trigger, so that the action only occurs if those conditions are met. For example, clicking on a door only activates the "Open" action if it wasn't already open.
 
