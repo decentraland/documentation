@@ -5,6 +5,9 @@ description: Optimize your scene to load fast and run smoothly for all players.
 categories:
   - development-guide
 type: Document
+aliases:
+  - /development-guide/performance-optimization/
+  - /creator/development-guide/performance-optimization
 url: /creator/development-guide/sdk7/performance-optimization/
 weight: 1
 ---

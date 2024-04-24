@@ -13,7 +13,7 @@ You can set the _position_, _rotation_ and _scale_ of any entity by using the `T
 
 ## Editor UI
 
-When dragging entities via the Visual Editor, in the [Decentraland Editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}), you are changing the values in the entity's Transform implicitly. By changing the position, rotation or scale of an entity, this changes the data in that entity's Transform component.
+When dragging entities via the Visual Editor, in the [Decentraland Editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}), you are changing the values in the entity's Transform implicitly. By changing the position, rotation or scale of an entity, this changes the data in that entity's Transform component.
 
 ## Code essentials
 

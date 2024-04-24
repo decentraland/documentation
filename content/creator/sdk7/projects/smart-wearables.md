@@ -46,27 +46,27 @@ The default `wearable.json` file looks like this:
 
 ```json
 {
-	"data": {
-		"replaces": [],
-		"hides": [],
-		"tags": ["special", "new", "eyebrows"],
-		"representations": [
-			{
-				"bodyShapes": [
-					"urn:decentraland:off-chain:base-avatars:BaseMale",
-					"urn:decentraland:off-chain:base-avatars:BaseFemale"
-				],
-				"mainFile": "glasses.glb",
-				"contents": ["glasses.glb"],
-				"overrideHides": [],
-				"overrideReplaces": []
-			}
-		],
-		"category": "eyewear"
-	},
-	"name": "Portable Experience Example",
-	"description": "This feature is in Alpha state.",
-	"rarity": "mythic"
+  "data": {
+    "replaces": [],
+    "hides": [],
+    "tags": ["special", "new", "eyebrows"],
+    "representations": [
+      {
+        "bodyShapes": [
+          "urn:decentraland:off-chain:base-avatars:BaseMale",
+          "urn:decentraland:off-chain:base-avatars:BaseFemale"
+        ],
+        "mainFile": "glasses.glb",
+        "contents": ["glasses.glb"],
+        "overrideHides": [],
+        "overrideReplaces": []
+      }
+    ],
+    "category": "eyewear"
+  },
+  "name": "Portable Experience Example",
+  "description": "This feature is in Alpha state.",
+  "rarity": "mythic"
 }
 ```
 
@@ -78,6 +78,7 @@ The following fields are required in `wearable.json`:
 - `rarity`: The rarity supply of the token. Possible values are:
   - unique (1 copy)
   - mythic (10 copies)
+  - exotic (50 copies)
   - legendary (100 copies)
   - epic (1000 copies)
   - uncommon (10.000 copies)
@@ -186,6 +187,7 @@ To publish your smart wearable:
 4. Drag your compressed `smart-wearable.zip` file into the Builder, verify that all the information is accurate.
 
 > Note: If your wearable contains different model representations, you need to do a workaround:
+>
 >  <ol type="a">
 >    <li>In your project, create a new folder for each representation(<code>male</code> and <code>female</code>), and put the 3D model for each representation in its corresponding folder.</li>
 >    <li>Update your <code>wearable.json</code> file to include the new representations.</li>

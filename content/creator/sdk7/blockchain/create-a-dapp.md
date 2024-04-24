@@ -5,6 +5,10 @@ description: Reference for creating your own Decentralized App
 categories:
   - blockchain-integration
 type: Document
+aliases:
+  - /blockchain-interactions/create-a-dapp
+  - /blockchain-integration/create-a-dapp
+  - /creator/development-guide/create-a-dapp
 url: /creator/development-guide/sdk7/create-a-dapp/
 weight: 4
 ---
@@ -67,5 +71,3 @@ Before launching your dApp into production, we recommend testing it first.
 In the following link you can find a list of Etherum smart contracts relevant to the Decentraland ecosystem. The list includes the contracts in mainnet as well as in other Ethereum test networks.
 
 [contracts.decentraland.org](https://contracts.decentraland.org/links)
-
-

@@ -27,7 +27,7 @@ Although the Editor is easier to use, the CLI allows you more flexibility, and c
 {{< /hint >}}
 
 {{< hint info >}}
-**💡 Tip**: See [Instalation guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}) for instructions on how to install the Editor.
+**💡 Tip**: See [Instalation guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}) for instructions on how to install the Editor.
 {{< /hint >}}
 
 The Decentraland CLI is distributed via [npm](https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm).
@@ -88,7 +88,7 @@ See [preview scenes]({{< ref "/content/creator/scenes/getting-started/preview-sc
 
 ## Build
 
-Run `dcl build` to build your project. Decentraland scenes are written in TypeScript, but they are built to minified JavaScript when published. See [coding scenes]({{< ref "/content/creator/scenes/getting-started/coding-scenes.md" >}}) for more details.
+Run `dcl build` to build your project. Decentraland scenes are written in TypeScript, but they are built to minified JavaScript when published. See [coding scenes]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md" >}}) for more details.
 
 The build command is optional, as it also runs in the background before deploying (although you can add a flag to skip it).
 
