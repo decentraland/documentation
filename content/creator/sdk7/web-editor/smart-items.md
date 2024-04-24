@@ -11,9 +11,7 @@ weight: 2
 
 Some of the items in the catalog of the Decentraland Editor are **Smart Items**. Players can interact with these, they have configurable properties, and they can trigger actions on other smart items. For example: doors that can be opened and closed, platforms that move up and down, or buttons and levers that can activate other items.
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-<iframe height="300" src="https://www.youtube.com/embed/510kDzz1mjo?si=zRqLO9AmjbmWJXCj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen></iframe>
-</div>
+{{< youtube 510kDzz1mjo >}}
 
 You can recognize these items because they have a lightning icon and a different colored background.
 
