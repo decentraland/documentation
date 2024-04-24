@@ -13,9 +13,11 @@ The Decentraland Editor plus custom code is a very powerful combination for crea
 
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+{{< youtube J_EO1LZkaiA >}}
+
+<!-- <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 <iframe height="300" src="https://www.youtube.com/embed/J_EO1LZkaiA?si=UXhYvGWcQWqGBJiF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen></iframe>
-</div>
+</div> -->
 
 ## Export to desktop
 
