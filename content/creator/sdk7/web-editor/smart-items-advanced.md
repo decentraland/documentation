@@ -244,6 +244,8 @@ For example, a door shares its `Animator` so all see the opening animations, its
 
 ## Making any item smart
 
+[![Video](https://www.youtube.com/watch?v=qXjQxMC97H0&t=337s)](https://www.youtube.com/watch?v=qXjQxMC97H0&t=337s)
+
 Smart items are just regular items with an **Action** and/or **Trigger** component. You can add these components to any item in your scene. You can also import your own custom 3D models and add the same to those.
 
 To add components to an item click the **Plus Icon** next to the item name, and select what component to add from the dropdown list.
@@ -257,6 +259,8 @@ This allows for a huge amount of creative possibilities. Turn a candle into a le
 {{< /hint >}}
 
 ## States and conditional logic
+
+[![Video](https://www.youtube.com/watch?v=hXSiPO81KJA&t=1s)](https://www.youtube.com/watch?v=hXSiPO81KJA&t=1s)
 
 Add conditions on a trigger, so that the action only occurs if those conditions are met. For example, clicking on a door only activates the "Open" action if it wasn't already open.
 

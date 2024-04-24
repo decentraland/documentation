@@ -13,6 +13,8 @@ The Decentraland Editor plus custom code is a very powerful combination for crea
 
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
+[![Video](https://www.youtube.com/watch?v=J_EO1LZkaiA&t=1s)](https://www.youtube.com/watch?v=J_EO1LZkaiA&t=1s)
+
 ## Export to desktop
 
 To edit the code in a scene created with the [web editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}), you must export the scene to the Desktop Editor.
