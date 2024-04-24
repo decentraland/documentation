@@ -70,7 +70,7 @@ The [Builder](https://builder.decentraland.org/worlds) also serves as the go-to 
 
 ### 2. Using the SDK and Editor
 
-The starting point for this product is having a scene that meets the size requirements mentioned above. If you wish to know more about how to create a scene, check out the [Decentraland SDK]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) documentation.
+The starting point for this product is having a scene that meets the size requirements mentioned above. If you wish to know more about how to create a scene, check out the [Decentraland SDK]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}) documentation.
 
 If you are a Content Creator, you may be already familiar with how the [publishing of a scene]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) works, the experience is quite similar, but with a small caveat:
 
@@ -185,8 +185,8 @@ A new command has been added to Decentraland CLI that allows to show the current
 
 In order to grant permission for publishing a scene to another wallet you have to:
 
-- Make sure to have the latest version of Decentraland CLI (v3.16.2 or later).
+- Make sure to have the latest version of Decentraland CLI (v3.20.0 or later).
 - Make sure you own the NAME for which you want to manage the ACL.
-- Use command `dcl world-acl NAME.dcl.eth grant 0x1 0x2 ... 0xn` where those `0xn` are a list of addresses separated by spaces.
+- Use command `dcl world-acl NAME.dcl.eth grant 0x1..` where `0x1...` is the address of user receiving the permission.
 
 By default, `world-acl` will act on `worlds-content-server.decentraland.org`. If you are using a different hosting provider, make sure to add `--target-content https://your-hosting.com` to each of the subcommands (`show`, `grant` and `revoke`).

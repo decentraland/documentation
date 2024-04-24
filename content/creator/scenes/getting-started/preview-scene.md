@@ -19,13 +19,13 @@ weight: 4
 **❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md" >}}).
 {{< /hint >}}
 
-Once you have [built a new scene]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) or downloaded a [scene example](https://github.com/decentraland-scenes/Awesome-Repository#examples) you can preview it locally.
+Once you have [built a new scene]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}) or downloaded a [scene example](https://github.com/decentraland-scenes/Awesome-Repository#examples) you can preview it locally.
 
 ## Using the editor
 
 To run a scene preview using the Decentraland Editor:
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 1. Open your scene's folder using Visual Studio Code.
 
@@ -47,7 +47,7 @@ Please make sure you first install the CLI tools by running the following comman
 npm install -g decentraland
 ```
 
-See the [Installation Guide]({{< ref "/content/creator/scenes/getting-started/installation-guide.md" >}}) for more details instructions.
+See the [Installation Guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}) for more details instructions.
 
 ### Preview a scene
 

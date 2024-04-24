@@ -75,7 +75,7 @@ This example first obtains the player's id, then subscribes to the events and co
 Go over the full list of players who are currently on your scene by iterating over all entities with a `PlayerIdentityData` component.
 
 ```ts
-import { getPlayersInScene } from '~system/Players'
+import { PlayerIdentityData, Transform } from '@dcl/sdk/ecs'
 
 export function main() {
 	for (const [entity, data, transform] of engine.getEntitiesWith(

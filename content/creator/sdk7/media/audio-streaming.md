@@ -23,9 +23,9 @@ To add an audio stream into your scene, simply add an `AudioStream` component to
 const streamEntity = engine.addEntity()
 
 AudioStream.create(streamEntity, {
-  url: 'https://icecast.ravepartyradio.org/ravepartyradio-192.mp3',
-  playing: true,
-  volume: 0.8,
+	url: 'https://icecast.ravepartyradio.org/ravepartyradio-192.mp3',
+	playing: true,
+	volume: 0.8,
 })
 ```
 
@@ -42,26 +42,52 @@ Switch the `AudioStream` component on or off by setting its `playing` property t
 Not all streaming services allow you to play their audio outside their site. The following are some examples that work in Decentraland:
 
 ```ts
-RAVE = ‘https://icecast.ravepartyradio.org/ravepartyradio-192.mp3’ << not working
-DELTA = ‘https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e’
-GRAFFITI = ‘https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5’
-SIGNS = ‘https://edge.singsingmusic.net/MC2.mp3’ << not working
-JAZZ = ‘https://live.vegascity.fm/radio/8010/the_flamingos.mp3’ << not working
+RAVE = "https://icecast.ravepartyradio.org/ravepartyradio-192.mp3" << not working
+DELTA = "https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e"
+GRAFFITI = "https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5"
+SIGNS = "https://edge.singsingmusic.net/MC2.mp3" << not working
+JAZZ = "https://live.vegascity.fm/radio/8010/the_flamingos.mp3" << not working
 ```
 
 {{< /hint >}}
 
-<!--
-To stream audio into a scene, you must add the `ALLOW_MEDIA_HOSTNAMES` permission to the `requiredPermissions` list in the `scene.json` file. You must also include the list of high-level domains where you'll be streaming from under `allowedMediaHostnames`.
+## Stream state
 
-```json
-"requiredPermissions": [
-    "ALLOW_MEDIA_HOSTNAMES"
-  ],
-   "allowedMediaHostnames": [
-    "somehost.com",
-    "otherhost.xyz"
-  ]
+Query the state of an audio stream using the function `AudioStream.getAudioState()`, passing the entity that owns the `AudioStream` component.
+
+The returned state is a value of the `MediaState` enum. This enum has the following possible values:
+
+- `MS_BUFFERING`
+- `MS_ERROR`
+- `MS_LOADING`
+- `MS_NONE`
+- `MS_PAUSED`
+- `MS_PLAYING`
+- `MS_READY`
+- `MS_SEEKING`
+
+The following example checks on the state of a stream, and logs when there's a change.
+
+```ts
+export function main() {
+	const entity = engine.addEntity()
+
+	AudioStream.create(entity, {
+		playing: true,
+		volume: 1,
+		url: 'https://audio-edge-es6pf.mia.g.radiomast.io/ref-128k-mp3-stereo',
+	})
+
+	let lastState: ReturnType<typeof AudioStream.getAudioState> = undefined
+	engine.addSystem(() => {
+		const currentState = AudioStream.getAudioState(entity)
+		if (lastState !== currentState) {
+			console.log('Stream state: ', currentState)
+
+			if (currentState == MediaState.MS_ERROR) {
+				// Attempt reconnection
+			}
+		}
+	})
+}
 ```
-
-See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details. -->

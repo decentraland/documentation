@@ -71,6 +71,7 @@ Their maximum issuance is:
 - Rare: 5000
 - Epic: 1000
 - Legendary: 100
+- Exotic: 50
 - Mythic: 10
 - Unique: 1
 
