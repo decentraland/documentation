@@ -15,6 +15,8 @@ The Web Editor is a simple visual tool that lets you create and publish Decentra
 
 To access the web editor simply visit the [builder page](https://builder.decentraland.org/scenes) and go to **scenes** section.
 
+{{< youtube PF7smSBxVOc >}}
+
 ## Create scene
 
 To create a scene, go to scenes section in the builder and press _Create scene_ button. You will be able to create a scene from scratch or use any of the available templates.
