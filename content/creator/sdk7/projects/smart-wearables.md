@@ -188,9 +188,9 @@ To publish your smart wearable:
 
 > Note: If your wearable contains different model representations, you need to do a workaround:
 >
->  <ol type="a">
->    <li>In your project, create a new folder for each representation(<code>male</code> and <code>female</code>), and put the 3D model for each representation in its corresponding folder.</li>
->    <li>Update your <code>wearable.json</code> file to include the new representations.</li>
+> <ol type="a">
+> <li>In your project, create a new folder for each representation(<code>male</code> and <code>female</code>), and put the 3D model for each representation in its corresponding folder.</li>
+> <li>Update your <code>wearable.json</code> file to include the new representations.</li>
 >
 > ```lang-json
 > "representations": [{
@@ -209,13 +209,13 @@ To publish your smart wearable:
 > }],
 > ```
 >
->    <li>Run <code>npm run pack</code> to generate a new smart-wearable.zip file.</li>
->    <li>Drag the new smart-wearable.zip file into the Builder.</li>
->  </ol>
+> <li>Run <code>npm run pack</code> to generate a new smart-wearable.zip file.</li>
+> <li>Drag the new smart-wearable.zip file into the Builder.</li>
+> </ol>
 
 5. Open the editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
 6. Create a new collection with this and perhaps other wearables.
-7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Goerli, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
+7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Sepolia, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
 8. At this point, your wearable is ready to be published.
 
 ## Restricted actions
