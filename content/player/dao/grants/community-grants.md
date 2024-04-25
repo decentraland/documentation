@@ -166,7 +166,7 @@ The specific tiers, and their ranges, are:
 	* E.g. $240,000 USD requires 10,800,000 VP
 
 ## When are payments made for each tier? 
-Funds for grants are made available to the beneficiary address via vesting contracts. The grantee picks the starting date when they request the grant and it can be either the 1st or 15th of each month. These contracts vest every 30 days from the starting date. After this period, the owner of the beneficiary address may withdraw the vested funds on a monthly basis.
+Funds for grants are made available to the beneficiary address via vesting contracts. The grantee selects the starting date when requesting the grant, which can be either the 1st or 15th of each month following the day of the grant's approval. These contracts vest every 30 days from the starting date. After this period, the owner of the beneficiary address may withdraw the vested funds on a monthly basis.
 
 
 ## Grant Budgeting System
