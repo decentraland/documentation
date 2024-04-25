@@ -32,7 +32,7 @@ LAND and MANA tokens themselves are defined by the _LANDregistry_ and _MANAtoken
 - [Decentraland smart contracts](https://contracts.decentraland.org/addresses.json):
   You can find a full list of each of our contracts and their addresses.
 
-Note that each contract has a production version in _mainnet_ and a test version in _ropsten_ and that each has a different address.
+Note that each contract has a production version in _mainnet_ and a test version in _sepolia_ and that each has a different address.
 
 You can read the full code of each contract, as it's public information on the blockchain. For example, you can find the contract by name on [Etherscan](https://etherscan.io/contractsVerified) to read its contents.
 
@@ -54,7 +54,7 @@ While building our own dApps internally, we put together some helper libraries t
 
 Below are links to the full code of several dApps that we built around Decentraland, these might help you build your own:
 
-- [Canilla](https://github.com/decentraland/canilla): This basic dApp provides free Ropsten MANA.
+<!-- - [Canilla](https://github.com/decentraland/canilla): This basic dApp provides free Ropsten MANA. -->
 
 - [Gate](https://github.com/decentraland/gate): This basic dApp creates an invitation NFT that was used when Decentraland was in a closed beta stage. In the early days, whitelisted players that held this NFT were the only ones able to enter the metaverse.
 
