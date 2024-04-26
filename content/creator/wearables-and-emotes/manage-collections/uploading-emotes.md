@@ -26,16 +26,16 @@ You will be asked to enter a name for your emote, define its rarity, the categor
 
 ## **Uploading Emotes Using a .zip File**
 
-If the emote has sound (*mp3* or *ogg*) it must be zipped with the `.glb`. After that, just drag and drop the `.zip` to the builder. Also, it is possible to add a `.json` file along with the other assets in the same `.zip` to add name, description, rarity, category, play mode and/or tags. These are the definitions for each:
+If the emote has sound (_mp3_ or _ogg_) it must be zipped with the `.glb`. After that, just drag and drop the `.zip` to the builder. Also, it is possible to add a `.json` file along with the other assets in the same `.zip` to add name, description, rarity, category, play mode and/or tags. These are the definitions for each:
 
-  - `name`: Name of the Emote
-  - `description`: Description of your Emote (no more than 64 characters in total, counting spaces)
-  - `category`: Category of the Emote ("dance", "stunt", "greetings", "fun", "poses", "reactions", "horror", "miscellaneous")
-  - `rarity`: Rarity of the Item ("unique", "mythic", "legendary", "epic", "rare", "exotic", "uncommon", "common")
-  - `play_mode`: Simple or Loop Animation ("simple", "loop")
-  - `tags`: Tags for easy finding in the marketplace.
+- `name`: Name of the Emote
+- `description`: Description of your Emote (no more than 64 characters in total, counting spaces)
+- `category`: Category of the Emote ("dance", "stunt", "greetings", "fun", "poses", "reactions", "horror", "miscellaneous")
+- `rarity`: Rarity of the Item ("unique", "mythic", "legendary", "epic", "rare", "exotic", "uncommon", "common")
+- `play_mode`: Simple or Loop Animation ("simple", "loop")
+- `tags`: Tags for easy finding in the marketplace.
 
-To add those definitions to the emote just create a text file, naming it **emote.json** and add the following lines as the example: 
+To add those definitions to the emote just create a text file, naming it **emote.json** and add the following lines as the example:
 
 ```
 {
@@ -50,7 +50,7 @@ To add those definitions to the emote just create a text file, naming it **emote
 
 ```
 
-This way the builder is going to take all the .json information and it automatically to the emote. 
+This way the builder is going to take all the .json information and it automatically to the emote.
 
 ## **Rarity**
 
@@ -148,7 +148,7 @@ Once you select the location to teleport, a new tab will open on your browser an
 
 <img src="/images/wearables-and-emotes/uploading-wearables/21_goerli.png" width="900"/>
 
-Click on **_Switch to Goerli_** and a popup from your wallet will show up asking to switch the network. Simply click on **_Switch Network_** and the new tab will automatically refresh. To test your wearable, go to the backpack and select it.
+Click on **_Switch to Sepolia_** and a popup from your wallet will show up asking to switch the network. Simply click on **_Switch Network_** and the new tab will automatically refresh. To test your wearable, go to the backpack and select it.
 
 <img src="/images/wearables-and-emotes/uploading-emotes/11_macarena.gif" width="900" />
 

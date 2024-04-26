@@ -43,10 +43,10 @@ In order to mint items, you need to pay for the transaction fees. For this, you 
 To send MATIC from your wallet, make sure you are connected to the same network as the campaign, then copy the campaign address and send MATIC to it. If you don't have any MATIC on your wallet, you can follow [this guide]({{< ref "/content/player/blockchain-integration/transactions-in-polygon.md" >}}#where-can-i-get-matic-to-pay-for-transaction-fees) to get some.
 
 {{< hint info >}}
-**💡 Tip**: For campaigns running on the test **MUMBAI** network, you can get some MATIC from [this faucet](https://mumbaifaucet.com/).
+**💡 Tip**: For campaigns running on the test **AMOY** network, you can get some MATIC from [this faucet](https://faucet.polygon.technology/).
 {{< /hint >}}
 
-To send MATIC from an exchange you just need to withdraw MATIC token to the Polygon Network (usually Mumbai Network is not available on exchanges).
+To send MATIC from an exchange you just need to withdraw MATIC token to the Polygon Network (usually Amoy Network is not available on exchanges).
 
 ### Add items to the campaign stock
 
@@ -54,8 +54,8 @@ When you create a new campaign, it doesn't contain any items. You'll need to add
 
 <img src="/images/rewards/without-supply.png" alt="without supply" style="width:100%; margin: 0 auto;display: block;" width="2296" hegiht="1012" />
 
-1.  Grant minting permissions to the campaign. Follow [this guide]({{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md" >}}#adding-minters-to-the-collection) using the campaign address (which you can find below the campaign name) as the minter's address. Then wait for the transaction to be confirmed.
-2.  Add items to the campaign stock.
+1. Grant minting permissions to the campaign. Follow [this guide]({{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md" >}}#adding-minters-to-the-collection) using the campaign address (which you can find below the campaign name) as the minter's address. Then wait for the transaction to be confirmed.
+2. Add items to the campaign stock.
 
     a) Click on the **Add supply** button to see all collections the campaign has minting permissions on.
 
