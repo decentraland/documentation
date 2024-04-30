@@ -19,7 +19,7 @@ If your [grant request]({{< ref "/content/player/dao/grants/community-grants.md"
 ## One time payment
 One time payments are paid via a smart contract using the beneficiary address provided in the proposal form, which is available only for Lower Tier Grants (Up to $20,000 USD).
 
-These contracts are initiated by the DAO Committee within 7 days of the grant’s approval by the DAO and have a cliff period of 30 days counting from the finalization of the voting process.
+These contracts are initiated by the DAO Committee within 15 days of the grant’s approval by the DAO and have a cliff period of 30 days counting from the finalization of the voting process. In addition, the vesting contract will begin on the 1st or 15th day after the grant is approved.
 
 The funds are transferred in stablecoin or MANA equaling the USD amount, depending on what was specified in the proposal. The exchange will be done at the rate taken when the votation period finished.
 
