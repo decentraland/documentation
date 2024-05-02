@@ -111,7 +111,7 @@ Open a prebuilt UI that displays the name, owner, and description of an NFT. It 
 
 <img src="/images/media/nft-ui.png" alt="Move entity" width="500"/>
 
-Open this UI by calling the function `OpenNftDialog()`. This function requires an object as an argument that contains a single `urn` field. This field takes a string that should follow this structure:
+Open this UI by calling the function `openNftDialog()`. This function requires an object as an argument that contains a single `urn` field. This field takes a string that should follow this structure:
 
 `urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
 
@@ -126,13 +126,15 @@ For example:
 To open this UI as a result of a click action, add the following:
 
 ```ts
+import { openNftDialog } from '~system/RestrictedActions'
+
 pointerEventsSystem.onPointerDown(
   {
     entity: myEntity,
     opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
   },
   function () {
-    OpenNftDialog({
+    openNftDialog({
       urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536',
     })
   }
