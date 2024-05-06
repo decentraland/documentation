@@ -45,7 +45,7 @@ Worlds offer a few options to customize the scene sky box, which aren't availabl
 
 Global scenes can transform the already existing landscape of Decentraland, adding layers of interactivity and gameplay. These are scenes that are not constrained to only run on certain parcels of LAND or certain Worlds. Players carry them with them wherever they go.
 
-### Portable Experience
+### Portable Experiences
 
 A portable experience is linked to a NAME token. NAME tokens can be bought in the [Marketplace](https://decentraland.org/marketplace/names/claim). You can claim any name you want as long as it's not claimed yet.
 
