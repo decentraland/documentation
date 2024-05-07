@@ -340,15 +340,11 @@ If a `requiredPermissions` property doesn't exist in your `scene.json` file, cre
 
 ## Scene parcels
 
+See [land parcels]({{< ref "/content/creator/sdk7/projects/land-parcels.md" >}}) for info on what these represent and how to configure them.
+
 When [deploying]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) a scene, the content is uploaded to the coordinates assigned in the scene configuration. A scene can include a single parcel, or a list of up to dozens of them.
 
-Edit this on the second tab of the scene menu in the Editor.
-
-<img src="/images/editor/scene-parcels.png" alt="Scene name" width="300"/>
-
-The default scene has its coordinates set to _0,0_, this information is not necessary to change while developing a scene offline, unless you need to occupy multiple parcels. You will need to change this before deploying, to coordinates where you do have deploy permissions.
-
-You can also change the scene coordinates on the `scene.json` file:
+You can also set change the scene coordinates on the `scene.json` file:
 
 ```json
  "scene": {
