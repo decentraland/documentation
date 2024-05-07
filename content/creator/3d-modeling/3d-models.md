@@ -17,7 +17,7 @@ weight: 1
 
 When importing 3D models into Decentraland, it's important to make sure they're in either glTF format. These models can include a variety of supported features. This section is all about how to make them compatible with Decentraland and following best practices.
 
-Please note that all models, shaders, and textures must comply with the **[scene limitations](https://docs.decentraland.org/creator/development-guide/scene-limitations/)**.
+Please note that all models, shaders, and textures must comply with the **[scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}})**.
 
 # **Supported 3D Model Formats**
 

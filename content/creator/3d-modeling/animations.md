@@ -122,7 +122,7 @@ You can find the **_Sampling Rate_** in the export settings, under **_Animation_
 
 ### Implementing Animations
 
-This document covers how to add animations into a 3D model. See **[handle animations](https://docs.decentraland.org/creator/development-guide/3d-model-animations/)**
+This document covers how to add animations into a 3D model. See **[handle animations]({{< ref "/content/creator/sdk7/3d-essentials/3d-model-animations.md" >}})**
  for instructions on how to activate and handle animations in a scene.
 
 ### Best Practices for Animation

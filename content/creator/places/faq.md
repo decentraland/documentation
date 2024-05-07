@@ -12,7 +12,7 @@ Below you can find the **frequently asked questions** about [Places](https://pla
 
 **How do I edit the title, description or image of my Place?**
 
-The title, description and image of your Place are taken from the scene metadata. Find out more about editing the [scene metadata](https://docs.decentraland.org/creator/development-guide/scene-metadata/).
+The title, description and image of your Place are taken from the scene metadata. Find out more about editing the [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}).
 
 **How does my Place get updated?**
 
@@ -48,7 +48,7 @@ You can create a [proposal](https://docs.decentraland.org/player/general/dao/dao
 
 **Which Worlds appear in the Worlds tab?**
 
-As defined in the _Worlds 1.0 - Short-Term Plan_ [DAO proposal](https://governance.decentraland.org/proposal/?id=e712bb50-e822-11ed-b8f1-75dbe089d333),  we allow discoverability of Worlds deployed to Foundation’s World Content Server only for NAME owners that also hold LAND or an active LAND rental contract.
+As defined in the _Worlds 1.0 - Short-Term Plan_ [DAO proposal](https://governance.decentraland.org/proposal/?id=e712bb50-e822-11ed-b8f1-75dbe089d333), we allow discoverability of Worlds deployed to Foundation’s World Content Server only for NAME owners that also hold LAND or an active LAND rental contract.
 
 {{</ details >}}
 

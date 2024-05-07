@@ -32,7 +32,8 @@ _On Blender you can do that by selecting the objects, pressing Ctrl+A and then A
 
 ## **Bounding Boxes**
 
-Every mesh has a bounding box, that surrounds the limits of the shape. Keep in mind that the bounding boxes of all 3D models in a Decentraland scene must fit inside the scene limits, see **[position entities](https://docs.decentraland.org/creator/development-guide/entity-positioning/#scene-boundaries)** for more details.
+Every mesh has a bounding box, that surrounds the limits of the shape. Keep in mind that the bounding boxes of all 3D models in a Decentraland scene must fit inside the scene limits, see **[position entities]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#scene-boundaries" >}})
+** for more details.
 
 To make a 3D model more usable inside Decentraland, make sure that its bounding boxes don’t extend beyond the model more than necessary.
 
@@ -55,7 +56,7 @@ Because Decentraland is an open world full of different scenes and objects that 
 - **File size:** 15 MB per parcel - 300 MB max Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn’t include files that aren’t uploaded, such as node.js packages.
 - **Max file size 50 MB per file** No individual file of any type in the scene can exceed 50 MB, no matter how many parcels the scene has.
 
-For more information check all the scene limitations [here.](https://docs.decentraland.org/creator/development-guide/scene-limitations/)
+For more information check all the scene limitations [here.]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}})
 
 {{< hint warning >}}
 **🔥Optimization Tip🔥: Add Polygon Count**
@@ -192,7 +193,7 @@ Select the objects you want to change the name and just replace the default obje
 
 # **Best practices for geometries [#](https://docs.decentraland.org/creator/3d-modeling/meshes/#best-practices-for-geometries)**
 
-- Be mindful of how many faces you add to your 3D models, as more faces make its rendering more demanding. See **[scene limitations](https://docs.decentraland.org/creator/development-guide/scene-limitations/)** for the limits imposed by a scene.
+- Be mindful of how many faces you add to your 3D models, as more faces make its rendering more demanding. See **[scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}})** for the limits imposed by a scene.
 - Make sure there are no hidden faces that can’t be seen but that add to the triangle count.
 - For shapes that should have rounded sides, set them to be *smooth* rather than adding additional faces.
 - Make sure the *normals* of all faces are facing outwards instead of inwards. If there are faces in your model that seem not to be there when you render it, this is most likely the cause.

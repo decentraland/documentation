@@ -11,7 +11,8 @@ weight: 2
 
 When [deploying]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) a scene, the content is uploaded to the coordinates of the parcels in the scene. A scene can include a single parcel, or a list of up to dozens of them. Each parcel represents 16x16 meters in the open world.
 
-All of the entities in the scene must fit entirely within these parcels. If any entities extends beyond, when running a preview you'll see the entity enclosed in a red frame, to make this visible. When the scene is published the entity won't render at all.
+All of the entities in the scene must fit entirely within these parcels. If any entities extends beyond, when running a preview you'll see the entity enclosed in a red frame, to make this visible. When the scene is published the entity won't render at all. See [position entities]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#scene-boundaries" >}})
+ for more details.
 
 <img src="/images/3d-model-animations/3d-essentials/09-bounding-box.png" width="300"/>
 

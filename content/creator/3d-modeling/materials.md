@@ -14,7 +14,7 @@ weight: 3
 
 Materials are embedded into a *.gltf* or *.glb* file.
 
-This document refers to materials that are imported in a 3D model. For materials defined via code to apply onto primitive shapes, see **[materials](https://docs.decentraland.org/creator/development-guide/materials/)** .
+This document refers to materials that are imported in a 3D model. For materials defined via code to apply onto primitive shapes, see **[materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}})** .
 
 {{< hint warning >}}
 **📔 Note**: You can't currently dynamically change the materials of a 3D model from your scene's code, unless this is a primitive shape.
@@ -34,7 +34,7 @@ The image below shows two identical models, created with the same colors and tex
 ## **PBR Properties that currently works with Decentraland Engine**
 
 > - Base Color
-> - Metallic 
+> - Metallic
 > - Roughness
 > - Specular
 > - Emissive
@@ -44,16 +44,16 @@ The image below shows two identical models, created with the same colors and tex
 
 <img src="/images/3d-models-and-animations/3d-essentials/60-principledBSDF.png" width="400" />
 
-
-In order to visualize how these properties behavies in world you can go to this [testing world](https://play.decentraland.org/?realm=TestEnvironment.dcl.eth) to find different objects and materials and how they interact with lights and world environment. 
+In order to visualize how these properties behavies in world you can go to this [testing world](https://play.decentraland.org/?realm=TestEnvironment.dcl.eth) to find different objects and materials and how they interact with lights and world environment.
 
 <img src="/images/3d-models-and-animations/3d-essentials/55-testing-environment.png" width="600" />
 
-
 ## **Base/Diffuse Color**
+
 Defines the the base color of the object surface. By itself it doesn't have any affectance by the lightning, that's why it is combined to other nodes such as roughness, metallic, specular, etc.
 
 ## **Metallic**
+
 A metallic shader refers to a type of rendering technique used to simulate the appearance of metallic surfaces. A metallic shader takes into account the physical properties of metals and how they interact with light to produce the characteristic shiny and reflective qualities of metal.
 
 <img src="/images/3d-models-and-animations/3d-essentials/61-metallic-material.png" width="600" />
@@ -67,6 +67,7 @@ Roughness materials are related to realistic simulation of how light interacts w
 This property blends between a non-metallic and metallic material model. A value of 1.0 gives a fully specular reflection tinted with the base color, without diffuse reflection or transmission. At 0.0 the material consists of a diffuse or transmissive base layer, with a specular reflection layer on top.
 
 ## **Specular**
+
 In a Physically-Based Rendering (PBR) shader, the specular properties refer to how light interacts with a surface in terms of its reflectivity and shininess. Specular reflection is the mirror-like reflection of light off a surface. In PBR, this property is used to control how much light a surface reflects in a mirror-like manner. Materials like metals typically have high specular reflection, creating sharp, bright highlights, while non-metallic materials like plastics have lower specular reflection, resulting in broader and softer highlights.
 
 <img src="/images/3d-models-and-animations/3d-essentials/62-specular.png" width="600" />
@@ -118,6 +119,7 @@ The image below shows two identical models created with standard materials. The 
 _To make a material emissive in Blender, simply add an `emission` shader to the material._
 
 ## **Emissive Strenght**
+
 Strength of the emitted light. A value of 1.0 will ensure that the object in the image has the exact same color as the Emission Color, i.e. make it ‘shadeless’.
 
 <img src="/images/3d-models-and-animations/3d-essentials/52-emissive-materials.png" width="600" />
@@ -140,22 +142,22 @@ Take into account that material limits per parcel are:
 
 > log2(n+1) x 20 Amount of materials in the scene. It includes materials imported as part of models.
 
-It's important to take into account that each material represent one draw call per objetc so it's crucial to keep the materials as minimun as possible and try to reutilize materials as much as possible doing techniques like Texture Atlases, this also is going to benefit the scene having a cohesive style between the assets of your scene. 
+It's important to take into account that each material represent one draw call per objetc so it's crucial to keep the materials as minimun as possible and try to reutilize materials as much as possible doing techniques like Texture Atlases, this also is going to benefit the scene having a cohesive style between the assets of your scene.
 
 # **Material Naming**
 
 In order to have an organized and healthy art pipeline we recommend to name your materials properly. One way to do it is using this convention method.
 
-````
-<Object>_<Classification>_<Sub-Classification(optional)>_<_MAT> 
-````
+```
+<Object>_<Classification>_<Sub-Classification(optional)>_<_MAT>
+```
 
-So for example, let's say we did 2 different trees, one that is emissive and glowy for spring and another cold and metallic for winter. We could name the materials: *"TreeSpring_Emissive_MAT"* and another one *"TreeWinter_Metallic_MAT"* 
+So for example, let's say we did 2 different trees, one that is emissive and glowy for spring and another cold and metallic for winter. We could name the materials: _"TreeSpring_Emissive_MAT"_ and another one _"TreeWinter_Metallic_MAT"_
 
 In conclusion,
-- 🟢 **Prefer** using names starting with the object and clasification: *"Wood_Oak_MAT"*, *"SciFiFence_Metallic_MAT"*, etc.
-- 🔴 **Avoid** using names like *"Material009"*, *"material1"*, which makes the scene and models really difficult to track and analize.
 
+- 🟢 **Prefer** using names starting with the object and clasification: _"Wood_Oak_MAT"_, _"SciFiFence_Metallic_MAT"_, etc.
+- 🔴 **Avoid** using names like _"Material009"_, _"material1"_, which makes the scene and models really difficult to track and analize.
 
 # **Best Practices For Materials**
 
@@ -166,7 +168,7 @@ Embedded textures get duplicated for each model and add to the scene’s size. 
 > Note: After referencing a file for a texture that won’t be embedded, make sure that file won’t be moved or renamed, as otherwise the reference to the file will be lost. The file must also be inside the scene folder so that it’s uploaded together with the scene.
 
 - When setting transparency of a material, try to always use *Alpha clip* rather than *Alpha blend*, unless you specifically need to have a material that’s partially transparent (like glass). This will avoid problems where the engine renders the wrong model in front of the other.
-- As a rule of thumbs remember to always set *backface culling* in your materials. This will make your scene more perfermant giving that the engine is going to render only the visible face of your models. Only untoggle *backface culling* in case you need a model to be renderer in both sides (for example, a group of leafs of a tree made by 3D planes).
+- As a rule of thumbs remember to always set _backface culling_ in your materials. This will make your scene more perfermant giving that the engine is going to render only the visible face of your models. Only untoggle _backface culling_ in case you need a model to be renderer in both sides (for example, a group of leafs of a tree made by 3D planes).
 
 <img src="/images/3d-models-and-animations/3d-essentials/59-backface-culling.png" width="400" />
 
@@ -174,12 +176,3 @@ Embedded textures get duplicated for each model and add to the scene’s size. 
 - Read **[this article](https://www.khronos.org/blog/art-pipeline-for-gltf)** for a detailed overview of a full art pipeline that uses PBR textures in glTF models.
 - You can find a detailed reference about how to create glTF compatible materials with Blender in **[Blender’s documentation](https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html)** .
 - Find free, high quality PBR textures in **[cgbookcase](https://cgbookcase.com/)** .
-
-
-
-
-
-
-
-
-
