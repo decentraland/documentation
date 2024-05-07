@@ -22,11 +22,23 @@ The number of parcels in your scene conditions its limitations. The more parcels
 
 ## On the Web Editor
 
+When creating a project on the Web Editor, you're presented with a screen that lets you pick the dimensions of your scene:
+
 <img src="/images/editor/scene-size-web.png" width="300"/>
+
+You can modify the scene's size at any time, to add or remove parcels by clicking the layout icon next to the scene's name.
+
+<img src="/images/editor/layout-icon.png" width="56"/>
+
+{{< hint warning >}}
+**📔 Note**: On the Web editor you can only create rectangle-shaped scenes, you can't have an L shaped scene or other concave shapes. When publishing to Genesis Plaza you must own all of the parcels in that rectangle.
+{{< /hint >}}
+
+You initially only define the size of the scene, you then define where in the map you place the scene at the time of deploying. When you click the **Publish Scene** button and select Genesis Plaza, you'll be presented with a map where you can select any of the parcels that you own or have permissions on.
 
 ## On the Desktop Editor
 
-Edit this on the second tab of the scene menu in the Editor.
+Edit the parcels in the scene on the second tab of the scene menu in the Editor.
 
 <img src="/images/editor/scene-parcels.png" alt="Scene name" width="300"/>
 
