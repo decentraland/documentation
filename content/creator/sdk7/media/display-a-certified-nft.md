@@ -128,6 +128,10 @@ To open this UI as a result of a click action, add the following:
 ```ts
 import { openNftDialog } from '~system/RestrictedActions'
 
+// Add pointer collider so it can be clicked
+MeshCollider.setBox(myEntity, ColliderLayer.CL_POINTER)
+
+// Add onPointerDown callback event.
 pointerEventsSystem.onPointerDown(
   {
     entity: myEntity,
