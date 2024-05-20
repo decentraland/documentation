@@ -13,11 +13,11 @@ Most smart items have a basic mode and an advanced mode. The basic mode is tailo
 
 Items start out int he basic mode, to switch to the advanced mode, click the three dots icon and select **Enable Advanced Mode**.
 
-<img src="/images/editor/advanced-mode.jpg" width="300"/>
+<img src="/images/editor/advanced-mode.png" width="300"/>
 
 Any configuration that you set in the basic mode is kept when switching into the advanced mode, but represented in more detail.
 
-<img src="/images/editor/basic-mode.jpg" width="300"/>
+<img src="/images/editor/basic-mode.png" width="300"/>
 
 You can revert back to the basic mode, but when doing this you will revert all configurations to the default.
 

@@ -58,12 +58,12 @@ Use the `getUserAccount()` function from the EthereumController to find a player
 import { getUserAccount } from '@decentraland/EthereumController'
 
 executeTask(async () => {
-	try {
-		const address = await getUserAccount()
-		log(address)
-	} catch (error) {
-		log(error.toString())
-	}
+  try {
+    const address = await getUserAccount()
+    log(address)
+  } catch (error) {
+    log(error.toString())
+  }
 })
 ```
 
@@ -77,19 +77,19 @@ import { getUserAccount } from '@decentraland/EthereumController'
 let registeredAddresses: String[] = []
 
 executeTask(async () => {
-	try {
-		const address = await getUserAccount()
-		let lowerCaseAddress = address.toLowerCase()
-		for (let i = 0; i < registeredAddresses.length; i++) {
-			if (lowerCaseAddress == registeredAddresses[i]) {
-				log('already registered')
-			} else {
-				registeredAddresses.push(lowerCaseAddress)
-			}
-		}
-	} catch (error) {
-		log(error.toString())
-	}
+  try {
+    const address = await getUserAccount()
+    let lowerCaseAddress = address.toLowerCase()
+    for (let i = 0; i < registeredAddresses.length; i++) {
+      if (lowerCaseAddress == registeredAddresses[i]) {
+        log('already registered')
+      } else {
+        registeredAddresses.push(lowerCaseAddress)
+      }
+    }
+  } catch (error) {
+    log(error.toString())
+  }
 })
 ```
 
@@ -137,9 +137,9 @@ Timestamp: 1512345678`
 let eth = EthereumController
 
 executeTask(async () => {
-	const convertedMessage = await eth.convertMessageToObject(messageToSign)
-	const { message, signature } = await eth.signMessage(convertedMessage)
-	log({ message, signature })
+  const convertedMessage = await eth.convertMessageToObject(messageToSign)
+  const { message, signature } = await eth.signMessage(convertedMessage)
+  log({ message, signature })
 })
 ```
 
@@ -159,16 +159,16 @@ Timestamp: 1512345678`
 let eth = EthereumController
 
 function signMessage(msg: string) {
-	executeTask(async () => {
-		const convertedMessage = await eth.convertMessageToObject(msg)
-		const { message, signature } = await eth.signMessage(convertedMessage)
-		log({ message, signature })
+  executeTask(async () => {
+    const convertedMessage = await eth.convertMessageToObject(msg)
+    const { message, signature } = await eth.signMessage(convertedMessage)
+    log({ message, signature })
 
-		const originalMessageHex = await toHex(msg)
-		const sentMessageHex = await toHex(message)
-		const isEqual = sentMessageHex === originalMessageHex
-		log('Is the message correct?', isEqual)
-	})
+    const originalMessageHex = await toHex(msg)
+    const sentMessageHex = await toHex(message)
+    const isEqual = sentMessageHex === originalMessageHex
+    log('Is the message correct?', isEqual)
+  })
 }
 
 signMessage(messageToSign)
@@ -194,25 +194,27 @@ This function informs you that a transaction was requested, but not that it was 
 {{< /hint >}}
 
 ```ts
-const myWallet = ‘0x0123456789...’
+const myWallet = '0x0123456789...'
 const enterPrice = 0.05
 
-function payment(){
+function payment() {
   executeTask(async () => {
     try {
       await eth.requirePayment(myWallet, enterPrice, 'ETH')
       openDoor()
     } catch {
-      log("failed process payment")
+      log('failed process payment')
     }
   })
 }
 
 const button = new Entity()
 button.addComponent(new BoxShape())
-button.addComponent(new OnClick( e => {
+button.addComponent(
+  new OnClick((e) => {
     payment()
-  }))
+  })
+)
 engine.addEntity(button)
 ```
 
@@ -328,16 +330,14 @@ import { abi } from '../contracts/mana'
 import { getProvider } from '@decentraland/web3-provider'
 
 executeTask(async () => {
-	// create an instance of the web3 provider to interface with Metamask
-	const provider = await getProvider()
-	// Create the object that will handle the sending and receiving of RPC messages
-	const requestManager = new RequestManager(provider)
-	// Create a factory object based on the abi
-	const factory = new ContractFactory(requestManager, abi)
-	// Use the factory object to instance a `contract` object, referencing a specific contract
-	const contract = (await factory.at(
-		'0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb'
-	)) as any
+  // create an instance of the web3 provider to interface with Metamask
+  const provider = await getProvider()
+  // Create the object that will handle the sending and receiving of RPC messages
+  const requestManager = new RequestManager(provider)
+  // Create a factory object based on the abi
+  const factory = new ContractFactory(requestManager, abi)
+  // Use the factory object to instance a `contract` object, referencing a specific contract
+  const contract = (await factory.at('0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb')) as any
 })
 ```
 
@@ -358,30 +358,24 @@ import { RequestManager, ContractFactory } from 'eth-connect'
 import { abi } from '../contracts/mana'
 
 executeTask(async () => {
-	try {
-		// Setup steps explained in the section above
-		const provider = await getProvider()
-		const requestManager = new RequestManager(provider)
-		const factory = new ContractFactory(requestManager, abi)
-		const contract = (await factory.at(
-			'0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb'
-		)) as any
-		const address = await getUserAccount()
-		log(address)
+  try {
+    // Setup steps explained in the section above
+    const provider = await getProvider()
+    const requestManager = new RequestManager(provider)
+    const factory = new ContractFactory(requestManager, abi)
+    const contract = (await factory.at('0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb')) as any
+    const address = await getUserAccount()
+    log(address)
 
-		// Perform a function from the contract
-		const res = await contract.setBalance(
-			'0xaFA48Fad27C7cAB28dC6E970E4BFda7F7c8D60Fb',
-			100,
-			{
-				from: address,
-			}
-		)
-		// Log response
-		log(res)
-	} catch (error) {
-		log(error.toString())
-	}
+    // Perform a function from the contract
+    const res = await contract.setBalance('0xaFA48Fad27C7cAB28dC6E970E4BFda7F7c8D60Fb', 100, {
+      from: address,
+    })
+    // Log response
+    log(res)
+  } catch (error) {
+    log(error.toString())
+  }
 })
 ```
 
@@ -399,23 +393,23 @@ The eth-connect library includes a number of other helpers you can use. For exam
 
 ## Using the Ethereum test network
 
-While testing your scene, to avoid transferring real MANA currency, you can use the _Ethereum Goerli test network_ and transfer fake MANA instead.
+While testing your scene, to avoid transferring real MANA currency, you can use the _Ethereum Sepolia test network_ and transfer fake MANA instead.
 
-To use the test network you must set your Metamask Chrome extension to use the _Goerli test network_ instead of _Main network_.
+To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_.
 
-You must acquire Goerli Ether, which you can obtain for free from various external faucets like [this one](https://faucet.paradigm.xyz/).
+You must acquire Sepolia Ether, which you can obtain for free from various external faucets like [this one](https://www.alchemy.com/faucets/ethereum-sepolia/).
 
-If your transactions also involve MANA, you can also obtain free Goerli MANA from our [Goerli MANA faucet](https://faucet-goerli.decentraland.io/).
+<!-- If your transactions also involve MANA, you can also obtain free Sepolia MANA from our [Sepolia MANA faucet](https://faucet-goerli.decentraland.io/). -->
 
 {{< hint info >}}
-**💡 Tip**: To run the transaction of transferring Goerli MANA to your wallet, you will need to pay a gas fee in Goerli Ether.
+**💡 Tip**: To run the transaction of transferring Sepolia MANA to your wallet, you will need to pay a gas fee in Sepolia Ether.
 {{< /hint >}}
 
 To preview your scene using the test network, add the `DEBUG` property to the URL you're using to access the scene preview on your browser. For example, if you're accessing the scene via `http://127.0.0.1:8000/?position=0%2C-1`, you should set the URL to `http://127.0.0.1:8000/?DEBUG&position=0%2C-1`.
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
 
-If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you'll need to swap MANA to that network after acquiring it in Goerli. To bridge Goerli MANA to the Polygon Testnet, visit your [Decentraland account page in Goerli](https://account.decentraland.zone/) and click on ‘swap’ on the Ethereum MANA side.
+If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you'll need to swap MANA to that network after acquiring it in Sepolia. To bridge Sepolia MANA to the Polygon Testnet, visit your [Decentraland account page in Sepolia](https://account.decentraland.zone/) and click on ‘swap’ on the Ethereum MANA side.
 
 ## Send custom RPC messages
 

@@ -159,7 +159,7 @@ Once you select the location to teleport, a new tab will open on your browser an
 
 <img src="/images/wearables-and-emotes/uploading-wearables/21_goerli.png" width="600"/>
 
-Click on **_Switch to Goerli_** and a popup from your wallet will show up asking to switch the network. Simply click on Switch Network and the new tab will automatically refresh. To test your wearable, go to the backpack and select it.
+Click on **_Switch to Sepolia_** and a popup from your wallet will show up asking to switch the network. Simply click on Switch Network and the new tab will automatically refresh. To test your wearable, go to the backpack and select it.
 
 <img src="/images/wearables-and-emotes/uploading-wearables/22_wearable_world.gif" />
 

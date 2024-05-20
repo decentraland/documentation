@@ -21,10 +21,10 @@ If the scene can't be compiled, you'll just see the grid on the ground, with not
 
 If this occurs, there are several places where you can look for error messages to help you understand what went wrong:
 
-1.  Check your code editor to make sure that it didn't mark any syntax or logic errors.
-2.  Check the output of the command line where you ran `dcl start`
-3.  Check the JavaScript console in the browser for any other error messages. For example, when using Chrome you access this through `View > Developer > JavaScript console`.
-4.  If you're running a preview of a multiplayer scene that runs together with a local server, check the output of the command line window where you run the local server.
+1. Check your code editor to make sure that it didn't mark any syntax or logic errors.
+2. Check the output of the command line where you ran `dcl start`
+3. Check the JavaScript console in the browser for any other error messages. For example, when using Chrome you access this through `View > Developer > JavaScript console`.
+4. If you're running a preview of a multiplayer scene that runs together with a local server, check the output of the command line window where you run the local server.
 
 If an entity is located or extends beyond the limits of the scene, it will be displayed in red to indicate this, with a red bounding box to mark its boundaries. Nothing in your scene can extend beyond the scene limits. This won't stop the scene from being rendered locally, but it will stop the offending entities form being rendered in Decentraland.
 
@@ -116,7 +116,7 @@ The `decentraland-ecs` library has in turn a couple of internal dependencies tha
 
 For example, you can run your preview with the following URL:
 
-> http://127.0.0.1:8000/?position=0%2C0&SCENE_DEBUG_PANEL&renderer-version=1.0.12119-20210830195045.commit-a8be53a
+> http\://127.0.0.1:8000/?position=0%2C0&SCENE_DEBUG_PANEL&renderer-version=1.0.12119-20210830195045.commit-a8be53a
 
 To find out what versions are available to choose from on each dependency, check the version history on the NPM pages for the [Renderer](https://www.npmjs.com/package/@dcl/unity-renderer) and for the [Kernel](https://www.npmjs.com/package/decentraland-kernel). To know what versions of these dependencies are in use by default by a specific `decentraland-ecs` version, you can run the following command, indicating the `decentraland-ecs` version you're curious about:
 
@@ -192,7 +192,7 @@ Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL 
 
 #### Using the Ethereum test network
 
-You can avoid using real currency while previewing the scene. For this, you must use the _Ethereum Ropsten test network_ and transfer fake MANA instead. To use the test network you must set your Metamask Chrome extension to use the _Ropsten test network_ instead of _Main network_. You must also own MANA in the Ropsten blockchain, which you can acquire for free from Decentraland.
+You can avoid using real currency while previewing the scene. For this, you must use the _Ethereum Sepolia test network_ and transfer fake MANA instead. To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_. You must also own MANA in the Sepolia blockchain, which you can acquire for free from Decentraland.
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
 

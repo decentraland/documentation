@@ -31,11 +31,11 @@ This is a list of smart contracts accessible to users through the marketplace ap
 
 **Testnet**
 
-|Contract|Goerli|Mumbai|
+|Contract|Sepolia|Amoy|
 |:-|:-|:-|
-|Marketplace|[0x5d01fbD3E22892be40F69bdAE7Ad921C8cdA2085](https://goerli.etherscan.io/address/0x5d01fbD3E22892be40F69bdAE7Ad921C8cdA2085)|[0x5A467398dfa9d5C663a656423A2D055f538198A4](https://mumbai.polygonscan.com/address/0x5A467398dfa9d5C663a656423A2D055f538198A4)|
-|Bids|[0xd7dC1C183B8fFaED6b7f30fFC616Ff81B66812e5](https://goerli.etherscan.io/address/0xd7dC1C183B8fFaED6b7f30fFC616Ff81B66812e5)|[0x78Dd92c8941dBC7BE54E2a9390D58aD28AD97afD](https://mumbai.polygonscan.com/address/0x78Dd92c8941dBC7BE54E2a9390D58aD28AD97afD)|
-|CollectionStore|-|[0x6ddF1b1924DAD850AdBc1C02026535464Be06B0c](https://mumbai.polygonscan.com/address/0x6ddF1b1924DAD850AdBc1C02026535464Be06B0c)|
+|Marketplace|[0xccf0c17da6cd68041b1bf0f7e015767242077d8c](https://sepolia.etherscan.io/address/0xccf0c17da6cd68041b1bf0f7e015767242077d8c)|[0x0c8ad1f6aadf89d2eb19f01a100a6143108fe2b0](https://amoy.polygonscan.com/address/0x0c8ad1f6aadf89d2eb19f01a100a6143108fe2b0)|
+|Bids|[0x2c2835b95852fd975e087b3b25297322728792e2](https://sepolia.etherscan.io/address/0x2c2835b95852fd975e087b3b25297322728792e2)|[0x4b66eab79cc03a96fb6275cfcdf23c0db431606d](https://amoy.polygonscan.com/address/0x4b66eab79cc03a96fb6275cfcdf23c0db431606d)|
+|CollectionStore|-|[0xe36abc9ec616c83caaa386541380829106149d68](https://amoy.polygonscan.com/address/0xe36abc9ec616c83caaa386541380829106149d68)|
 
 As you can see, there are contracts both in the Ethereum and the Polygon networks. This is because different kinds of assets can be found in one network and the rest in the other. For example, LANDs, Estates, and Names are all in the Ethereum Network, while Wearables and Emotes are in the Polygon Network.
 
@@ -60,7 +60,7 @@ function createOrder(
 )
 ```
 
-Once an Order has been created on-chain, the asset will be listed for sale so that any user can buy it. 
+Once an Order has been created on-chain, the asset will be listed for sale so that any user can buy it.
 
 When a user wants to buy an asset listed in the Marketplace, they have to allow the Marketplace Smart Contract to operate with their MANA first. This is done by sending a transaction. Users can set an allowance for the amount of the asset they want to buy or a higher cap to continue using the Marketplace without changing it every time. We recommend using the Allowance cap by default.
 
