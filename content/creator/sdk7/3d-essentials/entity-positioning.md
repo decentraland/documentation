@@ -399,11 +399,6 @@ The following anchor points are available on the `AvatarAnchorPointType` enum:
 
 - `AAPT_RIGHT_HAND`: Fixed on the player's right hand
 - `AAPT_LEFT_HAND`: Fixed on the player's left hand
-- `.AAPT_NAME_TAG`: Floats right above the player's name tag, isn't affected by the player's animations.
-
-  > Note: The name tag height is dynamically adjusted based on the height of the wearables a player has on. So a player wearing a tall hat will have their name tag a little bit higher than others.
-
-- `AAPT_POSITION`: The player's overall position.
 - `AAPT_HEAD`: Fixed to center of the player's head.
 - `AAPT_NECK`: Fixed to the player's base of the neck.
 - `AAPT_SPINE`: Fixed to the top section of the backbone.
@@ -426,6 +421,13 @@ The following anchor points are available on the `AvatarAnchorPointType` enum:
 - `AAPT_RIGHT_LEG`: Fixed to the bottom leg bone on the right leg.
 - `AAPT_RIGHT_FOOT`: Fixed to the ankle on the right leg.
 - `AAPT_RIGHT_TOE_BASE`: Fixed to the tip of the toe on the right leg.
+- `.AAPT_NAME_TAG`: Floats right above the player's name tag, isn't affected by the player's animations.
+
+  > Note: The name tag height is dynamically adjusted based on the height of the wearables a player has on. So a player wearing a tall hat will have their name tag a little bit higher than others.
+
+- `AAPT_POSITION`: The player's overall position. This appears on the ground-level, between the avatar's feet.
+
+  > Note: A known issue may make items appear below the ground level, this is not the expected behavior and will be fixed in future versions.
 
 {{< hint info >}}
 **💡 Tip**: To use these values, write `AvatarAnchorPointType.` and VS Code will display the full list of options on a dropdown.
