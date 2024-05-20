@@ -69,6 +69,10 @@ The following values are supported for _network_:
 - `blast`: Blast
 - `zora`: Zora
 
+{{< hint warning >}}
+**📔 Note**: Images must weigh up to **6 MB**. If the image is larger, it won't be rendered in the scene.
+{{< /hint >}}
+
 ## Customize the frame
 
 By default, the image will have a purple background and have a frame with a pulsating emissive texture around it. You can set the following properties to better match the style of the NFT and the scene:
