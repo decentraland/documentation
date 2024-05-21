@@ -433,7 +433,7 @@ The following anchor points are available on the `AvatarAnchorPointType` enum:
 **💡 Tip**: To use these values, write `AvatarAnchorPointType.` and VS Code will display the full list of options on a dropdown.
 {{< /hint >}}
 
-<img src="/images/avatar-attach-points.png" width="600"/>
+<img src="/images/avatar-attach-points.png" width="300"/>
 
 Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to other players who are seeing that player. If an entity is attached to the default local player, each player will experience the entity as attached to their own avatar.
 
@@ -523,6 +523,6 @@ A grid on the scene's ground shows the limits of the scene, which by default rag
 
 It's important to note that the _entire_ 3D model must be within the scene's bounds. This includes the model's _bounding box_. Some 3D models may have bounding boxes that unnecessarily extend beyond the meshes themselves, and it can sometimes be tricky to tell when this happens. When an entity extends beyond the scene's boundaries, in the preview you'll see a cube that marks these bounding boxes. The entire cube must fit within your scene.
 
-![](/images/media/bounding-box.png)
+<img src="/images/media/bounding-box.png" alt="nested entities" width="300"/>
 
 If an entity's cube extends beyond the shape of its meshes, you might need to edit the 3D model in an external editor to reduce these margins, or to _bake_ the rotation and scale of the meshes in the model.
