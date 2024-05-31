@@ -46,6 +46,18 @@ You can also use the search box. Note that when you're inside an asset pack, the
 
 To place an item, click and drag the item to a specific location in the scene. All your changes are saved automatically.
 
+## Ground
+
+Some of the items on the asset packs are of type **Ground**, these have a paint bucket icon on them. If you drag one of these into your scene, it covers all of your scene's ground with copies of this item.
+
+<img src="/images/editor/ground.png" width="500" />
+
+You can also add a single copy of the item by holding **Shift** while you drag the ground onto the scene.
+
+<img src="/images/editor/ground-entities.png" width="300" />
+
+The collection of ground items appear in the [entity tree](#the-entity-tree) inside a folder. Each one of them is locked, to prevent accidentally selecting. [Untoggle](#lock-or-hide-items) the items to move or edit them.
+
 ## Preview in explorer
 
 To test your scene and experience it like a player, click the _Preview scene_ button on the top-right corner. This will open a scene preview on a new page, where you can move around the scene and interact with interactive items.
