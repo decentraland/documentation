@@ -137,7 +137,7 @@ Scenes with this rating won't load and no one will be able to interact with them
 
 There are certain features that can be disabled in specific scenes so that players can't use these abusively. Configure these on the **Settings** tab of the scene settings.
 
-<img src="/images/media/spawn-point.png" alt="Scene name" width="200"/>
+<img src="/images/media/scene-restrictions.png" alt="Scene name" width="300"/>
 
 Currently, only the following feature is handled like this:
 
@@ -344,7 +344,11 @@ When [deploying]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) a
 
 Edit this on the second tab of the scene menu in the Editor.
 
-<img src="/images/editor/scene-parcels.png" alt="Scene name" width="300"/>
+<img src="/images/editor/scene-parcels-3x3.png" alt="Scene name" width="300"/>
+
+Use the dropdowns and click **Apply Layout** to change the dimensions of your scene. You can also click each individual parcel to toggle it off from your layout.
+
+<img src="/images/editor/scene-parcels-toggled.png" alt="Scene name" width="300"/>
 
 The default scene has its coordinates set to _0,0_, this information is not necessary to change while developing a scene offline, unless you need to occupy multiple parcels. You will need to change this before deploying, to coordinates where you do have deploy permissions.
 

@@ -13,9 +13,13 @@ Some of the items in the catalog of the Decentraland Editor are **Smart Items**.
 
 {{< youtube 510kDzz1mjo >}}
 
-You can recognize these items because they have a lightning icon and a different colored background.
+You can recognize these items in the asset pack explorer because they have a lightning icon and a different colored background.
 
 <img src="/images/editor/smart-items.jpg" width="300"/>
+
+You can recognize which items in your scene are smart because they have the lightning icon next to them in the entity tree.
+
+<img src="/images/editor/smart-item-icon.jpg" width="300"/>
 
 ## Using items
 
