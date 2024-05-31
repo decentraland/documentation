@@ -119,6 +119,10 @@ Note: The overrides you select will be the suggested default settings for your W
 
 Tags are simply descriptive words that users can use when searching or filtering for items. These are relevant to competitions or events!
 
+## **VRM Export Permission**
+
+When this property is enabled, it will allow owners of your item to include it in VRM Avatar Exports so they can show it off outside of Decentraland.
+
 ## **Adding Another Representation**
 
 If your wearable has a different representation for male and female you will need to upload another file. So far, you only have one uploaded. In the example, it was the female version of the Krampus Sweater. To add the other representation, click on the three dots (_…_) at the top right, next to **_Properties_** and select **_Add male/female_** representation. In the example below, we needed the male version.
