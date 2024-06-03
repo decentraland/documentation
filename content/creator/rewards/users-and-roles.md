@@ -35,3 +35,4 @@ These are the actions allowed for each role:
 | View users                               |   ✅   |    ✅     |      ✅      |  ✅   |
 | Add/Remove users                         |   ❌   |    ❌     |      ✅      |  ✅   |
 | Remove owner users                       |   ❌   |    ❌     |      ❌      |  ✅   |
+| Manage funds                             |   ❌   |    ❌     |      ❌      |  ✅   |

@@ -96,3 +96,10 @@ By default your campaign is inactive. This prevents the rewards service from ass
 {{< /hint >}}
 
 **Now you are ready to start minting wearables/emotes using the [API]({{< ref "/content/creator/rewards/api.md">}})**
+
+### Manage funds
+Once the campaign is done, the owner can choose to either reclaim the funds allocated to it or reassign them to a different campaign. To claim funds, click on the **Manage funds** button in the campaign detail page.
+
+{{< hint warning >}}
+**📔 Note**: If all funds are removed from a campaign, any pending or new transactions related to that campaign will be blocked until more funds are assigned.
+{{< /hint >}}
