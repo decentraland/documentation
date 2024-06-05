@@ -143,10 +143,20 @@ import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 function main() {
 	const door = engine.getEntityOrNullByName('Wooden Door')
 	if (door) {
+
+		// detect actions
 		const actions = getActionEvents(door)
 		actions.on('Open', () => {
+			console.log("Door opened!!")
 			// custom code
 		})
+
+		// detect triggers
+                const triggers = getTriggerEvents(door)
+                triggers.on(TriggerType.ON_CLICK, () => {
+			console.log("Door clicked!!")
+			// custom code                   
+                })
 	}
 }
 ```
