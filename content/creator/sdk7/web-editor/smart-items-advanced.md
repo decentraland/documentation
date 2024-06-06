@@ -103,6 +103,22 @@ The **Actions** component lists actions that the item can carry out. Each smart 
 - **Open link**: Open a link on browser tab. Players are asked if they trust the domain before they do.
 - **Clone**: Duplicates an item in the designated position.
 - **Remove**: Deletes an item from the scene.
+- **Show Image**: Displays an image on the UI, potentially for a limited time. It can also include caption.
+- **Hide Image**: Hides any image currently displayed in the UI via the Show Image action.
+- **Damage**: Reduces the health on any healthbar that is near. The _Layer_ property can determine if it only acts on helalthbars on the player, or on other items.
+- **Move player here**: Changes the player's position to that of this item.
+- **Place on Player**: Changes the item's position to that of the player.
+- **Rotate as Player**: Changes the item's rotation to that of the player.
+- **Place on Camera**: Changes the item's position to that of the camera.
+- **Rotate as Camera**: Changes the item's rotation to that of the camera.
+- **Set Position**: Changes the item's position to a specific one. It can be absolute or relative to its current position.
+- **Set Rotation**: Changes the item's rotation to a specific one. It can be absolute or relative to its current rotation.
+- **Set Scale**:  Changes the item's scale to a specific one. It can be absolute or relative to its current scale.
+- **Follow Player**: Starts moving and turning in direction to the player's position. It ignores any obstacles on the way. You can set the speed and make it only move on certain axis. Min Distance determines how close it will come to the player.
+- **Stop Following Player**: Stops the Follow Player action.
+- **Random Action**: One of the actions listed here will be played at random with equal probablility each time the random action is called. You can list any of the actions that belong to the item.
+- **Batch Actions**: All of the actions listed here will be played simultaneously each time the batch action is called. You can list any of the actions that bleong to the item.
+- **Heal Player**: Restore health to the player's health bar.
 
 See [states and conditional logic](#states-and-conditional-logic) to learn about other actions related to logic conditions.
 
