@@ -22,6 +22,7 @@ A `Label` entity has the following fields that can be configured:
   - `sans-serif` _(default)_
   - `monospace`
 - `textAlign`: How the text will align with its parent. It takes a value from the `TextAlingType` type. TextAlignType = 'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center' | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
+- `textWrap`: If the text uses line-breaks to ensure it all fits in the maximum width allowed. It takes a value from the `TextWrap` type: 'TW_WRAP' | 'TW_NO_WRAP'
 
 {{< hint warning >}}
 **📔 Note**: The `fontSize` is not affected by the size of its entity or parent entities.
@@ -47,19 +48,21 @@ ReactEcsRenderer.setUiRenderer(() => (
 
 <!-- TODO: examples with textAlign -->
 
-For multi-line text, you can add line breaks into the string, using `\n`.
+If a line of text is too long to fit in the assigned width, or the maximum width of its container, the text will continue on the next line. You can disable this by changing the value of the `textWrap` property.
+
+You can also force a line break by explicitly adding `\n` to the string.
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 
 ReactEcsRenderer.setUiRenderer(() => (
 	<UiEntity uiTransform={{ width: 700, height: 400 }}>
-		<Label value="Hello World,\nthis message is quite long and won't fit in a single line.\nI hope that's not a problem." />
+		<Label value="Hello World!\nThis other bit is quite long. It probably won't fit in a single line, so it will include a line break somewhere.\nFourth line" />
 	</UiEntity>
 ))
 ```
 
-To make a container's size always adjust to the text's length, set the `height` and `width` of the `uiTransform` to `auto`.
+If no explicit `height` or `width` is set on the `uiTransform` of the container, the container will use the value `auto`, which adjusts to fit all the text. You can set a `maxWidth` and a `maxHeight` to ensure it doesn't exceed certain limits. You can also use `minWidth` and `minHeight` to ensure the container does't grow too small, even if the text is shorter.
 
 ```ts
 import { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
@@ -67,7 +70,8 @@ import { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 ReactEcsRenderer.setUiRenderer(() => (
 	<UiEntity
 		uiTransform={{
-			width: 'auto',
+			minWidth: 100,
+			maxWidth: 300,
 			height: 'auto',
 			alignSelf: 'center',
 			padding: 10,
