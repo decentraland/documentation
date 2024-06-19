@@ -22,7 +22,7 @@ A `Label` entity has the following fields that can be configured:
   - `sans-serif` _(default)_
   - `monospace`
 - `textAlign`: How the text will align with its parent. It takes a value from the `TextAlingType` type. TextAlignType = 'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center' | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
-- `textWrap`: If the text uses line-breaks to ensure it all fits in the maximum width allowed. It takes a value from the `TextWrap` type: 'TW_WRAP' | 'TW_NO_WRAP'
+- `textWrap`: If the text uses line-breaks to ensure it all fits in the maximum width allowed. It can take the strings `'wrap'` (default) or `'nowrap'`.
 
 {{< hint warning >}}
 **📔 Note**: The `fontSize` is not affected by the size of its entity or parent entities.
@@ -48,16 +48,20 @@ ReactEcsRenderer.setUiRenderer(() => (
 
 <!-- TODO: examples with textAlign -->
 
-If a line of text is too long to fit in the assigned width, or the maximum width of its container, the text will continue on the next line. You can disable this by changing the value of the `textWrap` property.
+If a line of text is too long to fit in the assigned width, or the maximum width of its container, the text will continue on the next line. You can disable this by changing the value of the `textWrap` property to `'nowrap'`.
 
 You can also force a line break by explicitly adding `\n` to the string.
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { TextWrap } from "@dcl/sdk/ecs";
 
 ReactEcsRenderer.setUiRenderer(() => (
 	<UiEntity uiTransform={{ width: 700, height: 400 }}>
-		<Label value="Hello World!\nThis other bit is quite long. It probably won't fit in a single line, so it will include a line break somewhere.\nFourth line" />
+		<Label 
+			value="Hello World!\nThis other bit is quite long. It probably won't fit in a single line, so it will include a line break somewhere.\nFourth line"
+			textWrap= {`nowrap`} 
+		/>
 	</UiEntity>
 ))
 ```
