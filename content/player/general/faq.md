@@ -204,7 +204,7 @@ Yes. You are free to decide whether you will charge other players to access your
 
 {{< details class="faq-details" anchor="true" title="I need support! Where can I contact you?" >}}
 
-In case of any questions or issues, please reach out to us at <hello@decentraland.org> or visit <a href="https://intercom.decentraland.org/">Support</a>.
+In case of any questions or issues, please reach out to us at <hello@decentraland.org> or visit <a href="https://decentraland.org/help/">Support</a>.
 You can also join our <a href="https://dcl.gg/discord">Discord</a> and visit our #help channel to ask whatever questions you have. We’ll answer as soon as possible. Our friendly community members can help too. While you’re there why not check out some of the other channels to learn more about Decentraland?
 
 {{</ details >}}
