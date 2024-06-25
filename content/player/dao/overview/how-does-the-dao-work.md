@@ -77,10 +77,6 @@ Facilitation Squad is responsible for managing communications and aligning diffe
 
  Grants Support Squad has the responsibility of being in constant dialogue with the grantees community, to understand their needs and provide support to their blockers and requests.
 ![Photo 7](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Grant%20Support.png?raw=true)
-## Strategic Unit Squad
-
-Strategic Unit Squad is responsible for building consensus around strategic DAO operations and developing governance guidelines.
-![Photo 8](https://github.com/decentraland/documentation/blob/main/static/images/DAO%20Organizational%20Chart/Strategic%20Unit.png?raw=true)
 ## The Forum
 
 The [Decentraland Forum](https://forum.decentraland.org) is the communication hub for the DAO. Everytime a new proposal is created, an accompanying thread is opened automatically on the Forum under the [Governance section](https://forum.decentraland.org/c/governance/). These proposal topics can be found either by browsing the Forum, or by clicking the “Discuss in the Forum'' button on any proposal’s detail page in the Governance UI. These threads are a space where voters can discuss the various impacts and issues that might result from a proposal.
