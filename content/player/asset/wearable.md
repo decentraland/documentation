@@ -18,17 +18,18 @@ Basic Wearables are free to use for every user and are available upon loading in
 
 Early Wearable collections were minted on the Ethereum Blockchain. Due to increasing GAS fees, however, newer collections are only minted on Layer 2, Polygon Blockchain, since 2021. At this point in time, its not possible to mint new Decentraland Wearable collections on Ethereum. 
 
-**Wearable Rarities**
+### Wearable Rarities
+
 NFT Wearables have varying rarities, with some being more unique and scarce than others due to differences in their supply categories. Below are the available categories and their supply cap.
 
-Unique:	1
-Mythic:	10
-Exotic:	50
-Legendary: 100
-Epic: 1000
-Rare: 5000
-Uncommon: 10000
-Common: 100000
+- Unique:	1
+- Mythic:	10
+- Exotic:	50
+- Legendary: 100
+- Epic: 1000
+- Rare: 5000
+- Uncommon: 10000
+- Common: 100000
 
 ### Smart Wearable
 
