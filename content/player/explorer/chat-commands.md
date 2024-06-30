@@ -16,7 +16,7 @@ To use a command you need to open the chat by pressing ENTER, as if you were abo
 - **/goto X,Y** - Teleports to the given coordinates. Replace X,Y with the two coordinates you want to go to - Example: /goto -42,0
 - **/goto crowd** - Teleports the user to the most crowded place in Genesis City
 - **/goto magic** - Teleports the user to a random location from a curated list
-- **/changerealm REALM** - Changes the server - Available realms: Example: /changerealm loki
+- **/changerealm REALM** - Changes the server - Example: /changerealm loki
 - **/changerealm NAME.dcl.eth** - To change to the according Decentraland World
 - **/world NAME.dcl.eth** - To change to the according Decentraland World
 
