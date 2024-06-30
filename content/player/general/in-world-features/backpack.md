@@ -35,28 +35,28 @@ To simplify finding the asset you are looking for, it features various filter an
 The categories are as follows:
 
 - Head
- - BODY SHAPE
- - HAIR
- - EYEBROWS
- - EYES
- - MOUTH
- - FACIAL HAIR
+  - BODY SHAPE
+  - HAIR
+  - EYEBROWS
+  - EYES
+  - MOUTH
+  - FACIAL HAIR
 
 - Body
- - UPPER BODY
- - HANDWEAR
- - LOWER BODY
- - FEET
+  - UPPER BODY
+  - HANDWEAR
+  - LOWER BODY
+  - FEET
 
 - Rest
- - HAT
- - EYEWEAR
- - EARRING
- - MASK
- - TIARA
- - TOP HEAD
- - HELMET
- - SKIN
+  - HAT
+  - EYEWEAR
+  - EARRING
+  - MASK
+  - TIARA
+  - TOP HEAD
+  - HELMET
+  - SKIN
 
 ### Emotes Overview
 
