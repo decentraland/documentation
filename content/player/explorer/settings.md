@@ -12,12 +12,12 @@ The settings menu allows users to adjust graphics, sound, and general interactio
 
 ### General Settings
 
-- Player Name Transparency** - 0,2 to 1,0 - From barely visible to full visibility
-- Show Avatar Names** - On/Off - Turns Avatar Names over avatars heads on or off
-- Dynamic Skybox** - On/Off - Turns the skybox cycle completely off or on
-- Skybox Time** - 00:00 (h:m) to 23:59 (h:m) - Alters the day or night time of the skybox and lightning
-- Scene Load Radius** - 1 to 4 - Impacts the surrounded scenes that are being loaded around an avatar
-- Hide UI** - On/Off - Makes the User Interface overlay disappear, also effective by pressing U on the Keyboard
+- **Player Name Transparency** - 0,2 to 1,0 - From barely visible to full visibility
+- **Show Avatar Names** - On/Off - Turns Avatar Names over avatars heads on or off
+- **Dynamic Skybox** - On/Off - Turns the skybox cycle completely off or on
+- **Skybox Time** - 00:00 (h:m) to 23:59 (h:m) - Alters the day or night time of the skybox and lightning
+- **Scene Load Radius** - 1 to 4 - Impacts the surrounded scenes that are being loaded around an avatar
+- **Hide UI** - On/Off - Makes the User Interface overlay disappear, also effective by pressing U on the Keyboard
 
 **Input**
 
