@@ -27,8 +27,8 @@ The settings menu allows users to adjust graphics, sound, and general interactio
 
 **Filters**
 
-- ** Profanity Guard**
-- ** Adult Content** - On/Off - En-or Disables NSFW content
+- **Profanity Guard**
+- **Adult Content** - On/Off - En-or Disables NSFW content
 
 ### Graphics Settings
 
