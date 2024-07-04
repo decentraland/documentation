@@ -1,5 +1,5 @@
 ---
-title: 'Quests Overview'
+title: "Quests Overview"
 url: /creator/quests/overview
 weight: 1
 ---
@@ -19,6 +19,12 @@ The creator of a Quest must define the steps and their order or the path to the 
 - Quests can be **linear**, meaning that the player has to complete the steps in order. Quests can also be **branching**, meaning that the player can first complete one path and then continue with another one. A player must complete all branches before the quest is considered completed.
 
 - Quests can be completed only once by a player.
+
+- When a player starts a Quest, a Quest Instance is created for that specific Quest and player. This instance will store the progress of the player in that Quest.
+
+- A player can have multiple Quest Instances at the same time, but only one instance of each Quest.
+
+- When an action event is sent to the **Quests RPC Service**, this event is enqueued and then the **Quests System** process it. When the event is processed by the **Quests System**, all player's Quest Instances are grabbed from the **Quests Database** and the action event is applied to each of them. If the event makes the player do some progress on the Quest Instance, the event is stored and progress is made on the Quest Instance. A single action event could be valid for multiple Quest Instances being played by the user.
 
 - Quest Creators must manage their own Quest HUD as part of the content of the scene (or portable experience). They can design their own, or use the default one provided as part of the [Quests Client SDK Library]({{< ref "/content/creator/quests/client.md" >}}).
 
