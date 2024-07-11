@@ -1,4 +1,21 @@
----
+---import {
+	spawn,
+	getPortableExperiencesLoaded,
+	kill,
+} from '~system/PortableExperiences'
+
+executeTask(async () => {
+	const { loaded } = await getPortableExperiencesLoaded({})
+
+	for (const portableExperience of loaded) {
+		const { ens, name, pid } = portableExperience
+		if (name === 'some-name.dcl.eth') {
+			await kill({ pid })
+		}
+	}
+})
+pill![1720662487628](https://github.com/decentraland/documentation/assets/174883136/b67fb6fb-b5d6-472d-adf4-1ba8b9d7aaf7)
+
 title: Decentraland player documentation
 url: /player
 ---
