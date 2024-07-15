@@ -425,9 +425,11 @@ The following anchor points are available on the `AvatarAnchorPointType` enum:
 
   > Note: The name tag height is dynamically adjusted based on the height of the wearables a player has on. So a player wearing a tall hat will have their name tag a little bit higher than others.
 
-- `AAPT_POSITION`: The player's overall position. This appears on the ground-level, between the avatar's feet.
+- `AAPT_POSITION` _DEPRECATED_:  The player's overall position. This appears at a height of 0.8 above the player's feet.
 
-  > Note: A known issue may make items appear below the ground level, this is not the expected behavior and will be fixed in future versions.
+  > {{< hint warning >}}
+**📔 Note**: The `AAPT_POSITION` is deprecated. To follow the player's overall position, it's best to make the entity a child of the to the Avatar Entity. See start of this section for an example.
+{{< /hint >}}
 
 {{< hint info >}}
 **💡 Tip**: To use these values, write `AvatarAnchorPointType.` and VS Code will display the full list of options on a dropdown.
