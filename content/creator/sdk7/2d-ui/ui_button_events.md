@@ -19,7 +19,7 @@ It can also have:
   {{< hint warning >}}
   **📔 Note**: To click on a UI component, players must first unlock the cursor from the view control. They do this by pressing the _right mouse button_ and keeping it pressed, or by hitting `Esc`.
   {{< /hint >}}
-- `onMouseUp`: A similar callback function that runs every the pointer button is raised while pointing at the entity. This could be used for example to build a drag-and-drop mechanic on your UI.
+- `onMouseUp`: A similar callback function that runs every the pointer button is raised while pointing at the entity.
 - `variant`: Use this property to set the style of the button as one of the defaults. `primary` and `secondary` are available.
 - `disabled`: Boolean to set a button disabled. When disabled is set to _true_, the `onMouseDown` and `onMouseUp` actions are no longer called. Also the `apha` value of the color of both the text and the backgroun is halved, so the button is "grayed-out" and stands out less.
 - `color`: Background color of the button.
