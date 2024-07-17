@@ -25,6 +25,10 @@ This opens up the scene menu, where you can configure multiple properties.
 
 Alternatively, you can directly edit the `scene.json` file, where all of these values are stored.
 
+{{< hint warning >}}
+**📔 Note**: Do not add custom fields to the `scene.json` file that are not mentioned in this page, as it could cause issues loading your scene.
+{{< /hint >}}
+
 ## Scene title, description, and image
 
 It's very important to give your scene a title, a description and a thumbnail image to attract players to your scene and so they know what to expect.
