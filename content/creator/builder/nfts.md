@@ -10,6 +10,10 @@ aliases:
 url: /creator/builder/nfts
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old web Builder. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+{{< /hint >}}
+
 You can add NFTs (Non-Fungible Tokens) into your scene, displayed as picture frames.
 
 All image and gif formats that are supported in OpenSea are also supported by Decentraland by picture frames. NFTs in video or audio format are currently not supported. NFTs that also have 3D representations, like Decentraland wearables, are displayed in picture frames as 2D images.
@@ -21,7 +25,7 @@ The easiest way to import an NFT you own is to open the **Collectibles** tab on 
 ![](/images/media/builder-nfts.png)
 
 {{< hint warning >}}
-**📔 Note**:  The limitation of this approach is that you can only add NFTs that you own, and you can't configure properties of the picture frame, like style of the frame an background color.
+**📔 Note**: The limitation of this approach is that you can only add NFTs that you own, and you can't configure properties of the picture frame, like style of the frame an background color.
 {{< /hint >}}
 
 ## NFTs By id
@@ -53,5 +57,5 @@ Other optional fields that can be configured in this UI:
 - **Background Color**: NFTs with transparent background are given a background color, violet by default. You can choose any other color. Note that some frame styles, like _None_, don't include a background color at all. -**Include UI**: When players click on a picture frame, they see a UI with additional information about the token, including creator, description, sale info and links to purchase it. A hint text appears on screen when pointing at the image, which some might consider distracting from the art. Disable the UI to also remove the hint text. -**Extra UI Text**: The UI extracts most of its data from external sources, but allows for an additional field where you can add a custom description. This text is only available to players if _Include UI_ is switched on.
 
 {{< hint warning >}}
-**📔 Note**:  You can only see these changes take effect when entering the scene in Preview mode. None of these changes modify the representation of the smart item that you drag around in edit mode.
+**📔 Note**: You can only see these changes take effect when entering the scene in Preview mode. None of these changes modify the representation of the smart item that you drag around in edit mode.
 {{< /hint >}}

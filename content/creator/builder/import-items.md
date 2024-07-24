@@ -10,6 +10,10 @@ aliases:
 url: /creator/builder/import-items
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old web Builder. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+{{< /hint >}}
+
 You can import your own 3D models into the Builder. This allows you to pick models from a wide selection of free sources on the internet, or to create your own custom models.
 
 ## Upload a model

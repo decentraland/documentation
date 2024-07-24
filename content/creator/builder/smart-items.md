@@ -10,6 +10,10 @@ aliases:
 url: /creator/builder/smart-items
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old web Builder. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+{{< /hint >}}
+
 Smart items are Builder items that come with their own built-in interactive behavior.
 
 They often have fields that can be configured, like a text field in a sign post. They also can trigger actions on other items, for example a button smart item can call a door smart item to open it.

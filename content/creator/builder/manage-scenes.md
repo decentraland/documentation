@@ -10,6 +10,10 @@ aliases:
 url: /creator/builder/manage-scenes
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old web Builder. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+{{< /hint >}}
+
 ## Export a scene
 
 While editing a scene, press the _Download scene_ icon to download the contents of the scene as a _.zip_ file. In the scene selector screen, you can also press the _three dots_ icon and select _Download scene_.

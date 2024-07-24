@@ -10,6 +10,10 @@ aliases:
 url: /creator/builder/builder-101
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old web Builder. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+{{< /hint >}}
+
 The Builder is a simple visual editor tool that lets you create and publish Decentraland scenes.
 
 The Builder is an on-line tool. It runs on the browser, you don't need to install anything, simply visit [builder.decentraland.org](https://builder.decentraland.org).
