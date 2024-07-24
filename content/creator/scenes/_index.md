@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: true
-weight: 5
+weight: 1000
 title: SDK6 Scenes
 ---
