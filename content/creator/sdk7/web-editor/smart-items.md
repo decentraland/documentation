@@ -19,7 +19,7 @@ You can recognize these items in the asset pack explorer because they have a lig
 
 You can recognize which items in your scene are smart because they have the lightning icon next to them in the entity tree.
 
-<img src="/images/editor/smart-item-icon.jpg" width="300"/>
+<img src="/images/editor/smart-item-icon.png" width="300"/>
 
 ## Using items
 
@@ -140,10 +140,11 @@ Play an audio stream from a URL, using hte **Audio Stream** smart item.
 Not all streaming services allow you to play their audio outside their site. The following are some examples that work in Decentraland:
 
 ```ts
-GRAFFITI = ‘https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5’
-SIGNS = ‘https://edge.singsingmusic.net/MC2.mp3’
-DELTA = ‘https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e’
-JAZZ = ‘https://live.vegascity.fm/radio/8010/the_flamingos.mp3’
+GRAFFITI =
+	'https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5'
+SIGNS = 'https://edge.singsingmusic.net/MC2.mp3'
+DELTA = 'https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e'
+JAZZ = 'https://live.vegascity.fm/radio/8010/the_flamingos.mp3'
 ```
 
 {{< /hint >}}

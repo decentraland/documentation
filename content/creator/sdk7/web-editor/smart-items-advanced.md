@@ -11,6 +11,8 @@ weight: 3
 
 Most smart items have a basic mode and an advanced mode. The basic mode is tailored to only display the most common settings in a simple way. The advanced mode allows you to customize almost anything about how the item behaves.
 
+{{< youtube 4wiYYX-_Hek >}}
+
 Items start out int he basic mode, to switch to the advanced mode, click the three dots icon and select **Enable Advanced Mode**.
 
 <img src="/images/editor/advanced-mode.png" width="300"/>
@@ -113,7 +115,7 @@ The **Actions** component lists actions that the item can carry out. Each smart 
 - **Rotate as Camera**: Changes the item's rotation to that of the camera.
 - **Set Position**: Changes the item's position to a specific one. It can be absolute or relative to its current position.
 - **Set Rotation**: Changes the item's rotation to a specific one. It can be absolute or relative to its current rotation.
-- **Set Scale**:  Changes the item's scale to a specific one. It can be absolute or relative to its current scale.
+- **Set Scale**: Changes the item's scale to a specific one. It can be absolute or relative to its current scale.
 - **Follow Player**: Starts moving and turning in direction to the player's position. It ignores any obstacles on the way. You can set the speed and make it only move on certain axis. Min Distance determines how close it will come to the player.
 - **Stop Following Player**: Stops the Follow Player action.
 - **Random Action**: One of the actions listed here will be played at random with equal probablility each time the random action is called. You can list any of the actions that belong to the item.
