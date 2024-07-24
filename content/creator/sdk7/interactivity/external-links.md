@@ -18,6 +18,8 @@ To teleport a player to another scene, call the following function, indicating t
 ```ts
 import { teleportTo } from "~system/RestrictedActions"
 
+(...)
+
 teleportTo({ worldCoordinates: { x: -51, y: 1 } })
 ```
 
@@ -26,6 +28,22 @@ Players are presented a confirmation screen before they are teleported, this scr
 Bare in mind that teleports take you to a scene in the indicated coordinates, but not necessarily to that same coordinates. This means that when travelling to a scene that has multiple parcels, players may not be landing on the same coordinates as specified, but rather into one of the spawn points designated by the creator of the scene.
 
 To move a player to another set of coordinates inside the current scene, use the `movePlayerTo()` function instead. See [Move a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}}).
+
+## Teleport to a WORLD
+
+To send a player to a scene that is not published in the open world Genesis City map, but instead to an isolated [Decentraland WORLD]({{< ref "/content/creator/worlds/about.md" >}}), use the function `changeRealm()`.
+
+```ts
+import { changeRealm } from "~system/RestrictedActions"
+
+(...)
+
+changeRealm({realm: 'mannakia.dcl.eth'})
+```
+
+Players are presented a confirmation screen before they are teleported, this screen displays information from the destination scene’s `scene.json file`, including the scene `name`, `description` and `navmapThumbnail`. See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for details on how to set this data.
+
+The player will spawn in on of the spawn points of the scene in that world, regardless of their current coordinates on the map.
 
 ## External links
 
