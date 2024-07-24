@@ -10,6 +10,10 @@ aliases:
 url: /creator/builder/export
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old web Builder. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+{{< /hint >}}
+
 You can start a scene with the Builder, and then make it more interactive by writing code with the SDK (Software Development Kit).
 
 The Builder uses the Decentraland SDK under the hood, generating the required code without you ever needing to look at it. If you export the scene, then you can alter its code directly.

@@ -10,6 +10,10 @@ type: Document
 url: /creator/builder/builder-faq
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old web Builder. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+{{< /hint >}}
+
 Below you can find the **frequently asked questions** about the [Builder](https://decentraland.org/builder)
 
 {{< details class="faq-details" anchor="true" title="How do scene limits work? What are triangles? How about materials? What’s going on?" >}}
