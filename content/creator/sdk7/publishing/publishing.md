@@ -167,7 +167,7 @@ Custom servers can chose to have content from the official servers, that you can
 See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/how-to-run-a-catalyst.md" >}}) for more info on what you can do with your own server and how to set it up.
 
 {{< hint warning >}}
-**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server]({{< ref "/content/creator/rewards/getting-started.md" >}}) or the [quests server]({{< ref "/content/creator/quests/overview.md" >}}) might fail in these contexts, as often these services require that the request comes from an official server.
+**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server]({{< ref "/content/creator/rewards/gatting-started.md" >}}) or the [quests server]({{< ref "/content/creator/quests/overview.md" >}}) might fail in these contexts, as often these services require that the request comes from an official server.
 {{< /hint >}}
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
