@@ -51,7 +51,7 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ## To publish the scene
 
-### Via the Decentraland Editor
+#### Via the Decentraland Editor
 
 Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
@@ -70,7 +70,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 - For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
 - For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
 
-### Via the CLI
+#### Via the CLI
 
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
 2.  Run `npm run deploy` from the scene's folder.
@@ -133,7 +133,7 @@ Players are never directed to this server, the only way to access it is to expli
 
 If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
 
-### Via the Decentraland Editor
+#### Via the Decentraland Editor
 
 To deploy a scene to the test server:
 
@@ -149,7 +149,7 @@ To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to th
 
 _play.decentraland.org/&CATALYST=peer-testing.decentraland.org_
 
-### Via the CLI
+#### Via the CLI
 
 To deploy to the test server, run:
 
@@ -158,6 +158,39 @@ To deploy to the test server, run:
 To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
 
 _https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
+
+## Custom servers
+
+You can deploy content to a custom server that doesn't belong to the official DAO-maintained network of catalyst servers. To do this, you don't need to own any LAND or NAME tokens, as you can configure the server to use any validation logic you prefer to control who can deploy where.
+Custom servers can chose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
+
+See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/how-to-run-a-caalyst.md" >}}) for more info on what you can do with your own server and how to set it up.
+
+{{< hint warning >}}
+**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server]({{< ref "/content/creator/rewards/getting-started.md" >}}) or the [quests server]({{< ref "/content/creator/quests/overview.md" >}}) might fail in these contexts, as often these services require that the request comes from an official server.
+{{< /hint >}}
+
+Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
+
+#### Via the Decentraland Editor
+
+To deploy a scene to a custom server:
+
+1. Open VSCode in a Decentraland scene project.
+2. Click on the Decentraland icon on the left sidebar.
+3. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Publish scene to custom server`
+4. Type in the URL for your server
+5. Approve the transaction
+
+The URL to enter your deployed scene on your custom server will depend on the domain where it's being hosted.
+
+#### Via the CLI
+
+To deploy to a custom server, run:
+
+`npm run deploy -- --target <CUSTOM SERVER DOMAIN>`
+
+The URL to enter your deployed scene on your custom server will depend on the domain where it's being hosted.
 
 ## Verify deployment success
 
