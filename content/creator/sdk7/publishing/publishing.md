@@ -159,6 +159,39 @@ To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to th
 
 _https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
 
+## Custom servers
+
+You can deploy content to a custom server that doesn't belong to the official DAO-maintained network of catalyst servers. To do this, you don't need to own any LAND or NAME tokens, as you can configure the server to use any validation logic you prefer to control who can deploy where.
+Custom servers can chose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
+
+See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/how-to-run-a-catalyst.md" >}}) for more info on what you can do with your own server and how to set it up.
+
+{{< hint warning >}}
+**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server]({{< ref "/content/creator/rewards/gatting-started.md" >}}) or the [quests server]({{< ref "/content/creator/quests/overview.md" >}}) might fail in these contexts, as often these services require that the request comes from an official server.
+{{< /hint >}}
+
+Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
+
+### Via the Decentraland Editor
+
+To deploy a scene to a custom server:
+
+1. Open VSCode in a Decentraland scene project.
+2. Click on the Decentraland icon on the left sidebar.
+3. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Publish scene to custom server`
+4. Type in the URL for your server
+5. Approve the transaction
+
+The URL to enter your deployed scene on your custom server will depend on the domain where it's being hosted.
+
+### Via the CLI
+
+To deploy to a custom server, run:
+
+`npm run deploy -- --target <CUSTOM SERVER DOMAIN>`
+
+The URL to enter your deployed scene on your custom server will depend on the domain where it's being hosted.
+
 ## Verify deployment success
 
 Once you deployed your scene, these changes will take a few minutes to be propagated throughout the various content servers in the network. If you enter Decentraland right after deploying, you might still see the previous version of your content, depending of what realm you enter.
