@@ -46,7 +46,7 @@ You can also use the search box. Note that when you're inside an asset pack, the
 
 To place an item, click and drag the item to a specific location in the scene. All your changes are saved automatically.
 
-## Ground
+## Ground
 
 Some of the items on the asset packs are of type **Ground**, these have a paint bucket icon on them. If you drag one of these into your scene, it covers all of your scene's ground with copies of this item.
 
