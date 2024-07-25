@@ -51,7 +51,7 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ## To publish the scene
 
-#### Via the Decentraland Editor
+### Via the Decentraland Editor
 
 Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
@@ -70,7 +70,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 - For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
 - For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
 
-#### Via the CLI
+### Via the CLI
 
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
 2.  Run `npm run deploy` from the scene's folder.
@@ -133,7 +133,7 @@ Players are never directed to this server, the only way to access it is to expli
 
 If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
 
-#### Via the Decentraland Editor
+### Via the Decentraland Editor
 
 To deploy a scene to the test server:
 
@@ -149,7 +149,7 @@ To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to th
 
 _play.decentraland.org/&CATALYST=peer-testing.decentraland.org_
 
-#### Via the CLI
+### Via the CLI
 
 To deploy to the test server, run:
 
@@ -172,7 +172,7 @@ See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
 
-#### Via the Decentraland Editor
+### Via the Decentraland Editor
 
 To deploy a scene to a custom server:
 
@@ -184,7 +184,7 @@ To deploy a scene to a custom server:
 
 The URL to enter your deployed scene on your custom server will depend on the domain where it's being hosted.
 
-#### Via the CLI
+### Via the CLI
 
 To deploy to a custom server, run:
 
