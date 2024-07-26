@@ -27,7 +27,8 @@ const entity = engine.addEntity()
 
 AvatarModifierArea.create(entity, {
 	area: Vector3.create(4, 3, 4),
-	modifiers: [AvatarModifierType.HIDE_AVATARS],
+	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+	excludeIds: []
 })
 
 Transform.create(entity, {
