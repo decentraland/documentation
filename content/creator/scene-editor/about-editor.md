@@ -11,13 +11,17 @@ weight: 1
 
 The Scene Editor is a powerful tool that combines a simple no-code interface with the ability to write code to customize your scenes further.
 
+See [Editor Installation]({{< ref "/content/creator/scene-editor/editor-installations.md" >}}) to get started.
+
 <!-- TODO: Link to install -->
+
+<!-- TODO: update video -->
 
 {{< youtube PF7smSBxVOc >}}
 
 ## Create scene
 
-To create a scene, go to scenes section in the builder and press _Create scene_ button. You will be able to create a scene from scratch or use any of the available templates.
+To create a new scene, open the Scene Editor and press the go to scenes section in the builder and press _Create scene_ button. You will be able to create a scene from scratch or use any of the available templates.
 
 Scenes in Decentraland occupy one or several adjacent LAND parcels. Each LAND parcel measures 16x16 meters.
 

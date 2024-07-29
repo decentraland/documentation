@@ -146,7 +146,7 @@ function main() {
 ```
 
 {{< hint info >}}
-**💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/scene-editor/smart-items.md#making-any-item-smart" >}})
+**💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md#making-any-item-smart" >}})
 {{< /hint >}}
 
 <!-- TODO: links to systems, and to SDK in general -->

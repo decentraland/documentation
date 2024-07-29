@@ -27,7 +27,7 @@ In the bottom left corner of the Scene Editor, if you click on the set of square
 
 {{< details class="faq-details" anchor="true" title="Can I upload custom assets?" >}}
 
-Yes, you can import 3D models in `.gltf` and `.glb` formats. See [**Import items**]({{< ref "/content/creator/editor/import-items.md" >}}).
+Yes, you can import 3D models in `.gltf` and `.glb` formats. See [**Import items**]({{< ref "/content/creator/scene-editor/import-items.md" >}}).
 
 {{</ details >}}
 
@@ -35,7 +35,7 @@ Yes, you can import 3D models in `.gltf` and `.glb` formats. See [**Import items
 
 Yes, you can deploy to land you own, or land where you have deploy permissions. You can also deploy to a Decentraland WORLD if you own a Decentraland NAME or an ENS name. To do this, open your scene project and click the **Publish** button.
 
-See [**Publish scene**]({{< ref "/content/creator/editor/publish-scene.md" >}}).
+See [**Publish scene**]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}).
 
 {{</ details >}}
 
@@ -47,7 +47,7 @@ Yes, you can place an object underground, or partially underground. However, the
 
 {{< details class="faq-details" anchor="true" title="How do I add images to my scene?" >}}
 
-You can import an image as you would import a 3D model. Then you can assign this image as a texture on a plane. See [**Import items**]({{< ref "/content/creator/editor/import-items.md" >}}).
+You can import an image as you would import a 3D model. Then you can assign this image as a texture on a plane. See [**Import items**]({{< ref "/content/creator/scene-editor/import-items.md" >}}).
 
 You can also reference an external image by URL in one of your materials. Make sure that the image is hosted in a site that has open policies about their content shared on other sites, otherwise it may not be displayed.
 
@@ -67,7 +67,7 @@ Projects are saved automatically to your local disk. Any change you make on the 
 
 {{< details class="faq-details" anchor="true" title="Can I import scenes from the SDK?" >}}
 
-Yes, any Decentraland scene built with SDK7 can be imported into the Scene Editor. This includes scenes built with the Web Editor or entirely in code with the SDK. See See [**Manage scenes**]({{< ref "/content/creator/editor/manage-scenes.md#import-a-scene" >}}).
+Yes, any Decentraland scene built with SDK7 can be imported into the Scene Editor. This includes scenes built with the Web Editor or entirely in code with the SDK. See See [**Manage scenes**]({{< ref "/content/creator/scene-editor/manage-scenes.md#import-a-scene" >}}).
 
 {{</ details >}}
 
