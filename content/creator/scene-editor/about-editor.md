@@ -11,7 +11,7 @@ weight: 1
 
 The Scene Editor is a powerful tool that combines a simple no-code interface with the ability to write code to customize your scenes further.
 
-See [Editor Installation]({{< ref "/content/creator/scene-editor/editor-installations.md" >}}) to get started.
+See [Editor Installation]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}) to get started.
 
 <!-- TODO: update video -->
 

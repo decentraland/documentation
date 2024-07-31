@@ -124,6 +124,7 @@ For example, if a scene has a door with the following generic **Open** action, y
 
 ```ts
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
+import { TriggerType } from '@dcl/asset-packs'
 
 function main() {
 	const door = engine.getEntityOrNullByName('Wooden Door')
