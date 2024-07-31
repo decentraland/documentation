@@ -45,7 +45,7 @@ To find your way around the Scene Editor:
 
 Navigate the **Asset Packs** to find a ground you like. Items of type **Ground** have a paint bucket icon on them. If you drag one of these into your scene, it covers all of your scene's ground with copies of this item.
 
-<img src="/images/editor/ground.png" width="500" />
+<img src="/images/editor/ground.png" width="700" />
 
 See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#set-the-ground" >}}) for more details.
 
@@ -53,11 +53,11 @@ See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-edi
 
 Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
 
-<img src="/images/editor/asset-packs.png" alt="Scene name" width="600"/>
+<img src="/images/editor/asset-packs.png" alt="Scene name"/>
 
 To place an item, click and drag it in from the asset pack menu into a location on your scene in the visual editor.
 
-<img src="/images/editor/drop-item.gif" alt="Scene name" width="300"/>
+<img src="/images/editor/drop-item.gif" alt="Scene name"/>
 
 {{< hint info >}}
 **💡 Tip**: Use **Ctrl + C** and then **Ctrl + V** to duplicate an item.
@@ -81,7 +81,7 @@ See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-edi
 
 Smart items are special items that come with built-in interactive behaviors. See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for more details.
 
-<img src="/images/editor/smart-items.jpg" width="300"/>
+<img src="/images/editor/smart-items.jpg"/>
 
 ## Preview
 
