@@ -53,11 +53,11 @@ See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-edi
 
 Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
 
-<img src="/images/editor/asset-packs.png" alt="Scene name" width="124"/>
+<img src="/images/editor/asset-packs.png" alt="Scene name" width="600"/>
 
-To place an item, click and drag it in from the asset pack menu into a location on your scene in the visual editor. You'll
+To place an item, click and drag it in from the asset pack menu into a location on your scene in the visual editor.
 
-<img src="/images/editor/drop-item.gif" alt="Scene name" width="124"/>
+<img src="/images/editor/drop-item.gif" alt="Scene name" width="300"/>
 
 {{< hint info >}}
 **💡 Tip**: Use **Ctrl + C** and then **Ctrl + V** to duplicate an item.
@@ -73,13 +73,15 @@ Click and drag a selected item to move it freely around the scene at ground leve
 
 You can also use the tools on the top menu to _Move_, _Rotate_ or _Scale_ items.
 
-<!-- TODO: image of gizmos -->
+<img src="/images/editor/gizmos.png" alt="Scene name" width="124"/>
 
 See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#position-items" >}}) for more details.
 
 ## Smart items
 
-<!-- TODO: link -->
+Smart items are special items that come with built-in interactive behaviors. See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for more details.
+
+<img src="/images/editor/smart-items.jpg" width="300"/>
 
 ## Preview
 

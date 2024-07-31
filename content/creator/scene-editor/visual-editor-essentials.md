@@ -9,7 +9,16 @@ url: /creator/editor/visual-editor-essentials
 weight: 2
 ---
 
-<!-- TODO: overall layout: item tree, canvas, item properties, asset packs -->
+<!-- TODO: overall layout: item tree, canvas, item properties, asset packs
+
+diagram with main sections and brief bullets w description of each
+
+Entity Tree:
+Main canvas:
+Item configuration:
+Asset packs/local files
+
+-->
 
 ## Moving around
 
@@ -62,7 +71,7 @@ Click and drag a selected item to move it freely around the scene at ground leve
 
 You can also use the tools on the top menu:
 
-<!-- TODO: image of gizmos -->
+<img src="/images/editor/gizmos.png" alt="Scene name" width="124"/>
 
 - **Move tool**: Each arrow lets you move the item in a single axis at a time. With this tool you can also position things above the ground level.
 
@@ -83,7 +92,9 @@ link to import-items -->
 
 ## Smart items
 
-<!-- TODO: link -->
+Smart items are special items that come with built-in interactive behaviors. See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for more details.
+
+<img src="/images/editor/smart-items.jpg" width="300"/>
 
 ## Scene settings
 
