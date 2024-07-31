@@ -13,21 +13,21 @@ The Scene Editor is a powerful tool that combines a simple no-code interface wit
 
 See [Editor Installation]({{< ref "/content/creator/scene-editor/editor-installations.md" >}}) to get started.
 
-<!-- TODO: Link to install -->
-
 <!-- TODO: update video -->
 
 {{< youtube PF7smSBxVOc >}}
 
-## Create scene
+## Create a scene
 
-To create a new scene, open the Scene Editor and press the go to scenes section in the builder and press _Create scene_ button. You will be able to create a scene from scratch or use any of the available templates.
+To create a new scene, open the Scene Editor and press the _Create scene_ button.
 
-Scenes in Decentraland occupy one or several adjacent LAND parcels. Each LAND parcel measures 16x16 meters.
+See [Manage scenes]({{< ref "/content/creator/scene-editor/manage-scenes.md" >}}) for more details.
 
-To build something to deploy to LAND parcels you own, make sure the shape of the scene matches the shape of where you want it deployed.
+<!-- TODO: image -->
 
 <!-- TODO: Note about importing an existing scene. If your scene is on the web editor, download it and unzip. You can also import scenes built with code -->
+
+<!-- TODO: in the future talk about templates -->
 
 ## Moving around
 
@@ -35,24 +35,8 @@ To find your way around the Scene Editor:
 
 - Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
 - Use **S** and **D** to move sideways.
-- Click the mouse and drag to rotate. You can click either with the Right or the Left button. It's recommended to use the Right button, since with the Left you might accidentally select an item.
+- Click the mouse and drag to rotate. You can click either with the Right or the Left button.
 - Press **Space bar** to reset the camera back to the default position
-
-## Scene size
-
-Scenes in Decentraland occupy one or several adjacent LAND parcels. Each LAND parcel measures 16x16 meters.
-
-To build something to deploy to LAND parcels you own, make sure the shape of the scene matches the shape of where you want it deployed.
-
-<!-- TODO about WORLDS, link to doc about where to publish -->
-
-You can edit the size of your scene by clicking the _pencil icon_ and then changing the number or rows and columns.
-
-<img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
-
-<!-- TODO screenshot and instructions for changing size
-maybe link to whole doc showing size settings, and types of scenes WORLD vs Genesis City?
- -->
 
 ## Set the Ground
 
@@ -68,35 +52,70 @@ You can also add a single copy of the item by holding **Shift** while you drag t
 
 The collection of ground items appear in the [entity tree](#the-entity-tree) inside a folder. Each one of them is locked, to prevent accidentally selecting. [Untoggle](#lock-or-hide-items) the items to move or edit them.
 
+## Scene size
+
+You can edit the size of your scene by clicking the _pencil icon_ and then changing the number or rows and columns.
+
+<img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
+
+Scenes in Decentraland occupy one or several adjacent LAND parcels. Each LAND parcel measures 16x16 meters.
+
+Set the number of parcels for the rows and columns and click **Apply layout** to see it affect your scene on the visual editor.
+
+<img src="/images/editor/scene-layout.png" alt="Scene name" width="124"/>
+
+To build something to deploy to LAND parcels you own, make sure the shape of the scene matches the shape of where you want it deployed.
+
+{{< hint info >}}
+**💡 Tip**: You can toggle each tile on the grid off by clicking on it. This allows you to draw non-rectangular shapes for your scene layout.
+
+<img src="/images/editor/non-rectangular.png" alt="Scene name" width="124"/>
+
+{{< /hint >}}
+
+If you own a Decentraland NAME, you can also deploy your scene to a [Decentraland World]({{< ref "/content/creator/worlds/about.md" >}}). In that case, you'll have an unlimited number of parcels, but you will have a size limit in MB.
+
+See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
+
 ## Add items
 
-Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene. There’s a great variety!
+Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
+
+<img src="/images/editor/asset-packs.png" alt="Scene name" width="124"/>
 
 You can also use the search box. Note that when you're inside an asset pack, the search only looks in that asset pack.
 
-To place an item, click and drag the item to a specific location in the scene. All your changes are saved automatically.
+To place an item, click and drag it in from the asset pack menu into a location on your scene in the visual editor. You'll
+
+<img src="/images/editor/drop-item.gif" alt="Scene name" width="124"/>
+
+{{< hint info >}}
+**💡 Tip**: Your changes are saved automatically whenever you add, move, or edit properties of any of the items in your scene.
+{{< /hint >}}
+
+To duplicate an item, select it and hit **Ctrl + C** and then **Ctrl + V**. You can also find the item on the [entity tree](#the-entity-tree) to right-click and select the option **Duplicate**. The new item will be perfectly overlapping the original.
+
+To delete an item from the scene, select it press the _Delete_ key.
 
 ## Position items
 
 Click and drag a selected item to move it freely around the scene at ground level.
 
+<!-- TODO: move tool gif -->
+
+You can also use the tools on the top menu:
+
 <!-- TODO: image of gizmos -->
 
-To move an item with more precision, use the _Move tool_, on the top menu. Each arrow lets you move the item in a single axis at a time. With this tool you can also position things above the ground level.
+- **Move tool**: Each arrow lets you move the item in a single axis at a time. With this tool you can also position things above the ground level.
 
-To rotate an item, select the _Rotate tool_ on the top menu. A gizmo appears on the selected item, and you can use each of the hoops to rotate the item on one axis at a time.
+- **Rotate tool**: A gizmo appears on the selected item, and you can use each of the hoops to rotate the item on one axis at a time.
 
-To make an item larger or smaller, select the _scale_ tool on the top menu, then click on the center of the gizmo and drag in or out. This tool also lets you stretch an item in a single axis to change its proportions, to do this click on one of the axis of the gizmo and drag it.
-
-<!-- TODO: Image of scale gizmo -->
+- **Scale tool**: Click on the center of the gizmo and drag in or out to enlarge. This tool also lets you stretch an item in a single axis to change its proportions, to do this click on one of the axis of the gizmo and drag it.
 
 {{< hint info >}}
 **💡 Tip**: To have greater precision while moving, rotating or scaling an item, press and hold the _Shift_ key while making adjustments.
 {{< /hint >}}
-
-To delete an item from the scene, select it and click the _Delete_ tool.
-
-To duplicate an item, select it and hit **Ctrl + C** and then **Ctrl + V**. You can also find the item on the [entity tree](#the-entity-tree) to right-click and select the option **Duplicate**. The new item will be perfectly overlapping the original.
 
 To select multiple items at the same time, press and hold the _Control_ key while selecting them. You can then move, rotate, scale, duplicate or delete all of them in a single action.
 
@@ -117,14 +136,6 @@ Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series 
 This opens up the scene menu, where you can configure multiple properties including title and thumbnail, scene category and age rating, player spawn locations, and feature toggles. See [Scene Metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}).
 
 <!-- TODO talk about naming and other things -->
-
-## Publish scene
-
-Once you're happy with the scene, press _Publish scene_.
-
-- Select _My world_ to make your scene available in any of your [worlds]({{< ref "/content/creator/worlds/about.md" >}}).
-
-- Select _My Land_ if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed on the map. Parcels where you are allowed to deploy are shown in pink.
 
 ## Scene limitations
 
@@ -147,6 +158,16 @@ The content in a Decentraland scene must also avoid spilling onto neighbor parce
 <img src="/images/editor/out-of-bounds.png" width="300" />
 
 Note that these checks don't look at the visible geometry of the meshes, but rather they look at the bounding boxes of these meshes, as this is more performant. Learn more about [Bounding Boxes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
+
+## Publish scene
+
+Once you're happy with your scene, press _Publish scene_.
+
+- Select _My world_ to make your scene available in one of your [worlds]({{< ref "/content/creator/worlds/about.md" >}}).
+
+- Select _My Land_ if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed on the map. Parcels where you are allowed to deploy are shown in pink.
+
+See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
 
 ## The entity tree
 

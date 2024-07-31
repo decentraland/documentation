@@ -1,7 +1,7 @@
 ---
 date: 2024-07-25
-title: Editor Installation
-description: How to install the scene editor.
+title: Publish a Scene
+description: How to publish your scene to LAND or a NAME.
 categories:
   - scene-editor
 type: Document

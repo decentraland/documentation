@@ -265,3 +265,5 @@ For example, a door shares its `Animator` so all see the opening animations, its
 Some items are not meant to be seen by the player, but are visible while editing your scene to make them easier to manage. This is the case for items like **Ambience**, **Trigger Area**, **Click Area**, etc.
 
 In the advanced mode, these items have a **Visibility** component set to invisible. This component doesn't affect the visibility of the items on the Scene Editor, but any item set to invisible isn't seen by players when running a preview.
+
+<!-- TODO: links inter pages -->

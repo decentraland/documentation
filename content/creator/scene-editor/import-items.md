@@ -10,25 +10,25 @@ aliases:
   - /builder/import-items/
 ---
 
-You can import your own 3D models into the Scene Editor. This allows you to pick models from a wide selection of free sources on the internet, or to create your own custom models.
+You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models.
 
-## Upload a model
+## Import an asset
 
-<!-- TODO: Rewrite section -->
+To import a 3D model, an image, a sound file, or a video into your scene from your local disk:
 
-All custom items are stored in user-created _asset packs_. Each asset pack holds one or many assets.
+1. Click the **+\*** icon on the top-right of the **Local Assets** screen.
 
-To create a new asset pack:
+2. Drag the file or files onto the window. You can also click the upload icon to open a file browser window.
 
-1. Open the editor for any scene and click _New Asset Pack_ at the bottom of the item catalogue, or the _plus sign_ at the top of the categories list.
-2. Drag a 3D model file into the window, or multiple files at once.
-3. Press _Import assets_.
-4. Name each asset, and potentially add tags to better identify them.
-5. Name the asset pack and press _Create Asset Pack_.
+3. Check the model thumbnail and click **Import**.
 
-Now you'll see a new folder in the items catalogue with your new asset pack, and you can use your new assets in any scene, just like the default items.
+  <img src="/images/editor/import-model.png" width="500" />
 
-Once created, a custom asset pack is be available in every scene you edit as long as you log in with the same account.
+You can now find your asset in the **Local Assets** tab, under the **scene** folder.
+
+- For 3D models, drag the `.glb` or `.gltf` files onto the canvas to add them as items on your scene.
+
+- Other kinds of assets like images and sound files can be dragged onto the fields of an item.
 
 ## Supported models
 
@@ -79,8 +79,6 @@ Note that you don't have any control over when the animation starts or stops, or
 
 If there are multiple players in the scene, they may be seeing the animation out of sync from each other.
 
-To change this behavior, you can include an Animator component
+To change this behavior, you can include an **Animator** component.
 
 <!-- TODO: explain animator, maybe create whole doc about adding components? -->
-
-<!-- TODO: import images, sound files, videos, avatar animations -->
