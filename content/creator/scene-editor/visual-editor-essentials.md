@@ -9,21 +9,93 @@ url: /creator/editor/visual-editor-essentials
 weight: 2
 ---
 
-TODO: Move around
+<!-- TODO: overall layout: item tree, canvas, item properties, asset packs -->
 
-TODO: overall layout: item tree, canvas, item properties, asset packs
+## Moving around
 
-TODO: Set ground
+To find your way around the Scene Editor:
 
-TODO: Add items
+- Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
+- Use **S** and **D** to move sideways.
+- Click the mouse and drag to rotate. You can click either with the Right or the Left button.
+- Press **Space bar** to reset the camera back to the default position
 
-TODO: position items
+## Set the Ground
 
-TODO: local assets
+The scene's ground can use various different textures. You can find these in the different themed asset packs in the item menu.
+
+Items of type **Ground** have a paint bucket icon on them. If you drag one of these into your scene, it covers all of your scene's ground with copies of this item.
+
+<img src="/images/editor/ground.png" width="500" />
+
+You can also add a single copy of the item by holding **Shift** while you drag the ground onto the scene.
+
+<img src="/images/editor/ground-entities.png" width="300" />
+
+The collection of ground items appear in the [entity tree](#the-entity-tree) inside a folder. Each one of them is locked, to prevent accidentally selecting. [Untoggle](#lock-or-hide-items) the items to move or edit them.
+
+## Add items
+
+Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
+
+<img src="/images/editor/asset-packs.png" alt="Scene name" width="124"/>
+
+You can also use the search box. Note that when you're inside an asset pack, the search only looks in that asset pack.
+
+To place an item, click and drag it in from the asset pack menu into a location on your scene in the visual editor. You'll
+
+<img src="/images/editor/drop-item.gif" alt="Scene name" width="124"/>
+
+{{< hint info >}}
+**💡 Tip**: Your changes are saved automatically whenever you add, move, or edit properties of any of the items in your scene.
+{{< /hint >}}
+
+To duplicate an item, select it and hit **Ctrl + C** and then **Ctrl + V**. You can also find the item on the [entity tree](#the-entity-tree) to right-click and select the option **Duplicate**. The new item will be perfectly overlapping the original.
+
+To delete an item from the scene, select it press the _Delete_ key.
+
+## Position items
+
+Click and drag a selected item to move it freely around the scene at ground level.
+
+<!-- TODO: move tool gif -->
+
+You can also use the tools on the top menu:
+
+<!-- TODO: image of gizmos -->
+
+- **Move tool**: Each arrow lets you move the item in a single axis at a time. With this tool you can also position things above the ground level.
+
+- **Rotate tool**: A gizmo appears on the selected item, and you can use each of the hoops to rotate the item on one axis at a time.
+
+- **Scale tool**: Click on the center of the gizmo and drag in or out to enlarge. This tool also lets you stretch an item in a single axis to change its proportions, to do this click on one of the axis of the gizmo and drag it.
+
+To have greater precision while moving, rotating or scaling an item, press and hold the _Shift_ key while making adjustments.
+
+<!-- You can also configure the grid settings
+TODO: grid settings -->
+
+To select multiple items at the same time, press and hold the _Control_ key while selecting them. You can then move, rotate, scale, duplicate or delete all of them in a single action.
+
+<!-- TODO: local assets
 warning that when you place an item it's added to folder, delete
-link to import-items
+link to import-items -->
 
-## Scene size
+## Smart items
+
+<!-- TODO: link -->
+
+## Scene settings
+
+Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series of scene-level properties to edit.
+
+<img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
+
+Here you can configure multiple properties including title and thumbnail, scene size, scene category and age rating, player spawn locations, and feature toggles.
+
+See [Scene Metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}).
+
+#### Scene size
 
 You can edit the size of your scene by clicking the _pencil icon_ and then changing the number or rows and columns.
 
@@ -47,6 +119,10 @@ To build something to deploy to LAND parcels you own, make sure the shape of the
 If you own a Decentraland NAME, you can also deploy your scene to a [Decentraland World]({{< ref "/content/creator/worlds/about.md" >}}). In that case, you'll have an unlimited number of parcels, but you will have a size limit in MB.
 
 See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
+
+<!--
+TODO: other settings
+title,thumbain, category, spawn points, feature toggles -->
 
 ## The entity tree
 
@@ -75,3 +151,5 @@ You might find it handy to sometimes lock an item, to prevent accidentally selec
 You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Editor window, not to players entering the scene. To hide an item, look for it on the item tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
 
 ![](/images/editor/hide-lock-item.png)
+
+<!-- TODO links to other pages -->
