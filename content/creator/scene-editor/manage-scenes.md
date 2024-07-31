@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /builder/manage-scenes/
 url: /creator/editor/manage-scenes
+weight: 3
 ---
 
 Each of your available scenes is shown as a card. Open the card to open the Visual Editor on that scene, to preview it or publish it.
@@ -41,8 +42,6 @@ In the scene selector screen, press the _three dots_ icon and select _Delete_.
 
 <!-- TODO: does it remove from file too? in case of imported scenes too? -->
 
-## Scene storage
-
 <!-- TODO: Your scenes are all stored locally on your disk
 You can change the directory?
 
@@ -56,4 +55,4 @@ How to change screenshot
 -->
 <!-- TODO: project library
 
-update and manage dependencies -->
+future: update and manage dependencies -->

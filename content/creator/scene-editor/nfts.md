@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /builder/nfts/
 url: /creator/editor/nfts
+weight: 6
 ---
 
 You can add NFTs (Non-Fungible Tokens) into your scene, displayed as picture frames.
@@ -18,7 +19,7 @@ All image and gif formats that are supported in OpenSea are also supported by De
 
 Use the NFT smart item, that you can find in the **Smart Items** asset pack, or by simply searching _NFT_ in the search bar above. Once you drag a copy of the NFT item to your scene and select it, there are a few fields that your can configure.
 
-<!-- TODO:image -->
+<img src="/images/editor/nft-item.jpg" width="300"/>
 
 The main fields to configure determine what NFT to display:
 

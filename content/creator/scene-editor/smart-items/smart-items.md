@@ -6,7 +6,7 @@ categories:
   - scene-editor
 type: Document
 url: /creator/editor/smart-items
-weight: 3
+weight: 1
 ---
 
 Some of the items in the catalog of the Scene Editor are **Smart Items**. Players can interact with these, they have configurable properties, and they can trigger actions on other smart items. For example: doors that can be opened and closed, platforms that move up and down, or buttons and levers that can activate other items.

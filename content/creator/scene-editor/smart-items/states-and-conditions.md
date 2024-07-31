@@ -6,7 +6,7 @@ categories:
   - scene-editor
 type: Document
 url: /creator/editor/states-and-conditions
-weight: 4
+weight: 3
 ---
 
 {{< youtube hXSiPO81KJA >}}

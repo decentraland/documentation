@@ -6,7 +6,7 @@ categories:
   - scene-editor
 type: Document
 url: /creator/editor/make-any-item-smart
-weight: 5
+weight: 4
 ---
 
 ## Making any item smart

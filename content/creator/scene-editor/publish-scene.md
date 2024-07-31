@@ -6,7 +6,7 @@ categories:
   - scene-editor
 type: Document
 url: /creator/editor/publish-scene
-weight: 3
+weight: 7
 ---
 
 <!-- TODO: Copy and rearrange all content about publishing

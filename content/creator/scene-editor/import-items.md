@@ -8,6 +8,7 @@ type: Document
 url: /creator/editor/import-items
 aliases:
   - /builder/import-items/
+weight: 4
 ---
 
 You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models.

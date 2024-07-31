@@ -6,6 +6,7 @@ categories:
   - scene-editor
 type: Document
 url: /creator/editor/faq
+weight: 20
 ---
 
 Below you can find the **frequently asked questions** about the Scene Editor.
