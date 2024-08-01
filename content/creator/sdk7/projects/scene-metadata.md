@@ -141,7 +141,7 @@ Scenes with this rating won't load and no one will be able to interact with them
 
 There are certain features that can be disabled in specific scenes so that players can't use these abusively. Configure these on the **Settings** tab of the scene settings.
 
-<img src="/images/media/scene-restrictions.png" alt="Scene name" width="300"/>
+<img src="/images/editor/scene-restrictions.png" alt="Scene name" width="300"/>
 
 Currently, only the following feature is handled like this:
 
@@ -164,7 +164,7 @@ If a `featureToggles` property doesn't exist in your `scene.json` file, create i
 
 The **Spawn Settings** in the **Settings** tab define where players spawn when they access your scene directly, either by directly typing in the coordinates into the browser or teleporting.
 
-<img src="/images/media/spawn-point.png" alt="Scene name" width="200"/>
+<img src="/images/editor/spawn-point.png" alt="Scene name" width="200"/>
 
 Your scene might have objects that can block players from moving if they happen to spawn right over them, like trees or stairs, or your scene might have an elevated terrain. It would be a bad experience for players if they spawned over something that doesn't let them move. That's why you have the option to set multiple spawn positions in ad-hoc locations.
 
