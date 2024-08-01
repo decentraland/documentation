@@ -21,16 +21,15 @@ See [Editor Installation]({{< ref "/content/creator/scene-editor/editor-installa
 
 To create a new scene, open the Scene Editor and press the _Create scene_ button.
 
+<img src="/images/editor/create-scene.png" width="300" alt="Scene name"/>
+
 See [Manage scenes]({{< ref "/content/creator/scene-editor/manage-scenes.md" >}}) for more details.
 
-<!-- TODO: image -->
+{{< hint info >}}
+**📔 Note**: The scene starts out with a size of 1x1. To make the scene bigger, see [Visual Editor Essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#scene-settings" >}})
+{{< /hint >}}
 
 <!-- TODO: in the future talk about templates -->
-
-<!-- TODO: the scene starts out as a 1x1
-or if you're on a template, the size of the template
-
-see Visual Editor Essentials for how to change -->
 
 ## Moving around
 
@@ -57,7 +56,7 @@ Navigate the themed asset pack categories on the menu on the bottom to find diff
 
 To place an item, click and drag it in from the asset pack menu into a location on your scene in the visual editor.
 
-<img src="/images/editor/drop-item.gif" alt="Scene name"/>
+<img src="/images/editor/drop-item.gif" width="300" alt="Scene name"/>
 
 {{< hint info >}}
 **💡 Tip**: Use **Ctrl + C** and then **Ctrl + V** to duplicate an item.
@@ -69,11 +68,11 @@ Use the **Delete** key to delete items.
 
 Click and drag a selected item to move it freely around the scene at ground level.
 
-<!-- TODO: move tool gif -->
-
 You can also use the tools on the top menu to _Move_, _Rotate_ or _Scale_ items.
 
 <img src="/images/editor/gizmos.png" alt="Scene name" width="124"/>
+
+<img src="/images/editor/move-items.gif" alt="Scene name" width="124"/>
 
 See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#position-items" >}}) for more details.
 
@@ -100,8 +99,6 @@ Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series 
 This opens up the scene menu, where you can configure multiple properties including title and thumbnail, scene size, scene category and age rating, player spawn locations, and feature toggles.
 
 See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#scene-settings" >}}) for more details.
-
-<!-- TODO talk about naming and other things -->
 
 ## Scene limitations
 
@@ -135,5 +132,11 @@ Once you're happy with your scene, press _Publish scene_.
 
 See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
 
+- See [Visual Editor Essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md" >}}) for more details about the Editor's interface.
+- See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for how to add simple interactivity to your scene.
+- See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}) for how to edit the code of your scene.
+- See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}) for how to publish your scene to Decentraland.
+
 <!-- TODO: add links for more at the end
+
 smart items, combine with code, etc -->

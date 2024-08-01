@@ -13,7 +13,7 @@ weight: 3
 
 Each of your available scenes is shown as a card. Open the card to open the Visual Editor on that scene, to preview it or publish it.
 
-## Create a scene
+## Create a scene
 
 Click **Create scene** to create a new scene. This may take a minute or two, as it downloads dependencies and sets up a folder on your local machine with everything it needs. After that you'll go straight into the [Visual Editor]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md" >}}).
 
@@ -22,7 +22,7 @@ Click the three dots on a scene's card and click **Duplicate** to make a copy of
 <!-- TODO future:
 create from template -->
 
-## Import a scene
+## Import a scene
 
 The scene manager displays the scenes it finds in the default path on your machine.
 

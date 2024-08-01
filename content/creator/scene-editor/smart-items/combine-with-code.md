@@ -13,6 +13,10 @@ The Decentraland Editor plus custom code is a very powerful combination for crea
 
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
+Click the **< > CODE** button to open Visual Studio Code on your scene project.
+
+<img src="/images/editor/code-button.png" width="300"/>
+
 {{< youtube J_EO1LZkaiA >}}
 
 <!-- TODO: install and configure VS Studio -->
