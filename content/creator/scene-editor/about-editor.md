@@ -17,7 +17,7 @@ See [Editor Installation]({{< ref "/content/creator/scene-editor/editor-installa
 
 {{< youtube PF7smSBxVOc >}}
 
-## Create a scene
+# Create a scene
 
 To create a new scene, open the Scene Editor and press the _Create scene_ button.
 
@@ -31,7 +31,7 @@ See [Manage scenes]({{< ref "/content/creator/scene-editor/manage-scenes.md" >}}
 
 <!-- TODO: in the future talk about templates -->
 
-## Moving around
+# Moving around
 
 To find your way around the Scene Editor:
 
@@ -40,7 +40,7 @@ To find your way around the Scene Editor:
 - Click the mouse and drag to rotate. You can click either with the Right or the Left button.
 - Press **Space bar** to reset the camera back to the default position
 
-## Set the Ground
+# Set the Ground
 
 Navigate the **Asset Packs** to find a ground you like. Items of type **Ground** have a paint bucket icon on them. If you drag one of these into your scene, it covers all of your scene's ground with copies of this item.
 
@@ -48,7 +48,7 @@ Navigate the **Asset Packs** to find a ground you like. Items of type **Ground**
 
 See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#set-the-ground" >}}) for more details.
 
-## Add items
+# Add items
 
 Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
 
@@ -64,7 +64,7 @@ To place an item, click and drag it in from the asset pack menu into a location 
 Use the **Delete** key to delete items.
 {{< /hint >}}
 
-## Position items
+# Position items
 
 Click and drag a selected item to move it freely around the scene at ground level.
 
@@ -74,13 +74,13 @@ You can also use the tools on the top menu to _Move_, _Rotate_ or _Scale_ items.
 
 See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#position-items" >}}) for more details.
 
-## Smart items
+# Smart items
 
 Smart items are special items that come with built-in interactive behaviors. See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for more details.
 
 <img src="/images/editor/smart-items.jpg"/>
 
-## Preview
+# Preview
 
 To test your scene and experience it like a player, click the _Preview scene_ button on the top-right corner. This will open a new window with the Decentraland Desktop Explorer, running just your scene. There you can move around the scene and interact with interactive items.
 
@@ -90,7 +90,7 @@ To open a scene preview, you must have Decentraland installed on your desktop. I
 
 <img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
 
-## Scene settings
+# Scene settings
 
 Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series of scene-level properties to edit.
 
@@ -100,7 +100,7 @@ This opens up the scene menu, where you can configure multiple properties includ
 
 See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#scene-settings" >}}) for more details.
 
-## Scene limitations
+# Scene limitations
 
 Decentraland scenes need to follow certain limitations, to be able to run them one next to another. There is a maximum number of materials, textures, triangles, etc, that is proportional to the number of parcels in the scene. See [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) for more details.
 
@@ -122,7 +122,7 @@ The content in a Decentraland scene must also avoid spilling onto neighbor parce
 
 These checks don't look at the visible geometry of the meshes, but rather they look at the bounding boxes of these meshes, as this is more performant. Learn more about [Bounding Boxes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
 
-## Publish your scene
+# Publish your scene
 
 Once you're happy with your scene, press _Publish scene_.
 
@@ -134,7 +134,7 @@ Once you're happy with your scene, press _Publish scene_.
 
 See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}) for more details.
 
-## See also
+# See also
 
 - See [Visual Editor Essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md" >}}) for more details about the Editor's interface.
 - See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for how to add simple interactivity to your scene.

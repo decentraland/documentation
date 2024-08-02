@@ -22,7 +22,7 @@ diagram with main sections and brief bullets w description of each
 
 -->
 
-## Moving around
+# Moving around
 
 To find your way around the Scene Editor:
 
@@ -31,7 +31,7 @@ To find your way around the Scene Editor:
 - Click the mouse and drag to rotate. You can click either with the Right or the Left button.
 - Press **Space bar** to reset the camera back to the default position
 
-## Set the Ground
+# Set the Ground
 
 The scene's ground can use various different textures. You can find these in the different themed asset packs in the item menu.
 
@@ -45,7 +45,7 @@ You can also add a single copy of the item by holding **Shift** while you drag t
 
 The collection of ground items appear in the [entity tree](#the-entity-tree) inside a folder. Each one of them is locked, to prevent accidentally selecting. [Untoggle](#lock-or-hide-items) the items to move or edit them.
 
-## Add items
+# Add items
 
 Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
 
@@ -73,7 +73,7 @@ See [Import items]({{< ref "/content/creator/scene-editor/import-items.md" >}}) 
 Open the **Local Assets** tab to delete any unused models.
 {{< /hint >}}
 
-## Position items
+# Position items
 
 Click and drag a selected item to move it freely around the scene at ground level.
 
@@ -103,13 +103,13 @@ To change the movement granularity and other settings, click the downward arrow 
 
 To select multiple items at the same time, press and hold the _Control_ key while selecting them. You can then move, rotate, scale, duplicate or delete all of them in a single action.
 
-## Smart items
+# Smart items
 
 Smart items are special items that come with built-in interactive behaviors. See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for more details.
 
 <img src="/images/editor/smart-items.jpg" width="300"/>
 
-## The entity tree
+# The entity tree
 
 On the left margin, you'll see a tree structure with all of the entities in the scene. This includes all of the items you add, as well as a few default ones.
 
@@ -121,7 +121,7 @@ Entities follow a hierarchy that can have as many levels as you want. Establish 
 
 You can also minimize or expand the children of an entity to keep the view simple, this action has no effect on the scene.
 
-### Special entities
+## Special entities
 
 The scene includes a couple of special entities that you can see in the entity tree.
 
@@ -129,7 +129,7 @@ The scene includes a couple of special entities that you can see in the entity t
 - **Player**: The player's avatar. You can add special components to this entity that can change gameplay mechanics. You can also drag other entities to be children of the avatar. If an entity is a child of the avatar, its position will be fixed to the player. Use this for example to add a floating marker over the player's head, that follows the player around.
 - **Camera**: The player's camera. You can drag other entities to be children of the camera. If an entity is a child of the camera, its position will be fixed on screen. Use this for example to display a gun in a shooter game, that is always in view even if the player points up or down.
 
-### Lock or hide items
+## Lock or hide items
 
 You might find it handy to sometimes lock an item, to prevent accidentally selecting and moving it. This is especially useful for background items, like the ground, or a building. To lock an item, look for it on the entity tree on the left, hover over it, and select the lock icon. You can toggle this behavior on and off via that same icon.
 
@@ -137,7 +137,7 @@ You might also want to hide an item that could obstruct your view while placing 
 
 <img src="/images/editor/hide-lock-item.png" alt="Scene name" width="200"/>
 
-## Item configuration
+# Item configuration
 
 Select an item by clicking on it on the canvas or the entity tree. You'll then see its components displayed on the item configuration panel, on the right of the screen. Different items have different components that each display specific settings.
 
@@ -150,7 +150,7 @@ Most non-interactive items have the following components:
 
 To add components to an item, click the **+** sign at the top of the item configuration tab and select the component from the list. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
 
-## Scene settings
+# Scene settings
 
 Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series of scene-level properties to edit.
 
@@ -160,7 +160,7 @@ Here you can configure multiple properties including title and thumbnail, scene 
 
 See [Scene Metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}).
 
-#### Scene details
+## Scene details
 
 The **Details** tab lets you configure several fields about your scene. These fields are shown to players that might visit your scene, for example when expanding the location on the map, when being prompted to teleport, or when sharing a link to the scene on social media. Make sure you make the information here attractive and accurate to drive more traffic to your scene!
 
@@ -183,7 +183,7 @@ The following fields are available:
 
 See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for more details on these fields.
 
-#### Layout
+## Layout
 
 You can edit the size of your scene by clicking the _pencil icon_ and then changing the number or rows and columns.
 
@@ -208,7 +208,7 @@ You can also click the **Set Coordinates (Advanced)** button to manually list th
 
 See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
 
-#### Scene restrictions
+## Scene restrictions
 
 You can disable certain functionalities on your scene if you chose, in case they might be abused or clash with the kind of experience you want to create.
 
@@ -217,7 +217,7 @@ You can disable certain functionalities on your scene if you chose, in case they
 - **Silence voice chat**: Prevent players on your scene from using voice chat.
 - **Disable portable experiences**: Prevent players from using [Smart Wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}) or [Portable Experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}).
 
-#### Spawn points
+## Spawn points
 
 The Spawn Settings in the Settings tab define where players spawn when they access your scene directly, either by directly typing in the coordinates into the browser or teleporting.
 
@@ -235,7 +235,7 @@ Set the Camera Target to set the direction in which players start looking when t
 
 Click **Add Spawn Point** to include as many spawn points as you want. Players will randomly appear in one of those.
 
-## See also
+# See also
 
 - See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for how to add simple interactivity to your scene.
 - See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}) for how to edit the code of your scene.
