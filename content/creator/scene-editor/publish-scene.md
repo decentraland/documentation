@@ -58,7 +58,7 @@ Suppose you deployed your scene _A_ over two parcels _[100, 100]_ and _[100, 101
 
 Your scene _A_ can't be partially rendered in just one parcel, so _[100, 100]_ won't display any content. You must build a new version of scene _A_ that only takes up one parcel and deploy it to only parcel _[100, 100]_.
 
-# Alternative servers
+# Alternative servers
 
 ## The test server
 

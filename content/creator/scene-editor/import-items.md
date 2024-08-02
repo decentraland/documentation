@@ -80,6 +80,4 @@ Note that you don't have any control over when the animation starts or stops, or
 
 If there are multiple players in the scene, they may be seeing the animation out of sync from each other.
 
-To change this behavior, you can include an **Animator** component.
-
-<!-- TODO: explain animator, maybe create whole doc about adding components? -->
+To change this behavior, you can include an **Animator** component. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}) for no-code tools to make your item interactive.

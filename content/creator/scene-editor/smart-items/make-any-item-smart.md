@@ -27,4 +27,7 @@ This allows for a huge amount of creative possibilities. Turn a candle into a le
 
 # See also
 
-<!-- TODO: links inter pages -->
+- [Smart items - Basics]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}})
+- [Smart items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md#making-any-item-smart" >}})
+- [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}})
+- [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}})

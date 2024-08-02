@@ -53,6 +53,5 @@ How to change screenshot
 
 
 -->
-<!-- TODO: project library
-
+<!-- TODO:
 future: update and manage dependencies -->

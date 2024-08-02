@@ -9,12 +9,12 @@ url: /creator/editor/install-editor
 weight: 2
 ---
 
-To install the Scene Editor...
+{{< hint info >}}
+**📔 Note**:
+The Scene Editor is currently in Alpha stage, and shared with users that join the [pre-release of the new Standalone Decentraland client](https://68zbqa0m12c.typeform.com/to/y9fZeNWm).
 
-<!-- TODO
-Mac Windows
-
--->
+Once accepted into the alpha program, you'll be shared the installer for the editor.
+{{< /hint >}}
 
 # Updating the Editor
 
