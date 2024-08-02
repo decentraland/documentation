@@ -9,6 +9,14 @@ url: /creator/editor/faq
 weight: 20
 ---
 
+# Test h1
+
+## Test h2
+
+### Test h3
+
+### Test h4
+
 Below you can find the **frequently asked questions** about the Scene Editor.
 
 {{< details class="faq-details" anchor="true" title="How do scene limits work? What are triangles? How about materials? What’s going on?" >}}
