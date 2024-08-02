@@ -9,14 +9,16 @@ url: /creator/editor/visual-editor-essentials
 weight: 2
 ---
 
+The Visual Editor's UI is divided into a few different sections, with different purposes.
+
+- **Main canvas**: Manipulate items directly and see what your scene looks like.
+- **Entity tree**: Contains a list of all items in the scene and their hierarchy.
+- **Item configuration**: Displays details about the currently selected item.
+- **Asset packs/Local files**: Shows resources that are available to use.
+
 <!-- TODO: overall layout: item tree, canvas, item properties, asset packs
 
 diagram with main sections and brief bullets w description of each
-
-Entity Tree:
-Main canvas:
-Item configuration:
-Asset packs/local files
 
 -->
 
@@ -137,7 +139,7 @@ You might also want to hide an item that could obstruct your view while placing 
 
 ## Item configuration
 
-When an item is selected, you'll see its components displayed on the right tab. Different items have different components.
+Select an item by clicking on it on the canvas or the entity tree. You'll then see its components displayed on the item configuration panel, on the right of the screen. Different items have different components that each display specific settings.
 
 Most non-interactive items have the following components:
 
