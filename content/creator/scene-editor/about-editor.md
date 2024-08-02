@@ -84,15 +84,17 @@ Smart items are special items that come with built-in interactive behaviors. See
 
 To test your scene and experience it like a player, click the _Preview scene_ button on the top-right corner. This will open a new window with the Decentraland Desktop Explorer, running just your scene. There you can move around the scene and interact with interactive items.
 
-<!-- TODO: DOWNLOAD EXPLORER -->
+<!-- TODO: DOWNLOAD EXPLORER
+To open a scene preview, you must have Decentraland installed on your desktop. If you don't, LINK
+ -->
 
-![](/images/preview-scene.png)
+<img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
 
 ## Scene settings
 
 Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series of scene-level properties to edit.
 
-<img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
+<img src="/images/editor/pencil-icon.png" alt="Scene name" width="64"/>
 
 This opens up the scene menu, where you can configure multiple properties including title and thumbnail, scene size, scene category and age rating, player spawn locations, and feature toggles.
 
@@ -104,7 +106,7 @@ Decentraland scenes need to follow certain limitations, to be able to run them o
 
 If the content in your scene exceeds any of these limits, the editor will notify this on the bottom-left corner.
 
-<img src="/images/editor/triangle-limit1.png" width="300" />
+<img src="/images/editor/triangle-limit1.png" width="250" />
 
 You can expand this menu to view details.
 
@@ -116,13 +118,15 @@ You can expand this menu to view details.
 
 The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any of the models in your scene extend beyond the limits, the editor will mark these in red.
 
-<img src="/images/editor/out-of-bounds.png" width="300" />
+<img src="/images/editor/out-of-bounds.png" width="250" />
 
-Note that these checks don't look at the visible geometry of the meshes, but rather they look at the bounding boxes of these meshes, as this is more performant. Learn more about [Bounding Boxes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
+These checks don't look at the visible geometry of the meshes, but rather they look at the bounding boxes of these meshes, as this is more performant. Learn more about [Bounding Boxes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
 
 ## Publish your scene
 
 Once you're happy with your scene, press _Publish scene_.
+
+ <img src="/images/editor/publish-options.png" alt="Scene name" width="500"/>
 
 - Select _Worlds_ to make your scene available in one of your [worlds]({{< ref "/content/creator/worlds/about.md" >}}).
 
@@ -136,7 +140,3 @@ See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}
 - See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for how to add simple interactivity to your scene.
 - See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}) for how to edit the code of your scene.
 - See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}) for how to publish your scene to Decentraland.
-
-<!-- TODO: add links for more at the end
-
-smart items, combine with code, etc -->
