@@ -266,4 +266,6 @@ Some items are not meant to be seen by the player, but are visible while editing
 
 In the advanced mode, these items have a **Visibility** component set to invisible. This component doesn't affect the visibility of the items on the Scene Editor, but any item set to invisible isn't seen by players when running a preview.
 
+## See also
+
 <!-- TODO: links inter pages -->

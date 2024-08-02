@@ -25,4 +25,6 @@ This allows for a huge amount of creative possibilities. Turn a candle into a le
 **💡 Tip**: When a player interacts with an item, you should show some kind of feedback to make that interaction clear. If the model doesn't have any animations, consider at least playing a sound. In some cases it might work to make the item do a slight tween in scale and then return to its original scale, as a form of feedback.
 {{< /hint >}}
 
+## See also
+
 <!-- TODO: links inter pages -->

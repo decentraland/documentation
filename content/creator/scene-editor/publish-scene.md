@@ -33,7 +33,7 @@ To publish your scene:
 
 2. Select if you want to publish to LAND or to a WORLD. See [Kinds of projects]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
 
-  <img src="/images/editor/publishing-options.png" alt="Scene name" width="500"/>
+  <img src="/images/editor/publish-options.png" alt="Scene name" width="500"/>
 
 3. Approve the transaction.
 

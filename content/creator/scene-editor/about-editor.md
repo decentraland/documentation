@@ -21,7 +21,7 @@ See [Editor Installation]({{< ref "/content/creator/scene-editor/editor-installa
 
 To create a new scene, open the Scene Editor and press the _Create scene_ button.
 
-<img src="/images/editor/create-scene.png" width="300" alt="Scene name"/>
+<img src="/images/editor/create-scene.png" width="150" alt="Scene name"/>
 
 See [Manage scenes]({{< ref "/content/creator/scene-editor/manage-scenes.md" >}}) for more details.
 
@@ -64,15 +64,13 @@ To place an item, click and drag it in from the asset pack menu into a location 
 Use the **Delete** key to delete items.
 {{< /hint >}}
 
-## Position items
+## Position items
 
 Click and drag a selected item to move it freely around the scene at ground level.
 
 You can also use the tools on the top menu to _Move_, _Rotate_ or _Scale_ items.
 
-<img src="/images/editor/gizmos.png" alt="Scene name" width="124"/>
-
-<img src="/images/editor/move-items.gif" alt="Scene name" width="124"/>
+<img src="/images/editor/move-items.gif" alt="Scene name" width="300"/>
 
 See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#position-items" >}}) for more details.
 
@@ -122,15 +120,17 @@ The content in a Decentraland scene must also avoid spilling onto neighbor parce
 
 Note that these checks don't look at the visible geometry of the meshes, but rather they look at the bounding boxes of these meshes, as this is more performant. Learn more about [Bounding Boxes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
 
-## Publish scene
+## Publish your scene
 
 Once you're happy with your scene, press _Publish scene_.
 
-- Select _My world_ to make your scene available in one of your [worlds]({{< ref "/content/creator/worlds/about.md" >}}).
+- Select _Worlds_ to make your scene available in one of your [worlds]({{< ref "/content/creator/worlds/about.md" >}}).
 
 - Select _My Land_ if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed on the map. Parcels where you are allowed to deploy are shown in pink.
 
-See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
+See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}) for more details.
+
+## See also
 
 - See [Visual Editor Essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md" >}}) for more details about the Editor's interface.
 - See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for how to add simple interactivity to your scene.

@@ -267,4 +267,6 @@ You can also disable the multiplayer behavior of an item, see [Smart Items - Adv
 
 Make sure that it's not being obstructed by something else. You can't click through other items. Some items have a _collider mesh_ that has a simplified geometry that may be obstructing your item, even though its visible shape doesn't seem to be doing it. Try moving the item to see what happens.
 
+## See also
+
 <!-- TODO: links inter pages -->

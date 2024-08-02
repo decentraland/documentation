@@ -76,4 +76,6 @@ On a condition, you can check if the value of the counter is
 To make an action occur only once when passing a threshold, and not repeat on every increment after that, combine the counter with a **State** component. Set the State to "Done" whenever you reach the desired value, and add a condition to check this state on the trigger event.
 {{< /hint >}}
 
+## See also
+
 <!-- TODO: links inter pages -->
