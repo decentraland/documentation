@@ -39,7 +39,7 @@ Items of type **Ground** have a paint bucket icon on them. If you drag one of th
 
 You can also add a single copy of the item by holding **Shift** while you drag the ground onto the scene.
 
-<img src="/images/editor/ground-entities.png" width="300" />
+<img src="/images/editor/ground-entities.png" width="200" />
 
 The collection of ground items appear in the [entity tree](#the-entity-tree) inside a folder. Each one of them is locked, to prevent accidentally selecting. [Untoggle](#lock-or-hide-items) the items to move or edit them.
 
@@ -47,13 +47,13 @@ The collection of ground items appear in the [entity tree](#the-entity-tree) ins
 
 Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
 
-<img src="/images/editor/asset-packs.png" alt="Scene name" width="124"/>
+<img src="/images/editor/asset-packs.png" alt="Scene name"/>
 
 You can also use the search box. Note that when you're inside an asset pack, the search only looks in that asset pack.
 
 To place an item, click and drag it in from the asset pack menu into a location on your scene in the visual editor. You'll
 
-<img src="/images/editor/drop-item.gif" alt="Scene name" width="124"/>
+<img src="/images/editor/drop-item.gif" alt="Scene name" width="300"/>
 
 {{< hint info >}}
 **💡 Tip**: Your changes are saved automatically whenever you add, move, or edit properties of any of the items in your scene.
@@ -71,7 +71,7 @@ See [Import items]({{< ref "/content/creator/scene-editor/import-items.md" >}}) 
 Open the **Local Assets** tab to delete any unused models.
 {{< /hint >}}
 
-## Position items
+## Position items
 
 Click and drag a selected item to move it freely around the scene at ground level.
 
@@ -84,6 +84,8 @@ You can also use the tools on the top menu:
 - **Rotate tool**: A gizmo appears on the selected item, and you can use each of the hoops to rotate the item on one axis at a time.
 
 - **Scale tool**: Click on the center of the gizmo and drag in or out to enlarge. This tool also lets you stretch an item in a single axis to change its proportions, to do this click on one of the axis of the gizmo and drag it.
+
+<img src="/images/editor/move-items.gif" alt="Scene name" width="300"/>
 
 To have greater precision while moving, rotating or scaling an item, press and hold the _Shift_ key while making adjustments.
 
@@ -113,7 +115,7 @@ Instead of selecting an item by clicking on it from the 3D view of the scne, you
 
 Entities follow a hierarchy that can have as many levels as you want. Establish a parent-child relationship between two entities by dragging one item onto another on the tree. A child entity inherits the position of the parent, so when the parent moves, it carries any children with it. This can be practical while building a scene, for example you can set glasses and plates as children of a table, and then move the table without needing to readjust anything else. It can also be important when interacting with the scene, for items to move together.
 
-<img src="/images/editor/item-hierarchy.png" alt="Scene name" width="124"/>
+<img src="/images/editor/item-hierarchy.png" alt="Scene name" width="200"/>
 
 You can also minimize or expand the children of an entity to keep the view simple, this action has no effect on the scene.
 
@@ -131,7 +133,7 @@ You might find it handy to sometimes lock an item, to prevent accidentally selec
 
 You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Editor window, not to players entering the scene. To hide an item, look for it on the item tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
 
-![](/images/editor/hide-lock-item.png)
+<img src="/images/editor/hide-lock-item.png" alt="Scene name" width="200"/>
 
 ## Item configuration
 
@@ -150,7 +152,7 @@ To add components to an item, click the **+** sign at the top of the item config
 
 Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series of scene-level properties to edit.
 
-<img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
+<img src="/images/editor/pencil-icon.png" alt="Scene name" width="64"/>
 
 Here you can configure multiple properties including title and thumbnail, scene size, scene category and age rating, player spawn locations, and feature toggles.
 
@@ -168,9 +170,9 @@ The following fields are available:
 - **Description**
 - **Thumbnail**
 
-{{< hint info >}}
-**💡 Tip**: If no thumbnail is provided, it uses the automatic capture you see on the scene's card. We recommend uploading a more attractive image
-{{< /hint >}}
+  {{< hint info >}}
+  **💡 Tip**: If no thumbnail is provided, it uses the automatic capture you see on the scene's card. We recommend uploading a more attractive image
+  {{< /hint >}}
 
 - **Age rating**
 - **Categories**
@@ -183,20 +185,18 @@ See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" 
 
 You can edit the size of your scene by clicking the _pencil icon_ and then changing the number or rows and columns.
 
-<img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
-
 Scenes in Decentraland occupy one or several adjacent LAND parcels. Each LAND parcel measures 16x16 meters.
 
 Set the number of parcels for the rows and columns and click **Apply layout** to see it affect your scene on the visual editor.
 
-<img src="/images/editor/scene-layout.png" alt="Scene name" width="124"/>
+<img src="/images/editor/scene-layout.png" alt="Scene name" width="250"/>
 
 To build something to deploy to LAND parcels you own, make sure the shape of the scene matches the shape of where you want it deployed.
 
 {{< hint info >}}
 **💡 Tip**: You can toggle each tile on the grid off by clicking on it. This allows you to draw non-rectangular shapes for your scene layout.
 
-<img src="/images/editor/non-rectangular.png" alt="Scene name" width="124"/>
+<img src="/images/editor/non-rectangular.png" alt="Scene name" width="250"/>
 
 {{< /hint >}}
 
@@ -206,7 +206,7 @@ You can also click the **Set Coordinates (Advanced)** button to manually list th
 
 See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
 
-#### Scene restrictions
+#### Scene restrictions
 
 You can disable certain functionalities on your scene if you chose, in case they might be abused or clash with the kind of experience you want to create.
 
@@ -215,11 +215,11 @@ You can disable certain functionalities on your scene if you chose, in case they
 - **Silence voice chat**: Prevent players on your scene from using voice chat.
 - **Disable portable experiences**: Prevent players from using [Smart Wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}) or [Portable Experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}).
 
-#### Spawn points
+#### Spawn points
 
 The Spawn Settings in the Settings tab define where players spawn when they access your scene directly, either by directly typing in the coordinates into the browser or teleporting.
 
-<img src="/images/editor/spawn-settings.png" alt="Scene name" width="124"/>
+<img src="/images/editor/spawn-settings.png" alt="Scene name" width="250"/>
 
 Your scene might have objects that can block players from moving if they happen to spawn right over them, like trees or stairs, or your scene might have an elevated terrain. It would be a bad experience for players if they spawned over something that doesn't let them move. That's why you have the option to set multiple spawn positions in ad-hoc locations.
 
