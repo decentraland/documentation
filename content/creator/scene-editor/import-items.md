@@ -13,7 +13,7 @@ weight: 4
 
 You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models.
 
-## Import an asset
+# Import an asset
 
 To import a 3D model, an image, a sound file, or a video into your scene from your local disk:
 
@@ -31,7 +31,7 @@ You can now find your asset in the **Local Assets** tab, under the **scene** fol
 
 - Other kinds of assets like images and sound files can be dragged onto the fields of an item.
 
-## Supported models
+# Supported models
 
 All 3D models need to be in _.glTF_ or _.glb_ format. You can convert other formats into these formats with various different editors and tools. See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for recommendations and tips.
 
@@ -39,7 +39,7 @@ All materials in the models need to be either _basic material_ or _PBR_, and all
 
 All 3D model files must each occupy less than 50 MB to be usable in a scene. Larger files aren't supported.
 
-#### Free libraries for 3D models
+## Free libraries for 3D models
 
 Instead of building your own 3D models, you can also download them from several free or paid libraries.
 
@@ -64,7 +64,7 @@ You can also use Generative AI tools to generate your own 3D models. Check out:
 
 Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _.glTF_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting them with one of the available _.glTF_ export add-ons.
 
-## Colliders
+# Colliders
 
 You might find that when running a preview the player can walk through your imported 3D models. This is likely because the models are missing a _collider mesh_ to define a collision geometry. See [colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}}) for more details and instructions.
 
@@ -72,7 +72,7 @@ You might find that when running a preview the player can walk through your impo
 **💡 Tip**: Instead of editing the model to add a _collider mesh_, a simpler alternative is to add an _Invisible wall_ smart item with approximately the same shape to stand in its place.
 {{< /hint >}}
 
-## Animations
+# Animations
 
 If an imported model includes animations, the first animation that's packed into the model will be played in a loop.
 

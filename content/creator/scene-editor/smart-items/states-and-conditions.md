@@ -20,7 +20,7 @@ A single trigger can include multiple conditions. Click the **+** icon to add mo
 - **All Conditions should be met (AND)**: The trigger only happens if every one of the conditions is true.
 - **Any Condition can be met (OR)** The trigger happens if at least one of the conditions is true.
 
-### States
+# States
 
 The **States** component is included on several smart items. It lists possible states that the smart item can be in. At any given time, the smart item is in one of these states. For example, a door can be _Open_ or _Closed_. The Open action sets the state to _Open_, the Close action sets the state to _Closed_.
 
@@ -50,7 +50,7 @@ One of the states is selected as the default, the item will always start in this
 **💡 Tip**: Keep interactions between items simple. For example, avoid scenarios like having a button that opens a door by triggering three actions: play the door's animation, play the door's sound and change the door's state. Instead, make the button change the door's state. Then use an **On State Change** trigger so that the door itself handles playing the animation and sound whenever the state changes.
 {{< /hint >}}
 
-### Counter
+# Counter
 
 Use the **Counter** component to keep track of a number, which can change as the player performs actions in the scene. You can use the values of the counter in conditional logic.
 
@@ -76,6 +76,6 @@ On a condition, you can check if the value of the counter is
 To make an action occur only once when passing a threshold, and not repeat on every increment after that, combine the counter with a **State** component. Set the State to "Done" whenever you reach the desired value, and add a condition to check this state on the trigger event.
 {{< /hint >}}
 
-## See also
+# See also
 
 <!-- TODO: links inter pages -->

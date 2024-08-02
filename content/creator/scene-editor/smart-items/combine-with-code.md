@@ -23,7 +23,7 @@ Click the **< > CODE** button to open Visual Studio Code on your scene project.
 
 <!-- TODO: scene folder, open VS at a folder level? -->
 
-## Reference an item
+# Reference an item
 
 When using the Decentraland Editor and adding entities via the drag-and-drop Visual Editor, each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the Visual Editor's UI, in the tree view on the left.
 
@@ -71,7 +71,7 @@ function main() {
 }
 ```
 
-## Smart item triggers
+# Smart item triggers
 
 You can detect a smart item's **Trigger events**, and respond to these with custom code. For example, you could place a button smart item, and activate custom code when the button is clicked.
 
@@ -116,7 +116,7 @@ function main() {
 }
 ``` -->
 
-## Smart item actions
+# Smart item actions
 
 You can detect the activation of a smart item's **Actions**, and respond to these with custom code. For example, you could place a door smart item, and run custom code whenever the **Open** action gets called.
 
@@ -154,6 +154,6 @@ function main() {
 **💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md#making-any-item-smart" >}})
 {{< /hint >}}
 
-## See also
+# See also
 
 <!-- TODO: links to systems, and to SDK in general -->
