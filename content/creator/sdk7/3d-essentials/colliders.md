@@ -131,6 +131,10 @@ You can configure a `MeshCollider` component or the `GltfContainer` component to
 - `ColliderLayer.CL_CUSTOM1` through to `CL_CUSTOM8`: Can be used together with raycasts, so that a ray only detects collisions with one specific layer.
 - `ColliderLayer.CL_NONE`: Doesn't respond to collisions of any kind.
 
+{{< hint warning >}}
+**📔 Note**: To disable collisions form a `MeshCollider` component, delete the component. Do not set the collision layer to `ColliderLayer.CL_NONE`. There's a known issue with the `MeshCollider` component. Instead of disabling all collisions, it makes this value equivalent to the default (`ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER`).
+{{< /hint >}}
+
 ```ts
 // create entity
 const myEntity = engine.addEntity()
