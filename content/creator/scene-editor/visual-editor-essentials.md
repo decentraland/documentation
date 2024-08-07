@@ -11,16 +11,12 @@ weight: 2
 
 The Visual Editor's UI is divided into a few different sections, with different purposes.
 
-- **Main canvas**: Manipulate items directly and see what your scene looks like.
+<img src="/images/editor/editor-layout.png" width="500" />
+
+- **Canvas**: Manipulate items directly and see what your scene looks like.
 - **Entity tree**: Contains a list of all items in the scene and their hierarchy.
-- **Item configuration**: Displays details about the currently selected item.
-- **Asset packs/Local files**: Shows resources that are available to use.
-
-<!-- TODO: overall layout: item tree, canvas, item properties, asset packs
-
-diagram with main sections and brief bullets w description of each
-
--->
+- **Properties**: Displays details about the currently selected item.
+- **Resources**: Shows resources that are available to use.
 
 # Moving around
 
@@ -133,13 +129,13 @@ The scene includes a couple of special entities that you can see in the entity t
 
 You might find it handy to sometimes lock an item, to prevent accidentally selecting and moving it. This is especially useful for background items, like the ground, or a building. To lock an item, look for it on the entity tree on the left, hover over it, and select the lock icon. You can toggle this behavior on and off via that same icon.
 
-You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Editor window, not to players entering the scene. To hide an item, look for it on the item tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
+You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Editor window, not to players entering the scene. To hide an item, look for it on the entity tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
 
 <img src="/images/editor/hide-lock-item.png" alt="Scene name" width="200"/>
 
-# Item configuration
+# Properties panel
 
-Select an item by clicking on it on the canvas or the entity tree. You'll then see its components displayed on the item configuration panel, on the right of the screen. Different items have different components that each display specific settings.
+Select an item by clicking on it on the canvas or the entity tree. You'll then see its components displayed on the properties panel, on the right of the screen. Different items have different components that each display specific settings.
 
 Most non-interactive items have the following components:
 
@@ -148,7 +144,7 @@ Most non-interactive items have the following components:
 
 [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) can include other components, see [Smart items advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}}).
 
-To add components to an item, click the **+** sign at the top of the item configuration tab and select the component from the list. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
+To add components to an item, click the **+** sign at the top of the properties tab and select the component from the list. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
 
 # Scene settings
 
