@@ -376,7 +376,7 @@ function mySystem() {
 }
 ```
 
-## Alpha masks
+## Alpha masks on videos
 
 A neat trick to have non-rectangular video screens is to apply an alpha texture on top of a plane. You can cut away part of the plane into whatever shape you want.
 
