@@ -382,7 +382,7 @@ A neat trick to have non-rectangular video screens is to apply an alpha texture 
 
 Use the following image to cut your video into a circular shape, with transparent corners.
 
-<img src="/images/circle_mask.png" width="500" />
+<img src="/images/circle_mask.png" width="250" />
 
 ```ts
 Material.setPbrMaterial(screen, {
