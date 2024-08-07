@@ -47,8 +47,8 @@ Transform.create(screen, { position: { x: 4, y: 1, z: 4 } })
 
 // #2
 VideoPlayer.create(screen, {
-  src: 'videos/myVideo.mp3',
-  playing: true,
+	src: 'videos/myVideo.mp3',
+	playing: true,
 })
 
 // #3
@@ -56,10 +56,10 @@ const videoTexture = Material.Texture.Video({ videoPlayerEntity: screen })
 
 // #4
 Material.setPbrMaterial(screen, {
-  texture: videoTexture,
-  roughness: 1.0,
-  specularIntensity: 0,
-  metallic: 0,
+	texture: videoTexture,
+	roughness: 1.0,
+	specularIntensity: 0,
+	metallic: 0,
 })
 ```
 
@@ -68,8 +68,8 @@ To use a video from an external streaming URL, just change step 2 so that the `s
 ```ts
 // #2
 VideoPlayer.create(screen, {
-  src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
-  playing: true,
+	src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
+	playing: true,
 })
 ```
 
@@ -121,12 +121,12 @@ Call `getActiveVideoStreams` to fetch a list of all live streams active in the c
 ```ts
 const { streams } = await getActiveVideoStreams({})
 if (streams.length > 0) {
-  const stream = streams[0]
-  VideoPlayer.createOrReplace(screen, {
-    src: stream.trackSid,
-    playing: true,
-  })
-  console.log(`playing ${stream.identity} ${stream.sourceType} stream`)
+	const stream = streams[0]
+	VideoPlayer.createOrReplace(screen, {
+		src: stream.trackSid,
+		playing: true,
+	})
+	console.log(`playing ${stream.identity} ${stream.sourceType} stream`)
 }
 ```
 
@@ -144,10 +144,10 @@ Here are some recommended settings for the video to stand out more:
 
 ```ts
 Material.setPbrMaterial(screen, {
-  texture: videoTexture,
-  roughness: 1.0,
-  specularIntensity: 0,
-  metallic: 0,
+	texture: videoTexture,
+	roughness: 1.0,
+	specularIntensity: 0,
+	metallic: 0,
 })
 ```
 
@@ -155,13 +155,13 @@ If you want the screen to glow a little, more like a LED screen, you can also ad
 
 ```ts
 Material.setPbrMaterial(screen, {
-  texture: videoTexture,
-  roughness: 1.0,
-  specularIntensity: 0,
-  metallic: 0,
-  emissiveTexture: videoTexture,
-  emissiveIntensity: 0.6,
-  emissiveColor: Color3.White(),
+	texture: videoTexture,
+	roughness: 1.0,
+	specularIntensity: 0,
+	metallic: 0,
+	emissiveTexture: videoTexture,
+	emissiveIntensity: 0.6,
+	emissiveColor: Color3.White(),
 })
 ```
 
@@ -195,14 +195,14 @@ You can make a screen toggleable by adding a pointer event to it as shown below:
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  {
-    entity: screen,
-    opts: { button: InputAction.IA_POINTER, hoverText: 'Play/Pause' },
-  },
-  function () {
-    const videoPlayer = VideoPlayer.getMutable(screen)
-    videoPlayer.playing = !videoPlayer.playing
-  }
+	{
+		entity: screen,
+		opts: { button: InputAction.IA_POINTER, hoverText: 'Play/Pause' },
+	},
+	function () {
+		const videoPlayer = VideoPlayer.getMutable(screen)
+		videoPlayer.playing = !videoPlayer.playing
+	}
 )
 ```
 
@@ -210,15 +210,15 @@ To stop the video and send it back to the first frame, set the `position` proper
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  {
-    entity: screen,
-    opts: { button: InputAction.IA_POINTER, hoverText: 'STOP' },
-  },
-  function () {
-    const videoPlayer = VideoPlayer.getMutable(screen)
-    videoPlayer.playing = false
-    videoPlayer.position = 0
-  }
+	{
+		entity: screen,
+		opts: { button: InputAction.IA_POINTER, hoverText: 'STOP' },
+	},
+	function () {
+		const videoPlayer = VideoPlayer.getMutable(screen)
+		videoPlayer.playing = false
+		videoPlayer.position = 0
+	}
 )
 ```
 
@@ -256,8 +256,8 @@ Transform.create(screen2, { position: { x: 6, y: 1, z: 4 } })
 
 // #2
 VideoPlayer.create(screen1, {
-  src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
-  playing: true,
+	src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
+	playing: true,
 })
 
 // #3
@@ -265,17 +265,17 @@ const videoTexture = Material.Texture.Video({ videoPlayerEntity: screen1 })
 
 // #4
 Material.setPbrMaterial(screen1, {
-  texture: videoTexture,
-  emissiveTexture: videoTexture,
-  emissiveIntensity: 0.6,
-  roughness: 1.0,
+	texture: videoTexture,
+	emissiveTexture: videoTexture,
+	emissiveIntensity: 0.6,
+	roughness: 1.0,
 })
 
 Material.setPbrMaterial(screen2, {
-  texture: videoTexture,
-  emissiveTexture: videoTexture,
-  emissiveIntensity: 0.6,
-  roughness: 1.0,
+	texture: videoTexture,
+	emissiveTexture: videoTexture,
+	emissiveIntensity: 0.6,
+	roughness: 1.0,
 })
 ```
 
@@ -289,54 +289,54 @@ Use ‘videoEventsSystem.registerVideoEventsEntity‘ to define a function that 
 
 ```ts
 import {
-  engine,
-  Entity,
-  VideoPlayer,
-  videoEventsSystem,
-  VideoState,
+	engine,
+	Entity,
+	VideoPlayer,
+	videoEventsSystem,
+	VideoState,
 } from '@dcl/sdk/ecs'
 
 // ... Create videoPlayerEntity with VideoPlayer component, Transform, MeshRenderer.setPlane(), etc. ...
 
 videoEventsSystem.registerVideoEventsEntity(
-  videoPlayerEntity,
-  function (videoEvent) {
-    console.log(
-      'video event - state: ' +
-        videoEvent.state +
-        '\ncurrent offset:' +
-        videoEvent.currentOffset +
-        '\nvideo length:' +
-        videoEvent.videoLength
-    )
+	videoPlayerEntity,
+	function (videoEvent) {
+		console.log(
+			'video event - state: ' +
+				videoEvent.state +
+				'\ncurrent offset:' +
+				videoEvent.currentOffset +
+				'\nvideo length:' +
+				videoEvent.videoLength
+		)
 
-    switch (videoEvent.state) {
-      case VideoState.VS_READY:
-        console.log('video event - video is READY')
-        break
-      case VideoState.VS_NONE:
-        console.log('video event - video is in NO STATE')
-        break
-      case VideoState.VS_ERROR:
-        console.log('video event - video ERROR')
-        break
-      case VideoState.VS_SEEKING:
-        console.log('video event - video is SEEKING')
-        break
-      case VideoState.VS_LOADING:
-        console.log('video event - video is LOADING')
-        break
-      case VideoState.VS_BUFFERING:
-        console.log('video event - video is BUFFERING')
-        break
-      case VideoState.VS_PLAYING:
-        console.log('video event - video started PLAYING')
-        break
-      case VideoState.VS_PAUSED:
-        console.log('video event - video is PAUSED')
-        break
-    }
-  }
+		switch (videoEvent.state) {
+			case VideoState.VS_READY:
+				console.log('video event - video is READY')
+				break
+			case VideoState.VS_NONE:
+				console.log('video event - video is in NO STATE')
+				break
+			case VideoState.VS_ERROR:
+				console.log('video event - video ERROR')
+				break
+			case VideoState.VS_SEEKING:
+				console.log('video event - video is SEEKING')
+				break
+			case VideoState.VS_LOADING:
+				console.log('video event - video is LOADING')
+				break
+			case VideoState.VS_BUFFERING:
+				console.log('video event - video is BUFFERING')
+				break
+			case VideoState.VS_PLAYING:
+				console.log('video event - video started PLAYING')
+				break
+			case VideoState.VS_PAUSED:
+				console.log('video event - video is PAUSED')
+				break
+		}
+	}
 )
 ```
 
@@ -371,10 +371,39 @@ Query a video for its last state change by using `getVideoState`. This function 
 
 ```ts
 function mySystem() {
-  const latestVideoEvent = getVideoState(videoPlayerEntity)
-  console.log(latestVideoEvent.currentState)
+	const latestVideoEvent = getVideoState(videoPlayerEntity)
+	console.log(latestVideoEvent.currentState)
 }
 ```
+
+## Alpha masks
+
+A neat trick to have non-rectangular video screens is to apply an alpha texture on top of a plane. You can cut away part of the plane into whatever shape you want.
+
+Use the following image to cut your video into a circular shape, with transparent corners.
+
+<img src="/images/circle_mask.png" width="500" />
+
+```ts
+Material.setPbrMaterial(screen, {
+	texture: Material.Texture.Video({
+		videoPlayerEntity: ScreenData.get(screen).videoSource,
+	}),
+	emissiveTexture: Material.Texture.Video({
+		videoPlayerEntity: ScreenData.get(screen).videoSource,
+	}),
+	alphaTexture: Material.Texture.Common({
+		src: 'assets/scene/circle_mask.png',
+		wrapMode: TextureWrapMode.TWM_MIRROR,
+		filterMode: TextureFilterMode.TFM_BILINEAR,
+	}),
+	roughness: 0,
+	specularIntensity: 1,
+	metallic: 0,
+})
+```
+
+<img src="/images/circular-video-screen.png" width="500" />
 
 <!--
 
