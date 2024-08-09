@@ -29,6 +29,14 @@ In order to publish to LAND in Genesis City, you can do the following:
 **📔 Note**: You can also deploy scenes to a test server where players are not around. The same permissions per parcel apply when deploying to the test server, see [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md#the-test-server" >}}) for more details.
 {{< /hint >}}
 
+## Decentraland Worlds
+
+If you own a Decentraland NAME you can also publish your scene to a Decentraland World. This option costs considerably less than buying land, a NAME costs 100 MANA.
+
+Inside a World, you're allowed to use as many parcels as you want. The size limit of your scene in MegaBytes depends on how many NAMES, MANA, L1 Wearables and other tokens you own.
+
+See [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) for more info.
+
 ## Get DAO funding
 
 If you have a great idea and the means to achieve it, but need financing, you can request for a grant in the DAO. If the proposal convinces enough people from the community to vote on it, you can get a sum of money to achieve your vision, including funds for buying or renting LAND.
