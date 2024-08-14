@@ -49,6 +49,10 @@ Not all entities or components need to be synced. Static elements like a tree th
 **💡 Tip**: If the data you want to share doesn't exist as a component, define a [custom component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) that holds that data.
 {{< /hint >}}
 
+In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can mark an entity as synced by adding a **Multiplayer component** to it. This component does exactly the same as the **syncEntity()** function. It includes a checkbox for each of the other components on the entity, allowing you to select which ones to update.
+
+<img src="/images/editor/multiplayer-component.png" alt="Armature" width="300"/>
+
 ### About the enum id
 
 The **entityEnumId** of an entity must be unique. It's not related to the local entityId assigned on `engine.addEntity()`, that is automatically generated and may vary between players running the same scene. The entityEnumId of an entity must be explicitly defined in the code and be unique.
@@ -60,15 +64,15 @@ Explicitly setting this ID is important to avoid inconsistencies if a race condi
 
 ```ts
 enum EntityEnumId {
-  DOOR = 1,
-  DRAW_BRIDGE = 2,
-  ELEVATOR = 3
+	DOOR = 1,
+	DRAW_BRIDGE = 2,
+	ELEVATOR = 3,
 }
 
 syncEntity(
-  doorEntity,
-  [Transform.componentId, Animator.componentId],
-  EntityEnumId.DOOR
+	doorEntity,
+	[Transform.componentId, Animator.componentId],
+	EntityEnumId.DOOR
 )
 ```
 
@@ -85,13 +89,12 @@ For example, in a snowball fight scene, every time a player throws a snowball, t
 
 ```ts
 function onThrow() {
-  const ball = engine.addEntity()
-  Transform.create(ball, {})
-  GLTFContainer.create(ball, { src: 'assets/snowBall.glb' })
-  syncEntity(ball, [Transform.componentId, GLTFContainer.componentId])
+	const ball = engine.addEntity()
+	Transform.create(ball, {})
+	GLTFContainer.create(ball, { src: 'assets/snowBall.glb' })
+	syncEntity(ball, [Transform.componentId, GLTFContainer.componentId])
 }
 ```
-
 
 #### Parented entities
 
@@ -178,13 +181,13 @@ MeshRenderer.setBox(myEntity)
 MeshCollider.setBox(myEntity)
 
 pointerEventsSystem.onPointerDown(
-  {
-    entity: myEntity,
-    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
-  },
-  function () {
-    sceneMessageBus.emit('box1Clicked', {})
-  }
+	{
+		entity: myEntity,
+		opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
+	},
+	function () {
+		sceneMessageBus.emit('box1Clicked', {})
+	}
 )
 ```
 
@@ -212,16 +215,16 @@ import { MessageBus } from '@dcl/sdk/message-bus'
 const sceneMessageBus = new MessageBus()
 
 type NewBoxPosition = {
-  position: { x: number; y: number; z: number }
+	position: { x: number; y: number; z: number }
 }
 
 sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
-  const myEntity = engine.addEntity()
-  Transform.create(myEntity, {
-    position: { x: info.position.x, y: info.position.y, z: info.position.z },
-  })
-  MeshRenderer.setBox(myEntity)
-  MeshCollider.setBox(myEntity)
+	const myEntity = engine.addEntity()
+	Transform.create(myEntity, {
+		position: { x: info.position.x, y: info.position.y, z: info.position.z },
+	})
+	MeshRenderer.setBox(myEntity)
+	MeshCollider.setBox(myEntity)
 })
 ```
 
@@ -241,29 +244,29 @@ const sceneMessageBus = new MessageBus()
 
 // Cube factory
 function createCube(x: number, y: number, z: number): Entity {
-  const meshEntity = engine.addEntity()
-  Transform.create(meshEntity, { position: { x, y, z } })
-  MeshRenderer.setBox(meshEntity)
-  MeshCollider.setBox(meshEntity)
+	const meshEntity = engine.addEntity()
+	Transform.create(meshEntity, { position: { x, y, z } })
+	MeshRenderer.setBox(meshEntity)
+	MeshCollider.setBox(meshEntity)
 
-  // When a cube is clicked, send message to spawn another one
-  pointerEventsSystem.onPointerDown(
-    {
-      entity: myEntity,
-      opts: { button: InputAction.IA_PRIMARY, hoverText: 'Press E to spawn' },
-    },
-    function () {
-      sceneMessageBus.emit('spawn', {
-        position: {
-          x: 1 + Math.random() * 8,
-          y: Math.random() * 8,
-          z: 1 + Math.random() * 8,
-        },
-      })
-    }
-  )
+	// When a cube is clicked, send message to spawn another one
+	pointerEventsSystem.onPointerDown(
+		{
+			entity: myEntity,
+			opts: { button: InputAction.IA_PRIMARY, hoverText: 'Press E to spawn' },
+		},
+		function () {
+			sceneMessageBus.emit('spawn', {
+				position: {
+					x: 1 + Math.random() * 8,
+					y: Math.random() * 8,
+					z: 1 + Math.random() * 8,
+				},
+			})
+		}
+	)
 
-  return meshEntity
+	return meshEntity
 }
 
 // Init
@@ -271,12 +274,12 @@ createCube(8, 1, 8)
 
 // define type of data
 type NewBoxPosition = {
-  position: { x: number; y: number; z: number }
+	position: { x: number; y: number; z: number }
 }
 
 // on spawn message, create new cube
 sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
-  createCube(info.position.x, info.position.y, info.position.z)
+	createCube(info.position.x, info.position.y, info.position.z)
 })
 ```
 

@@ -33,6 +33,10 @@ The engine is the part of the scene that sits in the middle and manages all of t
 
 Components are meant to store data about their referenced entity. They can only store this data, they can't modify this data themselves. All changes to the values in the components are carried out by [Systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}). Systems are completely decoupled from the components and entities themselves. Entities and components are agnostic to what _systems_ are acting upon them.
 
+In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can view the components that belong to an entity by selecting it.
+
+<img src="/images/editor/components-example.png" alt="Armature" width="300"/>
+
 ## Syntax for entities and components
 
 The example below shows some basic operations for declaring, and configuring basic entities and components.
@@ -164,6 +168,10 @@ mutableChildTransform.parent = engine.RootEntity
 {{< hint warning >}}
 **📔 Note**: When dealing with nested entities that are synced with other players, use the `parentEntity()` function instead of the `parent` entity in the Transform. See [Parented entities]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#parented-entities" >}})
 {{< /hint >}}
+
+In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can see the entire hierarchy of nested entities in your scene on the left-side panel.
+
+<img src="/images/editor/entity-tree-example.png" alt="Armature" width="300"/>
 
 ## Get an entity by ID
 
@@ -351,7 +359,7 @@ VisibilityComponent.onChange(cubeEntity, (newVisibilityComponent) => {
 
 If the component is removed from the entity, then the function is called with an input of `undefined`.
 
-## Reserved entities
+# Reserved entities
 
 Certain entity ids are reserved for special entities that exist in every scene. They can be accessed via the following aliases:
 
@@ -363,15 +371,15 @@ Certain entity ids are reserved for special entities that exist in every scene. 
 **📔 Note**: Avoid referring to these entities before they are initialized. To avoid this problem, refer to these entities in the `main()` function, or in a system.
 {{< /hint >}}
 
-### The root entity
+## The root entity
 
 All entities in the scene are children of the `engine.RootEntity`, directly or indirectly.
 
-### The player entity
+## The player entity
 
 The `engine.PlayerEntity` entity represents the player's avatar. Fetch the player's `Transform` component to get the player's current position and rotation, see [user data]({{< ref "/content/creator/sdk7/interactivity/user-data.md" >}}). You can also modify this Transform to move the player, see [move player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}}).
 
-### The camera entity
+## The camera entity
 
 The `engine.CameraEntity` entity represents the player's camera.
 Fetch the camera's `Transform` component to get the camera's position and rotation. You can also fetch the camera's `CameraMode` component to know know if the player is using 1st or 3rd person camera mode, see [camera mode]({{< ref "/content/creator/sdk7/interactivity/user-data.md#check-the-players-camera-mode">}}).
