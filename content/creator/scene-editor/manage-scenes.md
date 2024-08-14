@@ -44,7 +44,7 @@ In the scene selector screen, press the _three dots_ icon and select _Delete_.
 
 This removes the scene from your Scene Editor home screen, but doesn't delete the files from your machine.
 
-If you wish to delete the project files, you must do this manually. By default projects created via the editor are kept inside a `.decentraland` folder under your user directory. You can navigate here by clicking the three dots on a project card and selecting **Open folder**.
+If you wish to delete the project files, you must do this manually. By default projects created via the Scene Editor are kept inside a `.decentraland` folder under your user directory. You can navigate here by clicking the three dots on a project card and selecting **Open folder**.
 
 <!-- TODO: Your scenes are all stored locally on your disk
 You can change the directory?

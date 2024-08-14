@@ -27,11 +27,11 @@ You can import external libraries into a Decentraland project and then reference
 
 Check the [Awesome repository](https://github.com/decentraland-scenes/Awesome-Repository#libraries) to find a series of libraries, both created by the Decentraland Foundation and by community members, that solve common problems.
 
-## Via the Editor
+## On the VS Code extension
 
 ### Install a dependency
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
 1. Open your scene's folder using Visual Studio Code.
 
@@ -39,7 +39,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 **📔 Note**: The Visual Studio window must be at the root folder of the scene project.
 {{< /hint >}}
 
-2. Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
+2. Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
 
 3. Click the `+` icon on the header of the **Dependencies** view.
 

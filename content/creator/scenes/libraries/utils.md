@@ -51,9 +51,9 @@ The **Decentraland ECS Utils** library includes a number of helpful pre-built to
 
 ## Using the Utils library
 
-### Via the Editor
+### On the VS Code extension
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the VS Code extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
 1. Open your scene's folder using Visual Studio Code.
 
@@ -61,7 +61,7 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 **📔 Note**: The Visual Studio window must be at the root folder of the scene project.
 {{< /hint >}}
 
-2. Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
+2. Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
 
 3. Click the `+` icon on the header of the **Dependencies** view.
 

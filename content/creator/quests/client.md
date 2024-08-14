@@ -16,11 +16,11 @@ Use the [Quests Client for SDK 7](https://github.com/decentraland/quests-client)
 
 #### Installation
 
-##### Via the Editor
+##### Via the VS Code Extension
 
 Follow the steps in [Install a dependency]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md#install-a-dependency" >}}):
 
-1. Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
+1. Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
 
 2. Click the `+` icon on the header of the **Dependencies** view.
 
@@ -42,18 +42,18 @@ The types below are defined in [Quests Client for SDK 7](https://github.com/dece
 import { QuestInstance as QuestInstanceProtocol } from './protocol/decentraland/quests/definitions.gen'
 
 type QuestsClient = {
-  startQuest: () => Promise<boolean>
-  abortQuest: () => Promise<boolean>
-  sendEvent: (event: { action: Action }) => Promise<EventResponse | undefined>
-  onStarted: (callback: OnStartedCallback) => void
-  onUpdate: (callback: OnUpdateCallback) => void
-  isQuestStarted: () => boolean
-  getQuestInstance: () => QuestInstance | null
-  getInstances: () => QuestInstance[]
+	startQuest: () => Promise<boolean>
+	abortQuest: () => Promise<boolean>
+	sendEvent: (event: { action: Action }) => Promise<EventResponse | undefined>
+	onStarted: (callback: OnStartedCallback) => void
+	onUpdate: (callback: OnUpdateCallback) => void
+	isQuestStarted: () => boolean
+	getQuestInstance: () => QuestInstance | null
+	getInstances: () => QuestInstance[]
 }
 
 type Required<T> = T & {
-  [P in keyof T]: NonNullable<T[P]>
+	[P in keyof T]: NonNullable<T[P]>
 }
 
 type QuestInstance = Required<QuestInstanceProtocol>
@@ -123,14 +123,14 @@ import { createQuestsClient } from '@dcl/quests-client'
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
 executeTask(async () => {
-  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+	const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-  try {
-    const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
-    console.log('Quests Client is ready to use!')
-  } catch (e) {
-    console.error('Error on connecting to Quests Service')
-  }
+	try {
+		const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
+		console.log('Quests Client is ready to use!')
+	} catch (e) {
+		console.error('Error on connecting to Quests Service')
+	}
 })
 ```
 
@@ -142,7 +142,7 @@ To use observables, we recommend you use the `mitt` library. Find more informati
 
 To install this library, follow the steps in [Install a dependency]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md#install-a-dependency" >}}):
 
-1. Open the Decentraland Editor tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
+1. Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
 
 2. Click the `+` icon on the header of the **Dependencies** view.
 
@@ -162,7 +162,7 @@ const event = mitt()
 event.emit('start')
 
 event.on('start', () => {
-  console.log('started')
+	console.log('started')
 })
 ```
 
@@ -188,26 +188,26 @@ import { startEvent } from './events'
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
 executeTask(async () => {
-  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+	const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-  try {
-    const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
-    console.log('Quests Client is ready to use!')
+	try {
+		const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
+		console.log('Quests Client is ready to use!')
 
-    questsClient.onUpdate((quest: QuestInstance) => {
-      // apply some changes on your scene to reflect the player's progress
-    })
+		questsClient.onUpdate((quest: QuestInstance) => {
+			// apply some changes on your scene to reflect the player's progress
+		})
 
-    questsClient.onStarted((quest: QuestInstance) => {
-      // react to the start of your Quest by applying some change on your scene
-    })
+		questsClient.onStarted((quest: QuestInstance) => {
+			// react to the start of your Quest by applying some change on your scene
+		})
 
-    startEvent.on('start', async () => {
-      await questsClient.startQuest()
-    })
-  } catch (e) {
-    console.error('Error on connecting to Quests Service')
-  }
+		startEvent.on('start', async () => {
+			await questsClient.startQuest()
+		})
+	} catch (e) {
+		console.error('Error on connecting to Quests Service')
+	}
 })
 
 // cube.ts
@@ -219,11 +219,11 @@ import { pointerEventsSystem, InputAction } from '@dcl/sdk/ecs'
 // create a clickable cubeMeshEntity
 
 pointerEventsSystem.onPointerDown(
-  cubeMeshEntity,
-  (cmd) => {
-    startEvent.emit('start')
-  },
-  { button: InputAction.IA_PRIMARY, hoverText: 'E to Start Quest' }
+	cubeMeshEntity,
+	(cmd) => {
+		startEvent.emit('start')
+	},
+	{ button: InputAction.IA_PRIMARY, hoverText: 'E to Start Quest' }
 )
 //...
 ```
@@ -236,20 +236,20 @@ To trigger the start of a Quest, call the `startQuest` function. This function r
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
 executeTask(async () => {
-  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
-  try {
-    const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
+	const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+	try {
+		const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
 
-    const result = await questsClient.startQuest()
+		const result = await questsClient.startQuest()
 
-    if (result) {
-      console.log('Quest started successfully!')
-    } else {
-      console.error("Quest couldn't be started")
-    }
-  } catch (e) {
-    console.error('Error on connecting to Quests Service')
-  }
+		if (result) {
+			console.log('Quest started successfully!')
+		} else {
+			console.error("Quest couldn't be started")
+		}
+	} catch (e) {
+		console.error('Error on connecting to Quests Service')
+	}
 })
 ```
 
@@ -270,18 +270,18 @@ import { startEvent } from './events'
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
 executeTask(async () => {
-  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+	const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-  try {
-    const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
-    console.log('Quests Client is ready to use!')
+	try {
+		const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
+		console.log('Quests Client is ready to use!')
 
-    client.onStarted((quest: QuestInstance) => {
-      // react to the start of your Quest
-    })
-  } catch (e) {
-    console.error('Error on connecting to Quests Service')
-  }
+		client.onStarted((quest: QuestInstance) => {
+			// react to the start of your Quest
+		})
+	} catch (e) {
+		console.error('Error on connecting to Quests Service')
+	}
 })
 ```
 
@@ -315,26 +315,26 @@ import { startEvent, actionEvents } from './events'
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
 executeTask(async () => {
-  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+	const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-  try {
-    const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
-    console.log('Quests Client is ready to use!')
+	try {
+		const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
+		console.log('Quests Client is ready to use!')
 
-    client.onUpdate((quest: QuestInstance) => {
-      // apply some changes on your scene to reflect the player's progress
-    })
+		client.onUpdate((quest: QuestInstance) => {
+			// apply some changes on your scene to reflect the player's progress
+		})
 
-    startEvent.on('start', async (value: boolean) => {
-      await questsClient.startQuest()
-    })
+		startEvent.on('start', async (value: boolean) => {
+			await questsClient.startQuest()
+		})
 
-    actionEvents.on('action', async (action: Action) => {
-      await questsClient.sendEvent({ action })
-    })
-  } catch (e) {
-    console.error('Error on connecting to Quests Service')
-  }
+		actionEvents.on('action', async (action: Action) => {
+			await questsClient.sendEvent({ action })
+		})
+	} catch (e) {
+		console.error('Error on connecting to Quests Service')
+	}
 })
 ```
 
@@ -352,8 +352,8 @@ import { actionEvents } from './events'
 //...
 
 actionEvents.emit('action', {
-  type: 'CUSTOM',
-  parameters: { id: 'my-custom-action-id' },
+	type: 'CUSTOM',
+	parameters: { id: 'my-custom-action-id' },
 })
 ```
 
@@ -372,14 +372,14 @@ For example: to track the `LOCATION` type of action.
 import { initActionsTracker } from '@dcl/quests-client/dist/systemHelpers'
 
 initActionsTracker(
-  engine,
-  (action) => {
-    // You can add a check here to only send the action if the player has started the quest
-    // Also, you can add a check here to only send the action if the action itself meets some criteria or condition.
-    // Or it's indeed a valid action for the quest so that you don't send invalid actions to the Quests Service.
-    client.sendEvent(action)
-  },
-  'location'
+	engine,
+	(action) => {
+		// You can add a check here to only send the action if the player has started the quest
+		// Also, you can add a check here to only send the action if the action itself meets some criteria or condition.
+		// Or it's indeed a valid action for the quest so that you don't send invalid actions to the Quests Service.
+		client.sendEvent(action)
+	},
+	'location'
 )
 ```
 
@@ -389,15 +389,15 @@ To track more than one action, list them as additional parameters. For example:
 import { initActionsTracker } from '@dcl/quests-client/dist/systemHelpers'
 
 initActionsTracker(
-  engine,
-  (action) => {
-    // You can add a check here to only send the action if the player has started the quest
-    // Also, you can add a check here to only send the action if the action itself meets some criteria or condition.
-    // Or it's indeed a valid action for the quest so that you don't send invalid actions to the Quests Service.
-    client.sendEvent(action)
-  },
-  'location',
-  'jump'
+	engine,
+	(action) => {
+		// You can add a check here to only send the action if the player has started the quest
+		// Also, you can add a check here to only send the action if the action itself meets some criteria or condition.
+		// Or it's indeed a valid action for the quest so that you don't send invalid actions to the Quests Service.
+		client.sendEvent(action)
+	},
+	'location',
+	'jump'
 )
 ```
 
@@ -407,16 +407,16 @@ Or all three action types:
 import { initActionsTracker } from '@dcl/quests-client/dist/systemHelpers'
 
 initActionsTracker(
-  engine,
-  (action) => {
-    // You can add a check here to only send the action if the player has started the quest
-    // Also, you can add a check here to only send the action if the action itself meets some criteria or condition.
-    // Or it's indeed a valid action for the quest so that you don't send invalid actions to the Quests Service.
-    client.sendEvent(action)
-  },
-  'location',
-  'jump',
-  'emote'
+	engine,
+	(action) => {
+		// You can add a check here to only send the action if the player has started the quest
+		// Also, you can add a check here to only send the action if the action itself meets some criteria or condition.
+		// Or it's indeed a valid action for the quest so that you don't send invalid actions to the Quests Service.
+		client.sendEvent(action)
+	},
+	'location',
+	'jump',
+	'emote'
 )
 ```
 
@@ -436,18 +436,18 @@ import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
 executeTask(async () => {
-  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+	const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-  try {
-    const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
-    console.log('Quests Client is ready to use!')
+	try {
+		const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
+		console.log('Quests Client is ready to use!')
 
-    client.onUpdate((quest: QuestInstance) => {
-      // update your state here to react to the quest updates
-    })
-  } catch (e) {
-    console.error('Error on connecting to Quests Service')
-  }
+		client.onUpdate((quest: QuestInstance) => {
+			// update your state here to react to the quest updates
+		})
+	} catch (e) {
+		console.error('Error on connecting to Quests Service')
+	}
 })
 ```
 
@@ -457,9 +457,9 @@ The `QuestInstance` object has the following fields:
 
 ```typescript
 type QuestInstance = {
-  id: string
-  quest: Quest
-  state: QuestState
+	id: string
+	quest: Quest
+	state: QuestState
 }
 ```
 
@@ -489,35 +489,35 @@ export const questProgress = mitt<{ step: number }>()
 //...
 import { executeTask } from '@dcl/sdk/ecs'
 import {
-  createQuestsClient,
-  QuestInstance,
-  questProgress,
+	createQuestsClient,
+	QuestInstance,
+	questProgress,
 } from '@dcl/quests-client'
 
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
 executeTask(async () => {
-  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+	const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-  try {
-    const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
-    console.log('Quests Client is ready to use!')
+	try {
+		const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
+		console.log('Quests Client is ready to use!')
 
-    questsClient.onUpdate((quest: QuestInstance) => {
-      for (let step of quest.state.stepsCompleted) {
-        switch (step) {
-          case 'my_step_1':
-            questProgress.emit('step', 1)
-          case 'my_step_2':
-            questProgress.emit('step', 2)
-          case 'my_step_3':
-            questProgress.emit('step', 3)
-        }
-      }
-    })
-  } catch (e) {
-    console.error('Error on connecting to Quests Service')
-  }
+		questsClient.onUpdate((quest: QuestInstance) => {
+			for (let step of quest.state.stepsCompleted) {
+				switch (step) {
+					case 'my_step_1':
+						questProgress.emit('step', 1)
+					case 'my_step_2':
+						questProgress.emit('step', 2)
+					case 'my_step_3':
+						questProgress.emit('step', 3)
+				}
+			}
+		})
+	} catch (e) {
+		console.error('Error on connecting to Quests Service')
+	}
 })
 
 // cube.ts
@@ -526,9 +526,9 @@ import { questProgress } from '@dcl/quests-client'
 //...
 
 questProgress.on('step', (stepNumber: number) => {
-  if (stepNumber >= 2) {
-    console.log("we're ready for step 3!")
-  }
+	if (stepNumber >= 2) {
+		console.log("we're ready for step 3!")
+	}
 })
 ```
 
@@ -548,36 +548,36 @@ import { createQuestsClient, QuestInstance } from '@dcl/quests-client'
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
 executeTask(async () => {
-  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+	const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-  try {
-    const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
-    console.log('Quests Client is ready to use!')
+	try {
+		const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
+		console.log('Quests Client is ready to use!')
 
-    const currentProgress = questsClient.getQuestInstance()
-    if (currentProgress) {
-      sendQuestUpdates(currentProgress)
-    }
+		const currentProgress = questsClient.getQuestInstance()
+		if (currentProgress) {
+			sendQuestUpdates(currentProgress)
+		}
 
-    questsClient.onUpdate((quest: QuestInstance) => {
-      sendQuestUpdates(quest)
-    })
-  } catch (e) {
-    console.error('Error on connecting to Quests Service')
-  }
+		questsClient.onUpdate((quest: QuestInstance) => {
+			sendQuestUpdates(quest)
+		})
+	} catch (e) {
+		console.error('Error on connecting to Quests Service')
+	}
 })
 
 function sendQuestUpdates(questInstance: QuestInstance) {
-  for (let step of questInstance.state.stepsCompleted) {
-    switch (step) {
-      case 'my_step_1':
-        questProgress.emit('step', 1)
-      case 'my_step_2':
-        questProgress.emit('step', 2)
-      case 'my_step_3':
-        questProgress.emit('step', 3)
-    }
-  }
+	for (let step of questInstance.state.stepsCompleted) {
+		switch (step) {
+			case 'my_step_1':
+				questProgress.emit('step', 1)
+			case 'my_step_2':
+				questProgress.emit('step', 2)
+			case 'my_step_3':
+				questProgress.emit('step', 3)
+		}
+	}
 }
 ```
 

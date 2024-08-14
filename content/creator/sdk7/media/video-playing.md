@@ -15,6 +15,10 @@ There are tree different ways you can show a video in a scene:
 - Stream the video from an external source
 - Stream live via Decentraland cast
 
+{{< hint info >}}
+**💡 Tip**: In the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can use an **Video Player** [Smart Item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for a no-code way to achieve this.
+{{< /hint >}}
+
 In all cases, you'll need:
 
 - An entity with a [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.

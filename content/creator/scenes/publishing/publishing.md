@@ -62,9 +62,9 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ## To publish the scene
 
-### Via the Decentraland Editor
+### Via the VS Studio Extension
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the VS Studio Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
 {{< hint warning >}}
 **📔 Note**: Deployment to Worlds is not yet supported from the Editor.

@@ -60,7 +60,7 @@ Follow the steps below to upload your scenes to a Heroku server:
 
 8. Edit `package.json` in your scene to change the `start` script to `CI=true dcl start -p ${PORT:=8000}`
 
-9. Explicitly install the Decentraland CLI as a dependency of your project, running `npm i --save decentraland`
+9. Explicitly CLI as a dependency of your project, running `npm i --save decentraland`
 
 10. Deploy your scene preview with `git push heroku main`
 

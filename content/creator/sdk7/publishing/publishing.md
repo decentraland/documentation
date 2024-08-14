@@ -17,7 +17,7 @@ Make sure of the following:
 
 - You have a [Metamask](https://metamask.io/) account, with your LAND parcels assigned to it.
 
-- You own the necessary amount of adjacent LAND parcels. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org).
+- You own the necessary amount of adjacent LAND parcels or a Decentraland NAME. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org) or a NAME in the [Builder](https://decentraland.org/builder/names).
 
 {{< hint warning >}}
 **📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels.
@@ -51,9 +51,30 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ## To publish the scene
 
-### Via the Decentraland Editor
+### Using the Scene Editor
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+Make sure you've [installed the Creators Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
+
+1. Open your scene project.
+2. Click the **Publish** button on the top-right corner.
+3. A prompt will ask if you want to publish to a **WORLD** or to **LAND**.
+
+   - Select **PUBLISH TO WORLD** to make your scene available in one of your [WORLDs]({{< ref "/content/creator/worlds/about.md" >}}). Then select which of your NAMEs or ENS Domains to publish to.
+
+   - Select **PUBLISH TO LAND** if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed on the map. Parcels where you are allowed to deploy are shown in pink.
+
+   - Select **Alternative servers** to publish to the [test server](#the-test-server) or a [custom server](#custom-servers).
+
+  <img src="/images/editor/publish-options.png" alt="Scene name" width="500"/>
+
+4. This opens a new tab on your browser, showing details about the upload. Approve the transaction.
+
+   - For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
+   - For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
+
+### Via the VS Code Extension
+
+Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
 1. Open your scene's folder using Visual Studio Code.
 
@@ -61,9 +82,9 @@ Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/s
 **📔 Note**: The Visual Studio window must be at the root folder of the scene project.
 {{< /hint >}}
 
-2. Open the Editor's menu, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
+2. Open the Decentraland tab menu, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
 
-   This opens a new tab in Visual Studio, showing what parcels you're deploying to.
+   This opens a new tab in your browser, showing what parcels you're deploying to.
 
 3. Approve the transaction
 
@@ -123,7 +144,7 @@ The information on each copy of the server is verifiable, as each scene is signe
 
 ## The test server
 
-You can deploy content to the test catalyst server to run full tests with multiple users, the sourrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
+You can deploy content to the test catalyst server to run full tests with multiple users, the surrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
 
 {{< hint warning >}}
 **📔 Note**: To deploy to parcels in the test server, you must have the same permissions required to deploy to those parcels in the main network.
@@ -133,7 +154,7 @@ Players are never directed to this server, the only way to access it is to expli
 
 If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
 
-### Via the Decentraland Editor
+### Via the VS Code Extension
 
 To deploy a scene to the test server:
 
@@ -172,7 +193,7 @@ See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
 
-### Via the Decentraland Editor
+### Via the VS Code Extension
 
 To deploy a scene to a custom server:
 

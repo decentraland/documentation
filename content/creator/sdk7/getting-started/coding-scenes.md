@@ -48,7 +48,7 @@ You must have the following:
 
 - **Visual Studio Code**: Dowload it [here](https://code.visualstudio.com/). Beyond hosting the Decentraland Editor extension, it helps you create scenes a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
 
-- **The Decentraland Editor SDK7**: An extension for Visual Studio code that exposes many common functionalities as buttons in the UI. [How to install it]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+- **The Decentraland Editor SDK7**: An extension for Visual Studio code that exposes many common functionalities as buttons in the UI. [How to install it]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
 ## Supported languages and syntax
 
@@ -368,7 +368,7 @@ When developing a new scene, you use the `@latest` stable SDK release by default
 
 You can install the `@next` SDK release if you want to leverage or preview upcoming features that didn't yet make it into the latest stable release.
 
-To do so, open the Decentraland Editor tab, and press the `+` sign to install the following:
+To do so, open the Decentraland tab on the Visual Studio Code extension, and press the `+` sign to install the following:
 
 `@dcl/sdk@next`
 

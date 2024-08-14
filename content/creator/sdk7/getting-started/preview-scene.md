@@ -12,11 +12,20 @@ weight: 4
 
 Once you have [built a new scene](https://docs.decentraland.org/#create-your-first-scene) or downloaded a [scene example](https://studios.decentraland.org/resources?sdk_version=SDK7) you can preview it locally.
 
-## Using the editor
+## Using the Scene Editor
 
-To run a scene preview using the Decentraland Editor:
+Make sure you've [installed the Creators Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+1. Open your scene project.
+2. Click the **Preview** button on the top-right corner. This will open a new window with the Decentraland Desktop Explorer, running just your scene. There you can move around the scene and interact with interactive items.
+
+<img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
+
+## Using the VS Code Extension
+
+To run a scene preview using the VS Code Extension:
+
+Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
 1. Open your scene's folder using Visual Studio Code.
 

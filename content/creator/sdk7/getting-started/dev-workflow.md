@@ -16,7 +16,7 @@ This document outlines the steps recommended for developing a scene for Decentra
 
 <!-- diagram? icons? -->
 
-- [Install the Decentraland Editor](#install-the-decentraland-editor)
+- [Install the VS Code Extension](#install-the-vs-code-extension)
 - [Design your experience](#design-your-experience)
 - [Where to publish](#where-to-publish)
 - [Templates and examples](#templates-and-examples)
@@ -28,11 +28,11 @@ This document outlines the steps recommended for developing a scene for Decentra
 - [Iterate](#iterate)
 - [Giving back](#giving-back)
 
-## Install the Decentraland Editor
+## Install the VS Code Extension
 
-Make sure you have the Decentraland Editor installed.
+Make sure you have the Decentraland VS Code Extension installed.
 
-- [Installation Guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}).
+- [Installation Guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
 ## Design your experience
 
@@ -80,7 +80,7 @@ There are many sources to obtain free or paid art assets. For example:
 
 ## Run a local preview
 
-To run a preview of your scene, open a Visual Studio Code window on your project's root folder and click the **Preview** button on the Decentraland Editor tab.
+To run a preview of your scene, open a Visual Studio Code window on your project's root folder and click the **Preview** button on the Decentraland tab.
 
 - [Preview your scene]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md" >}}) ) for more details.
 - Check the [Debug a scene]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md#debug-a-scene" >}}) for tips on how to debug any issues.

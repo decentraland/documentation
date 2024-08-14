@@ -78,6 +78,16 @@ If you must use a system, avoid doing checks or adjustments on every single fram
 
 There are several ways in which your 3D models can be optimized to be lighter.
 
+When working with the [Creators Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}), you can see stats about the resources used by 3D models in your scene, and if they pass any of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
+
+<img src="/images/editor/triangle-limit1.png" width="250" />
+
+You can expand this menu to view details.
+
+<img src="/images/editor/triangle-limit2.png" width="300" />
+
+Here are some tips for improving on these metrics:
+
 - When possible, share textures across 3D models. A good practice is to use a single texture as an atlas map, shared across all models in the scene. It's better to have 1 large shared texture of 1024x1024 pixels instead of several small ones.
 
   > Note: Avoid using the same image file for both the albedo texture and the normal map or the emissive map of a material. Use separate files, even if identical. Assigning a same image file to different types of texture properties may introduce unwanted visual artifacts when compressed to asset bundles.

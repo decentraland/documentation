@@ -34,7 +34,7 @@ Use these tools to create Decentraland scenes:
 
 - **Desktop Editor:** An all-in-one content creation tool. For users of any knowledge level, combining a graphical interface with code editing capabilities.
 
-  [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+  [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
   <img src="/images/intro/desktop-editor.png" width="600" />
 
