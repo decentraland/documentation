@@ -92,6 +92,3 @@ Once you deployed your scene, these changes will take a few minutes to be propag
 After you sign to authorize the deployment of your scene, the signing dapp will start displaying confirmations that the new version of your content has been propagated throughout all of the servers in the network,
 
 You'll see a list of each of the servers that make up Decentraland's content network. For each server, it specifies the timestamp of the last uploaded change on that parcel. Each one of these servers refers to a different realm, you can reference how these server names map to realm names in the [catalyst monitor screen](https://decentraland.github.io/catalyst-monitor/).
-
-<!-- TODO: Copy and rearrange all content about publishing
-leave CLI stuff in SDK -->

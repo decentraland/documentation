@@ -22,6 +22,8 @@ Click the three dots on a scene's card and click **Duplicate** to make a copy of
 <!-- TODO future:
 create from template -->
 
+To rename your scene, open it and click the pencil icon to change the **Name** field and other properties.
+
 # Import a scene
 
 The scene manager displays the scenes it finds in the default path on your machine.
@@ -40,15 +42,14 @@ Scenes you created on the [web editor]({{< ref "/content/creator/sdk7/web-editor
 
 In the scene selector screen, press the _three dots_ icon and select _Delete_.
 
-<!-- TODO: does it remove from file too? in case of imported scenes too? -->
+This removes the scene from your Scene Editor home screen, but doesn't delete the files from your machine.
+
+If you wish to delete the project files, you must do this manually. By default projects created via the editor are kept inside a `.decentraland` folder under your user directory. You can navigate here by clicking the three dots on a project card and selecting **Open folder**.
 
 <!-- TODO: Your scenes are all stored locally on your disk
 You can change the directory?
 
 Advanced recommendation: upload your scene to a repo?
-
-How to rename
-How to change screenshot
 
 
 
