@@ -15,7 +15,7 @@ You can add NFTs (Non-Fungible Tokens) into your scene, displayed as picture fra
 
 All image and gif formats that are supported in OpenSea are also supported by Decentraland by picture frames. NFTs in video or audio format are currently not supported. NFTs that also have 3D representations, like Decentraland wearables, are displayed in picture frames as 2D images.
 
-# Adding an NFTs
+## Adding an NFTs
 
 Use the NFT smart item, that you can find in the **Smart Items** asset pack, or by simply searching _NFT_ in the search bar above. Once you drag a copy of the NFT item to your scene and select it, there are a few fields that your can configure.
 

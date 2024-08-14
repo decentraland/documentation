@@ -9,7 +9,7 @@ url: /creator/editor/publish-scene
 weight: 7
 ---
 
-# Before you begin
+## Before you begin
 
 Make sure of the following:
 
@@ -25,7 +25,7 @@ Make sure of the following:
 
 Check your [scene's details]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#scene-details" >}}), make sure you provide an appealing name, description, thumbnail, categories, etc.
 
-# Publish your scene
+## Publish your scene
 
 To publish your scene:
 
@@ -40,7 +40,7 @@ To publish your scene:
 - For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
 - For LAND linked to a wallet you can use via Wallet Connect, click Connect wallet, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
 
-# Publish from a hardware wallet
+## Publish from a hardware wallet
 
 Instead of storing your LAND tokens in a Metamask account, you may find it more secure to store them in a hardware wallet device, such as a [Ledger](https://www.ledger.com/) or a [Trezor](https://trezor.io/), that's physically plugged in to your computer.
 
@@ -48,7 +48,7 @@ If you're using one of these devices, you can link the hardware wallet to Metama
 
 Once your hardware wallet can be used via Metamask, you can deploy following the same steps as if your tokens were on a Metamask account.
 
-# Scene overwriting
+## Scene overwriting
 
 When a new scene is deployed, it overwrites older content that existed on the parcels it occupies.
 
@@ -58,9 +58,9 @@ Suppose you deployed your scene _A_ over two parcels _[100, 100]_ and _[100, 101
 
 Your scene _A_ can't be partially rendered in just one parcel, so _[100, 100]_ won't display any content. You must build a new version of scene _A_ that only takes up one parcel and deploy it to only parcel _[100, 100]_.
 
-# Alternative servers
+## Alternative servers
 
-## The test server
+### The test server
 
 You can deploy content to the test catalyst server to run full tests with multiple users, the sourrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
 
@@ -85,7 +85,7 @@ See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
 
-# Verify deployment success
+## Verify deployment success
 
 Once you deployed your scene, these changes will take a few minutes to be propagated throughout the various content servers in the network. If you enter Decentraland right after deploying, you might still see the previous version of your content, or that 3D models are missing entirely.
 

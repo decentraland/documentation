@@ -9,8 +9,6 @@ url: /creator/editor/make-any-item-smart
 weight: 4
 ---
 
-# Making any item smart
-
 {{< youtube qXjQxMC97H0 >}}
 
 Smart items are just regular items with an **Action** and/or **Trigger** component. You can add these components to any item in your scene. You can also import your own custom 3D models and add the same to those.
@@ -25,7 +23,7 @@ This allows for a huge amount of creative possibilities. Turn a candle into a le
 **💡 Tip**: When a player interacts with an item, you should show some kind of feedback to make that interaction clear. If the model doesn't have any animations, consider at least playing a sound. In some cases it might work to make the item do a slight tween in scale and then return to its original scale, as a form of feedback.
 {{< /hint >}}
 
-# See also
+## See also
 
 - [Smart items - Basics]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}})
 - [Smart items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}})

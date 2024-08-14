@@ -16,11 +16,11 @@ The Scene Editor is currently in Alpha stage, and shared with users that join th
 Once accepted into the alpha program, you'll be shared the installer for the editor.
 {{< /hint >}}
 
-# Updating the Editor
+## Updating the Editor
 
 No steps are required. The Scene Editor application checks for updates every time you open it, and self-updates if there's a new version available.
 
-# Editing code
+## Editing code
 
 If you also plan on reading and editing code in your scene, you'll also need to install <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
 
@@ -28,6 +28,6 @@ If you also plan on reading and editing code in your scene, you'll also need to 
 
 <!-- TODO: will we support other IDEs? -->
 
-# Troubleshooting
+## Troubleshooting
 
 If you run into issues, see the [troubleshooting]({{< ref "/content/creator/sdk7/debugging/troubleshooting.md" >}}) section.

@@ -23,7 +23,7 @@ Any configuration that you set in the basic mode is kept when switching into the
 
 You can revert back to the basic mode, but when doing this you will revert all configurations to the default.
 
-# Advanced configuration
+## Advanced configuration
 
 Properties are grouped into [**components**]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}). Different smart items may have different components, depending on their functionality.
 
@@ -38,7 +38,7 @@ The triggers of a smart item can activate actions on any smart item in the scene
 
 Triggers can also happen conditionally. For example, door smart items include two **On Click** triggers in its Triggers component: one opens the door if that door was closed, the other closes the door if it was open. For more details see [States and conditional logic](#states-and-conditional-logic).
 
-# Interactions between items
+## Interactions between items
 
 To make items interact with each other:
 
@@ -70,7 +70,7 @@ You can use [states and conditional logic](#states-and-conditional-logic) to onl
 For example, to play a door's **Play Sound** action from a button, both the button and the door must be on Advanced Mode.
 {{< /hint >}}
 
-# Actions
+## Actions
 
 The **Actions** component lists actions that the item can carry out. Each smart item includes a set of pre-defined actions. You can customize existing actions or add new ones. The following types of actions are available:
 
@@ -130,7 +130,7 @@ To add a new action to an item, click the **Add New Action** button at the botto
 
 <img src="/images/editor/new-action.png" width="300"/>
 
-## Triggers
+### Triggers
 
 The **Triggers** component defines trigger events, these activate actions when a certain event happens. The following types of trigger events exist:
 
@@ -150,7 +150,7 @@ To add a new trigger, click the **Add New Trigger Event** at the bottom of the T
 An action needs to be defined in the [Actions](#actions) component of the entity before you can trigger it. Triggers can only affect entities that have an Actions component.
 {{< /hint >}}
 
-# About Playing Animations
+## About Playing Animations
 
 Use an action of type **Play Animation** to run an animation on the 3D model of the smart item. The animation needs to already exist as part of the 3D model file. The **Select Animation** dropdown displays a list of all of the available animations in the 3D mode.
 
@@ -168,7 +168,7 @@ Use the **Stop Animation** action to stop all animations by the item, both loopi
 
 To learn more about animations and how you can create your own as part of a 3D model, see [Animations]({{< ref "/content/creator/3d-modeling/animations.md" >}}).
 
-# About Playing sounds
+## About Playing sounds
 
 Use an action of type **Play Sound** to play a sound file. You can play any sound file as long as it's imported into the scene project. The sound is heard positionally, from the location of the item, meaning they sound louder if the player is closer.
 
@@ -196,7 +196,7 @@ If you need two sounds to sound together, consider adding an invisible entity in
 
 See [sounds]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}) for more about playing sounds in Decentraland.
 
-# Moving, rotating, or scaling
+## Moving, rotating, or scaling
 
 Use a **Start Tween** action to change the **position**, **scale**, or **rotation**, of the item over a period of time. All **Start Tween** actions start from the original state of the item, and change to an ending state over a period of time.
 
@@ -227,7 +227,7 @@ When an item performs a tween, this affects everything about the item. For examp
 Each entity can only perform one tween at a time. For example, you can´t make an item move sideways and also rotate at the same time. As a workaround, you can use parented entities. For example, you can have an invisible parent entity that moves sideways, with a visible child that rotates.
 {{< /hint >}}
 
-# About click triggers
+## About click triggers
 
 To trigger an action by clicking on an item, create an **On Click** trigger. The action will be activated every time that the player clicks on the entity.
 
@@ -242,7 +242,7 @@ As an alternative, you can configure the **GLTF** component of the item, so that
 Another alternative is to add a **Click Area** smart item, to draw a cube that overlaps the item you want to click. The Click Area smart item is an [invisible item](#invisible-items).
 {{< /hint >}}
 
-# Trigger on spawn
+## Trigger on spawn
 
 Triggers of type **On Spawn** activate an action when the scene is loaded. Instead of waiting for the player to interact with an item, the action runs right away.
 
@@ -250,7 +250,7 @@ For example, use this to make a platform move continually. Use an **On Spawn** t
 
 <img src="/images/editor/on_spawn.png" width="300"/>
 
-# Multiplayer
+## Multiplayer
 
 All smart items are multiplayer by default. See [Smart Items - Basic]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for more details.
 
@@ -260,13 +260,13 @@ In the item's **Multiplayer** component, check the boxes for the components you 
 
 For example, a door shares its `Animator` so all see the opening animations, its `AudioSource` so all hear its sound, and its `State` so all keep track of if it's currently open or closed. The door doesn't share its `Visibility` component, because the door is usually always visible. If you include actions to trigger its visibility on and off, you might want to have this component ticked too, so that changes are synced between all players.
 
-# Invisible items
+## Invisible items
 
 Some items are not meant to be seen by the player, but are visible while editing your scene to make them easier to manage. This is the case for items like **Ambience**, **Trigger Area**, **Click Area**, etc.
 
 In the advanced mode, these items have a **Visibility** component set to invisible. This component doesn't affect the visibility of the items on the Scene Editor, but any item set to invisible isn't seen by players when running a preview.
 
-# See also
+## See also
 
 - [Smart items - Basics]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}})
 - [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}})
