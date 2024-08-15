@@ -39,4 +39,4 @@ There are three layers in Decentraland's content system: [files]({{< relref "fil
 
 ## Snapshots
 
-Content servers also host large [newline-delimited-JSON](http://ndjson.org/) files with summaries of all active entities (i.e. those currently referenced by pointers) at a certain point in time. These are called [snapshots]({{< relref "snapshots" >}}), and can be used to explore all available content.
+Content servers also host large newline-delimited-JSON files with summaries of all active entities (i.e. those currently referenced by pointers) at a certain point in time. These are called [snapshots]({{< relref "snapshots" >}}), and can be used to explore all available content.
