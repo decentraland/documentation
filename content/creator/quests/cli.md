@@ -1,5 +1,5 @@
 ---
-title: "Quests CLI"
+title: 'Quests CLI'
 url: /creator/quests/cli
 weight: 5
 ---
@@ -36,7 +36,7 @@ For more documentation and details about the Quests Manager, read [Quests Manage
 
 To create a new quest, you can use two different commands:
 
-##### Create a new Quest via prompts
+### Create a new Quest via prompts
 
 ```bash
 $ npx @dcl/sdk-commands quests --create
@@ -142,7 +142,7 @@ $ ? Provide an image link for your {THE_ITEM_NUMBER} reward >
 
 Once you finish providing the information for each item, the creation will be done and the "Linker dApp" will be opened so that you can sign the action with your Wallet. After you sign the the action, and if all went well, you will see the ID of your new Quest in the SDK console.
 
-##### Create a new Quest with a JSON file
+### Create a new Quest with a JSON file
 
 To avoid all the prompts, create a full JSON file with all of the information needed to create a Quest. Find more information about the quest definition JSON structure [here]({{< ref "/content/creator/quests/define.md" >}}).
 

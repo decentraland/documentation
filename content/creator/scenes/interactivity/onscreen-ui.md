@@ -127,7 +127,7 @@ Container components also have following properties:
 - `stackOrientation`: The `UIContainerStack` component has this property to set if the stack will expand vertically or horizontally.
 
 <!--
-#### Scrollable rectangles
+### Scrollable rectangles
 
 You can also add UI elements into a `UIScrollRect`. If these rectangles have more content in them that what fits in their width or height, a slider will appear on the margins, that players can interact with to explore this content.
 
@@ -212,7 +212,7 @@ myText2.value = 'World'
 myText2.font = sfFont
 ```
 
-#### Multiline text
+### Multiline text
 
 `UIText` components by default adapt their width to the length of the provided string. To make a text span multiple lines, set the `textWrapping` property to _true_ and `adaptWidth` to _false_, and also specify the desired width.
 

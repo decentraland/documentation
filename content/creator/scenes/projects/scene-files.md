@@ -28,7 +28,7 @@ Scenes include the following files:
 - **tsconfig.json**: Typescript configuration file.
 - **.dclignore**: Lists what files in your project not to deploy to IPFS.
 
-#### game.ts
+### game.ts
 
 This is the entry point to your scene's code. You could fit your entire scene's logic into this file, although for clarity in most cases we recommend spreading out your code over several other _.ts_ files and importing them into _game.ts_.
 
@@ -72,7 +72,7 @@ engine.addEntity(cube)
 engine.addSystem(new RotatorSystem())
 ```
 
-#### scene.json
+### scene.json
 
 The _scene.json_ file is a JSON formatted manifest for a scene in the world. A scene can span a single or multiple LAND parcels. The _scene.json_ manifest describes what objects exist in the scene, a list of any assets needed to render it.
 
@@ -81,20 +81,20 @@ _scene.json_ file, please visit the [Decentraland specification proposal](https:
 
 All of this metadata is optional for previewing the scene locally, but part of it is needed for deploying. You can change this information manually at any time.
 
-#### package.json
+### package.json
 
 This file provides information to NPM that allows it to identify the project, as well as handle the project's dependencies. Decentraland scenes need two packages:
 
 - **decentraland-api**: allows the scene to communicate with the world engine.
 - **typescript**: used to compile the file _game.ts_ to javascript.
 
-#### package-lock.json
+### package-lock.json
 
 This file lists the versions of all the other dependencies of the project. These versions are locked, meaning that the compiler will use literally the same minor release listed here.
 
 You can change any package version manually by editing this file.
 
-#### tsconfig.json
+### tsconfig.json
 
 Directories containing a _tsconfig.json_ file are root directories for TypeScript Projects. The _tsconfig.json_ file specifies the root files and options required to compile your project from TypeScript into JavaScript.
 

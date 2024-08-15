@@ -231,7 +231,7 @@ box.getComponent(Material).albedoColor = Color3.Red()
 **📔 Note**: In the example above, as you never define a pointer to the entity's material component, you need to refer to it through its parent entity using `.getComponent()`.
 {{< /hint >}}
 
-#### Add or replace a component
+### Add or replace a component
 
 By using `.addComponentOrReplace()` instead of `.addComponent()` you overwrite any existing components of the same kind on a specific entity.
 

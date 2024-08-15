@@ -57,7 +57,7 @@ To export select the models you want to be contained on the .glb file then go to
 
 _On the side panel check “Selected Objects” in case you want to export only the selected objects in the scene. Also, on the Mesh Dropdown select Apply Modifiers (if they were), then Export._
 
-#### **Export To glTF From 3D Studio Max**
+### **Export To glTF From 3D Studio Max**
 
 3D Studio Max doesn't support exporting to glTF by default, but you can install a plugin to enable it.
 
@@ -65,7 +65,7 @@ _On the side panel check “Selected Objects” in case you want to export only 
 2. Install the plugin by following [these instructions](http://doc.babylonjs.com/resources/3dsmax#how-to-install-the-3ds-max-plugin).
 3. Export glTF files using the plugin by following [these instructions](http://doc.babylonjs.com/resources/3dsmax_to_gltf).
 
-#### **Export To glTF From Maya**
+### **Export To glTF From Maya**
 
 Maya doesn't support exporting to glTF by default, but you can install a plugin to enable it.
 
@@ -76,7 +76,7 @@ Maya doesn't support exporting to glTF by default, but you can install a plugin 
 **📔 Note**: As an alternative, you can try [this other plugin](https://github.com/WonderMediaProductions/Maya2glTF) too.
 {{< /hint >}}
 
-#### **Export To glTF From Unity**
+### **Export To glTF From Unity**
 
 Unity doesn't support exporting to glTF by default, but you can install a plugin to enable it.
 
@@ -86,13 +86,13 @@ Download the plugin from [this link](https://github.com/sketchfab/Unity-glTF-Exp
 **📔 Note**: As an alternative, you can try [this other plugin](https://assetstore.unity.com/packages/tools/utilities/collada-exporter-for-unity2017-99793) too.
 {{< /hint >}}
 
-#### **Export To glTF From SketchUp**
+### **Export To glTF From SketchUp**
 
 SketchUp doesn't support exporting to glTF by default, but you can install a plugin to enable it.
 
 Download the plugin from [this link](https://extensions.sketchup.com/en/content/gltf-exporter).
 
-#### **Convert FBX Into glTF**
+### **Convert FBX Into glTF**
 
 *.fbx* is a very popular standard for 3D models. It’s not supported by our engine, but you can easily export an *.fbx* model to *.gltf* format.
 

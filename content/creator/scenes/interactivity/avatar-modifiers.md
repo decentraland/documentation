@@ -24,7 +24,7 @@ Avatars behave and look consistently throughout Decentraland as they walk across
 Please limit the amount of `AvatarModifierAreas` you use in your scene to just a couple. If you use too many of them, it may have a significant impact on performance.
 {{< /hint >}}
 
-#### Placing Avatar Modifier Areas
+### Placing Avatar Modifier Areas
 
 Add an entity with an `AvatarModifierArea` component and position this entity by using a `Transform` component.
 
@@ -67,7 +67,7 @@ The effects of an `AvatarModifierArea` are calculated locally for each player. Y
 **📔 Note**: Avatar modifier areas are affected by the _position_ and _rotation_ of the Transform component of their host entity, but they're not affected by the _scale_.
 {{< /hint >}}
 
-#### Hide avatars
+### Hide avatars
 
 When a player walks into an `AvatarModifierArea` that has the `HIDE_AVATARS` modifier, the player's avatar stops being rendered. This applies both for the player in 3rd person view, and for when other players walk into the area.
 
@@ -89,7 +89,7 @@ engine.addEntity(modArea)
 
 This allows you to replace the default Decentraland avatar with any custom avatar you might want to show in your scene. Note that if you want to see other players with custom avatars, you should handle the syncing of player positions yourself.
 
-#### Disable Passport Popup
+### Disable Passport Popup
 
 When a player walks into an `AvatarModifierArea` that has the `DISABLE_PASSPORTS` modifier, clicking on them no longer opens up the passport UI that shows the player bio, inventory, etc.
 

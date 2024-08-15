@@ -52,7 +52,7 @@ wheel2.getComponent(WheelSpin).spinning = false
 
 Each entity that has the component added to it is instancing a new copy of it, holding specific data for that entity.
 
-#### Constructors
+### Constructors
 
 Adding a constructor to a component allows you to configure its values in the same expression as you create an instance of it.
 
@@ -106,7 +106,7 @@ const wheel = new Entity()
 wheel.addComponent(new WheelSpin())
 ```
 
-#### Interchangeable components
+### Interchangeable components
 
 Certain components intentionally can't coexist in a single entity. For example, an entity can't have both `BoxShape` and `PlaneShape`. If you assign one using `.addComponentOrReplace()`, you overwrite the other if present.
 

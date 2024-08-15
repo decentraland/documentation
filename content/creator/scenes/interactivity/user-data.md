@@ -95,7 +95,7 @@ The `avatar` object has the following nested information:
 The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits]({{< ref "/content/creator/scenes/3d-essentials/materials.md#avatar-portraits" >}}) ).
 {{< /hint >}}
 
-#### Data from current player
+### Data from current player
 
 To obtain information from the current player that's running the scene, use `getUserData()`.
 
@@ -120,7 +120,7 @@ The function returns the entire set of data described above, including address, 
 **📔 Note**: The `getUserData()` function is asynchronous. See [Asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) if you're not familiar with those.
 {{< /hint >}}
 
-#### Data from nearby players
+### Data from nearby players
 
 You can obtain data from other players that are nearby, by calling `getPlayerData()`, passing the id of a Decentraland account.
 
@@ -200,7 +200,7 @@ onLeaveSceneObservable.add((player) => {
 Listen for events when players connect and disconnect
 As more players connect and disconnect, you can pic
 
-#### Data from any player
+### Data from any player
 
 To obtain information from any player, make a [REST API call]({{< ref "/content/creator/scenes/networking/network-connections.md#call-a-rest-api" >}}) to the content servers. This returns the same information as the `getUserData()` and `getPlayerData()` functions, detailed at the start of the section.
 

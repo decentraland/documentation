@@ -118,7 +118,7 @@ You can also edit the following fields in a `Material` component to fine-tune ho
 - _reflectionColor_: The color reflected from the material.
 - _reflectivityColor_: AKA _Specular Color_ in other nomenclature.
 
-#### Change a color gradually
+### Change a color gradually
 
 Change a color gradually with linear interpolation between two colors, using the `.Lerp()` function.
 
@@ -182,7 +182,7 @@ let smokeTexture = new Texture('textures/smoke-puff3.png', {
 })
 ```
 
-#### Textures from an external URL
+### Textures from an external URL
 
 You can point the texture of your material to an external URL instead of an internal path in the scene project.
 
@@ -197,7 +197,7 @@ myMaterial.albedoTexture = myTexture
 
 The URL must start with `https`, `http` URLs aren't supported. The site where the image is hosted should also have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it.
 
-#### Textures on basic materials
+### Textures on basic materials
 
 In a `BasicMaterial` component, you can set the `texture` field to an image texture. This will render a texture that isn't affected by lighting.
 
@@ -217,7 +217,7 @@ myMaterial.texture = myTexture
 myEntity.addComponent(myMaterial)
 ```
 
-#### Multi-layered textures
+### Multi-layered textures
 
 It also allows you to use several image files as layers to compose more realistic textures, for example including a `bumpTexture` and a `refractionTexture`.
 
@@ -249,7 +249,7 @@ In the example above, the image for the material is located in a `materials` fol
 A material can have multiple layers of texture, you can see what these are on a source code editor by clicking `.` and letting the autocomplete menu show you the list.
 {{< /hint >}}
 
-#### Texture wrapping
+### Texture wrapping
 
 If you want the texture to be mapped to specific scale or alignment on your entities, then you need to configure _uv_ properties on the [shape components]({{< ref "/content/creator/scenes/3d-essentials/shape-components.md" >}}).
 
@@ -357,7 +357,7 @@ The example above sets the wrapping mode to `MIRROR`.
 **📔 Note**: Uv properties are currently only available on `PlaneShape` and on `BoxShape` components.
 {{< /hint >}}
 
-#### Texture scaling
+### Texture scaling
 
 When textures are stretched or shrinked to a different size from the original texture image, this can sometimes create artifacts. In a 3D environment, the effects of perspective cause this naturally. There are various [texture filtering](https://en.wikipedia.org/wiki/Texture_filtering) algorithms that exist to compensate for this in different ways. The `Texture` object uses the _bilinear_ algorithm by default, but it lets you configure it to use the _nearest neighbor_ or _trilinear_ algorithms instead by setting the `samplingMode` property.
 

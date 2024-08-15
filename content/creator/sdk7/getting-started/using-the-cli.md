@@ -75,7 +75,7 @@ If you run into issues, see the [troubleshooting]({{< ref "/content/creator/sdk7
 <!--
 
 
-#### Optional: Install Git
+### Optional: Install Git
 
 Mac OS and linux-based machines should have git installed by default, these steps should only be relevant to Windows based machines.
 

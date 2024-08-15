@@ -41,7 +41,7 @@ let midPoint = Vector3.lerp(myVector1, myVector2, 0.5)
 
 3D vectors are also included in the fields of several components. For example, the `Transform` component contains `Vector3` values for the _position_ and _scale_ of the entity.
 
-#### Shortcuts for writing direction vectors
+### Shortcuts for writing direction vectors
 
 The following shortcuts exist for defining generic vectors:
 

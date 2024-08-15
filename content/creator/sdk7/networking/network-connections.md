@@ -124,7 +124,7 @@ The `signedFetch()` differs from the `fetch()` function in that the response is 
 
 By default, **body** is considered a string, which you can parse like in the example above. If the response body is in json format, you can specify that in the `responseBodyType` and then access that from the `json` property in the response.
 
-#### Validating a signed request
+### Validating a signed request
 
 To make make use of signed requests, the server receiving these should to validate that the signatures match the rest of the request, and that the timestamp that's encoded within the signed message is current.
 

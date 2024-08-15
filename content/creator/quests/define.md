@@ -1,5 +1,5 @@
 ---
-title: "Defining a Quest"
+title: 'Defining a Quest'
 url: /creator/quests/define
 weight: 2
 ---
@@ -159,241 +159,241 @@ An example of a `CUSTOM` action item could be a "click a box", or "kill 10 zombi
 
 ## Examples of Defined Quests
 
-##### Linear Quest
+### Linear Quest
 
 A linear Quest "Z World", with just only two step and with `CUSTOM` action types:
 
 ```json
 {
-  "name": "Z World",
-  "description": "Zombies World",
-  "imageUrl": "https://the-image-u-want-to-be-displayed-on-dcl-explorer.com",
-  "definition": {
-    "steps": [
-      {
-        "id": "STEP_1",
-        "description": "First Step",
-        "tasks": [
-          {
-            "id": "STEP_1_1",
-            "description": "First Task of First Step",
-            "actionItems": [
-              {
-                "type": "CUSTOM",
-                "parameters": {
-                  "id": "CUSTOM_EVENT_1"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "STEP_2",
-        "description": "Second Step",
-        "tasks": [
-          {
-            "id": "STEP_2_1",
-            "description": "First Task of Second Step",
-            "actionItems": [
-              {
-                "type": "CUSTOM",
-                "parameters": {
-                  "id": "CUSTOM_EVENT_2"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "connections": [
-      {
-        "stepFrom": "STEP_1",
-        "stepTo": "STEP_2"
-      }
-    ]
-  }
+	"name": "Z World",
+	"description": "Zombies World",
+	"imageUrl": "https://the-image-u-want-to-be-displayed-on-dcl-explorer.com",
+	"definition": {
+		"steps": [
+			{
+				"id": "STEP_1",
+				"description": "First Step",
+				"tasks": [
+					{
+						"id": "STEP_1_1",
+						"description": "First Task of First Step",
+						"actionItems": [
+							{
+								"type": "CUSTOM",
+								"parameters": {
+									"id": "CUSTOM_EVENT_1"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "STEP_2",
+				"description": "Second Step",
+				"tasks": [
+					{
+						"id": "STEP_2_1",
+						"description": "First Task of Second Step",
+						"actionItems": [
+							{
+								"type": "CUSTOM",
+								"parameters": {
+									"id": "CUSTOM_EVENT_2"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"connections": [
+			{
+				"stepFrom": "STEP_1",
+				"stepTo": "STEP_2"
+			}
+		]
+	}
 }
 ```
 
-##### Linear Quest 2
+### Linear Quest 2
 
 A linear Quest "Z World", with 3 steps and with `CUSTOM`, `LOCATION` ad `JUMP` action types:
 
 ```json
 {
-  "name": "Z World",
-  "description": "Zombies World",
-  "imageUrl": "https://the-image-u-want-to-be-displayed-on-dcl-explorer.com",
-  "definition": {
-    "steps": [
-      {
-        "id": "STEP_1",
-        "description": "First Step",
-        "tasks": [
-          {
-            "id": "STEP_1_1",
-            "description": "First Task of First Step",
-            "actionItems": [
-              {
-                "type": "CUSTOM",
-                "parameters": {
-                  "id": "CUSTOM_EVENT_1"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "STEP_2",
-        "description": "Second Step",
-        "tasks": [
-          {
-            "id": "STEP_2_1",
-            "description": "First Task of Second Step",
-            "actionItems": [
-              {
-                "type": "LOCATION",
-                "parameters": {
-                  "x": "100",
-                  "y": "-101"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "STEP_3",
-        "description": "Third Step",
-        "tasks": [
-          {
-            "id": "STEP_3_1",
-            "description": "First Task of Thitd Step",
-            "actionItems": [
-              {
-                "type": "JUMP",
-                "parameters": {
-                  "x": "105",
-                  "y": "-101"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "connections": [
-      {
-        "stepFrom": "STEP_1",
-        "stepTo": "STEP_2"
-      },
-      {
-        "stepFrom": "STEP_2",
-        "stepTo": "STEP_3"
-      }
-    ]
-  }
+	"name": "Z World",
+	"description": "Zombies World",
+	"imageUrl": "https://the-image-u-want-to-be-displayed-on-dcl-explorer.com",
+	"definition": {
+		"steps": [
+			{
+				"id": "STEP_1",
+				"description": "First Step",
+				"tasks": [
+					{
+						"id": "STEP_1_1",
+						"description": "First Task of First Step",
+						"actionItems": [
+							{
+								"type": "CUSTOM",
+								"parameters": {
+									"id": "CUSTOM_EVENT_1"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "STEP_2",
+				"description": "Second Step",
+				"tasks": [
+					{
+						"id": "STEP_2_1",
+						"description": "First Task of Second Step",
+						"actionItems": [
+							{
+								"type": "LOCATION",
+								"parameters": {
+									"x": "100",
+									"y": "-101"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "STEP_3",
+				"description": "Third Step",
+				"tasks": [
+					{
+						"id": "STEP_3_1",
+						"description": "First Task of Thitd Step",
+						"actionItems": [
+							{
+								"type": "JUMP",
+								"parameters": {
+									"x": "105",
+									"y": "-101"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"connections": [
+			{
+				"stepFrom": "STEP_1",
+				"stepTo": "STEP_2"
+			},
+			{
+				"stepFrom": "STEP_2",
+				"stepTo": "STEP_3"
+			}
+		]
+	}
 }
 ```
 
-##### Linear Quest 3
+### Linear Quest 3
 
 A linear Quest "Z World", similar to "Linear Quest 2" but this one **gives rewards to its players**. It uses `https://the-rewards-webhook-url.com/rewards` as the webhook URL, so this endpoint will be called when a user completes this Quest. The request to this server includes a JSON in the Request Body. The JSON has two placeholders that are replaced by the Quests Server with the actual values. The rewards include **only one** item called "Zombie Head", with the image `https://the-wearable-item-image.com`:
 
 ```json
 {
-  "name": "Z World",
-  "description": "Zombies World",
-  "imageUrl": "https://the-image-u-want-to-be-displayed-on-dcl-explorer.com",
-  "definition": {
-    "steps": [
-      {
-        "id": "STEP_1",
-        "description": "First Step",
-        "tasks": [
-          {
-            "id": "STEP_1_1",
-            "description": "First Task of First Step",
-            "actionItems": [
-              {
-                "type": "CUSTOM",
-                "parameters": {
-                  "id": "CUSTOM_EVENT_1"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "STEP_2",
-        "description": "Second Step",
-        "tasks": [
-          {
-            "id": "STEP_2_1",
-            "description": "First Task of Second Step",
-            "actionItems": [
-              {
-                "type": "LOCATION",
-                "parameters": {
-                  "x": "100",
-                  "y": "-101"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "STEP_3",
-        "description": "Third Step",
-        "tasks": [
-          {
-            "id": "STEP_3_1",
-            "description": "First Task of Third Step",
-            "actionItems": [
-              {
-                "type": "JUMP",
-                "parameters": {
-                  "x": "105",
-                  "y": "-101"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "connections": [
-      {
-        "stepFrom": "STEP_1",
-        "stepTo": "STEP_2"
-      },
-      {
-        "stepFrom": "STEP_2",
-        "stepTo": "STEP_3"
-      }
-    ]
-  },
-  "reward": {
-    "hook": {
-      "webhookUrl": "https://the-rewards-webhook-url.com/rewards",
-      "requestBody": {
-        "player": "{user_address}",
-        "quest": "{quest_id}",
-        "myIdentifier": "my-identifier-123-456"
-      }
-    },
-    "items": [
-      {
-        "name": "Zombie Head",
-        "imageLink": "https://the-wearable-item-image.com"
-      }
-    ]
-  }
+	"name": "Z World",
+	"description": "Zombies World",
+	"imageUrl": "https://the-image-u-want-to-be-displayed-on-dcl-explorer.com",
+	"definition": {
+		"steps": [
+			{
+				"id": "STEP_1",
+				"description": "First Step",
+				"tasks": [
+					{
+						"id": "STEP_1_1",
+						"description": "First Task of First Step",
+						"actionItems": [
+							{
+								"type": "CUSTOM",
+								"parameters": {
+									"id": "CUSTOM_EVENT_1"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "STEP_2",
+				"description": "Second Step",
+				"tasks": [
+					{
+						"id": "STEP_2_1",
+						"description": "First Task of Second Step",
+						"actionItems": [
+							{
+								"type": "LOCATION",
+								"parameters": {
+									"x": "100",
+									"y": "-101"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "STEP_3",
+				"description": "Third Step",
+				"tasks": [
+					{
+						"id": "STEP_3_1",
+						"description": "First Task of Third Step",
+						"actionItems": [
+							{
+								"type": "JUMP",
+								"parameters": {
+									"x": "105",
+									"y": "-101"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"connections": [
+			{
+				"stepFrom": "STEP_1",
+				"stepTo": "STEP_2"
+			},
+			{
+				"stepFrom": "STEP_2",
+				"stepTo": "STEP_3"
+			}
+		]
+	},
+	"reward": {
+		"hook": {
+			"webhookUrl": "https://the-rewards-webhook-url.com/rewards",
+			"requestBody": {
+				"player": "{user_address}",
+				"quest": "{quest_id}",
+				"myIdentifier": "my-identifier-123-456"
+			}
+		},
+		"items": [
+			{
+				"name": "Zombie Head",
+				"imageLink": "https://the-wearable-item-image.com"
+			}
+		]
+	}
 }
 ```
 
@@ -401,7 +401,7 @@ A linear Quest "Z World", similar to "Linear Quest 2" but this one **gives rewar
 **💡 Tip**: To give more than one item as a reward, add more items to the `items` array. These images may be used to display a quest's rewards in-world.
 {{< /hint >}}
 
-##### Branching Quest
+### Branching Quest
 
 This Quest is _more complex_. A Branching Quest "Z World", with 4 steps:
 
@@ -425,153 +425,153 @@ This Quest is _more complex_. A Branching Quest "Z World", with 4 steps:
 
 ```json
 {
-  "name": "Z World",
-  "description": "Zombies World (branching version)",
-  "imageUrl": "https://the-image-u-want-to-be-displayed-on-dcl-explorer.com",
-  "definition": {
-    "steps": [
-      {
-        "id": "STEP_1_1",
-        "description": "First Step 1",
-        "tasks": [
-          {
-            "id": "STEP_1_1",
-            "description": "First Task of First Step 1",
-            "actionItems": [
-              {
-                "type": "CUSTOM",
-                "parameters": {
-                  "id": "CUSTOM_EVENT_1"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "STEP_1_2",
-        "description": "First Step 2",
-        "tasks": [
-          {
-            "id": "STEP_1_2_1",
-            "description": "First Task of First Step 2",
-            "actionItems": [
-              {
-                "type": "LOCATION",
-                "parameters": {
-                  "x": "100",
-                  "y": "-101"
-                }
-              }
-            ]
-          },
-          {
-            "id": "STEP_1_2_2",
-            "description": "Second Task of First Step 2",
-            "actionItems": [
-              {
-                "type": "CUSTOM",
-                "parameters": {
-                  "id": "SECOND_TASK_COLLECT_EVENT"
-                }
-              },
-              {
-                "type": "CUSTOM",
-                "parameters": {
-                  "id": "SECOND_TASK_COLLECT_EVENT"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "STEP_2",
-        "description": "Second Step",
-        "tasks": [
-          {
-            "id": "STEP_2_1",
-            "description": "First Task of Second Step",
-            "actionItems": [
-              {
-                "type": "JUMP",
-                "parameters": {
-                  "x": "105",
-                  "y": "-101"
-                }
-              },
-              {
-                "type": "LOCATION",
-                "parameters": {
-                  "x": "103",
-                  "y": "-101"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "STEP_3",
-        "description": "Third Step",
-        "tasks": [
-          {
-            "id": "STEP_3",
-            "description": "First Task of Third Step",
-            "actionItems": [
-              {
-                "type": "CUSTOM",
-                "parameters": {
-                  "id": "USERACTION_STEP_3"
-                }
-              },
-              {
-                "type": "CUSTOM",
-                "parameters": {
-                  "id": "USERACTION_STEP_3"
-                }
-              },
-              {
-                "type": "CUSTOM",
-                "parameters": {
-                  "id": "ANOTHER_USERACTION_STEP_3"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "connections": [
-      {
-        "stepFrom": "STEP_1_1",
-        "stepTo": "STEP_2"
-      },
-      {
-        "stepFrom": "STEP_1_2",
-        "stepTo": "STEP_2"
-      },
-      {
-        "stepFrom": "STEP_2",
-        "stepTo": "STEP_3"
-      }
-    ]
-  },
-  "reward": {
-    "hook": {
-      "webhookUrl": "https://the-rewards-webhook-url.com/rewards",
-      "requestBody": {
-        "player": "{user_address}",
-        "quest": "{quest_id}",
-        "myIdentifier": "my-identifier-123-456"
-      }
-    },
-    "items": [
-      {
-        "name": "Zombie Head",
-        "imageLink": "https://the-wearable-item-image.com"
-      }
-    ]
-  }
+	"name": "Z World",
+	"description": "Zombies World (branching version)",
+	"imageUrl": "https://the-image-u-want-to-be-displayed-on-dcl-explorer.com",
+	"definition": {
+		"steps": [
+			{
+				"id": "STEP_1_1",
+				"description": "First Step 1",
+				"tasks": [
+					{
+						"id": "STEP_1_1",
+						"description": "First Task of First Step 1",
+						"actionItems": [
+							{
+								"type": "CUSTOM",
+								"parameters": {
+									"id": "CUSTOM_EVENT_1"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "STEP_1_2",
+				"description": "First Step 2",
+				"tasks": [
+					{
+						"id": "STEP_1_2_1",
+						"description": "First Task of First Step 2",
+						"actionItems": [
+							{
+								"type": "LOCATION",
+								"parameters": {
+									"x": "100",
+									"y": "-101"
+								}
+							}
+						]
+					},
+					{
+						"id": "STEP_1_2_2",
+						"description": "Second Task of First Step 2",
+						"actionItems": [
+							{
+								"type": "CUSTOM",
+								"parameters": {
+									"id": "SECOND_TASK_COLLECT_EVENT"
+								}
+							},
+							{
+								"type": "CUSTOM",
+								"parameters": {
+									"id": "SECOND_TASK_COLLECT_EVENT"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "STEP_2",
+				"description": "Second Step",
+				"tasks": [
+					{
+						"id": "STEP_2_1",
+						"description": "First Task of Second Step",
+						"actionItems": [
+							{
+								"type": "JUMP",
+								"parameters": {
+									"x": "105",
+									"y": "-101"
+								}
+							},
+							{
+								"type": "LOCATION",
+								"parameters": {
+									"x": "103",
+									"y": "-101"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "STEP_3",
+				"description": "Third Step",
+				"tasks": [
+					{
+						"id": "STEP_3",
+						"description": "First Task of Third Step",
+						"actionItems": [
+							{
+								"type": "CUSTOM",
+								"parameters": {
+									"id": "USERACTION_STEP_3"
+								}
+							},
+							{
+								"type": "CUSTOM",
+								"parameters": {
+									"id": "USERACTION_STEP_3"
+								}
+							},
+							{
+								"type": "CUSTOM",
+								"parameters": {
+									"id": "ANOTHER_USERACTION_STEP_3"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"connections": [
+			{
+				"stepFrom": "STEP_1_1",
+				"stepTo": "STEP_2"
+			},
+			{
+				"stepFrom": "STEP_1_2",
+				"stepTo": "STEP_2"
+			},
+			{
+				"stepFrom": "STEP_2",
+				"stepTo": "STEP_3"
+			}
+		]
+	},
+	"reward": {
+		"hook": {
+			"webhookUrl": "https://the-rewards-webhook-url.com/rewards",
+			"requestBody": {
+				"player": "{user_address}",
+				"quest": "{quest_id}",
+				"myIdentifier": "my-identifier-123-456"
+			}
+		},
+		"items": [
+			{
+				"name": "Zombie Head",
+				"imageLink": "https://the-wearable-item-image.com"
+			}
+		]
+	}
 }
 ```

@@ -20,7 +20,7 @@ Smart Wearables are a kind of portable experience that is associated to a wearab
 
 ## Getting started
 
-#### Using the VS Code Extension
+### Using the VS Code Extension
 
 Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}), then:
 
@@ -33,7 +33,7 @@ This command creates the basic files and structure for a new portable experience
 
 - `scene.json` is a lot shorter, it doesn’t include properties that are irrelevant to a portable experience, like parcels or spawn points.
 
-#### Using the CLI
+### Using the CLI
 
 1. Open a command line in a new folder and run
 
@@ -65,11 +65,11 @@ To specify under what **name** to make your deployment, add the following sectio
 
 Make sure you're either using the Ethereum account that owns this name, or an account that has been given permissions to deploy to this name.
 
-#### Using the VS Code Extension
+### Using the VS Code Extension
 
 Open the Decentraland tab and click the three-dots icon at the top, and select **Publish scene to your world**.
 
-#### Using the CLI
+### Using the CLI
 
 Run:
 

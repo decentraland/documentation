@@ -56,7 +56,7 @@ This file lists the versions of all the other dependencies of the project. These
 
 You can change any package version manually by editing this file.
 
-#### tsconfig.json
+### tsconfig.json
 
 Directories containing a _tsconfig.json_ file are root directories for TypeScript Projects. The _tsconfig.json_ file specifies the root files and options required to compile your project from TypeScript into JavaScript.
 

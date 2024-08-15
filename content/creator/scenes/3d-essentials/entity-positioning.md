@@ -130,7 +130,7 @@ When you retrieve the rotation of an entity, it returns a quaternion by default.
 myEntity.getComponent(Transform).rotation.eulerAngles
 ```
 
-#### Add Rotations
+### Add Rotations
 
 Another option is to perform a `rotate` operation on an existing transform, which adds to its current rotation. The `rotate` operation takes a vector that indicates a direction, and a number of degrees to rotate. In the following example, we're tilting an entity 15 degrees along the X axis, which adds to whatever rotation it initially had:
 
@@ -355,7 +355,7 @@ child.addComponent(
 child.setParent(parent)
 ```
 
-#### Obtain the avatarId
+### Obtain the avatarId
 
 To attach an entity to an avatar, you must provide the user's ID in the field `avatarId`. There are [various ways]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) to obtain this data.
 
@@ -389,7 +389,7 @@ executeTask(async () => {
 
 See other ways to fetch other user's IDs in [Get Player Data]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}).
 
-#### Attach to player using Attachable (deprecated)
+### Attach to player using Attachable (deprecated)
 
 Note: This method for attaching entities to the player is deprecated. Use the `AttachToAvatar` component instead.
 

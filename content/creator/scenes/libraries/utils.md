@@ -805,7 +805,7 @@ engine.addEntity(cat)
 
 This library includes a number of helpful functions for common value conversions.
 
-#### Clamp
+### Clamp
 
 Use the `clamp()` function to easily clamp possible values between a maximum and a minimum.
 
@@ -823,7 +823,7 @@ let result = utils.clamp(input, 5, 15)
 log(result)
 ```
 
-#### Map
+### Map
 
 Use the `map()` function to map a value from one range of values to its equivalent, scaled in proportion to another range of values, using maximum and minimum.
 
@@ -843,7 +843,7 @@ let result = utils.map(input, 0, 10, 300, 400)
 log(result)
 ```
 
-#### World position
+### World position
 
 If an entity is parented to another entity, or to the player, then its Transform position will be relative to its parent. To find what its global position is, taking into account any parents, use `getEntityWorldPosition()`.
 
@@ -867,7 +867,7 @@ cube.addComponent(
   }))
 ```
 
-#### World rotation
+### World rotation
 
 If an entity is parented to another entity, or to the player, then its Transform rotation will be relative to its parent. To find what its global rotation is, taking into account any parents, use `getEntityWorldRotation()`.
 
@@ -964,7 +964,7 @@ The `addLabel()` function also lets you set the following:
 
 ## Debug helpers
 
-#### Debug cube
+### Debug cube
 
 Render a simple clickable cube to use as a trigger when debugging a scene with `addTestCube()`.
 

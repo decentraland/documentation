@@ -58,12 +58,12 @@ To get a player's Ethereum account, use the `getPlayer()` function.
 import { getPlayer } from '@dcl/sdk/src/players'
 
 export function main() {
-  let userData = getPlayer()
-  if (!userData.isGuest) {
-    console.log(userData.userId)
-  } else {
-    log('Player is not connected with Web3')
-  }
+	let userData = getPlayer()
+	if (!userData.isGuest) {
+		console.log(userData.userId)
+	} else {
+		log('Player is not connected with Web3')
+	}
 }
 ```
 
@@ -148,7 +148,7 @@ function signAndVerifyMessage(msg: string) {
 signAndVerifyMessage(messageToSign)
 ```
 
-#### Require a payment
+### Require a payment
 
 The `requirePayment()` function prompts the player to accept paying a sum to an Ethereum wallet of your choice.
 
@@ -221,14 +221,14 @@ import { RequestManager } from 'eth-connect'
 import { createEthereumProvider } from '@dcl/sdk/ethereum-provider'
 
 executeTask(async function () {
-  // create an instance of the web3 provider to interface with Metamask
-  const provider = createEthereumProvider()
-  // Create the object that will handle the sending and receiving of RPC messages
-  const requestManager = new RequestManager(provider)
-  // Check the current gas price on the Ethereum network
-  const gasPrice = await requestManager.eth_gasPrice()
-  // log response
-  console.log({ gasPrice })
+	// create an instance of the web3 provider to interface with Metamask
+	const provider = createEthereumProvider()
+	// Create the object that will handle the sending and receiving of RPC messages
+	const requestManager = new RequestManager(provider)
+	// Check the current gas price on the Ethereum network
+	const gasPrice = await requestManager.eth_gasPrice()
+	// log response
+	console.log({ gasPrice })
 })
 ```
 
@@ -308,14 +308,16 @@ import { createEthereumProvider } from '@dcl/sdk/ethereum-provider'
 import { abi } from '../contracts/mana'
 
 executeTask(async () => {
-  // create an instance of the web3 provider to interface with Metamask
-  const provider = createEthereumProvider()
-  // Create the object that will handle the sending and receiving of RPC messages
-  const requestManager = new RequestManager(provider)
-  // Create a factory object based on the abi
-  const factory = new ContractFactory(requestManager, abi)
-  // Use the factory object to instance a `contract` object, referencing a specific contract
-  const contract = (await factory.at('0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb')) as any
+	// create an instance of the web3 provider to interface with Metamask
+	const provider = createEthereumProvider()
+	// Create the object that will handle the sending and receiving of RPC messages
+	const requestManager = new RequestManager(provider)
+	// Create a factory object based on the abi
+	const factory = new ContractFactory(requestManager, abi)
+	// Use the factory object to instance a `contract` object, referencing a specific contract
+	const contract = (await factory.at(
+		'0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb'
+	)) as any
 })
 ```
 
@@ -334,26 +336,32 @@ import { RequestManager, ContractFactory } from 'eth-connect'
 import { abi } from '../contracts/mana'
 
 executeTask(async () => {
-  try {
-    // Setup steps explained in the section above
-    const provider = createEthereumProvider()
-    const requestManager = new RequestManager(provider)
-    const factory = new ContractFactory(requestManager, abi)
-    const contract = (await factory.at('0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb')) as any
-    let userData = getPlayer()
-    if (userData.isGuest) {
-      return
-    }
+	try {
+		// Setup steps explained in the section above
+		const provider = createEthereumProvider()
+		const requestManager = new RequestManager(provider)
+		const factory = new ContractFactory(requestManager, abi)
+		const contract = (await factory.at(
+			'0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb'
+		)) as any
+		let userData = getPlayer()
+		if (userData.isGuest) {
+			return
+		}
 
-    // Perform a function from the contract
-    const res = await contract.setBalance('0xaFA48Fad27C7cAB28dC6E970E4BFda7F7c8D60Fb', 100, {
-      from: userData.userId,
-    })
-    // Log response
-    console.log(res)
-  } catch (error: any) {
-    console.log(error.toString())
-  }
+		// Perform a function from the contract
+		const res = await contract.setBalance(
+			'0xaFA48Fad27C7cAB28dC6E970E4BFda7F7c8D60Fb',
+			100,
+			{
+				from: userData.userId,
+			}
+		)
+		// Log response
+		console.log(res)
+	} catch (error: any) {
+		console.log(error.toString())
+	}
 })
 ```
 
@@ -398,9 +406,9 @@ import { sendAsync } from '~system/EthereumController'
 
 // send a message
 await sendAsync({
-  id: 1,
-  method: 'myMethod',
-  jsonParams: '{ myParam: myValue }',
+	id: 1,
+	method: 'myMethod',
+	jsonParams: '{ myParam: myValue }',
 })
 ```
 

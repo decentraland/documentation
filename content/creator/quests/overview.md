@@ -1,5 +1,5 @@
 ---
-title: "Quests Overview"
+title: 'Quests Overview'
 url: /creator/quests/overview
 weight: 1
 ---
@@ -14,7 +14,7 @@ A Quest is a series of steps or tasks that a player has to complete. Each step o
 
 The creator of a Quest must define the steps and their order or the path to the end. A quest is finished when those steps are completed. A Creator can use the Quests Service to create and manage quests. The Quest Service tracks the progress of players as they complete steps, saving their progress between sessions.
 
-#### Current Scope & Limitations
+### Current Scope & Limitations
 
 - Quests can be **linear**, meaning that the player has to complete the steps in order. Quests can also be **branching**, meaning that the player can first complete one path and then continue with another one. A player must complete all branches before the quest is considered completed.
 
@@ -36,7 +36,7 @@ The creator of a Quest must define the steps and their order or the path to the 
 
 - Quests tooling for Decentraland Scenes is built targeting the **SDK version 7**. So if you are using an older version of the SDK, you won't be able to use the Quests tooling. You can still use the Quests Service to track progress, send events and receive updates in your scene but you will have to create your own tooling to do so.
 
-#### Service Architecture
+### Service Architecture
 
 <img src="/images/quests/quests-arch.png" alt="Quests Service" style="width: 100%;"/>
 

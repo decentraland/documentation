@@ -20,7 +20,7 @@ The Decentraland explorer enforces many optimizations at engine level. These opt
 
 ## Timing
 
-#### Video playing
+### Video playing
 
 Playing videos is one of the most expensive things for the engine to handle. If your scene includes videos, make sure that only _ONE_ VideoTexture is in use at a time. You can have dozens of planes sharing the same VideoTexture without significant impact on performance, but as soon as you add a second VideoTexture, its effects on framerate become very noticeable.
 
@@ -34,7 +34,7 @@ You should also avoid having videos playing in regions where they can't be seen.
 **💡 Tip**: When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene">}}) .
 {{< /hint >}}
 
-#### Lazy loading
+### Lazy loading
 
 If your scene is large, or has indoor areas that are not always visible, you can choose to not load the entire set of entities from the very start. Instead, load the content by region as the player visits different parts of the scene. This can significantly reduce the load time of the scene, and also the amount of textures and 3D content that the engine needs to handle on every frame.
 
@@ -56,7 +56,7 @@ You can also toggle animations on or off for entities that are far or occluded. 
 **💡 Tip**: When an entity is far away and small enough, it's culled by the engine. This culling helps at a drawcall level, removing entities from the engine is always better. This culling also doesn't take occlusion by other entities into account, so entities that are not so small but hidden by a wall are still rendered.
 {{< /hint >}}
 
-#### Async blocks
+### Async blocks
 
 Blocks of [async code]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) are processed in a separate thread from the rest of the scene, to prevent blocking the progress of everything else.
 
@@ -64,7 +64,7 @@ Any processes that rely on responses from asynchronous services, such as `getPla
 
 Note that the scene will be considered fully loaded when everything that isn't async is done. Async processes might still be running when the player enters the scene. Avoid situations where an async process results in the loading of an entity that could potentially get the player stuck inside of its geometry.
 
-#### Rely on Events
+### Rely on Events
 
 Try to make the scene's logic rely on listening to [events]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md" >}}) as much as possible, instead of running checks every frame.
 
@@ -102,7 +102,7 @@ Here are some tips for improving on these metrics:
 **💡 Tip**: Read more on 3D model best practices in the [3D Modeling Section](/creator/3d-modeling/3d-models
 {{< /hint >}}
 
-#### Asset Bundle conversion
+### Asset Bundle conversion
 
 About once a day, the Decentraland content servers run a process to compress every _.gltf_ and _.glb_ model in every newly deployed scene to asset bundle format. This format is _significantly_ lighter, making scenes a lot faster to load and smoother to run on the browser.
 

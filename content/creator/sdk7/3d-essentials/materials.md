@@ -30,15 +30,15 @@ The following example creates a PBR material and sets some of its fields to give
 //Create entity and assign shape
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity)
 
 //Create material and configure its fields
 Material.setPbrMaterial(meshEntity, {
-  albedoColor: Color4.Red(),
-  metallic: 0.8,
-  roughness: 0.1,
+	albedoColor: Color4.Red(),
+	metallic: 0.8,
+	roughness: 0.1,
 })
 ```
 
@@ -48,18 +48,18 @@ To change the material of an entity that already has a `Material` component, run
 //Create entity and assign shape
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity)
 
 //Create material and configure its fields
 Material.setPbrMaterial(meshEntity, {
-  albedoColor: Color4.Red(),
+	albedoColor: Color4.Red(),
 })
 
 //Overwrite with new material component
 Material.setPbrMaterial(meshEntity, {
-  albedoColor: Color4.Blue(),
+	albedoColor: Color4.Blue(),
 })
 ```
 
@@ -92,7 +92,7 @@ To create a plain color material that is not affected by light and shadows in th
 
 ```ts
 Material.setBasicMaterial(myEntity, {
-  diffuseColor: Color4.Black(),
+	diffuseColor: Color4.Black(),
 })
 ```
 
@@ -104,15 +104,15 @@ Set an image file as a texture on a material by setting the `texture` parameter.
 //Create entity and assign shape
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity)
 
 //Create material and configure its fields
 Material.setPbrMaterial(meshEntity, {
-  texture: Material.Texture.Common({
-    src: 'materials/wood.png',
-  }),
+	texture: Material.Texture.Common({
+		src: 'materials/wood.png',
+	}),
 })
 ```
 
@@ -129,11 +129,11 @@ While creating a texture, you can also pass additional parameters:
 
 ```ts
 Material.setPbrMaterial(myEntity, {
-  texture: Material.Texture.Common({
-    src: 'materials/wood.png',
-    filterMode: TextureFilterMode.TFM_BILINEAR,
-    wrapMode: TextureWrapMode.TWM_CLAMP,
-  }),
+	texture: Material.Texture.Common({
+		src: 'materials/wood.png',
+		filterMode: TextureFilterMode.TFM_BILINEAR,
+		wrapMode: TextureWrapMode.TWM_CLAMP,
+	}),
 })
 ```
 
@@ -141,42 +141,42 @@ To create a texture that is not affected by light and shadows in the environment
 
 ```ts
 Material.setBasicMaterial(myEntity, {
-  texture: Material.Texture.Common({
-    src: 'materials/wood.png',
-  }),
+	texture: Material.Texture.Common({
+		src: 'materials/wood.png',
+	}),
 })
 ```
 
-#### Textures from an external URL
+### Textures from an external URL
 
 You can point the texture of your material to an external URL instead of an internal path in the scene project.
 
 ```ts
 Material.setBasicMaterial(myEntity, {
-  texture: Material.Texture.Common({
-    src: 'https://wearable-api.decentraland.org/v2/collections/community_contest/wearables/cw_tuxedo_tshirt_upper_body/thumbnail',
-  }),
+	texture: Material.Texture.Common({
+		src: 'https://wearable-api.decentraland.org/v2/collections/community_contest/wearables/cw_tuxedo_tshirt_upper_body/thumbnail',
+	}),
 })
 ```
 
 The URL must start with `https`, `http` URLs aren't supported. The site where the image is hosted should also have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it.
 
-#### Multi-layered textures
+### Multi-layered textures
 
 You can use several image files as layers to compose more realistic textures, for example including a `bumpTexture` and a `emissiveTexture`.
 
 ```ts
 Material.setPbrMaterial(myEntity, {
-  texture: Material.Texture.Common({
-    src: 'materials/wood.png',
-  }),
-  bumpTexture: Material.Texture.Common({
-    src: 'materials/woodBump.png',
-  }),
+	texture: Material.Texture.Common({
+		src: 'materials/wood.png',
+	}),
+	bumpTexture: Material.Texture.Common({
+		src: 'materials/woodBump.png',
+	}),
 })
 ```
 
-#### Texture wrapping
+### Texture wrapping
 
 If you want the texture to be mapped to specific scale or alignment on your entities, then you need to configure _uv_ properties on the [MeshRenderer component]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}).
 
@@ -185,34 +185,34 @@ You set _u_ and _v_ coordinates on the 2D image of the texture to correspond to 
 ```ts
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setPlane(
-  meshEntity,
-  [
-    0, 0.75,
+	meshEntity,
+	[
+		0, 0.75,
 
-    0.25, 0.75,
+		0.25, 0.75,
 
-    0.25, 1,
+		0.25, 1,
 
-    0, 1,
+		0, 1,
 
-    0, 0.75,
+		0, 0.75,
 
-    0.25, 0.75,
+		0.25, 0.75,
 
-    0.25, 1,
+		0.25, 1,
 
-    0, 1,
-  ]
+		0, 1,
+	]
 )
 
 Material.setPbrMaterial(myEntity, {
-  texture: Material.Texture.Common({
-    src: 'materials/wood.png',
-    wrapMode: TextureWrapMode.TWM_REPEAT,
-  }),
+	texture: Material.Texture.Common({
+		src: 'materials/wood.png',
+		wrapMode: TextureWrapMode.TWM_REPEAT,
+	}),
 })
 ```
 
@@ -221,45 +221,45 @@ The following example includes a function that simplifies the setting of uvs. Th
 ```ts
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity, setUVs(3, 3))
 
 Material.setPbrMaterial(myEntity, {
-  texture: Material.Texture.Common({
-    src: 'materials/atlas.png',
-    wrapMode: TextureWrapMode.TWM_REPEAT,
-  }),
+	texture: Material.Texture.Common({
+		src: 'materials/atlas.png',
+		wrapMode: TextureWrapMode.TWM_REPEAT,
+	}),
 })
 
 function setUVs(rows: number, cols: number) {
-  return [
-    // North side of unrortated plane
-    0, //lower-left corner
-    0,
+	return [
+		// North side of unrortated plane
+		0, //lower-left corner
+		0,
 
-    cols, //lower-right corner
-    0,
+		cols, //lower-right corner
+		0,
 
-    cols, //upper-right corner
-    rows,
+		cols, //upper-right corner
+		rows,
 
-    0, //upper left-corner
-    rows,
+		0, //upper left-corner
+		rows,
 
-    // South side of unrortated plane
-    cols, // lower-right corner
-    0,
+		// South side of unrortated plane
+		cols, // lower-right corner
+		0,
 
-    0, // lower-left corner
-    0,
+		0, // lower-left corner
+		0,
 
-    0, // upper-left corner
-    rows,
+		0, // upper-left corner
+		rows,
 
-    cols, // upper-right corner
-    rows,
-  ]
+		cols, // upper-right corner
+		rows,
+	]
 }
 ```
 
@@ -273,10 +273,10 @@ You can also define how the texture is tiled if the mapping spans more than the 
 
 ```ts
 Material.setPbrMaterial(myEntity, {
-  texture: Material.Texture.Common({
-    src: 'materials/atlas.png',
-    wrapMode: TextureWrapMode.TWM_MIRROR,
-  }),
+	texture: Material.Texture.Common({
+		src: 'materials/atlas.png',
+		wrapMode: TextureWrapMode.TWM_MIRROR,
+	}),
 })
 ```
 
@@ -286,7 +286,7 @@ The example above sets the wrapping mode to `TWM_MIRROR`.
 **📔 Note**: Uv properties are currently only available on `plane` and on `box` shapes.
 {{< /hint >}}
 
-#### Texture scaling
+### Texture scaling
 
 When textures are stretched or shrinked to a different size from the original texture image, this can sometimes create artifacts. In a 3D environment, the effects of perspective cause this naturally. There are various [texture filtering](https://en.wikipedia.org/wiki/Texture_filtering) algorithms that exist to compensate for this in different ways.
 
@@ -298,10 +298,10 @@ The `Material` object uses the _bilinear_ algorithm by default, but it lets you 
 
 ```ts
 Material.setPbrMaterial(myEntity, {
-  texture: Material.Texture.Common({
-    src: 'materials/atlas.png',
-    filterMode: TextureFilterMode.TFM_BILINEAR,
-  }),
+	texture: Material.Texture.Common({
+		src: 'materials/atlas.png',
+		filterMode: TextureFilterMode.TFM_BILINEAR,
+	}),
 })
 ```
 
@@ -311,9 +311,9 @@ To display a thumbnail image of any player, use `Material.Texture.Avatar` when s
 
 ```ts
 Material.setPbrMaterial(myEntity, {
-  texture: Material.Texture.Avatar({
-    userId: '0x517....',
-  }),
+	texture: Material.Texture.Avatar({
+		userId: '0x517....',
+	}),
 })
 ```
 
@@ -335,7 +335,7 @@ To make a material with a plain color transparent, simply define the color as a 
 let transparentRed = Color4.create(1, 0, 0, 0.5)
 
 Material.setPbrMaterial(meshEntity, {
-  albedoColor: transparentRed,
+	albedoColor: transparentRed,
 })
 ```
 
@@ -362,19 +362,19 @@ If you set the `transparencyMode` to `MaterialTransparencyMode.MTM_ALPHA_TEST`, 
 ```ts
 // Using alpha test
 Material.setPbrMaterial(meshEntity1, {
-  texture: Material.Texture.Common({
-    src: 'images/myTexture.png',
-  }),
-  transparencyMode: MaterialTransparencyMode.MTM_ALPHA_TEST,
-  alphaTest: 1,
+	texture: Material.Texture.Common({
+		src: 'images/myTexture.png',
+	}),
+	transparencyMode: MaterialTransparencyMode.MTM_ALPHA_TEST,
+	alphaTest: 1,
 })
 
 // Using a alpha blend
 Material.setPbrMaterial(meshEntity1, {
-  texture: Material.Texture.Common({
-    src: 'images/myTexture.png',
-  }),
-  transparencyMode: MaterialTransparencyMode.MTM_ALPHA_BLEND,
+	texture: Material.Texture.Common({
+		src: 'images/myTexture.png',
+	}),
+	transparencyMode: MaterialTransparencyMode.MTM_ALPHA_BLEND,
 })
 ```
 
@@ -409,25 +409,25 @@ The complete syntax for creating a `Materials` component, without any helpers to
 
 ```ts
 Material.create(myEntity, {
-  texture: {
-    tex: {
-      $case: 'texture',
-      texture: {
-        src: 'images/scene-thumbnail.png',
-      },
-    },
-  },
+	texture: {
+		tex: {
+			$case: 'texture',
+			texture: {
+				src: 'images/scene-thumbnail.png',
+			},
+		},
+	},
 })
 
 Material.create(myEntity, {
-  texture: {
-    tex: {
-      $case: 'avatarTexture',
-      avatarTexture: {
-        userId: '0x517....',
-      },
-    },
-  },
+	texture: {
+		tex: {
+			$case: 'avatarTexture',
+			avatarTexture: {
+				userId: '0x517....',
+			},
+		},
+	},
 })
 ```
 

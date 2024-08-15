@@ -14,9 +14,9 @@ Use the [Quests Client for SDK 7](https://github.com/decentraland/quests-client)
 
 ## Usage
 
-#### Installation
+### Installation
 
-##### Via the VS Code Extension
+#### Via the VS Code Extension
 
 Follow the steps in [Install a dependency]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md#install-a-dependency" >}}):
 
@@ -26,7 +26,7 @@ Follow the steps in [Install a dependency]({{< ref "/content/creator/sdk7/librar
 
 3. Visual Studio opens an input box at the top of the screen. Write `@dcl/quests-client`.
 
-##### Via the CLI
+#### Via the CLI
 
 Run this command in your scene's directory:
 

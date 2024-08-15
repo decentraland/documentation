@@ -190,7 +190,7 @@ dcl start --web3
 
 Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL in the browser window.
 
-#### Using the Ethereum test network
+### Using the Ethereum test network
 
 You can avoid using real currency while previewing the scene. For this, you must use the _Ethereum Sepolia test network_ and transfer fake MANA instead. To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_. You must also own MANA in the Sepolia blockchain, which you can acquire for free from Decentraland.
 

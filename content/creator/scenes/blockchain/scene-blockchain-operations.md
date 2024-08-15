@@ -58,12 +58,12 @@ Use the `getUserAccount()` function from the EthereumController to find a player
 import { getUserAccount } from '@decentraland/EthereumController'
 
 executeTask(async () => {
-  try {
-    const address = await getUserAccount()
-    log(address)
-  } catch (error) {
-    log(error.toString())
-  }
+	try {
+		const address = await getUserAccount()
+		log(address)
+	} catch (error) {
+		log(error.toString())
+	}
 })
 ```
 
@@ -77,19 +77,19 @@ import { getUserAccount } from '@decentraland/EthereumController'
 let registeredAddresses: String[] = []
 
 executeTask(async () => {
-  try {
-    const address = await getUserAccount()
-    let lowerCaseAddress = address.toLowerCase()
-    for (let i = 0; i < registeredAddresses.length; i++) {
-      if (lowerCaseAddress == registeredAddresses[i]) {
-        log('already registered')
-      } else {
-        registeredAddresses.push(lowerCaseAddress)
-      }
-    }
-  } catch (error) {
-    log(error.toString())
-  }
+	try {
+		const address = await getUserAccount()
+		let lowerCaseAddress = address.toLowerCase()
+		for (let i = 0; i < registeredAddresses.length; i++) {
+			if (lowerCaseAddress == registeredAddresses[i]) {
+				log('already registered')
+			} else {
+				registeredAddresses.push(lowerCaseAddress)
+			}
+		}
+	} catch (error) {
+		log(error.toString())
+	}
 })
 ```
 
@@ -137,9 +137,9 @@ Timestamp: 1512345678`
 let eth = EthereumController
 
 executeTask(async () => {
-  const convertedMessage = await eth.convertMessageToObject(messageToSign)
-  const { message, signature } = await eth.signMessage(convertedMessage)
-  log({ message, signature })
+	const convertedMessage = await eth.convertMessageToObject(messageToSign)
+	const { message, signature } = await eth.signMessage(convertedMessage)
+	log({ message, signature })
 })
 ```
 
@@ -159,22 +159,22 @@ Timestamp: 1512345678`
 let eth = EthereumController
 
 function signMessage(msg: string) {
-  executeTask(async () => {
-    const convertedMessage = await eth.convertMessageToObject(msg)
-    const { message, signature } = await eth.signMessage(convertedMessage)
-    log({ message, signature })
+	executeTask(async () => {
+		const convertedMessage = await eth.convertMessageToObject(msg)
+		const { message, signature } = await eth.signMessage(convertedMessage)
+		log({ message, signature })
 
-    const originalMessageHex = await toHex(msg)
-    const sentMessageHex = await toHex(message)
-    const isEqual = sentMessageHex === originalMessageHex
-    log('Is the message correct?', isEqual)
-  })
+		const originalMessageHex = await toHex(msg)
+		const sentMessageHex = await toHex(message)
+		const isEqual = sentMessageHex === originalMessageHex
+		log('Is the message correct?', isEqual)
+	})
 }
 
 signMessage(messageToSign)
 ```
 
-#### Require a payment
+### Require a payment
 
 The `requirePayment()` function prompts the player to accept paying a sum to an Ethereum wallet of your choice.
 
@@ -198,22 +198,22 @@ const myWallet = '0x0123456789...'
 const enterPrice = 0.05
 
 function payment() {
-  executeTask(async () => {
-    try {
-      await eth.requirePayment(myWallet, enterPrice, 'ETH')
-      openDoor()
-    } catch {
-      log('failed process payment')
-    }
-  })
+	executeTask(async () => {
+		try {
+			await eth.requirePayment(myWallet, enterPrice, 'ETH')
+			openDoor()
+		} catch {
+			log('failed process payment')
+		}
+	})
 }
 
 const button = new Entity()
 button.addComponent(new BoxShape())
 button.addComponent(
-  new OnClick((e) => {
-    payment()
-  })
+	new OnClick((e) => {
+		payment()
+	})
 )
 engine.addEntity(button)
 ```
@@ -238,7 +238,7 @@ It's main use is to call functions in a contract, it also offers a number of hel
 **📔 Note**: The eth-connect library is currently lacking more in-depth documentation. Since this library is mostly based on the Web3.js library and most of the function names are intentionally kept identical to those in Web3.js, it can often help to refer to [Web3's documentation](https://web3js.readthedocs.io/en/1.0/).
 {{< /hint >}}
 
-#### Download and import the eth-connect library
+### Download and import the eth-connect library
 
 To use eth-connect library, you must manually install the package via `npm` in your scene's folder. To do so, run the following command in the scene folder:
 
@@ -258,7 +258,7 @@ Once installed, you can import whatever you need from `eth-connect` to the scene
 import { toHex } from 'eth-connect'
 ```
 
-#### Import a contract ABI
+### Import a contract ABI
 
 An ABI (Application Binary Interface) describes how to interact with an Ethereum contract, determining what functions are available, what inputs they take and what they output. Each Ethereum contract has its own ABI, you should import the ABIs of all the contracts you wish to use in your project.
 
@@ -318,7 +318,7 @@ Configuring TypeScript to be able to import from a JSON file has its difficultie
 
 For example, if the ABI file's contents starts with `[{"constant":true,"inputs":[{"internalType":"bytes4" ...etc`, modify it so that it starts with `export default [{"constant":true,"inputs":[{"internalType":"bytes4" ...etc`.
 
-#### Instance a contract
+### Instance a contract
 
 After importing the `eth-connect` library and a contract's _abi_, you must instance several objects that will allow you to use the functions in the contract and connect to Metamask in the player's browser.
 
@@ -330,14 +330,16 @@ import { abi } from '../contracts/mana'
 import { getProvider } from '@decentraland/web3-provider'
 
 executeTask(async () => {
-  // create an instance of the web3 provider to interface with Metamask
-  const provider = await getProvider()
-  // Create the object that will handle the sending and receiving of RPC messages
-  const requestManager = new RequestManager(provider)
-  // Create a factory object based on the abi
-  const factory = new ContractFactory(requestManager, abi)
-  // Use the factory object to instance a `contract` object, referencing a specific contract
-  const contract = (await factory.at('0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb')) as any
+	// create an instance of the web3 provider to interface with Metamask
+	const provider = await getProvider()
+	// Create the object that will handle the sending and receiving of RPC messages
+	const requestManager = new RequestManager(provider)
+	// Create a factory object based on the abi
+	const factory = new ContractFactory(requestManager, abi)
+	// Use the factory object to instance a `contract` object, referencing a specific contract
+	const contract = (await factory.at(
+		'0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb'
+	)) as any
 })
 ```
 
@@ -347,7 +349,7 @@ Note that several of these functions must be called using `await`, since they re
 **💡 Tip**: For contracts that follow a same standard, such as ERC20 or ERC721, you can import a single generic ABI for all. You then generate a single `ContractFactory` object with that ABI and use that same factory to instance interfaces for each contract.
 {{< /hint >}}
 
-#### Call the methods in a contract
+### Call the methods in a contract
 
 Once you've created a `contract` object, you can easily call the functions that are defined in its ABI, passing it the specified input parameters.
 
@@ -358,30 +360,36 @@ import { RequestManager, ContractFactory } from 'eth-connect'
 import { abi } from '../contracts/mana'
 
 executeTask(async () => {
-  try {
-    // Setup steps explained in the section above
-    const provider = await getProvider()
-    const requestManager = new RequestManager(provider)
-    const factory = new ContractFactory(requestManager, abi)
-    const contract = (await factory.at('0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb')) as any
-    const address = await getUserAccount()
-    log(address)
+	try {
+		// Setup steps explained in the section above
+		const provider = await getProvider()
+		const requestManager = new RequestManager(provider)
+		const factory = new ContractFactory(requestManager, abi)
+		const contract = (await factory.at(
+			'0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb'
+		)) as any
+		const address = await getUserAccount()
+		log(address)
 
-    // Perform a function from the contract
-    const res = await contract.setBalance('0xaFA48Fad27C7cAB28dC6E970E4BFda7F7c8D60Fb', 100, {
-      from: address,
-    })
-    // Log response
-    log(res)
-  } catch (error) {
-    log(error.toString())
-  }
+		// Perform a function from the contract
+		const res = await contract.setBalance(
+			'0xaFA48Fad27C7cAB28dC6E970E4BFda7F7c8D60Fb',
+			100,
+			{
+				from: address,
+			}
+		)
+		// Log response
+		log(res)
+	} catch (error) {
+		log(error.toString())
+	}
 })
 ```
 
 The example above uses the abi for the Ropsten MANA contract and transfers 100 _fake MANA_ to your account in the Ropsten test network.
 
-#### Other functions
+### Other functions
 
 The eth-connect library includes a number of other helpers you can use. For example to:
 
