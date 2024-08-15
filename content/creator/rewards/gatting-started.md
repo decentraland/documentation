@@ -59,11 +59,11 @@ When you create a new campaign, it doesn't contain any items. You'll need to add
 
     a) Click on the **Add supply** button to see all collections the campaign has minting permissions on.
 
-        <img src="/images/rewards/collection-available.png" alt="Collection available" style="width:100%; margin: 0 auto;display: block; max-with: 600px" width="1808" hegiht="1494" />
+<img src="/images/rewards/collection-available.png" alt="Collection available" style="width:100%; margin: 0 auto;display: block; max-with: 600px" width="1808" hegiht="1494" />
 
     b) Select the collection item you want to add to the stock, and click on the **Add supply** button.
 
-        <img src="/images/rewards/add-supply.png" alt="add supply" style="width:100%; margin: 0 auto;display: block; max-with: 600px" width="1816" hegiht="772" />
+<img src="/images/rewards/add-supply.png" alt="add supply" style="width:100%; margin: 0 auto;display: block; max-with: 600px" width="1816" hegiht="772" />
 
     c) Select the amount of items you want to add to the campaign stock and click on the **Add supply** button.
 

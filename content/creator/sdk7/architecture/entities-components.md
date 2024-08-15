@@ -359,7 +359,11 @@ VisibilityComponent.onChange(cubeEntity, (newVisibilityComponent) => {
 
 If the component is removed from the entity, then the function is called with an input of `undefined`.
 
-# Reserved entities
+{{< hint warning >}}
+**📔 Note**: The `.onChange()` function currently only works with native components of the SDK, it doesn't work with [custom comopnents]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) defined by the creator.
+{{< /hint >}}
+
+## Reserved entities
 
 Certain entity ids are reserved for special entities that exist in every scene. They can be accessed via the following aliases:
 
