@@ -50,7 +50,7 @@ To regain access to a blocked World, users can either acquire more MANA, Decentr
 
 ### Worlds from ENS Domains
 
-In contrast, Worlds granted from ENS domains have a fixed maximum scene file size of 25 Mb per World, regardless of the user’s other Decentraland holdings. Users with Worlds from ENS domains cannot increase their ENS World scene size limit by purchasing additional MANA or LAND.
+In contrast, Worlds granted from ENS domains have a fixed maximum scene file size of 36 Mb per World, regardless of the user’s other Decentraland holdings. Users with Worlds from ENS domains cannot increase their ENS World scene size limit by purchasing additional MANA or LAND.
 
 However, Worlds granted by ENS domain ownership serve as the perfect first step into realizing the creative freedom offered by Decentraland. At the same time, get your own little corner of the metaverse where you are free to begin transforming your ideas into reality.
 
