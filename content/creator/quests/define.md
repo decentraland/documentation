@@ -1,5 +1,5 @@
 ---
-title: 'Defining a Quest'
+title: "Defining a Quest"
 url: /creator/quests/define
 weight: 2
 ---
@@ -53,17 +53,21 @@ Below is the full Quest schema as a Typescript type:
 The `definition` field is the most important section, as it defines the actual steps and their order.
 
 - `steps`: An array of steps. Each step has an `id`, a `description` and an array of `tasks`. Steps are **ordered**, which means that a player will need to go through each of them, fulfilling each of their tasks in other to advance to the next one in the definition.
+
   - `id`: A unique identifier of the step.
   - `description`: A short description of the step. This information is suitable to be used as a display name or human friendly label for the current step to be seen by players of the quest through the HUD.
   - `tasks`: An array of tasks that the player has to complete to consider the step as done. Each task has an `id`, a `description` and an array of `actionItems`. The order of the tasks in a step is not important, the player will need to fulfill each of them to advance to the next one.
+
     - `id` A unique identifier of the task.
     - `description` A short description of the task. This information is suitable to be used as a display name or human friendly label for the current task to be seen by players of the quest through the HUD.
 
-    - `actionItems`: An array of action items that the player has to complete to consider the task as done. *The order of the actions defined is not important*, the player is able to fulfill each of the different items in a single task in any order. Each action item has a `type` and a `parameters` field.
+    - `actionItems`: An array of action items that the player has to complete to consider the task as done. _The order of the actions defined is not important_, the player is able to fulfill each of the different items in a single task in any order. Each action item has a `type` and a `parameters` field.
+
       - `type`: The type of the action item. Find the supported types [here]({{< ref "/content/creator/quests/define.md#action-items" >}}).
       - `parameters`: An object with the parameters needed to complete the action item. The parameters are depend on the type of the action item. Find the supported parameters [here]({{< ref "/content/creator/quests/define.md#action-items" >}}).
 
       **Note:** `actionItems` **will not be publicly available** for anyone but the owner of the quest.
+
 - `connections`: An array of connections. Each connection has a `stepFrom` and a `stepTo` field. The connections define the order of the steps. Steps that don't have a `stepFrom` in this array are considered the starting steps of the Quest. Steps that don't have a `stepTo` in this array are considered the ending steps of the Quest. Note that one step can lead to multiple steps at once.
   - `stepFrom`: The `id` of the step where the connection starts.
   - `stepTo`: The `id` of the step where the connection ends.
@@ -155,7 +159,7 @@ An example of a `CUSTOM` action item could be a "click a box", or "kill 10 zombi
 
 ## Examples of Defined Quests
 
-###### Linear Quest
+##### Linear Quest
 
 A linear Quest "Z World", with just only two step and with `CUSTOM` action types:
 
@@ -213,7 +217,7 @@ A linear Quest "Z World", with just only two step and with `CUSTOM` action types
 }
 ```
 
-###### Linear Quest 2
+##### Linear Quest 2
 
 A linear Quest "Z World", with 3 steps and with `CUSTOM`, `LOCATION` ad `JUMP` action types:
 
@@ -295,7 +299,7 @@ A linear Quest "Z World", with 3 steps and with `CUSTOM`, `LOCATION` ad `JUMP` a
 }
 ```
 
-###### Linear Quest 3
+##### Linear Quest 3
 
 A linear Quest "Z World", similar to "Linear Quest 2" but this one **gives rewards to its players**. It uses `https://the-rewards-webhook-url.com/rewards` as the webhook URL, so this endpoint will be called when a user completes this Quest. The request to this server includes a JSON in the Request Body. The JSON has two placeholders that are replaced by the Quests Server with the actual values. The rewards include **only one** item called "Zombie Head", with the image `https://the-wearable-item-image.com`:
 
@@ -397,9 +401,9 @@ A linear Quest "Z World", similar to "Linear Quest 2" but this one **gives rewar
 **💡 Tip**: To give more than one item as a reward, add more items to the `items` array. These images may be used to display a quest's rewards in-world.
 {{< /hint >}}
 
-###### Branching Quest
+##### Branching Quest
 
-This Quest is *more complex*. A Branching Quest "Z World", with 4 steps:
+This Quest is _more complex_. A Branching Quest "Z World", with 4 steps:
 
 - `STEP_1_1`: **One** of two possible **fist steps** of the Quest. It has two tasks: `STEP_1_1` and `STEP_1_2`. Both tasks have only one action item, and both action items are `CUSTOM` action items.
 
