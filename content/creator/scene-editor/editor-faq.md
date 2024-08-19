@@ -1,7 +1,7 @@
 ---
 date: 2024-07-25
 title: Editor FAQs
-description: Frequently asked questions about the editor
+description: Frequently asked questions about the Scene Editor
 categories:
   - scene-editor
 type: Document
@@ -62,7 +62,7 @@ Scenes are stored on your local disk, which allows you to upload the files to an
 
 {{< details class="faq-details" anchor="true" title="How do I save projects?" >}}
 
-Projects are saved automatically to your local disk. Any change you make on the visual editor is immediately saved.
+Projects are saved automatically to your local disk. Any change you make on the Scene Editor UI is immediately saved.
 
 {{</ details >}}
 
@@ -100,7 +100,7 @@ Right now, all of the models come with one texture, but we agree that it’d be 
 
 {{</ details >}}
 
-{{< details class="faq-details" anchor="true" title="Where can I find the default 3D models in the Editor's asset packs, in case I want to edit them?" >}}
+{{< details class="faq-details" anchor="true" title="Where can I find the default 3D models in the Scene Editor's asset packs, in case I want to edit them?" >}}
 
 The model's files get added to your project's folder on your local machine as soon as you drag an item into your scene. You'll find all your scene's models under the sub folder `./assets/builder/<item name>` inside the project folder.
 

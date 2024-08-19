@@ -13,6 +13,12 @@ Smart wearables are a type of global scene. Like [portable experiences]({{< ref 
 
 Smart wearables are portable experiences that are turned on when the player puts on a certain item of clothing. Smart wearables can grant players new abilities, like a jetpack that lets them fly, or add a new layer of content on top of the rest of the world, like randomly placing coins to be collected throughout the whole of genesis city.
 
+{{< hint warning >}}
+**📔 Note**: Smart Wearables can only be created using SDK 7.
+
+The **Creator Hub** doesn't currently support creating Smart Wearables projects. Use the **VS Studio Code** extension instead.
+{{< /hint >}}
+
 ## Getting started
 
 ### Using the VS Code Extension
@@ -22,7 +28,7 @@ Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/conten
 1. Open a Visual Studio Code window on an _empty folder_.
 2. Select the Decentraland tab on Visual Studio's left margin sidebar
 3. Click **Create Project**
-4. The editor will prompt you about what kind of project to create. Select **Smart Wearable**.
+4. The Decentraland extension will prompt you about what kind of project to create. Select **Smart Wearable**.
 
 ### Using the CLI
 
@@ -213,7 +219,7 @@ To publish your smart wearable:
 > <li>Drag the new smart-wearable.zip file into the Builder.</li>
 > </ol>
 
-5. Open the editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
+5. Open wearables editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
 6. Create a new collection with this and perhaps other wearables.
 7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Sepolia, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
 8. At this point, your wearable is ready to be published.

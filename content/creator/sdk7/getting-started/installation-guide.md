@@ -19,9 +19,11 @@ weight: 2
 
 The **Creator Hub** is the recommended tool for creating content for Decentraland.
 
-[Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}})
+See installation instructions on [Creator Hub Installation]({{< ref "/content/creator/scene-editor/editor-installation.md" >}})
 
-<!-- TODO -->
+<!-- TODO
+image & more info
+ -->
 
 ## VS Code Extension
 

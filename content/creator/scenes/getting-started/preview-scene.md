@@ -95,8 +95,6 @@ You can add the following flags to the `dcl start` command to change its behavio
 
 Once you're happy with your scene, you can upload it and publish it to Decentraland, see [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) ) for instructions on how to do that.
 
-You can also upload a preview to a free 3rd party server, [see instructions here]({{< ref "/content/creator/scenes/publishing/deploy-third-party.md" >}}).
-
 ## Preview scene size
 
 The scene size shown in the preview is based on the scene's configuration. By default, the scene occupies a single parcel (16 x 16 meters).

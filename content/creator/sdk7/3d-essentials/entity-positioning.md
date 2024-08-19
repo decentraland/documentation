@@ -13,7 +13,7 @@ You can set the _position_, _rotation_ and _scale_ of any entity by using the `T
 
 ## Editor UI
 
-When dragging entities via the Visual Editor, in the [Decentraland Editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}), you are changing the values in the entity's Transform implicitly. By changing the position, rotation or scale of an entity, this changes the data in that entity's Transform component.
+When dragging entities via the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you are changing the values in the entity's Transform implicitly. By changing the position, rotation or scale of an entity, this changes the data in that entity's Transform component.
 
 ## Code essentials
 
@@ -427,8 +427,7 @@ The following anchor points are available on the `AvatarAnchorPointType` enum:
 
 - `AAPT_POSITION` _DEPRECATED_: The player's overall position. This appears at a height of 0.8 above the player's feet.
 
-  > {{< hint warning >}}
-  > **📔 Note**: The `AAPT_POSITION` is deprecated. To follow the player's overall position, it's best to make the entity a child of the to the Avatar Entity. See start of this section for an example.
+  > {{< hint warning >}} > **📔 Note**: The `AAPT_POSITION` is deprecated. To follow the player's overall position, it's best to make the entity a child of the to the Avatar Entity. See start of this section for an example.
   > {{< /hint >}}
 
 {{< hint info >}}

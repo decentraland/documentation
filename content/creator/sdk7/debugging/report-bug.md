@@ -9,7 +9,7 @@ url: /creator/development-guide/sdk7/report-a-bug/
 weight: 4
 ---
 
-If you encounter any bugs or issues with the Decentraland SDK and the Editor, please report them on our GitHub repository [here](https://github.com/decentraland/sdk/issues/new/choose).
+If you encounter any bugs or issues with the Decentraland SDK and the Scene Editor, please report them on our GitHub repository [here](https://github.com/decentraland/sdk/issues/new/choose).
 
 ## Before you report a bug
 

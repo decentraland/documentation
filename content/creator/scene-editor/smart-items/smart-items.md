@@ -41,7 +41,7 @@ All smart items can be configured to behave in custom ways. For example how far 
 
 ## Configure an item
 
-Select an item in the Editor to view all of its properties on the right.
+Select an item in the Scene Editor to view all of its properties on the right.
 
 Some typical fields you can find in many items are:
 

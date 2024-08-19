@@ -23,6 +23,10 @@ Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-edi
 
 ## Using the VS Code Extension
 
+{{< hint warning >}}
+**📔 Note**: The VS Code Extension will open your scene preview on the legacy Web Explorer.
+{{< /hint >}}
+
 To run a scene preview using the VS Code Extension:
 
 Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
@@ -72,34 +76,27 @@ You can add the following flags to the `npm run start` command to change its beh
 
 ## Upload a scene to decentraland
 
-Once you're happy with your scene, you can upload it and publish it to Decentraland, see [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for instructions on how to do that.
-
-You can also upload a preview to a free 3rd party server, [see instructions here]({{< ref "/content/creator/sdk7/publishing/deploy-third-party.md" >}}).
+Once you're happy with your scene, you can upload it and publish it to Decentraland. For this you must own LAND, a Decentraland NAME, or an ETH ENS name, or have permissions given by someone that does. See [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for instructions on how to do that.
 
 ## Preview scene size
 
-The scene size shown in the preview is based on the scene's configuration, you set this when building the scene using the CLI. By default, the scene occupies a single parcel (16 x 16 meters).
+The scene size shown in the preview is based on the scene's configuration.
 
-If you're building a scene to be uploaded to several adjacent parcels, you can edit the _scene.json_ file to reflect this, listing multiple parcels in the "parcels" field. Placing any entities outside the bounds of the listed parcels will display them in red.
+Edit this on the second tab of the scene menu in the Scene Editor.
 
-```json
- "scene": {
-    "parcels": [
-      "0,0",
-      "0,1",
-      "1,0",
-      "1,1"
-    ],
-    "base": "0,0"
-  },
-```
+<img src="/images/editor/scene-parcels-3x3.png" alt="Scene name" width="300"/>
 
-You can also change the coordinates by running the `npx update-parcels` command from the command line, this is especially useful on large scenes with many parcels. See [set parcels via the command line]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#set-parcels-via-the-command-line">}}) for more details.
+Use the dropdowns and click **Apply Layout** to change the dimensions of your scene. You can also click each individual parcel to toggle it off from your layout.
+
+<img src="/images/editor/scene-parcels-toggled.png" alt="Scene name" width="300"/>
+
+Y can also edit the _scene.json_ file to list multiple parcels in the "parcels" field. See [set parcels via the command line]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#scene-parcels">}}) for more details.
 
 {{< hint info >}}
 **💡 Tip**: While running the preview, the parcel coordinates don't need to match those that your scene will really use, as long as they're adjacent and are arranged into the same shape. You will have to replace these with the actual coordinates later when you [deploy the scene](#upload-a-scene-to-decentraland).
 {{< /hint >}}
 
+<!--
 ## Run preview in Desktop
 
 To run a preview scene in the Desktop native client, instead of in the web browser:
@@ -118,4 +115,4 @@ To run a preview scene in the Desktop native client, instead of in the web brows
 
    ![](/images/media/desktop-preview.png)
 
-   If you need to manually add anything to the URL, to change the default way the scene runs, tick the box **Add custom URL parameters** and write those in the dialog below.
+   If you need to manually add anything to the URL, to change the default way the scene runs, tick the box **Add custom URL parameters** and write those in the dialog below. -->

@@ -56,7 +56,7 @@ Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/conten
 
 ## View scene stats
 
-Open the scene's stats by expanding the debug menu and toggling **FPS Panel**. This panel displays information about the renderer engine, and is updated in real time as things change.
+Open the scene's stats by running `/debug` on the chat panel. This opens a panel with information about the renderer engine, and is updated in real time as things change.
 
 ### FPS
 
@@ -70,7 +70,7 @@ The first section shows the renderer's _FPS_ (Frames Per Second). This value wil
 
 The second section displays the memory use on the browser. Always try to keep this value below 1 GB. If this value grows too much, it risks crashing the browser for players visiting your scene. Keep in mind that in production, the scene might be loaded together with other surrounding scenes and players, which can all contribute to the memory consumption.
 
-### General
+<!-- ### General
 
 The third section includes general information about how the scene is running. What Catalyst realm, and what Ethereum network is being used, also how many other players are around currently being rendered.
 
@@ -94,7 +94,7 @@ The other numbers in the panel refer to the usage of resources, they display the
 
 {{< hint warning >}}
 **📔 Note**: Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
-{{< /hint >}}
+{{< /hint >}} -->
 
 ## Report a bug
 
@@ -125,26 +125,24 @@ executeTask(async () => {
 
 ## Dependency versions
 
-Running a Decentraland scene locally depends on two main libraries: `decentraland` (the CLI, which is installed globally on your machine) and `decentraland-ecs`, which is installed on each project folder. Make sure both of those are up to date, as any issues you're experiencing might already be fixed in newer versions. There may also be compatibility problems when attempting to run with one of these two outdated and the other up to date. You can run the following commands to update both these libraries to the latest stable version:
+Running a Decentraland scene locally depends on two main libraries: `@dcl/sdk` and `@dcl/js-runtime`, which is installed on each project folder. Make sure both of those are up to date, as any issues you're experiencing might already be fixed in newer versions. There may also be compatibility problems when attempting to run with one of these two outdated and the other up to date. You can run the following commands to update both these libraries to the latest stable version:
 
 ```
-npm i -g decentraland@latest
-npm i decentraland-ecs@latest
+npm i @dcl/js-runtime@latest
+npm i @dcl/sdk@latest
 ```
 
-If you're using any of the [utils libraries](https://studios.decentraland.org/resources?sdk_version=SDK7&resource_type=Library) make sure those are also up to date, as older versions of these libraries may not be compatible with newer versions of `decentraland-ecs`.
-
-The `decentraland-ecs` library has in turn a couple of internal dependencies that are installed with it: the `renderer` and the `kernel`. Each `decentraland-ecs` version is paired with its corresponding versions of both. In occasions, it may be useful to try switching versions of these dependencies independently, to better pinpoint where an issue has originated. You can force your preview to use a different version of the `renderer` or of the `kernel` by simply providing the url parameters `renderer-version` and `kernel-version`, pointing at a specific commit.
-
-For example, you can run your preview with the following URL:
-
-> http\://127.0.0.1:8000/?position=0%2C0&SCENE_DEBUG_PANEL&renderer-version=1.0.12119-20210830195045.commit-a8be53a
-
-To find out what versions are available to choose from on each dependency, check the version history on the NPM pages for the [Renderer](https://www.npmjs.com/package/@dcl/unity-renderer) and for the [Kernel](https://www.npmjs.com/package/decentraland-kernel). To know what versions of these dependencies are in use by default by a specific `decentraland-ecs` version, you can run the following command, indicating the `decentraland-ecs` version you're curious about:
+If your scene uses smart items, it may also be using the `@dcl/asset-packs` library, which you can update via:
 
 ```
-npm info decentraland-ecs@6.6.7
+npm i @dcl/asset-packs@latest
 ```
+
+If you're using any of the [utils libraries](https://studios.decentraland.org/resources?sdk_version=SDK7&resource_type=Library) make sure those are also up to date, as older versions of these libraries may not be compatible with newer versions of `@dcl/sdk`.
+
+### Web previews
+
+Each `@dcl/sdk` version is paired with its corresponding versions of the renderer to run a web-based preview. If using an outdated version of the SDK, this may differ from the latest version of the renderer that users will experience when the scene is published. You can force your preview to use a different version of the `explorer` by simply providing the url parameters `explorer-branch`. For example `explorer-branch=latest` will use what's currently in production. You can also use `explorer-branch=dev` to test with the unpublished version, which may be unstable.
 
 <!--
 ## View collision meshes
@@ -156,16 +154,6 @@ While viewing the preview, you can press `c` to view any collision meshes loaded
 Collision meshes can be added to any model in an external 3D modeling tool like Blender. Large models like houses often include these, they are usually a lot simpler geometrically than the original shape, as this implies much less computational requirements. Stairs typically use a simplified collision mesh like a ramp to make it easier to climb. See [colliders](/creator/3d-modeling/colliders) for more details.
 
 -->
-
-## View bounding boxes
-
-While running a scene preview, open the debug menu (on the right of the minimap) and click **Bounding Boxes** to toggle the visualization of bounding boxes on and off.
-
-Bounding boxes are displayed as thin white boxes around each mesh. Bounding boxes show the limits of the space occupied by a 3D model. Every mesh in a 3D model has its own bounding box.
-
-When Decentraland's engine checks if an entity is within the scene limits, it looks at the positions of each corner of the bounding box. Checking the corners of the bounding boxes is an engine optimization, as checking the position of each vertex in the model would be a lot more work. Ideally the bounding box shouldn't extend beyond the visible vertexes of the model, but it may not be the case if the model wasn't carefully built with this in mind.
-
-By visualizing bounding boxes, you can debug problems with entities being reported as outside the scene limits.
 
 ## Lighting conditions
 
@@ -182,31 +170,21 @@ Your 3D model's materials might not look the same as they did in the modeling to
 
 ## Avatars and accounts
 
-To use the avatar that's linked to your active Metamask account, with access to all of your owned wearables, you need to run the preview in the browser with Web3.
+When opening a preview, you connect via your Metamask account, so you can have access to all your owned wearables and tokens.
 
-In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
+{{< hint warning >}}
+**📔 Note**: When running a preview with the legacy web explorer, by default you run with a **guest** account. You're assigned a random base avatar each time you reload.
 
-With the CLI, you can start the preview with:
+To run a web preview with a Web3 account with the CLI, start the preview with:
 
 ```
 npm run start -- --web3
 ```
 
 Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL in the browser window.
+{{< /hint >}}
 
-When running a preview normally, without a connected Web3 account, you're assigned a random avatar each time you reload.
-
-To use a consist guest avatar across your sessions, you can store an avatar profile by adding a `PLAYER` parameter to the URL with any string as its value. When using this, the preview will store your avatar’s settings locally on your browser, to retrieve them whenever you use the same string on the `PLAYER` parameter. For example, every time you open the preview with the URL `http://127.0.0.1:8000/?PLAYER=ringo`, you’ll have the same avatar.
-
-## Connecting to Ethereum network
-
-If your scene makes use of transactions over the Ethereum network, for example if it prompts you to pay a sum in MANA to open a door, you need to run the preview in the browser with Web3.
-
-In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
-
-Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL in the browser window.
-
-### Using the Ethereum test network
+## Using the Ethereum test network
 
 You can avoid using real currency while previewing the scene. For this, you must use the _Ethereum Sepolia test network_ and transfer fake MANA instead. To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_. You must also own MANA in the Sepolia blockchain, which you can acquire for free from Decentraland.
 
@@ -214,7 +192,11 @@ Any transactions that you accept while viewing the scene in this mode will only 
 
 ## Multiplayer testing
 
-If you open a second preview window on your machine, you will enter the scene with a different avatar. The avatars on both tabs will be able to see each other and interact, although currently they might have inconsistent names and wearables on.
+{{< hint warning >}}
+**📔 Note**: Currently you can only open one window at a time for the desktop explorer.
+{{< /hint >}}
+
+When opening the web explorer, if you open a second preview window on your machine, you will enter the scene with a different avatar. The avatars on both tabs will be able to see each other and interact, although currently they might have inconsistent names and wearables on.
 
 {{< hint warning >}}
 **📔 Note**: You can't open multiple tabs using the same account. So if your URL has a hardcoded `PLAYER` parameter with the same string on multiple tabs, or you're connecting to Metamask on more than one tab, it won't be possible to load them all. Each simultaneous tab should load a different account.

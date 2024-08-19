@@ -26,13 +26,21 @@ All creators are welcome! In Decentraland you have a wide range of Creative poss
 
 Use these tools to create Decentraland scenes:
 
+- **The Creator Hub**: The recommended tool for creators of all knowledge levels. It lets you create scenes with an easy drag-and-drop interface. You can run previews, debug, edit code, and publish.
+
+  [Learn more]({{< ref "/content/creator/scene-editor/about-editor.md" >}})
+
+  <img src="/images/editor/scene-editor.png" width="600" />
+
+The following tools are deprecated but still available:
+
 - **Web Editor:** A lightweight tool, with no installation. Use an easy drag and drop interface to create scenes.
 
   [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
 
   <img src="/images/intro/web-editor.png" width="600" />
 
-- **Desktop Editor:** An all-in-one content creation tool. For users of any knowledge level, combining a graphical interface with code editing capabilities.
+- **Visual Studio Code Extension:** An all-in-one content creation tool, combining a graphical interface with code editing capabilities.
 
   [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
@@ -52,11 +60,11 @@ Use these tools to create Decentraland scenes:
 
 Decentraland scenes are made up of 3D models.
 
-- Chose from the wide catalog of default assets in both the Web Editor and the Desktop Editor. These are ready to go and optimized for using in Decentraland
+- Chose from the wide catalog of default assets in the Scene Editor. These are ready to go and optimized for using in Decentraland
 
   <img src="/images/intro/items.png" width="600" />
 
-- Craft your own 3D models using Blender or your preferred 3D tools. Then import them into either the the Web Editor or the Desktop Editor.
+- Craft your own 3D models using Blender or your preferred 3D tools. Then import them into the Scene Editor.
 
   <img src="/images/intro/blender.png" width="600" />
 
@@ -70,11 +78,11 @@ See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for t
 
 To make your scene interactive:
 
-- Use the UI of either the the Web Editor or the Desktop Editor to drop [Smart Items]({{< ref "/content/creator/sdk7/web-editor/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
+- Use the UI of the Scene Editor to drop [Smart Items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
 
   <img src="/images/intro/smart-items.png" width="600" />
 
-- For developers that want to incorporate custom logic, use the SDK in the Desktop Editor to write code and do anything you can imagine. Learn to use the SDK:
+- For developers that want to incorporate custom logic, use the SDK to write code and do anything you can imagine. Learn to use the SDK:
 
   - [Quick start]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}): follow this mini tutorial for a quick crash course.
   - [Development workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}): read this to understand scene creation from end to end.
@@ -84,7 +92,7 @@ To make your scene interactive:
 
 ### Publishing your scene
 
-You don't need to own any tokens to start building your scene, with either the Web Editor or the Desktop Editor. To publish your scene, you can chose from the following options:
+You don't need to own any tokens to start building your scene with the Scene Editor. To publish your scene, you can chose from the following options:
 
 - **LAND in Genesis City**: This is the main open world in Decentraland, which is split up in 16x16 meter parcels. Buy one or several adjacent parcels in the [Marketplace](https://decentraland.org/marketplace/lands), and deploy your scene there.
 - **Decentraland Worlds**: [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) are your own spaces in the metaverse. All you need is to own a [Decentraland name](https://decentraland.org/marketplace/names/claim), and you can publish a scene as big as you want!

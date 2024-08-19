@@ -1,7 +1,7 @@
 ---
 date: 2024-07-25
 title: Combine with code
-description: Combine content created on the editor with the power of writing code.
+description: Combine content created on the Scene Editor with the power of writing code.
 categories:
   - scene-editor
 type: Document

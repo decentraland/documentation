@@ -23,7 +23,7 @@ Although the Scene Editor in the Creator Hub is easier to use, the CLI allows yo
 {{< /hint >}}
 
 {{< hint info >}}
-**💡 Tip**: See [Instalation guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#creator-hub" >}}) for instructions on how to install the Scene Editor.
+**💡 Tip**: See [Instalation guide]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}) for instructions on how to install the Scene Editor.
 {{< /hint >}}
 
 ## Before you Begin

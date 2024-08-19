@@ -104,7 +104,7 @@ See [Visual editor essentials]({{< ref "/content/creator/scene-editor/visual-edi
 
 Decentraland scenes need to follow certain limitations, to be able to run them one next to another. There is a maximum number of materials, textures, triangles, etc, that is proportional to the number of parcels in the scene. See [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) for more details.
 
-If the content in your scene exceeds any of these limits, the editor will notify this on the bottom-left corner.
+If the content in your scene exceeds any of these limits, the Scene Editor will notify this on the bottom-left corner.
 
 <img src="/images/editor/triangle-limit1.png" width="250" />
 
@@ -116,7 +116,7 @@ You can expand this menu to view details.
 **💡 Tip**: If you're building a Decentraland World, you can always increase the [scene size]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#scene-sizes" >}}) to increase your limits.
 {{< /hint >}}
 
-The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any of the models in your scene extend beyond the limits, the editor will mark these in red.
+The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any of the models in your scene extend beyond the limits, the Scene Editor will mark these in red.
 
 <img src="/images/editor/out-of-bounds.png" width="250" />
 
@@ -136,7 +136,7 @@ See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}
 
 ## See also
 
-- See [Visual Editor Essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md" >}}) for more details about the Editor's interface.
+- See [Visual Editor Essentials]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md" >}}) for more details about the Scene Editor's interface.
 - See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for how to add simple interactivity to your scene.
 - See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}) for how to edit the code of your scene.
 - See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}) for how to publish your scene to Decentraland.

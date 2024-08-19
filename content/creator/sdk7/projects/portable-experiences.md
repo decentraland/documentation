@@ -14,6 +14,8 @@ Portable Experiences can be tied to a NAME and can be loaded by another scene us
 
 {{< hint warning >}}
 **📔 Note**: Portable experiences can only be created using SDK 7. Also, only scenes built with SDK 7 are capable of loading a portable experience.
+
+The **Creator Hub** doesn't currently support creating Portable Experience projects. Use the **VS Studio Code** extension instead.
 {{< /hint >}}
 
 Smart Wearables are a kind of portable experience that is associated to a wearable, and activated based on if the player is using that wearable. This document doesn't cover those, see [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}) for more details.
@@ -27,7 +29,7 @@ Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/conten
 1. Open a Visual Studio Code window on an _empty folder_.
 2. Select the Decentraland tab on Visual Studio's left margin sidebar
 3. Click **Create Project**
-4. The editor will prompt you about what kind of project to create. Select **Portable Experience**.
+4. The Decentraland extension will prompt you about what kind of project to create. Select **Portable Experience**.
 
 This command creates the basic files and structure for a new portable experience scene. This folder is very similar to that of a Decentraland scene, but you will notice the following differences:
 

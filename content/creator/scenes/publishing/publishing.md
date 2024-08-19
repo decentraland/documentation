@@ -66,17 +66,13 @@ Open your scene's _scene.json_ file and complete the following data:
 
 Make sure you've [installed the VS Studio Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
-{{< hint warning >}}
-**📔 Note**: Deployment to Worlds is not yet supported from the Editor.
-{{< /hint >}}
-
 1. Open your scene's folder using Visual Studio Code.
 
 {{< hint warning >}}
 **📔 Note**: The Visual Studio window must be at the root folder of the scene project.
 {{< /hint >}}
 
-2. Open the Editor's menu, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
+2. Open the Decentraland tab, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
 
    This opens a new tab in Visual Studio, showing what parcels you're deploying to.
 

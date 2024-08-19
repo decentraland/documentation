@@ -34,11 +34,16 @@ At a very high level, the Decentraland **Software Development Kit** (SDK) allows
 - Upload the content of your scene to the content server.
 - Link your LAND tokens to the URL of the content you have uploaded.
 
-Our SDK includes the following components:
+Our SDK includes the following:
 
-- **The Decentraland Editor**: An extension for Visual Studio Code that allows you to create scenes, preview and debug, and publish. [Read more]({{< ref "/content/creator/sdk7/getting-started/decentraland-editor.md" >}})
+- **The Creator Hub**: A standalone application that, amongst other things, lets you create scenes with an easy drag-and-drop interface. You can run previews, debug, edit code, and publish. [Read more]({{< ref "/content/creator/scene-editor/about-editor.md" >}})
 - **The Decentraland ECS**: A TypeScript package containing the framework of helper methods that allows you to create interactive experiences. Use it to create and manipulate objects in the scene and also to facilitate in-world transactions between players or other applications. ( [latest ECS reference](https://github.com/decentraland/ecs-reference/blob/master/docs-latest/decentraland-ecs.md))
 - **Scene examples**: Take inspiration and coding best practices from the [scene examples](https://studios.decentraland.org/resources?sdk_version=SDK7).
+
+Other legacy tools:
+
+- **The Decentraland VS Code Extension**: An extension for Visual Studio Code that allows you to create scenes, preview and debug, and publish. [Read more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}})
+- **The Web Editor**: A web based too for creating simple scenes and publishing them. [Read more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}})
 
 ## Requirements
 
@@ -46,9 +51,9 @@ To develop a scene locally, you don't need to own LAND tokens. Developing and te
 
 You must have the following:
 
-- **Visual Studio Code**: Dowload it [here](https://code.visualstudio.com/). Beyond hosting the Decentraland Editor extension, it helps you create scenes a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
+- **The Creator Hub**: A standalone application that, amongst other things, lets you create scenes with an easy drag-and-drop interface. You can run previews, debug, edit code, and publish. [Read more]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
 
-- **The Decentraland Editor SDK7**: An extension for Visual Studio code that exposes many common functionalities as buttons in the UI. [How to install it]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
+- **Visual Studio Code**: Only necessary if you plan to edit the scene's code. Download it [here](https://code.visualstudio.com/). It helps you write code a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
 
 ## Supported languages and syntax
 
@@ -70,7 +75,7 @@ Scenes are deployed to virtual LAND in Decentraland. LAND is a scarce and non-fu
 
 When players visit Decentraland, they download and render the content of each scene as they walk through the map. They unload scenes as they walk away from them.
 
-You can also run a scene locally on your machine by running a preview from the CLI. You can also [upload a preview]({{< ref "/content/creator/sdk7/publishing/deploy-third-party.md" >}}) to run remotely on a 3rd party server to easily share your work with others.
+You can also run a scene locally on your machine by running a preview from the CLI.
 
 ## Entities and Components
 
@@ -108,6 +113,24 @@ The default set of components (like `Transform`, `GltfContainer`, `Material`, et
 You can also define _custom components_ to store data that might be useful to the mechanics in your scene. The engine won't know how to interpret what the values on these components mean, they won't have any direct consequences on how the scene is rendered. However, you can write logic in your scene's code to monitor these values and respond to them. For example, you can define a custom “doorState” component to track the door’s open/closed state. In this case, the component is nothing more than a place to store a value that keeps track of this state. To see the door open and close in your scene, you have to then separately implement the logic that uses these values to affect the door's rotation, a value from the `Transform` component that the engine does know how to interpret.
 
 See [Custom Components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) for more information.
+
+### Fetch entities by name
+
+The entities added by dragging and dropping on the Scene Editor can also be accessed via code to further edit them and add behavior.
+
+Use `engine.getEntityOrNullByName()` to fetch an entity, passing the name assigned to the entity on the Scene Editor UI. Each should have a unique name.
+
+```ts
+function main() {
+	const door = engine.getEntityOrNullByName('door3')
+}
+```
+
+You can then do anything you want with that entity, like add new components, modify its existing components, duplicate it or delete it.
+
+See [Get entity by name]({{< ref "/content/creator/sdk7/architecture/entities-components.md#get-an-entity-by-name" >}}) for more information.
+
+If the entity is a [Smart item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}), you can also call its **Actions** or subscribe to its **Triggers** via code. See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}).
 
 ## Systems
 
@@ -181,9 +204,9 @@ engine.addSystem(rotationSystem)
 
 ## Scene lifecycle
 
-If you start writing code directly in `index.ts`, your code may be lacking some important context. For example, you might be trying to do something with the `PlayerEntity`, or you with an entity that was added via the Decentraland Editor's UI, however at that point in time those things haven't been loaded yet.
+If you start writing code directly in `index.ts`, your code may be lacking some important context. For example, you might be trying to do something with the `PlayerEntity`, or you with an entity that was added via the Scene Editor's UI, however at that point in time those things haven't been loaded yet.
 
-To avoid that scenario, it's always recommended to write out your scene's initial loading code using the `main()` function (on the `index.ts` file) as an entrypoint. This function runs only once all of the scene's initial context is already loaded, this includes anything added via the Decentraland Editor's UI.
+To avoid that scenario, it's always recommended to write out your scene's initial loading code using the `main()` function (on the `index.ts` file) as an entrypoint. This function runs only once all of the scene's initial context is already loaded, this includes anything added via the Scene Editor's UI.
 
 You can write your code outside the `main()` function when:
 

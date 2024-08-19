@@ -58,9 +58,9 @@ However, Worlds granted by ENS domain ownership serve as the perfect first step 
 
 Users have various options to publish content on their World:
 
-### 1. Using the Builder dApp (no-code)
+### 1. Using the Web Editor (no-code)
 
-The Builder is the ideal choice for non-developers. Scenes can be created from scratch using the Scene Builder by simply dragging and dropping items into the scene. [Smart items]({{< ref "/content/creator/sdk7/web-editor/smart-items.md" >}}) can also be used for player interaction once the scene is deployed.
+The Builder is the ideal choice for non-developers. Scenes can be created from scratch using the Scene Builder by simply dragging and dropping items into the scene. [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) can also be used for player interaction once the scene is deployed.
 
 Creators can also use Templates, edit them, and then deploy them to their World. More templates from the Foundation will be uploaded over time. Another option is to use a scene from the Scene Pool. Anyone can get a scene from the pool, download it, and then import it into the Builder to edit it or deploy it to a World as it is.
 
@@ -108,7 +108,7 @@ If you wish to opt-out from your Worlds being indexed in Places, you can add the
 }
 ```
 
-### 3. Publish via the Decentraland Editor:
+### 3. Publish via the VS Code Extension:
 
 1. Open VSCode in a Decentraland scene project.
 2. Click on the Decentraland icon on the left sidebar.

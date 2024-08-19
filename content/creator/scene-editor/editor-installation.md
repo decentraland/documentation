@@ -11,14 +11,14 @@ weight: 2
 
 {{< hint info >}}
 **📔 Note**:
-The Scene Editor is currently in Alpha stage, and shared with users that join the [pre-release of the new Standalone Decentraland client](https://68zbqa0m12c.typeform.com/to/y9fZeNWm).
+The Creator Hub is currently in Alpha stage, and shared with users that join the [pre-release of the new Standalone Decentraland client](https://68zbqa0m12c.typeform.com/to/y9fZeNWm).
 
-Once accepted into the alpha program, you'll be shared the installer for the editor.
+Once accepted into the alpha program, you'll be shared the installer for the Creator Hub.
 {{< /hint >}}
 
-## Updating the Editor
+## Updating the Creator Hub
 
-No steps are required. The Scene Editor application checks for updates every time you open it, and self-updates if there's a new version available.
+No steps are required. The Creator Hub application checks for updates every time you open it, and self-updates if there's a new version available.
 
 ## Editing code
 
