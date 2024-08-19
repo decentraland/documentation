@@ -11,19 +11,19 @@ weight: 15
 
 To build scenes for Decentraland you an either use
 
-- The [Creators Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}})
+- The [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}})
 - The Command Line Interface (CLI)
 
 Both tools allow you to compile and preview your scene in an "off-chain" development environment. After testing your scene locally, you can upload your content to the content server, linking it with your LAND or WORLD.
 
-Although the Scene Editor in the Creators Hub is easier to use, the CLI allows you more flexibility, and can be easily used in automated processes.
+Although the Scene Editor in the Creator Hub is easier to use, the CLI allows you more flexibility, and can be easily used in automated processes.
 
 {{< hint warning >}}
 **📔 Note**: The Scene Editor runs the same command-line operations behind the curtains.
 {{< /hint >}}
 
 {{< hint info >}}
-**💡 Tip**: See [Instalation guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#creators-hub" >}}) for instructions on how to install the Scene Editor.
+**💡 Tip**: See [Instalation guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#creator-hub" >}}) for instructions on how to install the Scene Editor.
 {{< /hint >}}
 
 ## Before you Begin

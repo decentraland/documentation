@@ -17,7 +17,7 @@ weight: 2
 
 In order to improve performance in the metaverse, we have established a set of limits that every scene must follow. These limits are per-parcel. So the larger the scene, the higher these limits are set.
 
-When working with the [Creators Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}), you can see stats about the resources used by 3D models in your scene, together with the limits for your scene.
+When working with the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}), you can see stats about the resources used by 3D models in your scene, together with the limits for your scene.
 
 <img src="/images/editor/triangle-limit1.png" width="250" />
 

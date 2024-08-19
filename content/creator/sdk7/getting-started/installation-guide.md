@@ -15,11 +15,11 @@ url: /creator/development-guide/sdk7/installation-guide/
 weight: 2
 ---
 
-## Creators Hub
+## Creator Hub
 
-The **Creators Hub** is the recommended tool for creating content for Decentraland.
+The **Creator Hub** is the recommended tool for creating content for Decentraland.
 
-[Creators Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}})
+[Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}})
 
 <!-- TODO -->
 

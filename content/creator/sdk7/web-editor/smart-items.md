@@ -245,6 +245,6 @@ In the advanced mode, these items have a **Visibility** component set to invisib
 
 ## Using smart items on VS Studio
 
-Smart items work out of the box on the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}) and in the [Creators Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
+Smart items work out of the box on the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}) and in the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
 
-When using the Creators Hub, you can combine smart items with behavior from custom code. See [Export to desktop]({{< ref "/content/creator/sdk7/web-editor/combine-with-code.md" >}}) to see how you can transition your Web Editor projects to the Creators Hub on your machine, and edit the scene's code.
+When using the Creator Hub, you can combine smart items with behavior from custom code. See [Export to desktop]({{< ref "/content/creator/sdk7/web-editor/combine-with-code.md" >}}) to see how you can transition your Web Editor projects to the Creator Hub on your machine, and edit the scene's code.

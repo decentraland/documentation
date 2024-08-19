@@ -53,7 +53,7 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ### Using the Scene Editor
 
-Make sure you've [installed the Creators Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
+Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
 
 1. Open your scene project.
 2. Click the **Publish** button on the top-right corner.
