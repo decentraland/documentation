@@ -13,19 +13,18 @@ Streaming through Decentraland Cast is an exclusive feature available only to Wo
 1. Visit [Decentraland Cast](https://cast.decentraland.org/)
 2. Select Your World: Log in and select the world to stream to.
 <br/><br/><img src="/images/worlds/world-selector.png" width="400"  style="display: block; margin: 0 auto;" /><br/>
-1. Join the Session: Once the world is selected, a session will be joined. 
+3. Join the Session: Once the world is selected, a session will be joined. 
 <br/><br/><img src="/images/worlds/cast-ui.png" width="400"  style="display: block; margin: 0 auto;" /><br/>
-1. Share Screen or Camera Footage: If authorized, users have the option to either activate their cameras or share their screens directly within the app.
+4. Share Screen or Camera Footage: If authorized, users have the option to either activate their cameras or share their screens directly within the app.
 {{< hint warning >}}
 **📔 Note**: If you intend to stream a video along with its audio, it's advisable to utilize Google Chrome or a browser built on the Chrome engine. These browsers offer the functionality to easily share both video and audio directly from a browser tab.
 {{< /hint >}}
 <div style="text-align: center;">
     <img src="/images/worlds/screen-sharing-host.png" width="600"  style="display: block; margin: 0 auto;"/><br/>
 </div>
-1. Flawless Integration: Decentraland Cast’s integration with the world ensures uninterrupted communication, allowing users to effortlessly send, receive, and listen to chat and voice messages.
-
+5. Flawless Integration: Decentraland Cast’s integration with the world ensures uninterrupted communication, allowing users to effortlessly send, receive, and listen to chat and voice messages.
 <div style="text-align: center;">    
-    <img src="/images/worlds/screen-sharing-viewer.png" width="600"  style="display: block; margin: 0 auto;"/>
+    <br/><img src="/images/worlds/screen-sharing-viewer.png" width="600"  style="display: block; margin: 0 auto;"/>
 </div>
 
 ## Showcasing the stream in a world
