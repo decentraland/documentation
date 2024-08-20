@@ -21,11 +21,12 @@ Streaming through Decentraland Cast is an exclusive feature available only to Wo
 {{< /hint >}}
 <div style="text-align: center;">
     <img src="/images/worlds/screen-sharing-host.png" width="600"  style="display: block; margin: 0 auto;"/><br/>
+</div>
+1. Flawless Integration: Decentraland Cast’s integration with the world ensures uninterrupted communication, allowing users to effortlessly send, receive, and listen to chat and voice messages.
+
+<div style="text-align: center;">    
     <img src="/images/worlds/screen-sharing-viewer.png" width="600"  style="display: block; margin: 0 auto;"/>
 </div>
-5. Flawless Integration: Decentraland Cast’s integration with the world ensures uninterrupted communication, allowing users to effortlessly send, receive, and listen to chat and voice messages.
-<!-- <image showing the screen and chat Decentraland Cast UI>
-<image showing the screen and chat in the World>-->
 
 ## Showcasing the stream in a world
 
