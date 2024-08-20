@@ -8,19 +8,21 @@ Decentraland Cast is a specialized tool tailored for world owners and other auth
 
 ## Streaming
 
-Streaming via Decentraland Cast is an exclusive feature reserved for world owners and individuals who possess deployment rights. For more details on these rights, refer to the [Access Contol Lists]({{< ref "/creator/worlds/about.md#access-control-lists-acl" >}}) section.
+Streaming through Decentraland Cast is an exclusive feature available only to World owners or those with streaming rights for a World scene. For more details on these rights, refer to the [Access Contol Lists]({{< ref "/creator/worlds/about.md#access-control-lists-acl" >}}) section.
 
 1. Visit [Decentraland Cast](https://cast.decentraland.org/)
 2. Select Your World: Log in and select the world to stream to.
-<!-- <image showing the world selector> -->
+![world-selector](/images/worlds/world-selector.png)
 3. Join the Session: Once the world is selected, a session will be joined. 
-<!-- <image Decentraland Cast UI> -->
+![cast-ui](/images/worlds/cast-ui.png)
 4. Share Screen or Camera Footage: If authorized, users have the option to either activate their cameras or share their screens directly within the app.
 {{< hint warning >}}
 **📔 Note**: If you intend to stream a video along with its audio, it's advisable to utilize Google Chrome or a browser built on the Chrome engine. These browsers offer the functionality to easily share both video and audio directly from a browser tab.
 {{< /hint >}}
 
-<!-- <image showing the Decentraland Cast controls bar> -->
+![host](/images/worlds/screen-sharing-host.png)
+![viewer](/images/worlds/screen-sharing-viewer.png)
+
 5. Flawless Integration: Decentraland Cast’s integration with the world ensures uninterrupted communication, allowing users to effortlessly send, receive, and listen to chat and voice messages.
 <!-- <image showing the screen and chat Decentraland Cast UI>
 <image showing the screen and chat in the World>-->
@@ -42,5 +44,6 @@ Since the session in Decentraland Cast is the same LiveKit session within the wo
 ## Spectating
 
 It’s recommended for spectators to join the world (not the Decentraland Cast application) unless accessing via mobile phones. In Decentraland Cast, all users will be able to watch what is being streamed, the chat, and other people in the session but those lacking authorization will find their capabilities restricted. Specifically, they will not have permissions to broadcast any data, whether it be video, voice chat, or text messaging.
-<!-- <image showing the Decentraland Cast in mobile>-->
+
+![viewer](/images/worlds/cast-mobile.png)
 
