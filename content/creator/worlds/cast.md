@@ -12,9 +12,9 @@ Streaming through Decentraland Cast is an exclusive feature available only to Wo
 
 1. Visit [Decentraland Cast](https://cast.decentraland.org/)
 2. Select Your World: Log in and select the world to stream to.
-<img src="/images/worlds/world-selector.png" width="600" />
+<img src="/images/worlds/world-selector.png" width="300" />
 3. Join the Session: Once the world is selected, a session will be joined. 
-<img src="/images/worlds/cast-ui.png" width="600" />
+<img src="/images/worlds/cast-ui.png" width="400" />
 4. Share Screen or Camera Footage: If authorized, users have the option to either activate their cameras or share their screens directly within the app.
 {{< hint warning >}}
 **📔 Note**: If you intend to stream a video along with its audio, it's advisable to utilize Google Chrome or a browser built on the Chrome engine. These browsers offer the functionality to easily share both video and audio directly from a browser tab.
