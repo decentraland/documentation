@@ -23,7 +23,7 @@ Make sure of the following:
 **📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels.
 {{< /hint >}}
 
-Check your [scene's details]({{< ref "/content/creator/scene-editor/visual-editor-essentials.md#scene-details" >}}), make sure you provide an appealing name, description, thumbnail, categories, etc.
+Check your [scene's details]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#scene-details" >}}), make sure you provide an appealing name, description, thumbnail, categories, etc.
 
 ## Publish your scene
 

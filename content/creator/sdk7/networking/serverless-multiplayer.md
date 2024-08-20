@@ -25,11 +25,11 @@ The first two options are covered in this document. They are simpler, as they re
 
 ## Mark an Entity as Synced
 
-{{< hint warning >}}
-**📔 Note**: This feature is currently in alpha state. Its syntax could potentially undergo changes on the next few releases.
-{{< /hint >}}
+In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), mark an entity as synced by adding a **Multiplayer component** to it. It includes a checkbox for each of the other components on the entity, allowing you to select which ones to update.
 
-To mark an entity as synced, use the `syncEntity` function:
+<img src="/images/editor/multiplayer-component.png" alt="Armature" width="300"/>
+
+To mark an entity as synced via code, use the `syncEntity` function:
 
 ```ts
 const doorEntity = engine.addEntity()
@@ -48,10 +48,6 @@ Not all entities or components need to be synced. Static elements like a tree th
 {{< hint info >}}
 **💡 Tip**: If the data you want to share doesn't exist as a component, define a [custom component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) that holds that data.
 {{< /hint >}}
-
-In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can mark an entity as synced by adding a **Multiplayer component** to it. This component does exactly the same as the **syncEntity()** function. It includes a checkbox for each of the other components on the entity, allowing you to select which ones to update.
-
-<img src="/images/editor/multiplayer-component.png" alt="Armature" width="300"/>
 
 ### About the enum id
 
