@@ -21,6 +21,10 @@ _Components_ define the traits of an entity. For example, a `Transform` componen
 
 If you're familiar with web development, think of entities as the equivalent of _Elements_ in a _DOM_ tree, and of components as _attributes_ of those elements.
 
+In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can view the components that belong to an entity by selecting it.
+
+<img src="/images/editor/components-example.png" alt="Armature" width="300"/>
+
 {{< hint warning >}}
 **📔 Note**: In previous versions of the SDK, Entities were _objects_ that were instanced, and could be extended to add functions. As of version 7.0 of the SDK, entities are only an ID. This structure better fits the principles of [data oriented programming]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and can help in the scene's performance.
 {{< /hint >}}
@@ -32,10 +36,6 @@ Components like `Transform`, `Material` or any of the _shape_ components are clo
 The engine is the part of the scene that sits in the middle and manages all of the other parts. It determines what entities are rendered and how players interact with them. It also coordinates what functions from [systems]({{< ref "/content/creator/sdk7/architecture/systems.md">}}) are executed and when.
 
 Components are meant to store data about their referenced entity. They can only store this data, they can't modify this data themselves. All changes to the values in the components are carried out by [Systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}). Systems are completely decoupled from the components and entities themselves. Entities and components are agnostic to what _systems_ are acting upon them.
-
-In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can view the components that belong to an entity by selecting it.
-
-<img src="/images/editor/components-example.png" alt="Armature" width="300"/>
 
 ## Syntax for entities and components
 

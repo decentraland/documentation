@@ -11,9 +11,9 @@ weight: 1
 
 You can set the _position_, _rotation_ and _scale_ of any entity by using the `Transform` component. This can be used on any entity in the 3D space, affecting where the entitiy is rendered. This includes primitive shapes (cube, sphere, plane, etc), 3D text shapes, NFT shapes, and 3D models (`GltfContainer`).
 
-## Editor UI
+## Use the Scene Editor
 
-When dragging entities via the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you are changing the values in the entity's Transform implicitly. By changing the position, rotation or scale of an entity, this changes the data in that entity's Transform component.
+When adding an item to your scene via the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), it implicitly includes a **Transform** component. You then change the values in the entity's Transform component implicitly by changing the position, rotation or scale of an entity. You can also use the Scene Editor's UI to provide values numerically for more precision.
 
 ## Code essentials
 

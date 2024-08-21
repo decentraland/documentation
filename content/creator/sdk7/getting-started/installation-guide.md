@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: VS Extension Installation Guide
+title: Installation Guide
 description: Step-by-step guide to installing the SDK
 categories:
   - development-guide

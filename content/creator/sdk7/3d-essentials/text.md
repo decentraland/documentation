@@ -21,19 +21,25 @@ The `TextShape` component is mutually exclusive with other shape components like
 
 To add text as a label on an existing entity, you create a second entity that has the `TextShape` component and set it as a child of the other entity.
 
+## Use the Scene Editor
+
+The easiest way to place text in-world is add a **Text** [Smart item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) visually on the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). You can then set all the available fields on the Scene Editor's
+
+<img src="/images/editor/text-smart-item.png" alt="Scene name" width="128"/>
+
 ## Create a text component
 
-The following example shows how to create a `TextShape` component and add it to an entity.
+The following example shows how to create a `TextShape` component and add it to an entity via code.
 
 ```ts
 const sign = engine.addEntity(true)
 
 Transform.create(sign, {
-  position: Vector3.create(8, 1, 8),
+	position: Vector3.create(8, 1, 8),
 })
 
 TextShape.create(sign, {
-  text: 'Hello World',
+	text: 'Hello World',
 })
 ```
 
@@ -75,10 +81,10 @@ The `TextShape` component has several properties that can be set to style the te
 
 ```ts
 TextShape.create(sign, {
-  text: 'Hello World',
-  textColor: { r: 1, g: 0, b: 0, a: 1 },
-  fontSize: 5,
-  font: Font.F_SANS_SERIF,
+	text: 'Hello World',
+	textColor: { r: 1, g: 0, b: 0, a: 1 },
+	fontSize: 5,
+	font: Font.F_SANS_SERIF,
 })
 ```
 
@@ -94,10 +100,10 @@ By default uses it uses `Font.FSansSerif`.
 
 ```ts
 TextShape.create(sign, {
-  text: 'Hello World',
-  textColor: { r: 1, g: 0, b: 0 },
-  fontSize: 5,
-  font: Font.FSansSerif,
+	text: 'Hello World',
+	textColor: { r: 1, g: 0, b: 0 },
+	fontSize: 5,
+	font: Font.FSansSerif,
 })
 ```
 
@@ -137,10 +143,10 @@ The text has no shadow by default, but you can set the following values to give 
 
 ```ts
 TextShape.create(sign, {
-  text: 'Text with shadow',
-  shadowColor: { r: 1, g: 0, b: 0 },
-  shadowOffsetY: 1,
-  shadowOffsetX: -1,
+	text: 'Text with shadow',
+	shadowColor: { r: 1, g: 0, b: 0 },
+	shadowOffsetY: 1,
+	shadowOffsetX: -1,
 })
 ```
 
@@ -155,7 +161,7 @@ If you want your text to span multiple lines, use `\n` as part of the string. Th
 
 ```ts
 TextShape.create(sign, {
-  text: 'This is one line. \nThis is another line',
+	text: 'This is one line. \nThis is another line',
 })
 ```
 

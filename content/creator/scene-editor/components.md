@@ -15,7 +15,7 @@ Select an item by clicking on it on the canvas or the entity tree. You'll then s
 
 Most non-interactive items have the following components:
 
-- **Transform**: Sets the position, rotation, and scale of the item. If the item has a parent, these value are relative to the parent's.
+- **Transform**: Sets the position, rotation, and scale of the item. If the item is a child of another item on the [Entity Tree]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#the-entity-tree" >}}), these value are relative to those of the parent's.
 - **GLTF**: What 3D model to load. It includes the local path to the file for this 3D model. It also includes some properties for configuring [colliders]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models" >}}) on the model.
 
 ## Add components
@@ -48,6 +48,12 @@ The following components can be added to any entity via the Scene Editor UI:
 
 - **Multiplayer**: Shares any changes that happen to the item so that all players in the scene see it too. It can be configured to only share changes on certain components. See [Serverless Multiplayer]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#mark-an-entity-as-synced" >}}) for more details.
 
+{{< hint warning >}}
+**📔 Note**: Other components exist on the SDK that are currently only usable via code. You can also create your own [Custom components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) via code, these won't have a UI representation, but can be added and edited via code.
+
+See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}) for how to edit the code of your scene.
+{{< /hint >}}
+
 ## Smart items
 
 [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) can also include special components that control the item's interactivity. These are typically:
@@ -59,21 +65,16 @@ The following components can be added to any entity via the Scene Editor UI:
 
 See [Smart items advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}}) for more details.
 
-<!-- TODO:
-
 ## About components
 
-All the attributes of an item are determined by its components. They define what an item is, where it is, how it sounds, how it behaves.
+All the traits of an item are determined by its components. They define what an item is, where it is, how it sounds, and how it behaves. For example, a **Transform** component stores the item's coordinates, rotation and scale. A **MeshRenderer** component gives the item a visible shape (like a cube or a sphere), and a **Material** component gives the item a color or texture.
 
-In the Scene Editor, you configure the initial state of the scene. Any visible change in your scene will imply a change in a component. As the player performs actions or as the scene's systems (link) carry out their updates, the initial values you set on the components will change.
+The values on components can change over time. In the Scene Editor you configure the initial values for these components. But once your scene is running, the player's actions or the passage of time can change those values.
 
-For example, a moving platform may have an initial position of X, but if you were to read its Transform after a second of starting the scene, it will have different values.
+For example, a moving platform Smart Item has an initial position that you set via its **Transform** component, but after the actions of this item make it move, its **Transform** will hold different values.
 
-Link to doc on components
+See [Entities and components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}) for an in-depth look at this concept and how they're used by Decentraland scenes.
 
-You can also define custom components via code, but those currently can't be added via the Scene Editor UI
-
-light theory and link to architecture docs
-custom components not available
-they define the initial state, systems or player's actions can then change their values
- -->
+{{< hint info >}}
+**💡 Tip**: An **Entity** can be thought of as just another word for an **Item**, they are a more code-level concept. Items must have at least a position and a visible shape, an Entity doesn't need to have either.
+{{< /hint >}}

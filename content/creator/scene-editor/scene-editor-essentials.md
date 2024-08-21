@@ -109,6 +109,10 @@ Smart items are special items that come with built-in interactive behaviors. See
 
 On the left margin, you'll see a tree structure with all of the entities in the scene. This includes all of the items you add, as well as a few default ones.
 
+{{< hint info >}}
+**💡 Tip**: An **Entity** can be thought of as just another word for an **Item**, they are a more code-level concept. Items must have at least a position and a visible shape, an Entity doesn't need to have either.
+{{< /hint >}}
+
 Instead of selecting an item by clicking on it from the 3D view of the scne, you can select it from the tree view. Click the right-mouse button on an entity to reveal more options: you can rename, delete, or duplicate, also create a child entity, or add a component to the entity.
 
 Entities follow a hierarchy that can have as many levels as you want. Establish a parent-child relationship between two entities by dragging one item onto another on the tree. A child entity inherits the position of the parent, so when the parent moves, it carries any children with it. This can be practical while building a scene, for example you can set glasses and plates as children of a table, and then move the table without needing to readjust anything else. It can also be important when interacting with the scene, for items to move together.
