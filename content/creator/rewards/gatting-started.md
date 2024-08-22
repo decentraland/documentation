@@ -61,7 +61,7 @@ When you create a new campaign, it starts with an empty inventory. To begin deli
 
     a) Click on the **Add Supply** button to view all collections for which the campaign has minting permissions.
 
-<img src="/images/rewards/collection-available.png" alt="Collection available" style="width:100%; margin: 0 auto;display: block; max-with: 600px" width="1808" hegiht="1494" />
+<img src="/images/rewards/collection-available.png" alt="Collection available" style="width:80%; margin: 0 auto;display: block; max-with: 600px" width="1808" hegiht="1494" />
 
     b) Select the item from the collection that you want to add to the stock, then click on the **Add Supply** button.
 
@@ -103,7 +103,7 @@ By default your campaign is inactive. This prevents the rewards service from ass
 
 Once the campaign is completed, if there are remaining funds from the transaction fees, the owner can choose to either reclaim the funds or reassign them to another campaign. To reclaim funds, simply click the Manage Funds button on the campaign detail page. 
 
-<img src="/images/rewards/manage-funds.png" alt="manage funds" style="width:80%; margin: 0 auto;display: block; max-with: 600px" width="1714" hegiht="584" />
+<img src="/images/rewards/manage-funds.png" alt="manage funds" style="width:70%; margin: 0 auto;display: block; max-with: 600px" width="1714" hegiht="584" />
 
 {{< hint warning >}}
 **📔 Note**: If all funds are removed from a campaign, any pending or new transactions related to that campaign will be blocked until more funds are assigned.
