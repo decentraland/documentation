@@ -53,7 +53,7 @@ To send MATIC from an exchange you just need to withdraw MATIC token to the Poly
 
 When you create a new campaign, it starts with an empty inventory. To begin delivering rewards, you'll need to add items to the campaign:
 
-<img src="/images/rewards/without-supply.png" alt="without supply" style="width:60%; margin: 0 auto;display: block;" width="2296" hegiht="1012" />
+<img src="/images/rewards/without-supply.png" alt="without supply" style="width:80%; margin: 0 auto;display: block;" width="2296" hegiht="1012" />
 
 - **Grant Minting Permissions**: First, authorize the campaign to mint items. Follow [this guide]({{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md" >}}#adding-minters-to-the-collection) and use the campaign address (located below the campaign name) as the minter's address. After submitting, wait for the transaction to be confirmed.
 
@@ -65,11 +65,11 @@ When you create a new campaign, it starts with an empty inventory. To begin deli
 
     b) Select the item from the collection that you want to add to the stock, then click on the **Add Supply** button.
 
-<img src="/images/rewards/add-supply.png" alt="add supply" style="width:100%; margin: 0 auto;display: block; max-with: 600px" width="1816" hegiht="772" />
+<img src="/images/rewards/add-supply.png" alt="add supply" style="width:80%; margin: 0 auto;display: block; max-with: 600px" width="1816" hegiht="772" />
 
     c) Select the amount of items you want to add to the campaign stock and click on the **Add supply** button.
 
-<img src="/images/rewards/with-supply.png" alt="supply added" style="width:100%; margin: 0 auto;display: block;" width="2290" hegiht="360" />
+<img src="/images/rewards/with-supply.png" alt="supply added" style="width:80%; margin: 0 auto;display: block;" width="2290" hegiht="360" />
 
 {{< hint info >}}
 Priority and Group fields are advance features that will be covered in a dedicated section.
@@ -81,7 +81,7 @@ Dispensers are the tools used to send or claim rewards from your stock. Each dis
 
 When you create a new campaign, a default dispenser with a master key is automatically provided for testing purposes only. To set up a new dispenser, click the **Add Dispenser** button.
 
-<img src="/images/rewards/create-dispenser.png" alt="create dispenser" style="width:100%; margin: 0 auto;display: block; max-with: 600px" width="1714" hegiht="584" />
+<img src="/images/rewards/create-dispenser.png" alt="create dispenser" style="width:80%; margin: 0 auto;display: block; max-with: 600px" width="1714" hegiht="584" />
 
 Select the item group where you want take items from, and click on the **Save** button.
 
@@ -103,7 +103,7 @@ By default your campaign is inactive. This prevents the rewards service from ass
 
 Once the campaign is completed, if there are remaining funds from the transaction fees, the owner can choose to either reclaim the funds or reassign them to another campaign. To reclaim funds, simply click the Manage Funds button on the campaign detail page. 
 
-<img src="/images/rewards/manage-funds.png" alt="manage funds" style="width:100%; margin: 0 auto;display: block; max-with: 600px" width="1714" hegiht="584" />
+<img src="/images/rewards/manage-funds.png" alt="manage funds" style="width:80%; margin: 0 auto;display: block; max-with: 600px" width="1714" hegiht="584" />
 
 {{< hint warning >}}
 **📔 Note**: If all funds are removed from a campaign, any pending or new transactions related to that campaign will be blocked until more funds are assigned.
