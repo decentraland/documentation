@@ -4,6 +4,8 @@ url: /creator/rewards/getting-started
 weight: 2
 ---
 
+This page will guide you through the process of using the Rewards system to incentivize user engagement with Decentraland Wearables and Emotes. You’ll learn how to set up and manage a rewards campaign, including creating a campaign, adding items to the campaign stock, managing funds, and using dispensers to deliver rewards. Additionally, you’ll find instructions for activating your campaign and handling transaction fees.
+
 ## Prerequisites
 
 Before you begin using the Rewards system, ensure that you have a collection [approved and ready for minting]({{< ref "/creator/wearables-and-emotes/publishing/publishing-collections.md" >}}). This collection should contain the items you plan to offer as rewards in your campaign.
@@ -51,7 +53,7 @@ To send MATIC from an exchange you just need to withdraw MATIC token to the Poly
 
 When you create a new campaign, it starts with an empty inventory. To begin delivering rewards, you'll need to add items to the campaign:
 
-<img src="/images/rewards/without-supply.png" alt="without supply" style="width:100%; margin: 0 auto;display: block;" width="2296" hegiht="1012" />
+<img src="/images/rewards/without-supply.png" alt="without supply" style="width:60%; margin: 0 auto;display: block;" width="2296" hegiht="1012" />
 
 - **Grant Minting Permissions**: First, authorize the campaign to mint items. Follow [this guide]({{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md" >}}#adding-minters-to-the-collection) and use the campaign address (located below the campaign name) as the minter's address. After submitting, wait for the transaction to be confirmed.
 
