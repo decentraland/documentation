@@ -12,7 +12,7 @@ After creating and configuring a campaign and ensuring it has sufficient stock t
 - [Grant rewards from a Decentraland Quests](#grant-rewards-from-a-decentraland-quests)
   - [Recommended dispenser flags](#recommended-dispenser-flags-1)
   - [Example](#example-1)
-- [With a custom server](#with-a-custom-server)
+- [Grant rewards from a custom server](#grant-rewards-from-a-custom-server)
   - [Recommended dispenser flags](#recommended-dispenser-flags-2)
   - [Example](#example-2)
 
@@ -108,7 +108,7 @@ To integrate your Quest with the Rewards service, you just need a dispenser key 
 }
 ```
 
-## With a custom server
+## Grant rewards from a custom server
 
 You can integrate Rewards directly from your server, which is ideal for performing extra checks before minting items. An additional advantage is that, unlike scene code, your server code might not be public, making it more challenging for users to discover and exploit vulnerabilities.
 
