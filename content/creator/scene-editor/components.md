@@ -26,7 +26,7 @@ To add components to an item, click the **+** sign at the top of the properties 
 
 You can delete any component from an item by clicking the three dots icon on its right, and selecting **Delete Component**.
 
-## Available components
+## Available components
 
 The following components can be added to any entity via the Scene Editor UI:
 
@@ -54,7 +54,7 @@ The following components can be added to any entity via the Scene Editor UI:
 See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}) for how to edit the code of your scene.
 {{< /hint >}}
 
-## Smart items
+## Smart items
 
 [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) can also include special components that control the item's interactivity. These are typically:
 
@@ -65,7 +65,7 @@ See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combi
 
 See [Smart items advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}}) for more details.
 
-## About components
+## About components
 
 All the traits of an item are determined by its components. They define what an item is, where it is, how it sounds, and how it behaves. For example, a **Transform** component stores the item's coordinates, rotation and scale. A **MeshRenderer** component gives the item a visible shape (like a cube or a sphere), and a **Material** component gives the item a color or texture.
 

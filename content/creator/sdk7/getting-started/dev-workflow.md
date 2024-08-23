@@ -97,6 +97,8 @@ To run a preview of your scene, open a Visual Studio Code window on your project
 
 {{< hint info >}}
 **💡 Tip**: If you get stuck trying to debug an issue, visit the [Decentraland Discord server](https://dcl.gg/discord) to get help from other developers.
+
+You can also find help in the [Decentraland DAO Server](https://discord.gg/bxHtcMxUs4).
 {{< /hint >}}
 
 _Optional_: Your scene`s mechanics might rely on a 3rd party server to carry out player validations, permanent data storage, or other functionalities. See [3rd party servers]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}})
@@ -137,7 +139,7 @@ One great advantage of Decentraland is that you can easily iterate over your sce
 
 Decentraland is a community project, the community of creators learns together and leverage each other's creations. Consider the following:
 
-- Join the [Decentraland Discord server](https://dcl.gg/discord) and help other developers in need of advice.
+- Join the [Decentraland Discord server](https://dcl.gg/discord) or the [Decentraland DAO Server](https://discord.gg/bxHtcMxUs4) and help other developers in need of advice.
 - Share your scene's code as an open source repo on GitHub.
 - Build a minimal example to share a specific reusable mechanic, as an open source repo on GitHub.
 - Make a PR to the [Examples Repository](https://github.com/decentraland/sdk7-goerli-plaza) to include your scenes.

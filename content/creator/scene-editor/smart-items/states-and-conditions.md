@@ -11,14 +11,20 @@ weight: 3
 
 {{< youtube hXSiPO81KJA >}}
 
+## Conditional logic
+
 Add conditions on a trigger, so that the action only occurs if those conditions are met. For example, clicking on a door only activates the "Open" action if it wasn't already open.
 
 To add a condition, click the three dots icon next to **Trigger event** and select **Add Trigger Condition**.
+
+<img src="/images/editor/condition.png" width="300"/>
 
 A single trigger can include multiple conditions. Click the **+** icon to add more conditions. When more than one condition exist, you can select one of these options:
 
 - **All Conditions should be met (AND)**: The trigger only happens if every one of the conditions is true.
 - **Any Condition can be met (OR)** The trigger happens if at least one of the conditions is true.
+
+<img src="/images/editor/multiple-conditions.png" width="300"/>
 
 ## States
 
