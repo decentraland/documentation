@@ -7,6 +7,7 @@ weight: 5
 This section explains how to interact with the Rewards service using the API and how to enhance the security of your dispensers.
 
 Refer to the [API SPEC](https://decentraland.org/rewards/docs/api/) for complete details, including the expected inputs and outputs for each method.
+- [Assigning Wearables or Emotes reward](#assigning-wearables-or-emotes-reward)
 - [Securing the Rewards Dispenser](#securing-the-rewards-dispenser)
   - [Date Range Protection](#date-range-protection)
   - [Limit Assignments](#limit-assignments)
@@ -19,7 +20,7 @@ Refer to the [API SPEC](https://decentraland.org/rewards/docs/api/) for complete
 ⚠️ There is no way to prevent users from farming wearables/emotes. All security measures described in this section are meant to avoid automation, but you should assume that users are capable of manually switching between multiple accounts to get more than one of your rewards.
 {{< /hint >}}
 
-## Assigning Wearables/Emotes
+# Assigning Wearables or Emotes reward
 
 Once your [campaign is configured]({{< ref "/content/creator/rewards/gatting-started.md" >}}) you are ready to start minting wearables or emotes rewards for your users by using the Rewards Server API.
 
@@ -111,7 +112,7 @@ Please note that this assignment limit is specific to each dispenser. If you hav
 
 If your users interact with the dispenser directly within your scene, your keys are exposed in code that can be accessed and replicated through the browser. To minimize the risk of automation and abuse, you can enable the *Captcha challenge* flag on your dispenser. This flag requires users to solve a captcha before a wearable or emote is assigned to them, adding an extra layer of security.  
 
-When the Captcha flag is enabled, you first need to create a new captcha challenge using the `/api/captcha` endpoint. The response will provide all the necessary details to render the captcha image, including the image URL, dimensions, and expiration date, which indicates when the captcha will be invalidated. Be sure to save the captcha ID, as you will need it later.
+When the Captcha flag is enabled, you first need to create a new captcha challenge using the `/api/captcha` endpoint from the rewards server. The response will provide all the necessary details to render the captcha image, including the image URL, dimensions, and expiration date, which indicates when the captcha will be invalidated. Be sure to save the captcha ID, as you will need it later.
 
 ```tsx
 const request = await fetch(`https://rewards.decentraland.org/api/captcha`)
@@ -136,7 +137,7 @@ This is an example of what a captcha looks like:
 <img src="/images/rewards/captcha.png" alt="Captcha" width="300" hegiht="100" />
 {{< /hint >}}
 
-You then need to include the captcha id and value that resolves the captcha in the request body.
+You then need to include the captcha id and value that resolves the captcha in the request body that assigns the reward.
 
 ```tsx {hl_lines=[13,14]}
 import { signedFetch } from '@decentraland/SignedFetch'
@@ -167,38 +168,10 @@ export async function main() {
   let json = await JSON.parse(response.body)
 }
 ```
-**JSON Response Example**: 
-```json  
-  {
-  "ok": true,
-  "data": [
-    {
-      "id": "00000000-0000-0000-0000-000000000000",
-      "user": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
-      "campaign_id": "00000000-0000-0000-0000-000000000000",
-      "campaign_key": "[DISPENSER_KEY]",
-      "status": "assigned",
-      "chain_id": 137,
-      "airdrop_type": "CollectionV2IssueToken",
-      "target": "0x7434a847c5e1ff250db456c55f99d1612e93d6a3",
-      "value": "0",
-      "group": null,
-      "priority": 2144355453,
-      "transaction_id": null,
-      "transaction_hash": null,
-      "token": "Polygon sunglasses",
-      "image": "https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:amoy:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail",
-      "assigned_at": "2021-09-24T01:30:16.770Z",
-      "created_at": "2021-09-24T01:25:14.534Z",
-      "updated_at": "2021-09-24T01:25:14.534Z"
-    }
-  ]
-}
-```
 
 ## Beneficiary Signature
 
-If your users interact with the dispenser directly within your scene, consider enabling the **Beneficiary Signature** flag on your dispenser. This flag requires users to sign the request using the `@decentraland/SignedFetch` module, ensuring that the user requesting the wearable or emote owns the associated Ethereum address.
+If your users interact with the dispenser directly within your scene, consider enabling the **Beneficiary Signature** flag on your dispenser. This flag requires users to sign the request using the [@decentraland/SignedFetch]({{< ref "/contributor/runtime/modules/signed_fetch.md" >}}) module, ensuring that the user requesting the wearable or emote owns the associated Ethereum address.
 
 For dispensers with this flag enabled, you'll need to make a slight modification to your code, as shown below:
 
@@ -228,50 +201,17 @@ export async function main() {
   }
   let json = await JSON.parse(response.body)
 ```
-**JSON Response Example**: 
-```json
- {
-  "ok": true,
-  "data": [
-    {
-      "id": "00000000-0000-0000-0000-000000000000",
-      "user": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
-      "campaign_id": "00000000-0000-0000-0000-000000000000",
-      "campaign_key": "[DISPENSER_KEY]",
-      "status": "assigned",
-      "chain_id": 137,
-      "airdrop_type": "CollectionV2IssueToken",
-      "target": "0x7434a847c5e1ff250db456c55f99d1612e93d6a3",
-      "value": "0",
-      "group": null,
-      "priority": 2144355453,
-      "transaction_id": null,
-      "transaction_hash": null,
-      "token": "Polygon sunglasses",
-      "image": "https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:amoy:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail",
-      "assigned_at": "2021-09-24T01:30:16.770Z",
-      "created_at": "2021-09-24T01:25:14.534Z",
-      "updated_at": "2021-09-24T01:25:14.534Z"
-    }
-  ]
-}
-```
 
 ## Connected to Decentraland
 
-{{< hint warning >}}
-⚠️ This flag does not work on Worlds
-{{< /hint >}}
+Another effective way to reduce automation risks is by requiring users to be connected to Decentraland. This can be easily achieved by enabling the "Connected on Decentraland" flag on your dispenser.
 
-Another way to reduce automation risks is to require the user to be connected to Decentraland. This is as easy as enabling the "Connected on Decentraland" flag on your dispenser.
-
-With this flag enabled, users will need to be connected to a Decentraland Catalyst Server to be able to claim a wearable/emote. In order to perform this check, users need to send the server they are connected to, which can be done using the `@decentraland/EnvironmentAPI` module
+When this flag is enabled, users must be connected to a Decentraland Catalyst Server to claim a reward. To perform this check, users need to send the server they are connected to, which can be accomplished using the @decentraland/EnvironmentAPI module. This ensures that only users actively participating in Decentraland can access the rewards, adding an extra layer of security against automated abuse.
 
 {{< hint info >}}
-**📔 Note**: Checks against the catalyst server don't provide real-time information. There is a delay between when the user enters Decentraland and when the position is updated on the catalyst server. This delay is usually low, but for scenes with a lot of users, it can be significant. To prevent a "User not connected" error, avoid positioning your dispensers near the user spawn point, so players spend at least a little time in the scene before the claim attempt.
+**📔 Note**: Checks against the Catalyst server don’t provide real-time information; there’s a slight delay between when a user enters Decentraland and when their position is updated on the Catalyst server. While this delay is typically minimal, it can become significant in scenes with many users. To avoid triggering a "User not connected" error, it’s best not to place your dispensers too close to the user spawn point. This ensures that players spend some time in the scene before attempting to claim a reward, allowing the server to update their connection status.
 {{< /hint >}}
 
-<div id="connected-to-decentraland-code"></div>
 
 ```tsx {hl_lines=[1,5,14]}
 import { getRealm } from '~system/Runtime'
@@ -300,51 +240,23 @@ export async function main() {
     throw new Error('Invalid response')
   }
   let json = await JSON.parse(response.body)
-  console.log(json)
-
-  // Response:
-  //
-  // {
-  //   ok: true,
-  //   data: [
-  //     {
-  //       id: '00000000-0000-0000-0000-000000000000',
-  //       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
-  //       campaign_id: '00000000-0000-0000-0000-000000000000',
-  //       campaign_key: "[DISPENSER_KEY]",
-  //       status: 'assigned',
-  //       chain_id: 137,
-  //       airdrop_type: 'CollectionV2IssueToken',
-  //       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
-  //       value: '0',
-  //       group: null,
-  //       priority: 2144355453,
-  //       transaction_id: null,
-  //       transaction_hash: null,
-  //       token: 'Polygon sunglasses',
-  //       image:
-  //         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:amoy:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
-  //       assigned_at: '2021-09-24T01:30:16.770Z',
-  //       created_at: '2021-09-24T01:25:14.534Z',
-  //       updated_at: '2021-09-24T01:25:14.534Z',
-  //     }
-  //   ]
-  // }
 }
 ```
-
-## Position inside Decentraland
 
 {{< hint warning >}}
 ⚠️ This flag does not work on Worlds
 {{< /hint >}}
 
-Additionally to the "Connected on Decentraland" flag, you can also require the user to be inside a specific position inside Decentraland. This is as easy as enabling the "Position inside Decentraland" flag on your dispenser.
+## Position inside Decentraland
 
-<img src="/images/rewards/flag-positions.png" alt="Position inside Decentraland" width="1512" hegiht="622" />
+In addition to the "Connected on Decentraland" flag, you can further enhance security by requiring users to be within a specific location inside Decentraland. This can be easily achieved by enabling the "Position inside Decentraland" flag on your dispenser.
 
-With this flag enabled, you just need to use the [same code](#connected-to-decentraland-code) as the "Connected to Decentraland" flag.
+When this flag is enabled, you can use the same code as for the "Connected to Decentraland" flag to verify both the user's connection and their position within the virtual world.
 
 {{< hint info >}}
-**📔 Note**: Checks against the catalyst server don't provide real-time information. There is a delay between when the user enters decentraland and when the position is updated on the catalyst server. This delay is usually low but for scenes with a lot of users, it can be significant. To prevent a "User not connected" error, avoid positioning your dispensers near the user spawn point, so players spend at least a little time in the scene before the claim attempt. Also list adjacent parcels to where the reward drop occurs.
+**📔 Note**: Checks against the Catalyst server don’t provide real-time information; there’s a slight delay between when a user enters Decentraland and when their position is updated on the Catalyst server. While this delay is typically minimal, it can become significant in scenes with many users. To avoid triggering a "User not connected" error, it’s best not to place your dispensers too close to the user spawn point. This ensures that players spend some time in the scene before attempting to claim a reward, allowing the server to update their connection status.
+{{< /hint >}}
+
+{{< hint warning >}}
+⚠️ This flag does not work on Worlds
 {{< /hint >}}
