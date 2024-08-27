@@ -26,7 +26,7 @@ To add text as a label on an existing entity, you create a second entity that ha
 The following example shows how to create a `TextShape` component and add it to an entity.
 
 ```ts
-const sign = engine.addEntity(true)
+const sign = engine.addEntity()
 
 Transform.create(sign, {
   position: Vector3.create(8, 1, 8),
