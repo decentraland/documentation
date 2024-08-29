@@ -13,6 +13,8 @@ type: Document
 url: /player/general/in-world-features/voice-chat
 ---
 
+> 🚧 The Explorer 2.0 desktop client does not support this feature at the moment.
+
 ### Accessing the chat
 
 When you enter the world, the voice chat will be automatically connected. You can confirm that voice chat is connected, when you see this UI in the taskbar.
