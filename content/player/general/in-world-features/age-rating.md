@@ -10,6 +10,8 @@ url: /player/general/in-world-features/age-rating-scene-reporting
 
 This section offers guidelines on how to manage content settings in Decentraland, with a focus on understanding age ratings and the importance of reporting scenes that are not categorized correctly.
 
+> 🚧 The Explorer 2.0 desktop client does not support this feature at the moment, but it is in the plans to prioritize its implementation. Stay tuned.
+
 ### Age Rating
 
 To maintain a safe and suitable environment for its community, Decentraland utilizes an age rating system. Scenes can be categorized into two main ratings for this purpose:
