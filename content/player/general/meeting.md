@@ -9,6 +9,10 @@ url: /player/general/meet-with-friends
 weight: 6
 ---
 
+{{< hint warning >}}
+**🚧 Note**: This features are not yet supported by Explorer 2.0. Please stay tuned for future updates.
+{{< /hint >}}
+
 Being a decentralized platform involves having different servers hosted by different community members and to be able to meet with your friends or colleagues in-world, you all need to be in the same place. This can represent a challenge until you understand what being at the same place means.
 
 There are two aspects to take into consideration when we talk about a place in Decentraland, the first one is the Realm or Server and the second one is the Position.
