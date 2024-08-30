@@ -20,11 +20,19 @@ Most non-interactive items have the following components:
 
 ## Add components
 
-To add components to an item, click the **+** sign at the top of the properties tab and select the component from the list. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
+To add components to any item, click the **+** sign at the top of the properties tab and select the component from the list. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
 
 <img src="/images/editor/add-component.png" alt="Scene name" width="200"/>
 
 You can delete any component from an item by clicking the three dots icon on its right, and selecting **Delete Component**.
+
+## Create an entity from scratch
+
+To create a fresh new entity, right click on the root **Scene** entity in the entity tree, or on any other entity, and select **Add Child**
+
+<img src="/images/editor/new-entity.png" width="300"/>
+
+This creates an empty entity with just a **Transform** component. You can then add any other components you want and shape it into anything you desire.
 
 ## Available components
 
@@ -52,6 +60,8 @@ The following components can be added to any entity via the Scene Editor UI:
 **📔 Note**: Other components exist on the SDK that are currently only usable via code. You can also create your own [Custom components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) via code, these won't have a UI representation, but can be added and edited via code.
 
 See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}) for how to edit the code of your scene.
+
+Also note that an entity can only hold **one** of each component. It's not possible to assign a second instance of a component that already exists in the entity.
 {{< /hint >}}
 
 ## Smart items
