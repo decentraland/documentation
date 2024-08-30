@@ -7,7 +7,7 @@
 		"img": "svg/player.svg"
 	},
 	{
-		"name": "Content Creators",
+		"name": "Creator",
 		"path": "creator",
 		"accent": "#4947CD",
 		"description": "Learn how to create content for others to experience in Decentraland",
