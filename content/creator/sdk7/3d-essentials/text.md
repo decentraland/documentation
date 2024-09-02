@@ -32,7 +32,7 @@ The easiest way to place text in-world is add a **Text** [Smart item]({{< ref "/
 The following example shows how to create a `TextShape` component and add it to an entity via code.
 
 ```ts
-const sign = engine.addEntity(true)
+const sign = engine.addEntity()
 
 Transform.create(sign, {
 	position: Vector3.create(8, 1, 8),

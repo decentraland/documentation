@@ -1,26 +1,34 @@
 ---
-title: 'Rewards API Integrations'
+title: 'API Integrations'
 url: /creator/rewards/integrations
 weight: 6
 ---
 
-This section explains how to integrate Rewards with your scene, server, or quests.
+After creating and configuring a campaign and ensuring it has sufficient stock to provide rewards, the next step is to connect the campaign to a rewards trigger. This trigger can be a Scene, a Quest, or an external server. This section explains how different integrations with Rewards can be done. 
 
-- [With your scene](#with-your-scene)
-- [With Quest service](#with-quest-service)
-- [With your server](#with-a-custom-server)
+- [Grant rewards from a scene](#grant-rewards-from-a-scene)
+  - [Recommended dispenser flags](#recommended-dispenser-flags)
+  - [Example](#example)
+- [Grant rewards from a Decentraland Quests](#grant-rewards-from-a-decentraland-quests)
+  - [Recommended dispenser flags](#recommended-dispenser-flags-1)
+  - [Example](#example-1)
+- [Grant rewards from a custom server](#grant-rewards-from-a-custom-server)
+  - [Recommended dispenser flags](#recommended-dispenser-flags-2)
+  - [Example](#example-2)
 
-## With your scene
+## Grant rewards from a scene
 
-Rewards can be integrated directly into Decentraland scenes. This exposes all the logic in code that is accessible to the user, so it is not recommended for minting items with a rarity lower than [EPIC]({{< ref "/content/creator/wearables-and-emotes/manage-collections/creating-a-collection.md" >}}#rarity). Consider the possibility that users possessing adequate knowledge and time could potentially solve captchas, alter their IP addresses, and subsequently mint all the available items, ultimately selling them on the marketplace. The only real incentive to prevent this is having enough items to mint to ensure that everyone is getting a wearable/emote.
+Rewards can be integrated directly into Decentraland scenes, but this approach comes with some risks. Since the logic is embedded in scene code that users can access, it’s not recommended for minting items with a rarity lower than [EPIC]({{< ref "/content/creator/wearables-and-emotes/manage-collections/creating-a-collection.md" >}}#rarity).
+
+Keep in mind that determined users with enough technical knowledge could potentially bypass security measures like captchas, change their IP addresses, and mint all available items, which they could then sell on the marketplace. The primary safeguard against this is ensuring a sufficient supply of items, so everyone has a fair chance to receive a reward.
 
 ### Recommended dispenser flags
 
-The following measures are recommended to reduce the risk of exploits in this scenario:
+The following dispenser configurations are recommended to reduce the risk of exploits in this scenario: 
 
-- [Limit assignation]({{< ref "/content/creator/rewards/api.md" >}}#limit-assignation)
+- [Limit Assignments]({{< ref "/content/creator/rewards/api.md" >}}#limit-assignments)
 - [Beneficiary Signature]({{< ref "/content/creator/rewards/api.md" >}}#beneficiary-signature)
-- [Captcha]({{< ref "/content/creator/rewards/api.md" >}}#captcha)
+- [Captcha Protection]({{< ref "/content/creator/rewards/api.md" >}}#captcha-protection)
 - [Connected to Decentraland]({{< ref "/content/creator/rewards/api.md" >}}#connected-to-decentraland)
 - [Position inside Decentraland]({{< ref "/content/creator/rewards/api.md" >}}#position-inside-decentraland) (if it applies to your use case)
 
@@ -37,23 +45,8 @@ export function main() {
     method: 'POST',
   })
   const captcha = await request.json()
-  console.log('CAPTCHA DATA: ', captcha)
 
-  // Response:
-  //
-  // {
-  //   "ok": true,
-  //   "data": {
-  //     "width": 300,
-  //     "height": 100,
-  //     "id": "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7",
-  //     "expires_at": "2023-11-08T12:49:44.457Z",
-  //     "image": "https://rewards2-assets-prd-05e0ac2.decentraland.org/catpcha/9e6b2d07-b47b-4204-ae87-9c4dea48f9b7.png"
-  //   }
-  // }
-
-  // 2. Display captcha for player to complete
-  // See example in studios.decentraland.org/resources
+  // 2. Display captcha for player to complete - See example in studios.decentraland.org/resources
 
   // 3. Get user data
   const user = getPlayer()
@@ -77,48 +70,17 @@ export function main() {
   })
 
   const reward = await assignRequest.json()
-  console.log(reward)
-
-  // Response:
-  //
-  // {
-  //   ok: true,
-  //   data: [
-  //     {
-  //       id: '00000000-0000-0000-0000-000000000000',
-  //       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
-  //       campaign_id: '00000000-0000-0000-0000-000000000000',
-  //       campaign_key: "[DISPENSER_KEY]",
-  //       status: 'assigned',
-  //       chain_id: 137,
-  //       airdrop_type: 'CollectionV2IssueToken',
-  //       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
-  //       value: '0',
-  //       group: null,
-  //       priority: 2144355453,
-  //       transaction_id: null,
-  //       transaction_hash: null,
-  //       token: 'Polygon sunglasses',
-  //       image:
-  //         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:amoy:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
-  //       assigned_at: '2021-09-24T01:30:16.770Z',
-  //       created_at: '2021-09-24T01:25:14.534Z',
-  //       updated_at: '2021-09-24T01:25:14.534Z',
-  //     }
-  //   ]
-  // }
-}
 ```
 
-## With Quest the service
+## Grant rewards from a Decentraland Quests
 
-You can easily integrate Rewards with the [Quests service]({{< ref "/content/creator/quests/overview.md" >}}), this is ideal if you want to reward users for completing a quest.
+You can easily integrate Rewards with the [Decentraland Quests]({{< ref "/content/creator/quests/overview.md" >}}), this is ideal if you want to reward users for completing a quest.
 
 ### Recommended dispenser flags
 
-The following measures are recommended to reduce the risk of exploits in this scenario:
+The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
 
-- [Limit assignation]({{< ref "/content/creator/rewards/api.md" >}}#limit-assignation) (if it applies to your use case)
+- [Limit Assignments]({{< ref "/content/creator/rewards/api.md" >}}#limit-assignments) (if it applies to your use case)
 
 Any other of the other flags will make your integration fail, avoid using them.
 
@@ -128,7 +90,7 @@ Any other of the other flags will make your integration fail, avoid using them.
 
 ### Example
 
-To integrate your Quest with the Rewards service, you just need a dispenser key and to [configure a webhook]({{< ref "/content/creator/quests/rewards.md" >}}) to receive the rewards.
+To integrate your Quest with the Rewards service, you just need a dispenser key and to [configure a webhook]({{< ref "/content/creator/quests/rewards.md" >}}) to grant rewards.
 
 ```js
 {
@@ -146,17 +108,17 @@ To integrate your Quest with the Rewards service, you just need a dispenser key 
 }
 ```
 
-## With a custom server
+## Grant rewards from a custom server
 
-You can integrate Rewards directly from your server, this is ideal for carrying out extra checks before minting items. Another benefit is that users never have contact with the code on your server, making it harder to find vulnerabilities.
+You can integrate Rewards directly from your server, which is ideal for performing extra checks before minting items. An additional advantage is that, unlike scene code, your server code might not be public, making it more challenging for users to discover and exploit vulnerabilities.
 
 ### Recommended dispenser flags
 
-The following measures are recommended to reduce the risk of exploits in this scenario:
+The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
 
-- [Limit assignation]({{< ref "/content/creator/rewards/api.md" >}}#limit-assignation) (if it applies to your use case)
+- [Limit Assignments]({{< ref "/content/creator/rewards/api.md" >}}#limit-assignments) (if it applies to your use case)
 
-Any of the other flags will make your integration more complex or, depending on your use case, can make it fail, so we don't recommend using them, but you may consider taking advantage of them.
+Enabling any of the other flags could complicate your integration or, depending on your use case, potentially cause it to fail. Therefore, it is not recommend using them unless there is a specific need. However, you may want to explore their potential benefits.
 
 {{< hint warning >}}
 ⚠️ The dispenser key should be kept secret, so you should never expose it to the user at anytime.
@@ -177,34 +139,4 @@ const request = await fetch('https://rewards.decentraland.org/api/rewards', {
 })
 
 const response = await request.json()
-console.log(response)
-
-// Response:
-//
-// {
-//   ok: true,
-//   data: [
-//     {
-//       id: '00000000-0000-0000-0000-000000000000',
-//       user: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
-//       campaign_id: '00000000-0000-0000-0000-000000000000',
-//       campaign_key: "[DISPENSER_KEY]",
-//       status: 'assigned',
-//       chain_id: 137,
-//       airdrop_type: 'CollectionV2IssueToken',
-//       target: '0x7434a847c5e1ff250db456c55f99d1612e93d6a3',
-//       value: '0',
-//       group: null,
-//       priority: 2144355453,
-//       transaction_id: null,
-//       transaction_hash: null,
-//       token: 'Polygon sunglasses',
-//       image:
-//         'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:amoy:collections-v2:0x7434a847c5e1ff250db456c55f99d1612e93d6a3:0/thumbnail',
-//       assigned_at: '2021-09-24T01:30:16.770Z',
-//       created_at: '2021-09-24T01:25:14.534Z',
-//       updated_at: '2021-09-24T01:25:14.534Z',
-//     }
-//   ]
-// }
 ```

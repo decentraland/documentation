@@ -1,5 +1,5 @@
 ---
-title: 'Rewards Transactions'
+title: 'Transactions'
 url: /creator/rewards/tx
 weight: 4
 ---
