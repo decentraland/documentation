@@ -15,7 +15,7 @@ For example, you can take advantage of an existing lever smart item, that alread
 
 Click the **< > CODE** button to open Visual Studio Code on your scene project.
 
-<img src="/images/editor/code-button.png" width="300"/>
+<img src="/images/editor/code-button.png" width="200"/>
 
 {{< youtube J_EO1LZkaiA >}}
 

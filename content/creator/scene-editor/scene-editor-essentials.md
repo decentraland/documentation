@@ -107,10 +107,10 @@ Smart items are special items that come with built-in interactive behaviors. See
 
 ## The entity tree
 
-On the left margin, you'll see a tree structure with all of the entities in the scene. This includes all of the items you add, as well as a few default ones.
+On the left margin, you'll see a tree structure with all of the entities in the scene. This includes all of the items you add, as well as a few default entities.
 
 {{< hint info >}}
-**💡 Tip**: An **Entity** can be thought of as just another word for an **Item**, they are a more code-level concept. Items must have at least a position and a visible shape, an Entity doesn't need to have either.
+**💡 Tip**: Everything in a scene is an Entity, they are the basic building blocks of scenes. Items are Entities that have at least a position and a visible shape.
 {{< /hint >}}
 
 Instead of selecting an item by clicking on it from the 3D view of the scne, you can select it from the tree view. Click the right-mouse button on an entity to reveal more options: you can rename, delete, or duplicate, also create a child entity, or add a component to the entity.
