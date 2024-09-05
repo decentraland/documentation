@@ -12,49 +12,41 @@ aliases:
 weight: 2
 ---
 
-All creators are welcome! In Decentraland you have a wide range of Creative possibilities:
+All creators are welcome! In Decentraland you have a wide range of Creative possibilities, for people of different talents and skill levels!
 
-- [Scenes](#scenes)
+# The Creator Hub
+
+The Creator Hub is the recommended tool for creators of all knowledge levels. It's a desktop application that lets you create:
+
 - [Wearables & Smart Wearables](#wearables)
 - [Emotes](#emotes)
+- [Scenes](#scenes)
 
-# Scenes
+<img src="/images/editor/scene-editor.png" width="600" />
+
+Download the Creators Hub from the [Creators landing page](https://decentraland.org/create/).
+
+## Wearables
+
+Wearables are items of clothing that player avatars can wear. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?section=wearables&vendor=decentraland&page=1&sortBy=newest&status=on_sale).
+
+Learn everything about [Creating wearables]({{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >}}).
+
+You can also combine a wearable with code from the SDK to create a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). This turns on a global scene whenever the player puts on the wearable. See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
+
+## Emotes
+
+Emotes are animations that a player's avatar can do. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?assetType=item&section=emotes&vendor=decentraland&page=1&sortBy=newest&status=on_sale).
+
+Learn everything about [Creating emotes]({{< ref "/content/creator/wearables-and-emotes/emotes/creating-emotes.md" >}}).
+
+## Scenes
 
 3D content in Decentraland is made up of scenes, each scene occupies a finite amount of space and is displayed one next to the other for players to freely walk through them.
 
-### Tools
+The Creator Hub lets you create scenes with an easy drag-and-drop interface, and also edit code to have full control over the interactions. You can run previews, debug, edit code, and publish.
 
-Use these tools to create Decentraland scenes:
-
-- **The Creator Hub**: The recommended tool for creators of all knowledge levels. It lets you create scenes with an easy drag-and-drop interface. You can run previews, debug, edit code, and publish.
-
-  [Learn more]({{< ref "/content/creator/scene-editor/about-editor.md" >}})
-
-  <img src="/images/editor/scene-editor.png" width="600" />
-
-The following tools are deprecated but still available:
-
-- **Web Editor:** A lightweight tool, with no installation. Use an easy drag and drop interface to create scenes.
-
-  [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
-
-  <img src="/images/intro/web-editor.png" width="600" />
-
-- **Visual Studio Code Extension:** An all-in-one content creation tool, combining a graphical interface with code editing capabilities.
-
-  [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
-
-  <img src="/images/intro/desktop-editor.png" width="600" />
-
-{{< hint warning >}}
-**📔 Note**: There are also community-built tools for creating Decentraland scenes:
-
-- [**DCL Edit**](https://dcl-edit.com/): Drag and drop 3d models into your scene. You can then work on adding interactivity to the resulting scene using the SDK.
-- [**Unity Exporter Toolkit**](https://github.com/PolygonalMind/dcl-dev-exportersdk7-release): Build in Unity, with a number of pre-built interactive modules. Export a fully-working Decentraland scene.
-- [**Virtual Land Manager**](https://vlm.gg/): Control various aspects of your scene in real time, including highly customized controls. Includes analytics: View historical user activity, track custom interactions, export lists of players in scene, and more.
-- [**In-World Builder**](https://decentraland.org/play/?realm=https%3A%2F%2Fworlds.dcl-iwb.co%2Fworld%2FBuilderWorld.dcl.eth): Create a scene without leaving the Decentraland explorer. Use various default items or upload your own, without needing to deploy or own land.
-
-{{< /hint >}}
+[Learn more]({{< ref "/content/creator/scene-editor/about-editor.md" >}})
 
 ### 3D Art
 
@@ -90,6 +82,10 @@ To make your scene interactive:
 
     <img src="/images/intro/sdk-code.png" width="600" />
 
+{{< hint warning >}}
+**📔 Note**: To edit code you will also need to have <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Vs Studio Code](https://code.visualstudio.com/) installed.
+{{< /hint >}}
+
 ### Publishing your scene
 
 You don't need to own any tokens to start building your scene with the Scene Editor. To publish your scene, you can chose from the following options:
@@ -101,16 +97,25 @@ See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.
 
 See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) for details and special options when publishing a scene, to either Genesis City or Worlds.
 
-# Wearables
+### Alternative tools
 
-Wearables are items of clothing that player avatars can wear. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?section=wearables&vendor=decentraland&page=1&sortBy=newest&status=on_sale).
+There are also community-built tools for creating Decentraland scenes:
 
-Learn everything about [Creating wearables]({{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >}}).
+- [**In-World Builder**](https://decentraland.org/play/?realm=https%3A%2F%2Fworlds.dcl-iwb.co%2Fworld%2FBuilderWorld.dcl.eth): Create a scene without leaving the Decentraland explorer. Use various default items or upload your own, without needing to deploy or own land.
+- [**Virtual Land Manager**](https://vlm.gg/): Control various aspects of your scene in real time, including highly customized controls. Includes analytics: View historical user activity, track custom interactions, export lists of players in scene, and more.
+- [**DCL Edit**](https://dcl-edit.com/): Drag and drop 3d models into your scene. You can then work on adding interactivity to the resulting scene using the SDK.
+- [**Unity Exporter Toolkit**](https://github.com/PolygonalMind/dcl-dev-exportersdk7-release): Build in Unity, with a number of pre-built interactive modules. Export a fully-working Decentraland scene.
 
-You can also combine a wearable with code from the SDK to create a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). This turns on a global scene whenever the player puts on the wearable, and can be used in all sorts of creative ways. See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
+The following tools are deprecated:
 
-# Emotes
+- **Web Editor:** Use an easy drag and drop interface to create scenes.
 
-Emotes are animations that a player's avatar can do. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?assetType=item&section=emotes&vendor=decentraland&page=1&sortBy=newest&status=on_sale).
+  [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
 
-Learn everything about [Creating emotes]({{< ref "/content/creator/wearables-and-emotes/emotes/creating-emotes.md" >}}).
+  <img src="/images/intro/web-editor.png" width="600" />
+
+- **Visual Studio Code Extension:** An extension to VS Studio Code that lets you create scene, run previews, deploy, and manage dependencies. It also lets you open a drag-and-drop editor inside a VS Code window.
+
+  [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
+
+  <img src="/images/intro/desktop-editor.png" width="600" />

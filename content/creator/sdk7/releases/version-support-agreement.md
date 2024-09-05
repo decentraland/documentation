@@ -13,8 +13,6 @@ This document describes the versioning policy applied to both the Scene Editor (
 
 The goal of this versioning policy is to forge a contract between the Decentraland Foundation's SDK team and content creators, to establish clear expectations and allow content creators to plan their work accordingly.
 
-<!-- TODO: What about support from other teams? Do we have a commitment for content with older versions to keep working too? -->
-
 ## Definitions
 
 - _Version number_ -- a unique identifier for a publicly available version of software. This identifier consists of a _major version_ number and a _minor version_ number, separated dots (for example, 7.2).
