@@ -22,7 +22,7 @@ The Creator Hub is the recommended tool for creators of all knowledge levels. It
 - [Emotes](#emotes)
 - [Scenes](#scenes)
 
-<img src="/images/editor/scene-editor.png" width="600" />
+<img src="/images/editor/scene-editor.png" width="750" />
 
 Download the Creator Hub from the [Creator landing page](https://decentraland.org/create/).
 
