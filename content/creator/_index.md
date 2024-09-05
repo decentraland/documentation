@@ -70,23 +70,23 @@ See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for t
 
 To make your scene interactive:
 
-- Use the UI of the Scene Editor to drop [Smart Items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
+- \*_No Code_: Use the UI of the Scene Editor to drop [Smart Items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
 
-  <img src="/images/intro/smart-items.png" width="600" />
+  <img src="/images/intro/smart-items.png" width="500" />
 
-- For developers that want to incorporate custom logic, use the SDK to write code and do anything you can imagine. Learn to use the SDK:
+- **Code**: For developers that want to incorporate custom logic, use the SDK to write code and do anything you can imagine. Learn to use the SDK:
 
   - [Quick start]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}): follow this mini tutorial for a quick crash course.
   - [Development workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}): read this to understand scene creation from end to end.
   - [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7): dive right into working example scenes.
 
-    <img src="/images/intro/sdk-code.png" width="600" />
+    <img src="/images/intro/sdk-code.png" width="500" />
 
-{{< hint warning >}}
-**📔 Note**: To edit code you will also need to have <img src="/images/editor/vscode.png" alt="Header" width="25" href="https://code.visualstudio.com/"/> [Vs Studio Code](https://code.visualstudio.com/) installed.
-{{< /hint >}}
+  {{< hint warning >}}
+  **📔 Note**: You will also need to have <img src="/images/editor/vscode.png" alt="Header" width="25" href="https://code.visualstudio.com/"/> [Vs Studio Code](https://code.visualstudio.com/) installed.
+  {{< /hint >}}
 
-### Publishing your scene
+### Publishing scenes
 
 You don't need to own any tokens to start building your scene with the Scene Editor. To publish your scene, you can chose from the following options:
 
