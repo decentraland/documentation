@@ -16,92 +16,79 @@ url: /player/market/marketplace
 weight: 1
 ---
 
-The Marketplace is the go-to place to trade and manage all your Decentraland on-chain assets.
+The Marketplace is the go-to place to trade and manage all your Decentraland assets like Wearables, Emotes, LAND, and more.
 
-Access the Marketplace at [market.decentraland.org](https://market.decentraland.org/).
+Access the Marketplace at [https://decentraland.org/marketplace/](https://https://decentraland.org/marketplace/).
 
 The Marketplace allows you to:
 
-- **Sell** parcels and Estates of LAND, wearables, and unique names. Set your own price in MANA and an expiration date for the offer.
-- **Buy** parcels and Estates, wearables, and unique names that are for sale.
+- **Sell** parcels and Estates of LAND, Wearables, Emotes and unique NAMEs. Set your own price in MANA and an expiration date for the listing.
+- **Buy** parcels and Estates, Wearables, Emotes, and unique NAMEs for sale.
 - **Transfer** your Decentraland assets to another user.
-- **Explore** the world through a map to see who owns what, existing wearables or claimed avatar names.
+
+
+## Logging In
+
+You can freely navigate the Marketplace without the need to log in, but it's recomended to log in while browsing the Marketplace for an enhanced experience. If you want to log in, you can use any of the available options like Gmail, Discord, or using Wallets like Metamask.
 
 {{< hint warning >}}
-**📔 Note**:  Use [builder.decentraland.org/land](https://builder.decentraland.org/land) to:
+**📔 Note**:  If you would like to use your Ledger hardware wallet in the Marketplace, it will require you to connect it to MetaMask. Please ensure you follow all the [given steps](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet) and updates to allow a seamless Ledger usage.
 {{< /hint >}}
 
 
-- **Name** your parcels and Estates and give them a public description.
-- **Grant permissions** to other users, allowing them to deploy on your LAND.
-- **Manage** to create or dissolve estates.
 
-## Your Wallet
+## LANDs Map View
 
-Before using [market.decentraland.org](https://market.decentraland.org), connect and log into an Ethereum client account that can interact with the web browser. We recommend using [MetaMask](https://metamask.io/). We also support the use of a [Ledger](https://www.ledgerwallet.com/) hardware wallet.
-
-{{< hint warning >}}
-**📔 Note**:  If you would like to use your Ledger hardware wallet in the Marketplace, it will require you to connect it towards MetaMask. Please ensure you follow all the [given steps](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet) and updates to allow a seamless Ledger usage.
-{{< /hint >}}
-
-
-When navigating the Marketplace, your wallet address is treated as your account, you don't need any additional log in.
-
-The Marketplace currently hosts LAND and names solely on Ethereums network. Wearables differ between Ethereum and Polygons network. Ethereum based transactions require a GAS fee, paid in Ethereum. Wheras Polygon based transactions only require a small amount of MATIC, to perform actions in the Marketplace.
-
-## The Atlas View
-
-The Atlas view gives you a bird’s-eye perspective of every color coded parcel, Estate, road, district, and plaza in Decentraland.
+The Atlas view gives you a bird’s-eye perspective of every color-coded parcel, Estate, road, district, and plaza in Decentraland.
 
 ![](/images/media/market-atlas.png)
 
 You can click and drag the map to move around, zoom in and out, or hover your cursor over a parcel to see its x,y location and owner.
 
-Any parcel that is currently for sale in the Marketplace will be highlighted.
+Any parcel that is currently for sale or rent in the Marketplace will be highlighted.
 
-Click on a parcel to view it’s status, its coordinates, and its owner’s public address (if it has an owner). From this screen you can also buy or place a bid on the parcel.
+Click on a parcel to view its status, coordinates, and owner’s public wallet address (if it has an owner). From the map view, you can click on any LAND to go to see its details, buy it, make an offer to buy it, and even rent it. 
 
-## The Marketplace View
+## Browsing
 
-Select the **Browse** tab to see all the items that are for sale.
+Select the **Collectibles** tab to see all the items that are for sale.
 
-- Select the **Category** to view only a specific type of item .
-- **Order** them by different criteria like most recent, cheapest, etc.
-- Toggle **On sale** off to view items that aren't for sale.
-- **Filter** items by name to find something specific.
+- Select the **Category** to view all the Wearables and Emotes types.
+- Use the **Search bar** to find Wearables, Emotes, Collections, and Creators.
+- **Sort** results by different criteria like most recent, cheapest, using the drop down on the top right. 
+- **Filter** items by name, rarity, price, and more to find exaclty what you are looking for.
 
-![](/images/media/market-browse.png)
 
-## Buy MANA
+## Buy MANA or Pay With Your Local Currency
 
-To buy MANA in exchange for Ether:
+You can purchase Wearables, Emotes, and NAMEs with debit or credit cards, or with bank transfer (availability depends on your location). Or you can buy "Ehtereum MANA" to purchase LAND, NAMEs, and some special Wearables. Or you can buy "Polygon MANA" to purchase most Wearables and Emotes.
 
-1. Open your user _Settings page_.
-2. Click **Buy More** next to your MANA balance.
-3. This takes you to [Kyber Swap](https://kyberswap.com/swap/eth-mana), where you can easily exchange Ether to MANA.
-4. Set an amount of MANA you'd like to receive or the amount of Ether you'd like to convert, then click **Swap Now**.
-5. Confirm this transaction on your Ethereum client and wait for the network to verify it.
+**To buy MANA**
+1. Click **BUY MANA** on the top right.
+2. Choose the type of MANA you want to buy (depending on the item you wish to get).
+3. Choose a provider and follow the steps. You might need to perform a light or full KYC process. 
+4. And you are ready to get some amazing items.
 
 ## Buy items
 
-To buy LAND, Estates, wearables or unique names in Decentraland:
+To buy LAND, Wearables, Emotes or NAMEs in Decentraland:
 
-1. Browse offers to find something on same that you'd like to buy and click it to open its details.
+1. Browse listings to find something that you'd like to buy and click it to open its details.
 
 {{< hint info >}}
 **💡 Tip**:  For LAND and Estates, you can also browse using the _Atlas_ view.
 {{< /hint >}}
 
-2. On it's details page, click **Buy**.
+2. On it's details page, click **Buy with Crypto** or **Buy with Card**.
 
-3. Confirm this transaction on your Ethereum client and wait for the network to verify it.
+3. Confirm this transaction following the steps.
 
 {{< hint warning >}}
-**📔 Note**:  If this is your first time buying something on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to accept MANA.
+**📔 Note**:  If this is your first time buying something on the Marketplace, you might be asked to confirm a one-time transaction to allow the Marketplace to operate with your MANA, **this has no cost and it never will**.
 {{< /hint >}}
 
 
-## Place a bid on an item
+## Make an offer for an item
 
 If an item isn't listed on sale, you can still place a _bid_ on it and offer to buy it at a specific price. The other steps of the process are just like those of buying an item.
 
@@ -114,9 +101,8 @@ If an item isn't listed on sale, you can still place a _bid_ on it and offer to 
 {{< /hint >}}
 
 
-To view a list of your open and pending bids, select _My Bids_ on the top navbar.
+To view a list of your open and pending bids, select _My Assets_ > _Bids_ on the tabs above.
 
-From this screen you can also change the price of your bid by clicking _Update_. This screen also shows bids made by other users on items you own.
 
 ## Sell a parcel or Estate
 
@@ -125,28 +111,15 @@ To sell one of your items:
 1. Open **My Assets** and open its details page.
 2. In the details page, click **Sell**.
 3. Set a price and expiration date and click **List for sale**. Then retype the price you're selling it at to confirm.
-4. Confirm this transaction on your Ethereum client and wait for the network to verify it.
+4. Confirm this transaction on your wallet and wait for the network to verify it.
 
 {{< hint warning >}}
 **📔 Note**:  If this is your first time selling an item of this asset type on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to accept MANA.
 {{< /hint >}}
 
 
-You can change the price of a sale that you already put on offer without having to cancel and re-create the sale. Just click **Update price** in the parcel or Estate's details page.
+You can change the price of a sale that you already put on sale without having to cancel and re-create the listing. Just click **Update price** in the parcel or Estate's details page.
 
-## See your activity history
-
-Open the notifications page by clicking the bell icon at the top of the screen.
-
-![](/images/media/marketplace_notifications.png)
-
-The notifications page displays a list of all the recent transactions that you have carried out, together with their status.
-
-Click a transaction to see more details about it on Etherscan.
-
-{{< hint warning >}}
-**📔 Note**:  This screen only shows transactions that were initiated by you. It doesn't show the sale of tokens, since that action is initiated by the buyer.
-{{< /hint >}}
 
 
 ## Transfer LAND
@@ -171,6 +144,6 @@ To transfer a LAND parcel or Estate to another user:
 
 ## Providing Feedback
 
-We’ve worked hard to ensure that the Marketplace is simple and easy to use but if you ever have questions or feedback please reach out to us using the in-app Intercom widget.
+We’ve worked hard to ensure that the Marketplace is simple and easy to use but if you ever have questions or feedback please reach out to us by clicking on the Feature Request link in the footer.
 
 As with all of our other tools, the Marketplace is open-source software, and [you can find the code here](https://github.com/decentraland/marketplace). Feel free to create an issue, or submit a pull-request!
