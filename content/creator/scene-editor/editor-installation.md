@@ -16,7 +16,7 @@ The Creator Hub is currently in Alpha stage, and shared with users that join the
 Once accepted into the alpha program, you'll be shared the installer for the Creator Hub.
 {{< /hint >}}
 
-Visit the [Create page in Decentraland.org](https://decentraland.org/create/) and download the **Creators Hub**.
+Visit the [Create page in Decentraland.org](https://decentraland.org/create/) and download the **Creator Hub**.
 
 ## Updating the Creator Hub
 
