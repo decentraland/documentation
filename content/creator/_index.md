@@ -83,7 +83,7 @@ To make your scene interactive:
     <img src="/images/intro/sdk-code.png" width="600" />
 
 {{< hint warning >}}
-**📔 Note**: To edit code you will also need to have <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Vs Studio Code](https://code.visualstudio.com/) installed.
+**📔 Note**: To edit code you will also need to have <img src="/images/editor/vscode.png" alt="Header" width="25" href="https://code.visualstudio.com/"/> [Vs Studio Code](https://code.visualstudio.com/) installed.
 {{< /hint >}}
 
 ### Publishing your scene
@@ -99,23 +99,15 @@ See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}})
 
 ### Alternative tools
 
-There are also community-built tools for creating Decentraland scenes:
+There are also some community-built tools that can help you create Decentraland scenes:
 
 - [**In-World Builder**](https://decentraland.org/play/?realm=https%3A%2F%2Fworlds.dcl-iwb.co%2Fworld%2FBuilderWorld.dcl.eth): Create a scene without leaving the Decentraland explorer. Use various default items or upload your own, without needing to deploy or own land.
 - [**Virtual Land Manager**](https://vlm.gg/): Control various aspects of your scene in real time, including highly customized controls. Includes analytics: View historical user activity, track custom interactions, export lists of players in scene, and more.
 - [**DCL Edit**](https://dcl-edit.com/): Drag and drop 3d models into your scene. You can then work on adding interactivity to the resulting scene using the SDK.
 - [**Unity Exporter Toolkit**](https://github.com/PolygonalMind/dcl-dev-exportersdk7-release): Build in Unity, with a number of pre-built interactive modules. Export a fully-working Decentraland scene.
 
-The following tools are deprecated:
+The following deprecated tools are also available:
 
-- **Web Editor:** Use an easy drag and drop interface to create scenes.
+- **Web Editor:** Use an easy drag and drop interface to create scenes. [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
 
-  [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
-
-  <img src="/images/intro/web-editor.png" width="600" />
-
-- **Visual Studio Code Extension:** An extension to VS Studio Code that lets you create scene, run previews, deploy, and manage dependencies. It also lets you open a drag-and-drop editor inside a VS Code window.
-
-  [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
-
-  <img src="/images/intro/desktop-editor.png" width="600" />
+- **Visual Studio Code Extension:** An extension to VS Studio Code that lets you create scene, run previews, deploy, and manage dependencies. It also lets you open a drag-and-drop editor inside a VS Code window. [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
