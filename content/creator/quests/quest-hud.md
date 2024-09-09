@@ -16,49 +16,49 @@ This HUD is fully-customizable. Below are the full set of options that can be se
 type LabelProps = EntityPropTypes & UiLabelProps
 
 export type QuestHudOptions = {
-  autoRender?: boolean
-  leftSidePanel?: UiTransformProps
-  questBox?: {
-    uiBackground?: UiBackgroundProps
-    uiTransform?: UiTransformProps
-  }
-  questNameContainer?: {
-    uiTransform?: UiTransformProps
-    label?: LabelProps
-  }
-  stepsContainer?: {
-    uiTransform: UiTransformProps
-    labels?: {
-      labelUiEntity?: UiTransformProps
-      props?: LabelProps
-    }
-    showTasksButton?: {
-      buttonUiEntity: UiTransformProps
-      buttonProps?: UiButtonProps
-    }
-  }
-  tasksBox?: {
-    uiTransform?: UiTransformProps
-    uiBackground?: UiBackgroundProps
-    labels?: {
-      labelUiEntity?: UiTransformProps
-      props?: LabelProps
-    }
-  }
-  nextSteps?: {
-    nextTitleUiEntity?: UiTransformProps
-    nextTitleProps?: LabelProps
-    labels?: {
-      labelUiEntity?: UiTransformProps
-      props?: LabelProps
-    }
-  }
-  questCompletionLabel?: {
-    uiTransform?: UiTransformProps
-    label?: LabelProps
-  }
-  showHideToggleButton?: UiButtonProps
-  closeTasksBoxButton?: UiButtonProps
+	autoRender?: boolean
+	leftSidePanel?: UiTransformProps
+	questBox?: {
+		uiBackground?: UiBackgroundProps
+		uiTransform?: UiTransformProps
+	}
+	questNameContainer?: {
+		uiTransform?: UiTransformProps
+		label?: LabelProps
+	}
+	stepsContainer?: {
+		uiTransform: UiTransformProps
+		labels?: {
+			labelUiEntity?: UiTransformProps
+			props?: LabelProps
+		}
+		showTasksButton?: {
+			buttonUiEntity: UiTransformProps
+			buttonProps?: UiButtonProps
+		}
+	}
+	tasksBox?: {
+		uiTransform?: UiTransformProps
+		uiBackground?: UiBackgroundProps
+		labels?: {
+			labelUiEntity?: UiTransformProps
+			props?: LabelProps
+		}
+	}
+	nextSteps?: {
+		nextTitleUiEntity?: UiTransformProps
+		nextTitleProps?: LabelProps
+		labels?: {
+			labelUiEntity?: UiTransformProps
+			props?: LabelProps
+		}
+	}
+	questCompletionLabel?: {
+		uiTransform?: UiTransformProps
+		label?: LabelProps
+	}
+	showHideToggleButton?: UiButtonProps
+	closeTasksBoxButton?: UiButtonProps
 }
 ```
 
@@ -117,13 +117,13 @@ Once you created a Quest HUD with `createQuestHUD()`, you're returned a `QuestHU
 
 ```typescript
 type QuestHUD = {
-  upsert: (instance: QuestInstance) => void
-  getHUDComponent: () => () => ReactEcs.JSX.Element
-  render: () => void
-  updateOptions: (opts: QuestHudOptions) => void
-  getHUDComponentWithUpdatedOptions: (
-    newOpts: QuestHudOptions
-  ) => () => ReactEcs.JSX.Element
+	upsert: (instance: QuestInstance) => void
+	getHUDComponent: () => () => ReactEcs.JSX.Element
+	render: () => void
+	updateOptions: (opts: QuestHudOptions) => void
+	getHUDComponentWithUpdatedOptions: (
+		newOpts: QuestHudOptions
+	) => () => ReactEcs.JSX.Element
 }
 ```
 
@@ -132,8 +132,6 @@ type QuestHUD = {
 - `getHUDComponent`: Get the ReactECS UI component that renders a ready-to-use Quest HUD. This is useful when you already have a UI to render, since `ReactEcsRenderer.setUiRenderer` overrides everything that previously exists.
 
 - `render`: Render the Quest HUD. You may want to call this function when you have the `autoRender` option set to `false` and you want to render the Quest HUD manually.
-
-<!--(TODO: check if recalling it when entity updates is needed.)  -->
 
 To use it, import the `createQuestHUD` function from `@dcl/quests-client/dist/hud`. For example:
 
@@ -150,24 +148,24 @@ const questHud = createQuestHUD()
 const MY_QUEST_ID = 'quest-id-1234-5678-9012'
 
 executeTask(async () => {
-  const serviceUrl = 'wss://quests-rpc.decentraland.zone'
+	const serviceUrl = 'wss://quests-rpc.decentraland.zone'
 
-  try {
-    const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
-    console.log('Quests Client is ready to use!')
+	try {
+		const questsClient = await createQuestsClient(serviceUrl, MY_QUEST_ID)
+		console.log('Quests Client is ready to use!')
 
-    client.onStarted((quest: QuestInstance) => {
-      // react to the start of your Quest
-      questHud.upsert(quest)
-    })
+		client.onStarted((quest: QuestInstance) => {
+			// react to the start of your Quest
+			questHud.upsert(quest)
+		})
 
-    client.onUpdate((quest: QuestInstance) => {
-      // update your state here to react to the quest updates
-      questHud.upsert(quest)
-    })
-  } catch (e) {
-    console.error('Error on connecting to Quests Service')
-  }
+		client.onUpdate((quest: QuestInstance) => {
+			// update your state here to react to the quest updates
+			questHud.upsert(quest)
+		})
+	} catch (e) {
+		console.error('Error on connecting to Quests Service')
+	}
 })
 ```
 
@@ -182,15 +180,15 @@ When the quest is stated or it receives any player progress update, the `questHu
 
 //....
 const questHud = createQuestHUD({
-  autoRender: true,
-  leftSidePanel: {
-    position: { top: '8%' },
-  },
-  questBox: {
-    uiBackground: {
-      color: Color4.fromHexString('ff2d5382'),
-    },
-  },
+	autoRender: true,
+	leftSidePanel: {
+		position: { top: '8%' },
+	},
+	questBox: {
+		uiBackground: {
+			color: Color4.fromHexString('ff2d5382'),
+		},
+	},
 })
 
 //....

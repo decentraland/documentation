@@ -17,11 +17,15 @@ Click the **< > CODE** button to open Visual Studio Code on your scene project.
 
 <img src="/images/editor/code-button.png" width="200"/>
 
+This opens a separate window with Visual Studio Code. On the left margin you can navigate the files and folder structure of your project.
+
+<img src="/images/editor/files-on-vs-studio.png" alt="Scene name" width="200"/>
+
 {{< youtube J_EO1LZkaiA >}}
 
-<!-- TODO: install and configure VS Studio -->
-
-<!-- TODO: scene folder, open VS at a folder level? -->
+{{< hint warning >}}
+**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+{{< /hint >}}
 
 ## Reference an item
 
@@ -161,4 +165,6 @@ function main() {
 - [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}})
 - [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
 
-<!-- TODO: links to systems, and to SDK in general -->
+- [SDK Quick start]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}): follow this mini tutorial for a quick crash course.
+- [Development workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}): read this to understand scene creation from end to end.
+- [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7): dive right into working example scenes.

@@ -447,8 +447,6 @@ PointerEvents.create(entity, {
 
 Some entities can be intentionally only interactive at a close range. If a player is too far away from an entity, the hover hint won't be displayed next to the cursor.
 
-<!-- TODO: Check this -->
-
 By default, entities are only clickable when the player is within a close range of the entity, at a maximum distance of _10 meters_. You can change the maximum distance by setting the `maxDistance` property of a pointer event.
 
 ```ts

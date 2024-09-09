@@ -334,7 +334,7 @@ async function fetchWearablesData() {
 executeTask(fetchWearablesData)
 ```
 
-TODO: Update snippet
+<!-- TODO: Update snippet -->
 
 ## Check the player's camera mode
 

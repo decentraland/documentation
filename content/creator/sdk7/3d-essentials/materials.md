@@ -397,15 +397,12 @@ Material.create(meshEntity3, {
 })
 ```
 -->
-<!--
+
 ## Video playing
 
- TODO: feature missing
 To stream video from a URL into a material, or play a video from a file stored in the scene, see [video playing]({{< ref "/content/creator/sdk7/media/video-playing.md" >}}).
 
 The video is used as a texture on a material, you can set any of the other properties of materials to alter how the video screen looks.
-
--->
 
 ## Advanced syntax
 

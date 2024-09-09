@@ -62,9 +62,9 @@ Click and drag a selected item to move it freely around the scene at ground leve
 
 To test your scene and experience it like a player, click the _Preview_ button on the top-right corner. This will open a new window with the Decentraland Desktop Explorer, running just your scene. There you can move around the scene and interact with interactive items.
 
-<!-- TODO: DOWNLOAD EXPLORER
-To open a scene preview, you must have Decentraland installed on your desktop. If you don't, LINK
- -->
+{{< hint warning >}}
+**📔 Note**: If you don't have it installed on your machine, download the **Decentraland Launcher** from [Decentraland.org](https://decentraland.org).
+{{< /hint >}}
 
 <img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
 
