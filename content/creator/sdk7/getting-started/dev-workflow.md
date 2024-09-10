@@ -50,7 +50,7 @@ Permission to publish to each of these is controlled via tokens. You don't need 
 
 The following options are available:
 
-- [Rent LAND]({{< ref "/content/player/marketplace/rentals.md" >}})
+- [Rent LAND]({{< ref "/content/player/marketplace/land/rentals.md" >}})
 - [Purchase LAND]({{< ref "/content/player/marketplace/marketplace.md" >}})
 - Obtain permissions from a land owner
 - Publish to a Decentraland World, see [worlds]({{< ref "/content/creator/worlds/about.md" >}}) to learn more.

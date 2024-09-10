@@ -23,7 +23,7 @@ See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}})
 
 In order to publish to LAND in Genesis City, you can do the following:
 
-- **Rent LAND**: Purchase the right to deploy and keep your content on certain parcels for a fixed period of time. See [Rentals]({{< ref "/content/player/marketplace/rentals.md" >}}).
+- **Rent LAND**: Purchase the right to deploy and keep your content on certain parcels for a fixed period of time. See [Rentals]({{< ref "/content/player/marketplace/land/rentals.md" >}}).
 - **Buy land**: Buy land parcels, and publish your content for as long as you wish. See [marketplace]({{< ref "/content/player/marketplace/marketplace.md" >}}).
 - **Get permissions from an owner**: Several land owners and districts manage large extensions of land and are willing to freely host content from others if it fits their theme and the kind of environment they want to create. Connect with them in the [Decentraland Discord server](https://dcl.gg/discord).
 
@@ -46,6 +46,6 @@ See [Community grants]({{< ref "/content/player/dao/grants/community-grants.md" 
 LAND tokens can manage permissions that allow the following different kinds of roles to deploy to a particular parcel or estate.
 
 - **LAND owner**: The person that owns the token in their Ethereum wallet. This user can always deploy, assign other roles, or transfer the token (unless the land is currently rented by someone else).
-- **LAND operator**: The operator is only able to deploy, as long as they hold this role. The operator's address is referenced by the token, without needing to own anything. The owner can assign and revoke operator permissions to any number of addresses. See [Give permissions]({{< ref "/content/player/marketplace/land-manager.md#give-permissions" >}}).
+- **LAND operator**: The operator is only able to deploy, as long as they hold this role. The operator's address is referenced by the token, without needing to own anything. The owner can assign and revoke operator permissions to any number of addresses. See [Give permissions]({{< ref "/content/player/marketplace/land/land-manager.md#give-permissions" >}}).
 
 When renting a land, the tennant who pays for the rent gets to chose a single address that will hold a **LAND Operator** role for the duration of the rent (this can be their own address, or someone else's). While the rent is active, none of the original holders of roles can interfere with the content on that LAND or transfer the token.
