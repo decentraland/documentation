@@ -6,7 +6,7 @@ categories:
   - market
 type: Document
 url: /player/market/emotes
-weight: 6
+weight: 7
 ---
 
 Lorem ipsum bla bla

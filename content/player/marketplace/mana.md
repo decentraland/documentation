@@ -6,7 +6,7 @@ categories:
   - market
 type: Document
 url: /player/market/mana
-weight: 7
+weight: 8
 ---
 
 Lorem ipsum bla bla
