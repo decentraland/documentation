@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: LAND Manager
+title: Managing LANDs
 description: Manage LAND and Estate tokens
 categories:
   - market
@@ -8,7 +8,7 @@ type: Document
 aliases:
   - /market/land-manager/
 url: /player/market/land-manager
-weight: 2
+weight: 3
 ---
 
 The Land Manager allows you to manage your LAND and Estate assets.
@@ -107,9 +107,8 @@ To transfer a LAND parcel or Estate to another user:
 2. Enter the public address of the Ethereum wallet of the recipient.
 
 {{< hint warning >}}
-**📔 Note**:  Please double check this address, since you cannot cancel the operation. While the recipient could always transfer the LAND back to you, the original owner cannot reverse the action.
+**📔 Note**: Please double check this address, since you cannot cancel the operation. While the recipient could always transfer the LAND back to you, the original owner cannot reverse the action.
 {{< /hint >}}
-
 
 ![](/images/media/marketplace_transfer_land_form.png)
 

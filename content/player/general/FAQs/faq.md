@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: FAQ
+title: Decentraland 101
 aliases:
   - /docs/faq
   - /faq

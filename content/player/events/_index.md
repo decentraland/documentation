@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
-weight: 5
-title: DAO
+weight: 4
+title: Events
 ---
