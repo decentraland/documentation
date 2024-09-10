@@ -21,10 +21,11 @@ A campaign refers to an incentive initiative designed to boost user engagement t
 
 <img src="/images/rewards/create-campaign-page.png" alt="Creating new campaign" style="width:100%; max-width: 600px; margin: 0 auto;display: block;" width="1480" hegiht="1532" />
 
-5. Complete the following fields: 
- - **Campaign Name**: Choose a name for your campaign. This name will be visible to users on their rewards page.
- - **Campaign Network**: Select the network where your wearables will be minted. Note that this choice is final and cannot be changed once the campaign is created.
- - **Max Gas Price**: Set the maximum gas price you're willing to pay per transaction. If a transaction's gas price exceeds this limit, it will be deferred until the price drops. The UI will provide an estimate of the cost to mint each item based on this setting.
+5. Complete the following fields:
+
+- **Campaign Name**: Choose a name for your campaign. This name will be visible to users on their rewards page.
+- **Campaign Network**: Select the network where your wearables will be minted. Note that this choice is final and cannot be changed once the campaign is created.
+- **Max Gas Price**: Set the maximum gas price you're willing to pay per transaction. If a transaction's gas price exceeds this limit, it will be deferred until the price drops. The UI will provide an estimate of the cost to mint each item based on this setting.
 
 6. Click the **Create Campaign** button. You will be redirected to the campaign page..
 
@@ -41,7 +42,7 @@ After creating your campaign, there are a few more steps to complete before you 
 
 To mint items, you'll need to cover the transaction fees by adding a supply of MATIC tokens to your campaign's address. You can find this address listed below the campaign name.
 
-To transfer MATIC from your wallet, first, ensure you're connected to the same network as the campaign. Then, copy the campaign address and send the desired amount of MATIC to it. If you don't have any MATIC in your wallet, you can follow [this guide]({{< ref "/content/player/blockchain-integration/transactions-in-polygon.md" >}}#where-can-i-get-matic-to-pay-for-transaction-fees) to acquire some.
+To transfer MATIC from your wallet, first, ensure you're connected to the same network as the campaign. Then, copy the campaign address and send the desired amount of MATIC to it. If you don't have any MATIC in your wallet, you can follow [this guide]({{< ref "/content/player/general/faqs/blockchain.md" >}}#where-can-i-get-matic-to-pay-for-transaction-fees) to acquire some.
 
 {{< hint info >}}
 **💡 Tip**: For campaigns running on the test **AMOY** network, you can obtain some MATIC from [this faucet](https://faucet.polygon.technology/).
@@ -59,7 +60,7 @@ When you create a new campaign, it starts with an empty inventory. To begin deli
 
 - **Add Items to the Campaign Stock**: Once minting permissions are granted, you can start adding items to the campaign's inventory.
 
-    a) Click on the **Add Supply** button to view all collections for which the campaign has minting permissions.
+  a) Click on the **Add Supply** button to view all collections for which the campaign has minting permissions.
 
 <img src="/images/rewards/collection-available.png" alt="Collection available" style="width:80%; margin: 0 auto;display: block; max-with: 600px" width="1808" hegiht="1494" />
 
@@ -101,7 +102,7 @@ By default your campaign is inactive. This prevents the rewards service from ass
 
 ### Manage funds
 
-Once the campaign is completed, if there are remaining funds from the transaction fees, the owner can choose to either reclaim the funds or reassign them to another campaign. To reclaim funds, simply click the Manage Funds button on the campaign detail page. 
+Once the campaign is completed, if there are remaining funds from the transaction fees, the owner can choose to either reclaim the funds or reassign them to another campaign. To reclaim funds, simply click the Manage Funds button on the campaign detail page.
 
 <img src="/images/rewards/manage-funds.png" alt="manage funds" style="width:70%; margin: 0 auto;display: block; max-with: 600px" width="1714" hegiht="584" />
 
