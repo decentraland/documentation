@@ -8,3 +8,5 @@ type: Document
 url: /player/market/land/overview
 weight: 1
 ---
+
+Lorem ipsum bla bla

@@ -8,3 +8,5 @@ type: Document
 url: /player/market/mana
 weight: 7
 ---
+
+Lorem ipsum bla bla

@@ -8,3 +8,5 @@ type: Document
 url: player/introduction/faqs/security
 weight: 4
 ---
+
+Lorem ipsum bla bla

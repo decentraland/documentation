@@ -8,3 +8,5 @@ type: Document
 url: /player/market/wearables/vrm
 weight: 2
 ---
+
+Lorem ipsum bla bla

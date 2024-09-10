@@ -8,3 +8,5 @@ type: Document
 url: /player/market/emotes
 weight: 6
 ---
+
+Lorem ipsum bla bla

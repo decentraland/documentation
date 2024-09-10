@@ -8,3 +8,5 @@ type: Document
 url: player/exploring/block-profiles
 weight: 2
 ---
+
+Lorem ipsum bla bla

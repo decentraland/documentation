@@ -8,3 +8,5 @@ type: Document
 url: player/introduction/faqs/support
 weight: 5
 ---
+
+Lorem ipsum bla bla

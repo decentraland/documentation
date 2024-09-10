@@ -1,10 +1,12 @@
 ---
 date: 2024-09-10
-title: Overview
+title: Age Ratings & Reporting
 description:
 categories:
   - exploring
 type: Document
-url: player/exploring/overview
-weight: 1
+url: player/exploring/reporting
+weight: 3
 ---
+
+Lorem ipsum bla bla

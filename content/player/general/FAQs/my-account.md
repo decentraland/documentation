@@ -8,3 +8,5 @@ type: Document
 url: player/introduction/faqs/account
 weight: 3
 ---
+
+Lorem ipsum bla bla

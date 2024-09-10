@@ -8,3 +8,5 @@ type: Document
 url: player/events/posting
 weight: 1
 ---
+
+Lorem ipsum bla bla
