@@ -6,7 +6,7 @@ categories:
   - scene-editor
 type: Document
 url: /creator/editor/smart-items-advanced
-weight: 2
+weight: 4
 ---
 
 Most smart items have a basic mode and an advanced mode. The basic mode is tailored to only display the most common settings in a simple way. The advanced mode allows you to customize almost anything about how the item behaves.

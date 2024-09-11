@@ -88,7 +88,7 @@ Some smart items have unique characteristics that make them very handy for commo
 
 ### Trigger areas
 
-To trigger an action when the player walks into or out of an area, use the Trigger Area smart item. The is is an [invisible item](#invisible-items), the orange cube is only visible in the Scene Editor, it becomes invisible when running a preview of the scene. You can easily adjust and scale the orange cube to cover exactly the area you need.
+Use the Trigger Area smart item to trigger an action when the player walks into an area.
 
 <img src="/images/editor/trigger.png" width="150"/>
 
@@ -96,12 +96,7 @@ Use the **On Player Enters Area** and **On Player Leaves Area** trigger types on
 
 <img src="/images/editor/on_player_enters.png" width="300"/>
 
-{{< hint info >}}
-**📔 Note**:
-You can also use **On Player Enters Area** and **On Player Leaves Area** trigger events on any other smart item, but keep in mind that it can be challenging to know the area covered by the trigger.
-
-The size of the triggerable area doesn't relate to the item's visible shape or its colliders, it's always a cube of 1m on each side, affected by the scale of the item.
-{{< /hint >}}
+See [Trigger area]({{< ref "/content/creator/scene-editor/smart-items/trigger-area.md" >}}) for more info.
 
 ### Invisible walls
 
@@ -121,30 +116,15 @@ An invisible cube that can be clicked by players to trigger actions on any other
 
 Play videos from either:
 
-- **Local files**: Upload a video file as part of the scene, then point the _URL_ field to the path to that file.
-- **Stream from a URL**: Point to a live or pre-recorded stream on the web, for example from Vimeo.
-  {{< hint info >}}
-  **📔 Note**:
-  You can't stream a video from YouTube or similar sites, as these only allow displaying their content in their branded HTML widget. See See [About External Streaming]({{< ref "/content/creator/sdk7/media/video-playing.md#about-external-streaming" >}}) for options and tips.
-  {{< /hint >}}
-- **Stream live from DCL Cast**: This simplified service lets you easily set up a live stream as a scene owner. See [Decentraland Cast]({{< ref "/creator/worlds/cast.md">}}).
-
-There are two options for when to play a video:
-
-- Configure the **Video Player** component of the item directly. This makes the video start playing as soon as the scene loads.
-  <img src="/images/editor/video-from-start.png" width="300"/>
-
-- Define an Action of type **Play Video Stream**. This lets you trigger the playing of the video as the result of a player interaction, like walking into a room, or pushing a button. See [Smart Items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}}).
-
-  <img src="/images/editor/video-from-action.png" width="300"/>
-
-You can configure the volume of the video's sounds. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
-
-You can also configure the video to either loop or play once.
+- **Local files**
+- **Stream from a URL**
+- **Stream live from [Decentraland Cast]({{< ref "/creator/worlds/cast.md">}})**
 
 {{< hint warning >}}
 **📔 Note**: Avoid playing more than one video at any given time in your scene, because it can severely impact performance for players. Always stop other videos before playing a second video.
 {{< /hint >}}
+
+See [Play Videos]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md" >}}) for more info.
 
 ### Playing audio streams
 
