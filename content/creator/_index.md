@@ -95,7 +95,7 @@ You don't need to own any tokens to start building your scene with the Scene Edi
 
 See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
 
-See [publishing]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) for details and special options when publishing a scene, to either Genesis City or Worlds.
+See [publishing]({{< ref "/content/creator/deprecated/scenes/publishing/publishing.md" >}}) for details and special options when publishing a scene, to either Genesis City or Worlds.
 
 ### Alternative tools
 

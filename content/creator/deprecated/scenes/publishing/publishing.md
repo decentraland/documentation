@@ -2,12 +2,21 @@
 date: 2018-01-06
 title: Publishing a scene
 description: How to publish my project?
+aliases:
+  - /documentation/publishing/
+  - /getting-started/publishing/
+  - /deploy/publishing/
+  - /development-guide/publishing/
+  - /creator/editor/publishing
 categories:
   - development-guide
 type: Document
-url: /creator/development-guide/sdk7/publishing/
-weight: 1
+url: /creator/development-guide/publishing
 ---
+
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}).
+{{< /hint >}}
 
 ## Before you begin
 
@@ -15,9 +24,11 @@ Make sure of the following:
 
 - Your scene complies with all of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}). Most of these are validated each time you run a preview of your scene.
 
-- You have a [Metamask](https://metamask.io/) account, with your LAND parcels assigned to it.
+- You have a [Metamask](https://metamask.io/) account, or another wallet that's accessible via Wallet Connect, and that your LAND parcels are owned by that account or have permissions.
 
-- You own the necessary amount of adjacent LAND parcels or a Decentraland NAME. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org) or a NAME in the [Builder](https://decentraland.org/builder/names).
+- You own or have permissions to the necessary amount of adjacent LAND parcels. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org).
+
+- You may also choose to publish your scene to a Decentraland [World]({{< ref "/content/creator/worlds/about.md" >}}), in this case, you must own a NAME which you can mint on the [Builder](https://builder.decentraland.zone/names) and your scene must comply with the World limits.
 
 {{< hint warning >}}
 **📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels.
@@ -25,7 +36,7 @@ Make sure of the following:
 
 ## Check scene data
 
-When deploying, the CLI reads information from the _scene.json_ to know where to deploy your scene to.
+When deploying, Decentraland uses information from _scene.json_ to know where to deploy your scene to.
 
 Open your scene's _scene.json_ file and complete the following data:
 
@@ -46,35 +57,14 @@ Open your scene's _scene.json_ file and complete the following data:
 - **rating**: This is used to classify the content of your scene based on its appropriateness for different age groups (`T` for Teens or `A` for Adults). It helps in filtering content for players.
 
 {{< hint warning >}}
-**📔 Note**: See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for more details on how to set these parameters.
+**📔 Note**: See [scene metadata]({{< ref "/content/creator/deprecated/scenes/projects/scene-metadata.md" >}}) for more details on how to set these parameters.
 {{< /hint >}}
 
 ## To publish the scene
 
-### Using the Scene Editor
+### Via the VS Studio Extension
 
-Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
-
-1. Open your scene project.
-2. Click the **Publish** button on the top-right corner.
-3. A prompt will ask if you want to publish to a **WORLD** or to **LAND**.
-
-   - Select **PUBLISH TO WORLD** to make your scene available in one of your [WORLDs]({{< ref "/content/creator/worlds/about.md" >}}). Then select which of your NAMEs or ENS Domains to publish to.
-
-   - Select **PUBLISH TO LAND** if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed on the map. Parcels where you are allowed to deploy are shown in pink.
-
-   - Select **Alternative servers** to publish to the [test server](#the-test-server) or a [custom server](#custom-servers).
-
-  <img src="/images/editor/publish-options.png" alt="Scene name" width="500"/>
-
-4. This opens a new tab on your browser, showing details about the upload. Approve the transaction.
-
-   - For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
-   - For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
-
-### Via the VS Code Extension
-
-Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
+Make sure you've [installed the VS Studio Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
 1. Open your scene's folder using Visual Studio Code.
 
@@ -82,36 +72,34 @@ Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/conten
 **📔 Note**: The Visual Studio window must be at the root folder of the scene project.
 {{< /hint >}}
 
-2. Open the Decentraland tab menu, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
+2. Open the Decentraland tab, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
 
-   This opens a new tab in your browser, showing what parcels you're deploying to.
+   This opens a new tab in Visual Studio, showing what parcels you're deploying to.
 
 3. Approve the transaction
 
-- For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
-- For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
+   - For LAND on a Metamask browser extension, click **Approve**. Then approve the transaction on the Metamask browser extension.
+   - For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
 
 ### Via the CLI
 
 1.  Log into your Metamask account with the same public address associated with your parcels in Decentraland.
-2.  Run `npm run deploy` from the scene's folder.
+2.  Run `dcl deploy` from the scene's folder.
     {{< hint info >}}
     **💡 Tip**: If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying.
     {{< /hint >}}
-3.  A browser tab will open, showing what parcels you're deploying to. Click **Sign and Deploy**.
-4.  Metamask opens, notifying you that your signature is requested. Click **Sign** to confirm this action.
+3.  Optionally, you can also use the `--target-content` parameter with a World server URL in order to upload the scene to a World instead of to the Genesis City, for example `dcl deploy --target-content https://worlds-content-server.decentraland.org`.
+
+4.  A browser tab will open, showing what parcels you're deploying to. Click **Sign and Deploy**.
+5.  Metamask opens, notifying you that your signature is requested. Click **Sign** to confirm this action.
 
 {{< hint info >}}
 **💡 Tip**: If you're implementing a continuous integration flow, where changes to your scene are deployed automatically, then you can set the `export DCL_PRIVATE_KEY` environment variable to the private key of an account that has deploy permissions.
 {{< /hint >}}
 
 {{< hint info >}}
-**💡 Tip**: `npm run deploy` runs a `npm run build`, which checks the scene for type errors more strictly than running `npm run start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `npm run deploy  --skip-build` to skip the `npm run build` step and deploy the scene as it is.
+**💡 Tip**: `dcl deploy` runs a `dcl build`, which checks the scene for type errors more strictly than running `dcl start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `dcl deploy  --skip-build` to skip the `dcl build` step and deploy the scene as it is.
 {{< /hint >}}
-
-When publishing to a [Decentraland World]({{< ref "/content/creator/worlds/about.md" >}}) , use the following command instead:
-
-`npm run deploy -- --target-content https://worlds-content-server.decentraland.org`
 
 ## Publish from a hardware wallet
 
@@ -138,13 +126,13 @@ The content servers are a network of community-owned servers with a filesystem t
 We use the content servers to host and distribute all scene content in a similar way to BitTorrent, keeping the Decentraland network distributed.
 
 1.  The content servers store and distribute all of the assets required to render your scenes.
-2.  The `npm run deploy` command links these assets to the LAND parcel specified in your **scene.json** file. Whenever you redeploy your scene, the CLI will update your LAND smart contract, if needed, to point to the most recent content available on the content servers.
+2.  The `dcl deploy` command links these assets to the LAND parcel specified in your **scene.json** file. Whenever you redeploy your scene, the CLI will update your LAND smart contract, if needed, to point to the most recent content available on the content servers.
 
 The information on each copy of the server is verifiable, as each scene is signed by the LAND owner's hash. This means that someone hosting a copy of the server won't be able to tamper with the content to display something illegitimate. The community can also vote to approve or remove any of these servers using the DAO.
 
 ## The test server
 
-You can deploy content to the test catalyst server to run full tests with multiple users, the surrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
+You can deploy content to the test catalyst server to run full tests with multiple users, the sourrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
 
 {{< hint warning >}}
 **📔 Note**: To deploy to parcels in the test server, you must have the same permissions required to deploy to those parcels in the main network.
@@ -154,7 +142,7 @@ Players are never directed to this server, the only way to access it is to expli
 
 If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
 
-### Via the VS Code Extension
+### Via the Decentraland Editor
 
 To deploy a scene to the test server:
 
@@ -162,56 +150,22 @@ To deploy a scene to the test server:
 2. Click on the Decentraland icon on the left sidebar.
 3. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Publish scene to test server`
 4. Approve the transaction
-
-- For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
-- For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
+   - For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
+   - For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
 
 To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
 
-_play.decentraland.org/&CATALYST=peer-testing.decentraland.org_
+_play.decentraland.org/?&CATALYST=peer-testing.decentraland.org_
 
 ### Via the CLI
 
 To deploy to the test server, run:
 
-`npm run deploy -- --target peer-testing.decentraland.org`
+`dcl deploy --target peer-testing.decentraland.org`
 
 To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
 
 _https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
-
-## Custom servers
-
-You can deploy content to a custom server that doesn't belong to the official DAO-maintained network of catalyst servers. To do this, you don't need to own any LAND or NAME tokens, as you can configure the server to use any validation logic you prefer to control who can deploy where.
-Custom servers can chose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
-
-See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/how-to-run-a-catalyst.md" >}}) for more info on what you can do with your own server and how to set it up.
-
-{{< hint warning >}}
-**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server]({{< ref "/content/creator/rewards/gatting-started.md" >}}) or the [quests server]({{< ref "/content/creator/deprecated/quests/overview.md" >}}) might fail in these contexts, as often these services require that the request comes from an official server.
-{{< /hint >}}
-
-Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
-
-### Via the VS Code Extension
-
-To deploy a scene to a custom server:
-
-1. Open VSCode in a Decentraland scene project.
-2. Click on the Decentraland icon on the left sidebar.
-3. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Publish scene to custom server`
-4. Type in the URL for your server
-5. Approve the transaction
-
-The URL to enter your deployed scene on your custom server will depend on the domain where it's being hosted.
-
-### Via the CLI
-
-To deploy to a custom server, run:
-
-`npm run deploy -- --target <CUSTOM SERVER DOMAIN>`
-
-The URL to enter your deployed scene on your custom server will depend on the domain where it's being hosted.
 
 ## Verify deployment success
 
@@ -263,4 +217,4 @@ jobs:
           npm run deploy:prod
 ```
 
-> Important: For this process to run, you must set a wallet's private key as an environment variable in GitHub, this is used to sign the deployment. As always, be very careful with keeping public keys secure. Do NOT use the public key of the account that actually owns the land tokens, as that would have very big risks. Instead, delegate operator rights to a disposable wallet that owns no valuable tokens. If this private key is ever leaked somehow, you can easily revoke those operator rights from the account and set up a new wallet.
+> Important: For this process to run, you must set a wallet's private key as an environment variable in GitHub, this is used to sign the deployment. As always, be very careful with keeping the private keys secure. Do NOT use the private key of the account that actually owns the land tokens, as that would have very big risks. Instead, delegate operator rights to a disposable wallet that owns no valuable tokens. If this private key is ever leaked somehow, you can easily revoke those operator rights from the account and set up a new wallet.

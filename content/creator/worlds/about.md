@@ -72,7 +72,7 @@ The [Builder](https://builder.decentraland.org/worlds) also serves as the go-to 
 
 The starting point for this product is having a scene that meets the size requirements mentioned above. If you wish to know more about how to create a scene, check out the [Decentraland SDK]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}) documentation.
 
-If you are a Content Creator, you may be already familiar with how the [publishing of a scene]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) works, the experience is quite similar, but with a small caveat:
+If you are a Content Creator, you may be already familiar with how the [publishing of a scene]({{< ref "/content/creator/deprecated/scenes/publishing/publishing.md" >}}) works, the experience is quite similar, but with a small caveat:
 
 You need to specify under what **name** your deployment is to be made. Add the following section in your
 `scene.json`:
