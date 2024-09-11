@@ -44,10 +44,6 @@ function main() {
 
 In this example, the camera will always be on a fixed position in the scene, as long as the player stays inside the scene bounds. As soon as the player steps outside the scene bounds, the default camera behavior will be restored.
 
-{{< hint warning >}}
-**📔 Note**: The position of the entity with the `VirtualCamera`component needs to be inside the bounds of the scene.
-{{< /hint >}}
-
 Your scene can include as many entities with a `VirtualCamera`component as you want, and dynamically switch between multiple virtual cameras as the player moves, or as they perform certain actions. Only one virtual camera is active at any given time, this is assigned by the `MainCamera` component on `engine.CameraEntity`.
 
 To revert back to default camera behavior, set the value 0 on `MainCamera.virtualCameraEntity` as 0 frees the MainCamera to use the default camera behavior. The player is then free to switch between 1st and 3rd person cameras. If you want the player to only use one of these two modes, you can use a [Camera modifier areas]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">}}) to force one of the two.
