@@ -32,7 +32,9 @@ function main() {
 	Transform.create(myCustomCamera, {
 		position: Vector3.create(1, 2, 1),
 	})
-	VirtualCamera.create(myCustomCamera, {})
+	VirtualCamera.create(myCustomCamera, {
+		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(6) },
+	})
 
 	const mainCamera = MainCamera.createOrReplace(engine.CameraEntity, {
 		virtualCameraEntity: myCustomCamera,
@@ -61,7 +63,9 @@ function main() {
 	Transform.create(myCustomCamera, {
 		position: Vector3.create(1, 2, 1),
 	})
-	VirtualCamera.create(myCustomCamera, {})
+	VirtualCamera.create(myCustomCamera, {
+		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(6) },
+	})
 
 	const mainCamera = MainCamera.createOrReplace(engine.CameraEntity, {
 		virtualCameraEntity: myCustomCamera,
@@ -206,7 +210,9 @@ function main() {
 		position: Vector3.create(0, 1, 5),
 		parent: engine.PlayerEntity,
 	})
-	VirtualCamera.create(myCustomCamera, {})
+	VirtualCamera.create(myCustomCamera, {
+		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(6) },
+	})
 
 	const mainCamera = MainCamera.createOrReplace(engine.CameraEntity, {
 		virtualCameraEntity: myCustomCamera,
