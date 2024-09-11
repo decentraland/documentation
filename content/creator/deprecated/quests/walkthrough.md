@@ -237,7 +237,7 @@ With our newly created quest already uploaded, we can move forward and wire thin
 
 To start off, let's create a client to connect with our scene. [Review the documentation for it here]({{< ref "/content/creator/deprecated/quests/client.md" >}}).
 
-We will be using the dev environment here, [please check SDK client section to set up your desired quest server]({{< ref "/creator/quests/client.md#setting-up-the-client" >}})
+We will be using the dev environment here, [please check SDK client section to set up your desired quest server]({{< ref "/creator/deprecated/quests/client.md#setting-up-the-client" >}})
 
 ```typescript
 const ws = 'wss://quests-rpc.decentraland.zone'
