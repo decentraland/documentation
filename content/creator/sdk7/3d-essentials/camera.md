@@ -33,7 +33,7 @@ function main() {
 		position: Vector3.create(1, 2, 1),
 	})
 	VirtualCamera.create(myCustomCamera, {
-		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(6) },
+		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(0) },
 	})
 
 	const mainCamera = MainCamera.createOrReplace(engine.CameraEntity, {
@@ -60,7 +60,7 @@ function main() {
 		position: Vector3.create(1, 2, 1),
 	})
 	VirtualCamera.create(myCustomCamera, {
-		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(6) },
+		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(0) },
 	})
 
 	const mainCamera = MainCamera.createOrReplace(engine.CameraEntity, {
@@ -99,7 +99,7 @@ VirtualCamera.create(myCustomCamera1, {
 ```
 
 {{< hint info >}}
-**💡 Tip**: To avoid having a transition, and switch instantly to a camera, set the transition time to 0.
+**💡 Tip**: To avoid having a transition, and switch instantly to a camera, set the transition time or speed to 0.
 {{< /hint >}}
 
 Depending on your use case, you may prefer to set the speed of the transition instead of the duration:
@@ -160,9 +160,10 @@ function main() {
 		() => {
 			// reset camera to default behavior
 			const mainCamera = MainCamera.getMutable(engine.CameraEntity)
-			mainCamera.virtualCameraEntity = myCustomCamera1
-				? myCustomCamera2
-				: myCustomCamera1
+			mainCamera.virtualCameraEntity =
+				mainCamera.virtualCameraEntity == myCustomCamera1
+					? myCustomCamera2
+					: myCustomCamera1
 		}
 	)
 }
@@ -170,7 +171,7 @@ function main() {
 
 Transitions always move in a straight line, without considering any obstacles in the path. You could instead create a transition manually by using another virtual camera as an intermediary, that way you'd have full control over its movements. This intermediary virtual camera could perform a [Tween]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md#move-between-two-points" >}}) from the position of the first camera to the position of the second camera, or follow a more custom path that avoids obstacles or takes a cinematic detour.
 
-## Camera following
+## Camera following
 
 You can configure a virtual camera so that it always faces the direction of the player, or some specific entity in the scene. The camera's position will remain static, but its rotation will change to always keep this entity centered.
 
@@ -182,7 +183,7 @@ Transform.create(myCustomCamera1, {
 	position: Vector3.create(1, 2, 1),
 })
 VirtualCamera.create(myCustomCamera1, {
-	defaultTransition: { transitionMode: VirtualCamera.Transition.Time(6) },
+	defaultTransition: { transitionMode: VirtualCamera.Transition.Time(0) },
 	lookAtEntity: engine.PlayerEntity,
 })
 ```
