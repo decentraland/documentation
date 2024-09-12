@@ -92,7 +92,7 @@ Add a **Trigger** component with **Player Enters Area**, **Player Leaves Area** 
 This will react to when the player enters or leaves an area of a default size of 1x1x1, positioned at the center of the item.
 
 {{< hint info >}}
-**💡 Tip**: It's often better to use the [**Trigger Area**]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md#trigger-areas" >}}) smart item instead, since this item's dimensions can be clearly visualized in the editor.
+**💡 Tip**: It's often better to use the [**Trigger Area**]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md#trigger-areas" >}}) smart item instead, since this item's dimensions can be clearly visualized in the Scene Editor.
 {{< /hint >}}
 
 ## See also

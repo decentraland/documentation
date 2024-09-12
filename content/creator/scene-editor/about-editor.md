@@ -9,7 +9,7 @@ url: /creator/editor/about-scene-editor
 weight: 1
 ---
 
-The Scene Editor is a powerful tool that combines a simple no-code interface with the ability to write code to customize your scenes further.
+The Creator Hub includes a powerful Scene Editor that combines a simple no-code interface with the ability to write code to customize your scenes further.
 
 See [Creator Hub Installation]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}) to get started.
 
@@ -19,17 +19,13 @@ See [Creator Hub Installation]({{< ref "/content/creator/scene-editor/editor-ins
 
 ## Create a scene
 
-To create a new scene, open the Scene Editor and press the _Create scene_ button.
+To create a new scene, open the Creator Hub and press the _Create scene_ button.
 
 <img src="/images/editor/create-scene.png" width="150" alt="Scene name"/>
 
+You can then select what template to use as a starting point. You can pick a blank scene or a project with some initial content.
+
 See [Manage scenes]({{< ref "/content/creator/scene-editor/manage-scenes.md" >}}) for more details.
-
-{{< hint info >}}
-**📔 Note**: The scene starts out with a size of 1x1. To make the scene bigger, see [Scene Editor Essentials]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#scene-settings" >}})
-{{< /hint >}}
-
-<!-- TODO: in the future talk about templates -->
 
 ## Moving around
 
