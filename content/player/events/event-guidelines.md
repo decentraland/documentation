@@ -14,3 +14,4 @@ Lorem ipsu bla
 testat tastadkjalskddflkasddf
 
 
+<img src="/images/editor/template-in-editor.png" alt="Quests Service" style="width: 300px;"/>
