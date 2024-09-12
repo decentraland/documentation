@@ -9,6 +9,8 @@ url: player/events/guidelines
 weight: 2
 ---
 
-Lorem ipsum bla bla
+Lorem ipsu bla
+
+testat tastadkjalskddflkasddf
 
 
