@@ -1,6 +1,6 @@
 ---
 date: 2024-07-25
-title: Editor Installation
+title: Creator Hub Installation
 description: How to install the scene editor.
 categories:
   - scene-editor
@@ -8,13 +8,6 @@ type: Document
 url: /creator/editor/install-editor
 weight: 2
 ---
-
-{{< hint info >}}
-**📔 Note**:
-The Creator Hub is currently in Alpha stage, and shared with users that join the [pre-release of the new Standalone Decentraland client](https://68zbqa0m12c.typeform.com/to/y9fZeNWm).
-
-Once accepted into the alpha program, you'll be shared the installer for the Creator Hub.
-{{< /hint >}}
 
 Visit the [Create page in Decentraland.org](https://decentraland.org/create/) and download the **Creator Hub**.
 
