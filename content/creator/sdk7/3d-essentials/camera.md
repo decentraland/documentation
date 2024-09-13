@@ -32,9 +32,7 @@ function main() {
 	Transform.create(myCustomCamera, {
 		position: Vector3.create(1, 2, 1),
 	})
-	VirtualCamera.create(myCustomCamera, {
-		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(0) },
-	})
+	VirtualCamera.create(myCustomCamera, {})
 
 	const mainCamera = MainCamera.createOrReplace(engine.CameraEntity, {
 		virtualCameraEntity: myCustomCamera,
@@ -46,10 +44,12 @@ In this example, the camera will always be on a fixed position in the scene, as 
 
 Your scene can include as many entities with a `VirtualCamera`component as you want, and dynamically switch between multiple virtual cameras as the player moves, or as they perform certain actions. Only one virtual camera is active at any given time, this is assigned by the `MainCamera` component on `engine.CameraEntity`.
 
-To revert back to default camera behavior, set the value 0 on `MainCamera.virtualCameraEntity` as 0 frees the MainCamera to use the default camera behavior. The player is then free to switch between 1st and 3rd person cameras. If you want the player to only use one of these two modes, you can use a [Camera modifier areas]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">}}) to force one of the two.
+To revert back to default camera behavior, set the value to `undefined` on `MainCamera.virtualCameraEntity`. The player is then free to switch between 1st and 3rd person cameras. If you want the player to only use one of these two modes, you can use a [Camera modifier areas]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">}}) to force one of the two.
 
 {{< hint warning >}}
 **📔 Note**: Camera modifier areas only have an effect on the player if no virtual cameras are active. If the scene is currently using a virtual camera and the player steps into a camera modifier area, nothing happens.
+
+If a 3D model includes a `camera` node as part of its contents, this can't be used by the SDK. You must create all cameras as entities with the SDK.
 {{< /hint >}}
 
 ```ts
@@ -59,9 +59,7 @@ function main() {
 	Transform.create(myCustomCamera, {
 		position: Vector3.create(1, 2, 1),
 	})
-	VirtualCamera.create(myCustomCamera, {
-		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(0) },
-	})
+	VirtualCamera.create(myCustomCamera, {})
 
 	const mainCamera = MainCamera.createOrReplace(engine.CameraEntity, {
 		virtualCameraEntity: myCustomCamera,
@@ -80,7 +78,7 @@ function main() {
 		() => {
 			// reset camera to default behavior
 			const mainCamera = MainCamera.getMutable(engine.CameraEntity)
-			mainCamera.virtualCameraEntity = 0
+			mainCamera.virtualCameraEntity = undefined
 		}
 	)
 }
@@ -131,7 +129,7 @@ function main() {
 		position: Vector3.create(1, 2, 1),
 	})
 	VirtualCamera.create(myCustomCamera1, {
-		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(6) },
+		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(1) },
 	})
 
 	// custom virtual camera 2
@@ -183,7 +181,6 @@ Transform.create(myCustomCamera1, {
 	position: Vector3.create(1, 2, 1),
 })
 VirtualCamera.create(myCustomCamera1, {
-	defaultTransition: { transitionMode: VirtualCamera.Transition.Time(0) },
 	lookAtEntity: engine.PlayerEntity,
 })
 ```
@@ -208,7 +205,7 @@ function main() {
 		parent: engine.PlayerEntity,
 	})
 	VirtualCamera.create(myCustomCamera, {
-		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(6) },
+		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(2) },
 	})
 
 	const mainCamera = MainCamera.createOrReplace(engine.CameraEntity, {
