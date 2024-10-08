@@ -288,3 +288,20 @@ Interact with the scene on one window, then switch to the other to see that the 
 {{< hint warning >}}
 **📔 Note**: Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
 {{< /hint >}}
+
+## Single player scenes
+
+If your scene is deployed to a [Decentraland World]({{< ref "/content/creator/worlds/about.md" >}}), you can make it a single player scene. Players won't see each other, won't be able to chat or see the effects of each other's actions.
+
+To do this, configure the scene's `scene.json` file to set the **fixedAdapter** to `offline:offline`. The scene will have no Communication Service at all and each user joining that world will always be alone.
+
+**Example:**
+
+```json
+{
+	"worldConfiguration": {
+		"name": "my-name.dcl.eth",
+		"fixedAdapter": "offline:offline"
+	}
+}
+```
