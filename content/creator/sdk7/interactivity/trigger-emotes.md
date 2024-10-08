@@ -64,6 +64,10 @@ The following list covers some of the default emotes that are available to all p
 - `dab`
 - `headexplode`
 
+{{< hint info >}}
+**💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with [Input Modifiers]({{< ref "/content/creator/sdk7/interactivity/input-modifiers.md" >}}) for the duration of the avatar animation.
+{{< /hint >}}
+
 ## Custom animations
 
 Use the `triggerSceneEmote()` to make the player perform a custom animation, stored as a .glb file as part of the scene's asset. This function takes an object as an argument with the following arguments:
@@ -88,6 +92,10 @@ pointerEventsSystem.onPointerDown(
 	}
 )
 ```
+
+{{< hint info >}}
+**💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with [Input Modifiers]({{< ref "/content/creator/sdk7/interactivity/input-modifiers.md" >}}) for the duration of the avatar animation.
+{{< /hint >}}
 
 ## Required permissions in smart wearables and portable experiences
 

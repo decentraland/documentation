@@ -84,6 +84,10 @@ function main() {
 }
 ```
 
+{{< hint info >}}
+**💡 Tip**: When the camera turns away from the avatar, it's often a good practice to also freeze the avatar's movements. That way the player doesn't move blindly into obstacles. See [Input Modifiers]({{< ref "/content/creator/sdk7/interactivity/input-modifiers.md" >}})
+{{< /hint >}}
+
 ## Camera Transitions
 
 Whenever the scene switches between virtual cameras, or between the default camera behavior and virtual cameras, players see a transition. The position, rotation and any other parameters of the virtual camera change smoothly over a period time.
