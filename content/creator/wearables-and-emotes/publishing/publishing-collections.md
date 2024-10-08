@@ -28,10 +28,7 @@ For detailed instructions on how to submit your collections for approval before 
 
 There is a required fee for publishing items. This fee was originally [voted in place by the Decentraland DAO](https://governance.decentraland.org/proposal/?id=50092c00-c315-11eb-ac84-1705d1ae4a66) to deter users from publishing an excessive number of wearables in an attempt to "spam" the wearables market.
 
-On Jun 24, 2022 [a proposal](https://governance.decentraland.org/proposal/?id=b8075360-e8e7-11ec-82d9-d917cdd158ac
-) regarding publication fees has pegged them to a fixed amount of **150 USD per item, to be paid in Polygon MANA**.
-
-**Update**: On Sep 02, 2023 [a proposal](https://governance.decentraland.org/proposal/?id=98d74360-3eae-11ee-88e6-1fe6cb69ee51) updated the publication fees to **100 USD per item, to be paid in Polygon MANA**.
+On Sep 02, 2023 [a proposal](https://governance.decentraland.org/proposal/?id=98d74360-3eae-11ee-88e6-1fe6cb69ee51) set the publication fees to **100 USD per item, to be paid in Polygon MANA**.
 
 {{< hint warning >}}
 **📔 Note**: You can move MANA between Ethereum and Polygon using the [Account dApp](https://account.decentraland.org).
