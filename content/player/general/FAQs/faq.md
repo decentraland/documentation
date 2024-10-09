@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: FAQ
+title: Decentraland 101
 aliases:
   - /docs/faq
   - /faq
@@ -16,7 +16,7 @@ weight: 2
 
 {{< details class="faq-details" anchor="true" title="What equipment or software do I need to play in Decentraland?" >}}
 
-A PC or Mac running Chrome, Firefox or Brave. See [hardware requirements]({{< ref "/player/general/hardware-requirements.md" >}})
+A PC or Mac running the Decentraland app.
 
 - **Can I play on a mobile device?<br/>**
 
