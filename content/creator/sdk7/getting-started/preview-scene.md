@@ -26,7 +26,7 @@ Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-edi
 To preview a scene run the following command on the scene's main folder:
 
 ```bash
-npm run start -- -- explorer-alpha
+npm run start -- --explorer-alpha
 ```
 
 Any dependencies that are missing are installed and then the CLI opens the scene in a new browser tab automatically. It creates a local web server in your system and points the web browser tab to this local address.
