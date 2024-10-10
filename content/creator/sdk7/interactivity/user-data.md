@@ -111,6 +111,10 @@ The `avatar` object has the following nested information:
 - `hairColor`: Player hair color as a `Color4`
 - `name`: The player's name.
 
+{{< hint warning >}}
+**📔 Note**: The player data may not be available on the first frame of the scene, depending on load times. You should verify that the data was returned and otherwise attempt again a few milliseconds later.
+{{< /hint >}}
+
 ```ts
 import { getPlayer } from '@dcl/sdk/src/players'
 
