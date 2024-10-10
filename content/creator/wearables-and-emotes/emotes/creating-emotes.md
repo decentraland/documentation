@@ -24,6 +24,7 @@ This documentation will cover the file specifications, the basics of animation i
 | Max File Size          | 1 MB                       |
 | Max Animation Distance | 1 meter (in any direction) |
 | Max Animation Height   | 1 meter                    |
+| Max Texture Size       | 1024 pixels                |
 
 You can find a more detailed explanation of the animation specifications [**below**](#the-animation-specifications).
 
@@ -36,7 +37,7 @@ This documentation explains the set up for Rig 1.0, its controls, and features.
 [Decentraland Blender Rig](/images/emotes/Avatar_File.blend)
 
 {{< hint info >}}
-If you're using Maya you can download this [Maya Rig](/images/emotes/DCL_Maya_Rig.ma) and [picker](/images/emotes/emoteAvatar.pkr) provided by [SparkleStudios](https://www.sparkles.studio/) ❤️. 
+If you're using Maya you can download this [Maya Rig](/images/emotes/DCL_Maya_Rig.ma) and [picker](/images/emotes/emoteAvatar.pkr) provided by [SparkleStudios](https://www.sparkles.studio/) ❤️.
 {{< /hint >}}
 
 ## **Frame Rate**
@@ -123,9 +124,9 @@ Emote overrides happen when deform bones don’t have a keyframe set in one of t
 
 <img src="/images/wearables-and-emotes/creating-emotes/01_emote_override.gif" width="400" />
 
-To avoid that, select all layers with bones in them (which can be found in ***Object Data Properties*** > ***Skeleton*** > ***Layers***). Then, in ***Pose Mode***, leave the timeline cursor in the first frame of your animation and, with your mouse in ***Viewport Display***, press ***A*** to select everything. In the ***Graph Editor***, click twice on the ***Eye*** icon next to the armature channel to make all channels visible.  With all bones selected, press ***I*** to set a keyframe. Do the same for the last frame. 
+To avoid that, select all layers with bones in them (which can be found in **_Object Data Properties_** > **_Skeleton_** > **_Layers_**). Then, in **_Pose Mode_**, leave the timeline cursor in the first frame of your animation and, with your mouse in **_Viewport Display_**, press **_A_** to select everything. In the **_Graph Editor_**, click twice on the **_Eye_** icon next to the armature channel to make all channels visible. With all bones selected, press **_I_** to set a keyframe. Do the same for the last frame.
 
-**Make sure to select the deform bones, this is especially important!** The deform bones can be found in the last bottom layer and are shown as green bones in the ***Viewport***.
+**Make sure to select the deform bones, this is especially important!** The deform bones can be found in the last bottom layer and are shown as green bones in the **_Viewport_**.
 
 <img src="/images/wearables-and-emotes/creating-emotes/02_keyframe_01.gif" width="900" />
 
@@ -212,6 +213,8 @@ If the number of frames of the animation can be divided by the sampling rate, th
 ## **File Size**
 
 The max file size is **3 MB**. If the file is over that after exporting, try checking if the mesh wasn’t exported by accident or if the animation isn’t over 10 seconds. If it is still over 3 MB, try experimenting with the Sampling Rate, as higher values will improve the optimization.
+
+If the emote contains any additional 3D models, the textures in these models can't exceed a size of 1024 pixels.
 
 # **Exporting**
 
