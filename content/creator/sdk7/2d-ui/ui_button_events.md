@@ -26,6 +26,7 @@ It can also have:
 - `font`: Font of the text on the button.
 - `textAlign`: Alignment of the text inside the button
 - `uiTransform`: Positioning properties of the UI element.
+- `uiBackground`: Set the color or texture of the UI element. 
 
 The following example shows how to create a clickable UI button.
 
@@ -47,6 +48,8 @@ ReactEcsRenderer.setUiRenderer(() => (
 You can also write the function that is executed by the click outside the UI definition, and reference it by name. This helps keep the UI code more readable, and is also useful if multiple clickable UI entities need to call the same function.
 
 ```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+
 function handleClick() {
   // Do something onClick
   console.log('Clicked on the UI')
@@ -98,7 +101,57 @@ ReactEcsRenderer.setUiRenderer(() => (
 ))
 ```
 
-You're also free to use all of the properties on background freely. You can also set a variant and then override some of its properties.
+You're also free to use all of the properties on background freely. You can also set a variant and then override some of its properties. This example uses the `primary` variant, but overrides the color to be green:
+
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+
+ReactEcsRenderer.setUiRenderer(() => (
+  <Button
+      value="My Button!"
+      variant="primary"
+      uiTransform={{ width: 100, height: 100 }}
+      onMouseDown={() => {
+        console.log('Clicked on My Button!')
+      }}
+      uiBackground={{
+      color : Color4.Green()
+      }}
+  />
+))
+```
+
+## Togglable buttons
+
+A common use case is to make a button toggle between two states, like a switch. The example below switches between two colors each time the button is pressed:
+
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+
+let buttonEnabled = false
+
+ReactEcsRenderer.setUiRenderer(() => (
+  <Button
+      value="My Button"
+      variant="primary"
+      uiTransform={{ width: 100, height: 100 }}
+      onMouseDown={() => {
+        console.log('Clicked on My Button!')
+        buttonEnabled = !buttonEnabled
+        if(buttonEnabled){
+          // do something
+        } else {
+          // do something else
+        }
+      }}
+      uiBackground={{
+        color : buttonEnabled ? Color4.Green() : Color4.Red()
+      }}
+    />
+))
+```
+
+Note that in the example above, the color depends on a `buttonEnabled` variable. Whenever this variable's value changes, it inmediately affects the background color.
 
 ## Making other elements clickable
 
