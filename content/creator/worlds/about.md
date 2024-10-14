@@ -93,7 +93,7 @@ Keep the following in mind:
 - The scene has no parcel limitations (since January 2023)
 - All Worlds are automatically listed on the Places page unless you opt out as detailed below
 
-Some of the Worlds deployed to the Foundation's Worlds Content Server may be eligible for being listed in Decentraland Places. See [eligibility criteria]({{< ref "/content/creator/places/faq.md#worlds" >}}) for more details.
+Some of the Worlds deployed to the Foundation's Worlds Content Server may be eligible for being listed in Decentraland Places.
 
 If you wish to opt-out from your Worlds being indexed in Places, you can add the following section in your `scene.json`:
 
