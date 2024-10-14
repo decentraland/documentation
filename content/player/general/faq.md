@@ -56,7 +56,7 @@ If you lose access to your wallet you will lose your Avatar, name, any of the we
 
 {{< details class="faq-details" anchor="true" title="What is MANA?" >}}
 
-[MANA](https://etherscan.io/token/decentraland) is Decentraland’s fungible, ERC20 cryptocurrency token. MANA is burned, or spent, in exchange for LAND parcels. For a current summary of critical stats like total and circulating supply, please visit our [MANA Token Information](https://governance.decentraland.org/transparency/) transparency dashboard. See the [Glossary](https://docs.decentraland.org/decentraland/glossary/) for more information.
+[MANA](https://etherscan.io/token/decentraland) is Decentraland’s fungible, ERC20 cryptocurrency token. MANA is burned, or spent, in exchange for LAND parcels. For a current summary of critical stats like total and circulating supply, please visit our [MANA Token Information](https://governance.decentraland.org/transparency/) transparency dashboard.
 
 {{</ details >}}
 
