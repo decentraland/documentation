@@ -27,16 +27,15 @@ This is the entry point to your scene's code. You could fit your entire scene's 
 
 In most cases, you'll only need to edit this and other .ts files to create your scene. It contains the code that generates the [entities, components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}) and [systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) of your scene.
 
-When running the scene, the contents of your `.ts` files are compiled to a single minified `.js` file, `bin/scene.js`. 
+When running the scene, the contents of your `.ts` files are compiled to a single minified `.js` file, `bin/scene.js`.
 
 {{< hint warning >}}
-**📔 Note**:  You can use another tool or language instead of TypeScript, so long as your scripts are contained within a single Javascript file (bin/scene.js). All provided type declarations are made in TypeScript, and other languages and transpilers are not officially supported.
+**📔 Note**: You can use another tool or language instead of TypeScript, so long as your scripts are contained within a single Javascript file (bin/scene.js). All provided type declarations are made in TypeScript, and other languages and transpilers are not officially supported.
 {{< /hint >}}
-
 
 ### scene.json
 
-The _scene.json_ file is a JSON formatted manifest for a scene in the world. A scene can span a single or multiple LAND parcels. The _scene.json_ manifest describes what objects exist in the scene, a list of any assets needed to render it, contact information for the parcel owner, and security settings. 
+The _scene.json_ file is a JSON formatted manifest for a scene in the world. A scene can span a single or multiple LAND parcels. The _scene.json_ manifest describes what objects exist in the scene, a list of any assets needed to render it, contact information for the parcel owner, and security settings.
 
 For more information see [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#metadata">}}). You can also read the original [specification proposal](https://github.com/decentraland/proposals/blob/master/dsp/0020.mediawiki) for this metadata.
 
@@ -46,9 +45,10 @@ All of this metadata is optional for previewing the scene locally, but part of i
 
 This file provides information to NPM that allows it to identify the project, as well as handle the project's dependencies. Decentraland scenes require one main package:
 
-- **decentraland-ecs**: the fundamental dependency of the Decentraland SDK, including all the definitions and types for the engine, components, systems, etc.
+- **@dcl/sdk**: The fundamental dependency of the Decentraland SDK, including definitions and types for the engine, components, systems, etc.
+- **@dcl/js-runtime**: A series of type declarations that makes the integration of @dcl/sdk smoother.
 
-Your scene may include any number of other packages, for example to include [libraries](https://github.com/decentraland-scenes/Awesome-Repository#Libraries) that can help make the writing of code easier, or enable special functionalities.
+Your scene may include any number of other packages, for example to include [libraries](https://studios.decentraland.org/resources?sdk_version=SDK7&resource_type=Library) that can help make the writing of code easier, or enable special functionalities.
 
 ### package-lock.json
 
@@ -61,7 +61,6 @@ You can change any package version manually by editing this file.
 Directories containing a _tsconfig.json_ file are root directories for TypeScript Projects. The _tsconfig.json_ file specifies the root files and options required to compile your project from TypeScript into JavaScript.
 
 When installing any additional libraries to your scene, an entry should be added automatically to this file. For installing Decentraland utils libraries, it shouldn't be necessary to manually do any changes to this file.
-
 
 ## Recommended file locations
 
@@ -79,14 +78,12 @@ We suggest using these folder names consistently for storing the different types
 - _.ts_ definitions for systems `/src/systems`
 
 {{< hint warning >}}
-**📔 Note**:  Supporting files for glTF models, like their texture image files or _.bin_ files, should always be placed in the same folder as the model's _.gltf_ or _.glb_ file.
+**📔 Note**: Supporting files for glTF models, like their texture image files or _.bin_ files, should always be placed in the same folder as the model's _.gltf_ or _.glb_ file.
 {{< /hint >}}
-
 
 {{< hint warning >}}
-**📔 Note**:  We recommend using always lower case names for all folders and file names, to avoid possible issues.
+**📔 Note**: We recommend using always lower case names for all folders and file names, to avoid possible issues.
 {{< /hint >}}
-
 
 ## The dclignore file
 

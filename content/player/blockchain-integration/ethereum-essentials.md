@@ -123,20 +123,20 @@ _dApps_ (decentralized applications) are applications that are built upon smart 
 
 A dApp can be as simple as something that validates that your wallet holds a certain token and lets you use a service. Or it can be a fully fledged application with its own UI, such as the Decentraland Marketplace.
 
-If you want to build your own dApp around Decentrlanad, see [Create a dApp]({{< ref "/content/creator/scenes/blockchain/create-a-dapp.md" >}}).
+If you want to build your own dApp around Decentrlanad, see [Create a dApp]({{< ref "/content/creator/sdk7/blockchain/create-a-dapp.md" >}}).
 
-## Ropsten test network
+## Sepolia test network
 
 Before you deploy a smart contract, create a new type of token, or a Decentraland scene that relies on transactions on the Ethereum network, you need to make sure that it has no bugs or gaps that malicious users could exploit.
 
-The Ropsten test network is an alternative version of Ethereum that’s specifically made for running tests.
+The Sepolia test network is an alternative version of Ethereum that’s specifically made for running tests.
 
-Tokens in the Ropsten network have no real value, so you can afford to make mistakes without running any real risk. You can replenish any lost tokens for free by using a faucet:
+Tokens in the Sepolia network have no real value, so you can afford to make mistakes without running any real risk. You can replenish any lost tokens for free by using a faucet:
 
-- Ropsten Ether faucet (https://faucet.ropsten.be/)
-- Ropsten MANA faucet (https://faucet.decentraland.today/)
+- Sepolia Ether faucet (<https://www.alchemy.com/faucets/ethereum-sepolia/>)
+<!-- - Sepolia MANA faucet (https://faucet.decentraland.today/) -->
 
-If you’re developing a scene that triggers transactions, testing these transactions in the Ropsten network is free, as the tokens you send don’t have a value. In mainnet you would otherwise have to pay at the very least a real gas fee in Ether for each test transaction you carry out.
+If you’re developing a scene that triggers transactions, testing these transactions in the Sepolia network is free, as the tokens you send don’t have a value. In mainnet you would otherwise have to pay at the very least a real gas fee in Ether for each test transaction you carry out.
 
 Once you’re confident that your code works as expected and can’t be exploited, you can deploy to the Ethereum mainnet.
 

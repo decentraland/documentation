@@ -11,6 +11,10 @@ url: /creator/development-guide/scene-metadata
 weight: 1
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}).
+{{< /hint >}}
+
 All scenes have a `scene.json` file where you can set metadata for the scene. Some fields in this file are predefined with information that's necessary for the Decentraland client.
 
 You're also free to add any fields that you wish. In the future, custom fields can then be checked by alternative clients, or other scripts embedded in interactive inventory items.
@@ -64,7 +68,7 @@ Pass two arguments: the South-West and the North-East parcels. The South-West pa
 `dcl coords <parcel> <parcel>`
 
 {{< hint info >}}
-**💡 Tip**:  The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
+**💡 Tip**: The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
 {{< /hint >}}
 
 For example:
@@ -80,7 +84,7 @@ Pass three arguments: the South-West and the North-East parcels, and the parcel 
 `dcl coords <parcel> <parcel> <parcel>`
 
 {{< hint warning >}}
-**📔 Note**:  The base parcel must be one of the parcels in the scene.
+**📔 Note**: The base parcel must be one of the parcels in the scene.
 {{< /hint >}}
 
 **Non-square scenes**
@@ -88,7 +92,7 @@ Pass three arguments: the South-West and the North-East parcels, and the parcel 
 The above commands all generate rectangular-shaped scenes. Decentraland scenes can have L shapes or other configurations. You can generate a larger square with `dcl coords` and then manually remove excess parcels from the `scene.json` file.
 
 {{< hint warning >}}
-**📔 Note**:  The base parcel must be one of the parcels in the scene.
+**📔 Note**: The base parcel must be one of the parcels in the scene.
 {{< /hint >}}
 
 ## Scene title, description, and image
@@ -117,7 +121,7 @@ The thumbnail should be a _.png_ or _.jpg_ image of a recommended size of _228x1
 The image on `navmapThumbnail` should be a path to an image file in the project folder. It can also be a URL link to an image hosted elsewhere.
 
 {{< hint warning >}}
-**📔 Note**:  If you host an image elsewhere, make sure this is in a site that has permissive CORS policies for displaying content on other sites.
+**📔 Note**: If you host an image elsewhere, make sure this is in a site that has permissive CORS policies for displaying content on other sites.
 {{< /hint >}}
 
 ## Contact information
@@ -160,7 +164,7 @@ The position is comprised of coordinates inside the scene. These numbers refer t
 If your scene does not define any spawn points, users might appear at any random location within the base parcel. In the past, the reference client always spawned users in the **0,0** position. Make sure you update your scene.json if this is not the behavior you expect.
 
 {{< hint warning >}}
-**📔 Note**:  All spawn points must be within the parcels that make up the scene. You can't spawn a player outside the space of these parcels.
+**📔 Note**: All spawn points must be within the parcels that make up the scene. You can't spawn a player outside the space of these parcels.
 {{< /hint >}}
 
 ### Multiple spawn points
@@ -193,7 +197,7 @@ A single scene can have multiple spawn points. This is useful to limit the overl
 Spawn points marked as `default` are given preference. When there are multiple spawn points marked as `default`, one of them will be picked randomly from the list.
 
 {{< hint warning >}}
-**📔 Note**:  In future releases, when a player tries to spawn into a scene and the default spawn points are occupied by other players, the player will be sent to another of the listed locations. This will open the door to allowing players to teleport to a spawn point based on the spawn point's name, as described in the `scene.json`.
+**📔 Note**: In future releases, when a player tries to spawn into a scene and the default spawn points are occupied by other players, the player will be sent to another of the listed locations. This will open the door to allowing players to teleport to a spawn point based on the spawn point's name, as described in the `scene.json`.
 {{< /hint >}}
 
 ### Spawn regions {#spawn-regions}
@@ -243,6 +247,39 @@ Simply add a `cameraTarget` field to the spawn point data. The value of `cameraT
 
 This example spawns a player on _5, 1, 4_ looking East at _10, 1, 4_. If the spawn position is a range, then the player's rotation will always match the indicated target. If there are multiple spawn points, each can have its own separate target.
 
+## Age Rating
+
+The `rating` field is used to classify the content of your scene based on its appropriateness for different age groups. It helps in filtering content for players. The rating is a **single-letter code** that you should add to your `scene.json` file. Here are the available options:
+
+- **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language.
+- **🟡 `A` for Adults (18+)**: Choose this category if your scene features any of the following: intense offensive language, graphic violence, explicit sexual content and/or nudity, real money gambling, or substances like alcohol, tobacco, and drugs.
+
+<img src="/images/media/content-moderation-flag-icon.png" style="margin: 1rem; display: block;width: 200px;"/>
+
+```json
+ "scene": {
+    "rating": "T"
+  }
+```
+
+### Restricted Content
+
+There is a third category for scenes: 🔴 `R` for Restricted. This rating is manually applied by Content Moderators to scenes that violate Decentraland's [Content Policy](https://decentraland.org/content). Violations may include, but are not limited to:
+
+- Suspicious content or spam
+- Abusive or hateful content
+- Sexual or degrading content
+- Child abuse
+- Harassment or bullying
+- Promotion of terrorism/violence
+- IP/Copyright infringement
+
+Scenes with this rating won't load and no one will be able to interact with them. If your scene falls into this category, you should review and update it to comply with the [Content Policy](https://decentraland.org/content).
+
+{{< hint warning >}}
+**📔 Note**: Incorrectly categorizing your scene may result in player reports and subsequent moderation actions. For more details, refer to [Age Rating and Scene Reporting]({{< ref "/content/player/general/in-world-features/age-rating.md" >}}).
+{{< /hint >}}
+
 ## Required Permissions
 
 The `requiredPermissions` property manages various controlled features that could be used in an abusive way and damage a player's experience.
@@ -270,18 +307,19 @@ Portable experiences and smart wearables are also affected by the following perm
 If a `requiredPermissions` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
 {{< hint warning >}}
-**📔 Note**:  In future releases, when a player enters a scene that has items listed in the `requiredPermissions` property, the scene will prompt the player to grant these permissions. The player will be able to decline these permissions for that scene.
+**📔 Note**: In future releases, when a player enters a scene that has items listed in the `requiredPermissions` property, the scene will prompt the player to grant these permissions. The player will be able to decline these permissions for that scene.
 {{< /hint >}}
 
 ## Feature Toggles
 
-There are certain features that can be dissabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
+There are certain features that can be disabled in specific scenes so that players can't use these abusively. The `featureToggles` property manages these permissions.
 
 The corresponding features are enabled by default, unless specified as _dissabled_ in the `scene.json` file.
 
 ```json
 "featureToggles": {
-    "voiceChat": "disabled"
+    "voiceChat": "disabled",
+		"portableExperiences": "enabled" | "disabled" | "hideUi"
 },
 ```
 
@@ -289,7 +327,28 @@ Currently, only the following feature is handled like this:
 
 - `voiceChat`: Refers to players using their microphones to have conversations over voice chat with other nearby players.
 
+-`portableExperiences`: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) but also [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
+
 If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
+
+## Worlds Configuration
+
+When you are planning to upload yor scene to a Decentraland [World]({{< ref "/content/creator/worlds/about.md" >}}) instead of Genesis City, you must specify the NAME that you are going to target. On the other hand, if your world meets the requirements to be listed on [Places](https://places.decentraland.org/) (owning a LAND or having an active LAND rental contract), and you prefer not to list your scene, you can also configure it accordingly.
+
+```
+{
+  "worldConfiguration" : {
+    "name": "my-name.dcl.eth",
+    "placesConfig": {
+      "optOut": true
+    }
+  }
+}
+```
+
+{{< hint warning >}}
+**📔 Note**: Attempting to upload a scene with the `worldConfiguration`` section to a Catalyst will result in the deployment being rejected.
+{{< /hint >}}
 
 ## Fetch metadata from scene code
 
@@ -298,7 +357,7 @@ You may need a scene's code to access the fields from the metadata, like the par
 To access this data, first import the `ParcelIdentity` library to your scene:
 
 ```ts
-import { getParcel } from "@decentraland/ParcelIdentity"
+import { getParcel } from '@decentraland/ParcelIdentity'
 ```
 
 Then you can call the `getParcel()` function from this library, which returns a json object that includes much of the contents of the scene.json file.
@@ -306,28 +365,77 @@ Then you can call the `getParcel()` function from this library, which returns a 
 The example bleow shows the path to obtain several of the more common fields you might need from this function's response:
 
 ```ts
-import { getParcel } from "@decentraland/ParcelIdentity"
+import { getParcel } from '@decentraland/ParcelIdentity'
 
 executeTask(async () => {
-  const parcel = await getParcel()
+	const parcel = await getParcel()
 
-  // parcels
-  log("parcels: ", parcel.land.sceneJsonData.scene.parcels)
-  log("base parcel: ", parcel.land.sceneJsonData.scene.base)
+	// parcels
+	log('parcels: ', parcel.land.sceneJsonData.scene.parcels)
+	log('base parcel: ', parcel.land.sceneJsonData.scene.base)
 
-  // spawn points
-  log("spawnpoints: ", parcel.land.sceneJsonData.spawnPoints)
+	// spawn points
+	log('spawnpoints: ', parcel.land.sceneJsonData.spawnPoints)
 
-  // general scene data
-  log("title: ", parcel.land.sceneJsonData.display?.title)
-  log("author: ", parcel.land.sceneJsonData.contact?.name)
-  log("email: ", parcel.land.sceneJsonData.contact?.email)
+	// general scene data
+	log('title: ', parcel.land.sceneJsonData.display?.title)
+	log('author: ', parcel.land.sceneJsonData.contact?.name)
+	log('email: ', parcel.land.sceneJsonData.contact?.email)
 
-  // other info
-  log("tags: ", parcel.land.sceneJsonData.tags)
+	// other info
+	log('tags: ', parcel.land.sceneJsonData.tags)
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**:  `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
+**📔 Note**: `getParcel()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay a fraction of a second or more in returning data.
 {{< /hint >}}
+
+## Tags
+
+You can add tags to your scene to help players and users explore Decentraland better. These tags are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're intreseted in.
+
+You can only use a preselected list of tags and a maximum of 3 tags per scene.
+
+The tags you can use are:
+
+- `art`
+- `game`
+- `casino`
+- `social`
+- `music`
+- `fashion`
+- `crypto`
+- `education`
+- `shop`
+- `business`
+- `sports`
+
+For example, an Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
+
+```json
+  "tags": [
+    "game",
+    "casino"
+  ],
+```
+
+After that, the scene will be listed on the Places dApp under the `game` and `casino` categories.
+
+Here is how the tag names look on the Places dApp:
+
+```json
+{
+	"art": "🎨 Art",
+	"game": "🕹️ Game",
+	"casino": "🃏 Casino",
+	"social": "👥 Social",
+	"music": "🎶 Music",
+	"fashion": "👠 Fashion",
+	"crypto": "🪙 Crypto",
+	"education": "📚 Education",
+	"shop": "🛍️ Shop",
+	"business": "🏢 Business",
+	"sports": "🏅 Sports"
+}
+```

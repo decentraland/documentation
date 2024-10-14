@@ -21,13 +21,13 @@ Since the server might take time to send its response, you must execute this com
 
 ```ts
 executeTask(async () => {
-  try {
-    let response = await fetch(callUrl)
-    let json = await response.json()
-    console.log(json)
-  } catch {
-    console.log("failed to reach URL")
-  }
+	try {
+		let response = await fetch(callUrl)
+		let json = await response.json()
+		console.log(json)
+	} catch {
+		console.log('failed to reach URL')
+	}
 })
 ```
 
@@ -44,17 +44,17 @@ The fetch command can also include a second optional argument that bundles heade
 
 ```ts
 executeTask(async () => {
-  try {
-    let response = await fetch(callUrl, {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify(myBody),
-    })
-    let json = await response.json()
-    console.log(json)
-  } catch {
-    console.log("failed to reach URL")
-  }
+	try {
+		let response = await fetch(callUrl, {
+			headers: { 'Content-Type': 'application/json' },
+			method: 'POST',
+			body: JSON.stringify(myBody),
+		})
+		let json = await response.json()
+		console.log(json)
+	} catch {
+		console.log('failed to reach URL')
+	}
 })
 ```
 
@@ -72,15 +72,12 @@ The fetch command returns a `response` object with the following data:
 - `text()`: Obtain the body as text.
 
 {{< hint warning >}}
-**📔 Note**:  `json()` and `text()` are mutually exclusive. If you obtain the body of the response in one of the two formats, you can no longer obtain the other from the `response` object.
+**📔 Note**: `json()` and `text()` are mutually exclusive. If you obtain the body of the response in one of the two formats, you can no longer obtain the other from the `response` object.
 {{< /hint >}}
-
 
 {{< hint warning >}}
-**📔 Note**:  Each Decentraland scene is only permitted to perform one `fetch` command at a time. This has no effect on how the scene code must be structured, as requests are queued internally. If your scene requires sending multiple requests to different endpoints, keep in mind that each request is only sent when the previous one has been responded.
+**📔 Note**: Each Decentraland scene is only permitted to perform one `fetch` command at a time. This has no effect on how the scene code must be structured, as requests are queued internally. If your scene requires sending multiple requests to different endpoints, keep in mind that each request is only sent when the previous one has been responded.
 {{< /hint >}}
-
-
 
 ## Signed requests
 
@@ -92,29 +89,40 @@ To send a signed request, all you need to do is use the `signedFetch()` function
 
 ```ts
 executeTask(async () => {
-  try {
-    let response = await signedFetch(callUrl, {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify(myBody),
-    })
+	try {
+		let response = await signedFetch({
+			url: callUrl,
+			init: {
+				headers: { 'Content-Type': 'application/json' },
+				method: 'POST',
+				body: JSON.stringify(myBody),
+			},
+		})
 
-    if (!response.text) {
-      throw new Error("Invalid response")
-    }
+		if (!response.statusText) {
+			throw new Error('Invalid response')
+		}
 
-    let json = await JSON.parse(response.text)
+		let json = await JSON.parse(response.statusText)
 
-    console.log("Response received: ", json)
-  } catch {
-    console.log("failed to reach URL")
-  }
+		console.log('Response received: ', json)
+	} catch {
+		console.log('failed to reach URL')
+	}
 })
 ```
 
-The request will include an additional series of headers, containing a signed message and a set of metadata to interpret that. The signed message consists of all the contents of the request encrypted using the player's ephemeral key.
+The request includes an additional series of headers, containing a signed message and a set of metadata to interpret that. The signed message consists of all the contents of the request encrypted using the player's ephemeral key.
 
-The `signedFetch()` differs from the `fetch()` function in that the response is a promise of a full http message, expressed as a `FlatFetchInit` object. This includes the properties `text`, `ok`, `status`, `headers`, among others. By default, the To access the **body** of the response, parse the `text` property of the response as in the example above. If the response body is in json format, you can specify that in the `responseBodyType` and then access that from the `json` property in the response.
+The `signedFetch()` differs from the `fetch()` function in that the response is a promise of a full http message, expressed as a `FlatFetchResponse` object. This includes the following properties:
+
+- `body`
+- `headers`
+- `ok`
+- `status`
+- `statusText`
+
+By default, **body** is considered a string, which you can parse like in the example above. If the response body is in json format, you can specify that in the `responseBodyType` and then access that from the `json` property in the response.
 
 #### Validating a signed request
 
@@ -129,24 +137,30 @@ You can find a simple example of a server performing this task in the following 
 If an HTTP request takes too long to be responded, it fails so that other requests can be sent. For both `fetch()` and `signedFetch()`, the default timeout threshold is of 30 seconds, but you can assign a different value on each request by configuring the `timeout` property in any of the two functions. The value of `timeout` is expressed in milliseconds.
 
 ```ts
-fetch('https://some-url.com', { timeout: 1000 }) 
+fetch('https://some-url.com', { timeout: 1000 })
 ```
-
 
 ## Use WebSockets
 
 You can also send and obtain data from a WebSocket server, as long as this server uses a secured connection with _wss_.
 
 ```ts
-var socket = new WebSocket("url")
+var socket = new WebSocket('url')
 
 socket.onmessage = function (event) {
-  console.log("WebSocket message received:", event)
+	console.log('WebSocket message received:', event)
 }
 ```
 
 The syntax to use WebSockets is no different from that implemented natively by JavaScript. See the documentation from [Mozilla Web API](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) for details on how to catch and send messages over WebSockets.
 
 {{< hint info >}}
-**💡 Tip**:  One library that simplifies the use of websocket connections and has been proven to work very well with Decentraland is [Colyseus](https://colyseus.io/). It builds a layer of abstraction on top of the websocket connections that makes reacting to changes and storing a consistent game state remotely in the server super easy. You can see it in action in [these examples](https://github.com/decentraland-scenes/Awesome-Repository#colyseus). Several other websocket libraries aren't compatible with the Decentraland SDK.
+**💡 Tip**: One library that simplifies the use of websocket connections and has been proven to work very well with Decentraland is [Colyseus](https://colyseus.io/). Several other websocket libraries aren't compatible with the Decentraland SDK.
+
+It builds a layer of abstraction on top of the websocket connections that makes reacting to changes and storing a consistent game state remotely in the server super easy. You can see it in action in these examples:
+
+- [Cube Jumper](https://github.com/decentraland-scenes/cube-jumper-colyesus-sdk7)
+- [Space Traitor](https://github.com/decentraland-scenes/Space-Traitor)
+- [AI NPC](https://github.com/decentraland-scenes/inworld-ai-sdk7)
+
 {{< /hint >}}

@@ -5,6 +5,8 @@ description: What you need to keep in mind when designing a game for Decentralan
 categories:
   - design-experience
 type: Document
+aliases:
+  - /design-experience/design-games/
 url: /creator/design-experience/design-games
 weight: 3
 ---
@@ -44,9 +46,8 @@ In future releases, players will have an inventory they carry everywhere which w
 #### Portable experiences
 
 {{< hint warning >}}
-**📔 Note**:  Portable experiences and smart wearables are still in an exploratory stage and not yet available for community creators to make.
+**📔 Note**: Portable experiences and smart wearables are still in an exploratory stage and not yet available for community creators to make.
 {{< /hint >}}
-
 
 Portable experiences are parts of the gameplay that players take with them as they move through the metaverse. These are not tied to parcels of land, they are sometimes tied to tokens, or sometimes launched by the explorer. For example, a player could take a snowball from your scene, walk away to another scene, and throw the snowball to another player who’s also playing the same game.
 
@@ -71,7 +72,7 @@ You can use the MessageBus to use the same messaging architecture used to share 
 Hosting your own server is also a recommended safety measure for games that involve transactions with valuable game items, as you can keep certain information like security tokens only in the server, never exposing that information outside.
 
 {{< hint warning >}}
-**📔 Note**:  In future releases, we will provide out-of-the-box solutions and code examples for how to implement your own server.
+**📔 Note**: In future releases, we will provide out-of-the-box solutions and code examples for how to implement your own server.
 {{< /hint >}}
 
 #### Game timing

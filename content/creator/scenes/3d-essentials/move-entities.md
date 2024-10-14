@@ -10,12 +10,16 @@ aliases:
 url: /creator/development-guide/move-entities
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md" >}}).
+{{< /hint >}}
+
 To move, rotate or resize an entity in your scene, change the _position_, _rotation_ and _scale_ values stored in an entity's `Transform` component incrementally, frame by frame. This can be used on primitive shapes (cubes, spheres, planes, etc) as well as on 3D models (glTF).
 
 You can easily perform these incremental changes by moving entities a small amount each time the `update()` function of a [system]({{< ref "/content/creator/scenes/architecture/systems.md" >}}) is called.
 
 {{< hint info >}}
-**💡 Tip**:  You can use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve most of the tasks described in this doc. The code shown in these examples is handled in the background by the library, so in most cases it only takes a single line of code to use them.
+**💡 Tip**: You can use the helper functions in the [utils library](https://www.npmjs.com/package/decentraland-ecs-utils) to achieve most of the tasks described in this doc. The code shown in these examples is handled in the background by the library, so in most cases it only takes a single line of code to use them.
 {{< /hint >}}
 
 ## Move
@@ -24,11 +28,11 @@ The easiest way to move an entity is to use the `translate()` function to change
 
 ```ts
 export class SimpleMove implements ISystem {
-  update() {
-    let transform = myEntity.getComponent(Transform)
-    let distance = Vector3.Forward().scale(0.1)
-    transform.translate(distance)
-  }
+	update() {
+		let transform = myEntity.getComponent(Transform)
+		let distance = Vector3.Forward().scale(0.1)
+		transform.translate(distance)
+	}
 }
 
 engine.addSystem(new SimpleMove())
@@ -57,10 +61,10 @@ The `rotate()` function takes two arguments:
 
 ```ts
 export class SimpleRotate implements ISystem {
-  update() {
-    let transform = myEntity.getComponent(Transform)
-    transform.rotate(Vector3.Left(), 3)
-  }
+	update() {
+		let transform = myEntity.getComponent(Transform)
+		transform.rotate(Vector3.Left(), 3)
+	}
 }
 
 engine.addSystem(new SimpleRotate())
@@ -73,7 +77,7 @@ engine.addEntity(myEntity)
 ```
 
 {{< hint info >}}
-**💡 Tip**:  To make an entity always rotate to face the player, you can add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}).
+**💡 Tip**: To make an entity always rotate to face the player, you can add a [`Billboard` component]({{< ref "/content/creator/scenes/3d-essentials/entity-positioning.md#face-the-user" >}}).
 {{< /hint >}}
 
  <img src="/images/media/gifs/rotate.gif" alt="Move entity" width="300"/>
@@ -94,9 +98,9 @@ const pivot = new Entity()
 
 // Position the pivot entity on the pivot point of the rotation
 pivot.addComponent(
-  new Transform({
-    position: new Vector3(3, 2, 3),
-  })
+	new Transform({
+		position: new Vector3(3, 2, 3),
+	})
 )
 
 // add pivot entity
@@ -107,17 +111,17 @@ myEntity.setParent(pivot)
 
 // Position child in reference to parent
 myEntity.addComponent(
-  new Transform({
-    position: new Vector3(0, 0.5, 0.5),
-  })
+	new Transform({
+		position: new Vector3(0, 0.5, 0.5),
+	})
 )
 
 // Define a system that updates the rotation on every frame
 export class PivotRotate implements ISystem {
-  update() {
-    let transform = pivot.getComponent(Transform)
-    transform.rotate(Vector3.Left(), 3)
-  }
+	update() {
+		let transform = pivot.getComponent(Transform)
+		transform.rotate(Vector3.Left(), 3)
+	}
 }
 
 // Add the system
@@ -129,7 +133,7 @@ Note that in this example, the system is rotating the `pivot` entity, that's a p
  <img src="/images/media/gifs/pivot-rotate.gif" alt="Move entity" width="300"/>
 
 {{< hint warning >}}
-**📔 Note**:  Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
+**📔 Note**: Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
 {{< /hint >}}
 
 ## Adjust movement to delay time
@@ -140,11 +144,11 @@ You can compensate for this uneven timing by using the `dt` parameter to adjust 
 
 ```ts
 export class SimpleMove implements ISystem {
-  update(dt: number) {
-    let transform = myEntity.getComponent(Transform)
-    let distance = Vector3.Forward.scale(dt * 3)
-    transform.translate(distance)
-  }
+	update(dt: number) {
+		let transform = myEntity.getComponent(Transform)
+		let distance = Vector3.Forward.scale(dt * 3)
+		transform.translate(distance)
+	}
 }
 // (...)
 ```
@@ -181,23 +185,23 @@ For example, if the origin vector is _(0, 0, 0)_ and the target vector is _(10, 
 To implement this `lerp()` in your scene, we recommend creating a custom component to store the necessary information. You also need to define a system that implements the gradual movement in each frame.
 
 ```ts
-@Component("lerpData")
+@Component('lerpData')
 export class LerpData {
-  origin: Vector3 = Vector3.Zero()
-  target: Vector3 = Vector3.Zero()
-  fraction: number = 0
+	origin: Vector3 = Vector3.Zero()
+	target: Vector3 = Vector3.Zero()
+	fraction: number = 0
 }
 
 // a system to carry out the movement
 export class LerpMove implements ISystem {
-  update(dt: number) {
-    let transform = myEntity.getComponent(Transform)
-    let lerp = myEntity.getComponent(LerpData)
-    if (lerp.fraction < 1) {
-      transform.position = Vector3.Lerp(lerp.origin, lerp.target, lerp.fraction)
-      lerp.fraction += dt / 6
-    }
-  }
+	update(dt: number) {
+		let transform = myEntity.getComponent(Transform)
+		let lerp = myEntity.getComponent(LerpData)
+		if (lerp.fraction < 1) {
+			transform.position = Vector3.Lerp(lerp.origin, lerp.target, lerp.fraction)
+			lerp.fraction += dt / 6
+		}
+	}
 }
 
 // Add system to engine
@@ -227,7 +231,7 @@ The `slerp()` function takes three parameters:
 - The amount, a value from 0 to 1 that represents what fraction of the translation to do.
 
 {{< hint info >}}
-**💡 Tip**:  You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.Euler()`.
+**💡 Tip**: You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.Euler()`.
 {{< /hint >}}
 
 ```ts
@@ -240,28 +244,28 @@ let newRotation = Quaternion.Slerp(originRotation, targetRotation, 0.6)
 To implement this in your scene, we recommend storing the data that goes into the `Slerp()` function in a custom component. You also need to define a system that implements the gradual rotation in each frame.
 
 ```ts
-@Component("slerpData")
+@Component('slerpData')
 export class SlerpData {
-  originRot: Quaternion = Quaternion.Euler(0, 90, 0)
-  targetRot: Quaternion = Quaternion.Euler(0, 0, 0)
-  fraction: number = 0
+	originRot: Quaternion = Quaternion.Euler(0, 90, 0)
+	targetRot: Quaternion = Quaternion.Euler(0, 0, 0)
+	fraction: number = 0
 }
 
 // a system to carry out the rotation
 export class SlerpRotate implements ISystem {
-  update(dt: number) {
-    let slerp = myEntity.getComponent(SlerpData)
-    let transform = myEntity.getComponent(Transform)
-    if (slerp.fraction < 1) {
-      let rot = Quaternion.Slerp(
-        slerp.originRot,
-        slerp.targetRot,
-        slerp.fraction
-      )
-      transform.rotation = rot
-      slerp.fraction += dt / 5
-    }
-  }
+	update(dt: number) {
+		let slerp = myEntity.getComponent(SlerpData)
+		let transform = myEntity.getComponent(Transform)
+		if (slerp.fraction < 1) {
+			let rot = Quaternion.Slerp(
+				slerp.originRot,
+				slerp.targetRot,
+				slerp.fraction
+			)
+			transform.rotation = rot
+			slerp.fraction += dt / 5
+		}
+	}
 }
 
 // Add system to engine
@@ -279,7 +283,7 @@ engine.addEntity(myEntity)
 ```
 
 {{< hint warning >}}
-**📔 Note**:  You could instead represent the rotation with `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient to work with quaternions.
+**📔 Note**: You could instead represent the rotation with `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient to work with quaternions.
 {{< /hint >}}
 
  <img src="/images/media/gifs/lerp-rotate.gif" alt="Move entity" width="300"/>
@@ -306,24 +310,24 @@ let newScale = Scalar.Lerp(originScale, targetScale, 0.6)
 To implement this lerp in your scene, we recommend creating a custom component to store the necessary information. You also need to define a system that implements the gradual scaling in each frame.
 
 ```ts
-@Component("lerpData")
+@Component('lerpData')
 export class LerpSizeData {
-  origin: number = 0.1
-  target: number = 2
-  fraction: number = 0
+	origin: number = 0.1
+	target: number = 2
+	fraction: number = 0
 }
 
 // a system to carry out the movement
 export class LerpSize implements ISystem {
-  update(dt: number) {
-    let transform = myEntity.getComponent(Transform)
-    let lerp = myEntity.getComponent(LerpSizeData)
-    if (lerp.fraction < 1) {
-      let newScale = Scalar.Lerp(lerp.origin, lerp.target, lerp.fraction)
-      transform.scale.setAll(newScale)
-      lerp.fraction += dt / 6
-    }
-  }
+	update(dt: number) {
+		let transform = myEntity.getComponent(Transform)
+		let lerp = myEntity.getComponent(LerpSizeData)
+		if (lerp.fraction < 1) {
+			let newScale = Scalar.Lerp(lerp.origin, lerp.target, lerp.fraction)
+			transform.scale.setAll(newScale)
+			lerp.fraction += dt / 6
+		}
+	}
 }
 
 // Add system to engine
@@ -349,20 +353,20 @@ While using the lerp method, you can make the movement speed non-linear. In the 
 You could also use a function that gives recurring results, like a sine function, to describe a movement that comes and goes.
 
 ```ts
-@Component("lerpData")
+@Component('lerpData')
 export class LerpData {
-  origin: Vector3 = Vector3.Zero()
-  target: Vector3 = Vector3.Zero()
-  fraction: number = 0
+	origin: Vector3 = Vector3.Zero()
+	target: Vector3 = Vector3.Zero()
+	fraction: number = 0
 }
 
 export class LerpMove implements ISystem {
-  update(dt: number) {
-    let transform = myEntity.getComponent(Transform)
-    let lerp = myEntity.getComponent(LerpData)
-    lerp.fraction += (dt + lerp.fraction) / 10
-    transform.position = Vector3.Lerp(lerp.origin, lerp.target, lerp.fraction)
-  }
+	update(dt: number) {
+		let transform = myEntity.getComponent(Transform)
+		let lerp = myEntity.getComponent(LerpData)
+		lerp.fraction += (dt + lerp.fraction) / 10
+		transform.position = Vector3.Lerp(lerp.origin, lerp.target, lerp.fraction)
+	}
 }
 
 // Add system to engine
@@ -385,31 +389,31 @@ const point4 = new Vector3(1, 1, 7)
 
 const myPath = new Path3D([point1, point2, point3, point4])
 
-@Component("pathData")
+@Component('pathData')
 export class PathData {
-  origin: Vector3 = myPath.path[0]
-  target: Vector3 = myPath.path[1]
-  fraction: number = 0
-  nextPathIndex: number = 1
+	origin: Vector3 = myPath.path[0]
+	target: Vector3 = myPath.path[1]
+	fraction: number = 0
+	nextPathIndex: number = 1
 }
 
 export class PatrolPath implements ISystem {
-  update(dt: number) {
-    let transform = myEntity.getComponent(Transform)
-    let path = myEntity.getComponent(PathData)
-    if (path.fraction < 1) {
-      transform.position = Vector3.Lerp(path.origin, path.target, path.fraction)
-      path.fraction += dt / 6
-    } else {
-      path.nextPathIndex += 1
-      if (path.nextPathIndex >= myPath.path.length) {
-        path.nextPathIndex = 0
-      }
-      path.origin = path.target
-      path.target = myPath.path[path.nextPathIndex]
-      path.fraction = 0
-    }
-  }
+	update(dt: number) {
+		let transform = myEntity.getComponent(Transform)
+		let path = myEntity.getComponent(PathData)
+		if (path.fraction < 1) {
+			transform.position = Vector3.Lerp(path.origin, path.target, path.fraction)
+			path.fraction += dt / 6
+		} else {
+			path.nextPathIndex += 1
+			if (path.nextPathIndex >= myPath.path.length) {
+				path.nextPathIndex = 0
+			}
+			path.origin = path.target
+			path.target = myPath.path[path.nextPathIndex]
+			path.fraction = 0
+		}
+	}
 }
 
 engine.addSystem(new PatrolPath())

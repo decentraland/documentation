@@ -6,7 +6,7 @@ categories:
   - Decentraland
 type: Document
 aliases:
-url: /creator/wearables-and-amotes/manage-collections/uploading-wearables
+url: /creator/wearables-and-emotes/manage-collections/uploading-wearables
 weight: 2
 ---
 
@@ -14,7 +14,7 @@ Once you export your wearable, you’ll have to upload it to the builder. This d
 
 #### Uploading Your File
 
-Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, check [Creating a Collection](/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your wearable, just drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is an emote or wearable. **Remember that the collection max file size is 2MB**.
+Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, check [Creating a Collection](/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your wearable, just drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is an emote or wearable. **Remember that the collection max file size is 3MB**.
 
 <img src="/images/wearables-and-emotes/uploading-wearables/01_new_item.png" width="400" />
 
@@ -36,6 +36,7 @@ Select the Rarity of your item.
 | --------- | --------------- |
 | Unique    | 1               |
 | Mythic    | 10              |
+| Exotic    | 50              |
 | Legendary | 100             |
 | Epic      | 1,000           |
 | Rare      | 5,000           |
@@ -104,16 +105,23 @@ This is a brief statement describing your item that will be displayed in the mar
 
 ## **Overrides**
 
-Overrides determine what other wearable categories your item will either replace, or hide. For example, if a hat has hair attached to the model, you might want to hide the category **_Hair_**. Or if you are submitting a deep sea diver helmet you may want hide all the head accessories that are not going to be visible such as earrings, eyewear, tiara, etc. You can add multiple categories to each override; just select them on the dropdown menu.
+Overrides determine which Wearable categories or avatar body parts your item will hide. For instance, a hat with attached hair might need to hide the _Hair_ category. A deep-sea diver helmet may require hiding head accessories like earrings, eyewear, tiaras, etc., which wouldn’t be visible. Multiple options can be selected for each override.
 
-- **Replaces**: any items within the categories added to this override will be unequipped from a users’ avatar when they equip your item. A user would have to re-equip any "replaced" items after unequipping your item. This does not delete items, it only unequips them.
-- **Hides**: any items within the categories added to this override will only be hidden (they won’t be rendered) when a user equips your item. When a user unequips your item, the hidden items will be rendered again automatically.
+- **Base Body**: This refers to core avatar parts like the _head_ and _hands_. For example, if you’re creating a **Handwear** item such as a robot mechanic hand, you’ll likely need to hide _hands_ to prevent overlap and clipping.
 
-For a detailed description of each category, and how items within each category interact or replace one another, see **[Creating Wearables](https://docs.decentraland.org/creator/wearables-and-emotes/wearables/creating-wearables/)**.
+- **Wearables**: This includes other Wearable categories. You can hide multiple categories. For more details on each category and how items interact, refer to **[Creating Wearables](https://docs.decentraland.org/creator/wearables/creating-wearables/)**.
+
+{{< hint warning >}}
+Note: The overrides you select will be the suggested default settings for your Wearable. However, users can customize which Wearables are hidden or showing from the Backpack.
+{{< /hint >}}
 
 ## **Tags**
 
 Tags are simply descriptive words that users can use when searching or filtering for items. These are relevant to competitions or events!
+
+## **VRM Export Permission**
+
+When this property is enabled, it will allow owners of your item to include it in VRM Avatar Exports so they can show it off outside of Decentraland.
 
 ## **Adding Another Representation**
 
@@ -151,7 +159,7 @@ Once you select the location to teleport, a new tab will open on your browser an
 
 <img src="/images/wearables-and-emotes/uploading-wearables/21_goerli.png" width="600"/>
 
-Click on **_Switch to Goerli_** and a popup from your wallet will show up asking to switch the network. Simply click on Switch Network and the new tab will automatically refresh. To test your wearable, go to the backpack and select it.
+Click on **_Switch to Sepolia_** and a popup from your wallet will show up asking to switch the network. Simply click on Switch Network and the new tab will automatically refresh. To test your wearable, go to the backpack and select it.
 
 <img src="/images/wearables-and-emotes/uploading-wearables/22_wearable_world.gif" />
 

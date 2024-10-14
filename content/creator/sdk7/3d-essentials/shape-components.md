@@ -23,21 +23,21 @@ The following shapes are available. Several shapes include optional additional f
 
 - **box**:
 
-	Use `MeshRenderer.setBox()`, passing the entity. Pass `uvs` as an additional optional field, to map texture alignment. See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) for more details.
+  Use `MeshRenderer.setBox()`, passing the entity. Pass `uvs` as an additional optional field, to map texture alignment. See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) for more details.
 
 - **plane**:
 
-	Use `MeshRenderer.setPlane()`, passing the entity. Pass `uvs` as an additional optional field, to map texture alignment. See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) for more details.
+  Use `MeshRenderer.setPlane()`, passing the entity. Pass `uvs` as an additional optional field, to map texture alignment. See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) for more details.
 
 - **sphere**:
 
-	Use `MeshRenderer.setSphere()`, passing the entity. 
+  Use `MeshRenderer.setSphere()`, passing the entity.
 
 - **cylinder**:
 
-	Use `MeshRenderer.setCylinder()`, passing the entity. Pass `radiusTop` and `radiusBottom` as additional optional fields, to modify the cylinder.
+  Use `MeshRenderer.setCylinder()`, passing the entity. Pass `radiusTop` and `radiusBottom` as additional optional fields, to modify the cylinder.
 
-	TIP: Set  either `radiusTop` or `radiusBottom` to 0 to make a cone.
+  TIP: Set either `radiusTop` or `radiusBottom` to 0 to make a cone.
 
 The following example creates a cube:
 
@@ -45,7 +45,7 @@ The following example creates a cube:
 const myCube = engine.addEntity()
 
 Transform.create(myCube, {
-	position: Vector3.create(8, 1, 8)
+  position: Vector3.create(8, 1, 8),
 })
 
 MeshRenderer.setBox(myCube)
@@ -57,7 +57,7 @@ The following example creates a cylinder with a `radiusTop` of 0, which produces
 const myCone = engine.addEntity()
 
 Transform.create(myCone, {
-	position: Vector3.create(8, 1, 8)
+  position: Vector3.create(8, 1, 8),
 })
 
 MeshRenderer.setCylinder(myCone, 0, 1)
@@ -73,7 +73,7 @@ To change the shape of an entity that already has a `MeshRenderer` component, ru
 const myCube = engine.addEntity()
 
 Transform.create(myCube, {
-	position: Vector3.create(8, 1, 8)
+  position: Vector3.create(8, 1, 8),
 })
 
 MeshRenderer.setBox(myCube)
@@ -81,6 +81,14 @@ MeshRenderer.setBox(myCube)
 // overwrite shape
 MeshRenderer.setSphere(myCube)
 ```
+
+{{< hint warning >}}
+**📔 Note**: The `MeshRenderer` component must be imported via
+
+> `import { MeshRenderer } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 ## 3D models
 
@@ -91,20 +99,30 @@ To add an external model into a scene, add a `GltfContainer` component to an ent
 ```ts
 const houseEntity = engine.addEntity()
 
-GltfContainer.create(houseEntity, { 
-	src: "models/House.gltf" 
+GltfContainer.create(houseEntity, {
+  src: 'models/House.gltf',
 })
 ```
 
 The `src` field is required, you must give it a value when constructing the component. In the example above, the model is located in a `models` folder at root level of the scene project folder.
 
 {{< hint info >}}
-**💡 Tip**:  We recommend keeping your models separate in a `/models` folder inside your scene.
+**💡 Tip**: We recommend keeping your models separate in a `/models` folder inside your scene.
 {{< /hint >}}
 
 glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this.
 
+To prevent players from walking through a 3D model, or to make a model clickable, you must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}), which may be embedded in the model or provided via a `MeshCollider` component.
+
 Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
+
+{{< hint warning >}}
+**📔 Note**: The `GltfContainer` component must be imported via
+
+> `import { GltfContainer } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 ### Free libraries for 3D models
 
@@ -112,6 +130,7 @@ Instead of building your own 3D models, you can also download them from several 
 
 To get you started, below is a list of libraries that have free or relatively inexpensive content:
 
+- [Asset Ovi](https://assetovi.com/)
 - [Assets from the Builder](https://github.com/decentraland/builder-assets/tree/master/assets)
 - [SketchFab](https://sketchfab.com/)
 - [Clara.io](https://clara.io/)
@@ -122,11 +141,10 @@ To get you started, below is a list of libraries that have free or relatively in
 - [CGTrader](https://www.cgtrader.com/)
 
 {{< hint warning >}}
-**📔 Note**:  Pay attention to the license restrictions that the content you download has.
+**📔 Note**: Pay attention to the license restrictions that the content you download has.
 {{< /hint >}}
 
 Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _glTF_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting as _.glTF_ from there.
-
 
 ### Optimize 3D models
 
@@ -135,7 +153,6 @@ To ensure that 3D models in your scene load faster and take up less memory, foll
 - Save your models in _.glb_ format, which is a lighter version of _.gltf_.
 - If you have multiple models that share the same textures, export your models with textures in a separate file. That way multiple models can refer to a single texture file that only needs to be loaded once.
 - If your scene has entities that appear and disappear, it might be a good idea to pool these entities and keep them underground, or at a scale of 0. This will help them appear faster, the trade-off is that they will occupy memory when not in use. See [entities and components]({{< ref "/content/creator/sdk7/architecture/entities-components.md#pooling-entities-and-components" >}})
-
 
 ## Stretching a shape
 
@@ -146,32 +163,65 @@ const primitiveEntity = engine.addEntity()
 
 MeshRenderer.setBox(primitiveEntity)
 
-Transform.ceate(primitiveEntity, {
-	position: {x: 8, y:1, z: 8},
-	scale: {x: 4, y:0.5, z: 4}
+Transform.create(primitiveEntity, {
+  position: { x: 8, y: 1, z: 8 },
+  scale: { x: 4, y: 0.5, z: 4 },
 })
 ```
 
 ## Make invisible
 
-
 You can make an entity invisible by giving an entity a `VisibilityComponent`, with its `visible` property set to _false_.
-
 
 ```ts
 const myEntity = engine.addEntity()
-Transform.create(myEntity, { 
-  position: Vector3.create(4, 0, 4)
+Transform.create(myEntity, {
+  position: Vector3.create(4, 0, 4),
 })
 MeshRenderer.setBox(myEntity)
 
-VisibilityComponent.create(myEntity, {visible: false})
+VisibilityComponent.create(myEntity, { visible: false })
 ```
 
 The `VisibilityComponent` works the same for entities with primitive shapes and with `GLTFContainer` components.
 
-If an entity is invisible, its collider can block a player's path and can prevent clicking entities that are behind it.
+If an entity is invisible, its collider can block a player's path and/or prevent clicking entities that are behind it, depending on the collision layers assigned to the collider.
 
+## Loading state
+
+If a 3D model is fairly large, it might take some noticeable time to be rendered, this time may vary depending on the player's hardware and many other factors. Sometimes you need to make sure that a model finished loading before you perform another action. For example, if you want to teleport the player to a platform up in the sky, you need to first make sure the platform is fully rendered before moving the player there, or else the player might fall right through the platform.
+
+To check if a 3D model is finished being rendered, check the entity's `GltfContainerLoadingState` component. This component is meant to be read only, and exists on any entity that also has a `GltfContainer`component.
+
+This component has a single property named `currentState`, holding a value from the `LoadingState` enum.
+
+The following example uses a system to periodically check the loading state of an entity's 3D model. If the state is `LoadingState.FINISHED`, you might want to perform custom logic there and end the execution of the system.
+
+```ts
+export function main() {
+  const meshEntity = engine.addEntity()
+  GltfContainer.create(meshEntity, { src: 'models/Monster.glb' })
+  engine.addSystem((deltaTime) => {
+    const loadingState = GltfContainerLoadingState.getOrNull(meshEntity)
+    if (!loadingState) return
+    switch (loadingState.currentState) {
+      case LoadingState.LOADING:
+        console.log('mesh is LOADING')
+        break
+      case LoadingState.FINISHED:
+        console.log('mesh is FINISHED')
+        // Perform custom logic
+        break
+      case LoadingState.FINISHED_WITH_ERROR:
+        console.log('mesh is FINISHED BUT MAY HAVE PROBLEMS')
+        break
+      case LoadingState.UNKNOWN:
+        console.log('mesh is in an UNKNOWN STATE')
+        break
+    }
+  })
+}
+```
 
 ## Advanced syntax
 
@@ -179,36 +229,35 @@ The complete syntax for creating a `MeshRenderer` component, without any helpers
 
 ```ts
 MeshRenderer.setBox(myBox, {
-    mesh: { 
-      $case: 'box',
-      box: { uvs: []} 
-    }
-  })
+  mesh: {
+    $case: 'box',
+    box: { uvs: [] },
+  },
+})
 
 MeshRenderer.create(myPlane, {
-    mesh: { 
-      $case: 'plane',
-      plane: { uvs: []} 
-    }
-  })
+  mesh: {
+    $case: 'plane',
+    plane: { uvs: [] },
+  },
+})
 
 MeshRenderer.create(myShpere, {
-    mesh: { 
-      $case: 'sphere',
-      sphere: {} 
-    }
-  })
+  mesh: {
+    $case: 'sphere',
+    sphere: {},
+  },
+})
 
 MeshRenderer.create(myCylinder, {
-    mesh: { 
-      $case: 'cylinder',
-      cylinder: {} 
-    }
-  })
+  mesh: {
+    $case: 'cylinder',
+    cylinder: {},
+  },
+})
 ```
 
 This is how the base protocol interprets MeshRenderer components. The helper functions abstract away from this and expose a friendlier syntax, but behind the scenes they output this syntax.
-
 
 The `$case` field allows you to specify one of the allowed types. Each type supports a different set of parameters. In the example above, the `box` type supports a `uvs` field.
 

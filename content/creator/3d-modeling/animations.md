@@ -1,5 +1,5 @@
 ---
-date: 2018-01-13
+date: 2023-8-30
 title: Animations
 description: Learn How To Create Animations That Can Be Embedded On 3D Models Imported To Decentraland.
 
@@ -9,6 +9,7 @@ type: Document
 aliases:
   - /3d-modeling/animations/
 url: /creator/3d-modeling/animations
+weight: 6
 ---
 
 Animation is the art of bringing life into things. And there’s no better way to make you scene more lively then adding some animations to your 3D models.

@@ -5,38 +5,43 @@ description: Create your own Decentraland libraries to share with others
 categories:
   - development-guide
 type: Document
+aliases:
+  - /development-guide/create-libraries
+  - /creator/development-guide/create-libraries
 url: /creator/development-guide/sdk7/create-libraries/
-weight: 1
+weight: 3
 ---
 
 Libraries are a great way to share solutions to common problems. Complex challenges can be approached once, the solutions encapsulated into a library, and whenever they come up you just need to write one line of code. By sharing libraries with the community, we can make the productivity of all creators grow exponentially.
 
-Currently, these libraries in the [Awesome Repository](https://github.com/decentraland-scenes/Awesome-Repository#Libraries) are available for all to use. We encourage you to create and share your own as well.
+Currently, these libraries in the [Examples page](https://studios.decentraland.org/resources?sdk_version=SDK7&resource_type=Library) are available for all to use. We encourage you to create and share your own as well.
 
-By using the CLI and following the steps detailed here, you can avoid most of the complexity that comes with creating a library that is compatible with Decentraland scenes and is easy to share with others.
+By following the steps detailed here, you can avoid most of the complexity that comes with creating a library that is compatible with Decentraland scenes and is easy to share with others.
 
 ## Create a library
 
 {{< hint warning >}}
-**📔 Note**:  Make sure you're using Node version 16.x or newer before you build your library.
+**📔 Note**: Make sure you're using Node version 16.x or newer before you build your library.
 {{< /hint >}}
-
 
 To create your own library and share it via NPM, do the following:
 
-1. In an empty folder, run `npx sdk-commands init`, then select the option `Library`.
+1. Create a new empty folder, and open a new VS Studio Code window there.
+
+2. Select the Decentraland tab on Visual Studio's left margin sidebar
+3. Click **Create Project**, then select **Library**
 
    This will create all of the default files and dependencies for a Decentraland library.
 
-2. Set a unique `name` in `package.json`. This is the name that will be used when publishing to NPM, make sure there isn't some other existing project using that name on npm. Also fill in the description and any tags to help others find your library.
+4. Set a unique `name` in `package.json`. This is the name that will be used when publishing to NPM, make sure there isn't some other existing project using that name on npm. Also fill in the description and any tags to help others find your library.
 
-3. Create a new _public_ GitHub repository for your project.
+5. Create a new _public_ GitHub repository for your project.
 
    The project is configured to use github actions to publish a new version of the package on every push to `main`.
 
    In the `package.json` file, make sure that in `repository` you point the `url` field to your repo's URL. That way it's easy to find for users navigating [npmjs.com](https://www.npmjs.com).
 
-4. Get an NPM token:
+6. Get an NPM token:
 
    1. Create an account or log in to https://www.npmjs.com/.
    2. Go to **Account > Access Tokens > Generate new Token**
@@ -44,15 +49,15 @@ To create your own library and share it via NPM, do the following:
 
       The success message includes a string for the newly generated token. Copy this string and store it somewhere safe.
 
-5. In your github repository, go to **Settings > Secrets > Actions**, then click **New Repository Secret**.
+7. In your github repository, go to **Settings > Secrets > Actions**, then click **New Repository Secret**.
 
    Name your secret **NPM_TOKEN**, and paste the string from the NPM token as its value.
 
-6. Push a change (any change) to the main branch of your GitHub repo and the package will be published.
+8. Push a change (any change) to the main branch of your GitHub repo and the package will be published.
 
    That's it, now the package can be installed by anyone using `npm i <package-name>`! You can now find your library if you search for it by name in [npmjs.com](https://www.npmjs.com).
 
-7. Flesh out the `/src` folder of your project with all the functionality you want to expose and push changes to GitHub.
+9. Flesh out the `/src` folder of your project with all the functionality you want to expose and push changes to GitHub.
 
 ## Develop
 
@@ -69,26 +74,41 @@ Install your npm package into a scene by running `npm i <package-name>`. Then bu
 
 If you need to continually make small adjustments to your library and test them, it can get exhausting to have to commit changes and then wait for the npm publication to complete before you can try out the new version in a scene. Fortunately, there's a much faster alternative for running tests with your library.
 
-1. Make sure the library repo has all of its dependencies built, run `npm i` and `npm run build`.
-2. On your library's folder run `npm link`.
-3. On your test scene folder run `npm link <library name>`, using the name with which your library is exposed on NPM.
+In a **test scene project**:
+
+1. Add this script to the `scripts` list in package.json:
+   `"link-sdk": "cd node_modules/@dcl/sdk && npm link && cd ../js-runtime && npm link"`
+2. Run `npm install`
+3. Run `npm install YOUR_LIBRARY_PATH`, e.g., `npm install /User/projects/dcl-sdk7-library-test`
+4. Run `npm run link-sdk`
+
+In the **library project**:
+
+1. Run `npm install`
+2. Run `npm run build`
+4. Run: `npm link @dcl/sdk @dcl/js-runtime`
+
+
+{{< hint danger >}}
+**❗Warning**: The order of these steps is important. It may not work in another order.
+{{< /hint >}}
 
 This will keep your scene synced to the version of the library that's directly in your local drive. For any changes to the library that you want to test, just run `npm run build` on the library folder, no need to publish changes to GitHub or NPM.
 
 {{< hint info >}}
-**💡 Tip**:  To verify that the linking was successful, check your scene's `package.json` file. On your library's it should show a local folder path instead of a version number.
+**💡 Tip**: To verify that the linking was successful, run `npm ls --link`. You should see the library name pointing to the folder on your local files.
 {{< /hint >}}
+
+If you make changes to the library, you must run `npm build` to update them. To avoid having to do that every time:
+
+1. Add the script "start": "tsc -p tsconfig.json --watch" to the library
+2. Run `npm start` on the library
 
 When you're finished testing, remember to unlink the library.
 
-1. On the scene folder run `npm unlink --no-save <library name>`
+1. On the scene folder run `npm install <library name>`
 
-2. Then in the library run`npm unlink`
-
-{{< hint warning >}}
-**📔 Note**:  The order of these steps is important.
-{{< /hint >}}
-
+2. Then in the library run `rm node_modules && npm install`
 
 ## Versioning
 
@@ -96,25 +116,24 @@ Versions of your library are published automatically to `npm` with a `@latest` a
 
 The `@next` flag always points to the last commit on the `main` branch. This version may be unstable as the last changes might not be tested. Users of your library can install it (at their own risk) by doing `npm i <library name>@next`.
 
-The `@latest` flag points to the last stable release of the library. This is what users of your library should be installing normally. It's the version that npm fetches when they do `npm i <library name>`. 
+The `@latest` flag points to the last stable release of the library. This is what users of your library should be installing normally. It's the version that npm fetches when they do `npm i <library name>`.
 
 To make the `@latest` flag point to your latest commits, you'll need to make a **release** of your library on GitHub.
 
 1. Open your project's GitHub page. Open the **Releases** link, on the right margin of the page.
 
-	![](/images/media/release-versions.png)
+   ![](/images/media/release-versions.png)
 
-2. Click **Draft new release**. 
+2. Click **Draft new release**.
 3. On **Chose tag** write a name for your new version, for example "1.1.0". Also write a name on **Release Title**. This is often the same name, "1.1.0".
 
-	> Important: The tag must be a number, with no additional letters or symbols. The number must be higher than the previous published releases.
+   > Important: The tag must be a number, with no additional letters or symbols. The number must be higher than the previous published releases.
 
-4. Describe your release, so that users know what's new. 
+4. Describe your release, so that users know what's new.
 
-	> Tip: Click the button **Auto generate release notes** to print out all the commits since the last release.
+   > Tip: Click the button **Auto generate release notes** to print out all the commits since the last release.
 
 5. Hit **Publish Release**. This action triggers a new automatic publication to npm with the `@latest` flag. Users of your library will now be downloading this version.
-
 
 ## Notes on usability
 
@@ -137,14 +156,14 @@ Try your best to make your library easy to use for other creators. Our assumptio
    * @public
    */
   export function clamp(value: number, min: number, max: number) {
-    let result = value
+  	let result = value
 
-    if (value > max) {
-      result = max
-    } else if (value < min) {
-      result = min
-    }
-    return result
+  	if (value > max) {
+  		result = max
+  	} else if (value < min) {
+  		result = min
+  	}
+  	return result
   }
   ```
 

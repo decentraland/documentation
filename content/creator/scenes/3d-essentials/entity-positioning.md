@@ -12,6 +12,10 @@ url: /creator/development-guide/entity-positioning
 weight: 1
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md" >}}).
+{{< /hint >}}
+
 You can set the _position_, _rotation_ and _scale_ of an entity by using the `Transform` component. This can be used on any entity, which can also a primitive shape component (cube, sphere, plane, etc) or a 3D model component (`GLTFShape`).
 
 <img src="/images/media/ecs-simple-components.png" alt="nested entities" width="400"/>
@@ -30,11 +34,11 @@ For brevity, you can also create a `Transform` entity and give it initial values
 
 ```ts
 myEntity.addComponent(
-  new Transform({
-    position: new Vector3(5, 1, 5),
-    rotation: new Quaternion(0, 0, 0, 0),
-    scale: new Vector3(2, 2, 2),
-  })
+	new Transform({
+		position: new Vector3(5, 1, 5),
+		rotation: new Quaternion(0, 0, 0, 0),
+		scale: new Vector3(2, 2, 2),
+	})
 )
 ```
 
@@ -61,7 +65,7 @@ myTransform.position = new Vector3(5, 1, 5)
 ```
 
 {{< hint warning >}}
-**📔 Note**:  When setting the value of the position with an object, you can either use a `Vector3` object, or any other object with _x_, _y_ and _z_ fields.
+**📔 Note**: When setting the value of the position with an object, you can either use a `Vector3` object, or any other object with _x_, _y_ and _z_ fields.
 {{< /hint >}}
 
 When setting a position, keep the following considerations in mind:
@@ -84,7 +88,7 @@ When setting a position, keep the following considerations in mind:
 
   > Tip: When viewing a scene in preview mode, entities that are out of bounds are highlighted in _red_.
 
-- Your scene is also limited in height. The more parcels that make up the scene, the higher you're allowed to build. See [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}) for more details.
+- Your scene is also limited in height. The more parcels that make up the scene, the higher you're allowed to build. See [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) for more details.
 
 ## Rotation
 
@@ -117,7 +121,7 @@ myTransform.rotation.eulerAngles = new Vector3(0, 90, 0)
 When using a _3D vector_ to represent Euler angles, _x_, _y_ and _z_ represent the rotation in that axis, measured in degrees. A full turn requires 360 degrees.
 
 {{< hint warning >}}
-**📔 Note**:  If you set the rotation using _Euler_ angles, the rotation value is still stored internally as a quaternion.
+**📔 Note**: If you set the rotation using _Euler_ angles, the rotation value is still stored internally as a quaternion.
 {{< /hint >}}
 
 When you retrieve the rotation of an entity, it returns a quaternion by default. To obtain the rotation expressed as in Euler angles, get the `.eulerAngles` field:
@@ -153,9 +157,9 @@ Billboards were a common technique used in 3D games of the 90s, where most entit
 let box = new Entity()
 box.addComponent(new BoxShape())
 box.addComponent(
-  new Transform({
-    position: new Vector3(5, 1, 5),
-  })
+	new Transform({
+		position: new Vector3(5, 1, 5),
+	})
 )
 box.addComponent(new Billboard())
 engine.addEntity(box)
@@ -188,7 +192,7 @@ The `rotation` value of the entity's `Transform` component doesn't change as the
 If an entity has both a `Billboard` component and `Transform` component with `rotation` values, players will see the entity rotating as a billboard. If the billboard doesn't affect all axis, the remaining axis will be rotated according to the `Transform` component.
 
 {{< hint warning >}}
-**📔 Note**:  If there are multiple players present at the same time, each will see the entities with billboard mode facing them.
+**📔 Note**: If there are multiple players present at the same time, each will see the entities with billboard mode facing them.
 {{< /hint >}}
 
 ## Face a set of coordinates
@@ -254,15 +258,15 @@ childEntity.setParent(parentEntity)
 
 // Create a transform for the parent
 let parentTransform = new Transform({
-  position: new Vector3(3, 1, 1),
-  scale: new Vector3(0.5, 0.5, 0.5),
+	position: new Vector3(3, 1, 1),
+	scale: new Vector3(0.5, 0.5, 0.5),
 })
 
 parentEntity.addComponent(parentTransform)
 
 // Create a transform for the child
 let childTransform = new Transform({
-  position: new Vector3(0, 1, 0),
+	position: new Vector3(0, 1, 0),
 })
 
 childEntity.addComponent(childTransform)
@@ -274,7 +278,7 @@ engine.addEntity(parentEntity)
 You can use an invisible entity with no shape component to wrap a set of other entities. This entity won't be visible in the rendered scene, but can be used to group its children and apply a transform to all of them.
 
 {{< hint warning >}}
-**📔 Note**:  Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
+**📔 Note**: Child entities should not be explicitly added to the engine, as they are already added via their parent entity.
 {{< /hint >}}
 
 ## Attach an entity to an avatar
@@ -285,10 +289,10 @@ To fix an entity's position to an avatar, add an `AttachToAvatar` component to t
 
 ```ts
 this.addComponentOrReplace(
-  new AttachToAvatar({
-    avatarId: '0xAAAAAAAAAAAAAAAAA',
-    anchorPointId: AttachToAvatarAnchorPointId.NameTag,
-  })
+	new AttachToAvatar({
+		avatarId: '0xAAAAAAAAAAAAAAAAA',
+		anchorPointId: AttachToAvatarAnchorPointId.NameTag,
+	})
 )
 ```
 
@@ -296,7 +300,6 @@ When creating an `AttachToAvatar` component, you must pass an object with the fo
 
 - `avatarId`: The ID of the player to attach to. This is the same as the player's Ethereum address, for those players connected with an Ethereum wallet.
 - `anchorPointId`: What anchor point on the avatar to attach the entity.
-
 
 The following anchor points are available on the player:
 
@@ -316,13 +319,13 @@ The following anchor points are available on the player:
 -->
 
 {{< hint warning >}}
-**📔 Note**:  Future SDK versions will include alternative anchor points on the avatar that will accompany the avatar animations.
+**📔 Note**: Future SDK versions will include alternative anchor points on the avatar that will accompany the avatar animations.
 {{< /hint >}}
 
 Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to everyone seeing that player.
 
 {{< hint warning >}}
-**📔 Note**:  Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
+**📔 Note**: Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
 {{< /hint >}}
 
 The `AttachToAvatar` component overwrites the `Transform` component, a single entity can't have both an `AttachToAvatar` and a `Transform` component at the same time.
@@ -333,21 +336,21 @@ If you need to position an entity with an offset from the anchor point on the av
 let parent = new Entity()
 
 parent.addComponentOrReplace(
-  new AttachToAvatar({
-    avatarId: '0xAAAAAAAAAAAAAAAAA',
-    anchorPointId: AttachToAvatarAnchorPointId.NameTag,
-  })
+	new AttachToAvatar({
+		avatarId: '0xAAAAAAAAAAAAAAAAA',
+		anchorPointId: AttachToAvatarAnchorPointId.NameTag,
+	})
 )
 engine.addEntity(parent)
 
 let child = new Entity()
 child.addComponent(new ConeShape())
 child.addComponent(
-  new Transform({
-    rotation: Quaternion.Euler(0, 0, 180),
-    scale: new Vector3(0.2, 0.2, 0.2),
-    position: new Vector3(0, 0.4, 0),
-  })
+	new Transform({
+		rotation: Quaternion.Euler(0, 0, 180),
+		scale: new Vector3(0.2, 0.2, 0.2),
+		position: new Vector3(0, 0.4, 0),
+	})
 )
 child.setParent(parent)
 ```
@@ -357,30 +360,30 @@ child.setParent(parent)
 To attach an entity to an avatar, you must provide the user's ID in the field `avatarId`. There are [various ways]({{< ref "/content/creator/scenes/interactivity/user-data.md#get-player-data" >}}) to obtain this data.
 
 {{< hint warning >}}
-**📔 Note**:  For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
+**📔 Note**: For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
 {{< /hint >}}
 
 - Fetch the local player's `userId` via `getUserData()`.
 
 ```ts
-import { getUserData } from "@decentraland/Identity"
+import { getUserData } from '@decentraland/Identity'
 
 executeTask(async () => {
-  let data = await getUserData()
-  log(data.userId)
+	let data = await getUserData()
+	log(data.userId)
 })
 ```
 
 - Fetch the `userId` for all other nearby players via `getConnectedPlayers()`
 
 ```ts
-import { getConnectedPlayers } from "@decentraland/Players"
+import { getConnectedPlayers } from '@decentraland/Players'
 
 executeTask(async () => {
-  let players = await getConnectedPlayers()
-  players.forEach((player) => {
-    log("player is nearby: ", player.userId)
-  })
+	let players = await getConnectedPlayers()
+	players.forEach((player) => {
+		log('player is nearby: ', player.userId)
+	})
 })
 ```
 
@@ -396,9 +399,9 @@ Set an entity as a child of the `Attachable.FIRST_PERSON_CAMERA` object to fix t
 const followTheCamera = new Entity()
 followTheCamera.addComponent(new BoxShape())
 followTheCamera.addComponent(
-  new Transform({
-    position: new Vector3(0, 0.5, 3),
-  })
+	new Transform({
+		position: new Vector3(0, 0.5, 3),
+	})
 )
 engine.addEntity(followTheCamera)
 followTheCamera.setParent(Attachable.FIRST_PERSON_CAMERA)
@@ -412,16 +415,16 @@ To fix an entity's rotation only in the _x_ axis to the player, set an entity as
 const followAvatar = new Entity()
 followAvatar.addComponent(new BoxShape())
 followAvatar.addComponent(
-  new Transform({
-    position: new Vector3(0, 0.5, 3),
-  })
+	new Transform({
+		position: new Vector3(0, 0.5, 3),
+	})
 )
 engine.addEntity(followAvatar)
 followAvatar.setParent(Attachable.AVATAR)
 ```
 
 {{< hint warning >}}
-**📔 Note**:  To set an entity as a child of `Attachable.FIRST_PERSON_CAMERA` or `Attachable.AVATAR`, you need to first add the entity to the engine. If you attempt to set the entity as child of the player _before_ adding it to the engine, it will raise an error.
+**📔 Note**: To set an entity as a child of `Attachable.FIRST_PERSON_CAMERA` or `Attachable.AVATAR`, you need to first add the entity to the engine. If you attempt to set the entity as child of the player _before_ adding it to the engine, it will raise an error.
 {{< /hint >}}
 
 Both `Attachable.FIRST_PERSON_CAMERA` and `Attachable.AVATAR` behave similarly, but have subtle differences:
@@ -457,7 +460,7 @@ The position of entities in your scene is constantly being checked as they move,
 A grid on the scene's ground shows the limits of the scene, which by default rage from 0 to 16 on the _x_ and _z_ axis, and up to 20 on the _y_ axis. You're free to place entities underground, below 0 on the _y_ axis.
 
 {{< hint info >}}
-**💡 Tip**:  If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
+**💡 Tip**: If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/scenes/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
 {{< /hint >}}
 
 It's important to note that the _entire_ 3D model must be within the scene's bounds. This includes the model's _bounding box_. Some 3D models may have bounding boxes that unnecessarily extend beyond the meshes themselves, and it can sometimes be tricky to tell when this happens. When an entity extends beyond the scene's boundaries, in the preview you'll see a cube that marks these bounding boxes. The entire cube must fit within your scene.

@@ -11,6 +11,10 @@ url: /creator/development-guide/shape-components
 weight: 2
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}).
+{{< /hint >}}
+
 Three dimensional scenes in Decentraland are based on the [Entity-Component](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system) model, where everything in a scene is an _entity_, and each entity can include _components_ that shape its characteristics and functionality.
 
 The rendered shape of an entity is determined by what component it uses. Each entity can have only one shape component assigned to it.
@@ -53,7 +57,7 @@ For more complex shapes, you can build a 3D model in an external tool like Blend
 To add an external model into a scene, add a `GLTFShape` component to an entity and set its `src` to the path of the glTF file containing the model.
 
 ```ts
-myEntity.addComponent(new GLTFShape("models/House.gltf"))
+myEntity.addComponent(new GLTFShape('models/House.gltf'))
 ```
 
 Since the `src` field is required, you must give it a value when constructing the component.
@@ -61,12 +65,12 @@ Since the `src` field is required, you must give it a value when constructing th
 In the example above, the model is located in a `models` folder at root level of the scene project folder.
 
 {{< hint info >}}
-**💡 Tip**:  We recommend keeping your models separate in a `/models` folder inside your scene.
+**💡 Tip**: We recommend keeping your models separate in a `/models` folder inside your scene.
 {{< /hint >}}
 
 glTF models can include their own embedded textures, materials, colliders and animations. See [3D models]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for more information on this.
 
-Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}).
+Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
 
 ### Free libraries for 3D models
 
@@ -84,7 +88,7 @@ To get you started, below is a list of libraries that have free or relatively in
 - [CGTrader](https://www.cgtrader.com/)
 
 {{< hint warning >}}
-**📔 Note**:  Pay attention to the license restrictions that the content you download has.
+**📔 Note**: Pay attention to the license restrictions that the content you download has.
 {{< /hint >}}
 
 Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _glTF_ before you can use them in a scene. For that, we recommend importing them into Blender.
@@ -163,15 +167,15 @@ To ensure that 3D models in your scene load faster and take up less memory, foll
 
 If multiple entities in your scene use a same primitive or 3D model, there's no need to create an instance of the shape component for each. All entities can share one same instance.
 
-This keeps your scene lighter to load and prevents you from exceeding the [maximum amount]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}) of _bodies_ per scene.
+This keeps your scene lighter to load and prevents you from exceeding the [maximum amount]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) of _bodies_ per scene.
 
 {{< hint warning >}}
-**📔 Note**:  Reused shapes are added to the _triangle_ count of the scene. So it is possible to exceed the triangle limit by reusing shapes.
+**📔 Note**: Reused shapes are added to the _triangle_ count of the scene. So it is possible to exceed the triangle limit by reusing shapes.
 {{< /hint >}}
 
 ```ts
 // Create shape component
-const house = new GLTFShape("models/House.gltf")
+const house = new GLTFShape('models/House.gltf')
 
 // Create entities
 const myEntity = new Entity()

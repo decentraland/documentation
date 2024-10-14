@@ -23,7 +23,7 @@ The following fields can be configured, all of them are optional:
 **💡 Tip**:  Make an entity semi-transparent by setting the 4th value of the `Color4` to less than 1.
 {{< /hint >}}
 
-- `texture`: The texture to display on the entity, this takes an object with varios parameters about the texture. The same properties are available as in textures in [materials on 3D entities]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#using-textures" >}}).
+- `texture`: The texture to display on the entity, this takes an object with various parameters about the texture. The same properties are available as in textures in [materials on 3D entities]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#using-textures" >}}).
 
 	- `src`: The path to the image file to use as a texture. (string)
 	- `filterMode`: _(optional)_ Determines how pixels in the texture are stretched or compressed when rendered. . See [Texture Scaling]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#texture-scaling" >}}).
@@ -47,7 +47,7 @@ The following fields can be configured, all of them are optional:
 Simple color:
 
 ```ts
-import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
@@ -65,7 +65,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 Repeated texture pattern:
 
 ```ts
-import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 
 ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
@@ -77,7 +77,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 		textureMode: 'center'
 		texture: {
 			src: "images/brick-wall-texture.png",
-			textureWrapping: 'repeat'
+			wrapMode: 'repeat'
 		}
 	}}
   >

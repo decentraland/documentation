@@ -14,7 +14,7 @@ weight: 1000
 Decentraland uses _vector3_ data to represent paths, points in space, and directions. Vectors can also be used to define rotation orientations, as a friendlier alternative to _quaternions_. A Vector3 object contains numerical values for each of the _x_, _y_, and _z_ axis.
 
 ```ts
-const myVector: Vector3 = {x:8, y: 1, z:8}
+const myVector: Vector3 = { x: 8, y: 1, z: 8 }
 ```
 
 The `Vector3` namespace contains a series of handy methods that you can call to avoid having to deal with most vector math operations. Write `Vector3.`, and VS Studio will display a dropdown with all of the available functions.
@@ -26,12 +26,12 @@ Below are a few lines showing the syntax for some basic operations with vectors.
 let myVector = Vector3.create(3, 1, 5)
 
 // Alternative syntax to create a vector object
-let myOtherVector: Vector3 =  {x:8, y: 1, z:8}
+let myOtherVector: Vector3 = { x: 8, y: 1, z: 8 }
 
 // Edit one of its values
 myVector.x = 5
 
-// Call functions from the Vector3 namespace, 
+// Call functions from the Vector3 namespace,
 // All these functions require passing Vector3 objects in their parameters
 
 let normalizedVector = Vector3.normalize(myVector)
@@ -45,6 +45,14 @@ Vector3 objects are often required in the fields of several components. For exam
 
 To create a [custom component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) with parameters that require Vector3 values, set the type of these parameters as `Schema.Vector3`.
 
+{{< hint warning >}}
+**📔 Note**: `Vector3` must be imported via
+
+> `import { Vector3 } from "@dcl/sdk/math"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
+
 ### Shortcuts for writing direction vectors
 
 The following shortcuts exist for defining generic vectors:
@@ -57,14 +65,12 @@ The following shortcuts exist for defining generic vectors:
 - `Vector3.Forward()` returns _(0, 0, 1)_
 - `Vector3.Backward()` returns _(0, 0, -1)_
 
-
 ## Quaternions
 
 Quaternions are used to store rotation information for the Transform component. A Quaternion is composed of four numerical values between -1 and 1: _x_, _y_, _z_, _w_.
 
-
 ```ts
-const myQuaternion: Vector3 = {x:0, y: 0, z:0, w:1}
+const myQuaternion: Vector3 = { x: 0, y: 0, z: 0, w: 1 }
 ```
 
 Quaternions are different from [_Euler_ angles](https://en.wikipedia.org/wiki/Euler_angles), the more common _x_, _y_ and _z_ notation with numbers that go from 0 to 360 that most people are familiar with. The engine expresses all rotations as Quaternions, so it makes sense to avoid computations to convert to and from euler whenever possible.
@@ -72,7 +78,6 @@ Quaternions are different from [_Euler_ angles](https://en.wikipedia.org/wiki/Eu
 The `Quaternion` namespace contains a series of handy methods that you can call to avoid having to deal with many math operations. Write `Quaternion.`, and VS Studio will display a dropdown with all of the available functions.
 
 Below are a few lines showing the syntax for some basic operations with Quaternions.
-
 
 ```ts
 // Create a quaternion object
@@ -84,13 +89,17 @@ myQuaternion.x = 1
 // Call functions from the quaternion namespace
 let midPoint = Quaternion.slerp(myQuaternion1, myQuaternion2, 0.5)
 
-let rotationDifference = Quaternion.fromToRotation(myQuaternion1, myQuaternion2, Quaternion.Zero())
+let rotationDifference = Quaternion.fromToRotation(
+  myQuaternion1,
+  myQuaternion2,
+  Quaternion.Zero()
+)
 ```
 
 Since it's a lot easier to think in terms of Euler degrees, the SDK includes a couple of functions to convert to and from Quaternions and Euler.
 
 {{< hint info >}}
-**💡 Tip**:  Avoid running these conversions as part of recurrent logic inside a system, that run on every tick, as that can get expensive. These conversions are mostly useful for one-time operations, like setting the rotation of a new entity.
+**💡 Tip**: Avoid running these conversions as part of recurrent logic inside a system, that run on every tick, as that can get expensive. These conversions are mostly useful for one-time operations, like setting the rotation of a new entity.
 {{< /hint >}}
 
 ```ts
@@ -105,6 +114,13 @@ Quaternion objects are often required in the fields of components. For example, 
 
 To create a [custom component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) with parameters that require Quaternion values, set the type of these parameters as `Schema.Quaternion`.
 
+{{< hint warning >}}
+**📔 Note**: `Quaternion` must be imported via
+
+> `import { Quaternion } from "@dcl/sdk/math"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 ## Scalars
 
@@ -118,3 +134,11 @@ let midPoint = Scalar.lerp(number1, number2, 0.5)
 
 let clampedValue = Scalar.clamp(myInput, 0, 100)
 ```
+
+{{< hint warning >}}
+**📔 Note**: `Scalar` must be imported via
+
+> `import { Scalar } from "@dcl/sdk/math"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}

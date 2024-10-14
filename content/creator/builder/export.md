@@ -10,6 +10,10 @@ aliases:
 url: /creator/builder/export
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old web Builder. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+{{< /hint >}}
+
 You can start a scene with the Builder, and then make it more interactive by writing code with the SDK (Software Development Kit).
 
 The Builder uses the Decentraland SDK under the hood, generating the required code without you ever needing to look at it. If you export the scene, then you can alter its code directly.
@@ -20,7 +24,7 @@ To export a scene, open the scene and click the export icon.
 
 This will export the scene as a .zip file. This zip file will contain all of the required code and supporting files to run the scene, including 3D models, sound files, etc.
 
-See [SDK 101]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) if you're not yet familiar with coding with the Decentraland SDK.
+See [SDK 101]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}) if you're not yet familiar with coding with the Decentraland SDK.
 
 ## Workflow
 
@@ -29,7 +33,7 @@ Start your scene in the Builder, and only export it when you're sure you won't b
 Once you modify your scene with the SDK, you can’t import those changes back into the Builder. You can only go from the Builder to the SDK, not in the other direction.
 
 {{< hint warning >}}
-**📔 Note**:  If you attempt to reimport the scene into the Builder, the only file in the project folder that is considered is the `builder.json` file, that was generated when exporting from the Builder. Any changes you did to other files, like `game.ts`, are ignored when importing.
+**📔 Note**: If you attempt to reimport the scene into the Builder, the only file in the project folder that is considered is the `builder.json` file, that was generated when exporting from the Builder. Any changes you did to other files, like `game.ts`, are ignored when importing.
 {{< /hint >}}
 
 Alternatively, you can keep all SDK changes in a neat section of your code, and manually paste these into newly exported versions of the Builder scene as you iterate it.
@@ -51,12 +55,12 @@ Since the `scene` entity rotates around the 0,0 point of the scene (the bottom-l
 The following example rotates a 2x1 scene so that it fits a 1x2 space. It rotates the whole scene 90 degrees, and then shifts it one parcel to the right to re-center the scene:
 
 ```ts
-const _scene = new Entity("_scene")
+const _scene = new Entity('_scene')
 engine.addEntity(_scene)
 const transform = new Transform({
-  position: new Vector3(0, 0, 16),
-  rotation: Quaternion.Euler(0, 90, 0),
-  scale: new Vector3(1, 1, 1),
+	position: new Vector3(0, 0, 16),
+	rotation: Quaternion.Euler(0, 90, 0),
+	scale: new Vector3(1, 1, 1),
 })
 _scene.addComponentOrReplace(transform)
 ```

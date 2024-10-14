@@ -11,6 +11,10 @@ url: /creator/development-guide/component-groups
 weight: 4
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/architecture/querying-components.md" >}}).
+{{< /hint >}}
+
 Each component group keeps track of a list of entities that have all the required [components]({{< ref "/content/creator/scenes/architecture/entities-components.md" >}}).
 
 ![](/images/media/ecs-big-picture-w-compgroup.png)
@@ -23,7 +27,7 @@ The engine automatically updates this list every time that:
 - An entity in the engine removes a component
 
 {{< hint warning >}}
-**📔 Note**:  Only entities that are added to the engine are eligible for component groups. Entities that have been created but not added to the engine, or that have been removed from the engine, aren't listed in any group.
+**📔 Note**: Only entities that are added to the engine are eligible for component groups. Entities that have been created but not added to the engine, or that have been removed from the engine, aren't listed in any group.
 {{< /hint >}}
 
 After the group is created, you don't need to add or remove entities manually from it, the engine takes care of that.
@@ -40,12 +44,12 @@ You can access the entities in a component group in the following way: if the gr
 const myGroup = engine.getComponentGroup(Transform)
 
 for (let entity of myGroup.entities) {
-  log(entity.uuid)
+	log(entity.uuid)
 }
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Keep in mind that component groups take up space in the local memory of the player's machine. Usually, the benefit in speed you get from having a group is a tradeoff that is well worth it. However, for cases where you'd have a large group that you don't access all that often, it might be better to not have one.
+**📔 Note**: Keep in mind that component groups take up space in the local memory of the player's machine. Usually, the benefit in speed you get from having a group is a tradeoff that is well worth it. However, for cases where you'd have a large group that you don't access all that often, it might be better to not have one.
 {{< /hint >}}
 
 ## Required components
@@ -57,7 +61,7 @@ const myGroup = engine.getComponentGroup(Transform, Physics, NextPosition)
 ```
 
 {{< hint info >}}
-**💡 Tip**:  If your scene includes entities that have all the required components but that don't need to be in your component group, create a custom component to act as a [flag]({{< ref "/content/creator/scenes/architecture/entities-components.md#components-as-flags" >}}). This component doesn't need to have any properties in it. Add this component to the entities that you want the component group to handle.
+**💡 Tip**: If your scene includes entities that have all the required components but that don't need to be in your component group, create a custom component to act as a [flag]({{< ref "/content/creator/scenes/architecture/entities-components.md#components-as-flags" >}}). This component doesn't need to have any properties in it. Add this component to the entities that you want the component group to handle.
 {{< /hint >}}
 
 ## Use component groups in a system
@@ -66,15 +70,15 @@ const myGroup = engine.getComponentGroup(Transform, Physics, NextPosition)
 const myGroup = engine.getComponentGroup(Transform, Physics)
 
 export class PhysicsSystem implements ISystem {
-  update() {
-    for (let entity of myGroup.entities) {
-      const position = entity.getComponent(Transform).Position
-      const vel = entity.getComponent(Physics).velocity
-      position.x += vel.x
-      position.y += vel.y
-      position.z += vel.z
-    }
-  }
+	update() {
+		for (let entity of myGroup.entities) {
+			const position = entity.getComponent(Transform).Position
+			const vel = entity.getComponent(Physics).velocity
+			position.x += vel.x
+			position.y += vel.y
+			position.z += vel.z
+		}
+	}
 }
 ```
 
@@ -85,7 +89,7 @@ In the example above, `PhysicsSystem` iterates over the entities in `myGroup` as
 - If your scene also has other entities like a _hoop_ and a _scoreBoard_ that only have a `Physics` component, then they won't be in `myGroup` and won't be affected by `PhysicsSystem`.
 
 {{< hint warning >}}
-**📔 Note**:  The `engine.getComponentGroup()` is an expensive function to process, it should never be used inside the `update` of a system, as that would create a new group on every frame. When regularly checking the entities in a group, refer to an already created group, as in the example above. Once created, component groups are updated as entities and components are added and removed from the engine, so there's no need to redeclare or update these groups.
+**📔 Note**: The `engine.getComponentGroup()` is an expensive function to process, it should never be used inside the `update` of a system, as that would create a new group on every frame. When regularly checking the entities in a group, refer to an already created group, as in the example above. Once created, component groups are updated as entities and components are added and removed from the engine, so there's no need to redeclare or update these groups.
 {{< /hint >}}
 
 ## Dealing with the entities
@@ -96,19 +100,19 @@ The `entities` array of a component group contains elements of type `IEntity`, w
 const myGroup = engine.getComponentGroup(Billboard)
 
 for (let entity of myGroup.entities) {
-  addLabel(entity as Entity)
+	addLabel(entity as Entity)
 }
 
 function addLabel(entity: Entity) {
-  let label = new Entity()
-  label.setParent(entity)
-  label.addComponent(
-    new Transform({
-      position: new Vector3(0, 1, 0),
-      scale: new Vector3(0.5, 0.5, 0.5),
-    })
-  )
-  label.addComponent(new TextShape(entity.uuid))
+	let label = new Entity()
+	label.setParent(entity)
+	label.addComponent(
+		new Transform({
+			position: new Vector3(0, 1, 0),
+			scale: new Vector3(0.5, 0.5, 0.5),
+		})
+	)
+	label.addComponent(new TextShape(entity.uuid))
 }
 ```
 
@@ -130,6 +134,6 @@ To overcome this problem, use the following code to remove all entities from the
 
 ```ts
 while (myGroup.entities.length) {
-  engine.removeEntity(myGroup.entities[0])
+	engine.removeEntity(myGroup.entities[0])
 }
 ```

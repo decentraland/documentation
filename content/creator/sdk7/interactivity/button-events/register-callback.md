@@ -11,44 +11,48 @@ weight: 2
 
 The easiest way to handle button events is to register a callback function for a particular entity. Every time that entity is interacted with using a specific button, the callback function is called.
 
-If you need to add the same behavior to multiple similar entities, consider using the [System-based]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) approach instead of adding callbacks to each entity. The system-based approach can result in more efficiency as you iterate over a list of similar entities. 
+If you need to add the same behavior to multiple similar entities, consider using the [System-based]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) approach instead of adding callbacks to each entity. The system-based approach can result in more efficiency as you iterate over a list of similar entities.
 
-The Register callback approach is especially useful if you want to describe a behavior that affects a single entity, as it's more straight forward. 
+The Register callback approach is especially useful if you want to describe a behavior that affects a single entity, as it's more straight forward.
 
-For an entity to be interactive, it must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). See [obstacles]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#obstacles" >}}) for more details.
-
+{{< hint warning >}}
+**📔 Note**:  
+For an entity to be interactive, it **must** have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). See [obstacles]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#obstacles" >}}) for more details.
+{{< /hint >}}
 
 ## Pointer down
 
 Use `pointerEventsSystem.onPointerDown()` to detect presses of a specific button.
 
-This statement requires three parameters:
+This statement requires two parameters:
 
-- `entity`: The entity to handle
+- `data`: An object that contains the following:
+  - `entity`: The entity to handle
+  - `opts`: An object with optional additional data:
+    - `button`: Which button to listen for. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options. If no button is specified, then all buttons are listened to, including movement buttons like forward and jump.
+    - `hoverText`: What string to display in the hover feedback hint. "Interact" by default.
+    - `hideFeedback`: If true, it hides the hover hint for this entity.
+    - `maxDistance`: How far away can the player be from the entity to be able to interact with this entity, in meters. If the player is too far, there will be no hover feedback and pointer events won't work.
 - `cb`: A callback function to run each time a button down event occurs while pointing at the entity
-- `opts`: An object with additional data:
-	- `button`: Which button to listen for. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options. If no button is specified, then all buttons are listened to, including movement buttons like forward and jump.
-	- `hoverText`: What string to display in the hover feedback hint. "Interact" by default.
-	<!-- - `hideFeedback`: If true, it hides the hover hint for this entity. 
-
-	TODO: hideFeedback not implemented yet 
-	-->
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  entity,
-  function () {
-    console.log("clicked entity")
-  },
   {
-    button: InputAction.IA_PRIMARY,
-    hoverText: 'Click'
+    entity: myEntity,
+    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
+  },
+  function () {
+    console.log('clicked entity')
   }
 )
 ```
 
-The above command leaves the callback function registered, and will be called as an [asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) every time the related button event occurs. Do not run this recurrently within a system.
+The above command leaves the callback function registered, and will be called as an [asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) every time the related button event occurs.
 
+{{< hint warning >}}
+**📔 Note**:  
+Only one `pointerEventsSystem.onPointerDown` can be registered per entity. Once added, it will keep listening for events till the listener is removed. Do not run this recurrently within a system, as that would keep rewriting the pointer event behavior.
+{{< /hint >}}
 
 ## Feedback
 
@@ -58,39 +62,28 @@ The hover feedback on the UI displays a different icon depending on what input y
 
 Change the string by changing the `hoverText` value. Keep this string short, so that it's quick to read and isn't too intrusive on the screen.
 
-
 ```ts
 pointerEventsSystem.onPointerDown(
-  myEntity,
+  {
+    entity: myEntity,
+    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Open door' },
+  },
   function () {
     // open door
-  },
-  {
-    button: InputAction.IA_PRIMARY,
-    hoverText: 'Open door'
   }
 )
 ```
 
-
-<!-- TODO: screenshot -->
-
-To hide a hover feedback, set the `hoverText` to an empty string "". When doing this, the cursor doesn't show any icons.
-
+To hide a hover feedback, set the `hideFeedback` to an true. When doing this, the cursor doesn't show any icons.
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  myEntity,
+  {entity: myEntity, opts: { button: InputAction.IA_PRIMARY, hideFeedback: true}},,
   function () {
     console.log("opened secret door")
-  },
-  {
-    button: InputAction.IA_PRIMARY,
-    hoverText: ''
   }
 )
 ```
-
 
 ### Change existing feedback
 
@@ -99,7 +92,7 @@ When registering an input action with the `EventsSystem`, this is creating a `Po
 ```ts
 const hoverFeedback = PointerEvents.getMutable(myEntity)
 
-hoverFeedback.pointerEvents[0].eventInfo.hoverText = "Close door"
+hoverFeedback.pointerEvents[0].eventInfo.hoverText = 'Close door'
 ```
 
 ## Pointer up
@@ -108,36 +101,32 @@ Use `pointerEventsSystem.onPointerUp` to register a callback function that gets 
 
 ```ts
 pointerEventsSystem.onPointerUp(
-  myEntity,
-  function () {
-    console.log("button up")
-  },
   {
-    button: InputAction.IA_PRIMARY,
-    hoverText: 'Button up',
+    entity: myEntity,
+    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Button up' },
+  },
+  function () {
+    console.log('button up')
   }
 )
 ```
 
 This statement requires three parameters:
 
-- `entity`: The entity to handle
-- `cb`: A callback function to run each time a button up event occurs while pointing at the entity
-- `opts`: An object with additional data:
-	- `button`: Which button to listen for. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options. If no button is specified, then all buttons are listened to, including movement buttons like forward and jump.
-	- `hoverText`: What string to display in the hover feedback hint. "Interact" by default.
-	<!-- - `hideFeedback`: If true, it hides the hover hint for this entity. 
+- `data`: An object that contains the following:
+  - `entity`: The entity to handle
+  - `opts`: An object with optional additional data:
+    - `button`: Which button to listen for. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options. If no button is specified, then all buttons are listened to, including movement buttons like forward and jump.
+    - `hoverText`: What string to display in the hover feedback hint. "Interact" by default.
+    - `hideFeedback`: If true, it hides the hover hint for this entity.
+    - `maxDistance`: How far away can the player be from the entity to be able to interact with this entity, in meters. If the player is too far, there will be no hover feedback and pointer events won't work.
+- `cb`: A callback function to run each time a button up event occurs while pointing at the entity.
 
-	TODO: hideFeedback not implemented yet 
-	-->
-
-A same entity can have two different callbacks registered, one for `pointerEventsSystem.onPointerDown` and one for `pointerEventsSystem.onPointerUp`.
+A same entity can have two different callbacks registered, one for `pointerEventsSystem.onPointerDown` and one for `pointerEventsSystem.onPointerUp`. The entity can only register one callback of each, [Handle multiple buttons](#handle-multiple-buttons) to detect different buttons on one same callback.
 
 {{< hint warning >}}
-**📔 Note**:  The hover feedback for a button up event is only displayed when the button is currently pushed down. If the player points at the entity without holding the button down, they will see no feedback, or the feedback for the button down event, if any.
+**📔 Note**: The hover feedback for a button up event is only displayed when the button is currently pushed down. If the player points at the entity without holding the button down, they will see no feedback, or the feedback for the button down event, if any.
 {{< /hint >}}
-
-
 
 ## Remove callbacks
 
@@ -151,7 +140,6 @@ pointerEventsSystem.removeOnPointerUp(myEntity)
 
 Once removed, the hover feedback on the entity should no longer be displayed, and the entity should no longer be interactive.
 
-
 ## Data from input action
 
 Fetch data from an input action, such as the button that was pressed, the entity that was hit, the direction and length of the ray, etc. See ({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#data-from-an-input-action" >}}) for a description of all of the data available.
@@ -160,45 +148,28 @@ To fetch this data, pass a parameter to the callback function. This parameter co
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  myEntity,
+  { entity: myEntity, opts: { button: InputAction.IA_PRIMARY } },
   function (cmd) {
-      console.log(cmd.hit.entityId)
-  },
-)
-```
-
-### Max click distance
-
-To enforce a maximum distance, so that an entity is only clickable at close range, fetch `hit.length` property of the event data.
-
-```ts
-pointerEventsSystem.onPointerDown(
-  myEntity,
-  function (cmd) {
-	if(cmd.hit.length < 6){
-		// do something
-	}
+    console.log(cmd.hit.entityId)
   }
 )
 ```
 
 ### Handle multiple buttons
 
-You can't register more than one `onPointerDown` on a single entity. Ideally you should use the [System-based]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) approach, as this allows you to handle as many different inputs as you wish, and display a UI hover feedback hint for each.
+You can't register more than one `onPointerDown` on a single entity. Ideally you should use the [System-based]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) approach, as this allows you to handle as many different inputs as you wish, and display a UI hover feedback hint for each button.
 
 As an alternative, you can use the Register callback approach and set the `button` field as `InputAction.IA_ANY`.
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  myEntity,
+  {entity: myEntity, opts: { button: InputAction.IA_ANY}},,
   function (cmd) {
       if(cmd.button === InputAction.IA_POINTER){
         // do X
       } else if (cmd.button === InputAction.IA_PRIMARY){
         // do Y
       }
-  },{
-    button: InputAction.IA_ANY
   }
 )
 ```
@@ -214,21 +185,23 @@ To see how the meshes inside the model are named, you must open the 3D model wit
 <img src="/images/media/mesh-names.png" alt="Mesh internal names in an editor" width="250"/>
 
 {{< hint info >}}
-**💡 Tip**:  You can also learn the name of the clicked mesh by logging it and reading it off console.
+**💡 Tip**: You can also learn the name of the clicked mesh by logging it and reading it off console.
 {{< /hint >}}
 
 You access the `meshName` property as part of the `hit` object, that's returned by the click event.
 
 In the example below we have a house model that includes a mesh named `firePlace`. We want to turn on the fireplace only when its corresponding mesh is clicked.
 
-
 ```ts
 pointerEventsSystem.onPointerDown(
-  myEntity,
-  function (cmd) {
-      if(cmd.hit.meshName === "firePlace"){
-        // light fire
-      }
+  {
+    entity: myEntity,
+    opts: { button: InputAction.IA_PRIMARY, hideFeedback: true },
   },
+  function (cmd) {
+    if (cmd.hit.meshName === 'firePlace') {
+      // light fire
+    }
+  }
 )
 ```

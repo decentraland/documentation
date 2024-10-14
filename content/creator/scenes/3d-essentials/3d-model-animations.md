@@ -11,6 +11,10 @@ url: /creator/development-guide/3d-model-animations
 weight: 5
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/3d-model-animations.md" >}}).
+{{< /hint >}}
+
 3D models in _.glTF_ and _.glb_ format can include as many animations as you want in them. Animations tell the mesh how to move, by specifying a series of _keyframes_ that are laid out over time, the mesh then blends from one pose to the other to simulate continuous movement.
 
 Most 3D model animations are [_skeletal animations_](https://en.wikipedia.org/wiki/Skeletal_animation). These animations simplify the complex geometry of the model into a "stick figure", linking every vertex in the mesh to the closest _bone_ in the _skeleton_. Modelers adjust the skeleton into different poses, and the mesh stretches and bends to follow these movements.
@@ -20,7 +24,7 @@ As an alternative, _vertex animations_ animate a model without the need of a ske
 See [Animations]({{< ref "/content/creator/3d-modeling/animations.md" >}}) for details on how to create animations for a 3D model. Read [Shape components]({{< ref "/content/creator/scenes/3d-essentials/shape-components.md" >}}) for instructions on how to import a 3D model to a scene.
 
 {{< hint info >}}
-**💡 Tip**:  Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/scenes/3d-essentials/move-entities.md" >}}) for more details.
+**💡 Tip**: Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/scenes/3d-essentials/move-entities.md" >}}) for more details.
 {{< /hint >}}
 
 ## Check a 3D model for animations
@@ -32,7 +36,7 @@ Not all _glTF_ files include animations. To see if there are any available, you 
 - Open the _.glTF_ file with a text editor and scroll down till you find _"animations":_.
 
 {{< hint info >}}
-**💡 Tip**:  In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
+**💡 Tip**: In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
 {{< /hint >}}
 
 ## Automatic playing
@@ -52,7 +56,7 @@ An `Animator` component is used to access all the animations of the entity and c
 let shark = new Entity()
 
 // Add a 3D model to it
-shark.addComponent(new GLTFShape("models/shark.gltf"))
+shark.addComponent(new GLTFShape('models/shark.gltf'))
 
 // Create animator component
 let animator = new Animator()
@@ -61,7 +65,7 @@ let animator = new Animator()
 shark.addComponent(animator)
 
 // Instance animation clip object
-const clipSwim = new AnimationState("swim")
+const clipSwim = new AnimationState('swim')
 
 // Add animation clip to Animator component
 animator.addClip(clipSwim)
@@ -77,14 +81,14 @@ You can also achieve the same with less statements:
 shark.addComponent(new Animator())
 
 // Instance and add a clip
-shark.getComponent(Animator).addClip(new AnimationState("swim"))
+shark.getComponent(Animator).addClip(new AnimationState('swim'))
 ```
 
 You can retrieve an `AnimationState` object from an `Animator` component with the `getClip()` function.
 
 ```ts
 // Create and get a clip
-let clipSwim = animator.getClip("swim")
+let clipSwim = animator.getClip('swim')
 ```
 
 The `AnimationState` object doesn't store the actual transformations that go into the animation, that's all in the .glTF file. Instead, the `AnimationState` object has a state that keeps track how far it has advanced along the animation.
@@ -95,10 +99,10 @@ If you don't have a pointer to refer to the clip object directly, you can fetch 
 
 ```ts
 // Create and add a clip
-shark.getComponent(Animator).addClip(new AnimationState("swim"))
+shark.getComponent(Animator).addClip(new AnimationState('swim'))
 
 // Fetch the clip
-shark.getComponent(Animator).getClip("swim")
+shark.getComponent(Animator).getClip('swim')
 ```
 
 <!--
@@ -119,7 +123,7 @@ The simplest way to play or pause it is to use the `play()` and `pause()` method
 
 ```ts
 // Create animation clip
-const clipSwim = new AnimationState("swim")
+const clipSwim = new AnimationState('swim')
 
 // Start playing the clip
 clipSwim.play()
@@ -163,7 +167,7 @@ Change this setting by setting the `looping` property in the `AnimationState` ob
 
 ```ts
 // Create animation clip
-const biteClip = new AnimationState("bite")
+const biteClip = new AnimationState('bite')
 
 // Set loop to false
 biteClip.looping = false
@@ -191,7 +195,7 @@ clipSwim.play(true)
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
+**📔 Note**: Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
 {{< /hint >}}
 
     - apply an animation with a `weight` property of 0 and gradually increase the `weight`
@@ -205,7 +209,7 @@ Animations exist in _layers_ in an `Animator` component. If two animations are i
 
 ```ts
 let shark = new Entity()
-shark.addComponent(new GLTFShape("models/shark.gltf"))
+shark.addComponent(new GLTFShape('models/shark.gltf'))
 
 // Create animator component
 let animator = new Animator()
@@ -214,8 +218,8 @@ let animator = new Animator()
 shark.addComponent(animator)
 
 // Create animation state objects
-const clipSwim = new AnimationState("swim", { layer: 0 })
-const biteClip = new AnimationState("bite", { layer: 1 })
+const clipSwim = new AnimationState('swim', { layer: 0 })
+const biteClip = new AnimationState('bite', { layer: 1 })
 
 // Add animation state objects to the Animator component
 shark.getComponent(Animator).addClip(clipSwim)
@@ -230,7 +234,7 @@ engine.addEntity(shark)
 In the example above, two animations are handled by separate `AnimationState` objects, and they are then both assigned to the same `Animator` component.
 
 {{< hint warning >}}
-**📔 Note**:  If the layer of an animation isn't specified, it's assigned to layer 0.
+**📔 Note**: If the layer of an animation isn't specified, it's assigned to layer 0.
 {{< /hint >}}
 
 Each bone in an animation can only be affected by one animation at a time, unless these animations have a `weight` that adds up to a value of 1 or less.
@@ -245,7 +249,7 @@ Change the speed at which an animation is played by changing the `speed` propert
 
 ```ts
 // Create animation clip
-const clipSwim = new AnimationState("swim")
+const clipSwim = new AnimationState('swim')
 
 // Set speed to twice as fast
 clipSwim.speed = 2
@@ -264,7 +268,7 @@ By default, `weight` is equal to _1_, it can't be any higher than _1_.
 
 ```ts
 // Create animation clip
-const clipSwim = new AnimationState("swim")
+const clipSwim = new AnimationState('swim')
 
 // Set weight
 clipSwim.weight = 0.5
@@ -276,7 +280,7 @@ clipSwim.play()
 The `weight` value of all active animations in an entity should add up to 1 at all times. If it adds up to less than 1, the weighted average will be using the default position of the armature for the remaining part of the calculation.
 
 ```ts
-const clipSwim = new AnimationState("swim")
+const clipSwim = new AnimationState('swim')
 clipSwim.weight = 0.2
 
 animator.addClip(clipSwim)
@@ -291,7 +295,7 @@ The `weight` property can be used in interesting ways, for example the `weight` 
 You could also change the `weight` value gradually when starting and stopping an animation to give it a more natural transition and to avoid jumps from the default pose to the first pose in the animation.
 
 {{< hint warning >}}
-**📔 Note**:  The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
+**📔 Note**: The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
 {{< /hint >}}
 
 ## Set clip parameters in bulk
@@ -306,13 +310,13 @@ You can configure the following parameters:
 - `weight`: Used to blend animations using weighted average.
 
 ```ts
-const clipSwim = new AnimationState("swim")
+const clipSwim = new AnimationState('swim')
 
 clipSwim.setParams({
-  looping: true,
-  speed: 2,
-  layer: 1,
-  weight: 0.5,
+	looping: true,
+	speed: 2,
+	layer: 1,
+	weight: 0.5,
 })
 ```
 
@@ -326,7 +330,7 @@ let shark1 = new Entity()
 let shark2 = new Entity()
 
 // create reusable shape component
-let sharkShape = new GLTFShape("models/shark.gltf")
+let sharkShape = new GLTFShape('models/shark.gltf')
 
 // Add the same GLTFShape instance to both entities
 shark1.addComponent(sharkShape)
@@ -341,8 +345,8 @@ shark1.addComponent(animator1)
 shark2.addComponent(animator2)
 
 // Instance separate animation clip objects
-const clipSwim1 = new AnimationState("swim")
-const clipSwim2 = new AnimationState("swim")
+const clipSwim1 = new AnimationState('swim')
+const clipSwim2 = new AnimationState('swim')
 
 // Add animation clips to Animator components
 animator1.addClip(clipSwim1)
@@ -353,5 +357,5 @@ engine.addEntity(shark2)
 ```
 
 {{< hint warning >}}
-**📔 Note**:  If you define a single `AnimationState` object instance and add it to multiple `Animator` components from different entities, all entities using the `AnimationState` instance will be animated together at the same time.
+**📔 Note**: If you define a single `AnimationState` object instance and add it to multiple `Animator` components from different entities, all entities using the `AnimationState` instance will be animated together at the same time.
 {{< /hint >}}

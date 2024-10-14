@@ -30,7 +30,7 @@ The following example creates a PBR material and sets some of its fields to give
 //Create entity and assign shape
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
-	position: Vector3.create(4, 1, 4)
+  position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity)
 
@@ -38,7 +38,7 @@ MeshRenderer.setBox(meshEntity)
 Material.setPbrMaterial(meshEntity, {
   albedoColor: Color4.Red(),
   metallic: 0.8,
-  roughness: 0.1
+  roughness: 0.1,
 })
 ```
 
@@ -48,7 +48,7 @@ To change the material of an entity that already has a `Material` component, run
 //Create entity and assign shape
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
-	position: Vector3.create(4, 1, 4)
+  position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity)
 
@@ -63,6 +63,13 @@ Material.setPbrMaterial(meshEntity, {
 })
 ```
 
+{{< hint warning >}}
+**📔 Note**: The `Material` component must be imported via
+
+> `import { Material } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 ## Material colors
 
@@ -71,11 +78,10 @@ Give a material a plain color. In a PBR Material, you set the `albedoColor` fiel
 Color values are of type `Color4`, composed of _r_, _g_ and _b_ values (red, green, and blue). Each of these takes values between 0 and 1. By setting different values for these, you can compose any visible color. For black, set all three to 0. For white, set all to 1.
 
 {{< hint warning >}}
-**📔 Note**:  If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `{r: 15, g: 0, b: 0}` produces a very bright red glow.
+**📔 Note**: If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `{r: 15, g: 0, b: 0}` produces a very bright red glow.
 {{< /hint >}}
 
 See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details on how to set colors.
-
 
 You can also edit the following fields in a PBR Material to fine-tune how its color is perceived:
 
@@ -86,7 +92,7 @@ To create a plain color material that is not affected by light and shadows in th
 
 ```ts
 Material.setBasicMaterial(myEntity, {
-  diffuseColor: Color4.Black()
+  diffuseColor: Color4.Black(),
 })
 ```
 
@@ -98,22 +104,22 @@ Set an image file as a texture on a material by setting the `texture` parameter.
 //Create entity and assign shape
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
-	position: Vector3.create(4, 1, 4)
+  position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity)
 
 //Create material and configure its fields
 Material.setPbrMaterial(meshEntity, {
   texture: Material.Texture.Common({
-    src: 'materials/wood.png'
-  })
+    src: 'materials/wood.png',
+  }),
 })
 ```
 
 In the example above, the image for the material is located in a `materials` folder, which is located at root level of the scene project folder.
 
 {{< hint info >}}
-**💡 Tip**:  We recommend keeping your texture image files separate in a `/materials` folder inside your scene.
+**💡 Tip**: We recommend keeping your texture image files separate in a `/materials` folder inside your scene.
 {{< /hint >}}
 
 While creating a texture, you can also pass additional parameters:
@@ -125,9 +131,9 @@ While creating a texture, you can also pass additional parameters:
 Material.setPbrMaterial(myEntity, {
   texture: Material.Texture.Common({
     src: 'materials/wood.png',
-	filterMode: TextureFilterMode.TFM_BILINEAR,
-	wrapMode: TextureWrapMode.TWM_CLAMP
-  })
+    filterMode: TextureFilterMode.TFM_BILINEAR,
+    wrapMode: TextureWrapMode.TWM_CLAMP,
+  }),
 })
 ```
 
@@ -136,11 +142,10 @@ To create a texture that is not affected by light and shadows in the environment
 ```ts
 Material.setBasicMaterial(myEntity, {
   texture: Material.Texture.Common({
-    src: 'materials/wood.png'
-  })
+    src: 'materials/wood.png',
+  }),
 })
 ```
-
 
 #### Textures from an external URL
 
@@ -149,28 +154,12 @@ You can point the texture of your material to an external URL instead of an inte
 ```ts
 Material.setBasicMaterial(myEntity, {
   texture: Material.Texture.Common({
-    src: "https://wearable-api.decentraland.org/v2/collections/community_contest/wearables/cw_tuxedo_tshirt_upper_body/thumbnail"
-  })
+    src: 'https://wearable-api.decentraland.org/v2/collections/community_contest/wearables/cw_tuxedo_tshirt_upper_body/thumbnail',
+  }),
 })
 ```
 
 The URL must start with `https`, `http` URLs aren't supported. The site where the image is hosted should also have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it.
-
-
-To fetch images from an external URL, you must add the `ALLOW_MEDIA_HOSTNAMES` permission to the `requiredPermissions` list in the `scene.json` file. You must also include the list of high-level domains where you'll be fetching images from `allowedMediaHostnames`.
-
-```json
-"requiredPermissions": [
-    "ALLOW_MEDIA_HOSTNAMES"
-  ],
-   "allowedMediaHostnames": [
-    "somehost.com",
-    "otherhost.xyz"
-  ]
-```
-
-See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
-
 
 #### Multi-layered textures
 
@@ -196,32 +185,34 @@ You set _u_ and _v_ coordinates on the 2D image of the texture to correspond to 
 ```ts
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
-	position: Vector3.create(4, 1, 4)
+  position: Vector3.create(4, 1, 4),
 })
-MeshRenderer.setPlane(meshEntity, [
-		  	0, 0.75,
+MeshRenderer.setPlane(
+  meshEntity,
+  [
+    0, 0.75,
 
-			0.25, 0.75,
+    0.25, 0.75,
 
-			0.25, 1,
+    0.25, 1,
 
-			0, 1,
+    0, 1,
 
-			0, 0.75,
+    0, 0.75,
 
-			0.25, 0.75,
+    0.25, 0.75,
 
-			0.25, 1,
+    0.25, 1,
 
-			0, 1,
-	]
+    0, 1,
+  ]
 )
 
 Material.setPbrMaterial(myEntity, {
   texture: Material.Texture.Common({
     src: 'materials/wood.png',
-	wrapMode: TextureWrapMode.TWM_REPEAT
-  })
+    wrapMode: TextureWrapMode.TWM_REPEAT,
+  }),
 })
 ```
 
@@ -230,15 +221,15 @@ The following example includes a function that simplifies the setting of uvs. Th
 ```ts
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
-	position: Vector3.create(4, 1, 4)
+  position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity, setUVs(3, 3))
 
 Material.setPbrMaterial(myEntity, {
   texture: Material.Texture.Common({
     src: 'materials/atlas.png',
-	wrapMode: TextureWrapMode.TWM_REPEAT
-  })
+    wrapMode: TextureWrapMode.TWM_REPEAT,
+  }),
 })
 
 function setUVs(rows: number, cols: number) {
@@ -272,7 +263,7 @@ function setUVs(rows: number, cols: number) {
 }
 ```
 
-For setting the UVs for a `box` mesh shape, the same structure applies. Each of the 6 faces of the cube takes 4 values, one for each corner. All of these 24 values are listed as a single array.
+For setting the UVs for a `box` mesh shape, the same structure applies. Each of the 6 faces of the cube takes 4 pairs of coordinates, one for each corner. All of these 48 values are listed as a single array.
 
 You can also define how the texture is tiled if the mapping spans more than the dimensions of the texture image. The `texture` object lets you configure the wrapping mode by setting the `wrapMode` field. This property takes its values from the `TextureWrapMode` enum, which allows for the following values:
 
@@ -280,20 +271,19 @@ You can also define how the texture is tiled if the mapping spans more than the 
 - `TextureWrapMode.TWM_REPEAT`: The texture is repeated as many times as it fits in the mesh, using the specified size.
 - `TextureWrapMode.TWM_MIRROR`: As in wrap, the texture is repeated as many times as it fits, but the orientation of these repetitions is mirrored.
 
-
 ```ts
 Material.setPbrMaterial(myEntity, {
   texture: Material.Texture.Common({
     src: 'materials/atlas.png',
-	wrapMode: TextureWrapMode.TWM_MIRROR
-  })
+    wrapMode: TextureWrapMode.TWM_MIRROR,
+  }),
 })
 ```
 
 The example above sets the wrapping mode to `TWM_MIRROR`.
 
 {{< hint warning >}}
-**📔 Note**:  Uv properties are currently only available on `plane` and on `box` shapes.
+**📔 Note**: Uv properties are currently only available on `plane` and on `box` shapes.
 {{< /hint >}}
 
 #### Texture scaling
@@ -310,11 +300,10 @@ The `Material` object uses the _bilinear_ algorithm by default, but it lets you 
 Material.setPbrMaterial(myEntity, {
   texture: Material.Texture.Common({
     src: 'materials/atlas.png',
-	filterMode: TextureFilterMode.TFM_BILINEAR,
-  })
+    filterMode: TextureFilterMode.TFM_BILINEAR,
+  }),
 })
 ```
-
 
 ## Avatar Portraits
 
@@ -323,10 +312,11 @@ To display a thumbnail image of any player, use `Material.Texture.Avatar` when s
 ```ts
 Material.setPbrMaterial(myEntity, {
   texture: Material.Texture.Avatar({
-   userId: '0x517....'
-  })
+    userId: '0x517....',
+  }),
 })
 ```
+
 ![](/images/avatarTexture.png)
 
 You can fetch the portrait of any Decentraland player, even if they're not currently connected, and even if they don't have a claimed Decentraland name.
@@ -336,7 +326,6 @@ The following properties are supported within the object you pass as an argument
 - `userId`: ID of the user who's profile you want to display
 - `filterMode`: Determines how pixels in the texture are stretched or compressed when rendered. This takes a value from the `TextureFilterMode` enum. See [Texture Scaling](#texture-scaling).
 - `wrapMode`: Determines how a texture is tiled onto an object. This takes a value from the `TextureWrapMode` enum. See [Texture Wrapping](#texture-wrapping).
-
 
 ## Transparent materials
 
@@ -354,7 +343,7 @@ To make a material with a texture only transparent in regions of the texture:
 
 - Set an image in `alphaTexture`.
 
-	> Note: This must be a single-channel image. In this image use the color red to determine what parts of the real texture should be transparent.
+  > Note: This must be a single-channel image. In this image use the color red to determine what parts of the real texture should be transparent.
 
 - Optionally set the texture normally, and set the `transparencyMode` to field.
 
@@ -364,7 +353,7 @@ The `transparencyMode` takes its value from the `MaterialTransparencyMode` enum,
 - `MaterialTransparencyMode.MTM_ALPHA_TEST`: Each pixel is either completely opaque or completely transparent, based on a threshold.
 - `MaterialTransparencyMode.MTM_ALPHA_BLEND`: Intermediate values are possible based on the value of each pixel.
 - `MaterialTransparencyMode.MTM_ALPHA_TEST_AND_ALPHA_BLEND`: Uses a combination of both methods.
-- `MaterialTransparencyMode.MTM_AUTO`:  Determines the method based on the provided texture.
+- `MaterialTransparencyMode.MTM_AUTO`: Determines the method based on the provided texture.
 
 <!-- TODO: Confirm that auto really works like that!! -->
 
@@ -374,20 +363,21 @@ If you set the `transparencyMode` to `MaterialTransparencyMode.MTM_ALPHA_TEST`, 
 // Using alpha test
 Material.setPbrMaterial(meshEntity1, {
   texture: Material.Texture.Common({
-    src: "images/myTexture.png"
+    src: 'images/myTexture.png',
   }),
   transparencyMode: MaterialTransparencyMode.MTM_ALPHA_TEST,
-  alphaTest: 1
+  alphaTest: 1,
 })
 
 // Using a alpha blend
 Material.setPbrMaterial(meshEntity1, {
   texture: Material.Texture.Common({
-    src: "images/myTexture.png"
+    src: 'images/myTexture.png',
   }),
   transparencyMode: MaterialTransparencyMode.MTM_ALPHA_BLEND,
 })
 ```
+
 <!--
 ## Casting no shadows
 
@@ -413,8 +403,6 @@ The video is used as a texture on a material, you can set any of the other prope
 
 -->
 
-
-
 ## Advanced syntax
 
 The complete syntax for creating a `Materials` component, without any helpers to simplify it, looks like this:
@@ -425,21 +413,21 @@ Material.create(myEntity, {
     tex: {
       $case: 'texture',
       texture: {
-        src: 'images/scene-thumbnail.png'
-      }
-    }
-  }
+        src: 'images/scene-thumbnail.png',
+      },
+    },
+  },
 })
 
 Material.create(myEntity, {
   texture: {
     tex: {
       $case: 'avatarTexture',
-	  avatarTexture: {
-			userId: '0x517....'
-	  }
-    }
-  }
+      avatarTexture: {
+        userId: '0x517....',
+      },
+    },
+  },
 })
 ```
 

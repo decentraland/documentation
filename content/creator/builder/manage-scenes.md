@@ -10,6 +10,10 @@ aliases:
 url: /creator/builder/manage-scenes
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old web Builder. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+{{< /hint >}}
+
 ## Export a scene
 
 While editing a scene, press the _Download scene_ icon to download the contents of the scene as a _.zip_ file. In the scene selector screen, you can also press the _three dots_ icon and select _Download scene_.
@@ -18,20 +22,20 @@ While editing a scene, press the _Download scene_ icon to download the contents 
 
 You can then share this scene with another Builder user, or edit the scene with more freedom by using the Decentraland SDK.
 
-See [SDK 101]({{< ref "/content/creator/scenes/getting-started/sdk-101.md" >}}) if you're not yet familiar with coding with the Decentraland SDK.
+See [SDK 101]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}) if you're not yet familiar with coding with the Decentraland SDK.
 
-## Import a scene
+## Upload a scene
 
-In the scene selector screen, press _Import scene_, then drag one or several _.zip_ files from exported Builder scenes and press _Import_.
+In the scene selector screen, press _Upload scene_, then drag one or several _.zip_ files from exported Builder scenes and press _Upload_.
 
-If a scene is too large to import, try this:
+If a scene is too large to upload, try this:
 
 1. Decompress the scene _.zip_ file.
 2. Look for the `builder.json` inside the uncompressed folder. Compress that single file into a new _.zip_ file.
-3. Import this new _.zip_ file.
+3. Upload this new _.zip_ file.
 
 {{< hint warning >}}
-**📔 Note**:  You can only import scenes that have been built with the Builder. You can't import a scene that was built with the SDK or modified with it.
+**📔 Note**: You can only upload scenes that have been built with the Builder. You can't upload a scene that was built with the SDK or modified with it.
 {{< /hint >}}
 
 ## Delete a scene

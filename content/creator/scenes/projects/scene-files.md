@@ -12,6 +12,10 @@ url: /creator/development-guide/scene-files
 weight: 2
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/projects/scene-files.md" >}}).
+{{< /hint >}}
+
 After [creating a new scene](https://docs.decentraland.org/#create-your-first-scene) using the CLI, the scene folder will have a series of files with default content.
 
 ## Default files in a local scene
@@ -38,14 +42,14 @@ let group = engine.getComponentGroup(Transform)
 
 // Create a system
 export class RotatorSystem {
-  // The update() function runs on every frame.
-  update() {
-    // Cycle over the entities in the component group
-    for (let entity of group.entities) {
-      const transform = entity.getComponent(Transform)
-      transform.rotation.y += 2
-    }
-  }
+	// The update() function runs on every frame.
+	update() {
+		// Cycle over the entities in the component group
+		for (let entity of group.entities) {
+			const transform = entity.getComponent(Transform)
+			transform.rotation.y += 2
+		}
+	}
 }
 
 // Create an entity
@@ -56,9 +60,9 @@ cube.addComponent(new BoxShape())
 
 // Add a transform component to the entity
 cube.addComponent(
-  new Transform({
-    position: new Vector3(5, 0, 5),
-  })
+	new Transform({
+		position: new Vector3(5, 0, 5),
+	})
 )
 
 // Add the entity to the engine
@@ -112,11 +116,11 @@ We suggest using these folder names consistently for storing the different types
 - _.ts_ definitions for systems `/src/systems`
 
 {{< hint warning >}}
-**📔 Note**:  Supporting files for glTF models, like their texture image files or _.bin_ files, should always be placed in the same folder as the model's _.gltf_ or _.glb_ file.
+**📔 Note**: Supporting files for glTF models, like their texture image files or _.bin_ files, should always be placed in the same folder as the model's _.gltf_ or _.glb_ file.
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**:  We recommend using always lower case names for all folders and file names, to avoid possible issues.
+**📔 Note**: We recommend using always lower case names for all folders and file names, to avoid possible issues.
 {{< /hint >}}
 
 ## The `.dclignore` file

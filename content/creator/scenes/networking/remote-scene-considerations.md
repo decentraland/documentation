@@ -11,6 +11,10 @@ type: Document
 url: /creator/development-guide/remote-scene-considerations
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}).
+{{< /hint >}}
+
 Decentraland runs scenes locally in a player's browser. By default, players are able to see each other and interact directly, but each one interacts with the environment independently. Changes in the environment aren't shared between players by default. You need to implement this manually.
 
 Allowing all players to see a scene as having the same content in the same state is extremely important to for players to interact in more meaningful ways. Without this, if a player opens a door and walks into a house, other players will see that door as still closed, and the first player will appear to walk directly through the closed door to other players.
@@ -40,9 +44,9 @@ Use the `.emit` command of the message bus to send a message to all other player
 const sceneMessageBus = new MessageBus()
 
 box1.AddComponent(
-  new OnPointerDown((e) => {
-    sceneMessageBus.emit("box1Clicked", {})
-  })
+	new OnPointerDown((e) => {
+		sceneMessageBus.emit('box1Clicked', {})
+	})
 )
 ```
 
@@ -53,11 +57,11 @@ const sceneMessageBus = new MessageBus()
 
 let spawnPos = new Vector3(5, 0, 5)
 
-sceneMessageBus.emit("spawn", { position: spawnPos })
+sceneMessageBus.emit('spawn', { position: spawnPos })
 ```
 
 {{< hint info >}}
-**💡 Tip**:  If you need a single message to include data from more than one variable, create a custom type to hold all this data in a single object.
+**💡 Tip**: If you need a single message to include data from more than one variable, create a custom type to hold all this data in a single object.
 {{< /hint >}}
 
 ### Receive messages
@@ -67,17 +71,17 @@ To handle messages from all other players in that scene, use `.on`. When using t
 ```ts
 const sceneMessageBus = new MessageBus()
 
-sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
-  let newCube = new Entity()
-  let transform = new Transform()
-  transform.position.set(info.position.x, info.position.y, info.position.z)
-  newCube.addComponent(transform)
-  engine.addComponent(newCube)
+sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
+	let newCube = new Entity()
+	let transform = new Transform()
+	transform.position.set(info.position.x, info.position.y, info.position.z)
+	newCube.addComponent(transform)
+	engine.addComponent(newCube)
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Messages that are sent by a player are also picked up by that same player. The `.on` method can't distinguish between a message that was emitted by that same player from a message emitted from other players.
+**📔 Note**: Messages that are sent by a player are also picked up by that same player. The `.on` method can't distinguish between a message that was emitted by that same player from a message emitted from other players.
 {{< /hint >}}
 
 ### Full example
@@ -88,19 +92,19 @@ This example uses a message bus to send a new message every time the main cube i
 /// --- Spawner function ---
 
 function spawnCube(x: number, y: number, z: number) {
-  // create the entity
-  const cube = new Entity()
+	// create the entity
+	const cube = new Entity()
 
-  // add a transform to the entity
-  cube.addComponent(new Transform({ position: new Vector3(x, y, z) }))
+	// add a transform to the entity
+	cube.addComponent(new Transform({ position: new Vector3(x, y, z) }))
 
-  // add a shape to the entity
-  cube.addComponent(new BoxShape())
+	// add a shape to the entity
+	cube.addComponent(new BoxShape())
 
-  // add the entity to the engine
-  engine.addEntity(cube)
+	// add the entity to the engine
+	engine.addEntity(cube)
 
-  return cube
+	return cube
 }
 
 /// --- Create message bus ---
@@ -108,7 +112,7 @@ const sceneMessageBus = new MessageBus()
 
 /// --- Define a custom type to pass in messages ---
 type NewBoxPosition = {
-  position: ReadOnlyVector3
+	position: ReadOnlyVector3
 }
 
 /// --- Call spawner function ---
@@ -116,25 +120,25 @@ const cube = spawnCube(8, 1, 8)
 
 /// --- Emit messages ---
 cube.addComponent(
-  new OnPointerDown(() => {
-    const action: NewBoxPosition = {
-      position: {
-        x: Math.random() * 8 + 1,
-        y: Math.random() * 8,
-        z: Math.random() * 8 + 1,
-      },
-    }
+	new OnPointerDown(() => {
+		const action: NewBoxPosition = {
+			position: {
+				x: Math.random() * 8 + 1,
+				y: Math.random() * 8,
+				z: Math.random() * 8 + 1,
+			},
+		}
 
-    sceneMessageBus.emit("spawn", action)
-  })
+		sceneMessageBus.emit('spawn', action)
+	})
 )
 
 /// --- Receive messages ---
-sceneMessageBus.on("spawn", (info: NewBoxPosition) => {
-  cube.getComponent(Transform).scale.z *= 1.1
-  cube.getComponent(Transform).scale.x *= 0.9
+sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
+	cube.getComponent(Transform).scale.z *= 1.1
+	cube.getComponent(Transform).scale.x *= 0.9
 
-  spawnCube(info.position.x, info.position.y, info.position.z)
+	spawnCube(info.position.x, info.position.y, info.position.z)
 })
 ```
 
@@ -149,7 +153,7 @@ If you launch a scene preview and open it in two (or more) different browser win
 Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
 
 {{< hint warning >}}
-**📔 Note**:  Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
+**📔 Note**: Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
 {{< /hint >}}
 
 ## Use an authoritative server
@@ -159,7 +163,7 @@ An authoritative server may have different levels of involvement with the scene:
 - API + DB: This is useful for scenes where changes don't happen constantly and where it's acceptable to have minor delays in syncing. When a player changes something, it sends an HTTP request to a REST API that stores the new scene state in a data base. Changes remained stored for any new player that visits the scene at a later date. The main limitation is that new changes from other players aren't notified to players who are already there, messages can't be pushed from the server to players. Players must regularly send requests the server to get the latest state.
 
 {{< hint info >}}
-**💡 Tip**:  It's also possible to opt for a hybrid approach where changes are notified between players via Messagebus messages, but the final state is also stored via an API for future visitors.
+**💡 Tip**: It's also possible to opt for a hybrid approach where changes are notified between players via Messagebus messages, but the final state is also stored via an API for future visitors.
 {{< /hint >}}
 
 - Websockets: This alternative is more robust, as it establishes a two-way communications channel between player and server. Updates can be sent from the server, you could even have game logic run on or validated on the server. This enables real time interaction and makes more fast paced games possible. It's also more secure, as each message between player and server is part of a session that is opened, no need to validate each message.

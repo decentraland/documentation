@@ -11,6 +11,10 @@ url: /creator/development-guide/special-types
 weight: 6
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/3d-essentials/special-types.md" >}}).
+{{< /hint >}}
+
 ## Vectors
 
 Decentraland uses vectors to represent paths, points in space, and directions. Vectors can also be used to define rotation orientations, as a friendlier alternative to _quaternions_. `Vector2`, `Vector3` and `Vector4` are each defined as different classes, containing a different number of dimensions.

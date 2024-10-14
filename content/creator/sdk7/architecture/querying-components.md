@@ -84,25 +84,29 @@ const [entity] of engine.getEntitiesWith(myComponent, myOtherComponent)
 While iterating on this list of entities, you can then fetch read-only or mutable versions of their components, by using `.get` or `getMutable`.
 
 ```ts
-  for (const [entity] of engine.getEntitiesWith(Transform)) {
+for (const [entity] of engine.getEntitiesWith(Transform)) {
 
 	//get read-only version
 	const transformReadOnly = Transform.get(entity)
 
 	// get mutable version
-    const transformMutable = Transform.getMutable(entity)
-  }
+  const transformMutable = Transform.getMutable(entity)
+}
 ```
 
 You can optionally also fetch references to each of the listed components directly on as part of the collection returned by the query. To do this, simply declare multiple references together, one for each component you want to fetch. Adding these references is optional, and you don't need to declare references to _all_ the components in the query either.
 
 ```ts
 // returns references to the entity and the first listed component
-const [entity, component1] of engine.getEntitiesWith(MyCustomComponent1, MyCustomComponent2)
+for (const [entity, component1] of engine.getEntitiesWith(MyCustomComponent1, MyCustomComponent2)){
+    // iterate over list of entities
+}
 
 
 // returns references to the entity and the first two listed components
-const [entity, component1, component2] of engine.getEntitiesWith(MyCustomComponent1, MyCustomComponent2)
+for (const [entity, component1, component2] of engine.getEntitiesWith(MyCustomComponent1, MyCustomComponent2)){
+    // iterate over list of entities
+}
 ```
 
 {{< hint warning >}}
@@ -113,9 +117,8 @@ You can then refer to these references as you iterate over the collection of res
 
 
 ```ts
-  for (const [entity, transformReadOnly] of engine.getEntitiesWith(Transform)) {
-
+for (const [entity, transformReadOnly] of engine.getEntitiesWith(Transform)) {
 	console.log("entity id: ", entity)
 	console.log("has position : ", transformReadOnly.position)
-  }
+}
 ```

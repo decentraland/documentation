@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/sdk7/deploy-third-party/
-weight: 2
+weight: 4
 ---
 
 If you don't own parcels in Decentraland or are not ready to [deploy]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) your scene to Decentraland, you can upload your scene preview to run as an app in a free server.
@@ -40,8 +40,9 @@ Follow the steps below to upload your scenes to a free Heroku server:
    /*.env
    bin
    ```
+
    > Note: Make sure your Decentraland project uses the latest SDK version, do `npm i decentraland-ecs@latest`. Projects uploaded to Heroku or similar platformas and built with versions older than 6.10.0 will not be supported and will not be allowed to fech avatar data from content servers.
-   
+
    > Note: If you're deploying a project that was created using `npx sdk-commands init`, you would need to remove the line `"yarn": "please use npm"` from your `package.json` file otherwise you're going to get an error while deploying.
 
 5. Use the Heroku CLI to log into your Heroku account with `heroku login`. This opens a browser window to provide your user and password.
@@ -50,17 +51,15 @@ Follow the steps below to upload your scenes to a free Heroku server:
 
 7. Link your Decentraland project to your Heroku application. On the project folder run `heroku git:remote -a example-dcl-scene` (using the name you created you heroku application with)
 
-8. Edit `package.json` in your scene to change the `start` script to `CI=true npm run start -p ${PORT:=8000}`
+8. Edit package.json in your scene to change the "start" script to `CI=true sdk-commands start --port ${PORT:=8000}`
 
-9. Explicitly install the Decentraland CLI as a dependency of your project, running `npm i --save decentraland`
+9. Deploy your scene preview with `git push heroku main`
 
-10. Deploy your scene preview with `git push heroku main`
-
-11. To access the scene, copy the link shared by the Heroku deploy command. Then manually add the following parameters to the URL `?realm=localhost-stub&explorer-branch=main`.
+10. To access the scene, copy the link shared by the Heroku deploy command. Then manually add the following parameters to the URL `?realm=localhost-stub&explorer-branch=main`.
 
     For example if the link shared by Heroku is `https://example-dcl-scene.herokuapp.com`, the link you should enter is `https://example-dcl-scene.herokuapp.com/?realm=localhost-stub&explorer-branch=main`.
 
-	If your scene is not in coordinates `0,0`, you should also include these as part of the URL. For example: `https://example-dcl-scene.herokuapp.com/?realm=localhost-stub&explorer-branch=main&position=50,-10`
+    If your scene is not in coordinates `0,0`, you should also include these as part of the URL. For example: `https://example-dcl-scene.herokuapp.com/?realm=localhost-stub&explorer-branch=main&position=50,-10`
 
 Every time you make changes to your scene, make sure you:
 

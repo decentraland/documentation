@@ -12,7 +12,7 @@ weight: 4
 Sound is a great way to provide feedback to player actions and events, background sounds can also give your scene more context and improve the player's immersion into it.
 
 {{< hint warning >}}
-**📔 Note**:  Keep in mind that sounds are only heard by players who are standing within the parcels that make up the scene where the sound was generated, even if they would otherwise be in hearing range. Players can also chose to turn off all sounds on their settings.
+**📔 Note**: Keep in mind that sounds are only heard by players who are standing within the parcels that make up the scene where the sound was generated, even if they would otherwise be in hearing range. Players can also chose to turn off all sounds on their settings.
 {{< /hint >}}
 
 Supported sound formats vary depending on the browser, but it's recommended to use _.mp3_.
@@ -21,7 +21,36 @@ _.wav_ files are also supported but not generally recommended as they are signif
 
 ## Play sounds
 
-To play a sound, you need to add an `AudioSource` component to an entity.
+The easiest way to play a sound is to use the `AudioSource.playSound` function.
+
+```ts
+// Create entity
+const sourceEntity = engine.addEntity()
+
+// Play sound
+AudioSource.playSound(sourceEntity, 'assets/sounds/sound-effect.mp3')
+```
+
+The sound file must be inside the project folder. In the example above, the audio file is located in an `assets/sounds` folder, which is located at root level of the scene project folder.
+
+{{< hint warning >}}
+**📔 Note**: The `AudioSource` component must be imported via
+
+> `import { AudioSource } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
+
+The `AudioSource.playSound()` function takes the following arguments:
+
+- `entity`: On what entity to apply the sound. The sound will be heard from this entity's position, meaning it gets louder as the player approaches it.
+- `src`: The location of the sound file within your project.
+  {{< hint info >}}
+  **💡 Tip**: For more clarity, we recommend keeping your sound files separate in a `assets/sounds` folder inside your scene.
+  {{< /hint >}}
+- `resetCursor`: _(optional)_ If true, the sound always starts from the beginning. Otherwise it continues from the current cursor position. Useful for pausing and resuming.
+
+Another way to play sounds is to manually create an `AudioSource` component on an entity. Use this approach to have more control over the sound, for example to make it loop or set the volume.
 
 ```ts
 // Create entity
@@ -31,26 +60,36 @@ const sourceEntity = engine.addEntity()
 AudioSource.create(sourceEntity, {
 	audioClipUrl: 'sounds/sound-effect.mp3',
 	loop: true,
-	playing: true
+	playing: true,
 })
-
 ```
 
+The following properties can be set:
 
-When creating an `AudioSource` component, you need to provide the path to the location of the sound file in the `audioClipUrl` field.
-
-The sound file must be inside the project folder. In the example above, the audio file is located in a `sounds` folder, which is located at root level of the scene project folder.
-
-{{< hint info >}}
-**💡 Tip**:  For more clarity, we recommend keeping your sound files separate in a `/sounds` folder inside your scene.
-{{< /hint >}}
+- `audioClipUrl`: The location of the sound file within your project.
+- `playing`: If true, the sound starts playing. You can create a sound with `playing` set to false, and then set it to true at a later time.
+- `volume`: _(optional)_ The volume of the sound file. 1 by default, which is full volume.
+- `pitch`: _(optional)_ Modify the pitch of a sound. 1 is the default, make it lower for a deeper sound and higher for a higher pitch sound.
+  {{< hint info >}}
+  **💡 Tip**: To prevent a sound effect from becoming too repetitive during a game, it's useful to randomize some slight variations to the sound's pitch every time it plays.
+  {{< /hint >}}
+- `currentTime`: _(optional)_ The current playback time of the sound file, in seconds. 0 by default. Set this value to avoid starting from the beginning of the sound file. You can also query this value at any time to check the sound's progress.
 
 Each entity can only have a single `AudioSource` component, that can only play a single clip at a time. This limitation can be easily overcome by modifying the audio source at the time of playing a new sound, or by including multiple invisible child entities, each with their own sound.
 
-## Playing and stopping
+{{< hint warning >}}
+**📔 Note**: Sounds are played on each player's local instance. Other nearby players won't hear the same sounds unless their local scene explicitly plays them too.
+{{< /hint >}}
 
-To make an `AudioSource` play its file, set the `playing` property to true.
+## Stopping sounds
 
+To stop an entity from playing its sound, use the `AudioSource.stopSound()` function. You only need to specify the entity, since each entity has a single `AudioSource` component, and each `AudioSource` component plays a single file at a time.
+
+```ts
+AudioSource.stopSound(sourceEntity)
+```
+
+Another way to stop a sound is to set the `playing` property to false.
 
 ```ts
 // Create entity
@@ -58,39 +97,37 @@ const sourceEntity = engine.addEntity()
 
 // Create AudioSource component
 AudioSource.create(sourceEntity, {
-    audioClipUrl: 'sounds/explosion.mp3',
-    playing: false
+	audioClipUrl: 'sounds/explosion.mp3',
+	playing: true,
 })
 
 // Define a simple function
-function playSound(entity: Entity){
+function stopSound(entity: Entity) {
+	// fetch mutable version of audio source component
+	const audioSource = AudioSource.getMutable(entity)
 
-    // fetch mutable version of audio source component
-    const audioSource = AudioSource.getMutable(entity)
-    
-    // modify its playing value
-    audioSource.playing = true
+	// modify its playing value
+	audioSource.playing = false
 }
 
 // call function
-playSound(sourceEntity)
+stopSound(sourceEntity)
 ```
-
-If you set the `playing` property of an `AudioSource` component to _false_, the file is stopped. This means that if you later set `playing` to _true_ again, the sound file will begin from the start again.
-
-{{< hint warning >}}
-**📔 Note**:  Sounds are played on each player's local instance. Other nearby players won't hear the same sounds unless their local scene explicitly plays them too.
-{{< /hint >}}
 
 ## Looping
 
 To keep a sound playing in a continuous loop, set the `loop` field of the `AudioSource` component to _true_ before you start playing it.
 
 ```ts
-const audioSource = AudioSource.getMutable(entity)
+// Create entity
+const sourceEntity = engine.addEntity()
 
-audioSource.loop = true
-audioSource.playing = true
+// Create AudioSource component
+AudioSource.create(sourceEntity, {
+	audioClipUrl: 'sounds/sound-effect.mp3',
+	playing: true,
+	loop: true,
+})
 ```
 
 Looping sounds is especially useful for adding background music or other background sounds.
@@ -102,15 +139,26 @@ You can set the `volume` property of the `AudioSource` component to change the v
 The volume is expressed as a number from _0_ to _1_.
 
 ```ts
-const audioSource = AudioSource.getMutable(entity)
+// Create entity
+const sourceEntity = engine.addEntity()
 
-source.volume = 0.5
+// Create AudioSource component
+AudioSource.create(sourceEntity, {
+	audioClipUrl: 'sounds/sound-effect.mp3',
+	playing: true,
+	volume: 0.5,
+})
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Of course, the volume of a sound is also affected by the distance of the player from the audio source. As the player walks away, the volume will be lower.
+**📔 Note**: Of course, the volume of a sound is also affected by the distance of the player from the audio source. As the player walks away, the volume will be lower.
 {{< /hint >}}
 
+## Play a segment of a sound
+
+To play a segment of a longer sound file, use the `playSoundSegment()` in the SDK Utils library. See [SDK7 Utils](https://github.com/decentraland/sdk7-utils).
+
+You can also achieve this by explicitly set the `currentTime` property on an `AudioSource` component, and then stopping it after waiting for a period of time.
 
 ## Audio streaming
 

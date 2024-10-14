@@ -19,10 +19,10 @@ weight: 3
   - [What are Linked Wearables?](#what-are-linked-wearables)
   - [Costs](#costs)
   - [Getting started - DAO Proposal](#getting-started---dao-proposal)
-- [Linked Wearable](#linked-wearables)
-  - [Creating a Linked Wearable Collection](#creating-a-linked-wearable-collection)
-  - [Creating Linked Wearables one by one](#creating-linked-wearables-one-by-one)
-  - [Creating Linked Wearables in bulk](#creating-linked-wearables-in-bulk)
+- [**Linked Wearables**](#linked-wearables)
+  - [**Creating a Linked Wearable Collection**](#creating-a-linked-wearable-collection)
+  - [**Creating Linked Wearables One By One**](#creating-linked-wearables-one-by-one)
+  - [**Creating Linked Wearables In Bulk**](#creating-linked-wearables-in-bulk)
   - [Seeing the wearables in world](#seeing-the-wearables-in-world)
   - [Editing the collection name](#editing-the-collection-name)
   - [Editing the collection ID or URN](#editing-the-collection-id-or-urn)
@@ -38,6 +38,7 @@ weight: 3
 - [Building the API](#building-the-api)
   - [Endpoint `@GET /registry/:registry-id/address/:address/assets`](#endpoint-get-registryregistry-idaddressaddressassets)
   - [Endpoint `@GET /registry/:registry-id/address/:address/assets/:id`](#endpoint-get-registryregistry-idaddressaddressassetsid)
+  - [Endpoint `@POST /registry/:registry-id/ownership`](#endpoint-post-registryregistry-idownership)
   - [Important notice and considerations](#important-notice-and-considerations)
 - [Closing up](#closing-up)
   - [Summary](#summary)
@@ -290,7 +291,7 @@ Common errors that must be avoided when uploading batched items:
 - There's no `wearable.json` file in the zip.
 - The ZIP file doesn't have in its root directory the `wearable.json` file.
 - The `wearable.json` has an incorrect format or values.
-- The file is bigger than 2MBs. Linked Wearables have the same limitation as regular wearables in terms of size as the standard ones.
+- The file is bigger than 3MBs. Linked Wearables have the same limitation as regular wearables in terms of size as the standard ones.
 - The custom optional thumbnail image is not a png file.
 
 ## Seeing the wearables in world
@@ -498,10 +499,17 @@ For programmatic collections, not all items have to be curated individually. The
 
 # Building the API
 
-In order for Linked Wearables to work, the third parties need to provide an API that will be queried by the Decentraland services (Catalyst) with 2 endpoints:
+In order for Linked Wearables to work, the third parties need to provide an API that will be queried by the Decentraland services (Catalyst) with 3 endpoints:
 
 1. `@GET /registry/:registry-id/address/:address/assets` - Retrieves a list of assets associated with a given address
 2. `@GET /registry/:registry-id/address/:address/assets/:id` - Validates if a DCL asset is owned by a user.
+3. `@POST /registry/:registry-id/ownership`that receives an array of data and performs validations in batch.
+
+It's important to note that these endpoints are used to validate a user profile and what they are wearing, therefore there are performance SLA requirements to avoid harming the platform experience.  
+
+Considering that the client validates user profiles in batches so any delay in processing a single profile with LinkedWearables will impact the entire batch of users. This means that if the API performs slowly, it will negatively affect the overall performance of all users within that batch.
+
+To avoid damaging the platform performance all these endpoints **must have an average response below the 500ms**. This benchmark is crucial to prevent any degradation in the platform's overall performance.
 
 **Technical details and examples [here](https://adr.decentraland.org/adr/ADR-42).**
 
@@ -608,6 +616,44 @@ The API can do the following:
     "decentraland": "urn:decentraland:matic:collections-thirdparty:cryptohats:0xc04528c14c8ffd84c7c1fb6719b4a89853035cdd:1"
   }
 }
+```
+
+## Endpoint `@POST /registry/:registry-id/ownership`
+
+The client performs profile validations in batches, where multiple users' profiles are validated simultaneously. This endpoint is crucial to optimize performance and minimize the number of requests made to the resolver API. It enables parallel processing by sending a list of users and their corresponding items to be validated together. Its performance needs to be prioritized to prevent delays in rendering avatars within the virtual world.
+
+Example **body** for the POST would be:
+
+```json
+[
+ { 
+   "urn_decentraland": "urn:decentraland:matic:collections-thirdparty:cryptohats:0xc04528c14c8ffd84c7c1fb6719b4a89853035cdd:1", 
+   "address": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942" 
+ },
+ {
+   "urn_decentraland": "...", 
+   "address": "..."
+ },
+ ...
+]
+```
+
+and the expected response:
+
+```json
+[
+ { 
+   "urn_decentraland": "urn:decentraland:matic:collections-thirdparty:cryptohats:0xc04528c14c8ffd84c7c1fb6719b4a89853035cdd:1", 
+   "address": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942", 
+   "owned": true
+ },
+ {
+   "urn_decentraland": "...",
+   "address": "...",
+   "owned": <true|false> 
+ }
+  ...
+]
 ```
 
 ## Important notice and considerations

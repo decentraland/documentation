@@ -22,6 +22,16 @@ There’s a growing range of available wearables including cyberpunk themed snea
 
 By default, Decentraland Wearables are minted on the Polygon/Matic side-chain so users can mint, buy, sell, or transfer items without having to pay gas fees.
 
+# What Are Smart Wearables?
+
+Smart wearables are portable experiences that are turned on when the player puts on a certain item of clothing. Smart wearables can grant players new abilities, like a jetpack that lets them fly, or add a new layer of content on top of the rest of the world, like randomly placing coins to be collected throughout the whole of genesis city.
+
+To know how to create **Smart Wearables** you can follow these [guidelines.](https://docs.decentraland.org/creator/development-guide/sdk7/smart-wearables/)
+
+{{< hint warning >}}
+Smart wearables, as a subset of wearables, possess the capability to integrate advanced interactions and functionalities. Consequently, proficient skills in coding are necessary to unlock their full potential and enhance their features.
+{{< /hint >}}
+
 # Wearable Categories
 
 Each wearable has a specific category that determines which body part in the avatar system (e.g. head, upper body, etc.) the wearable will be applied to. Certain wearables will impact whether or not other wearables are rendered, depending on the specific category. See the list below for details.
@@ -39,11 +49,12 @@ The different categories are:
   - **Hair**
 - **Upper Body**
 - **Lower Body**
+- **Handwear**
 - **Feet**
 
 There are also accessories that can be applied to different areas of an avatar. Some of these accessories can impact other wearables. The accessories are:
 
-<img src="/images/wearables-and-emotes/creating-wearables/48_accessories_category.png" width="900" />
+<img src="/images/wearables-and-emotes/creating-wearables/48_accessories_categories.png" width="900" />
 
 - **Mask**
 - **Eyewear**

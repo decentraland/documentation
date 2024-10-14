@@ -11,6 +11,10 @@ url: /creator/development-guide/external-links
 weight: 6
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/external-links.md" >}}).
+{{< /hint >}}
+
 You can add links from your scene out to other content, either to other scenes or to external websites.
 
 ## Teleports
@@ -39,9 +43,9 @@ entity.addComponent(new BoxShape())
 const transform = new Transform({ position: new Vector3(4, 0, 4) })
 entity.addComponent(transform)
 entity.addComponent(
-  new OnPointerDown(() => {
-    openExternalURL("https://docs.decentraland.org")
-  })
+	new OnPointerDown(() => {
+		openExternalURL('https://docs.decentraland.org')
+	})
 )
 engine.addEntity(entity)
 ```

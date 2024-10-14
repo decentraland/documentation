@@ -10,6 +10,10 @@ aliases:
 url: /creator/builder/import-items
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old web Builder. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
+{{< /hint >}}
+
 You can import your own 3D models into the Builder. This allows you to pick models from a wide selection of free sources on the internet, or to create your own custom models.
 
 ## Upload a model
@@ -32,7 +36,7 @@ Once created, a custom asset pack is be available in every scene you edit as lon
 
 All 3D models need to be in _.glTF_ or _.glb_ format. You can convert other formats into these formats with various different editors and tools. See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for recommendations and tips.
 
-All materials in the models need to be either _basic material_ or _PBR_, and all textures need to be in sizes that are powers of two (ex: 256, 512). See [Scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}) for details.
+All materials in the models need to be either _basic material_ or _PBR_, and all textures need to be in sizes that are powers of two (ex: 256, 512). See [Scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) for details.
 
 If a 3D model relies on external files besides the _.gltf_ file (like _.bin_ or _.png_ files) compress all the relevant files for the 3D model into a _.zip_ file. Then import only this _.zip_ file into the Builder.
 
@@ -52,7 +56,7 @@ To get you started, below is a list of libraries that have free or relatively in
 - [ShareCG](https://www.sharecg.com/)
 
 {{< hint warning >}}
-**📔 Note**:  Pay attention to the license restrictions that the content you download has.
+**📔 Note**: Pay attention to the license restrictions that the content you download has.
 {{< /hint >}}
 
 Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _.glTF_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting them with one of the available _.glTF_ export add-ons.
@@ -62,7 +66,7 @@ Note that in several of these sites, you can choose what format to download the 
 You might find that when running a preview the player can walk through your imported 3D models. This is likely because the models are missing a _collider mesh_ to define a collision geometry. See [colliders]({{< ref "/content/creator/3d-modeling/colliders.md" >}}) for more details and instructions.
 
 {{< hint info >}}
-**💡 Tip**:  Instead of editing the model to add a _collider mesh_, a simpler alternative is to an _Invisible wall_ smart item with approximately the same shape to stand in its place.
+**💡 Tip**: Instead of editing the model to add a _collider mesh_, a simpler alternative is to an _Invisible wall_ smart item with approximately the same shape to stand in its place.
 {{< /hint >}}
 
 ## Animations
@@ -72,7 +76,3 @@ If an imported model includes animations, the first animation that's packed into
 Note that you don't have any control over when the animation starts or stops, or which one is played in case of several animations.
 
 If there are multiple players in the scene, they may be seeing the animation out of sync from each other.
-
-## Smart items
-
-You can also import your own custom smart items that have built-in interactive behavior, following the same steps as for uploading a model. See [smart items]({{< ref "/content/creator/scenes/projects/smart-items.md" >}}).

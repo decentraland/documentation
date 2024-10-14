@@ -19,7 +19,7 @@ If your [grant request]({{< ref "/content/player/dao/grants/community-grants.md"
 ## One time payment
 One time payments are paid via a smart contract using the beneficiary address provided in the proposal form, which is available only for Lower Tier Grants (Up to $20,000 USD).
 
-These contracts are initiated by the DAO Committee within 7 days of the grant’s approval by the DAO and have a cliff period of 30 days counting from the finalization of the voting process.
+These contracts are initiated by the DAO Committee within 15 days of the grant’s approval by the DAO and have a cliff period of 30 days counting from the finalization of the voting process. In addition, the vesting contract will begin on the 1st or 15th day after the grant is approved.
 
 The funds are transferred in stablecoin or MANA equaling the USD amount, depending on what was specified in the proposal. The exchange will be done at the rate taken when the votation period finished.
 
@@ -31,6 +31,7 @@ Vesting Contracts are transfers that have specific conditions of time to transfe
 The total of the funds will be vested in equal amounts during the period of months stated in the grant proposal (from one to twelve months, depending on the tier). The contract vests the funds each 30 days.
 
 After the first 30 days period has ended, the beneficiary may withdraw their vested funds as often as they wish, bearing in mind that they (the beneficiary) are responsible for paying the gas fee required for each withdrawal.
+
 
 # Reporting your progress
 
@@ -51,6 +52,8 @@ Conditions or behaviors that might lead to a grant being paused or revoked inclu
 * Violating either the [Content Policy](https://decentraland.org/content), [Terms of Use](https://decentraland.org/terms), or [Code of Ethics](https://decentraland.org/ethics)
 
 Pauses and revocations are  [processes](https://governance.decentraland.org/proposal/?id=ce104d00-7d94-11ed-8456-a323c09ee17e)  initiated by a member of the community through  [this form](https://docs.google.com/forms/d/e/1FAIpQLSd63qjesnGcUa-m6HxHJfgouJhX46AT0UfQs7oszQIxdikA3A/viewform)  to the Grant Support Squad, who starts a formal revocation case. Later the Revocations Committee decides if a grant should or should not be revoked, and the DAO Committee executes that decision. 
+
+Vesting contracts can be paused if the goals of a grant are not being achieved, for a [maximum period of three months](https://decentraland.org/governance/proposal/?id=d20c8871-b7b2-4a87-b692-b84ef3331c60).
 
 ## What happens if your grant is revoked?
 If your grant is revoked before the end of the first 30 days of your vesting contract, then you will not receive any of your grant funds.

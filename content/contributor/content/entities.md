@@ -18,13 +18,14 @@ You can look at actually deployed entities in the [practice]({{< relref "practic
 
 ## Entity Types {#types}
 
-There are five types of entities:
+There are seven types of entities:
 
 - [**Scenes**]({{< relref "entity-types/scenes" >}}): virtual spaces in the world with their own objects and behavior.
 - [**Profiles**]({{< relref "entity-types/profiles" >}}): information about a specific player, such as their name and avatar.
 - [**Wearables**]({{< relref "entity-types/wearables" >}}): clothing and items that players can add to their avatars.
 - [**Emotes**]({{< relref "entity-types/emotes" >}}): animations that a player's avatar can perform.
 - [**Stores**]({{< relref "entity-types/stores" >}}): marketplace sites for wearables and emotes that players can purchase.
+- [**Outfits**]({{< relref "entity-types/outfits" >}}): saved outfits for a specific player.
 
 All types follow the same procedures for creation, identification, ownership and hosting.
 
@@ -34,7 +35,7 @@ Every entity has certain common properties in its manifest, applicable to all ty
 
 | Field | Value |
 | ----- | --- |
-| `type` | One of `scene`, `profile`, `wearable`, `emote` or `store`.
+| `type` | One of `scene`, `profile`, `wearable`, `emote`, `store` or `outfits`.
 | `pointers` | An array of [pointers]({{< relref "pointers" >}}) associated to this entity.
 | `timestamp` | The Unix UTC timestamp when this entity was uploaded.
 | `content` | An array of references to additional [files]({{< relref "filesystem" >}}) in the entity's package.

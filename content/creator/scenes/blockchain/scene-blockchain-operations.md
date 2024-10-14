@@ -15,6 +15,10 @@ url: /creator/development-guide/scene-blockchain-operations
 weight: 1
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/blockchain/scene-blockchain-operations.md" >}}).
+{{< /hint >}}
+
 A Decentraland scene can interface with the Ethereum blockchain. This can serve to obtain data about the user's wallet and the tokens in it, or to trigger transactions that could involve any Ethereum token, fungible or non-fungible. This can be used in many ways, for example to sell tokens, to reward tokens as part of a game-mechanic, to change how a player interacts with a scene if they own certain tokens, etc.
 
 The following tools currently exist, all of them provided by Decentraland:
@@ -24,7 +28,7 @@ The following tools currently exist, all of them provided by Decentraland:
 
 Note that all transactions triggered by a scene will require a player to approve and pay a gas fee.
 
-All blockchain operations also need to be carried out as [asynchronous functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the timing depends on external events.
+All blockchain operations also need to be carried out as [asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the timing depends on external events.
 
 When running a preview of a scene that uses one of the ethereum libraries, you must have Metamask open in your browser. If using the CLI, run the preview with:
 
@@ -41,7 +45,7 @@ The simplest way to perform operations on the Ethereum blockchain is through the
 To import the Ethereum controller into your scene file:
 
 ```ts
-import * as EthereumController from "@decentraland/EthereumController"
+import * as EthereumController from '@decentraland/EthereumController'
 ```
 
 Below we explain some of the things you can do with this controller.
@@ -51,7 +55,7 @@ Below we explain some of the things you can do with this controller.
 Use the `getUserAccount()` function from the EthereumController to find a player's Ethereum public key.
 
 ```ts
-import { getUserAccount } from "@decentraland/EthereumController"
+import { getUserAccount } from '@decentraland/EthereumController'
 
 executeTask(async () => {
   try {
@@ -63,12 +67,12 @@ executeTask(async () => {
 })
 ```
 
-As shown in the example above, you should wrap the function in an `async()` function, learn more about this in [async functions]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}})
+As shown in the example above, you should wrap the function in an `async()` function, learn more about this in [async functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}})
 
 The following example keeps track of provided addresses.
 
 ```ts
-import { getUserAccount } from "@decentraland/EthereumController"
+import { getUserAccount } from '@decentraland/EthereumController'
 
 let registeredAddresses: String[] = []
 
@@ -78,7 +82,7 @@ executeTask(async () => {
     let lowerCaseAddress = address.toLowerCase()
     for (let i = 0; i < registeredAddresses.length; i++) {
       if (lowerCaseAddress == registeredAddresses[i]) {
-        log("already registered")
+        log('already registered')
       } else {
         registeredAddresses.push(lowerCaseAddress)
       }
@@ -90,7 +94,7 @@ executeTask(async () => {
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Even though the eth address may contain upper case characters, some browsers convert the returned string to lower case automatically. If you wish compare address values and have it work on all browsers, use the `.toLowerCase()` method to convert the value into lower case.
+**📔 Note**: Even though the eth address may contain upper case characters, some browsers convert the returned string to lower case automatically. If you wish compare address values and have it work on all browsers, use the `.toLowerCase()` method to convert the value into lower case.
 {{< /hint >}}
 
 ## Sign messages
@@ -123,7 +127,7 @@ Timestamp: 1512345678
 Before a player can sign a message, you must first convert it from a string into an object using the `convertMessageToObject()` function, then it can be signed with the `signMessage()` function.
 
 ```ts
-import * as EthereumController from "@decentraland/EthereumController"
+import * as EthereumController from '@decentraland/EthereumController'
 
 const messageToSign = `# DCL Signed message
 Attacker: 10
@@ -144,8 +148,8 @@ executeTask(async () => {
 To verify that the message that the player signed is in fact the one that you want to send, you can use the `toHex()` function from `eth-connect` library, to convert it and easily compare it. See further below for instructions on how to import the `eth-connect` library.
 
 ```ts
-import { toHex } from "eth-connect"
-import * as EthereumController from "@decentraland/EthereumController"
+import { toHex } from 'eth-connect'
+import * as EthereumController from '@decentraland/EthereumController'
 
 const messageToSign = `# DCL Signed message
 Attacker: 10
@@ -163,7 +167,7 @@ function signMessage(msg: string) {
     const originalMessageHex = await toHex(msg)
     const sentMessageHex = await toHex(message)
     const isEqual = sentMessageHex === originalMessageHex
-    log("Is the message correct?", isEqual)
+    log('Is the message correct?', isEqual)
   })
 }
 
@@ -189,27 +193,28 @@ If accepted by the player, the function returns the hash number of the transacti
 This function informs you that a transaction was requested, but not that it was confirmed. If the gas price is too low, or it doesn't get mined for any reason, the transaction won't be completed.
 {{< /hint >}}
 
-
 ```ts
-const myWallet = ‘0x0123456789...’
+const myWallet = '0x0123456789...'
 const enterPrice = 0.05
 
-function payment(){
+function payment() {
   executeTask(async () => {
     try {
       await eth.requirePayment(myWallet, enterPrice, 'ETH')
       openDoor()
     } catch {
-      log("failed process payment")
+      log('failed process payment')
     }
   })
 }
 
 const button = new Entity()
 button.addComponent(new BoxShape())
-button.addComponent(new OnClick( e => {
+button.addComponent(
+  new OnClick((e) => {
     payment()
-  }))
+  })
+)
 engine.addEntity(button)
 ```
 
@@ -218,9 +223,8 @@ The example above listens for clicks on a _button_ entity. When clicked, the pla
 ![](/images/media/metamask_confirm.png)
 
 {{< hint info >}}
-**💡 Tip**:  We recommend defining the wallet address and the amount to pay as global constants at the start of the _.ts_ file. These are values you might need to change in the future, setting them as constants makes it easier to update the code.
+**💡 Tip**: We recommend defining the wallet address and the amount to pay as global constants at the start of the _.ts_ file. These are values you might need to change in the future, setting them as constants makes it easier to update the code.
 {{< /hint >}}
-
 
 ## Lower level operations
 
@@ -231,7 +235,7 @@ This controller operates at a lower level than the _Ethereum controller_ (in fac
 It's main use is to call functions in a contract, it also offers a number of helper functions for various tasks. Check it out on [GitHub](https://github.com/decentraland/eth-connect).
 
 {{< hint warning >}}
-**📔 Note**:  The eth-connect library is currently lacking more in-depth documentation. Since this library is mostly based on the Web3.js library and most of the function names are intentionally kept identical to those in Web3.js, it can often help to refer to [Web3's documentation](https://web3js.readthedocs.io/en/1.0/).
+**📔 Note**: The eth-connect library is currently lacking more in-depth documentation. Since this library is mostly based on the Web3.js library and most of the function names are intentionally kept identical to those in Web3.js, it can often help to refer to [Web3's documentation](https://web3js.readthedocs.io/en/1.0/).
 {{< /hint >}}
 
 #### Download and import the eth-connect library
@@ -243,7 +247,7 @@ npm install eth-connect -B
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Decentraland scenes don't support older versions than 4.0 of the eth-connect library.
+**📔 Note**: Decentraland scenes don't support older versions than 4.0 of the eth-connect library.
 
 Currently, we don't allow installing other dependencies via npm that are not created by Decentraland. This is to keep scenes well sandboxed and prevent malicious code.
 {{< /hint >}}
@@ -251,7 +255,7 @@ Currently, we don't allow installing other dependencies via npm that are not cre
 Once installed, you can import whatever you need from `eth-connect` to the scene's code:
 
 ```ts
-import { toHex } from "eth-connect"
+import { toHex } from 'eth-connect'
 ```
 
 #### Import a contract ABI
@@ -283,7 +287,7 @@ For example, here's an example of one function in the MANA ABI:
 ABI definitions can be quite lengthy, as they often include a lot of functions, so we recommend pasting the JSON contents of an ABI file into a separate `.ts` file and importing it into other scene files from there. We also recommend holding all ABI files in a separate folder of your scene, named `/contracts`.
 
 ```ts
-import { abi } from "../contracts/mana"
+import { abi } from '../contracts/mana'
 ```
 
 Here are links to different Decentraland contracts. Obtain the ABI for each contract by clicking _Export ABI_ and choosing _JSON Format_.
@@ -307,7 +311,7 @@ These are the contracts for the various wearable collections: (each collection w
 - [DCGCollection ABI](https://etherscan.io/address/0x3163d2cfee3183f9874e2869942cc62649eeb004)
 
 {{< hint info >}}
-**💡 Tip**:  To clearly see the functions exposed by a contract, open it in [abitopic.io](https://abitopic.io). Just paste the contract address there and open the _functions_ tab to see the full list of supported functions and their arguments. You can even test calling the functions with different parameters via the webpage.
+**💡 Tip**: To clearly see the functions exposed by a contract, open it in [abitopic.io](https://abitopic.io). Just paste the contract address there and open the _functions_ tab to see the full list of supported functions and their arguments. You can even test calling the functions with different parameters via the webpage.
 {{< /hint >}}
 
 Configuring TypeScript to be able to import from a JSON file has its difficulties. The recommended easier workaround is to change the `ABI.JSON` file's extension to `.ts` and modifying it slightly so that it its content starts with `export default`.
@@ -321,9 +325,9 @@ After importing the `eth-connect` library and a contract's _abi_, you must insta
 You must also import the web3 provider. This is because Metamask in the player's browser uses web3, so we need a way to interact with that.
 
 ```ts
-import { RequestManager, ContractFactory } from "eth-connect"
-import { abi } from "../contracts/mana"
-import { getProvider } from "@decentraland/web3-provider"
+import { RequestManager, ContractFactory } from 'eth-connect'
+import { abi } from '../contracts/mana'
+import { getProvider } from '@decentraland/web3-provider'
 
 executeTask(async () => {
   // create an instance of the web3 provider to interface with Metamask
@@ -333,16 +337,14 @@ executeTask(async () => {
   // Create a factory object based on the abi
   const factory = new ContractFactory(requestManager, abi)
   // Use the factory object to instance a `contract` object, referencing a specific contract
-  const contract = (await factory.at(
-    "0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb"
-  )) as any
+  const contract = (await factory.at('0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb')) as any
 })
 ```
 
 Note that several of these functions must be called using `await`, since they rely on fetching external data and can take some time to be completed.
 
 {{< hint info >}}
-**💡 Tip**:  For contracts that follow a same standard, such as ERC20 or ERC721, you can import a single generic ABI for all. You then generate a single `ContractFactory` object with that ABI and use that same factory to instance interfaces for each contract.
+**💡 Tip**: For contracts that follow a same standard, such as ERC20 or ERC721, you can import a single generic ABI for all. You then generate a single `ContractFactory` object with that ABI and use that same factory to instance interfaces for each contract.
 {{< /hint >}}
 
 #### Call the methods in a contract
@@ -350,10 +352,10 @@ Note that several of these functions must be called using `await`, since they re
 Once you've created a `contract` object, you can easily call the functions that are defined in its ABI, passing it the specified input parameters.
 
 ```ts
-import { getProvider } from "@decentraland/web3-provider"
-import { getUserAccount } from "@decentraland/EthereumController"
-import { RequestManager, ContractFactory } from "eth-connect"
-import { abi } from "../contracts/mana"
+import { getProvider } from '@decentraland/web3-provider'
+import { getUserAccount } from '@decentraland/EthereumController'
+import { RequestManager, ContractFactory } from 'eth-connect'
+import { abi } from '../contracts/mana'
 
 executeTask(async () => {
   try {
@@ -361,20 +363,14 @@ executeTask(async () => {
     const provider = await getProvider()
     const requestManager = new RequestManager(provider)
     const factory = new ContractFactory(requestManager, abi)
-    const contract = (await factory.at(
-      "0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb"
-    )) as any
+    const contract = (await factory.at('0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb')) as any
     const address = await getUserAccount()
     log(address)
 
     // Perform a function from the contract
-    const res = await contract.setBalance(
-      "0xaFA48Fad27C7cAB28dC6E970E4BFda7F7c8D60Fb",
-      100,
-      {
-        from: address,
-      }
-    )
+    const res = await contract.setBalance('0xaFA48Fad27C7cAB28dC6E970E4BFda7F7c8D60Fb', 100, {
+      from: address,
+    })
     // Log response
     log(res)
   } catch (error) {
@@ -395,35 +391,32 @@ The eth-connect library includes a number of other helpers you can use. For exam
 - Get the number of transactions sent from an address
 - Convert between various formats including hexadecimal, binary, utf8, etc.
 
-
 ## Using the Ethereum test network
 
+While testing your scene, to avoid transferring real MANA currency, you can use the _Ethereum Sepolia test network_ and transfer fake MANA instead.
 
-While testing your scene, to avoid transferring real MANA currency, you can use the _Ethereum Goerli test network_ and transfer fake MANA instead.
+To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_.
 
-To use the test network you must set your Metamask Chrome extension to use the _Goerli test network_ instead of _Main network_.
+You must acquire Sepolia Ether, which you can obtain for free from various external faucets like [this one](https://www.alchemy.com/faucets/ethereum-sepolia/).
 
-You must acquire Goerli Ether, which you can obtain for free from various external faucets like [this one](https://faucet.paradigm.xyz/ ).
-
-If your transactions also involve MANA, you can also obtain free Goerli MANA from our [Goerli MANA faucet](https://faucet-goerli.decentraland.io/).
+<!-- If your transactions also involve MANA, you can also obtain free Sepolia MANA from our [Sepolia MANA faucet](https://faucet-goerli.decentraland.io/). -->
 
 {{< hint info >}}
-**💡 Tip**:  To run the transaction of transferring Goerli MANA to your wallet, you will need to pay a gas fee in Goerli Ether. 
+**💡 Tip**: To run the transaction of transferring Sepolia MANA to your wallet, you will need to pay a gas fee in Sepolia Ether.
 {{< /hint >}}
 
 To preview your scene using the test network, add the `DEBUG` property to the URL you're using to access the scene preview on your browser. For example, if you're accessing the scene via `http://127.0.0.1:8000/?position=0%2C-1`, you should set the URL to `http://127.0.0.1:8000/?DEBUG&position=0%2C-1`.
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
 
-If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you'll need to swap MANA to that network after acquiring it in Goerli. To bridge Goerli MANA to the Polygon Testnet, visit your [Decentraland account page in Goerli](https://account.decentraland.zone/) and click on ‘swap’ on the Ethereum MANA side. 
-
+If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you'll need to swap MANA to that network after acquiring it in Sepolia. To bridge Sepolia MANA to the Polygon Testnet, visit your [Decentraland account page in Sepolia](https://account.decentraland.zone/) and click on ‘swap’ on the Ethereum MANA side.
 
 ## Send custom RPC messages
 
 Use the function `sendAsync()` to send messages over [RPC protocol](https://en.wikipedia.org/wiki/Remote_procedure_call).
 
 ```ts
-import * as EthereumController from "@decentraland/EthereumController"
+import * as EthereumController from '@decentraland/EthereumController'
 
 // send a message
 await eth!.sendAsync(myMessage)

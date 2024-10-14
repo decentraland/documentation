@@ -11,6 +11,9 @@ url: /creator/development-guide/debug-in-preview
 weight: 1
 ---
 
+{{< hint danger >}}
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/debugging/debug-in-preview.md" >}}).
+{{< /hint >}}
 
 Running a preview provides some useful debugging information and tools to help you understand how the scene is rendered. The preview mode provides indicators that show parcel boundaries and the orientation of the scene.
 
@@ -18,15 +21,15 @@ If the scene can't be compiled, you'll just see the grid on the ground, with not
 
 If this occurs, there are several places where you can look for error messages to help you understand what went wrong:
 
-1.  Check your code editor to make sure that it didn't mark any syntax or logic errors.
-2.  Check the output of the command line where you ran `dcl start`
-3.  Check the JavaScript console in the browser for any other error messages. For example, when using Chrome you access this through `View > Developer > JavaScript console`.
-4.  If you're running a preview of a multiplayer scene that runs together with a local server, check the output of the command line window where you run the local server.
+1. Check your code editor to make sure that it didn't mark any syntax or logic errors.
+2. Check the output of the command line where you ran `dcl start`
+3. Check the JavaScript console in the browser for any other error messages. For example, when using Chrome you access this through `View > Developer > JavaScript console`.
+4. If you're running a preview of a multiplayer scene that runs together with a local server, check the output of the command line window where you run the local server.
 
 If an entity is located or extends beyond the limits of the scene, it will be displayed in red to indicate this, with a red bounding box to mark its boundaries. Nothing in your scene can extend beyond the scene limits. This won't stop the scene from being rendered locally, but it will stop the offending entities form being rendered in Decentraland.
 
 {{< hint info >}}
-**💡 Tip**:  Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/scenes/getting-started/dev-workflow.md#deploy-to-the-test-environment" >}})
+**💡 Tip**: Before you deploy your scene to the production environment, deploy it to the test environment to try it in a context that is a lot closer to production. See [Development Workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md#deploy-to-the-test-environment" >}})
 {{< /hint >}}
 
 ## Use the console
@@ -43,15 +46,13 @@ Using the Decentraland Editor, you can add breakpoints to your scene's code. Whe
 
 This is especially useful to validate that the data at a given point in time is what you expect. You can also modify the values of any variable manually and resume execution with the blue play button, using those new variables. This is great to test corner cases, to make sure the scene behaves as expected on every scenario, which might otherwise be a lot harder to reproduce.
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/scenes/getting-started/installation-guide.md#the-decentraland-editor" >}}).
-
+Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
 
 1. Open VSCode in a Decentraland scene project.
 2. Click on the Debugger icon on the left sidebar.
 3. Click on `Run and Debug` and select `Decentraland` (this step is not necessary if your project already has a `.vscode/launch.json` file).
 4. Click on `Run`. A browser should open.
-5. Try setting a breakpoint and interacting with the scene in a way it will step on that line. 
-
+5. Try setting a breakpoint and interacting with the scene in a way it will step on that line.
 
 ## View scene stats
 
@@ -72,10 +73,10 @@ Click the _Y_ key to open the Panel. This panel displays the following informati
 
 The processed messages and message queue refer to the messages sent by your scene's code to the engine. These are useful to know if your scene is running more operations than the engine can support. If many messages get queued up, that's usually a bad sign.
 
-The other numbers in the panel refer to the usage of resources, in relation to the [scene limitations]({{< ref "/content/creator/scenes/optimizing/scene-limitations.md" >}}). Keep in mind that the maximum allowed number for these values is proportional to the amount of parcels in the scene. If your scene tries to render an entity that exceeds these values, for example if it has too many triangles, it won't be rendered in-world once deployed.
+The other numbers in the panel refer to the usage of resources, in relation to the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}). Keep in mind that the maximum allowed number for these values is proportional to the amount of parcels in the scene. If your scene tries to render an entity that exceeds these values, for example if it has too many triangles, it won't be rendered in-world once deployed.
 
 {{< hint warning >}}
-**📔 Note**:  Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
+**📔 Note**: Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
 {{< /hint >}}
 
 ## Run code only in preview
@@ -97,7 +98,7 @@ executeTask(async () => {
 ```
 
 {{< hint warning >}}
-**📔 Note**:  `isPreviewMode()` needs to be run as an [async function]({{< ref "/content/creator/scenes/programming-patterns/async-functions.md" >}}), since the response may delay in returning data.
+**📔 Note**: `isPreviewMode()` needs to be run as an [async function]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the response may delay in returning data.
 {{< /hint >}}
 
 ## Dependency versions
@@ -115,7 +116,7 @@ The `decentraland-ecs` library has in turn a couple of internal dependencies tha
 
 For example, you can run your preview with the following URL:
 
-> http://127.0.0.1:8000/?position=0%2C0&SCENE_DEBUG_PANEL&renderer-version=1.0.12119-20210830195045.commit-a8be53a
+> http\://127.0.0.1:8000/?position=0%2C0&SCENE_DEBUG_PANEL&renderer-version=1.0.12119-20210830195045.commit-a8be53a
 
 To find out what versions are available to choose from on each dependency, check the version history on the NPM pages for the [Renderer](https://www.npmjs.com/package/@dcl/unity-renderer) and for the [Kernel](https://www.npmjs.com/package/decentraland-kernel). To know what versions of these dependencies are in use by default by a specific `decentraland-ecs` version, you can run the following command, indicating the `decentraland-ecs` version you're curious about:
 
@@ -175,7 +176,6 @@ When running a preview normally, without a connected Web3 account, you're assign
 
 To use a consist guest avatar across your sessions, you can store an avatar profile by adding a `PLAYER` parameter to the URL with any string as its value. When using this, the preview will store your avatar’s settings locally on your browser, to retrieve them whenever you use the same string on the `PLAYER` parameter. For example, every time you open the preview with the URL `http://127.0.0.1:8000/?PLAYER=ringo`, you’ll have the same avatar.
 
-
 ## Connecting to Ethereum network
 
 If your scene makes use of transactions over the Ethereum network, for example if it prompts you to pay a sum in MANA to open a door, you need to run the preview in the browser with Web3.
@@ -192,7 +192,7 @@ Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL 
 
 #### Using the Ethereum test network
 
-You can avoid using real currency while previewing the scene. For this, you must use the _Ethereum Ropsten test network_ and transfer fake MANA instead. To use the test network you must set your Metamask Chrome extension to use the _Ropsten test network_ instead of _Main network_. You must also own MANA in the Ropsten blockchain, which you can acquire for free from Decentraland.
+You can avoid using real currency while previewing the scene. For this, you must use the _Ethereum Sepolia test network_ and transfer fake MANA instead. To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_. You must also own MANA in the Sepolia blockchain, which you can acquire for free from Decentraland.
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
 
@@ -201,10 +201,9 @@ Any transactions that you accept while viewing the scene in this mode will only 
 If you open a second preview window on your machine, you will enter the scene with a different avatar. The avatars on both tabs will be able to see each other and interact, although currently they might have inconsistent names and wearables on.
 
 {{< hint warning >}}
-**📔 Note**:  You can't open multiple tabs using the same account. So if your URL has a hardcoded `PLAYER` parameter with the same string on multiple tabs, or you're connecting to Metamask on more than one tab, it won't be possible to load them all. Each simultaneous tab should load a different account.
+**📔 Note**: You can't open multiple tabs using the same account. So if your URL has a hardcoded `PLAYER` parameter with the same string on multiple tabs, or you're connecting to Metamask on more than one tab, it won't be possible to load them all. Each simultaneous tab should load a different account.
 {{< /hint >}}
 
 If the scene uses the MessageBus to send messages between players, these will work between the different tabs.
 
 If the scene connects to a third party server via websockets, these connections should also work independently on each tab, as separate players.
-
