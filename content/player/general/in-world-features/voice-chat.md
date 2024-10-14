@@ -13,7 +13,9 @@ type: Document
 url: /player/general/in-world-features/voice-chat
 ---
 
-> 🚧 The Explorer 2.0 desktop client does not support this feature at the moment.
+{{< hint warning >}}
+**📔 Note**: 🚧 The Explorer 2.0 desktop client does not support this feature at the moment.
+{{< /hint >}}
 
 ### Accessing the chat
 
