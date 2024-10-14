@@ -34,7 +34,7 @@ Smart wearables, as a subset of wearables, possess the capability to integrate a
 
 # Wearable Categories
 
-Each wearable has a specific category that determines which body part in the avatar system (e.g. head, upper body, etc.) the wearable will be applied to. Certain wearables will impact whether or not other wearables are rendered, depending on the specific category. Some wearables will entirely replace others with sometimes unexpected and surprising results. See the list below for details.
+Each wearable has a specific category that determines which body part in the avatar system (e.g. head, upper body, etc.) the wearable will be applied to. Certain wearables will impact whether or not other wearables are rendered, depending on the specific category. See the list below for details.
 
 The different categories are:
 
@@ -64,7 +64,7 @@ There are also accessories that can be applied to different areas of an avatar. 
 - **Hat**
 - **Helmet**
 
-For a detailed description of each category, and how items within each category interact or replace one another, see **[Creating Wearables]({{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >}})**.
+For a detailed description of each category, and how items within each category interact or hide one another, see **[Creating Wearables]({{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >}})**.
 
 You can check some of the basic wearables here:
 
