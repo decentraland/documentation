@@ -30,6 +30,16 @@ These are the minimum hardware specs required to successfully run the Decentrala
 | RAM | 16GB | 32 GB |
 | Storage | 8GB HDD | 20GB SDD |
 
+### Mac
+| | Minimum Required | Recommended Settings | 
+| -------- | -------- | ------- |
+| OS | macOS 11 Big Sur | macOS 12 Monterey |
+| CPU |Intel Core i5 (7th generation) or Apple M1 | Intel Core i7 (12th generation) or Apple M1 Pro/M2 | 
+| GPU | Apple M1 integrated GPU or AMD Radeon Pro 5300 | Apple M1 Pro/M2 Pro integrated GPU or AMD Radeon Pro 5600M |
+| VRAM | 6 GB (for dedicated GPUs) | 12 GB (for dedicated GPUs) |
+| RAM | 16GB | 32 GB |
+| Storage | 8GB HDD | 20GB SDD |
+
 ## Explorer 1.0 Web / Desktop Client
 
 The minimum requirements differ depending on if you're running Decentraland via a web browser, or if you're running a locally installed desktop client. The desktop client has considerably lower requirements, as it's not limited by the browser.  
