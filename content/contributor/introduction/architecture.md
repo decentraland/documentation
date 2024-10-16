@@ -208,7 +208,7 @@ Among other capabilities, it can bootstrap environments, run and visualize scene
 
 **Learn more:**
 
-- [CLI documentation]({{< ref "/creator/scenes/getting-started/using-the-cli" >}})
+- [CLI documentation]({{< ref "/creator/deprecated/scenes/getting-started/using-the-cli" >}})
 - [CLI repository](https://github.com/decentraland/cli)
 - [Examples and Tutorials](https://studios.decentraland.org/resources?sdk_version=SDK7)
 

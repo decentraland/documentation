@@ -15,6 +15,10 @@ There are tree different ways you can show a video in a scene:
 - Stream the video from an external source
 - Stream live via Decentraland cast
 
+{{< hint info >}}
+**💡 Tip**: In the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can use an **Video Player** [Smart Item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for a no-code way to achieve this.
+{{< /hint >}}
+
 In all cases, you'll need:
 
 - An entity with a [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) like a plane, cube, or even a cone.
@@ -182,10 +186,6 @@ The following file formats are supported:
 Keep in mind that a video file adds to the total size of the scene, which makes the scene take longer to download for players walking into your scene. The video size might also make you go over the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}), as you have a maximum of 15 MB per parcel to use. We recommend compressing the video as much as possible, so that it's less of a problem.
 
 We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
-
-{{< hint warning >}}
-**📔 Note**: Some video formats may be supported by the browser, but not while running a preview in the Decentraland Editor in Visual Studio Code. In these cases, you can open the scene preview in the browser as an alternative. See [this document](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_72.md#built-in-preview-for-some-audio-and-video-files) for more details on what video formats are supported in by Visual Studio code.
-{{< /hint >}}
 
 ## Start pause and stop a video
 
@@ -422,6 +422,8 @@ use uvs to map parts of the video
 <!--
 ## Handle a video file
 
+
+TODO
 When playing a video from a file, you can perform the following actions:
 
 - `play()`: Plays the video. It will start from where the `seek` property indicates.

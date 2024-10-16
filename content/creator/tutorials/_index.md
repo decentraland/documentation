@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
-weight: 3
+weight: 1
 title: Tutorials & Examples
 ---

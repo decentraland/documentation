@@ -1,7 +1,7 @@
 ---
 date: 2018-02-13
-title: Handle animations
-description: How to move and animate entities in your scene
+title: Animations
+description: How to animate 3D models in your scene
 categories:
   - development-guide
 type: Document
@@ -39,6 +39,10 @@ If a 3D model includes any animations, the default behavior is that the first of
 
 To avoid this behavior, add an `Animator` component to the entity that has the model, and then handle the playing of animations explicitly. If an `Animator` component is present in the entity, all animations default to a `playing: false` state, and need to be manually played.
 
+{{< hint info >}}
+**💡 Tip**: In the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can add an **Animator** component visually. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}). You can also control animations in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+{{< /hint >}}
+
 ## Handle animations explicitly
 
 An `Animator` component is used to access all the animations of the entity and can be used to explicitly tell the entity to play or stop an animation. The `Animator` component includes an array of `states`, this list must include one object for each one of the animations that the 3D model can perform. A single `Animator` can include as many states as needed.
@@ -49,17 +53,17 @@ const shark = engine.addEntity()
 
 // Add a 3D model to it
 GltfContainer.create(shark, {
-  src: 'models/shark.glb',
+	src: 'models/shark.glb',
 })
 
 Animator.create(shark, {
-  states: [
-    {
-      clip: 'swim',
-      playing: true,
-      loop: true,
-    },
-  ],
+	states: [
+		{
+			clip: 'swim',
+			playing: true,
+			loop: true,
+		},
+	],
 })
 ```
 
@@ -135,13 +139,13 @@ Change this setting by setting the `loop` property in the `state` object.
 
 ```ts
 Animator.create(shark, {
-  states: [
-    {
-      clip: 'bite',
-      playing: true,
-      loop: false,
-    },
-  ],
+	states: [
+		{
+			clip: 'bite',
+			playing: true,
+			loop: false,
+		},
+	],
 })
 ```
 
@@ -168,15 +172,15 @@ When an animation finishes playing a non-looping animation, by default the 3D mo
 
 ```ts
 Animator.create(shark, {
-  states: [
-    {
-      name: 'bite',
-      clip: 'bite',
-      playing: true,
-      shouldReset: true,
-      loop: true,
-    },
-  ],
+	states: [
+		{
+			name: 'bite',
+			clip: 'bite',
+			playing: true,
+			shouldReset: true,
+			loop: true,
+		},
+	],
 })
 ```
 
@@ -234,14 +238,14 @@ Change the speed at which an animation is played by changing the `speed` propert
 
 ```ts
 Animator.create(shark, {
-  states: [
-    {
-      clip: 'swim',
-      playing: true,
-      loop: true,
-      speed: 2,
-    },
-  ],
+	states: [
+		{
+			clip: 'swim',
+			playing: true,
+			loop: true,
+			speed: 2,
+		},
+	],
 })
 ```
 
@@ -261,14 +265,14 @@ By default, `weight` is equal to _1_. The value of `weight` can't be any higher 
 
 ```ts
 Animator.create(shark, {
-  states: [
-    {
-      clip: 'swim',
-      playing: true,
-      loop: true,
-      weight: 0.2,
-    },
-  ],
+	states: [
+		{
+			clip: 'swim',
+			playing: true,
+			loop: true,
+			weight: 0.2,
+		},
+	],
 })
 ```
 

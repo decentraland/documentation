@@ -14,7 +14,11 @@ weight: 3
 
 Run multiple Decentraland projects in preview by grouping these into a workspace. Run multiple adjacent scenes to see how they fit, or also run multiple [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}) together to see how they interact with each other and with different scenes.
 
-Running multiple projects in a workspace provides a much more complete testing alternative, to ensure different content works well together.
+Running multiple projects in a workspace provides a much more complete testing alternative, to ensure different content works well together. A workspace is a debugging feature, it doesn't affect the experience in the published scene.
+
+{{< hint warning >}}
+**📔 Note**: The **Creator Hub** doesn't currently support handling Workspaces. Use the **VS Studio Code** extension instead.
+{{< /hint >}}
 
 ## Create a workspace
 
