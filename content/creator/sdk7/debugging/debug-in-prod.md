@@ -25,7 +25,13 @@ You can deploy scenes to a test server as a staging environment, before publishi
 
 See [The test server]({{< ref "/content/creator/sdk7/publishing/publishing.md#the-test-server">}}) for details.
 
-## Access debug information
+## Quick reload
+
+If you need to reload the scene you're standing on, write the following into the chat and push enter:
+
+`/reload`
+
+<!-- ## Access debug information
 
 ### See logs
 
@@ -73,7 +79,7 @@ Keep in mind that these FPS values may vary depending on the machine you're usin
 
 It's still a valuable way to assess the performance of the scene more objectively.
 
-They count the frame per second of the Decentraland explorer, not of a single scene. You can try to isolate what effect neighbors have on the FPS by reducing the line of sight property on the settings, to load less content at a time.
+They count the frame per second of the Decentraland explorer, not of a single scene. You can try to isolate what effect neighbors have on the FPS by reducing the line of sight property on the settings, to load less content at a time. -->
 
 ## Report a bug
 

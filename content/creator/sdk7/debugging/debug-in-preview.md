@@ -97,6 +97,12 @@ The other numbers in the panel refer to the usage of resources, they display the
 **📔 Note**: Keeping this panel open can negatively impact the frame rate and performance of your scene, so we recommend closing it while not in use.
 {{< /hint >}} -->
 
+## Quick reload
+
+If you need to reload the scene you're standing on, write the following into the chat and push enter:
+
+`/reload`
+
 ## Report a bug
 
 If you encounter a problem that is not with your scene, but instead with the Decentraland SDK in general, please see [Report a bug]({{< ref "/content/creator/sdk7/debugging/report-bug.md">}}).
