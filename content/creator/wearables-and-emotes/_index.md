@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
-weight: 1
+weight: 2
 title: Wearables & Emotes
 ---

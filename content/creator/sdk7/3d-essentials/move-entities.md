@@ -11,6 +11,11 @@ weight: 7
 
 To move, rotate or resize an entity in your scene over a period of time, use the `Tween` component. The engine carries out the desired transformation smoothly, showing updates on every frame until the specified duration is over. Also the `Transform` component values of the affected entity gets updated in real time in case it's needed to make proximity checks in the scene code.
 
+{{< hint info >}}
+**💡 Tip**:
+In the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can move entities in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+{{< /hint >}}
+
 ## Move between two points
 
 To move an entity between two points, create a `Tween` component with its mode set to `Tween.Mode.Move`.
@@ -18,17 +23,17 @@ To move an entity between two points, create a `Tween` component with its mode s
 ```ts
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(myEntity)
 
 Tween.create(myEntity, {
-  mode: Tween.Mode.Move({
-    start: Vector3.create(1, 1, 1),
-    end: Vector3.create(8, 1, 8),
-  }),
-  duration: 2000,
-  easingFunction: EasingFunction.EF_LINEAR,
+	mode: Tween.Mode.Move({
+		start: Vector3.create(1, 1, 1),
+		end: Vector3.create(8, 1, 8),
+	}),
+	duration: 2000,
+	easingFunction: EasingFunction.EF_LINEAR,
 })
 ```
 
@@ -50,17 +55,17 @@ To rotate an entity between two points, create a `Tween` component with its mode
 ```ts
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(myEntity)
 
 Tween.create(myEntity, {
-  mode: Tween.Mode.Rotate({
-    start: Quaternion.fromEulerDegrees(0, 0, 0),
-    end: Quaternion.fromEulerDegrees(0, 170, 0),
-  }),
-  duration: 700,
-  easingFunction: EasingFunction.EF_LINEAR,
+	mode: Tween.Mode.Rotate({
+		start: Quaternion.fromEulerDegrees(0, 0, 0),
+		end: Quaternion.fromEulerDegrees(0, 170, 0),
+	}),
+	duration: 700,
+	easingFunction: EasingFunction.EF_LINEAR,
 })
 ```
 
@@ -83,23 +88,23 @@ When rotating the parent entity, its children will be all rotated using the pare
 ```ts
 const pivotEntity = engine.addEntity()
 Transform.create(pivotEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 
 const childEntity = engine.addEntity()
 Transform.create(childEntity, {
-  position: Vector3.create(1, 0, 0),
-  parent: pivotEntity,
+	position: Vector3.create(1, 0, 0),
+	parent: pivotEntity,
 })
 MeshRenderer.setBox(myEntity)
 
 Tween.create(pivotEntity, {
-  mode: Tween.Mode.Rotate({
-    start: Quaternion.fromEulerDegrees(0, 0, 0),
-    end: Quaternion.fromEulerDegrees(0, 170, 0),
-  }),
-  duration: 700,
-  easingFunction: EasingFunction.EF_LINEAR,
+	mode: Tween.Mode.Rotate({
+		start: Quaternion.fromEulerDegrees(0, 0, 0),
+		end: Quaternion.fromEulerDegrees(0, 170, 0),
+	}),
+	duration: 700,
+	easingFunction: EasingFunction.EF_LINEAR,
 })
 ```
 
@@ -112,17 +117,17 @@ To change the scale of an entity between two sizes, create a `Tween` component w
 ```ts
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(myEntity)
 
 Tween.create(myEntity, {
-  mode: Tween.Mode.Scale({
-    start: Vector3.create(1, 1, 1),
-    end: Vector3.create(4, 4, 4),
-  }),
-  duration: 2000,
-  easingFunction: EasingFunction.EF_LINEAR,
+	mode: Tween.Mode.Scale({
+		start: Vector3.create(1, 1, 1),
+		end: Vector3.create(4, 4, 4),
+	}),
+	duration: 2000,
+	easingFunction: EasingFunction.EF_LINEAR,
 })
 ```
 
@@ -148,13 +153,13 @@ Tweens can follow different **Easing Functions** that affect the rate of change 
 
 ```ts
 Tween.create(myEntity, {
-  mode: Tween.Mode.Scale({
-    start: Vector3.create(1, 1, 1),
-    end: Vector3.create(4, 4, 4),
-  }),
-  duration: 2000,
-  easingFunction: EasingFunction.EF_EASEOUTBOUNCE,
-  playing: true,
+	mode: Tween.Mode.Scale({
+		start: Vector3.create(1, 1, 1),
+		end: Vector3.create(4, 4, 4),
+	}),
+	duration: 2000,
+	easingFunction: EasingFunction.EF_EASEOUTBOUNCE,
+	playing: true,
 })
 ```
 
@@ -208,17 +213,17 @@ To make a platform move constantly back and forth between two positions, leave t
 ```ts
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(myEntity)
 
 Tween.create(myEntity, {
-  mode: Tween.Mode.Move({
-    start: Vector3.create(1, 1, 1),
-    end: Vector3.create(8, 1, 8),
-  }),
-  duration: 2000,
-  easingFunction: EasingFunction.EF_LINEAR,
+	mode: Tween.Mode.Move({
+		start: Vector3.create(1, 1, 1),
+		end: Vector3.create(8, 1, 8),
+	}),
+	duration: 2000,
+	easingFunction: EasingFunction.EF_LINEAR,
 })
 
 TweenSequence.create(myEntity, { sequence: [], loop: TweenLoop.TL_YOYO })
@@ -233,49 +238,49 @@ To make an entity follow a more complex path with multiple points, provide a lis
 ```ts
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(myEntity)
 
 Tween.create(myEntity, {
-  duration: 4000,
-  easingFunction: EasingFunction.EF_LINEAR,
-  currentTime: 0,
-  playing: true,
-  mode: Tween.Mode.Move({
-    start: Vector3.create(6.5, 7, 4),
-    end: Vector3.create(6.5, 7, 12),
-  }),
+	duration: 4000,
+	easingFunction: EasingFunction.EF_LINEAR,
+	currentTime: 0,
+	playing: true,
+	mode: Tween.Mode.Move({
+		start: Vector3.create(6.5, 7, 4),
+		end: Vector3.create(6.5, 7, 12),
+	}),
 })
 
 TweenSequence.create(myEntity, {
-  sequence: [
-    {
-      duration: 2000,
-      easingFunction: EasingFunction.EF_LINEAR,
-      mode: Tween.Mode.Move({
-        start: Vector3.create(6.5, 7, 12),
-        end: Vector3.create(6.5, 10.5, 12),
-      }),
-    },
-    {
-      duration: 3000,
-      easingFunction: EasingFunction.EF_LINEAR,
-      mode: Tween.Mode.Move({
-        start: Vector3.create(6.5, 10.5, 12),
-        end: Vector3.create(6.5, 10.5, 4),
-      }),
-    },
-    {
-      duration: 3000,
-      easingFunction: EasingFunction.EF_LINEAR,
-      mode: Tween.Mode.Move({
-        start: Vector3.create(6.5, 10.5, 4),
-        end: Vector3.create(6.5, 7, 4),
-      }),
-    },
-  ],
-  loop: TweenLoop.TL_RESTART,
+	sequence: [
+		{
+			duration: 2000,
+			easingFunction: EasingFunction.EF_LINEAR,
+			mode: Tween.Mode.Move({
+				start: Vector3.create(6.5, 7, 12),
+				end: Vector3.create(6.5, 10.5, 12),
+			}),
+		},
+		{
+			duration: 3000,
+			easingFunction: EasingFunction.EF_LINEAR,
+			mode: Tween.Mode.Move({
+				start: Vector3.create(6.5, 10.5, 12),
+				end: Vector3.create(6.5, 10.5, 4),
+			}),
+		},
+		{
+			duration: 3000,
+			easingFunction: EasingFunction.EF_LINEAR,
+			mode: Tween.Mode.Move({
+				start: Vector3.create(6.5, 10.5, 4),
+				end: Vector3.create(6.5, 7, 4),
+			}),
+		},
+	],
+	loop: TweenLoop.TL_RESTART,
 })
 ```
 
@@ -285,31 +290,31 @@ A basic "constant rotation" can be achieved with the `TweenSequence` component a
 
 ```ts
 const myEntity = engine.addEntity()
-  Transform.create(myEntity, {
-    position: Vector3.create(8, 1, 8),
-  })
-  MeshRenderer.setBox(myEntity)
-  Tween.create(myEntity, {
-    mode: Tween.Mode.Rotate({
-      start: Quaternion.fromEulerDegrees(0, 0, 0),
-      end: Quaternion.fromEulerDegrees(0, 180, 0)
-    }),
-    duration: 700,
-    easingFunction: EasingFunction.EF_LINEAR
-  })
-  TweenSequence.create(myEntity, {
-    loop: TweenLoop.TL_RESTART,
-    sequence: [
-      {
-        mode: Tween.Mode.Rotate({
-          start: Quaternion.fromEulerDegrees(0, 180, 0),
-          end: Quaternion.fromEulerDegrees(0, 360, 0)
-        }),
-        duration: 700,
-        easingFunction: EasingFunction.EF_LINEAR
-      }
-    ]
-  })
+Transform.create(myEntity, {
+	position: Vector3.create(8, 1, 8),
+})
+MeshRenderer.setBox(myEntity)
+Tween.create(myEntity, {
+	mode: Tween.Mode.Rotate({
+		start: Quaternion.fromEulerDegrees(0, 0, 0),
+		end: Quaternion.fromEulerDegrees(0, 180, 0),
+	}),
+	duration: 700,
+	easingFunction: EasingFunction.EF_LINEAR,
+})
+TweenSequence.create(myEntity, {
+	loop: TweenLoop.TL_RESTART,
+	sequence: [
+		{
+			mode: Tween.Mode.Rotate({
+				start: Quaternion.fromEulerDegrees(0, 180, 0),
+				end: Quaternion.fromEulerDegrees(0, 360, 0),
+			}),
+			duration: 700,
+			easingFunction: EasingFunction.EF_LINEAR,
+		},
+	],
+})
 ```
 
 ## On tween finished
@@ -318,10 +323,10 @@ Use `tweenSystem.tweenCompleted` to detect when a tween has finished. This can b
 
 ```ts
 engine.addSystem(() => {
-  const tweenCompleted = tweenSystem.tweenCompleted(myEntity)
-  if (tweenCompleted) {
-    //play sound
-  }
+	const tweenCompleted = tweenSystem.tweenCompleted(myEntity)
+	if (tweenCompleted) {
+		//play sound
+	}
 })
 ```
 
@@ -334,32 +339,32 @@ In the following snippet, a parent entity rotates while a child scales up.
 ```ts
 const parentEntity = engine.addEntity()
 Transform.create(parentEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(parentEntity)
 Tween.create(parentEntity, {
-  mode: Tween.Mode.Rotate({
-    start: Quaternion.fromEulerDegrees(0, 0, 0),
-    end: Quaternion.fromEulerDegrees(0, 170, 0),
-  }),
-  duration: 5000,
-  easingFunction: EasingFunction.EF_LINEAR,
+	mode: Tween.Mode.Rotate({
+		start: Quaternion.fromEulerDegrees(0, 0, 0),
+		end: Quaternion.fromEulerDegrees(0, 170, 0),
+	}),
+	duration: 5000,
+	easingFunction: EasingFunction.EF_LINEAR,
 })
 
 const childEntity = engine.addEntity()
 Transform.create(childEntity, {
-  position: Vector3.create(0, 0, 0),
-  parent: parentEntity,
+	position: Vector3.create(0, 0, 0),
+	parent: parentEntity,
 })
 MeshRenderer.setBox(childEntity)
 
 Tween.create(childEntity, {
-  mode: Tween.Mode.Scale({
-    start: Vector3.create(1, 1, 1),
-    end: Vector3.create(4, 4, 4),
-  }),
-  duration: 5000,
-  easingFunction: EasingFunction.EF_LINEAR,
+	mode: Tween.Mode.Scale({
+		start: Vector3.create(1, 1, 1),
+		end: Vector3.create(4, 4, 4),
+	}),
+	duration: 5000,
+	easingFunction: EasingFunction.EF_LINEAR,
 })
 ```
 
@@ -369,14 +374,14 @@ To pause a tween, change the `playing` property to false. To resume it, change i
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  {
-    entity: button,
-    opts: { button: InputAction.IA_POINTER, hoverText: 'pause' },
-  },
-  () => {
-    let tweenData = Tween.getMutable(myEntity)
-    tweenData.playing = !tweenData.playing
-  }
+	{
+		entity: button,
+		opts: { button: InputAction.IA_POINTER, hoverText: 'pause' },
+	},
+	() => {
+		let tweenData = Tween.getMutable(myEntity)
+		tweenData.playing = !tweenData.playing
+	}
 )
 ```
 
@@ -392,18 +397,18 @@ The easiest way to move an entity is to gradually modify the _position_ value st
 
 ```ts
 function SimpleMove() {
-  let transform = Transform.getMutable(myEntity)
-  transform.position = Vector3.add(
-    transform.position,
-    Vector3.scale(Vector3.Forward(), 0.05)
-  )
+	let transform = Transform.getMutable(myEntity)
+	transform.position = Vector3.add(
+		transform.position,
+		Vector3.scale(Vector3.Forward(), 0.05)
+	)
 }
 
 engine.addSystem(SimpleMove)
 
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(myEntity)
 ```
@@ -420,18 +425,18 @@ The easiest way to rotate an entity is to gradually change the values in the Tra
 
 ```ts
 function SimpleRotate() {
-  let transform = Transform.getMutable(myEntity)
-  transform.rotation = Quaternion.multiply(
-    transform.rotation,
-    Quaternion.fromAngleAxis(1, Vector3.Up())
-  )
+	let transform = Transform.getMutable(myEntity)
+	transform.rotation = Quaternion.multiply(
+		transform.rotation,
+		Quaternion.fromAngleAxis(1, Vector3.Up())
+	)
 }
 
 engine.addSystem(SimpleRotate)
 
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(myEntity)
 ```
@@ -454,24 +459,24 @@ When rotating the parent entity, its children will be all rotated using the pare
 
 ```ts
 function SimpleRotate() {
-  let transform = Transform.getMutable(pivotEntity)
-  transform.rotation = Quaternion.multiply(
-    transform.rotation,
-    Quaternion.fromAngleAxis(1, Vector3.Up())
-  )
+	let transform = Transform.getMutable(pivotEntity)
+	transform.rotation = Quaternion.multiply(
+		transform.rotation,
+		Quaternion.fromAngleAxis(1, Vector3.Up())
+	)
 }
 
 engine.addSystem(SimpleRotate)
 
 const pivotEntity = engine.addEntity()
 Transform.create(pivotEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 
 const childEntity = engine.addEntity()
 Transform.create(childEntity, {
-  position: Vector3.create(1, 0, 0),
-  parent: pivotEntity,
+	position: Vector3.create(1, 0, 0),
+	parent: pivotEntity,
 })
 MeshRenderer.setBox(myEntity)
 ```
@@ -488,18 +493,18 @@ You can compensate for this uneven timing by using the `dt` parameter to adjust 
 
 ```ts
 function SimpleMove(dt: number) {
-  let transform = Transform.getMutable(myEntity)
-  transform.position = Vector3.add(
-    transform.position,
-    Vector3.scale(Vector3.Forward(), dt)
-  )
+	let transform = Transform.getMutable(myEntity)
+	transform.position = Vector3.add(
+		transform.position,
+		Vector3.scale(Vector3.Forward(), dt)
+	)
 }
 
 engine.addSystem(SimpleMove)
 
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(myEntity)
 ```
@@ -538,25 +543,25 @@ To implement this `lerp()` in your scene, we recommend creating a [custom compon
 ```ts
 // define custom component
 const MoveTransportData = {
-  start: Schemas.Vector3,
-  end: Schemas.Vector3,
-  fraction: Schemas.Float,
-  speed: Schemas.Float,
+	start: Schemas.Vector3,
+	end: Schemas.Vector3,
+	fraction: Schemas.Float,
+	speed: Schemas.Float,
 }
 
 export const LerpTransformComponent = engine.defineComponent(
-  'LerpTransformComponent',
-  MoveTransportData
+	'LerpTransformComponent',
+	MoveTransportData
 )
 
 // define system
 function LerpMove(dt: number) {
-  let transform = Transform.getMutable(myEntity)
-  let lerp = LerpTransformComponent.getMutable(myEntity)
-  if (lerp.fraction < 1) {
-    lerp.fraction += dt * lerp.speed
-    transform.position = Vector3.lerp(lerp.start, lerp.end, lerp.fraction)
-  }
+	let transform = Transform.getMutable(myEntity)
+	let lerp = LerpTransformComponent.getMutable(myEntity)
+	if (lerp.fraction < 1) {
+		lerp.fraction += dt * lerp.speed
+		transform.position = Vector3.lerp(lerp.start, lerp.end, lerp.fraction)
+	}
 }
 
 engine.addSystem(LerpMove)
@@ -565,16 +570,16 @@ engine.addSystem(LerpMove)
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 
 MeshRenderer.setBox(myEntity)
 
 LerpTransformComponent.create(myEntity, {
-  start: Vector3.create(4, 1, 4),
-  end: Vector3.create(8, 1, 8),
-  fraction: 0,
-  speed: 1,
+	start: Vector3.create(4, 1, 4),
+	end: Vector3.create(8, 1, 8),
+	fraction: 0,
+	speed: 1,
 })
 ```
 
@@ -606,26 +611,26 @@ To implement this in your scene, we recommend storing the data that goes into th
 ```ts
 // define custom component
 const RotateSlerpData = {
-  start: Schemas.Quaternion,
-  end: Schemas.Quaternion,
-  fraction: Schemas.Float,
-  speed: Schemas.Float,
+	start: Schemas.Quaternion,
+	end: Schemas.Quaternion,
+	fraction: Schemas.Float,
+	speed: Schemas.Float,
 }
 
 export const SlerpData = engine.defineComponent('SlerpData', RotateSlerpData)
 
 // define system
 function SlerpRotate(dt: number) {
-  let transform = Transform.getMutable(myEntity)
-  let slerpData = SlerpData.getMutable(myEntity)
-  if (slerpData.fraction < 1) {
-    slerpData.fraction += dt * slerpData.speed
-    transform.rotation = Quaternion.slerp(
-      slerpData.start,
-      slerpData.end,
-      slerpData.fraction
-    )
-  }
+	let transform = Transform.getMutable(myEntity)
+	let slerpData = SlerpData.getMutable(myEntity)
+	if (slerpData.fraction < 1) {
+		slerpData.fraction += dt * slerpData.speed
+		transform.rotation = Quaternion.slerp(
+			slerpData.start,
+			slerpData.end,
+			slerpData.fraction
+		)
+	}
 }
 
 engine.addSystem(SlerpRotate)
@@ -634,16 +639,16 @@ engine.addSystem(SlerpRotate)
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
+	position: Vector3.create(4, 1, 4),
 })
 
 MeshRenderer.setBox(myEntity)
 
 SlerpData.create(myEntity, {
-  start: Quaternion.fromEulerDegrees(0, 0, 0),
-  end: Quaternion.fromEulerDegrees(0, 180, 0),
-  fraction: 0,
-  speed: 0.3,
+	start: Quaternion.fromEulerDegrees(0, 0, 0),
+	end: Quaternion.fromEulerDegrees(0, 180, 0),
+	fraction: 0,
+	speed: 0.3,
 })
 ```
 
@@ -657,24 +662,24 @@ A simpler but less efficient approach to this takes advantage of the `Quaternion
 
 ```ts
 function SimpleRotate(dt: number) {
-  let transform = Transform.getMutable(myEntity)
-  transform.rotation = Quaternion.rotateTowards(
-    transform.rotation,
-    Quaternion.fromEulerDegrees(90, 0, 0),
-    dt * 10
-  )
-  if (transform.rotation === Quaternion.fromEulerDegrees(90, 0, 0)) {
-    console.log('done')
-    engine.removeSystem(this)
-  }
+	let transform = Transform.getMutable(myEntity)
+	transform.rotation = Quaternion.rotateTowards(
+		transform.rotation,
+		Quaternion.fromEulerDegrees(90, 0, 0),
+		dt * 10
+	)
+	if (transform.rotation === Quaternion.fromEulerDegrees(90, 0, 0)) {
+		console.log('done')
+		engine.removeSystem(this)
+	}
 }
 
 const simpleRotateSystem = engine.addSystem(SimpleRotate)
 
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 1, 4),
-  rotation: Quaternion.fromEulerDegrees(0, 0, 90),
+	position: Vector3.create(4, 1, 4),
+	rotation: Quaternion.fromEulerDegrees(0, 0, 90),
 })
 
 MeshRenderer.setBox(myEntity)
@@ -708,26 +713,26 @@ To implement this lerp in your scene, we recommend creating a custom component t
 ```ts
 // define custom component
 const ScaleTransportData = {
-  start: Schemas.Number,
-  end: Schemas.Number,
-  fraction: Schemas.Float,
-  speed: Schemas.Float,
+	start: Schemas.Number,
+	end: Schemas.Number,
+	fraction: Schemas.Float,
+	speed: Schemas.Float,
 }
 
 export const ScaleTransformComponent = engine.defineComponent(
-  'ScaleTransformComponent',
-  ScaleTransportData
+	'ScaleTransformComponent',
+	ScaleTransportData
 )
 
 // define system
 function LerpMove(dt: number) {
-  let transform = Transform.getMutable(myEntity)
-  let lerp = ScaleTransformComponent.getMutable(myEntity)
-  if (lerp.fraction < 1) {
-    lerp.fraction += dt * lerp.speed
-    const newScale = Scalar.lerp(lerp.start, lerp.end, lerp.fraction)
-    transform.scale = Vector3.create(newScale, newScale, newScale)
-  }
+	let transform = Transform.getMutable(myEntity)
+	let lerp = ScaleTransformComponent.getMutable(myEntity)
+	if (lerp.fraction < 1) {
+		lerp.fraction += dt * lerp.speed
+		const newScale = Scalar.lerp(lerp.start, lerp.end, lerp.fraction)
+		transform.scale = Vector3.create(newScale, newScale, newScale)
+	}
 }
 
 engine.addSystem(LerpMove)
@@ -736,16 +741,16 @@ engine.addSystem(LerpMove)
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
-  position: { x: 4, y: 1, z: 4 },
+	position: { x: 4, y: 1, z: 4 },
 })
 
 MeshRenderer.setBox(myEntity)
 
 ScaleTransformComponent.create(myEntity, {
-  start: 1,
-  end: 2,
-  fraction: 0,
-  speed: 1,
+	start: 1,
+	end: 2,
+	fraction: 0,
+	speed: 1,
 })
 
 Vector3.create(1, 1, 1)
@@ -764,31 +769,31 @@ Often these non-linear transitions can breathe a lot of life into a scene. A mov
 ```ts
 // define custom component
 const MoveTransportData = {
-  start: Schemas.Vector3,
-  end: Schemas.Vector3,
-  fraction: Schemas.Float,
-  speed: Schemas.Float,
+	start: Schemas.Vector3,
+	end: Schemas.Vector3,
+	fraction: Schemas.Float,
+	speed: Schemas.Float,
 }
 
 export const LerpTransformComponent = engine.defineComponent(
-  'LerpTransformComponent',
-  MoveTransportData
+	'LerpTransformComponent',
+	MoveTransportData
 )
 
 // define system
 function LerpMove(dt: number) {
-  let transform = Transform.getMutable(myEntity)
-  let lerp = LerpTransformComponent.getMutable(myEntity)
-  if (lerp.fraction < 1) {
-    lerp.fraction += dt * lerp.speed
-    const interpolatedValue = interpolate(lerp.fraction)
-    transform.position = Vector3.lerp(lerp.start, lerp.end, interpolatedValue)
-  }
+	let transform = Transform.getMutable(myEntity)
+	let lerp = LerpTransformComponent.getMutable(myEntity)
+	if (lerp.fraction < 1) {
+		lerp.fraction += dt * lerp.speed
+		const interpolatedValue = interpolate(lerp.fraction)
+		transform.position = Vector3.lerp(lerp.start, lerp.end, interpolatedValue)
+	}
 }
 
 // map the lerp fraction to an exponential curve
 function interpolate(t: number) {
-  return t * t
+	return t * t
 }
 
 engine.addSystem(LerpMove)
@@ -797,16 +802,16 @@ engine.addSystem(LerpMove)
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
-  position: { x: 4, y: 1, z: 4 },
+	position: { x: 4, y: 1, z: 4 },
 })
 
 MeshRenderer.setBox(myEntity)
 
 LerpTransformComponent.create(myEntity, {
-  start: Vector3.create(4, 1, 4),
-  end: Vector3.create(8, 1, 8),
-  fraction: 0,
-  speed: 1,
+	start: Vector3.create(4, 1, 4),
+	end: Vector3.create(8, 1, 8),
+	fraction: 0,
+	speed: 1,
 })
 ```
 
@@ -823,35 +828,35 @@ You can have an entity loop over an array of vectors, performing a lerp movement
 ```ts
 // define custom component
 const PathTransportData = {
-  path: Schemas.Array(Schemas.Vector3),
-  start: Schemas.Vector3,
-  end: Schemas.Vector3,
-  fraction: Schemas.Float,
-  speed: Schemas.Float,
-  pathTargetIndex: Schemas.Int,
+	path: Schemas.Array(Schemas.Vector3),
+	start: Schemas.Vector3,
+	end: Schemas.Vector3,
+	fraction: Schemas.Float,
+	speed: Schemas.Float,
+	pathTargetIndex: Schemas.Int,
 }
 
 export const LerpTransformComponent = engine.defineComponent(
-  'LerpTransformComponent',
-  PathTransportData
+	'LerpTransformComponent',
+	PathTransportData
 )
 
 // define system
 function PathMove(dt: number) {
-  let transform = Transform.getMutable(myEntity)
-  let lerp = LerpTransformComponent.getMutable(myEntity)
-  if (lerp.fraction < 1) {
-    lerp.fraction += dt * lerp.speed
-    transform.position = Vector3.lerp(lerp.start, lerp.end, lerp.fraction)
-  } else {
-    lerp.pathTargetIndex += 1
-    if (lerp.pathTargetIndex >= lerp.path.length) {
-      lerp.pathTargetIndex = 0
-    }
-    lerp.start = lerp.end
-    lerp.end = lerp.path[lerp.pathTargetIndex]
-    lerp.fraction = 0
-  }
+	let transform = Transform.getMutable(myEntity)
+	let lerp = LerpTransformComponent.getMutable(myEntity)
+	if (lerp.fraction < 1) {
+		lerp.fraction += dt * lerp.speed
+		transform.position = Vector3.lerp(lerp.start, lerp.end, lerp.fraction)
+	} else {
+		lerp.pathTargetIndex += 1
+		if (lerp.pathTargetIndex >= lerp.path.length) {
+			lerp.pathTargetIndex = 0
+		}
+		lerp.start = lerp.end
+		lerp.end = lerp.path[lerp.pathTargetIndex]
+		lerp.fraction = 0
+	}
 }
 
 engine.addSystem(PathMove)
@@ -860,7 +865,7 @@ engine.addSystem(PathMove)
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
-  position: Vector3.create(1, 1, 1),
+	position: Vector3.create(1, 1, 1),
 })
 
 MeshRenderer.setBox(myEntity)
@@ -873,12 +878,12 @@ const point4 = Vector3.create(1, 1, 7)
 const myPath = [point1, point2, point3, point4]
 
 LerpTransformComponent.create(myEntity, {
-  path: myPath,
-  start: Vector3.create(4, 1, 4),
-  end: Vector3.create(8, 1, 8),
-  fraction: 0,
-  speed: 1,
-  pathTargetIndex: 1,
+	path: myPath,
+	start: Vector3.create(4, 1, 4),
+	end: Vector3.create(8, 1, 8),
+	fraction: 0,
+	speed: 1,
+	pathTargetIndex: 1,
 })
 ```
 

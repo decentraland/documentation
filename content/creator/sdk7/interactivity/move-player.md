@@ -9,6 +9,12 @@ url: /creator/development-guide/sdk7/move-player/
 weight: 2
 ---
 
+## Use the Scene Editor
+
+The easiest way to move the player is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the no-code **Move player** or the **Move player here** Actions, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+
+## Move player
+
 To change the player's position in the scene, use the `movePlayerTo()` function. This function takes an object with two properties:
 
 - `newRelativePosition`: Where to move the player, expressed as a Vector3.
@@ -23,22 +29,22 @@ MeshRenderer.setBox(myEntity)
 MeshCollider.setBox(myEntity)
 
 Transform.create(myEntity, {
-  position: { x: 4, y: 1, z: 4 },
+	position: { x: 4, y: 1, z: 4 },
 })
 
 // give entity behavior
 pointerEventsSystem.onPointerDown(
-  {
-    entity: myEntity,
-    opts: { button: InputAction.IA_POINTER, hoverText: 'Click' },
-  },
-  function () {
-    // respawn player
-    movePlayerTo({
-      newRelativePosition: Vector3.create(1, 0, 1),
-      cameraTarget: Vector3.create(8, 1, 8),
-    })
-  }
+	{
+		entity: myEntity,
+		opts: { button: InputAction.IA_POINTER, hoverText: 'Click' },
+	},
+	function () {
+		// respawn player
+		movePlayerTo({
+			newRelativePosition: Vector3.create(1, 0, 1),
+			cameraTarget: Vector3.create(8, 1, 8),
+		})
+	}
 )
 ```
 

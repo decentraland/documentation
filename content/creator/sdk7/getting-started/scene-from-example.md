@@ -11,7 +11,7 @@ weight: 4
 
 Create a new Decentraland scene project based on an example to start out with a solid base. You can use this to reuse game mechanics, art assets, or anything that may be included in the parent project.
 
-1. Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}})
+1. Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}})
 
 2. Open a Visual Studio Code window on an _empty folder_.
 3. Select the Decentraland tab on Visual Studio's left margin sidebar, and click **Create Project**
