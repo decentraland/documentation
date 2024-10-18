@@ -44,7 +44,7 @@ myMaterial.roughness = 0.1
 myEntity.addComponent(myMaterial)
 ```
 
-See [component reference](https://github.com/decentraland/ecs-reference)) for a full list of all the fields that can be configured in a `Material` of `BasicMaterial` component.
+See [component reference](https://github.com/decentraland/ecs-reference) for a full list of all the fields that can be configured in a `Material` of `BasicMaterial` component.
 
 ## Basic materials
 
