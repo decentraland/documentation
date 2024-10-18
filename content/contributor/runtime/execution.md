@@ -11,9 +11,9 @@ Two methods will be picked up by the host from `exports`: [`onStart`](#onStart) 
 
 ```ts
 type Exports = {
-  onStart?: () => Promise<void>
-  onUpdate: (deltaSeconds: number) => Promise<void>
-}
+  onStart?: () => Promise<void>;
+  onUpdate: (deltaSeconds: number) => Promise<void>;
+};
 ```
 
 During the life-cycle of a scene, the runtime will ensure that calls to these methods are never made concurrently. The returned `Promise` will always be awaited before the scene receives a new call.
@@ -21,7 +21,7 @@ During the life-cycle of a scene, the runtime will ensure that calls to these me
 ```goat
 .---------.              .----------.
 | onStart +------------> | onUpdate +-----.
-'---------'   await      '----------'     |                                         
+'---------'   await      '----------'     |
                                ^   await  |
                                +----------'
 ```
@@ -30,8 +30,7 @@ During the life-cycle of a scene, the runtime will ensure that calls to these me
 Effective and performant synchronization between individual scenes and the game rendering engine is a complicated matter. You can find lessons from the Foundation's implementation in [ADR-148](https://adr.decentraland.org/adr/ADR-148).
 {{< /info >}}
 
-
-###### `onStart` {#onStart}
+##### `onStart` {#onStart}
 
 The life-cycle of a scene begins with the asynchronous `onStart` method. It's the place to make one-time initializations that must complete before the first call to [`onUpdate`](#onUpdate) is made.
 
@@ -43,8 +42,7 @@ Scenes should use this call to request any pre-existing state from the runtime (
 
 Exporting `onStart` is recommended for all scenes (and done automatically when using the SDK), but it's not required by protocol. The method may be missing, or return an immediately resolved `Promise`.
 
-
-###### `onUpdate` {#onUpdate}
+##### `onUpdate` {#onUpdate}
 
 While a scene is actively running, the asynchronous `onUpdate` method will be periodically invoked by the runtime to report the passage of time. This is the heart of the scene: in each successive call, entities can be updated, input processed, animations played, messages sent, UI displayed, etc.
 
@@ -60,7 +58,6 @@ In ideal circumstances, scenes get a chance to run `onUpdate` before each frame 
 
 See [ADR-148](https://adr.decentraland.org/adr/ADR-148) for details.
 
-
 ## Running Multiple Scenes
 
 The World Explorer must not only support running several sandboxed scenes, it should be doing so at all times. There's two reasons for this:
@@ -71,13 +68,11 @@ Second, scenes don't just run inside their own, non-overlapping boundaries. They
 
 This is the case for two kinds of scenes in particular: the avatar scene, and portable experiences.
 
-
 ### The Avatar Scene {#avatarScene}
 
 From the moment the player enters the world, a global scene tasked with rendering the avatars of other players starts running.
 
 This scene is not limited by geographical boundaries, and can display its entities (as well as UI widgets for communication) regardless of the player's location.
-
 
 ### Portable Experiences
 

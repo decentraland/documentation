@@ -17,11 +17,9 @@ ws-room:wss://comms.example.com/rooms/<room-id>
 
 In the abscence of an explicit protocol for the websocket URI, `wss://` is assumed.
 
-
 ## Connecting
 
 The transport uses the regular websocket protocol over HTTPS. Clients can open a connection using any standard implementation at their disposal.
-
 
 ## Websocket Packets
 
@@ -31,10 +29,9 @@ All messages from the websocket transport are serialized using the [`WsPacket`][
 The [`WsPacket`](#WsPacket) structure should not be confused with the message [`Packet`][Packet]. It's an additional wrapping layer specific to the websocket transport. Actual comms messages are contained in the [`WsPeerUpdate`](#WsPeerUpdate) type.
 {{< /info >}}
 
-| Field | Type | Value
-| ----- | --- | --- |
-| `message` | `enum` | One of `WsIdentification`, `WsChallengeRequired`, `WsSignedChallenge`, <br>`WsWelcome`, `WsPeerJoin`, `WsPeerLeave`, `WsKicked` or `WsPeerUpdate`.
-
+| Field     | Type   | Value                                                                                                                                              |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `message` | `enum` | One of `WsIdentification`, `WsChallengeRequired`, `WsSignedChallenge`, <br>`WsWelcome`, `WsPeerJoin`, `WsPeerLeave`, `WsKicked` or `WsPeerUpdate`. |
 
 ## Authentication
 
@@ -43,7 +40,7 @@ Before they can start relaying messages to others, clients must authenticate by 
 The first message a client sends when joining an island is [`WsIdentification`][WsIdentification], which contains a public address. It will be responded with [`WsChallengeRequired`](#WsChallengeRequired), and clients send a [`WsSignedChallenge`](#WsSignedChallenge) in reply.
 
 ```goat
-  .----------.                .--------.                                                           
+  .----------.                .--------.
   |  Server  |                | Client |
   '----+-----'                '---+----'
        ⋮                          |
@@ -64,39 +61,41 @@ The first message a client sends when joining an island is [`WsIdentification`][
        |                          |
 ```
 
-
 If the flow is completed successfully, the client will receive a [`WsWelcome`](#WsWelcome) and can start sending messages to peers.
 
 ---
-###### `WsIdentification` <small>[↗ source][WsIdentification]</small> {#WsIdentification}
 
-| Field | Type | Value
-| ----- | --- | --- |
-| `address` | `string` | The public Ethereum address of the client
+##### `WsIdentification` <small>[↗ source][WsIdentification]</small> {#WsIdentification}
 
----
-###### `WsChallengeRequired` <small>[↗ source][WsChallengeRequired]</small> {#WsChallengeRequired}
-
-| Field | Type | Value
-| ----- | --- | --- |
-| `challenge_to_sign` | `string` | The server-provided string to be signed as proof of identity
-| `already_connected` | `string` | A server hint to clients, indicating that prior connections may be closed.
+| Field     | Type     | Value                                     |
+| --------- | -------- | ----------------------------------------- |
+| `address` | `string` | The public Ethereum address of the client |
 
 ---
-###### `WsSignedChallenge` <small>[↗ source][WsSignedChallenge]</small> {#WsSignedChallenge}
 
-| Field | Type | Value
-| ----- | --- | --- |
-| `auth_chain_json` | `string` | A serialized [authentication chain]({{< relref "../../auth/authchain" >}}) ending with the challenge signature.
+##### `WsChallengeRequired` <small>[↗ source][WsChallengeRequired]</small> {#WsChallengeRequired}
+
+| Field               | Type     | Value                                                                      |
+| ------------------- | -------- | -------------------------------------------------------------------------- |
+| `challenge_to_sign` | `string` | The server-provided string to be signed as proof of identity               |
+| `already_connected` | `string` | A server hint to clients, indicating that prior connections may be closed. |
 
 ---
-###### `WsWelcome` <small>[↗ source][WsWelcome]</small> {#WsWelcome}
 
-| Field | Type | Value
-| ----- | --- | --- |
-| `alias` | `uint32` | A server-generated ID for the client's session
-| `peer_identities` | `map<uint32, string>` | The addresses of all current peers, indexed by alias
+##### `WsSignedChallenge` <small>[↗ source][WsSignedChallenge]</small> {#WsSignedChallenge}
 
+| Field             | Type     | Value                                                                                                           |
+| ----------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `auth_chain_json` | `string` | A serialized [authentication chain]({{< relref "../../auth/authchain" >}}) ending with the challenge signature. |
+
+---
+
+##### `WsWelcome` <small>[↗ source][WsWelcome]</small> {#WsWelcome}
+
+| Field             | Type                  | Value                                                |
+| ----------------- | --------------------- | ---------------------------------------------------- |
+| `alias`           | `uint32`              | A server-generated ID for the client's session       |
+| `peer_identities` | `map<uint32, string>` | The addresses of all current peers, indexed by alias |
 
 ## Connectivity
 
@@ -107,36 +106,36 @@ Three messages are defined to help clients keep track of their peers and their o
 There's also the [`WsKicked`](#WsKicked) message, which informs clients that their connection is about to be closed and the reason for it. In current practice, the main reason a server can kick a client from a room is because they've simultaneously connected to another room, when that is forbidden by server policy.
 
 ---
-###### `WsPeerJoin` <small>[↗ source][WsPeerJoin]</small> {#WsPeerJoin}
 
-| Field | Type | Value
-| ----- | --- | --- |
-| `alias` | `uint32` | The server-generated ID sent in [`WsWelcome`](#WsWelcome)
-| `address` | `string` | The new peer's Ethereum address
+##### `WsPeerJoin` <small>[↗ source][WsPeerJoin]</small> {#WsPeerJoin}
 
-
----
-###### `WsPeerLeave` <small>[↗ source][WsPeerLeave]</small> {#WsPeerLeave}
-
-| Field | Type | Value
-| ----- | --- | --- |
-| `alias` | `uint32` | The server-generated ID of the disconnected peer
-
+| Field     | Type     | Value                                                     |
+| --------- | -------- | --------------------------------------------------------- |
+| `alias`   | `uint32` | The server-generated ID sent in [`WsWelcome`](#WsWelcome) |
+| `address` | `string` | The new peer's Ethereum address                           |
 
 ---
-###### `WsKicked` <small>[↗ source][WsKicked]</small> {#WsKicked}
 
-| Field | Type | Value
-| ----- | --- | --- |
-| `reason` | `string` | The server's explanation of why the connection will be closed
+##### `WsPeerLeave` <small>[↗ source][WsPeerLeave]</small> {#WsPeerLeave}
 
+| Field   | Type     | Value                                            |
+| ------- | -------- | ------------------------------------------------ |
+| `alias` | `uint32` | The server-generated ID of the disconnected peer |
+
+---
+
+##### `WsKicked` <small>[↗ source][WsKicked]</small> {#WsKicked}
+
+| Field    | Type     | Value                                                         |
+| -------- | -------- | ------------------------------------------------------------- |
+| `reason` | `string` | The server's explanation of why the connection will be closed |
 
 ## Client Messages
 
 To send comms [messages]({{< relref "../messages" >}}), clients wrap them in the [`WsPeerUpdate`](#WsPeerUpdate) structure. This differentiates the transport control message types from the actual messages sent between peers.
 
 ```goat
-.-------------------.                                                                               
+.-------------------.
 | WsPacket          |
 |  .--------------. |
 |  | WsPeerUpdate | |
@@ -148,16 +147,16 @@ To send comms [messages]({{< relref "../messages" >}}), clients wrap them in the
 ```
 
 ---
-###### `WsPeerUpdate` <small>[↗ source][WsPeerUpdate]</small> {#WsPeerUpdate}
 
-| Field | Type | Value
-| ----- | --- | --- |
-| `from_alias` | `uint32` | The sender's server-generated ID
-| `body` | `bytes` | The serialized [message]({{< relref "../messages" >}}) being wrapped
-| `unreliable` | `bool` | Whether the sender prioritized speed or reliability for deliverying this message
+##### `WsPeerUpdate` <small>[↗ source][WsPeerUpdate]</small> {#WsPeerUpdate}
+
+| Field        | Type     | Value                                                                            |
+| ------------ | -------- | -------------------------------------------------------------------------------- |
+| `from_alias` | `uint32` | The sender's server-generated ID                                                 |
+| `body`       | `bytes`  | The serialized [message]({{< relref "../messages" >}}) being wrapped             |
+| `unreliable` | `bool`   | Whether the sender prioritized speed or reliability for deliverying this message |
 
 Clients must set the `from_alias` field to `0` when sending, and the server will fill it with the correct identifier before delivering it to peers.
-
 
 [WsWelcome]: https://github.com/decentraland/protocol/blob/c48ea0aa00d8173084571552463a6a05a7f49636/proto/decentraland/kernel/comms/rfc5/ws_comms.proto#L11
 [WsPeerJoin]: https://github.com/decentraland/protocol/blob/c48ea0aa00d8173084571552463a6a05a7f49636/proto/decentraland/kernel/comms/rfc5/ws_comms.proto#L19

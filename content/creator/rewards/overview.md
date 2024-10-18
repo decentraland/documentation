@@ -4,7 +4,7 @@ url: /creator/rewards/overview
 weight: 1
 ---
 
-The [Rewards dApp](https://decentraland.org/rewards/) is a powerful tool that enables creators to reward users with Decentraland Wearables or Emotes via HTTP requests. It can be used to motivate users, promote scenes, or increase retention. Rewards can be granted directly from a scene, a server, or in a [quests]({{< ref "/content/creator/quests/overview.md" >}}).
+The [Rewards dApp](https://decentraland.org/rewards/) is a powerful tool that enables creators to reward users with Decentraland Wearables or Emotes via HTTP requests. It can be used to motivate users, promote scenes, or increase retention. Rewards can be granted directly from a scene, a server, or in a [quests]({{< ref "/content/creator/deprecated/quests/overview.md" >}}).
 
 The Rewards system manages most of the complexities involved in minting items on the blockchain, including:
 
@@ -16,7 +16,7 @@ The Rewards system manages most of the complexities involved in minting items on
 - Verifying user presence in the scene via Catalyst nodes
 - Monitoring transaction status
 - Informing users about the item they will receive before the transaction is confirmed
-- Emits Notifications when rewards are granted and received 
+- Emits Notifications when rewards are granted and received
 
 - <img src="/images/rewards/overview.png" alt="Rewards Service Overview" width="1716" hegiht="687" />
 

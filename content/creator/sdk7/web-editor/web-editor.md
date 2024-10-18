@@ -15,6 +15,12 @@ The Web Editor is a simple visual tool that lets you create and publish Decentra
 
 To access the web editor simply visit the [builder page](https://builder.decentraland.org/scenes) and go to **scenes** section.
 
+{{< hint warning >}}
+📔 Note: The **Creator Hub** is the best alternative for creating Decentraland scenes for all skill levels. It allows you to combine the easy drag-and-drop interface with the ability to customize further with code.
+
+See [About the Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+{{< /hint >}}
+
 {{< youtube PF7smSBxVOc >}}
 
 ## Create scene
@@ -31,7 +37,7 @@ To build something to deploy to LAND parcels you own, make sure the shape of the
 
 ## Moving around
 
-To find your way around the editor:
+To find your way around the web editor:
 
 - Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
 - Use **S** and **D** to move sideways.
@@ -98,7 +104,7 @@ If a scene is too large to upload, try this:
 
 Decentraland scenes need to follow certain limitations, to be able to run them one next to another. There is a maximum number of materials, textures, triangles, etc, that is proportional to the number of parcels in the scene. See [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) for more details.
 
-If the content in your scene exceeds any of these limits, the editor will notify this on the bottom-left corner.
+If the content in your scene exceeds any of these limits, the web editor will notify this on the bottom-left corner.
 
 <img src="/images/editor/triangle-limit1.png" width="300" />
 
@@ -110,7 +116,7 @@ You can expand this menu to view details.
 **💡 Tip**: If you're building a Decentraland World, you can always add more parcels to increase your limits.
 {{< /hint >}}
 
-The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any of the models in your scene extend beyond the limits, the editor will mark these in red.
+The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any of the models in your scene extend beyond the limits, the web editor will mark these in red.
 
 <img src="/images/editor/out-of-bounds.png" width="300" />
 
@@ -148,7 +154,7 @@ The scene includes a couple of special entities that you can see in the entity t
 
 You might find it handy to sometimes lock an item, to prevent accidentally selecting and moving it. This is especially useful for background items, like the ground, or a building. To lock an item, look for it on the entity tree on the left, hover over it, and select the lock icon. You can toggle this behavior on and off via that same icon.
 
-You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Editor window, not to players entering the scene. To hide an item, look for it on the item tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
+You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Web Editor window, not to players entering the scene. To hide an item, look for it on the item tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
 
 ![](/images/editor/hide-lock-item.png)
 

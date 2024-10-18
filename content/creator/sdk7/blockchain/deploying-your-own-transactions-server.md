@@ -86,7 +86,7 @@ To do this:
   - [Contracts and collections](#contracts-and-collections)
   - [Min sale value](#min-sale-value)
 
-#### Biconomy
+### Biconomy
 
 Use the API KEY and API ID we got when [configuring biconomy](#configuring-biconomy).
 
@@ -95,7 +95,7 @@ BICONOMY_API_KEY=Bxl2UQrJG.3c1d0a43-2d58-123b-721i-abdcbf182b8a
 BICONOMY_API_ID=a890974a-5519-4d60-912a-ff2704258dc2
 ```
 
-#### Transactions
+### Transactions
 
 When a new transaction request arrives it'll check the amount **an address** has sent that day. If it's over the set value the transaction will fail.
 
@@ -111,7 +111,7 @@ await checkQuota(components, transactionData)
 
 method from `async function checkData(transactionData: TransactionData): Promise<void> {` in `src/ports/transactions/component.ts`
 
-#### Contracts and collections
+### Contracts and collections
 
 The server will fetch the Contract addresses URL and store them locally and query the subgraph. When a new transaction request arrives it'll then check if the contract the transaction is interacting with belongs to either the deployed contracts in the URL or the deployed collections in the subgraph.
 
@@ -135,7 +135,7 @@ COLLECTIONS_CHAIN_ID=80002
 COLLECTIONS_SUBGRAPH_URL=https://subgraph.decentraland.org/decentraland/collections-matic-amoy
 ```
 
-#### Min sale value
+### Min sale value
 
 When a new transaction request arrives it'll first parse the data it's trying to relay. If it detects a sale (marketplace buy, bid, etc), it'll check the value against MIN_SALE_VALUE_IN_WEI. If it's lower, the transaction will fail.
 

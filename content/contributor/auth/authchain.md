@@ -4,7 +4,6 @@ url: /contributor/auth/authchain
 weight: 2
 ---
 
-
 Many actions in the Decentraland protocol either require or benefit from authorization with a signature from the user's Ethereum account. For example:
 
 1. Upload a new version of any [Entity]({{< ref "/contributor/content/entities" >}}) they own (such as their profile).
@@ -12,7 +11,6 @@ Many actions in the Decentraland protocol either require or benefit from authori
 3. Authorize delegates to act on their behalf.
 
 To perform these actions, users and delegates must sign payloads describing their intent and produce an _authentication chain_.
-
 
 ## Introduction
 
@@ -47,11 +45,11 @@ This single-delegate chain is the most common form of authorization used in Dece
 
 Each step in the authentication chain contains three pieces of information: a `type`, a `payload` and a corresponding `signature`.
 
-| Field | Value |
-| ----- | --- |
-| `type` | The name of a type ([see below](#types)).
-| `payload` | A type-dependent string.
-| `signature` | The hex-encoded Ethereum signature of `payload`, beginning with `0x`.
+| Field       | Value                                                                 |
+| ----------- | --------------------------------------------------------------------- |
+| `type`      | The name of a type ([see below](#types)).                             |
+| `payload`   | A type-dependent string.                                              |
+| `signature` | The hex-encoded Ethereum signature of `payload`, beginning with `0x`. |
 
 {{< info >}}
 Since the most common serialization of an authentication chain is a JSON array, the examples below are presented in that form. See [Transmitting a Chain](#transmitting) for more details.
@@ -80,7 +78,7 @@ The second step must carry a `signature` from this account for its `payload`.
 
 ### Intermediate Steps: Delegation
 
-When delegates are acting on the user's behalf, an item is added to the middle of the chain for each of them. The conditions for these steps are: 
+When delegates are acting on the user's behalf, an item is added to the middle of the chain for each of them. The conditions for these steps are:
 
 1. The type is [`ECDSA_EPHEMERAL`](#ECDSA_EPHEMERAL)
 2. The `payload` is a specially crafted text (see below).
@@ -164,7 +162,6 @@ There is no universal strategy to decide what the valid time window should be. T
 Ephemeral keys should never hold funds or possess the ability to transfer digital assets. It's much safer for end-users if the leak of an ephemeral key cannot result in financial losses.
 {{< /info >}}
 
-
 ## Formalization
 
 What follows is a more formal and precise definition of the processes involved. Follow these instructions to successfully handle authentication chains.
@@ -174,61 +171,66 @@ What follows is a more formal and precise definition of the processes involved. 
 Clients crafting an authentication chain for the user follow these steps:
 
 1. Add the identification step:
-    1. Set the `type` to `SIGNER`.
-    2. Set the `payload` to the user's Ethereum address.
-    3. Set the `signature` to an empty string.
+
+   1. Set the `type` to `SIGNER`.
+   2. Set the `payload` to the user's Ethereum address.
+   3. Set the `signature` to an empty string.
 
 2. Add delegations steps:
-      1. Generate or use an existing delegate private key (may require interaction).
-      2. Calculate the delegate Etherum address derived from the corresponding public key.
-      3. Set the `type` to `ECDSA_EPHEMERAL`.
-      4. Set the `expiration` to a date in the future.
-      5. Choose a `purpose` for this key.
-      5. Set the `payload` to this exact form:
-          ```md
-          <purpose>
-          Ephemeral address: <delegate-address>
-          Expiration: <date>
-          ```
-      6. Set the `signature` field to the `payload` signature from the previous key (user or delegate).
-      7. Repeat for all successive delegates.
 
-  3. Add the action authorization step:
-      1. Set the `type` to a valid value ([see below](#types))
-      2. Set the `payload` to the type-specific value (such as the entity ID).
-      3. Set the `signature` field to the `payload` signature from the previous key (user or delegate).
+   1. Generate or use an existing delegate private key (may require interaction).
+   2. Calculate the delegate Etherum address derived from the corresponding public key.
+   3. Set the `type` to `ECDSA_EPHEMERAL`.
+   4. Set the `expiration` to a date in the future.
+   5. Choose a `purpose` for this key.
+   6. Set the `payload` to this exact form:
+      ```md
+      <purpose>
+      Ephemeral address: <delegate-address>
+      Expiration: <date>
+      ```
+   7. Set the `signature` field to the `payload` signature from the previous key (user or delegate).
+   8. Repeat for all successive delegates.
 
-  4. Send the authentication chain to the verifier.
+3. Add the action authorization step:
+
+   1. Set the `type` to a valid value ([see below](#types))
+   2. Set the `payload` to the type-specific value (such as the entity ID).
+   3. Set the `signature` field to the `payload` signature from the previous key (user or delegate).
+
+4. Send the authentication chain to the verifier.
 
 ### Verification
 
 Content servers and 3rd-party services implementing verification follow these steps:
 
 1. Verify identification:
-    1. Verify the `type` is `SIGNER`.
-    2. Verify the `payload` is the Ethereum address of the user.
-    3. Verify the `signature` is an empty string.
+
+   1. Verify the `type` is `SIGNER`.
+   2. Verify the `payload` is the Ethereum address of the user.
+   3. Verify the `signature` is an empty string.
 
 2. Verify delegates:
-    1. Verify the `type` is `ECDSA_EPHEMERAL`.
-    2. Verify the `payload` is in this form and extract the fields:
-        ```md
-        <purpose>
-        Ephemeral address: <delegate-address>
-        Expiration: <date>
-        ```
-    3. Verify the `date` is still in the future.
-    4. Verify the `purpose` is supported by your service.
-    4. Verify the `signature` is valid for the given `payload` and the previous public key.
-    6. Repeat for all successive delegates.
+
+   1. Verify the `type` is `ECDSA_EPHEMERAL`.
+   2. Verify the `payload` is in this form and extract the fields:
+      ```md
+      <purpose>
+      Ephemeral address: <delegate-address>
+      Expiration: <date>
+      ```
+   3. Verify the `date` is still in the future.
+   4. Verify the `purpose` is supported by your service.
+   5. Verify the `signature` is valid for the given `payload` and the previous public key.
+   6. Repeat for all successive delegates.
 
 3. Verify action authorization:
-    1. Verify the `type` is a valid value ([see below](#types)).
-    2. Verify the `payload` is valid for this `type`.
-    3. Verify the `signature` is valid for the given `payload` and the previous public key.
+
+   1. Verify the `type` is a valid value ([see below](#types)).
+   2. Verify the `payload` is valid for this `type`.
+   3. Verify the `signature` is valid for the given `payload` and the previous public key.
 
 4. Accept the authentication chain.
-
 
 ### Standard Action Types and Purposes {#types}
 
@@ -236,18 +238,18 @@ The `type` and `payload` values for identification and delegation are standard a
 
 The protocol defines three standard types, and one standard purpose:
 
-###### Type `SIGNER` {#SIGNER}
+##### Type `SIGNER` {#SIGNER}
 
 **Must** be the initial `type` in the chain, where `payload` is the user's Ethereum address and `signature` is an empty string.
 
-###### Type `ECDSA_EPHEMERAL` {#ECDSA_EPHEMERAL}
+##### Type `ECDSA_EPHEMERAL` {#ECDSA_EPHEMERAL}
 
 **Must** be the `type` for intermediate steps in the chain, where `payload` is in the form described above.
 
-###### Type `ECDSA_SIGNED_ENTITY` {#ECDSA_SIGNED_ENTITY}
+##### Type `ECDSA_SIGNED_ENTITY` {#ECDSA_SIGNED_ENTITY}
 
 The final `type` in the chain for authorizing entity deployments, where `payload` is the ID of an entity owned by the user.
 
-###### Purpose `Decentraland Login` {#DecentralandLogin}
+##### Purpose `Decentraland Login` {#DecentralandLogin}
 
 The usual `purpose` for World Explorers, signed both when logging into the world and when renewing their delegate key.

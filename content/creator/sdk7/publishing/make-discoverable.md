@@ -20,5 +20,5 @@ Decentraland offers a vast array of content. You must ensure your scene stands o
   <img src="/images/thumbnail-image.png" width="300"/>
 
 - **Events**: Take advantage of the [events page](https://decentraland.org/events/) to promote gatherings, from scene inaugurations to themed seasonal events. Hosting events can draw large crowds, and offering rewards like wearables or emotes can enhance player engagement.
-- **Quests**: Incorporate your scene into [Quests]({{< ref "/content/creator/quests/overview.md" >}}) to guide players through various experiences. Creating quests can encourage visits to your scene as part of an engaging journey.
+- **Quests**: Incorporate your scene into [Quests]({{< ref "/content/creator/deprecated/quests/overview.md" >}}) to guide players through various experiences. Creating quests can encourage visits to your scene as part of an engaging journey.
 - **Build Traffic**: Attract players by creating a vibrant scene that draws in visitors. Once a critical mass of players is present, others may join in, attracted by the bustling activity.

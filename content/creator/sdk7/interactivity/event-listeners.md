@@ -24,19 +24,19 @@ import { onEnterScene, onLeaveScene } from '@dcl/sdk/src/players'
 
 export function main() {
 	onEnterScene((player) => {
-		if(!player) return
+		if (!player) return
 		console.log('ENTERED SCENE', player)
 	})
 
 	onLeaveScene((userId) => {
-		if(!userId) return
+		if (!userId) return
 		console.log('LEFT SCENE', userId)
 	})
 }
 ```
+
 On the `onEnterScene` event, the function can access all of the data returned by [get player data]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data">}}) via the `player` property.
 On the `onLeaveScene` event, the function only has access to the player's ID.
-
 
 ### Only current player
 
@@ -49,7 +49,7 @@ export function main() {
 	let myPlayer = getPlayer()
 
 	onEnterScene((player) => {
-		if(!player) return
+		if (!player) return
 		console.log('ENTERED SCENE', player)
 
 		if (myPlayer && player.userId == myPlayer.userId) {
@@ -58,7 +58,7 @@ export function main() {
 	})
 
 	onLeaveScene((userId) => {
-		if(!userId) return
+		if (!userId) return
 		console.log('LEFT SCENE', userId)
 
 		if (myPlayer && userId == myPlayer.userId) {
@@ -96,7 +96,7 @@ The following snippet uses the `onChange` function to fire an event each time th
 ```ts
 export function main() {
 	CameraMode.onChange(engine.CameraEntity, (cameraComponent) => {
-		if(!cameraComponent) return
+		if (!cameraComponent) return
 		console.log('Camera mode changed', cameraComponent?.mode)
 		// 0 = first person
 		// 1 = third person
@@ -115,7 +115,7 @@ import { AvatarEmoteCommand } from '@dcl/sdk/ecs'
 
 export function main() {
 	AvatarEmoteCommand.onChange(engine.PlayerEntity, (emote) => {
-		if(!emote) return
+		if (!emote) return
 		console.log('Emote played: ', emote.emoteUrn)
 	})
 }
@@ -169,7 +169,7 @@ The event on `AvatarBase` includes the following information:
 You can also detect changes in wearables or avatars form other players in the scene, simply pass a reference to the other player instead of `engine.PlayerEntity`.
 
 {{< hint info >}}
-**💡 Tip**: When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
+**💡 Tip**: When testing in preview with the legacy web editor, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland VS Code Extension, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 {{< /hint >}}
 
 You can also detect changes on the profiles of other players in the scene, simply pass a reference to the other player instead of `engine.PlayerEntity`.
