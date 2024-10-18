@@ -309,6 +309,24 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
+## Unlit Materials
+
+Most of the times you'll want the materials in your scene to be affected by the lighting conditions, including shadows and being tinted by the hue changes of different times of day. But in other cases you might want to show the colors in their pure state. This is useful when playing videos, or also for abstract markers that need to stand out, that are meant for signalling hints to the player.
+
+To create an unlit material, use `Material.setBasicMaterial`. Basic materials don't have all the same properties as PBR materials, they only have the essential:
+
+- `diffuseColor`: Color4 for the color
+- `texture`: Texture
+- `alphaTexture`: Separate texture for the transparency layer
+- `alphaTest`: Threshold for achieving transparency based on the color of the texture
+- `castShadows`: If false, no shadows are projected onto other entities in the scene.
+
+```ts
+Material.setBasicMaterial(screen, {
+	diffuseColor: Color4.Red(),
+})
+```
+
 ## Avatar Portraits
 
 To display a thumbnail image of any player, use `Material.Texture.Avatar` when setting the texture of your material, passing the address of an existing player. This creates a texture from a 256x256 image of the player, showing head and shoulders. The player is displayed wearing the set of wearables that the current server last recorded.

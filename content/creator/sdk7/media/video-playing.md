@@ -27,6 +27,8 @@ In all cases, you'll need:
 
 {{< hint warning >}}
 **📔 Note**: Keep in mind that streaming video demands a significant effort from the player's machine. For this reason, we recommend never having more than one video stream displayed at a time per scene. Videos are also not played if the player is standing on a different scene. Also avoid streaming videos that are in very high resolution, don't use anything above _HD_.
+
+It's also ideal to play videos on Basic (unlit) materials, to reduce the performance load.
 {{< /hint >}}
 
 ## Show a video
@@ -59,11 +61,8 @@ VideoPlayer.create(screen, {
 const videoTexture = Material.Texture.Video({ videoPlayerEntity: screen })
 
 // #4
-Material.setPbrMaterial(screen, {
+Material.setBasicMaterial(screen, {
 	texture: videoTexture,
-	roughness: 1.0,
-	specularIntensity: 0,
-	metallic: 0,
 })
 ```
 
@@ -142,20 +141,15 @@ Each stream returned by `getActiveVideoStreams` contains the following fields:
 
 ## Video Materials
 
-The default properties of a material make the video look rather opaque for a screen, but you can enhance that by altering other properties of the material.
-
-Here are some recommended settings for the video to stand out more:
+Most of the times, you'll want to play videos on an unlit [Basic material]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#unlit-materials" >}}), rather than a PBR material. This results in a much brighter and crisper image, and is better for performance.
 
 ```ts
-Material.setPbrMaterial(screen, {
+Material.setBasicMaterial(screen, {
 	texture: videoTexture,
-	roughness: 1.0,
-	specularIntensity: 0,
-	metallic: 0,
 })
 ```
 
-If you want the screen to glow a little, more like a LED screen, you can also add some emissive properties. You can even set the `emissiveTexture` of the material to the same `VideoTexture` as the `texture`.
+If you instead want to project a video onto a PBR material, keep in mind that the default properties make the video look rather opaque. You can enhance that by altering other properties of the material. Here are some recommended settings for the video to stand out more:
 
 ```ts
 Material.setPbrMaterial(screen, {
@@ -169,10 +163,10 @@ Material.setPbrMaterial(screen, {
 })
 ```
 
-See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md">}}) for more details.
-
 {{< hint info >}}
 **💡 Tip**: Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
+
+See [materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md">}}) for more details.
 {{< /hint >}}
 
 ## About Video Files
@@ -264,18 +258,12 @@ VideoPlayer.create(screen1, {
 const videoTexture = Material.Texture.Video({ videoPlayerEntity: screen1 })
 
 // #4
-Material.setPbrMaterial(screen1, {
+Material.setBasicMaterial(screen1, {
 	texture: videoTexture,
-	emissiveTexture: videoTexture,
-	emissiveIntensity: 0.6,
-	roughness: 1.0,
 })
 
-Material.setPbrMaterial(screen2, {
+Material.setBasicMaterial(screen2, {
 	texture: videoTexture,
-	emissiveTexture: videoTexture,
-	emissiveIntensity: 0.6,
-	roughness: 1.0,
 })
 ```
 
@@ -385,21 +373,17 @@ Use the following image to cut your video into a circular shape, with transparen
 <img src="/images/circle_mask.png" width="250" />
 
 ```ts
-Material.setPbrMaterial(screen, {
-	texture: Material.Texture.Video({
-		videoPlayerEntity: ScreenData.get(screen).videoSource,
-	}),
-	emissiveTexture: Material.Texture.Video({
-		videoPlayerEntity: ScreenData.get(screen).videoSource,
-	}),
-	alphaTexture: Material.Texture.Common({
-		src: 'assets/scene/circle_mask.png',
-		wrapMode: TextureWrapMode.TWM_MIRROR,
-		filterMode: TextureFilterMode.TFM_BILINEAR,
-	}),
-	roughness: 0,
-	specularIntensity: 1,
-	metallic: 0,
+const videoTexture = Material.Texture.Video({
+	videoPlayerEntity: screen,
+})
+const alphaMask = Material.Texture.Common({
+	src: 'assets/scene/circle_mask.png',
+	wrapMode: TextureWrapMode.TWM_MIRROR,
+})
+
+Material.setBasicMaterial(screen, {
+	texture: videoTexture,
+	alphaTexture: alphaMask,
 })
 ```
 
