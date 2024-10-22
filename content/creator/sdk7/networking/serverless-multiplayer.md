@@ -169,14 +169,14 @@ You could for example include this check in a system, and block any interaction 
 import { isStateSyncronized } from '@dcl/sdk/network'
 
 export function main() {
-	let isConnected: boolean = false
+	let isSynced: boolean = false
 	let timer = 0
 	const syncSystem = function (dt: number) {
 		timer += dt
 		if (timer > 1) {
-			isConnected = isStateSyncronized()
+			isSynced = isStateSyncronized()
 
-			if (isConnected) {
+			if (isSynced) {
 				console.log('PLAYER IS SYNCED')
 				engine.removeSystem(syncSystem)
 			}
@@ -185,8 +185,9 @@ export function main() {
 	engine.addSystem(syncSystem)
 
 	pointerEventsSystem.onPointerDown(clickableEntity, (e) => {
-		if (!isConnected) return
-		//
+		if (!isSynced) return
+		// interactive actions
+		// they only happen if the player is synced
 	})
 }
 ```
