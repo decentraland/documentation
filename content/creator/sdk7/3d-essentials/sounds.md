@@ -160,7 +160,7 @@ AudioSource.create(sourceEntity, {
 **📔 Note**: Of course, the volume of a sound is also affected by the distance of the player from the audio source. As the player walks away, the volume will be lower.
 {{< /hint >}}
 
-## Global sounds
+## Global sounds
 
 By default, all sounds from an `AudioSource` are positional. This means they appear to generate from the position of the `Transform` component, and will sound louder as the player walks closer. But you can also configure a sound to be global, so that the volume is constant, no matter where the player is standing. This is ideal for using on background music, notification sounds, and other non-positional sound.
 
