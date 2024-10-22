@@ -19,8 +19,14 @@ Make sure of the following:
 
 - You own the necessary amount of adjacent LAND parcels or a Decentraland NAME. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org) or a NAME in the [Builder](https://decentraland.org/builder/names).
 
-{{< hint warning >}}
-**📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels.
+  {{< hint warning >}}
+  **📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels.
+  {{< /hint >}}
+
+{{< hint danger >}}
+**❗Warning**: When planning live events, make sure you don't make last minute changes to the scene right before the event.
+
+After each publish, an internal process optimizes all 3D models before they can be rendered. This takes around 15 minutes. If you visit the scene before this is done, the scene may appear broken. This process runs even if the 3D models were all previously published.
 {{< /hint >}}
 
 ## Check scene data

@@ -389,6 +389,10 @@ Material.setBasicMaterial(screen, {
 
 <img src="/images/circular-video-screen.png" width="500" />
 
+{{< hint warning >}}
+**📔 Note**: In previous versions, the `alphaTexture` property was only present in PRB materials, currently it only works in basic materials.
+{{< /hint >}}
+
 <!--
 
 ## Map a video texture

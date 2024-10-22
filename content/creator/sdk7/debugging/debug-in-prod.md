@@ -31,6 +31,12 @@ If you need to reload the scene you're standing on, write the following into the
 
 `/reload`
 
+## About the publishing pipeline
+
+Keep in mind that after each publish, an internal process optimizes all 3D models before they can be rendered. This takes around 15 minutes. If you visit the scene before this is done, the scene may appear broken. This process runs even if the 3D models were all previously published.
+
+You can check the current state of this process for your scene using [this tool](https://decentraland.github.io/opscli/). If the conversion is complete, all three variations of the assets should have green lights.
+
 <!-- ## Access debug information
 
 ### See logs

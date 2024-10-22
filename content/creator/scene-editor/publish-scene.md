@@ -25,6 +25,12 @@ Make sure of the following:
 
 Check your [scene's details]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#scene-details" >}}), make sure you provide an appealing name, description, thumbnail, categories, etc.
 
+{{< hint danger >}}
+**❗Warning**: When planning live events, make sure you don't make last minute changes to the scene right before the event.
+
+After each publish, an internal process optimizes all 3D models before they can be rendered. This takes around 15 minutes. If you visit the scene before this is done, the scene may appear broken. This process runs even if the 3D models were all previously published.
+{{< /hint >}}
+
 ## Publish your scene
 
 To publish your scene:
