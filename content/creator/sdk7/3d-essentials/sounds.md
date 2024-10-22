@@ -23,7 +23,7 @@ _.wav_ files are also supported but not generally recommended as they are signif
 
 The easiest way to play a sound is to add an **Audio Source** component visually on the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) and set it to **Start Playing** and **Loop**. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}).
 
-<img src="/images/editor/audiosource-component.png" alt="Scene name" width="200"/>
+<img src="/images/editor/AudioSource-component.png" alt="Scene name" width="200"/>
 
 You can also trigger the playing of a sound in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
 
