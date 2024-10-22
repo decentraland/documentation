@@ -1,6 +1,6 @@
 ---
 date: 2024-07-25
-title: Scene Editor About
+title: Editing Scenes
 description: The scene Editor is a simple visual tool that lets you create and publish Decentraland scenes.
 categories:
   - scene-editor
@@ -10,6 +10,8 @@ weight: 1
 ---
 
 The Creator Hub includes a powerful Scene Editor that combines a simple no-code interface with the ability to write code to customize your scenes further.
+
+<img src="/images/editor/icon.png" alt="Header" width="256"/>
 
 See [Creator Hub Installation]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}) to get started.
 
