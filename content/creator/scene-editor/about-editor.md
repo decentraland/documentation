@@ -11,7 +11,7 @@ weight: 1
 
 The Creator Hub includes a powerful Scene Editor that combines a simple no-code interface with the ability to write code to customize your scenes further.
 
-<img src="/images/editor/icon.png" alt="Header" width="256"/>
+<img src="/images/editor/icon-creator-hub.png" alt="Header" width="256"/>
 
 See [Creator Hub Installation]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}) to get started.
 
