@@ -15,12 +15,21 @@ url: /creator/development-guide/sdk7/scene-limitations/
 weight: 2
 ---
 
-In order to improve performance in the metaverse, we have established a set of limits that every scene must follow. If a
-scene exceeds these limitations, then the parcel won't be loaded and the preview will display an error message.
+In order to improve performance in the metaverse, we have established a set of limits that every scene must follow. These limits are per-parcel. So the larger the scene, the higher these limits are set.
 
-For a straight-forward reference of what limitations you'll have for a specific number of parcels, check the following table:
+When working with the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}), you can see stats about the resources used by 3D models in your scene, together with the limits for your scene.
+
+<img src="/images/editor/triangle-limit1.png" width="250" />
+
+You can expand this menu to view details.
+
+<img src="/images/editor/triangle-limit2.png" width="300" />
+
+{{< hint info >}}
+**💡 Tip**: For a reference table of all specific numbers per parcel count, see:
 
 [Reference table](https://docs.google.com/spreadsheets/d/1BTm0C20PqdQDAN7vOQ6FpnkVncPecJt-EwTSNHzrsmg/edit#gid=0)
+{{< /hint >}}
 
 ## Scene limitation rules
 
@@ -49,9 +58,9 @@ See [Performance Optimization]({{< ref "/content/creator/sdk7/optimizing/perform
 
 ## Scene boundaries
 
-When running a preview, any content that is located outside the parcel boundaries is highlighted in red when rendered. If any content is outside these boundaries, you won't be allowed to deploy this scene to Decentraland.
+When running a preview, any content that is located outside the parcel boundaries is highlighted in red when rendered. If any content is outside these boundaries, that part of your content won't be rendered when players visit your scene.
 
-If the tip of a large object leaves the boundaries, this object is considered out of bounds too.
+If the tip of a large object leaves the boundaries, this tip will be sliced off the object.
 
 A single parcel scene measures 16 meters x 16 meters. If the scene has multiple parcels, the dimensions vary depending on the arrangement of the parcels.
 

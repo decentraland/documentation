@@ -11,6 +11,12 @@ weight: 6
 
 You can add links from your scene out to other content, either to other scenes or to external websites.
 
+## Use the Scene Editor
+
+The easiest way to add an external link or a teleport is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the **Teleport** [Smart Item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) to add teleport to another scene in Genesis City, or use any of the **Social Links** smart items to add links to external sites.
+
+<img src="/images/editor/social-links.png" alt="Move entity" width="300"/>
+
 ## Teleports
 
 To teleport a player to another scene, call the following function, indicating the coordinates that you want players to teleport to.
@@ -50,9 +56,9 @@ The player will spawn in on of the spawn points of the scene in that world, rega
 To add a link to an external website, use the `openExternalUrl()` command.
 
 ```ts
-import {openExternalUrl} from "~system/RestrictedActions"
+import { openExternalUrl } from '~system/RestrictedActions'
 
-openExternalUrl({url: "google.com"})
+openExternalUrl({ url: 'google.com' })
 ```
 
 To prevent any abusive usage of this feature to spam players, it's only possible to call the `openExternalUrl` from an explicit click or button event on an entity. It's not possible to call this function as a result of a timer, or a collision area, or a global click event. See [Button events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}) for details on how to do this.

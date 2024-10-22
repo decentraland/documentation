@@ -111,6 +111,10 @@ The `avatar` object has the following nested information:
 - `hairColor`: Player hair color as a `Color4`
 - `name`: The player's name.
 
+{{< hint warning >}}
+**📔 Note**: The player data may not be available on the first frame of the scene, depending on load times. You should verify that the data was returned and otherwise attempt again a few milliseconds later.
+{{< /hint >}}
+
 ```ts
 import { getPlayer } from '@dcl/sdk/src/players'
 
@@ -134,7 +138,7 @@ export function main() {
 ```
 
 {{< hint info >}}
-**💡 Tip**: When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
+**💡 Tip**: When testing in preview with the legacy web editor, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland VS Code Extension, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 {{< /hint >}}
 
 To get the data for a specific player in the scene, different from the current player, run `getPlayer()` with an object with a `userId` property.
@@ -334,7 +338,7 @@ async function fetchWearablesData() {
 executeTask(fetchWearablesData)
 ```
 
-TODO: Update snippet
+<!-- TODO: Update snippet -->
 
 ## Check the player's camera mode
 

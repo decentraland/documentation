@@ -1,6 +1,6 @@
 ---
 date: 2018-01-01
-title: Editor Installation Guide
+title: Installation Guide
 description: Step-by-step guide to installing the SDK
 categories:
   - development-guide
@@ -15,15 +15,23 @@ url: /creator/development-guide/sdk7/installation-guide/
 weight: 2
 ---
 
-The Decentraland Editor is a Visual Studio extension, that allows you to build, preview and deploy Decentraland scenes.
+## Creator Hub
+
+The **Creator Hub** is the recommended tool for creating content for Decentraland.
+
+See installation instructions on [Creator Hub Installation]({{< ref "/content/creator/scene-editor/editor-installation.md" >}})
+
+<!-- TODO
+image & more info
+ -->
+
+## VS Code Extension
+
+The Decentraland Visual Studio Code extension allows you to build, preview and deploy Decentraland scenes.
 
 <img src="/images/editor/editor-header.png" alt="Header" width="100%"/>
 
-{{< hint warning >}}
-**📔 Note**: For a simple no-code scene creation tool that doesn't require any installation, check out the [Builder](https://decentraland.org/builder/scenes).
-{{< /hint >}}
-
-To install the Decentraland Editor:
+To install the Decentraland Visual Studio Code extension:
 
 1. Install <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
 
@@ -34,7 +42,7 @@ To install the Decentraland Editor:
    <img src="/images/editor/editor-installation.png" alt="Header" width="100%"/>
 
    {{< hint warning >}}
-   **📔 Note**: There are two versions of the editor, the **Decentraland Editor SDK6** and the **Decentraland Editor SDK7**. As their names suggest, each version of the editor is meant for working on Decentraland scenes built with different SDK versions. You can have both extensions active in your same installation of Visual Studio Code, and use them accordingly depending on what project you're working with.
+   **📔 Note**: There are two versions of the VS Code extension, the **Decentraland Editor SDK6** and the **Decentraland Editor SDK7**. As their names suggest, each version is meant for working on Decentraland scenes built with different SDK versions. You can have both extensions active in your same installation of Visual Studio Code, and use them accordingly depending on what project you're working with.
    {{< /hint >}}
 
 4. You'll then need to **restart Visual Studio** to use the extension.

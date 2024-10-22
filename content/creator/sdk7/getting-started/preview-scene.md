@@ -12,28 +12,21 @@ weight: 4
 
 Once you have [built a new scene](https://docs.decentraland.org/#create-your-first-scene) or downloaded a [scene example](https://studios.decentraland.org/resources?sdk_version=SDK7) you can preview it locally.
 
-## Using the editor
+## Using the Scene Editor
 
-To run a scene preview using the Decentraland Editor:
+Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+1. Open your scene project.
+2. Click the **Preview** button on the top-right corner. This will open a new window with the Decentraland Desktop Explorer, running just your scene. There you can move around the scene and interact with interactive items.
 
-1. Open your scene's folder using Visual Studio Code.
-
-   > Note: The Visual Studio window must be at the root folder of the scene project.
-
-2. Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
-
-3. Click the **Run Scene** button.
-
-   This opens a browser tab running the Decentraland scene.
+<img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
 
 ## Using the CLI
 
 To preview a scene run the following command on the scene's main folder:
 
 ```bash
-npm run start
+npm run start -- --explorer-alpha
 ```
 
 Any dependencies that are missing are installed and then the CLI opens the scene in a new browser tab automatically. It creates a local web server in your system and points the web browser tab to this local address.
@@ -61,36 +54,55 @@ You can add the following flags to the `npm run start` command to change its beh
 **📔 Note**: Parameters need to be added with two series of dashes, for example `npm run start -- --web3`.
 {{< /hint >}}
 
+## Using the VS Code Extension
+
+{{< hint warning >}}
+**📔 Note**: The VS Code Extension will open your scene preview on the legacy Web Explorer.
+{{< /hint >}}
+
+To run a scene preview using the VS Code Extension:
+
+Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
+
+1. Open your scene's folder using Visual Studio Code.
+
+   > Note: The Visual Studio window must be at the root folder of the scene project.
+
+2. Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
+
+3. Click the **Run Scene** button.
+
+   This opens a browser tab running the Decentraland scene.
+
 ## Upload a scene to decentraland
 
-Once you're happy with your scene, you can upload it and publish it to Decentraland, see [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for instructions on how to do that.
-
-You can also upload a preview to a free 3rd party server, [see instructions here]({{< ref "/content/creator/sdk7/publishing/deploy-third-party.md" >}}).
+Once you're happy with your scene, you can upload it and publish it to Decentraland. For this you must own LAND, a Decentraland NAME, or an ETH ENS name, or have permissions given by someone that does. See [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for instructions on how to do that.
 
 ## Preview scene size
 
-The scene size shown in the preview is based on the scene's configuration, you set this when building the scene using the CLI. By default, the scene occupies a single parcel (16 x 16 meters).
+The scene size shown in the preview is based on the scene's configuration.
 
-If you're building a scene to be uploaded to several adjacent parcels, you can edit the _scene.json_ file to reflect this, listing multiple parcels in the "parcels" field. Placing any entities outside the bounds of the listed parcels will display them in red.
+Edit this on the second tab of the scene menu in the Scene Editor.
 
-```json
- "scene": {
-    "parcels": [
-      "0,0",
-      "0,1",
-      "1,0",
-      "1,1"
-    ],
-    "base": "0,0"
-  },
-```
+<img src="/images/editor/scene-parcels-3x3.png" alt="Scene name" width="300"/>
 
-You can also change the coordinates by running the `npx update-parcels` command from the command line, this is especially useful on large scenes with many parcels. See [set parcels via the command line]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#set-parcels-via-the-command-line">}}) for more details.
+Use the dropdowns and click **Apply Layout** to change the dimensions of your scene. You can also click each individual parcel to toggle it off from your layout.
+
+<img src="/images/editor/scene-parcels-toggled.png" alt="Scene name" width="300"/>
+
+Y can also edit the _scene.json_ file to list multiple parcels in the "parcels" field. See [set parcels via the command line]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#scene-parcels">}}) for more details.
 
 {{< hint info >}}
 **💡 Tip**: While running the preview, the parcel coordinates don't need to match those that your scene will really use, as long as they're adjacent and are arranged into the same shape. You will have to replace these with the actual coordinates later when you [deploy the scene](#upload-a-scene-to-decentraland).
 {{< /hint >}}
 
+## View the scene console
+
+Press the **\`** key on your keyboard to open the scene console. Here you can see any error messages, and also any text that your scene prints to the console via `console.log()`.
+
+You can also press Shift + **\`** to open the console even wider, in case you need to view more text.
+
+<!--
 ## Run preview in Desktop
 
 To run a preview scene in the Desktop native client, instead of in the web browser:
@@ -109,4 +121,4 @@ To run a preview scene in the Desktop native client, instead of in the web brows
 
    ![](/images/media/desktop-preview.png)
 
-   If you need to manually add anything to the URL, to change the default way the scene runs, tick the box **Add custom URL parameters** and write those in the dialog below.
+   If you need to manually add anything to the URL, to change the default way the scene runs, tick the box **Add custom URL parameters** and write those in the dialog below. -->

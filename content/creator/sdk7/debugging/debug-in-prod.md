@@ -25,7 +25,19 @@ You can deploy scenes to a test server as a staging environment, before publishi
 
 See [The test server]({{< ref "/content/creator/sdk7/publishing/publishing.md#the-test-server">}}) for details.
 
-## Access debug information
+## Quick reload
+
+If you need to reload the scene you're standing on, write the following into the chat and push enter:
+
+`/reload`
+
+## About the publishing pipeline
+
+Keep in mind that after each publish, an internal process optimizes all 3D models before they can be rendered. This takes around 15 minutes. If you visit the scene before this is done, the scene may appear broken. This process runs even if the 3D models were all previously published.
+
+You can check the current state of this process for your scene using [this tool](https://decentraland.github.io/opscli/). If the conversion is complete, all three variations of the assets should have green lights.
+
+<!-- ## Access debug information
 
 ### See logs
 
@@ -73,7 +85,7 @@ Keep in mind that these FPS values may vary depending on the machine you're usin
 
 It's still a valuable way to assess the performance of the scene more objectively.
 
-They count the frame per second of the Decentraland explorer, not of a single scene. You can try to isolate what effect neighbors have on the FPS by reducing the line of sight property on the settings, to load less content at a time.
+They count the frame per second of the Decentraland explorer, not of a single scene. You can try to isolate what effect neighbors have on the FPS by reducing the line of sight property on the settings, to load less content at a time. -->
 
 ## Report a bug
 

@@ -4,7 +4,7 @@ url: /creator/rewards/integrations
 weight: 6
 ---
 
-After creating and configuring a campaign and ensuring it has sufficient stock to provide rewards, the next step is to connect the campaign to a rewards trigger. This trigger can be a Scene, a Quest, or an external server. This section explains how different integrations with Rewards can be done. 
+After creating and configuring a campaign and ensuring it has sufficient stock to provide rewards, the next step is to connect the campaign to a rewards trigger. This trigger can be a Scene, a Quest, or an external server. This section explains how different integrations with Rewards can be done.
 
 - [Grant rewards from a scene](#grant-rewards-from-a-scene)
   - [Recommended dispenser flags](#recommended-dispenser-flags)
@@ -24,7 +24,7 @@ Keep in mind that determined users with enough technical knowledge could potenti
 
 ### Recommended dispenser flags
 
-The following dispenser configurations are recommended to reduce the risk of exploits in this scenario: 
+The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
 
 - [Limit Assignments]({{< ref "/content/creator/rewards/api.md" >}}#limit-assignments)
 - [Beneficiary Signature]({{< ref "/content/creator/rewards/api.md" >}}#beneficiary-signature)
@@ -74,7 +74,7 @@ export function main() {
 
 ## Grant rewards from a Decentraland Quests
 
-You can easily integrate Rewards with the [Decentraland Quests]({{< ref "/content/creator/quests/overview.md" >}}), this is ideal if you want to reward users for completing a quest.
+You can easily integrate Rewards with the [Decentraland Quests]({{< ref "/content/creator/deprecated/quests/overview.md" >}}), this is ideal if you want to reward users for completing a quest.
 
 ### Recommended dispenser flags
 
@@ -90,7 +90,7 @@ Any other of the other flags will make your integration fail, avoid using them.
 
 ### Example
 
-To integrate your Quest with the Rewards service, you just need a dispenser key and to [configure a webhook]({{< ref "/content/creator/quests/rewards.md" >}}) to grant rewards.
+To integrate your Quest with the Rewards service, you just need a dispenser key and to [configure a webhook]({{< ref "/content/creator/deprecated/quests/rewards.md" >}}) to grant rewards.
 
 ```js
 {
@@ -128,14 +128,14 @@ Enabling any of the other flags could complicate your integration or, depending 
 
 ```tsx
 const request = await fetch('https://rewards.decentraland.org/api/rewards', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    campaign_key: '[DISPENSER_KEY]',
-    beneficiary: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942', // ethereum address
-  }),
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
+	},
+	body: JSON.stringify({
+		campaign_key: '[DISPENSER_KEY]',
+		beneficiary: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942', // ethereum address
+	}),
 })
 
 const response = await request.json()
