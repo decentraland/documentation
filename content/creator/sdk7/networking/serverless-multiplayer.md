@@ -155,7 +155,9 @@ removeParent(child)
 
 When a player just loads into a scene, they may not yet be synchronized with other players surrounding them. If the player starts altering the state of the game before they are synced, this could cause problems in your game. We recommend always checking for a player to be synchronized before they are allowed to edit anything about the scene.
 
-You can check this state via the `isStateSyncronized()` function. This function returns a boolean, that is true if the player is already synchronized.
+If a player steps out of the parcels of the scene, they will also be out of sync with the scene while they're standing outside. So it's also important that the scene's systems handle that scenario, as the scene keeps running while the player is nearby. Once the player steps back in, they are updated automatically with any changes from the scene's state.
+
+You can check if the scene state is currently synced for a player via the `isStateSyncronized()` function. This function returns a boolean, that is true if the player is already synchronized with the scene.
 
 ```ts
 import { isStateSyncronized } from '@dcl/sdk/network'
@@ -163,33 +165,20 @@ import { isStateSyncronized } from '@dcl/sdk/network'
 const isConnected = isStateSyncronized()
 ```
 
-You could for example include this check in a system, and block any interaction based on this boolean.
+You could for example include this check in a system, and block any interaction if this function returns false.
 
 ```ts
-import { isStateSyncronized } from '@dcl/sdk/network'
-
-export function main() {
-	let isSynced: boolean = false
-	let timer = 0
-	const syncSystem = function (dt: number) {
-		timer += dt
-		if (timer > 1) {
-			isSynced = isStateSyncronized()
-
-			if (isSynced) {
-				console.log('PLAYER IS SYNCED')
-				engine.removeSystem(syncSystem)
-			}
-		}
+engine.addSystem(() => {
+	if (isStateSyncronized() && !button.enabled) {
+		console.log('Enable Start Game')
+		button.enable()
 	}
-	engine.addSystem(syncSystem)
 
-	pointerEventsSystem.onPointerDown(clickableEntity, (e) => {
-		if (!isSynced) return
-		// interactive actions
-		// they only happen if the player is synced
-	})
-}
+	if (!isStateSyncronized() && button.enabled) {
+		console.log(`Disable Start Game.`)
+		button.disable()
+	}
+})
 ```
 
 ## Send Explicit MessageBus Messages
