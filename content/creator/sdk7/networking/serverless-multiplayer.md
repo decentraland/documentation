@@ -151,6 +151,46 @@ const getChildrenResult = Array.from(getChildren(parent))
 removeParent(child)
 ```
 
+## Check the sync state
+
+When a player just loads into a scene, they may not yet be synchronized with other players surrounding them. If the player starts altering the state of the game before they are synced, this could cause problems in your game. We recommend always checking for a player to be synchronized before they are allowed to edit anything about the scene.
+
+You can check this state via the `isStateSyncronized()` function. This function returns a boolean, that is true if the player is already synchronized.
+
+```ts
+import { isStateSyncronized } from '@dcl/sdk/network'
+
+const isConnected = isStateSyncronized()
+```
+
+You could for example include this check in a system, and block any interaction based on this boolean.
+
+```ts
+import { isStateSyncronized } from '@dcl/sdk/network'
+
+export function main() {
+	let isConnected: boolean = false
+	let timer = 0
+	const syncSystem = function (dt: number) {
+		timer += dt
+		if (timer > 1) {
+			isConnected = isStateSyncronized()
+
+			if (isConnected) {
+				console.log('PLAYER IS SYNCED')
+				engine.removeSystem(syncSystem)
+			}
+		}
+	}
+	engine.addSystem(syncSystem)
+
+	pointerEventsSystem.onPointerDown(clickableEntity, (e) => {
+		if (!isConnected) return
+		//
+	})
+}
+```
+
 ## Send Explicit MessageBus Messages
 
 #### Initiate a message bus
