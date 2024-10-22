@@ -15,7 +15,7 @@ See [Creator Hub Installation]({{< ref "/content/creator/scene-editor/editor-ins
 
 <!-- TODO: update video -->
 
-{{< youtube PF7smSBxVOc >}}
+{{< youtube 52LiG-4VI9c >}}
 
 ## Create a scene
 
