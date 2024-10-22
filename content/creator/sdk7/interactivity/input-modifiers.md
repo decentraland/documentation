@@ -11,7 +11,7 @@ weight: 8
 
 You can restrict what actions the player can do in your scene. Use it to freeze the player, or to only restrict specific ways of locomotion, for example to prevent the player from jumping or running.
 
-## Freeze the player
+## Freeze the player
 
 You can freeze the player so that none of the input keys can move the avatar. This can be useful for many game mechanics. It's also a good practice to freeze a player while performing an important animation that shouldn't be interrupted by movement, or while a [Virtual Camera]({{< ref "/content/creator/sdk7/3d-essentials/camera.md" >}}) points away from the avatar and you don't want the player to move blindly.
 
