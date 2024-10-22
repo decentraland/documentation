@@ -9,7 +9,7 @@ url: /creator/editor/install-editor
 weight: 2
 ---
 
-Visit the [Create page in Decentraland.org](https://decentraland.org/create/) and download the **Creator Hub**.
+Download the Creator Hub [here](https://decentraland.org/download/creator-hub).
 
 ## Updating the Creator Hub
 

@@ -24,7 +24,7 @@ The Creator Hub is the recommended tool for creators of all knowledge levels. It
 
 <img src="/images/editor/scene-editor.png" width="750" />
 
-Download the Creator Hub from the [Creator landing page](https://decentraland.org/create/).
+Download the Creator Hub [here](https://decentraland.org/download/creator-hub).
 
 ## Wearables
 
