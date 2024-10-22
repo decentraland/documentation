@@ -71,6 +71,8 @@ Open the **Local Assets** tab to delete any unused models.
 
 ## Position items
 
+{{< youtube cNl02PFPdcQ >}}
+
 Click and drag a selected item to move it freely around the scene at ground level.
 
 You can also use the tools on the top menu:

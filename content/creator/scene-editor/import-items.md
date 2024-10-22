@@ -13,6 +13,8 @@ weight: 4
 
 You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models.
 
+{{< youtube UepXpH-k0EI >}}
+
 ## Import an asset
 
 To import a 3D model, an image, a sound file, or a video into your scene from your local disk:
