@@ -14,7 +14,7 @@ weight: 2
 
 All creators are welcome! In Decentraland you have a wide range of Creative possibilities, for people of different talents and skill levels!
 
-# The Creator Hub
+## The Creator Hub
 
 The Creator Hub is the recommended tool for creators of all knowledge levels. It's a desktop application that lets you create:
 
