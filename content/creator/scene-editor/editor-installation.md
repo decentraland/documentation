@@ -9,7 +9,9 @@ url: /creator/editor/install-editor
 weight: 2
 ---
 
-Download the Creator Hub [here](https://decentraland.org/download/creator-hub).
+<img src="/images/editor/icon-creator-hub.png" alt="Header" width="128"/>
+
+Download the Creator Hub [HERE](https://decentraland.org/download/creator-hub).
 
 ## Updating the Creator Hub
 
