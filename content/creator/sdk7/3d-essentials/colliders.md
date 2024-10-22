@@ -18,11 +18,23 @@ There are separate collision layers for interacting with either the player's phy
 **📔 Note**: Colliders don't affect how other entities interact with each other, entities can always overlap. Collision settings only affect how the entity interacts with the player's avatar and button events. Decentraland doesn't have a native physics engine, so if you want entities to fall, crash or bounce, you must code this behavior into the scene, or import a library to handle that.
 {{< /hint >}}
 
+## Use the Scene Editor
+
+The easiest way to manage an entity's colliders is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+
+You can add a **Mesh Collider** component to your entity to assign a primitive shape (cube, plain, sphere, cylinder, or cone) to your entity. You can then pick [Collision layers](#collision-layers) from a dropdown.
+
+You can also configure the collision layers on a **GLTF** component to change the default [Collision layers](#collision-layers) used on either the collider geometry or the visible geometry of the model. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}).
+
+<img src="/images/editor/gltf-component.png" alt="Scene name" width="200"/>
+
 ## Colliders on primitive shapes
 
-Entities that have a `MeshRenderer` component to give them a [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md#primitive-shapes" >}})(boxes, spheres, planes etc) don't have colliders by default. You must also give the entity a `MeshCollider` component.
+The `MeshCollider` component gives an entity a simple collider based on a primitive shape (boxes, spheres, planes, cylinders, or cones).
 
-The following collider shapes are available. Several shapes include optional additional fields, specific to that shape.
+Entities that have a `MeshRenderer` component to give them a [primitive shape]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md#primitive-shapes" >}}) don't have colliders by default. You must also give the entity a `MeshCollider` component.
+
+The following collider shapes are available on `MeshCollider`. Several shapes include optional additional fields, specific to that shape.
 
 - **box**:
 
@@ -40,7 +52,9 @@ The following collider shapes are available. Several shapes include optional add
 
   Use `MeshRenderer.setCylinder()`, passing the entity. Pass `radiusTop` and `radiusBottom` as additional optional fields, to modify the cylinder.
 
-  TIP: Set either `radiusTop` or `radiusBottom` to 0 to make a cone.
+  {{< hint info >}}
+  **💡 Tip**:: Set either `radiusTop` or `radiusBottom` to 0 to make a cone.
+  {{< /hint >}}
 
 This example defines a box entity that can't be walked through.
 
@@ -98,9 +112,9 @@ const myEntity = engine.addEntity()
 
 // assign GLTF shape
 GltfContainer.create(myEntity, {
-  src: '/models/myModel.gltf',
-  invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
-  visibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
+	src: '/models/myModel.gltf',
+	invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
+	visibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
 })
 ```
 
@@ -131,6 +145,10 @@ You can configure a `MeshCollider` component or the `GltfContainer` component to
 - `ColliderLayer.CL_CUSTOM1` through to `CL_CUSTOM8`: Can be used together with raycasts, so that a ray only detects collisions with one specific layer.
 - `ColliderLayer.CL_NONE`: Doesn't respond to collisions of any kind.
 
+{{< hint warning >}}
+**📔 Note**: To disable collisions form a `MeshCollider` component, delete the component. Do not set the collision layer to `ColliderLayer.CL_NONE`. There's a known issue with the `MeshCollider` component. Instead of disabling all collisions, it makes this value equivalent to the default (`ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER`).
+{{< /hint >}}
+
 ```ts
 // create entity
 const myEntity = engine.addEntity()
@@ -145,11 +163,11 @@ A single collision mask can respond to multiple collision layers. Use the `|` ch
 
 ```ts
 MeshCollider.setBox(
-  myEntity,
-  ColliderLayer.CL_CUSTOM1 |
-    ColliderLayer.CL_CUSTOM3 |
-    ColliderLayer.CL_PHYSICS |
-    ColliderLayer.CL_POINTER
+	myEntity,
+	ColliderLayer.CL_CUSTOM1 |
+		ColliderLayer.CL_CUSTOM3 |
+		ColliderLayer.CL_PHYSICS |
+		ColliderLayer.CL_POINTER
 )
 ```
 
@@ -182,30 +200,30 @@ By default, the visible geometry of a `GLTFContainer` isn't mapped to any collis
 ```ts
 // default: both player physics and pointer events use the simpler invisible geometry
 GLTFContainer.create(myEntity, {
-  src: '/models/myModel.gltf',
+	src: '/models/myModel.gltf',
 })
 
 // player physics uses the simpler invisible geometry
 // pointer events use the full detailed contour of the visible geometry
 GltfContainer.create(myEntity2, {
-  src: '/models/myModel.gltf',
-  invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
-  visibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
+	src: '/models/myModel.gltf',
+	invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
+	visibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
 })
 
 // both player physics and pointer events use the full detailed contour of the visible geometry
 // the simpler invisible geometry is mapped to ColliderLayer.CL_NONE to avoid calculating both
 GltfContainer.create(myEntity, {
-  src: '/models/myModel.gltf',
-  invisibleMeshesCollisionMask: ColliderLayer.CL_NONE,
-  visibleMeshesCollisionMask:
-    ColliderLayer.CL_POINTER | ColliderLayer.CL_PHYSICS,
+	src: '/models/myModel.gltf',
+	invisibleMeshesCollisionMask: ColliderLayer.CL_NONE,
+	visibleMeshesCollisionMask:
+		ColliderLayer.CL_POINTER | ColliderLayer.CL_PHYSICS,
 })
 
 // don't respond to collisions of any kind, with either the visible or the invisible geometry:
 GltfContainer.create(myEntity, {
-  src: '/models/myModel.gltf',
-  invisibleMeshesCollisionMask: ColliderLayer.CL_NONE,
+	src: '/models/myModel.gltf',
+	invisibleMeshesCollisionMask: ColliderLayer.CL_NONE,
 })
 ```
 
@@ -215,31 +233,31 @@ The complete syntax for creating a `MeshCollider` component, without any helpers
 
 ```ts
 MeshCollider.create(myBox, {
-  mesh: {
-    $case: 'box',
-    box: {},
-  },
+	mesh: {
+		$case: 'box',
+		box: {},
+	},
 })
 
 MeshCollider.create(myPlane, {
-  mesh: {
-    $case: 'plane',
-    plane: {},
-  },
+	mesh: {
+		$case: 'plane',
+		plane: {},
+	},
 })
 
 MeshCollider.create(myShpere, {
-  mesh: {
-    $case: 'sphere',
-    sphere: {},
-  },
+	mesh: {
+		$case: 'sphere',
+		sphere: {},
+	},
 })
 
 MeshCollider.create(myCylinder, {
-  mesh: {
-    $case: 'cylinder',
-    cylinder: {},
-  },
+	mesh: {
+		$case: 'cylinder',
+		cylinder: {},
+	},
 })
 ```
 

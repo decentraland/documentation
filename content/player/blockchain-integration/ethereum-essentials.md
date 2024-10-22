@@ -62,7 +62,7 @@ Each developer working on a scene will be able to choose whether to use the main
 
 The sidechain will be kept interoperable with the Ethereum’s mainchain. You’ll be able to load tokens from the main chain into the side chain and vice versa. Transactions that take place in the sidechain are eventually reflected in the mainchain when the tokens “exit” back into the mainchain.
 
-Read more about this in [Second layer]({{< ref "/content/creator/scenes/blockchain/second-layer.md" >}}).
+Read more about this in [Second layer]({{< ref "/content/creator/deprecated/scenes/blockchain/second-layer.md" >}}).
 
 #### Trigger transactions from a scene
 

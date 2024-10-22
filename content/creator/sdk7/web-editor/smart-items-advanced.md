@@ -9,7 +9,15 @@ url: /creator/smart-items-advanced
 weight: 3
 ---
 
+{{< hint warning >}}
+📔 Note: The **Creator Hub** is the best alternative for creating Decentraland scenes for all skill levels. It allows you to combine the easy drag-and-drop interface with the ability to customize further with code.
+
+See [About the Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+{{< /hint >}}
+
 Most smart items have a basic mode and an advanced mode. The basic mode is tailored to only display the most common settings in a simple way. The advanced mode allows you to customize almost anything about how the item behaves.
+
+{{< youtube 4wiYYX-_Hek >}}
 
 Items start out int he basic mode, to switch to the advanced mode, click the three dots icon and select **Enable Advanced Mode**.
 
@@ -113,7 +121,7 @@ The **Actions** component lists actions that the item can carry out. Each smart 
 - **Rotate as Camera**: Changes the item's rotation to that of the camera.
 - **Set Position**: Changes the item's position to a specific one. It can be absolute or relative to its current position.
 - **Set Rotation**: Changes the item's rotation to a specific one. It can be absolute or relative to its current rotation.
-- **Set Scale**:  Changes the item's scale to a specific one. It can be absolute or relative to its current scale.
+- **Set Scale**: Changes the item's scale to a specific one. It can be absolute or relative to its current scale.
 - **Follow Player**: Starts moving and turning in direction to the player's position. It ignores any obstacles on the way. You can set the speed and make it only move on certain axis. Min Distance determines how close it will come to the player.
 - **Stop Following Player**: Stops the Follow Player action.
 - **Random Action**: One of the actions listed here will be played at random with equal probablility each time the random action is called. You can list any of the actions that belong to the item.
@@ -171,7 +179,7 @@ To learn more about animations and how you can create your own as part of a 3D m
 Use an action of type **Play Sound** to play a sound file. You can play any sound file as long as it's imported into the scene project. The sound is heard positionally, from the location of the item, meaning they sound louder if the player is closer.
 
 {{< hint info >}}
-**💡 Tip**: Instead of typing in the path to the sound file, you can drag it into the **Path** field from the file navigation menu on the bottom of the editor.
+**💡 Tip**: Instead of typing in the path to the sound file, you can drag it into the **Path** field from the file navigation menu on the bottom of the web editor.
 {{< /hint >}}
 
 Use the **Play Mode** field to chose if playing the sound once, or looping it continuously.
@@ -343,8 +351,8 @@ On a condition, you can check if the value of the counter is
 To make an action occur only once when passing a threshold, and not repeat on every increment after that, combine the counter with a **State** component. Set the State to "Done" whenever you reach the desired value, and add a condition to check this state on the trigger event.
 {{< /hint >}}
 
-## Using smart items on VS Studio
+## Smart items plus code
 
-Smart items work out of the box on the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}) and in the Desktop [Decentraland Editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}).
+Smart items work out of the box on the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}) and in the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
 
-When using the Desktop Editor, you can combine smart items with behavior from custom code. See [Combine with code]({{< ref "/content/creator/sdk7/web-editor/combine-with-code.md" >}}).
+When using the Creator Hub, you can combine smart items with behavior from custom code. See [Export to desktop]({{< ref "/content/creator/sdk7/web-editor/combine-with-code.md" >}}) to see how you can transition your Web Editor projects to the Creator Hub on your machine, and edit the scene's code.

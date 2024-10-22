@@ -18,7 +18,7 @@
 More info: https://gohugo.io/content-management/cross-references/
 
 ```markdown
-To publish [publish]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) your scene bla bla bla
+To publish [publish]({{< ref "/content/creator/deprecated/scenes/publishing/publishing.md" >}}) your scene bla bla bla
 ```
 
 ---

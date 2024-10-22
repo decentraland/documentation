@@ -79,19 +79,15 @@ In a **test scene project**:
 1. Add this script to the `scripts` list in package.json:
    `"link-sdk": "cd node_modules/@dcl/sdk && npm link && cd ../js-runtime && npm link"`
 2. Run `npm install`
-3. Run `npm run link-sdk`
+3. Run `npm install YOUR_LIBRARY_PATH`, e.g., `npm install /User/projects/dcl-sdk7-library-test`
+4. Run `npm run link-sdk`
 
 In the **library project**:
 
 1. Run `npm install`
 2. Run `npm run build`
-3. Run `npm link`
 4. Run: `npm link @dcl/sdk @dcl/js-runtime`
 
-Back in the **test scene project**:
-
-1. Run: `npm link <library name>`
-2. Run `npm run build`
 
 {{< hint danger >}}
 **❗Warning**: The order of these steps is important. It may not work in another order.
@@ -110,9 +106,9 @@ If you make changes to the library, you must run `npm build` to update them. To 
 
 When you're finished testing, remember to unlink the library.
 
-1. On the scene folder run `npm unlink --no-save <library name>`
+1. On the scene folder run `npm install <library name>`
 
-2. Then in the library run`npm unlink`
+2. Then in the library run `rm node_modules && npm install`
 
 ## Versioning
 

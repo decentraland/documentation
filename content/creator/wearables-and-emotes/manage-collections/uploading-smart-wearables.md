@@ -12,7 +12,7 @@ weight: 4
 
 After generating your Smart Wearable using the [SDK7](/creator/development-guide/sdk7/smart-wearables/), the next step is to upload it to the builder. This document explains how to upload, publish, and put your Smart Wearables up for sale.
 
-#### Uploading Your File
+## Uploading Your File
 
 Remember that you need to create a collection before uploading your file. If you don’t know how to do that, check [Creating a Collection](creator/wearables-and-emotes/manage-collections/creating-collection/). To upload your Smart Wearable, drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is a Smart Wearable. **Remember that the collection max file size is 3MB**.
 
@@ -20,7 +20,7 @@ Remember that you need to create a collection before uploading your file. If you
 
 When you upload the file, you will be asked to upload a video showcase.
 
-#### Uploading Your Video Showcase
+## Uploading Your Video Showcase
 
 This video showcase will be displayed in the marketplace for buyers to see how the Smart Wearable works.
 

@@ -11,12 +11,20 @@ weight: 6
 
 You can add links from your scene out to other content, either to other scenes or to external websites.
 
+## Use the Scene Editor
+
+The easiest way to add an external link or a teleport is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the **Teleport** [Smart Item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) to add teleport to another scene in Genesis City, or use any of the **Social Links** smart items to add links to external sites.
+
+<img src="/images/editor/social-links.png" alt="Move entity" width="300"/>
+
 ## Teleports
 
 To teleport a player to another scene, call the following function, indicating the coordinates that you want players to teleport to.
 
 ```ts
 import { teleportTo } from "~system/RestrictedActions"
+
+(...)
 
 teleportTo({ worldCoordinates: { x: -51, y: 1 } })
 ```
@@ -27,14 +35,30 @@ Bare in mind that teleports take you to a scene in the indicated coordinates, bu
 
 To move a player to another set of coordinates inside the current scene, use the `movePlayerTo()` function instead. See [Move a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}}).
 
+## Teleport to a WORLD
+
+To send a player to a scene that is not published in the open world Genesis City map, but instead to an isolated [Decentraland WORLD]({{< ref "/content/creator/worlds/about.md" >}}), use the function `changeRealm()`.
+
+```ts
+import { changeRealm } from "~system/RestrictedActions"
+
+(...)
+
+changeRealm({realm: 'mannakia.dcl.eth'})
+```
+
+Players are presented a confirmation screen before they are teleported, this screen displays information from the destination scene’s `scene.json file`, including the scene `name`, `description` and `navmapThumbnail`. See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for details on how to set this data.
+
+The player will spawn in on of the spawn points of the scene in that world, regardless of their current coordinates on the map.
+
 ## External links
 
 To add a link to an external website, use the `openExternalUrl()` command.
 
 ```ts
-import {openExternalUrl} from "~system/RestrictedActions"
+import { openExternalUrl } from '~system/RestrictedActions'
 
-openExternalUrl({url: "google.com"})
+openExternalUrl({ url: 'google.com' })
 ```
 
 To prevent any abusive usage of this feature to spam players, it's only possible to call the `openExternalUrl` from an explicit click or button event on an entity. It's not possible to call this function as a result of a timer, or a collision area, or a global click event. See [Button events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}) for details on how to do this.

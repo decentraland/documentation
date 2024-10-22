@@ -14,10 +14,15 @@ weight: 3
 
 Run multiple Decentraland projects in preview by grouping these into a workspace. Run multiple adjacent scenes to see how they fit, or also run multiple [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}) together to see how they interact with each other and with different scenes.
 
-Running multiple projects in a workspace provides a much more complete testing alternative, to ensure different content works well together.
+Running multiple projects in a workspace provides a much more complete testing alternative, to ensure different content works well together. A workspace is a debugging feature, it doesn't affect the experience in the published scene.
+
+{{< hint warning >}}
+**📔 Note**: The **Creator Hub** doesn't currently support handling Workspaces. Use the **VS Studio Code** extension instead.
+{{< /hint >}}
 
 ## Create a workspace
 
+<!--
 1. Create a top-level folder to hold the workspace.
 
 2. Inside this folder, add one folder at root level for each project you want to work with. You can drag in existing folders with scenes or smart wearables. For new folders, run `npx sdk-commands init` inside each, to create a Decentraland project.
@@ -27,6 +32,21 @@ Running multiple projects in a workspace provides a much more complete testing a
 3. Standing on the workspace folder, run the following, to create the necessary files:
 
    `dcl workspace init`
+
+-->
+
+1. Download the [Goerli Plaza](https://github.com/decentraland/sdk7-goerli-plaza) repo.
+2. Create a separate top-level folder to hold the workspace.
+3. From the Goerli Plaza repo, copy the following files over to your workspace:
+	- `dcl-workspace.json`
+	- `package.json`
+	- `.gitignore`
+4. Inside this folder, add one folder at root level for each project you want to work with. You can drag in existing folders with scenes or smart wearables. For new folders, run `npx sdk-commands init` inside each, to create a Decentraland project.
+
+   > Note: Make sure that the parcels on each of the scenes don't overlap.
+5. Standing on the workspace folder, run the following, to create the necessary files:
+
+   `npm run update-parcels && npm run sync && npm run test && npm run format`
 
 You can confirm that the projects are part of the workspace by running `dcl workspace ls`.
 

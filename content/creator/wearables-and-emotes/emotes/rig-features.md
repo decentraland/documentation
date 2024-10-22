@@ -11,8 +11,7 @@ url: /creator/emotes/rig-features
 weight: 4
 ---
 
-
-#### Armature Transforms
+## Armature Transforms
 
 These are the armature’s transforms in Object Mode with the controls’ setup. **Do not edit this in any way**. The rig should only be manipulated in Pose Mode. To avoid unwanted editing, the transforms have been locked in Object Mode.
 
@@ -22,8 +21,7 @@ _Rig 1.0 transforms._
 
 > **Warning**: **Never edit the rig in Object Mode.**
 
-
-#### Bone Orientation
+## Bone Orientation
 
 This is the bone orientation for Rig 1.0. As it is right now, it’s not possible to mirror behavior on the shoulders, arms, hands, or fingers.
 
@@ -35,9 +33,9 @@ _Axes for bone orientation._
 
 _Behavior when mirrorring poses._
 
-#### Layers
+## Layers
 
-To avoid any accidents and to make it easier to identify the controls, this rig is organized in layers that can be accessed in the *Object Data Properties* tab in Blender. The first set of layers (on the left) has all the controls needed for avatar animation. The second set (on the right) has constraint setups and the base skeleton; there’s no need to select those.
+To avoid any accidents and to make it easier to identify the controls, this rig is organized in layers that can be accessed in the _Object Data Properties_ tab in Blender. The first set of layers (on the left) has all the controls needed for avatar animation. The second set (on the right) has constraint setups and the base skeleton; there’s no need to select those.
 
 ![Object Data Properties tab.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/layers.png)
 
@@ -76,15 +74,15 @@ _3rd Bottom Layer._
 
 _4th Top Layer._
 
-To see all the controls together, select all of the first top four and bottom 2nd and 3rd. To work with separate groups, select just the one you need.  While going through the layers, make sure you’re selecting only *Layers*.
+To see all the controls together, select all of the first top four and bottom 2nd and 3rd. To work with separate groups, select just the one you need. While going through the layers, make sure you’re selecting only _Layers_.
 
-> **Warning**: **Do not select *Protected Layers*.**
+> **Warning**: **Do not select _Protected Layers_.**
 
 ![The first set of layers has all the controls needed for animating.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/layer4.png)
 
 _The first set of layers has all the controls needed for animating._
 
-#### Controls and Grouping
+## Controls and Grouping
 
 Controls are non-deforming bones that drive the base skeleton. They have different colors depending on their category:
 
@@ -99,7 +97,7 @@ Controls are non-deforming bones that drive the base skeleton. They have differe
 
 _All the controls and their colors._
 
-#### Custom Attributes and Setup
+## Custom Attributes and Setup
 
 ### FK/IK Blend
 
@@ -145,7 +143,7 @@ _In previous versions of Blender, make sure to keyframe all the controls and cus
 
 _In Blender 3.1, to keyframe custom properties, press I, then select Location, Rotation, Scale & Custom Properties._
 
-Another solution for keyframing custom properties is selecting ***Keying*** under on the Timeline tab and on ***Active Keying Set*** select Location, Rotation, Scale & Custom Properties, like shown on the gif below. That way, everytime you press I, a keyframe will be created without the pop-up menu. Since some animators prefer the menu, by default, that option is not enabled. But feel free to choose the method that suits you best.
+Another solution for keyframing custom properties is selecting **_Keying_** under on the Timeline tab and on **_Active Keying Set_** select Location, Rotation, Scale & Custom Properties, like shown on the gif below. That way, everytime you press I, a keyframe will be created without the pop-up menu. Since some animators prefer the menu, by default, that option is not enabled. But feel free to choose the method that suits you best.
 
 ![Keyframing with the Keying option.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/keyframe_custom_properties.gif)
 

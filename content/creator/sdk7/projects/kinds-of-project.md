@@ -15,9 +15,9 @@ There are different types of content that you can make for Decentraland.
 
 ## Scenes
 
-Decentraland scenes can either be hosted in Parcels in Genesis City or in Worlds.
+Decentraland scenes can either be hosted in Parcels in Genesis City or in WORLDs.
 
-### Published to LAND
+### Publish to LAND
 
 Scenes that are published to Parcels can be found at specific coordinates inside Decentraland's open world.
 
@@ -29,7 +29,7 @@ Scenes published to LAND are easier to discover, as players may run into them wh
 
 Scenes published to LAND can use up to 15 MB of space per each parcel in the scene. The more parcels, the more room available. This is to prevent overloading the player's CPU, since players may be experiencing many nearby scenes at the same time. See [size limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
 
-### Published to Worlds
+### Publish to WORLDs
 
 Scenes published to a World must be accessed via a link.
 

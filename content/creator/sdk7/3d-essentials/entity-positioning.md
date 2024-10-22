@@ -11,9 +11,9 @@ weight: 1
 
 You can set the _position_, _rotation_ and _scale_ of any entity by using the `Transform` component. This can be used on any entity in the 3D space, affecting where the entitiy is rendered. This includes primitive shapes (cube, sphere, plane, etc), 3D text shapes, NFT shapes, and 3D models (`GltfContainer`).
 
-## Editor UI
+## Use the Scene Editor
 
-When dragging entities via the Visual Editor, in the [Decentraland Editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}), you are changing the values in the entity's Transform implicitly. By changing the position, rotation or scale of an entity, this changes the data in that entity's Transform component.
+When adding an item to your scene via the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), it implicitly includes a **Transform** component. You then change the values in the entity's Transform component implicitly by changing the position, rotation or scale of an entity. You can also use the Scene Editor's UI to provide values numerically for more precision.
 
 ## Code essentials
 
@@ -425,9 +425,10 @@ The following anchor points are available on the `AvatarAnchorPointType` enum:
 
   > Note: The name tag height is dynamically adjusted based on the height of the wearables a player has on. So a player wearing a tall hat will have their name tag a little bit higher than others.
 
-- `AAPT_POSITION`: The player's overall position. This appears on the ground-level, between the avatar's feet.
+- `AAPT_POSITION` _DEPRECATED_: The player's overall position. This appears at a height of 0.8 above the player's feet.
 
-  > Note: A known issue may make items appear below the ground level, this is not the expected behavior and will be fixed in future versions.
+  > {{< hint warning >}} > **📔 Note**: The `AAPT_POSITION` is deprecated. To follow the player's overall position, it's best to make the entity a child of the to the Avatar Entity. See start of this section for an example.
+  > {{< /hint >}}
 
 {{< hint info >}}
 **💡 Tip**: To use these values, write `AvatarAnchorPointType.` and VS Code will display the full list of options on a dropdown.

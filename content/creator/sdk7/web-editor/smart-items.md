@@ -9,7 +9,13 @@ url: /creator/smart-items
 weight: 2
 ---
 
-Some of the items in the catalog of the Decentraland Editor are **Smart Items**. Players can interact with these, they have configurable properties, and they can trigger actions on other smart items. For example: doors that can be opened and closed, platforms that move up and down, or buttons and levers that can activate other items.
+{{< hint warning >}}
+📔 Note: The **Creator Hub** is the best alternative for creating Decentraland scenes for all skill levels. It allows you to combine the easy drag-and-drop interface with the ability to customize further with code.
+
+See [About the Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+{{< /hint >}}
+
+Some of the items in the asset catalog are **Smart Items**. Players can interact with these, they have configurable properties, and they can trigger actions on other smart items. For example: doors that can be opened and closed, platforms that move up and down, or buttons and levers that can activate other items.
 
 {{< youtube 510kDzz1mjo >}}
 
@@ -19,7 +25,7 @@ You can recognize these items in the asset pack explorer because they have a lig
 
 You can recognize which items in your scene are smart because they have the lightning icon next to them in the entity tree.
 
-<img src="/images/editor/smart-item-icon.jpg" width="300"/>
+<img src="/images/editor/smart-item-icon.png" width="300"/>
 
 ## Using items
 
@@ -46,7 +52,7 @@ Smart items are available on both the web editor, and the desktop VS Studio Code
 
 ## Configure an item
 
-Select an item in the Editor to view all of its properties on the right.
+Select an item in the Web Editor to view all of its properties on the right.
 
 Some typical fields you can find in many items are:
 
@@ -87,7 +93,7 @@ If you use the [Advanced mode]({{< ref "/content/creator/sdk7/web-editor/smart-i
 
 ## About Trigger areas
 
-To trigger an action when the player walks into or out of an area, use the Trigger Area smart item. The is is an [invisible item](#invisible-items), the orange cube is only visible in the editor, it becomes invisible when running a preview of the scene. You can easily adjust and scale the orange cube to cover exactly the area you need.
+To trigger an action when the player walks into or out of an area, use the Trigger Area smart item. The is is an [invisible item](#invisible-items), the orange cube is only visible in the web editor, it becomes invisible when running a preview of the scene. You can easily adjust and scale the orange cube to cover exactly the area you need.
 
 <img src="/images/editor/trigger.png" width="150"/>
 
@@ -140,10 +146,11 @@ Play an audio stream from a URL, using hte **Audio Stream** smart item.
 Not all streaming services allow you to play their audio outside their site. The following are some examples that work in Decentraland:
 
 ```ts
-GRAFFITI = ‘https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5’
-SIGNS = ‘https://edge.singsingmusic.net/MC2.mp3’
-DELTA = ‘https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e’
-JAZZ = ‘https://live.vegascity.fm/radio/8010/the_flamingos.mp3’
+GRAFFITI =
+	'https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5'
+SIGNS = 'https://edge.singsingmusic.net/MC2.mp3'
+DELTA = 'https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e'
+JAZZ = 'https://live.vegascity.fm/radio/8010/the_flamingos.mp3'
 ```
 
 {{< /hint >}}
@@ -239,11 +246,11 @@ Some items are not meant to be seen by the player, but are visible while editing
 
 {{< hint info >}}
 **📔 Note**:
-In the advanced mode, these items have a **Visibility** component set to invisible. This component doesn't affect the visibility of the items on the editor, but any item set to invisible isn't seen by players when running a preview.
+In the advanced mode, these items have a **Visibility** component set to invisible. This component doesn't affect the visibility of the items on the web editor, but any item set to invisible isn't seen by players when running a preview.
 {{< /hint >}}
 
 ## Using smart items on VS Studio
 
-Smart items work out of the box on the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}) and in the Desktop [Decentraland Editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}).
+Smart items work out of the box on the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}) and in the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
 
-When using the Desktop Editor, you can combine smart items with behavior from custom code. See [Combine with code]({{< ref "/content/creator/sdk7/web-editor/combine-with-code.md" >}}).
+When using the Creator Hub, you can combine smart items with behavior from custom code. See [Export to desktop]({{< ref "/content/creator/sdk7/web-editor/combine-with-code.md" >}}) to see how you can transition your Web Editor projects to the Creator Hub on your machine, and edit the scene's code.
