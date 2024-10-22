@@ -14,35 +14,49 @@ Add text to a scene using the `TextShape` component. This text sits in a positio
 Text in Decentraland supports all _utf8_ characters, this includes oriental and special characters.
 
 {{< hint warning >}}
-**📔 Note**:  This component is useful for in-world labels and UIs that exist in the 3D space of the scene, not for the player's 2D HUD UI.
+**📔 Note**: This component is useful for in-world labels and UIs that exist in the 3D space of the scene, not for the player's 2D HUD UI.
 {{< /hint >}}
 
 The `TextShape` component is mutually exclusive with other shape components like primitive shapes and glTF 3D models, see [Shape components]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) for more details.
 
 To add text as a label on an existing entity, you create a second entity that has the `TextShape` component and set it as a child of the other entity.
 
+## Use the Scene Editor
+
+The easiest way to place text in-world is add a **Text** [Smart item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) visually on the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). You can then set all the available fields on the Scene Editor's
+
+<img src="/images/editor/text-smart-item.png" alt="Scene name" width="128"/>
+
 ## Create a text component
 
-The following example shows how to create a `TextShape` component and add it to an entity.
+The following example shows how to create a `TextShape` component and add it to an entity via code.
 
 ```ts
-const sign = engine.addEntity(true)
+const sign = engine.addEntity()
 
-Transform.create(sign,{
-    position: Vector3.create(8, 1 ,8) 
-  })
+Transform.create(sign, {
+	position: Vector3.create(8, 1, 8),
+})
 
-TextShape.create(sign,{
-    text: 'Hello World'
-  })
+TextShape.create(sign, {
+	text: 'Hello World',
+})
 ```
 
 {{< hint warning >}}
-**📔 Note**:  If the entity with the text component is a child of another entity, then it will be affected by the parent's scale. If the parent is scaled unevenly along its axis, this will result in the text also being stretched or compressed.
+**📔 Note**: If the entity with the text component is a child of another entity, then it will be affected by the parent's scale. If the parent is scaled unevenly along its axis, this will result in the text also being stretched or compressed.
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**:  `TextShape` components aren't clickable. `PointerEvents` comopnents aren't activated when used on entites that have a `TextShape` component.
+**📔 Note**: `TextShape` components aren't clickable. `PointerEvents` comopnents aren't activated when used on entites that have a `TextShape` component.
+{{< /hint >}}
+
+{{< hint warning >}}
+**📔 Note**: `TextShape` must be imported via
+
+> `import { TextShape } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
 {{< /hint >}}
 
 ## Change the text value
@@ -54,52 +68,51 @@ If you want to change the string displayed by the component, you can do so at an
 ```ts
 const mutableText = TextShape.getMutable(myEntity)
 
-mutableText.text = "new string"
+mutableText.text = 'new string'
 ```
-
 
 ## Basic text properties
 
 The `TextShape` component has several properties that can be set to style the text. Below are some of the most common:
 
 - `font`: Value from the enum `Font`.
-- `fontSize`: _number_.
+- `fontSize`: _number_. An entiy with font 10 is 1 meter tall.
 - `textColor`: _Color4_ object. _Color4_ objects store an _RBG_ color as three numbers from 0 to 1, plus _alpha_ for transparency. See [color types]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >}}) for more details.
-- `opacity`: _number_. Set it to less than 1 to make the text translucid.
 
 ```ts
-TextShape.create(sign,{
-    text: 'Hello World',
-	textColor: { r: 1, g: 0, b: 0, a:1 },
+TextShape.create(sign, {
+	text: 'Hello World',
+	textColor: { r: 1, g: 0, b: 0, a: 1 },
 	fontSize: 5,
-	font: Font.F_SANS_SERIF
-  })
+	font: Font.F_SANS_SERIF,
+})
 ```
-
-
 
 ## Fonts
 
-
 Text shapes can use fonts from the enum `Font`. This enum currently includes the following fonts:
 
-- `Font.F_LIBERATION_SANS`
-- `Font.F_SANS_SERIF`. 
+- `Font.FSansSerif`
+- `Font.FSerif`
+- `Font.FMonospace`
 
-By default uses it uses `Font.F_LIBERATION_SANS`.
-
+By default uses it uses `Font.FSansSerif`.
 
 ```ts
-TextShape.create(sign,{
-    text: 'Hello World',
+TextShape.create(sign, {
+	text: 'Hello World',
 	textColor: { r: 1, g: 0, b: 0 },
 	fontSize: 5,
-	font: Font.F_SANS_SERIF
-  })
+	font: Font.FSansSerif,
+})
 ```
 
+{{< hint warning >}}
+**📔 Note**: Currently, all fonts are rendered as Sans Serif. This is a known issue to fix in the future.
+{{< /hint >}}
+
 {{< hint info >}}
-**💡 Tip**:  If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
+**💡 Tip**: If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
 {{< /hint >}}
 
 ## Text alignment and padding properties
@@ -116,7 +129,7 @@ The `TextShape` component creates a text box that has a size, padding, etc.
 - `zIndex`: _number_. Useful for when multiple flat entities occupy the same space, it determines which one to show in front.
 
 {{< hint info >}}
-**💡 Tip**:  If a text is meant to float in space, it's a good idea to add a [`Billboard` component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#face-the-user">}}) so that the text rotates to always face the player and be legible.
+**💡 Tip**: If a text is meant to float in space, it's a good idea to add a [`Billboard` component]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#face-the-user">}}) so that the text rotates to always face the player and be legible.
 {{< /hint >}}
 
 ## Text shadow and outline properties
@@ -129,12 +142,12 @@ The text has no shadow by default, but you can set the following values to give 
 - `shadowColor`: _Color3_ object. _Color3_ objects store an _RBG_ color as three numbers from 0 to 1.
 
 ```ts
-TextShape.create(sign,{
-    text: 'Text with shadow',
+TextShape.create(sign, {
+	text: 'Text with shadow',
 	shadowColor: { r: 1, g: 0, b: 0 },
 	shadowOffsetY: 1,
-	shadowOffsetX: -1
-  })
+	shadowOffsetX: -1,
+})
 ```
 
 The letters in the text can also have an outline in a different color surrounding its perimeter.
@@ -147,9 +160,9 @@ The letters in the text can also have an outline in a different color surroundin
 If you want your text to span multiple lines, use `\n` as part of the string. The following example has two separate lines of text:
 
 ```ts
-TextShape.create(sign,{
-    text: "This is one line. \nThis is another line"
-  })
+TextShape.create(sign, {
+	text: 'This is one line. \nThis is another line',
+})
 ```
 
 You can also set up the following properties related to texts with multiple lines:

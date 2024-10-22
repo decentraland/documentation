@@ -2,6 +2,12 @@
 date: 2018-01-06
 title: Scene limitations
 description: How many things can I put on my scene?
+aliases:
+  - /documentation/scene-limitations/
+  - /builder/scene-limitations/
+  - /development-guide/scene-limitations/
+  - /creator/builder/scene-limitations
+  - /creator/development-guide/scene-limitations
 categories:
   - development-guide
 type: Document
@@ -9,12 +15,21 @@ url: /creator/development-guide/sdk7/scene-limitations/
 weight: 2
 ---
 
-In order to improve performance in the metaverse, we have established a set of limits that every scene must follow. If a
-scene exceeds these limitations, then the parcel won't be loaded and the preview will display an error message.
+In order to improve performance in the metaverse, we have established a set of limits that every scene must follow. These limits are per-parcel. So the larger the scene, the higher these limits are set.
 
-For a straight-forward reference of what limitations you'll have for a specific number of parcels, check the following table:
+When working with the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}), you can see stats about the resources used by 3D models in your scene, together with the limits for your scene.
+
+<img src="/images/editor/triangle-limit1.png" width="250" />
+
+You can expand this menu to view details.
+
+<img src="/images/editor/triangle-limit2.png" width="300" />
+
+{{< hint info >}}
+**💡 Tip**: For a reference table of all specific numbers per parcel count, see:
 
 [Reference table](https://docs.google.com/spreadsheets/d/1BTm0C20PqdQDAN7vOQ6FpnkVncPecJt-EwTSNHzrsmg/edit#gid=0)
+{{< /hint >}}
 
 ## Scene limitation rules
 
@@ -31,7 +46,7 @@ Below are the maximum number of elements that a scene is allowed to render at th
 
   > Important: Only entities that are currently being rendered in the scene are counted for these limits. If your scene switches between 3D models, what matters is the rendered models at any point in time, not the total sum. Player avatars and any items brought by a player from outside the scene don't count for calculating these limits either.
 
-- **File size:** `15 MB per parcel - 300 MB max` Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages.
+- **File size:** In Genesis City -`15 MB per parcel - 300 MB max`. For Worlds, see [World size](#world-size). Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages. You can see the full list of files being published and their sizes before you confirm a deployment.
 
 - **File count:** `200 files per parcel` Total count of the files uploaded. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages.
 
@@ -41,17 +56,15 @@ Below are the maximum number of elements that a scene is allowed to render at th
 
 See [Performance Optimization]({{< ref "/content/creator/sdk7/optimizing/performance-optimization.md" >}}) for tips about how you can keep your scene below these limits and make it run smoother for players.
 
-
-
 ## Scene boundaries
 
-When running a preview, any content that is located outside the parcel boundaries is highlighted in red when rendered. If any content is outside these boundaries, you won't be allowed to deploy this scene to Decentraland.
+When running a preview, any content that is located outside the parcel boundaries is highlighted in red when rendered. If any content is outside these boundaries, that part of your content won't be rendered when players visit your scene.
 
-If the tip of a large object leaves the boundaries, this object is considered out of bounds too.
+If the tip of a large object leaves the boundaries, this tip will be sliced off the object.
 
 A single parcel scene measures 16 meters x 16 meters. If the scene has multiple parcels, the dimensions vary depending on the arrangement of the parcels.
 
-It's possible to position entities underground, to either hide them or to have only a portion of them emerge. A scene can't have tunnels that go below the default ground height, players can't travel below the `y = 0` height. 
+It's possible to position entities underground, to either hide them or to have only a portion of them emerge. A scene can't have tunnels that go below the default ground height, players can't travel below the `y = 0` height.
 
 ## Shader limitations
 
@@ -85,7 +98,20 @@ Examples of other valid sizes:
 ```
 
 {{< hint warning >}}
-**📔 Note**:  Although textures of arbitrary sizes sometimes work, they are also often rendered with bugs and are more unstable. We strongly advise that all your textures match these sizes.
+**📔 Note**: Although textures of arbitrary sizes sometimes work, they are also often rendered with bugs and are more unstable. We strongly advise that all your textures match these sizes.
 {{< /hint >}}
 
+## World Size
 
+Decentraland [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) have different limitations, since they are loaded as single scenes.
+
+- Worlds published to Decentraland NAMEs have at least `100 MB`. That number can be increased by owning additional NAMEs, LAND and MANA on that same account account.
+
+- Worlds published to ENS domains have a limit of `25MB` that cannot be expanded.
+
+See [Worlds Size Limit]({{< ref "/content/creator/worlds/about.md#worlds-size-limit" >}}) for more details.
+
+Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages. You can see the full list of files being published and their sizes before you confirm a deployment.
+
+All other limits in worlds are per parcel, including triangles, materials, etc.
+Since adding more parcels to a world is free, you can add up to 45x45 parcels to your scene, and have the corresponding limits to that parcel count.

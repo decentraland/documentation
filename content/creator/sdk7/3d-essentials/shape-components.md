@@ -15,6 +15,10 @@ The rendered shape of an entity is determined by what component it uses.
 
 <img src="/images/media/ecs-simple-components-new.png" alt="nested entities" width="400"/>
 
+## Use the Scene Editor
+
+The easiest way to give an entity a shape is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). You can add a **Mesh Renderer** component to provide a primitive shape, or a **GLTF** component to reference a 3D model from a file. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}).
+
 ## Primitive shapes
 
 Several basic shapes, often called _primitives_, can be added to an entity by giving the entity a `MeshRenderer` component.
@@ -45,7 +49,7 @@ The following example creates a cube:
 const myCube = engine.addEntity()
 
 Transform.create(myCube, {
-  position: Vector3.create(8, 1, 8),
+	position: Vector3.create(8, 1, 8),
 })
 
 MeshRenderer.setBox(myCube)
@@ -57,7 +61,7 @@ The following example creates a cylinder with a `radiusTop` of 0, which produces
 const myCone = engine.addEntity()
 
 Transform.create(myCone, {
-  position: Vector3.create(8, 1, 8),
+	position: Vector3.create(8, 1, 8),
 })
 
 MeshRenderer.setCylinder(myCone, 0, 1)
@@ -73,7 +77,7 @@ To change the shape of an entity that already has a `MeshRenderer` component, ru
 const myCube = engine.addEntity()
 
 Transform.create(myCube, {
-  position: Vector3.create(8, 1, 8),
+	position: Vector3.create(8, 1, 8),
 })
 
 MeshRenderer.setBox(myCube)
@@ -81,6 +85,14 @@ MeshRenderer.setBox(myCube)
 // overwrite shape
 MeshRenderer.setSphere(myCube)
 ```
+
+{{< hint warning >}}
+**📔 Note**: The `MeshRenderer` component must be imported via
+
+> `import { MeshRenderer } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 ## 3D models
 
@@ -92,7 +104,7 @@ To add an external model into a scene, add a `GltfContainer` component to an ent
 const houseEntity = engine.addEntity()
 
 GltfContainer.create(houseEntity, {
-  src: 'models/House.gltf',
+	src: 'models/House.gltf',
 })
 ```
 
@@ -102,11 +114,19 @@ The `src` field is required, you must give it a value when constructing the comp
 **💡 Tip**: We recommend keeping your models separate in a `/models` folder inside your scene.
 {{< /hint >}}
 
-glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this. 
+glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this.
 
 To prevent players from walking through a 3D model, or to make a model clickable, you must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}), which may be embedded in the model or provided via a `MeshCollider` component.
 
 Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
+
+{{< hint warning >}}
+**📔 Note**: The `GltfContainer` component must be imported via
+
+> `import { GltfContainer } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 ### Free libraries for 3D models
 
@@ -147,9 +167,9 @@ const primitiveEntity = engine.addEntity()
 
 MeshRenderer.setBox(primitiveEntity)
 
-Transform.ceate(primitiveEntity, {
-  position: { x: 8, y: 1, z: 8 },
-  scale: { x: 4, y: 0.5, z: 4 },
+Transform.create(primitiveEntity, {
+	position: { x: 8, y: 1, z: 8 },
+	scale: { x: 4, y: 0.5, z: 4 },
 })
 ```
 
@@ -160,7 +180,7 @@ You can make an entity invisible by giving an entity a `VisibilityComponent`, wi
 ```ts
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: Vector3.create(4, 0, 4),
+	position: Vector3.create(4, 0, 4),
 })
 MeshRenderer.setBox(myEntity)
 
@@ -183,27 +203,27 @@ The following example uses a system to periodically check the loading state of a
 
 ```ts
 export function main() {
-  const meshEntity = engine.addEntity()
-  GltfContainer.create(meshEntity, { src: 'models/Monster.glb' })
-  engine.addSystem((deltaTime) => {
-    const loadingState = GltfContainerLoadingState.getOrNull(meshEntity)
-    if (!loadingState) return
-    switch (loadingState.currentState) {
-      case LoadingState.LOADING:
-        console.log('mesh is LOADING')
-        break
-      case LoadingState.FINISHED:
-        console.log('mesh is FINISHED')
-        // Perform custom logic
-        break
-      case LoadingState.FINISHED_WITH_ERROR:
-        console.log('mesh is FINISHED BUT MAY HAVE PROBLEMS')
-        break
-      case LoadingState.UNKNOWN:
-        console.log('mesh is in an UNKNOWN STATE')
-        break
-    }
-  })
+	const meshEntity = engine.addEntity()
+	GltfContainer.create(meshEntity, { src: 'models/Monster.glb' })
+	engine.addSystem((deltaTime) => {
+		const loadingState = GltfContainerLoadingState.getOrNull(meshEntity)
+		if (!loadingState) return
+		switch (loadingState.currentState) {
+			case LoadingState.LOADING:
+				console.log('mesh is LOADING')
+				break
+			case LoadingState.FINISHED:
+				console.log('mesh is FINISHED')
+				// Perform custom logic
+				break
+			case LoadingState.FINISHED_WITH_ERROR:
+				console.log('mesh is FINISHED BUT MAY HAVE PROBLEMS')
+				break
+			case LoadingState.UNKNOWN:
+				console.log('mesh is in an UNKNOWN STATE')
+				break
+		}
+	})
 }
 ```
 
@@ -213,31 +233,31 @@ The complete syntax for creating a `MeshRenderer` component, without any helpers
 
 ```ts
 MeshRenderer.setBox(myBox, {
-  mesh: {
-    $case: 'box',
-    box: { uvs: [] },
-  },
+	mesh: {
+		$case: 'box',
+		box: { uvs: [] },
+	},
 })
 
 MeshRenderer.create(myPlane, {
-  mesh: {
-    $case: 'plane',
-    plane: { uvs: [] },
-  },
+	mesh: {
+		$case: 'plane',
+		plane: { uvs: [] },
+	},
 })
 
 MeshRenderer.create(myShpere, {
-  mesh: {
-    $case: 'sphere',
-    sphere: {},
-  },
+	mesh: {
+		$case: 'sphere',
+		sphere: {},
+	},
 })
 
 MeshRenderer.create(myCylinder, {
-  mesh: {
-    $case: 'cylinder',
-    cylinder: {},
-  },
+	mesh: {
+		$case: 'cylinder',
+		cylinder: {},
+	},
 })
 ```
 

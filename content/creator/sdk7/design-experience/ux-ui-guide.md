@@ -5,6 +5,8 @@ description: Tips and practices to build scenes where players will want to stay 
 categories:
   - design-experience
 type: Document
+aliases:
+  - /design-experience/ux-ui-guide/
 url: /creator/design-experience/ux-ui-guide
 weight: 2
 ---
@@ -29,7 +31,7 @@ All scenes in Decentraland should be designed with these values in mind:
 
 ## User experience
 
-#### Where to start?
+### Where to start?
 
 What is the objective of your scene? Is it to offer a beautiful landscape to contemplate and explore? Is it a museum? Is it a single player game? A competitive one? Or does it follow a linear storytelling flow?
 
@@ -50,7 +52,7 @@ If the player’s experience in your scene isn’t meant to be linear, but you s
 </figure>
 
 {{< hint warning >}}
-**📔 Note**:  Make sure the popup isn't too intrusive and that it's easy to close by clicking anywhere.
+**📔 Note**: Make sure the popup isn't too intrusive and that it's easy to close by clicking anywhere.
 {{< /hint >}}
 
 A welcome message should communicate the following to the player:
@@ -61,13 +63,13 @@ A welcome message should communicate the following to the player:
 - Instructions/Next steps
 - _(Optional)_ Controls. Mostly useful if your scene uses global button events. Otherwise, items themselves indicate how to use them when hovering over them.
 
-#### Motivation
+### Motivation
 
 You’ll likely want your visitors to keep coming back to your scene, think of ways in which you can motivate them to do so! Ask yourself “What would make a player want to return to my scene, or want to recommend it to a friend?”
 
 For example, you can challenge them, giving them something to achieve that will be hard enough to take several attempts. You can also organize competitive multiplayer events, which are also an interesting opportunity to socialize. Make your scene a dynamic place where players feel that they enjoy spending time there!
 
-#### Feedback and Sound
+### Feedback and Sound
 
 Sound plays a double key role, don’t miss out on using it! On one hand it’s vital for generating immersion, many things that won’t feel real if they aren’t accompanied by sound. The other crucial thing sound is for is providing feedback to a player’s actions. If you rely only on visual cues, you can’t be certain that a player will be looking in the right direction to see the effects of their actions. Through using sound, you can ensure that they are aware that something happened. If you use visual and sound cues in combination, hearing the sound invites the player to look around for the visual cue, in case they didn’t see it.
 
@@ -79,7 +81,7 @@ This section is aimed at helping you construct a narrative through the design of
 
 We can’t understate how valuable color, icons, motion and scale are for sending the right message across: everything in the scene conveys a meaning, remember that.
 
-#### Layout
+### Layout
 
 Be careful about placing your UI in screen regions that overlap with the default Decentraland UI elements. The default Decentraland UI, including minimap, chat, etc, is designed to only cover the left 25% of the screen. The rest of the screen real estate is a safe zone, free to use for content creators.
 
@@ -90,12 +92,12 @@ Be careful about placing your UI in screen regions that overlap with the default
 There are no restrictions for placing UI elements in the left 25% of the screen, but keep in mind that the explorer is continually making changes and improvements to its design. Any space that is not occluded in that region today could be covered in future versions.
 
 {{< hint warning >}}
-**📔 Note**:  UI elements from scenes and smart wearables always appear on a layer behind the default Decentraland UI.
+**📔 Note**: UI elements from scenes and smart wearables always appear on a layer behind the default Decentraland UI.
 {{< /hint >}}
 
 Always keep a grid in mind and use it as your main criteria when spatially organizing your UI. If you are working on a scene where a HUD is needed, you can start by putting all the consumables together (e.g. currency, food, life), and on the other side stockables such as tools or weapons. Try to be consistent about the grid metrics and padding. Make the feedback for every player action clear.
 
-#### Color
+### Color
 
 It’s important to choose a color palette, as this gives your scene an identity and also signals relationships and hierarchy between elements.
 
@@ -112,7 +114,7 @@ When putting together a color palette, start out by selecting a main color, and 
 </figure>
 
 {{< hint info >}}
-**💡 Tip**:  Free color palette generators we recommend: [Coolors](https://coolors.co), [Adobe Color CC](https://color.adobe.com/), [Colour Lovers](http://www.colourlovers.com), [Color Hunt](http://www.colorhunt.co), [Color by Hailpixel](http://color.hailpixel.com), [Colour Code](http://colourco.de), [Sip](https://sipapp.io/), [Color Scheme Designer by Paletton](http://paletton.com), [Cohesive Colors](http://javierbyte.github.io/cohesive-colors), [Colr](http://www.colr.org)
+**💡 Tip**: Free color palette generators we recommend: [Coolors](https://coolors.co), [Adobe Color CC](https://color.adobe.com/), [Colour Lovers](http://www.colourlovers.com), [Color Hunt](http://www.colorhunt.co), [Color by Hailpixel](http://color.hailpixel.com), [Colour Code](http://colourco.de), [Sip](https://sipapp.io/), [Color Scheme Designer by Paletton](http://paletton.com), [Cohesive Colors](http://javierbyte.github.io/cohesive-colors), [Colr](http://www.colr.org)
 {{< /hint >}}
 
 The main color should be the most frequently used across your UI components. If your palette doesn’t have a secondary color, you can accent elements by combining the main color with black or white. Having a secondary color is not mandatory, but it helps emphasize and distinguish your scene UI elements. Secondary colors work best for highlights, selection controls (sliders and switches), links and headlines.
@@ -127,9 +129,8 @@ Remember that each color has its own unique expressive qualities, take advantage
 You can also use colors strategically to indicate state changes, for example changing the color of an element to indicate if it’s active or inactive.
 
 {{< hint warning >}}
-**📔 Note**:  States communicate the status of UI elements. The states of an element should maintain a certain continuity, but they must have clear affordances and be easily distinguishable from other states and the surrounding layout.
+**📔 Note**: States communicate the status of UI elements. The states of an element should maintain a certain continuity, but they must have clear affordances and be easily distinguishable from other states and the surrounding layout.
 {{< /hint >}}
-
 
 <figure>
     <img src="/images/media/ux-active-button.png" alt="Active inactive button" width="300"/>
@@ -143,7 +144,7 @@ Warning! When selecting colors that will be shown in superposition, take special
     <figcaption>Both icons can be distinguished, but the first one has better contrast. It becomes easier to read and requires less effort to understand.</figcaption>
 </figure>
 
-#### Typographic hierarchy
+### Typographic hierarchy
 
 Try to define at least a 3-type scale for Titles, Subtitles, and Body. Be careful with the use of color and font size. All font sizes should be 12 px or larger.
 
@@ -154,7 +155,7 @@ If you are going to place text that is displayed over imagery (or over the world
     <figcaption>Prioritize legibility</figcaption>
 </figure>
 
-#### Icons
+### Icons
 
 Icons synthesise information, helping you identify actions through images. They are an amazingly powerful tool for providing input that can be interpreted fast, as opposed to using text to label things, which demands more of the player’s attention and time. It’s also useful to show icons in combination with text, as this helps disambiguate their meanings.
 
@@ -163,7 +164,7 @@ Icons synthesise information, helping you identify actions through images. They 
     <figcaption>Use icons as a universal language</figcaption>
 </figure>
 
-#### Motion
+### Motion
 
 Use motion to provide feedback and lead the way when needed. Motion helps players focus their attention and helps maintain continuity as the UI changes.
 
@@ -172,7 +173,7 @@ Use motion to provide feedback and lead the way when needed. Motion helps player
     <figcaption>Use particles, scale, or fading margins to make things stand out</figcaption>
 </figure>
 
-#### Writing and content structure
+### Writing and content structure
 
 UI text can make interfaces more usable and gives players more confidence in their actions. Always make UI text as concise as possible. Players are there to play, not to read. Any text that seems too long won’t be read by most players.
 

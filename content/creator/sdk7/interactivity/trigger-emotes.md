@@ -11,11 +11,15 @@ weight: 4
 
 You can make the player perform an animation as part of the scene's code. This can help provide more immersion, and it can also help communicate what other players are doing to each other. The avatar animations are seen both by the player (in 3rd person view) and any other players around.
 
-Animations done by the player are overriden by the default locomotion animations, like walking and jumping. So animations played by the scene only play while the player is standing still. If the player walks or jumps, any animations are interrupted.
+Animations done by the player are overridden by the default locomotion animations, like walking and jumping. So animations played by the scene only play while the player is standing still. If the player walks or jumps, any animations are interrupted.
 
 {{< hint warning >}}
 **📔 Note**: Players can only be animated if they already are standing inside the scene's bounds, not if they are on a neighboring scene. Portable experiences and smart wearables can play animations anywhere.
 {{< /hint >}}
+
+## Use the Scene Editor
+
+The easiest way to make a player perform an animation is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the no-code **Play Emote** action to play a default animation, or the **Play Custom Emote** action to play an animation form a file. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
 
 ## Default animations
 
@@ -31,13 +35,13 @@ Transform.create(emoter, { position: Vector3.create(8, 0, 8) })
 MeshRenderer.setBox(emoter)
 MeshCollider.setBox(emoter)
 pointerEventsSystem.onPointerDown(
-  {
-    entity: emoter,
-    opts: { button: InputAction.IA_POINTER, hoverText: 'Dance' },
-  },
-  () => {
-    triggerEmote({ predefinedEmote: 'robot' })
-  }
+	{
+		entity: emoter,
+		opts: { button: InputAction.IA_POINTER, hoverText: 'Dance' },
+	},
+	() => {
+		triggerEmote({ predefinedEmote: 'robot' })
+	}
 )
 ```
 
@@ -60,7 +64,15 @@ The following list covers some of the default emotes that are available to all p
 - `dab`
 - `headexplode`
 
+{{< hint info >}}
+**💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with [Input Modifiers]({{< ref "/content/creator/sdk7/interactivity/input-modifiers.md" >}}) for the duration of the avatar animation.
+{{< /hint >}}
+
 ## Custom animations
+
+{{< hint danger >}}
+**❗Warning**: Currently, avatar animations from scene files do not work in preview using the new Decentraland 2.0 , this is a known issue. These animations do work correctly once the scene is published.
+{{< /hint >}}
 
 Use the `triggerSceneEmote()` to make the player perform a custom animation, stored as a .glb file as part of the scene's asset. This function takes an object as an argument with the following arguments:
 
@@ -75,19 +87,27 @@ Transform.create(emoter, { position: Vector3.create(8, 0, 8) })
 MeshRenderer.setBox(emoter)
 MeshCollider.setBox(emoter)
 pointerEventsSystem.onPointerDown(
-  {
-    entity: emoter,
-    opts: { button: InputAction.IA_POINTER, hoverText: 'Make snowball' },
-  },
-  () => {
-    triggerSceneEmote({ src: 'animations/Snowball_Throw.glb', loop: false })
-  }
+	{
+		entity: emoter,
+		opts: { button: InputAction.IA_POINTER, hoverText: 'Make snowball' },
+	},
+	() => {
+		triggerSceneEmote({ src: 'animations/Snowball_Throw.glb', loop: false })
+	}
 )
 ```
 
-## Required permissions
+{{< hint info >}}
+**💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with [Input Modifiers]({{< ref "/content/creator/sdk7/interactivity/input-modifiers.md" >}}) for the duration of the avatar animation.
+{{< /hint >}}
 
-Before you can play avatar animations, either predefined or custom, you must add the `ALLOW_TO_TRIGGER_AVATAR_EMOTE` permission to the `scene.json` file. If not yet present, create a `requiredPermissions` property at root level in the JSON file to assign it this permission.
+## Required permissions in smart wearables and portable experiences
+
+{{< hint warning >}}
+**📔 Note**: Permissions are only relevant in [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) and [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). Normal scenes (both in parcels or in Worlds) are free to use avatar animations and are not affected by permissions.
+{{< /hint >}}
+
+Smart wearables and portable experiences are only allowed to use this functionality if they add a corresponding permissions on the `scene.json` file. This applies to both predefined and custom animations. This is granted via the `ALLOW_TO_TRIGGER_AVATAR_EMOTE` permission.
 
 ```json
   "requiredPermissions": [
@@ -96,7 +116,3 @@ Before you can play avatar animations, either predefined or custom, you must add
 ```
 
 See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
-
-{{< hint warning >}}
-**📔 Note**: To prevent abusive behavior that might damage a player's experience, the ability to make a player perform an emote is handled as a permission. Currently, this permission has no effect in how the player experiences the scene.
-{{< /hint >}}

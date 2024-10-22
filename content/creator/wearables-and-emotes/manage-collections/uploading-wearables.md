@@ -12,7 +12,7 @@ weight: 2
 
 Once you export your wearable, you’ll have to upload it to the builder. This document will cover the process of uploading wearables.
 
-#### Uploading Your File
+## Uploading Your File
 
 Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, check [Creating a Collection](/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your wearable, just drag and drop the file on the **_New Item_** window or browse your computer. It will automatically detect if the file is an emote or wearable. **Remember that the collection max file size is 3MB**.
 
@@ -36,6 +36,7 @@ Select the Rarity of your item.
 | --------- | --------------- |
 | Unique    | 1               |
 | Mythic    | 10              |
+| Exotic    | 50              |
 | Legendary | 100             |
 | Epic      | 1,000           |
 | Rare      | 5,000           |
@@ -118,6 +119,10 @@ Note: The overrides you select will be the suggested default settings for your W
 
 Tags are simply descriptive words that users can use when searching or filtering for items. These are relevant to competitions or events!
 
+## **VRM Export Permission**
+
+When this property is enabled, it will allow owners of your item to include it in VRM Avatar Exports so they can show it off outside of Decentraland.
+
 ## **Adding Another Representation**
 
 If your wearable has a different representation for male and female you will need to upload another file. So far, you only have one uploaded. In the example, it was the female version of the Krampus Sweater. To add the other representation, click on the three dots (_…_) at the top right, next to **_Properties_** and select **_Add male/female_** representation. In the example below, we needed the male version.
@@ -154,7 +159,7 @@ Once you select the location to teleport, a new tab will open on your browser an
 
 <img src="/images/wearables-and-emotes/uploading-wearables/21_goerli.png" width="600"/>
 
-Click on **_Switch to Goerli_** and a popup from your wallet will show up asking to switch the network. Simply click on Switch Network and the new tab will automatically refresh. To test your wearable, go to the backpack and select it.
+Click on **_Switch to Sepolia_** and a popup from your wallet will show up asking to switch the network. Simply click on Switch Network and the new tab will automatically refresh. To test your wearable, go to the backpack and select it.
 
 <img src="/images/wearables-and-emotes/uploading-wearables/22_wearable_world.gif" />
 

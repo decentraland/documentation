@@ -23,7 +23,12 @@ It's also a good practice to assign custom [collision layers]({{< ref "/content/
 
 ## Create a ray
 
-All rays have a point of origin and a direction. The point of origin is based on an entity's position, taking the values on the entity's Transform component. The direction of a ray can be defined in 4 different ways: - **local**: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading. - **global**: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down. - **global target**: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful for example to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space. - **target entity**: Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities.
+All rays have a point of origin and a direction. The point of origin is based on an entity's position, taking the values on the entity's Transform component. The direction of a ray can be defined in 4 different ways: 
+
+- **local**: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading. 
+- **global**: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down. 
+- **global target**: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful for example to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space. 
+- **target entity**: Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities.
 
 The following code creates a raycast with a local direction:
 
@@ -131,6 +136,14 @@ raycastSystem.registerTargetEntityRaycast(
 )
 ```
 
+{{< hint warning >}}
+**📔 Note**: `raycastSystem`, `RaycastQueryType` and `ColliderLayer` must be imported via
+
+> `import { raycastSystem, RaycastQueryType, ColliderLayer } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
+
 ## Raycast result
 
 The callback function that handles the raycast receives an object containing data about the ray itself, and any entities that were hit.
@@ -179,6 +192,13 @@ raycastSystem.registerLocalDirectionRaycast(
   }
 )
 ```
+
+{{< hint warning >}}
+**📔 Note**: You can get a raycast result from hitting an entity on a different scene. This may be especially useful when creating portable experiences or smart wearables, that can react to the surroundings.
+
+However, note that currently you can only obtain raycast responses when the collision is with conent in a scene done with SDK7. Older SDK6 scenes won't return any hit result.
+{{< /hint >}}
+
 
 ## Collision layers
 

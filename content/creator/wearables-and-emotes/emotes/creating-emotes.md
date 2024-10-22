@@ -24,6 +24,7 @@ This documentation will cover the file specifications, the basics of animation i
 | Max File Size          | 1 MB                       |
 | Max Animation Distance | 1 meter (in any direction) |
 | Max Animation Height   | 1 meter                    |
+| Max Texture Size       | 1024 pixels                |
 
 You can find a more detailed explanation of the animation specifications [**below**](#the-animation-specifications).
 
@@ -36,7 +37,7 @@ This documentation explains the set up for Rig 1.0, its controls, and features.
 [Decentraland Blender Rig](/images/emotes/Avatar_File.blend)
 
 {{< hint info >}}
-If you're using Maya you can download this [Maya Rig](/images/emotes/DCL_Maya_Rig.ma) and [picker](/images/emotes/emoteAvatar.pkr) provided by [SparkleStudios](https://www.sparkles.studio/) ❤️. 
+If you're using Maya you can download this [Maya Rig](/images/emotes/DCL_Maya_Rig.ma) and [picker](/images/emotes/emoteAvatar.pkr) provided by [SparkleStudios](https://www.sparkles.studio/) ❤️.
 {{< /hint >}}
 
 ## **Frame Rate**
@@ -64,6 +65,7 @@ In the rig file provided, there’s already an action, the _**Starting_Pose**_. 
 
 If you want to do a loop animation, you don’t have to start the animation from the Starting Pose. Feel free to use the pose that makes more sense in your animation!\*\*
 
+{{< /hint >}}
 
 ## **Blender Interface for Animations**
 
@@ -93,7 +95,7 @@ To create a new animation, simply click on _**Create A New Action**_ button (thi
 
 Create a new animation by duplicating the existing one or by clicking on _**Unlink Action**_ and then _**New**_.
 
-**Browsing and Deleting Animations**
+## **Browsing and Deleting Animations**
 
 In Blender, you can have multiple animation tracks in the same file. It is possible to browse them by clicking on the _**Browse Action**_ dropdown menu. All animation with and F (_**Fake User**_) will be saved. To delete an animation, press _**Shift**_ on the keyboard and click on the _**X**_. After doing that, the animation will show a 0 next to it, which means that it will be deleted the next time you close Blender or reopen the file.
 
@@ -107,7 +109,7 @@ Browsing animations: The ones with an F will be saved, and the ones with 0 will 
 Do not always edit the same animation track. Before making major changes, just duplicate the animation. That way you have a back up version in case you regret deleting or changing something. This is also a nice way to keep track of the progress made so far!
 {{< /hint >}}
 
-**Naming**
+## **Naming**
 
 **An animation’s name should start with a capital letter and if the name is more than one word long, the words should be separated by \_.** Do not use spaces or special characters. Here are some examples of naming:
 
@@ -115,6 +117,18 @@ Do not always edit the same animation track. Before making major changes, just d
 - Rainbow_Dance
 - Throw_Money
 - Talk_To_Hand
+
+## **Emote Overrides**
+
+Emote overrides happen when deform bones don’t have a keyframe set in one of the parameters. Without a keyframe, that bone won’t have the information of where it should be, how much it has been rotated and scaled, leaving that channel open. The consequence is that if you play an emote in world and then trigger yours while the previous one was still playing, the information of location, rotation and scale will be overridden by the previous emote, which will cause a combination of them both. Unless this is done in purpose, it will affect your animation, sometimes with a fun result, but others with completely messed up the emote. Below is an example of an emote override.
+
+<img src="/images/wearables-and-emotes/creating-emotes/01_emote_override.gif" width="400" />
+
+To avoid that, select all layers with bones in them (which can be found in **_Object Data Properties_** > **_Skeleton_** > **_Layers_**). Then, in **_Pose Mode_**, leave the timeline cursor in the first frame of your animation and, with your mouse in **_Viewport Display_**, press **_A_** to select everything. In the **_Graph Editor_**, click twice on the **_Eye_** icon next to the armature channel to make all channels visible. With all bones selected, press **_I_** to set a keyframe. Do the same for the last frame.
+
+**Make sure to select the deform bones, this is especially important!** The deform bones can be found in the last bottom layer and are shown as green bones in the **_Viewport_**.
+
+<img src="/images/wearables-and-emotes/creating-emotes/02_keyframe_01.gif" width="900" />
 
 # The Animation Specifications
 
@@ -199,6 +213,8 @@ If the number of frames of the animation can be divided by the sampling rate, th
 ## **File Size**
 
 The max file size is **3 MB**. If the file is over that after exporting, try checking if the mesh wasn’t exported by accident or if the animation isn’t over 10 seconds. If it is still over 3 MB, try experimenting with the Sampling Rate, as higher values will improve the optimization.
+
+If the emote contains any additional 3D models, the textures in these models can't exceed a size of 1024 pixels.
 
 # **Exporting**
 

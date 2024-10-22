@@ -13,6 +13,10 @@ You can display a 2D NFT (Non-Fungible Token) that you own in your Decentraland 
 
 The NTF's image and other data is taken from an API, based on the token's contract and id. Any NFTs that are supported on [OpenSea](https://opensea.io/) can also be displayed in an NFT picture frame in Decentraland.
 
+{{< hint info >}}
+**💡 Tip**: In the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can use an **NFT** [Smart Item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for a no-code way to achieve this.
+{{< /hint >}}
+
 The picture frame is displayed adjusting to the dimensions of the NFT image. If the image's dimensions are 512 X 512 pixels, the frame keeps its original size. If the image has different dimensions, the frame will be resized and stretched to match these dimensions.
 
 {{< hint info >}}
@@ -27,11 +31,11 @@ Add an `NftShape` component to an entity to display a 2D token in your scene.
 const nft = engine.addEntity()
 
 Transform.create(nft, {
-  position: Vector3.create(8, 1, 8),
+	position: Vector3.create(8, 1, 8),
 })
 
 NftShape.create(nft, {
-  urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+	urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
 })
 ```
 
@@ -43,7 +47,7 @@ The `NftShape` component must be instanced with a parameter that includes the fo
 
 This string includes:
 
-- The _network_ (currently only Ethereum is supported)
+- The _network_ where this token exists. See list of supported values below.
 - The _contract standard_ that this token is based on, for example `erc721`
 - The _contract_ of the token (for example, the CryptoKitties contract)
 - The _id_ of the specific token to display
@@ -53,6 +57,25 @@ For example:
 `urn:decentraland:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536`
 
 The example above fetches an NFT with the contract address `0x06012c8cf97BEaD5deAe237070F9587f8E7A266d`, and the specific identifier `558536`. The corresponding asset asset can be found in OpenSea at [https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536](https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536).
+
+The following values are supported for _network_:
+
+- `ethereum`: Ethereum Mainnet
+- `matic`: Polygon Matic
+- `klaytn`: Klaytn
+- `bsc`: BNB Chain
+- `arbitrum`: Arbitrum
+- `arbitrum_nova`: Arbitrum Nova
+- `avalanche`: Avalanche
+- `optimism`: Optimism
+- `solana`: Solana
+- `base`: Base
+- `blast`: Blast
+- `zora`: Zora
+
+{{< hint warning >}}
+**📔 Note**: Images must weigh up to **6 MB**. If the image is larger, it won't be rendered in the scene.
+{{< /hint >}}
 
 ## Customize the frame
 
@@ -111,7 +134,7 @@ Open a prebuilt UI that displays the name, owner, and description of an NFT. It 
 
 <img src="/images/media/nft-ui.png" alt="Move entity" width="500"/>
 
-Open this UI by calling the function `OpenNftDialog()`. This function requires an object as an argument that contains a single `urn` field. This field takes a string that should follow this structure:
+Open this UI by calling the function `openNftDialog()`. This function requires an object as an argument that contains a single `urn` field. This field takes a string that should follow this structure:
 
 `urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
 
@@ -126,15 +149,21 @@ For example:
 To open this UI as a result of a click action, add the following:
 
 ```ts
+import { openNftDialog } from '~system/RestrictedActions'
+
+// Add pointer collider so it can be clicked
+MeshCollider.setBox(myEntity, ColliderLayer.CL_POINTER)
+
+// Add onPointerDown callback event.
 pointerEventsSystem.onPointerDown(
-  {
-    entity: myEntity,
-    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
-  },
-  function () {
-    OpenNftDialog({
-      urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536',
-    })
-  }
+	{
+		entity: myEntity,
+		opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
+	},
+	function () {
+		openNftDialog({
+			urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536',
+		})
+	}
 )
 ```

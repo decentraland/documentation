@@ -1,4 +1,5 @@
 # Docs web
+
 [https://docs.decentraland.org/](https://docs.decentraland.org/)
 
 # Set up local environment
@@ -17,7 +18,7 @@
 More info: https://gohugo.io/content-management/cross-references/
 
 ```markdown
-To publish [publish]({{< ref "/content/creator/scenes/publishing/publishing.md" >}}) your scene bla bla bla
+To publish [publish]({{< ref "/content/creator/deprecated/scenes/publishing/publishing.md" >}}) your scene bla bla bla
 ```
 
 ---
@@ -26,16 +27,15 @@ To publish [publish]({{< ref "/content/creator/scenes/publishing/publishing.md" 
 
 To debug the current context of Hugo (the site renderer) you may use this snippet
 
-  {{- printf "%#v" . -}}
+{{- printf "%#v" . -}}
 
-  or
+or
 
-  {{- printf "%#v" $ -}}
-
+{{- printf "%#v" $ -}}
 
 ### Multi platform tabs
 
-Tabs should be used to list content for different platforms as seen in [/content/creator/scenes/getting-started/sdk-101.md](/content/creator/scenes/getting-started/sdk-101.md)
+Tabs should be used to list content for different platforms as seen in [/content/creator/sdk7/getting-started/sdk-101.md](/content/creator/sdk7/getting-started/sdk-101.md)
 
 ```markdown
 {{< tabs "open-terminal" >}}

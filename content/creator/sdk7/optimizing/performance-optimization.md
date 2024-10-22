@@ -5,6 +5,9 @@ description: Optimize your scene to load fast and run smoothly for all players.
 categories:
   - development-guide
 type: Document
+aliases:
+  - /development-guide/performance-optimization/
+  - /creator/development-guide/performance-optimization
 url: /creator/development-guide/sdk7/performance-optimization/
 weight: 1
 ---
@@ -17,21 +20,21 @@ The Decentraland explorer enforces many optimizations at engine level. These opt
 
 ## Timing
 
-#### Video playing
+### Video playing
 
 Playing videos is one of the most expensive things for the engine to handle. If your scene includes videos, make sure that only _ONE_ VideoTexture is in use at a time. You can have dozens of planes sharing the same VideoTexture without significant impact on performance, but as soon as you add a second VideoTexture, its effects on framerate become very noticeable.
 
 You should also avoid having videos playing in regions where they can't be seen. For example, if you have a screen indoors, toggle the video using a trigger area based on when the player walks in and out.
 
 {{< hint info >}}
-**💡 Tip**:  A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#using-textures">}}) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
+**💡 Tip**: A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#using-textures">}}) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
 {{< /hint >}}
 
 {{< hint info >}}
-**💡 Tip**:  When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene">}}) .
+**💡 Tip**: When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene">}}) .
 {{< /hint >}}
 
-#### Lazy loading
+### Lazy loading
 
 If your scene is large, or has indoor areas that are not always visible, you can choose to not load the entire set of entities from the very start. Instead, load the content by region as the player visits different parts of the scene. This can significantly reduce the load time of the scene, and also the amount of textures and 3D content that the engine needs to handle on every frame.
 
@@ -44,17 +47,16 @@ For the best result in terms of avoiding hiccups, hide entities by switching the
 An alternative is to not add the entities to the engine until needed. This may result in some hiccups when the entities appear for the first time, and they might also take a couple of seconds to become visible. The advantage of this approach is that it's a valid way to get around the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}). Keep in mind that the scene limitations count is for the content that is being rendered in the scene at any given time, not for the total content that could be rendered. Loading and unloading parts of the scene should allow you to work around those limitations.
 
 {{< hint warning >}}
-**📔 Note**:  Entities that are not visible but are added to the engine do count towards the scene limitations.
+**📔 Note**: Entities that are not visible but are added to the engine do count towards the scene limitations.
 {{< /hint >}}
-
 
 You can also toggle animations on or off for entities that are far or occluded. For example, for an NPC that plays a very subtle idle animation, you could make it only play that animation when the player is at less than 20 meters away. Use a trigger area around the NPC and toggle its animations on or off accordingly.
 
 {{< hint info >}}
-**💡 Tip**:  When an entity is far away and small enough, it's culled by the engine. This culling helps at a drawcall level, removing entities from the engine is always better. This culling also doesn't take occlusion by other entities into account, so entities that are not so small but hidden by a wall are still rendered.
+**💡 Tip**: When an entity is far away and small enough, it's culled by the engine. This culling helps at a drawcall level, removing entities from the engine is always better. This culling also doesn't take occlusion by other entities into account, so entities that are not so small but hidden by a wall are still rendered.
 {{< /hint >}}
 
-#### Async blocks
+### Async blocks
 
 Blocks of [async code]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}) are processed in a separate thread from the rest of the scene, to prevent blocking the progress of everything else.
 
@@ -62,7 +64,7 @@ Any processes that rely on responses from asynchronous services, such as `getPla
 
 Note that the scene will be considered fully loaded when everything that isn't async is done. Async processes might still be running when the player enters the scene. Avoid situations where an async process results in the loading of an entity that could potentially get the player stuck inside of its geometry.
 
-#### Rely on Events
+### Rely on Events
 
 Try to make the scene's logic rely on listening to [events]({{< ref "/content/creator/sdk7/interactivity/event-listeners.md" >}}) as much as possible, instead of running checks every frame.
 
@@ -76,6 +78,16 @@ If you must use a system, avoid doing checks or adjustments on every single fram
 
 There are several ways in which your 3D models can be optimized to be lighter.
 
+When working with the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}), you can see stats about the resources used by 3D models in your scene, and if they pass any of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
+
+<img src="/images/editor/triangle-limit1.png" width="250" />
+
+You can expand this menu to view details.
+
+<img src="/images/editor/triangle-limit2.png" width="300" />
+
+Here are some tips for improving on these metrics:
+
 - When possible, share textures across 3D models. A good practice is to use a single texture as an atlas map, shared across all models in the scene. It's better to have 1 large shared texture of 1024x1024 pixels instead of several small ones.
 
   > Note: Avoid using the same image file for both the albedo texture and the normal map or the emissive map of a material. Use separate files, even if identical. Assigning a same image file to different types of texture properties may introduce unwanted visual artifacts when compressed to asset bundles.
@@ -87,36 +99,35 @@ There are several ways in which your 3D models can be optimized to be lighter.
 - Avoid skinned meshes. They can drag down the performance significantly.
 
 {{< hint info >}}
-**💡 Tip**:  Read more on 3D model best practices in the [3D Modeling Section](/creator/3d-modeling/3d-models
+**💡 Tip**: Read more on 3D model best practices in the [3D Modeling Section](/creator/3d-modeling/3d-models
 {{< /hint >}}
 
-#### Asset Bundle conversion
+### Asset Bundle conversion
 
 About once a day, the Decentraland content servers run a process to compress every _.gltf_ and _.glb_ model in every newly deployed scene to asset bundle format. This format is _significantly_ lighter, making scenes a lot faster to load and smoother to run on the browser.
 
 {{< hint info >}}
-**💡 Tip**:  When planning an event in Decentraland, make sure you deploy your scene a day in advance, so that the models are all converted to asset bundles by then. If you don't want to spoil the surprize before the event, you can deploy a version of your scene that includes all the final 3D models in the project folder, but where these are not visible or where their size is set to 0.
+**💡 Tip**: When planning an event in Decentraland, make sure you deploy your scene a day in advance, so that the models are all converted to asset bundles by then. If you don't want to spoil the surprize before the event, you can deploy a version of your scene that includes all the final 3D models in the project folder, but where these are not visible or where their size is set to 0.
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**:  If you make _any_ change to a 3D model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
+**📔 Note**: If you make _any_ change to a 3D model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
 {{< /hint >}}
-
 
 ## Connectivity
 
-If your scene connects to any 3rd party servers or uses the [messagebus]({{< ref "/content/creator/sdk7/networking/remote-scene-considerations.md" >}}) to send messages between players, there are also some things you might want to keep in mind.
+If your scene connects to any 3rd party servers or uses the [messagebus]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages" >}}) to send messages between players, there are also some things you might want to keep in mind.
 
 - Your scene should only have one active WebSockets connection at a time.
 - HTTP calls are funneled by the engine so that only one is handled at a time. Any additional requests are queued internally and must wait till other requests are completed. This queuing process is handled automatically, you don't need to do anything.
-- When using the [messagebus]({{< ref "/content/creator/sdk7/networking/remote-scene-considerations.md" >}}) to send messages between players, be mindful that all messages are sent to all other players in the server island. Avoid situations where an incoming message directly results in sending another message, as the number of messages can quickly grow exponentially when there's a crowd in the scene.
+- When using the [messagebus]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages" >}}) to send messages between players, be mindful that all messages are sent to all other players in the server island. Avoid situations where an incoming message directly results in sending another message, as the number of messages can quickly grow exponentially when there's a crowd in the scene.
 
 ## Scene UI
 
 Scene UIs can become costly to render when they are made up of many individual elements. Keep in mind that each UI element requires a separate drawcall on the engine.
 
 {{< hint info >}}
-**💡 Tip**:  Try to merge multiple elements into one single image. For example if you have a menu with multiple text elements, it's ideal to have the text from the tiles and any additional images baked into the background image. That saves the engine from doing one additional drawcall per frame for each text element.
+**💡 Tip**: Try to merge multiple elements into one single image. For example if you have a menu with multiple text elements, it's ideal to have the text from the tiles and any additional images baked into the background image. That saves the engine from doing one additional drawcall per frame for each text element.
 {{< /hint >}}
 
 Avoid making adjustments to the UI on every frame, those are especially costly and can end up getting queued. For example, if there's a health bar in your UI that should shrink over period of time, players would probably not notice a difference between if it updates at 10 FPS instead of at 30 FPS (on every frame). The system that updates this bar can use a brief timer that counts 100 milliseconds, and only affect the UI when this timer reaches 0.
@@ -136,9 +147,8 @@ When you run a scene in preview, note that on the top-right corner it says “Y 
 As you interact with things that involve messages between the SDK and the engine, you’ll notice the ‘Processed Messages’ number grows. You should closely watch the ‘Pending on Queue’ number, it should always be 0 or close to 0. This tells you how many of these messages didn't get to be processed, and got pushed to a queue. If the ‘Pending on Queue’ count starts to grow, then you’ve entered the danger zone and should think about doing more optimizations to your scene.
 
 {{< hint warning >}}
-**📔 Note**:  Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
+**📔 Note**: Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
 {{< /hint >}}
-
 
 Keep in mind that the performance you experience in preview may differ from that in production:
 

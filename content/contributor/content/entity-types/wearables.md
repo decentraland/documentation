@@ -10,7 +10,7 @@ The `wearables` field in a player's [profile]({{< relref "profiles" >}}) contain
 
 Every wearable belongs to a _category_, indicating the spot it takes on the avatar's body, and can hide or replace other categories (for example, a long dress may be worn as top clothing but entirely cover the legs).
 
-There are 16 wearable categories, referenced in various metadata fields: `hair`, `head`, `eyes`, `eyebrows`, `facial_hair`, `mouth`, `upper_body`, `lower_body`, `feet`, `hat`, `helmet`, `mask`, `tiara`, `top_head`, `earring`, `eyewear`, `skin`.
+There are 18 wearable categories, referenced in various metadata fields: `body_shape`, `hair`, `eyes`, `eyebrows`, `facial_hair`, `mouth`, `upper_body`, `lower_body`, `feet`, `hat`, `helmet`, `mask`, `tiara`, `top_head`, `earring`, `eyewear`, `skin` and `hands_wear`.
 
 Wearable entities include files in GLB format for different body shapes.
 
@@ -65,7 +65,7 @@ Wearables share most of their basic fields with [emotes]({{< relref "emotes" >}}
 | `description` | An extended description for this wearable.
 | `image` | The [internal filename]({{< relref "../entities#files" >}}) of a picture for this wearable.
 | `thumbnail` | The [internal filename]({{< relref "../entities#files" >}}) of a 256x256 version of the `image`.
-| `rarity` | One of `common`, `uncommon`, `rare`, `epic`, `legendary`, `mythic` or `unique`.
+| `rarity` | One of `common`, `uncommon`, `rare`, `epic`, `legendary`, `exotic`, `mythic` or `unique`.
 | `i18n` | An array of translations for the `name` field.
 | `collectionAddress` | The Ethereum address for the collection that contains this wearable.
 | `metrics` | Some useful measurements about the animations (see below).

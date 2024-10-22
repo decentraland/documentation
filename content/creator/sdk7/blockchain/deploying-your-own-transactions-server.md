@@ -5,6 +5,9 @@ description: Provide users with costless transactions
 categories:
   - development-guide
 type: Document
+aliases:
+  - /development-guide/deploying-your-own-transactions-server/
+  - /creator/development-guide/deploying-your-own-transactions-server
 url: /creator/development-guide/sdk7/deploying-your-own-transactions-server/
 weight: 5
 ---
@@ -52,9 +55,9 @@ Lastly, you'll need to fund your newly created dapp. You can do this by connecti
 
 ### Testnet
 
-If you want to test your app before going live and you're using Polygon you can do so in `Matic Mumbai`, the Polygon testnet.
+If you want to test your app before going live and you're using Polygon you can do so in `Matic Amoy`, the Polygon testnet.
 
-To do this simply repeat [the process](#configuring-biconomy) but picking `Matic Testnet (Mumbai)` on the network field. Then use the [following contract](https://mumbai.polygonscan.com/address/0xBF6755A83C0dCDBB2933A96EA778E00b717d7004#code) as your MetaTxForwarder.
+To do this simply repeat [the process](#configuring-biconomy) but picking `Matic Testnet (Amoy)` on the network field. Then use the [following contract](https://amoy.polygonscan.com/address/0x3dd1fef020741386bf9c8d905b7e2b02a668ccda#code) as your MetaTxForwarder.
 
 You'll need to fund your dapp, but you can do so easily by getting MATIC tokens from the [faucet](https://faucet.polygon.technology/).
 
@@ -83,7 +86,7 @@ To do this:
   - [Contracts and collections](#contracts-and-collections)
   - [Min sale value](#min-sale-value)
 
-#### Biconomy
+### Biconomy
 
 Use the API KEY and API ID we got when [configuring biconomy](#configuring-biconomy).
 
@@ -92,7 +95,7 @@ BICONOMY_API_KEY=Bxl2UQrJG.3c1d0a43-2d58-123b-721i-abdcbf182b8a
 BICONOMY_API_ID=a890974a-5519-4d60-912a-ff2704258dc2
 ```
 
-#### Transactions
+### Transactions
 
 When a new transaction request arrives it'll check the amount **an address** has sent that day. If it's over the set value the transaction will fail.
 
@@ -108,11 +111,11 @@ await checkQuota(components, transactionData)
 
 method from `async function checkData(transactionData: TransactionData): Promise<void> {` in `src/ports/transactions/component.ts`
 
-#### Contracts and collections
+### Contracts and collections
 
 The server will fetch the Contract addresses URL and store them locally and query the subgraph. When a new transaction request arrives it'll then check if the contract the transaction is interacting with belongs to either the deployed contracts in the URL or the deployed collections in the subgraph.
 
-If you want to supply your own contracts change the URL and keep the same structure the current https://contracts.decentraland.org/addresses.json has. The network used is determined by COLLECTIONS_CHAIN_ID, and the interval with which the cache is re-fetched is COLLECTIONS_CHAIN_ID
+If you want to supply your own contracts change the URL and keep the same structure the current <https://contracts.decentraland.org/addresses.json> has. The network used is determined by COLLECTIONS_CHAIN_ID, and the interval with which the cache is re-fetched is COLLECTIONS_CHAIN_ID
 
 If you have your own collections you can also change the subgraph URL.
 
@@ -127,12 +130,12 @@ method from `async function checkData(transactionData: TransactionData): Promise
 ```
 CONTRACT_ADDRESSES_URL=https://contracts.decentraland.org/addresses.json
 COLLECTIONS_FETCH_INTERVAL_MS=3600000
-COLLECTIONS_CHAIN_ID=80001
+COLLECTIONS_CHAIN_ID=80002
 
-COLLECTIONS_SUBGRAPH_URL=https://api.thegraph.com/subgraphs/name/decentraland/collections-matic-mumbai
+COLLECTIONS_SUBGRAPH_URL=https://subgraph.decentraland.org/decentraland/collections-matic-amoy
 ```
 
-#### Min sale value
+### Min sale value
 
 When a new transaction request arrives it'll first parse the data it's trying to relay. If it detects a sale (marketplace buy, bid, etc), it'll check the value against MIN_SALE_VALUE_IN_WEI. If it's lower, the transaction will fail.
 

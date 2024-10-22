@@ -65,6 +65,7 @@ The rarity of your item determines the total number of NFTs that can be minted. 
 | --------- | --------------- |
 | Unique    | 1               |
 | Mythic    | 10              |
+| Exotic    | 50              |
 | Legendary | 100             |
 | Epic      | 1,000           |
 | Rare      | 5,000           |

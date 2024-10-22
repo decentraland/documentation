@@ -54,7 +54,7 @@ executeTask(async () => {
 
 Players in decentraland exist in several separate _realms_. Players in different realms can't see each other, interact or chat with each other, even if they're standing on the same parcels. Dividing players like this allows Decentraland to handle an unlimited amount of players without running into any limitations. It also pairs players who are in close regions, to ensure that ping times between players that interact are acceptable.
 
-If your scene sends data to a [3rd party server]({{< ref "/content/creator/sdk7/networking/remote-scene-considerations.md" >}}) to sync changes between players in real time, then it's often important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
+If your scene sends data to a [3rd party server]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}) to sync changes between players in real time, then it's often important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
 
 ```ts
 import { getRealm } from '~system/Runtime'
@@ -142,3 +142,11 @@ The `EngineInfo`component holds the following data:
 - `frame_number`: Frame counter of the engine
 - `total_runtime`: Total runtime of this scene in seconds
 - `tick_number`: Tick counter of the scene as per [ADR-148](https://adr.decentraland.org/adr/ADR-148)
+
+{{< hint warning >}}
+**📔 Note**: The `EngineInfo` component must be imported via
+
+> `import { Vector3, Quaternion } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}

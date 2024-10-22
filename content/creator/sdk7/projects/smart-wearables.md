@@ -13,22 +13,28 @@ Smart wearables are a type of global scene. Like [portable experiences]({{< ref 
 
 Smart wearables are portable experiences that are turned on when the player puts on a certain item of clothing. Smart wearables can grant players new abilities, like a jetpack that lets them fly, or add a new layer of content on top of the rest of the world, like randomly placing coins to be collected throughout the whole of genesis city.
 
+{{< hint warning >}}
+**📔 Note**: Smart Wearables can only be created using SDK 7.
+
+The **Creator Hub** doesn't currently support creating Smart Wearables projects. Use the **VS Studio Code** extension instead.
+{{< /hint >}}
+
 ## Getting started
 
-### Using the Editor
+### Using the VS Code Extension
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}), then:
+Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}), then:
 
 1. Open a Visual Studio Code window on an _empty folder_.
 2. Select the Decentraland tab on Visual Studio's left margin sidebar
 3. Click **Create Project**
-4. The editor will prompt you about what kind of project to create. Select **Smart Wearable**.
+4. The Decentraland extension will prompt you about what kind of project to create. Select **Smart Wearable**.
 
 ### Using the CLI
 
 1. Open a command line in a new folder and run
 
-`npx sdk-commands init --project smart-wearable`
+`npx @dcl/sdk-commands init --project smart-wearable`
 
 This command creates the basic files and structure for a new smart wearable.
 
@@ -46,33 +52,27 @@ The default `wearable.json` file looks like this:
 
 ```json
 {
-  "data": {
-    "replaces": [],
-    "hides": [],
-    "tags": [
-      "special",
-      "new",
-      "eyebrows"
-    ],
-    "representations": [
-      {
-        "bodyShapes": [
-          "urn:decentraland:off-chain:base-avatars:BaseMale",
-          "urn:decentraland:off-chain:base-avatars:BaseFemale"
-        ],
-        "mainFile": "glasses.glb",
-        "contents": [
-          "glasses.glb"
-        ],
-        "overrideHides": [],
-        "overrideReplaces": []
-      }
-    ],
-    "category": "eyewear"
-  },
-  "name": "Portable Experience Example",
-  "description": "This feature is in Alpha state.",
-  "rarity": "mythic"
+	"data": {
+		"replaces": [],
+		"hides": [],
+		"tags": ["special", "new", "eyebrows"],
+		"representations": [
+			{
+				"bodyShapes": [
+					"urn:decentraland:off-chain:base-avatars:BaseMale",
+					"urn:decentraland:off-chain:base-avatars:BaseFemale"
+				],
+				"mainFile": "glasses.glb",
+				"contents": ["glasses.glb"],
+				"overrideHides": [],
+				"overrideReplaces": []
+			}
+		],
+		"category": "eyewear"
+	},
+	"name": "Portable Experience Example",
+	"description": "This feature is in Alpha state.",
+	"rarity": "mythic"
 }
 ```
 
@@ -84,6 +84,7 @@ The following fields are required in `wearable.json`:
 - `rarity`: The rarity supply of the token. Possible values are:
   - unique (1 copy)
   - mythic (10 copies)
+  - exotic (50 copies)
   - legendary (100 copies)
   - epic (1000 copies)
   - uncommon (10.000 copies)
@@ -96,6 +97,7 @@ The following fields are required in `wearable.json`:
 The following fields can also optionally be included. These settings can also be configured from the Builder UI, once you upload the smart wearable.
 
 - `data`: Includes the following
+
   - `replaces`: List of categories of other wearables that should be unequipped when equipping this wearable, in addition to the default of this category. Eg: When putting on a cape top-body, also hide feet.
   - `hides`: List of categories of other wearables that should be hidden (but not unequipped) when equipping this wearable, in addition to the default of this category.
   - `tags`: Tags used to make the wearable searchable in the marketplace.
@@ -157,7 +159,7 @@ Chose an image that sets player expectations and properly represents your creati
 
 ## The Preview
 
-Running a preview of a portable experience is just like running that of a scene, simply click **Run Scene** on the editor, or run `npm run start` on the command line. If the `wearable.json` file is properly configured and the project is recognized as a smart wearable, you’ll notice that all the visible around you are the default empty parcels. In this preview mode, you are not restricted to any set of parcels, you can add 3D models or sounds anywhere in the world.
+Running a preview of a portable experience is just like running that of a scene, simply click **Run Scene** on the Decentraland tab, or run `npm run start` on the command line. If the `wearable.json` file is properly configured and the project is recognized as a smart wearable, you’ll notice that all the visible around you are the default empty parcels. In this preview mode, you are not restricted to any set of parcels, you can add 3D models or sounds anywhere in the world.
 
 To test how the smart wearable behaves in the context of a scene, you can also run a preview of your wearable at the same time as you run a preview of one or several scenes by using a [Workspace]({{< ref "/content/creator/sdk7/projects/workspaces.md" >}}). For example, you can run your smart wearable together with the [Genesis Plaza](https://github.com/decentraland-scenes/Genesis-Plaza) scene to test how it behaves on a busy scene, while on an elevator, etc.
 
@@ -165,7 +167,7 @@ To test how the smart wearable behaves in the context of a scene, you can also r
 
 - When positioning an entity, note that positions are global, relative to the 0,0 coordinates of Genesis Plaza.
 - To react to nearby players:
-  - use `getConnectedPlayers()` to know what players are already there, and `onPlayerConnectedObservable` / `onPlayerDisconnectedObservable` to track other players coming and going.
+  - See [Fetch all players]({{< ref "/content/creator/sdk7/interactivity/user-data.md#fetch-all-players" >}}) to know how to obtain data from other players in the surroundings.
   - Be mindful that the loading of the smart wearable, surrounding scenes and other players may occur in different orders depending on the situation. If the player enters Decentraland with the smart wearable already on, it’s likely that your wearable's global scene will load before other players do. On the other hand, if the player first loads into a scene and then puts on the wearable, it’s likely that other players will already be loaded by the time the wearable's scene starts running.
   - For multiplayer experiences, wait till the player is connected to an island inside their realm. Fetch the realm data and check for the ‘room’ field. If the ‘room’ field is null, the player is not yet connected to an island and other players won’t be loaded yet. You can periodically check this every 1 second till the ‘room’ field is present, and only initialize your logic then.
 - To interact with surrounding scenes:
@@ -190,14 +192,36 @@ To publish your smart wearable:
 
 4. Drag your compressed `smart-wearable.zip` file into the Builder, verify that all the information is accurate.
 
-> Note: If your wearable is an upper_body or a lower_body and meant to be unisex, you need to do a workaround (even if both body shapes use the same model):
+> Note: If your wearable contains different model representations, you need to do a workaround:
+>
+> <ol type="a">
+> <li>In your project, create a new folder for each representation(<code>male</code> and <code>female</code>), and put the 3D model for each representation in its corresponding folder.</li>
+> <li>Update your <code>wearable.json</code> file to include the new representations.</li>
+>
+> ```lang-json
+> "representations": [{
+>   "bodyShapes": ["urn:decentraland:off-chain:base-avatars:BaseMale"],
+>   "mainFile": "male/glasses.glb",
+>   "contents": ["male/glasses.glb"],
+>   "overrideHides": [],
+>   "overrideReplaces": []
+> },
+> {
+>   "bodyShapes": ["urn:decentraland:off-chain:base-avatars:BaseFemale"],
+>   "mainFile": "female/glasses.glb",
+>   "contents": ["female/glasses.glb"],
+>   "overrideHides": [],
+>   "overrideReplaces": []
+> }],
+> ```
+>
+> <li>Run <code>npm run pack</code> to generate a new smart-wearable.zip file.</li>
+> <li>Drag the new smart-wearable.zip file into the Builder.</li>
+> </ol>
 
-    a) Select only Male and complete the process
-    b) Open the wearables in the editor, click the three dot options button, select “upload female representation”, and upload the 3D model for the female shape.
-
-5. Open the editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
+5. Open wearables editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
 6. Create a new collection with this and perhaps other wearables.
-7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Goerli, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
+7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Sepolia, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
 8. At this point, your wearable is ready to be published.
 
 ## Restricted actions

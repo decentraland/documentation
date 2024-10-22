@@ -96,7 +96,10 @@ enableGitInfo = true
 
   # Intercom App ID
   IntercomAppId = ''
-
+  images = ['images/og-logo.png']
+  description = 'Learn about Decentraland, how to create anything you can imagine in its virtual world, how to contribute to and utilize its open protocol, and much more.'
+  [params.social]
+    twitter = 'decentraland'
 
 [outputs]
 home = ["HTML", "REDIR"]

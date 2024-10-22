@@ -1,7 +1,7 @@
 ---
 date: 2018-02-13
-title: Handle animations
-description: How to move and animate entities in your scene
+title: Animations
+description: How to animate 3D models in your scene
 categories:
   - development-guide
 type: Document
@@ -18,7 +18,7 @@ As an alternative, _vertex animations_ animate a model without the need of a ske
 See [Animations](/creator/3d-modeling/animations) for details on how to create animations for a 3D model. Read [Shape components]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}) for instructions on how to import a 3D model to a scene.
 
 {{< hint info >}}
-**💡 Tip**:   Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md" >}}) for more details.
+**💡 Tip**: Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities]({{< ref "/content/creator/sdk7/3d-essentials/move-entities.md" >}}) for more details.
 {{< /hint >}}
 
 ## Check a 3D model for animations
@@ -30,7 +30,7 @@ Not all _glTF_ files include animations. To see if there are any available, you 
 - Open the _.glTF_ file with a text editor and scroll down till you find _"animations":_.
 
 {{< hint info >}}
-**💡 Tip**:  In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
+**💡 Tip**: In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
 {{< /hint >}}
 
 ## Automatic playing
@@ -38,6 +38,10 @@ Not all _glTF_ files include animations. To see if there are any available, you 
 If a 3D model includes any animations, the default behavior is that the first of these is always played on a loop.
 
 To avoid this behavior, add an `Animator` component to the entity that has the model, and then handle the playing of animations explicitly. If an `Animator` component is present in the entity, all animations default to a `playing: false` state, and need to be manually played.
+
+{{< hint info >}}
+**💡 Tip**: In the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can add an **Animator** component visually. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}). You can also control animations in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+{{< /hint >}}
 
 ## Handle animations explicitly
 
@@ -49,28 +53,36 @@ const shark = engine.addEntity()
 
 // Add a 3D model to it
 GltfContainer.create(shark, {
-	src: 'models/shark.glb'
+	src: 'models/shark.glb',
 })
 
 Animator.create(shark, {
-	states:[{
-			clip: "swim",
+	states: [
+		{
+			clip: 'swim',
 			playing: true,
-			loop: true
-		}
-	]
+			loop: true,
+		},
+	],
 })
 ```
 
-
 Each `state` object keeps track of if an animation is currently playing.
+
+{{< hint warning >}}
+**📔 Note**: The `Animator` component must be imported via
+
+> `import { Animator } from "@dcl/sdk/ecs"`
+
+See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
+{{< /hint >}}
 
 ## Fetch an animation
 
 Fetch a clip from the `Animator` by name using the `.Animator.getClip()` function. This function returns a mutable version of the animation state object.
 
 ```ts
-const swimAnim = Animator.getClip(sharkEntity, "swim")
+const swimAnim = Animator.getClip(sharkEntity, 'swim')
 ```
 
 `Animator.getClip` requires the following parameters:
@@ -81,45 +93,43 @@ const swimAnim = Animator.getClip(sharkEntity, "swim")
 `Animator.getClip` fetches a mutable version of the animation state, so you can modify values freely on what this function returns.
 
 ```ts
-const swimAnim = Animator.getClip(sharkEntity, "swim")
-swimAnim.looping = false 
+const swimAnim = Animator.getClip(sharkEntity, 'swim')
+swimAnim.looping = false
 ```
 
 {{< hint warning >}}
-**📔 Note**:  If you attempt to use `Animator.getClip()` to fetch a clip that exists in the 3D model, but is not listed in the `Animator` component, it returns `null`.
+**📔 Note**: If you attempt to use `Animator.getClip()` to fetch a clip that exists in the 3D model, but is not listed in the `Animator` component, it returns `null`.
 {{< /hint >}}
 
 ## Play an animation
 
 The `.playing` field in an animation state determines if the animation is currently playing. Note that multiple animations may be playing in a single 3D model at the same time.
 
-Use the `Animator.playSingleAnim()` function on an `AnimationState` object.
+Use the `Animator.playSingleAnimation()` function on an `AnimationState` object.
 
 ```ts
-Animator.playSingleAnim(sharkEntity, "swim")
+Animator.playSingleAnimation(sharkEntity, 'swim')
 ```
 
-If the entity was playing any other animations, `Animator.playSingleAnim` stops them.
+If the entity was playing any other animations, `Animator.playSingleAnimation` stops them.
 
-
-`Animator.playSingleAnim` requires the following parameters:
+`Animator.playSingleAnimation` requires the following parameters:
 
 - `entity`: The entity of the `Animator` component that you want to affect.
 - `clipName`: String for the name of the clip you want to play.
 - `resetCursor`: _(optional)_ If _true_, it plays the animation from the start, even if the animation was previously paused. If _false_, it will keep playing the animation from where it was paused. Default: _true_.
 
 ```ts
-Animator.playSingleAnim(sharkEntity, "swim", false)
+Animator.playSingleAnimation(sharkEntity, 'swim', false)
 ```
 
-The following table summarizes how `Animator.playSingleAnim()` behaves, using different values for the `resetCursor` property:
+The following table summarizes how `Animator.playSingleAnimation()` behaves, using different values for the `resetCursor` property:
 
 |                            | `reset` = _false_ (default)     | `reset` = _true_      |
 | -------------------------- | ------------------------------- | --------------------- |
 | **Currently playing**      | Has no effect.                  | Plays from the start. |
 | **Paused**                 | Resumes from last frame played. | Plays from the start. |
 | **Finished (Non-looping)** | Plays from the start.           | Plays from the start. |
-
 
 ## Looping animations
 
@@ -129,65 +139,63 @@ Change this setting by setting the `loop` property in the `state` object.
 
 ```ts
 Animator.create(shark, {
-	states:[{
-			clip: "bite",
+	states: [
+		{
+			clip: 'bite',
 			playing: true,
-			loop: false
-		}
-	]
+			loop: false,
+		},
+	],
 })
 ```
 
 If `looping` is set to _false_, the animation plays just once and then stops, staying on the posture of the last frame.
 
-
 ## Stop an animation
 
-To stop all animations that an entity is playing, use `Animator.stopAnims()`.
+To stop all animations that an entity is playing, use `Animator.stopAllAnimations()`.
 
 ```ts
-Animator.stopAnims(shark)
+Animator.stopAllAnimations(shark)
 ```
 
-`Animator.stopAnims` requires the following parameters:
+`Animator.stopAllAnimations` requires the following parameters:
 
 - `entity`: The entity of the `Animator` component that you want to affect.
 - `resetCursor`: _(optional)_ If _true_, it returns to the posture in the first frame of the animation. If _false_, stays paused in its current posture. Default: _true_.
 
 {{< hint warning >}}
-**📔 Note**:  When playing an animation with `Animator.playSingleAnim`, this function handles stopping all other animations behind the scenes. You don't need to explicitly stop other animations in that case.
+**📔 Note**: When playing an animation with `Animator.playSingleAnimation`, this function handles stopping all other animations behind the scenes. You don't need to explicitly stop other animations in that case.
 {{< /hint >}}
 
 When an animation finishes playing a non-looping animation, by default the 3D model remains in the last posture it had. To change this default behavior so that when the animation ends it goes back to the first posture, set the `shouldReset` property to _true_.
 
 ```ts
 Animator.create(shark, {
-	states:[{
-			name: "bite",
-			clip: "bite",
+	states: [
+		{
+			name: 'bite',
+			clip: 'bite',
 			playing: true,
 			shouldReset: true,
-			loop: true
-		}
-	]
+			loop: true,
+		},
+	],
 })
 ```
 
-You can also use `Animator.stopAnims()`  at any time to explicitly set the posture back to the first frame in the animation.
+You can also use `Animator.stopAllAnimations()` at any time to explicitly set the posture back to the first frame in the animation.
 
 {{< hint warning >}}
-**📔 Note**:  Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
+**📔 Note**: Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
 {{< /hint >}}
 
     - apply an animation with a `weight` property of 0 and gradually increase the `weight`
     - create an animation clip that describes a movement from the posture you want to transition from to the default posture you want.
 
-
-
 ## Handle multiple animations
 
 If a 3D model has multiple animations packed into it, a single `Animator` component can deal with all of them.
-
 
 ```ts
 // Create entity
@@ -221,7 +229,7 @@ If one animation only affects a character's legs, and another only affects a cha
 If in the above example, the `bite` animation only affects the shark's mouth, and the `swim` animation only affects the bones of the shark's spine, then they can both be played at the same time if they're on separate layers.
 
 {{< hint warning >}}
-**📔 Note**:  `Animator.playSingleAnim()` stops all other animations that the entity is currently playing. To play multiple animations at the same time, modify the `playing` property in the animation states manually.  
+**📔 Note**: `Animator.playSingleAnim()` stops all other animations that the entity is currently playing. To play multiple animations at the same time, modify the `playing` property in the animation states manually.  
 {{< /hint >}}
 
 ## Animation speed
@@ -230,24 +238,24 @@ Change the speed at which an animation is played by changing the `speed` propert
 
 ```ts
 Animator.create(shark, {
-	states:[{
-			clip: "swim",
+	states: [
+		{
+			clip: 'swim',
 			playing: true,
 			loop: true,
-			speed: 2
-		}
-	]
+			speed: 2,
+		},
+	],
 })
 ```
 
 Set the speed lower than 1 to play it slower, for example to 0.5 to play it at half the speed. Set it higher than 1 to play it faster, for example to 2 to play it at double the speed.
 
 ```ts
-const swimAnim = Animator.getClip(sharkEntity, "swim")
+const swimAnim = Animator.getClip(sharkEntity, 'swim')
 
 swimAnim.speed = 0.5
 ```
-
 
 ## Animation weight
 
@@ -257,18 +265,18 @@ By default, `weight` is equal to _1_. The value of `weight` can't be any higher 
 
 ```ts
 Animator.create(shark, {
-	states:[{
-			clip: "swim",
+	states: [
+		{
+			clip: 'swim',
 			playing: true,
 			loop: true,
-			weight: 0.2
-		}
-	]
+			weight: 0.2,
+		},
+	],
 })
 ```
 
 The `weight` value of all active animations in an entity should add up to 1 at all times. If it adds up to less than 1, the weighted average will be using the default position of the armature for the remaining part of the calculation.
-
 
 For example, in the code example above, we're playing the _swim_ animation, that only has a `weight` of _0.2_. This swimming movement will be quite subtle: only 20% of the intensity that the animation defines. The remaining 80% of the calculation takes values from the default posture of the armature.
 
@@ -277,12 +285,11 @@ The `weight` property can be used in interesting ways, for example the `weight` 
 You could also change the `weight` value gradually when starting and stopping an animation to give it a more natural transition and to avoid jumps from the default pose to the first pose in the animation.
 
 {{< hint warning >}}
-**📔 Note**:  The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
+**📔 Note**: The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
 {{< /hint >}}
 
-
 ```ts
-const swimAnim = Animator.getClip(sharkEntity, "swim")
+const swimAnim = Animator.getClip(sharkEntity, 'swim')
 
 swimAnim.weight = 0.5
 ```
