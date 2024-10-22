@@ -21,6 +21,10 @@ _Components_ define the traits of an entity. For example, a `Transform` componen
 
 If you're familiar with web development, think of entities as the equivalent of _Elements_ in a _DOM_ tree, and of components as _attributes_ of those elements.
 
+In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can view the components that belong to an entity by selecting it.
+
+<img src="/images/editor/components-example.png" alt="Armature" width="300"/>
+
 {{< hint warning >}}
 **📔 Note**: In previous versions of the SDK, Entities were _objects_ that were instanced, and could be extended to add functions. As of version 7.0 of the SDK, entities are only an ID. This structure better fits the principles of [data oriented programming]({{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >}}) and can help in the scene's performance.
 {{< /hint >}}
@@ -165,6 +169,10 @@ mutableChildTransform.parent = engine.RootEntity
 **📔 Note**: When dealing with nested entities that are synced with other players, use the `parentEntity()` function instead of the `parent` entity in the Transform. See [Parented entities]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#parented-entities" >}})
 {{< /hint >}}
 
+In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can see the entire hierarchy of nested entities in your scene on the left-side panel.
+
+<img src="/images/editor/entity-tree-example.png" alt="Armature" width="300"/>
+
 ## Get an entity by ID
 
 Every entity in your scene has a unique number _id_. You can retrieve a component that refers to a specific entity from the engine based on this ID.
@@ -182,7 +190,7 @@ For example, if a player's click or a [raycast]({{< ref "/content/creator/sdk7/i
 
 ## Get an entity by name
 
-When using the Decentraland Editor and adding entities via the drag-and-drop inspector, each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the inspector's UI, in the tree view on the left.
+When adding entities via drag-and-drop in the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the Scene Editor's UI, in the tree view on the left.
 
 ```ts
 function main() {
@@ -191,7 +199,7 @@ function main() {
 ```
 
 {{< hint warning >}}
-**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the Editor´s inspector may not yet be instanced.
+**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) UI may not yet be instanced.
 {{< /hint >}}
 
 You're free to perform any action on an entity fetched via this method, like add or remove components, modify values of existing components, or remove the entity from the engine.
@@ -216,7 +224,7 @@ function main() {
 }
 ```
 
-All the entities added via the inspector have a `Name` component, you can iterate over all of them like this:
+All the entities added via the Scene Editor UI have a `Name` component, you can iterate over all of them like this:
 
 ```ts
 function main() {
@@ -351,6 +359,10 @@ VisibilityComponent.onChange(cubeEntity, (newVisibilityComponent) => {
 
 If the component is removed from the entity, then the function is called with an input of `undefined`.
 
+{{< hint warning >}}
+**📔 Note**: The `.onChange()` function currently only works with native components of the SDK, it doesn't work with [custom comopnents]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) defined by the creator.
+{{< /hint >}}
+
 ## Reserved entities
 
 Certain entity ids are reserved for special entities that exist in every scene. They can be accessed via the following aliases:
@@ -363,15 +375,15 @@ Certain entity ids are reserved for special entities that exist in every scene. 
 **📔 Note**: Avoid referring to these entities before they are initialized. To avoid this problem, refer to these entities in the `main()` function, or in a system.
 {{< /hint >}}
 
-### The root entity
+## The root entity
 
 All entities in the scene are children of the `engine.RootEntity`, directly or indirectly.
 
-### The player entity
+## The player entity
 
 The `engine.PlayerEntity` entity represents the player's avatar. Fetch the player's `Transform` component to get the player's current position and rotation, see [user data]({{< ref "/content/creator/sdk7/interactivity/user-data.md" >}}). You can also modify this Transform to move the player, see [move player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}}).
 
-### The camera entity
+## The camera entity
 
 The `engine.CameraEntity` entity represents the player's camera.
 Fetch the camera's `Transform` component to get the camera's position and rotation. You can also fetch the camera's `CameraMode` component to know know if the player is using 1st or 3rd person camera mode, see [camera mode]({{< ref "/content/creator/sdk7/interactivity/user-data.md#check-the-players-camera-mode">}}).

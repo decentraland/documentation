@@ -9,7 +9,7 @@ url: /creator/development-guide/sdk7/deprecated-functions/
 weight: 100
 ---
 
-The following functions are legacy. They still work, but in most cases there are better alternative ways to obtain the same information or achieve the same results.
+The following functions are all legacy and should be avoided. They still work, but in the future they might stop being supported. All these examples include links to alternative ways to obtain the same information or achieve the same results.
 
 ## Player enters or leaves scene
 
@@ -37,6 +37,36 @@ onLeaveSceneObservable.add((player) => {
 {{< hint warning >}}
 **📔 Note**: This event only responds to players that are currently being rendered locally. In large scenes where the scene size exceeds the visual range, players entering in the opposite corner may not be registered. If the number of players in the region exceeds the capabilities of an island on Decentraland servers, players that are not sharing a same island aren't visible and are not tracked by these events either.
 {{< /hint >}}
+
+The observables `onEnterScene` and `onLeaveScene` imported from `'@dcl/sdk/observables'` are also deprecated. The correct functions are named the same, but imported from `'@dcl/sdk/src/players'` instead. In the example below you can see both variations, first the deprecated version, then the proper one.
+
+```ts
+// DEPRECATED - imported from observables
+import { onEnterScene, onLeaveScene } from '@dcl/sdk/observables'
+
+onEnterScene.add((player) => {
+	console.log('player entered scene: ', player.userId)
+})
+
+onLeaveScene.add((player) => {
+	console.log('player left scene: ', player.userId)
+})
+
+// CURRENT - imported as a player function
+import { onEnterScene, onLeaveScene } from '@dcl/sdk/src/players'
+
+export function main() {
+	onEnterScene((player) => {
+		if (!player) return
+		console.log('ENTERED SCENE', player)
+	})
+
+	onLeaveScene((userId) => {
+		if (!userId) return
+		console.log('LEFT SCENE', userId)
+	})
+}
+```
 
 ## Player connects or disconnects
 
@@ -140,7 +170,7 @@ Event data includes only the ID of the player and a version number for that avat
 When this event is triggered, you can then use the [getUserData()]({{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data">}}) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
 
 {{< hint info >}}
-**💡 Tip**: When testing in preview, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
+**💡 Tip**: When testing in preview with the legacy web explorer, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the VS Code Extension Editor, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
 {{< /hint >}}
 
 {{< hint warning >}}
@@ -254,7 +284,6 @@ executeTask(async () => {
 })
 ```
 
-
 ## Player clicks on another player
 
 Whenever the player clicks on another player, you can detect an event.
@@ -346,9 +375,37 @@ As players move through the map, they may switch islands to be grouped with thos
 
 If your scene relies on an [3rd party server]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}}) to sync changes between players in real time, then you may want to only share data between players that are grouped in a same realm+island, so it's a good practice to change rooms in the 3rd party server whenever players change island.
 
-
 ## Crypto functions
 
 {{< hint warning >}}
 **📔 Note**: The functions `requirePayment()`, `signMessage()`, `convertMessageToObject()` are deprecated. Use the `sendAsync()` function instead. See [Scene blockchain operations]({{< ref "/content/creator/sdk7/blockchain/scene-blockchain-operations.md#" >}}). There are also libraries that can help simplify some common use cases with these functions.
 {{< /hint >}}
+
+## Video Events
+
+{{< hint warning >}}
+**📔 Note**: The `onVideoEvent` event is deprecated from SDK v7.x. See [Event listeners]({{< ref "/content/creator/sdk7/media/video-playing.md#video-events" >}}) for a non-deprecated alternative.
+{{< /hint >}}
+
+When a video changes its playing status, the `onVideoEvent` observable receives an event.
+
+```ts
+onVideoEvent.add((data) => {
+	log('New Video Event ', data)
+})
+```
+
+The input of a video event contains the following properties:
+
+- `videoClipId` ( _string_): The ID for the entity that changed status.
+- `componentId` (_string_): The ID of the entity that changed status.
+- `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default.
+- `totalVideoLength` (_number_ ): The length in seconds of the entire video. _-1_ if length is unknown.
+- `videoStatus`: The value for the new video status of the `VideoTexture`, expressed as a value from the `VideoStatus` enum. This enum can hold the following possible values:
+
+- `VideoStatus.NONE` = 0,
+- `VideoStatus.ERROR` = 1,
+- `VideoStatus.LOADING` = 2,
+- `VideoStatus.READY` = 3,
+- `VideoStatus.PLAYING` = 4,
+- `VideoStatus.BUFFERING` = 5

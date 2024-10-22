@@ -22,7 +22,7 @@ When running a preview of a scene that uses one of the ethereum libraries, you m
 If using the CLI, run the preview with:
 
 ```
-npm run start --web3
+npm run start -- --web3
 ```
 
 <!--
@@ -120,7 +120,6 @@ executeTask(async () => {
 })
 ```
 
-
 ## Check if a message is correct
 
 To verify that the message that the player signed is in fact the one that you want to send, you can use the `toHex()` function from `eth-connect` library, to convert it and easily compare it. See further below for instructions on how to import the `eth-connect` library. -->
@@ -149,9 +148,7 @@ function signAndVerifyMessage(msg: string) {
 signAndVerifyMessage(messageToSign)
 ```
 
-
-
-#### Require a payment
+### Require a payment
 
 The `requirePayment()` function prompts the player to accept paying a sum to an Ethereum wallet of your choice.
 
@@ -172,10 +169,8 @@ If accepted by the player, the function returns the hash number of the transacti
 This function informs you that a transaction was requested, but not that it was confirmed. If the gas price is too low, or it doesn't get mined for any reason, the transaction won't be completed.
 {{< /hint >}}
 
-
 ```ts
 import { requirePayment } from "~system/EthereumController"
-
 
 const myWallet:string = '0x0123456789...'
 const enterPrice = 0.05
@@ -190,7 +185,6 @@ function payment(){
     }
   })
 }
-
 
 const myEntity = engine.addEntity()
 MeshRenderer.setBox(myEntity)
@@ -385,23 +379,23 @@ The eth-connect library includes a number of other helpers you can use. For exam
 
 ## Using the Ethereum test network
 
-While testing your scene, to avoid transferring real MANA currency, you can use the _Ethereum Goerli test network_ and transfer fake MANA instead.
+While testing your scene, to avoid transferring real MANA currency, you can use the _Ethereum Sepolia test network_ and transfer fake MANA instead.
 
-To use the test network you must set your Metamask Chrome extension to use the _Goerli test network_ instead of _Main network_.
+To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_.
 
-You must acquire Goerli Ether, which you can obtain for free from various external faucets like [this one](https://faucet.paradigm.xyz/).
+You must acquire Sepolia Ether, which you can obtain for free from various external faucets like [this one](https://www.alchemy.com/faucets/ethereum-sepolia/).
 
-If your transactions also involve MANA, you can also obtain free Goerli MANA from our [Goerli MANA faucet](https://faucet-goerli.decentraland.io/).
+<!-- If your transactions also involve MANA, you can also obtain free Sepolia MANA from our [Sepolia MANA faucet](https://faucet-goerli.decentraland.io/). -->
 
 {{< hint info >}}
-**💡 Tip**: To run the transaction of transferring Goerli MANA to your wallet, you will need to pay a gas fee in Goerli Ether.
+**💡 Tip**: To run the transaction of transferring Sepolia MANA to your wallet, you will need to pay a gas fee in Sepolia Ether.
 {{< /hint >}}
 
 To preview your scene using the test network, add the `DEBUG` property to the URL you're using to access the scene preview on your browser. For example, if you're accessing the scene via `http://127.0.0.1:8000/?position=0%2C-1`, you should set the URL to `http://127.0.0.1:8000/?DEBUG&position=0%2C-1`.
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
 
-If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you'll need to swap MANA to that network after acquiring it in Goerli. To bridge Goerli MANA to the Polygon Testnet, visit your [Decentraland account page in Goerli](https://account.decentraland.zone/) and click on ‘swap’ on the Ethereum MANA side.
+If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you'll need to swap MANA to that network after acquiring it in Sepolia. To bridge Sepolia MANA to the Polygon Testnet, visit your [Decentraland account page in Sepolia](https://account.decentraland.zone/) and click on ‘swap’ on the Ethereum MANA side.
 
 ## Send custom RPC messages
 

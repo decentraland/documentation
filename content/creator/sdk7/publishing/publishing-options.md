@@ -6,15 +6,15 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/sdk7/publishing-permissions
+weight: 2
 ---
 
 To invite others to visit a scene you built, you'll need to publish it in Decentraland. To do this, you'll need to have deploy permissions to Decentraland parcels or own a Decentraland name in order to deploy to a Decentraland World.
 
 Decentraland is made up of _parcels_ of LAND, each 16 meters by 16 meters. A _scene_ is an experience that is built on one or several parcels.
 
-This document gives an overview on the different ways to obtain permissions. 
+This document gives an overview on the different ways to obtain permissions.
 See [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for instructions on how to publish once you've obtained these.
-
 
 ## LAND permission options
 
@@ -26,10 +26,16 @@ In order to publish to LAND in Genesis City, you can do the following:
 - **Worlds**: You can also deploy a stand-alone scene as a Decentraland World. Worlds exist outside the grid of Genesis City, and can be accessed by name. See [worlds]({{< ref "/content/creator/worlds/about.md" >}})
 
 {{< hint warning >}}
-**📔 Note**:  You can also deploy scenes to a test server where players are not around. The same permissions per parcel apply when deploying to the test server, see [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md#the-test-server" >}}) for more details.
+**📔 Note**: You can also deploy scenes to a test server where players are not around. The same permissions per parcel apply when deploying to the test server, see [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md#the-test-server" >}}) for more details.
 {{< /hint >}}
 
+## Decentraland Worlds
 
+If you own a Decentraland NAME you can also publish your scene to a Decentraland World. This option costs considerably less than buying land, a NAME costs 100 MANA.
+
+Inside a World, you're allowed to use as many parcels as you want. The size limit of your scene in MegaBytes depends on how many NAMES, MANA, L1 Wearables and other tokens you own.
+
+See [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) for more info.
 
 ## Get DAO funding
 

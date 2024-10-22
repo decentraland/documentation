@@ -182,7 +182,7 @@ Scenes are community-developed bundles of behavior and assets, and offer the var
 **Learn more:**
 
 - [Scene protocol documentation]({{< relref "../content/entity-types/scenes" >}})
-- [Scene creator documentation]({{< ref "/creator/scenes/getting-started/sdk-101" >}})
+- [Scene creator documentation]({{< ref "/creator/sdk7/getting-started/sdk-101" >}})
 - [Foundation Explorer scene system](#fwe-scene)
 
 <div id="explorer:comms"></div> <!-- stable ID for diagram -->
@@ -208,7 +208,7 @@ Among other capabilities, it can bootstrap environments, run and visualize scene
 
 **Learn more:**
 
-- [CLI documentation]({{< ref "/creator/scenes/getting-started/using-the-cli" >}})
+- [CLI documentation]({{< ref "/creator/deprecated/scenes/getting-started/using-the-cli" >}})
 - [CLI repository](https://github.com/decentraland/cli)
 - [Examples and Tutorials](https://studios.decentraland.org/resources?sdk_version=SDK7)
 

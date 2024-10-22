@@ -15,7 +15,7 @@ The MAIN communications service is accessed through the [WebSocket Connector](ht
 
 [NATS](https://nats.io/) functions as a broadcasting system facilitating seamless communication between various services. It can supports multiple WebSocket Connector instances communicating with the same Archipelago Service. Moreover, it enables the Stats service to gather user statistics from Archipelago, such as positions and island groupings, making this data accessible for external utilization.
 
-The Archipelago stats service shares the same API implementation as the Archipelago service in the Catalyst node. You can explore the API at this link: [Catalyst API Specs](https://decentraland.github.io/catalyst-api-specs/#tag/Archipelago). The service is accessible through the following URL `https://archipelago-stats.decentraland.org/`. 
+The Archipelago stats service shares the same API implementation as the Archipelago service in the Catalyst node. You can explore the API at this link: [Catalyst API Specs](https://decentraland.github.io/catalyst-api-specs/#tag/Archipelago). The service is accessible through the following URL `https://archipelago-stats.decentraland.org/` and the available endpoints are under the `/comms/` as described in the API Spec, e.g.: `https://archipelago-stats.decentraland.org/comms/peers`.
 
 The [LiveKit]({{< relref "transport-types/livekit" >}}) Cloud platform manages the intricate task of exchanging users' information through WebRTC and it is the primary cloud platform shared by the majority of Catalyst nodes for the same purpose. 
 

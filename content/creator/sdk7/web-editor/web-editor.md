@@ -15,6 +15,14 @@ The Web Editor is a simple visual tool that lets you create and publish Decentra
 
 To access the web editor simply visit the [builder page](https://builder.decentraland.org/scenes) and go to **scenes** section.
 
+{{< hint warning >}}
+📔 Note: The **Creator Hub** is the best alternative for creating Decentraland scenes for all skill levels. It allows you to combine the easy drag-and-drop interface with the ability to customize further with code.
+
+See [About the Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+{{< /hint >}}
+
+{{< youtube PF7smSBxVOc >}}
+
 ## Create scene
 
 To create a scene, go to scenes section in the builder and press _Create scene_ button. You will be able to create a scene from scratch or use any of the available templates.
@@ -29,7 +37,7 @@ To build something to deploy to LAND parcels you own, make sure the shape of the
 
 ## Moving around
 
-To find your way around the editor:
+To find your way around the web editor:
 
 - Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
 - Use **S** and **D** to move sideways.
@@ -43,6 +51,18 @@ Navigate the themed asset pack categories on the menu on the bottom to find diff
 You can also use the search box. Note that when you're inside an asset pack, the search only looks in that asset pack.
 
 To place an item, click and drag the item to a specific location in the scene. All your changes are saved automatically.
+
+## Ground
+
+Some of the items on the asset packs are of type **Ground**, these have a paint bucket icon on them. If you drag one of these into your scene, it covers all of your scene's ground with copies of this item.
+
+<img src="/images/editor/ground.png" width="500" />
+
+You can also add a single copy of the item by holding **Shift** while you drag the ground onto the scene.
+
+<img src="/images/editor/ground-entities.png" width="300" />
+
+The collection of ground items appear in the [entity tree](#the-entity-tree) inside a folder. Each one of them is locked, to prevent accidentally selecting. [Untoggle](#lock-or-hide-items) the items to move or edit them.
 
 ## Preview in explorer
 
@@ -84,7 +104,7 @@ If a scene is too large to upload, try this:
 
 Decentraland scenes need to follow certain limitations, to be able to run them one next to another. There is a maximum number of materials, textures, triangles, etc, that is proportional to the number of parcels in the scene. See [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) for more details.
 
-If the content in your scene exceeds any of these limits, the editor will notify this on the bottom-left corner.
+If the content in your scene exceeds any of these limits, the web editor will notify this on the bottom-left corner.
 
 <img src="/images/editor/triangle-limit1.png" width="300" />
 
@@ -96,7 +116,7 @@ You can expand this menu to view details.
 **💡 Tip**: If you're building a Decentraland World, you can always add more parcels to increase your limits.
 {{< /hint >}}
 
-The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any of the models in your scene extend beyond the limits, the editor will mark these in red.
+The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any of the models in your scene extend beyond the limits, the web editor will mark these in red.
 
 <img src="/images/editor/out-of-bounds.png" width="300" />
 
@@ -122,7 +142,7 @@ Entities follow a hierarchy that can have as many levels as you want. Establish 
 
 You can also minimize or expand the children of an entity to keep the view simple, this action has no effect on the scene.
 
-### Special entities
+### Special entities
 
 The scene includes a couple of special entities that you can see in the entity tree.
 
@@ -134,7 +154,7 @@ The scene includes a couple of special entities that you can see in the entity t
 
 You might find it handy to sometimes lock an item, to prevent accidentally selecting and moving it. This is especially useful for background items, like the ground, or a building. To lock an item, look for it on the entity tree on the left, hover over it, and select the lock icon. You can toggle this behavior on and off via that same icon.
 
-You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Editor window, not to players entering the scene. To hide an item, look for it on the item tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
+You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Web Editor window, not to players entering the scene. To hide an item, look for it on the item tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
 
 ![](/images/editor/hide-lock-item.png)
 
@@ -149,5 +169,5 @@ Scenes created with the Builder in SDK6 can be easily migrated to SDK7 using the
 
 {{< hint danger >}}
 **❗Warning**  
-If the migrated scene contains smart items, these will be removed from the scene. Smart items are not seamlessly migrated.  
+If the migrated scene contains [Smart items]({{< ref "/content/creator/sdk7/web-editor/smart-items.md" >}}), these will be removed from the scene. Smart items are not seamlessly migrated.  
 {{< /hint >}}

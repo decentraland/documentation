@@ -5,6 +5,8 @@ description: What you need to keep in mind when designing a game for Decentralan
 categories:
   - design-experience
 type: Document
+aliases:
+  - /design-experience/design-games/
 url: /creator/design-experience/design-games
 weight: 3
 ---
@@ -25,7 +27,7 @@ Players that step outside your scene keep rendering it as long as it’s at a vi
 
 You could also build a game that spreads out throughout several disconnected plots of land that are unknown to players, and where the exploration of the rest of the world becomes part of the gameplay. A game like that would be made up of multiple separate _scenes_, that could share data with each other via a server.
 
-#### User inventory
+### User inventory
 
 **There currently isn’t an inventory where players can store game items as they walk between scenes.** The following alternatives are available today:
 
@@ -41,12 +43,11 @@ The downside of using the blockchain to store inventory items is that all transa
 
 In future releases, players will have an inventory they carry everywhere which will include both on-chain and off-chain assets.
 
-#### Portable experiences
+### Portable experiences
 
 {{< hint warning >}}
-**📔 Note**:  Portable experiences and smart wearables are still in an exploratory stage and not yet available for community creators to make.
+**📔 Note**: Portable experiences and smart wearables are still in an exploratory stage and not yet available for community creators to make.
 {{< /hint >}}
-
 
 Portable experiences are parts of the gameplay that players take with them as they move through the metaverse. These are not tied to parcels of land, they are sometimes tied to tokens, or sometimes launched by the explorer. For example, a player could take a snowball from your scene, walk away to another scene, and throw the snowball to another player who’s also playing the same game.
 
@@ -60,7 +61,7 @@ Keep in mind that players might be using someone else’s portable experience wh
 
 Your scene could have a reset mechanism that sets it to an initial state, but you should be careful not to disrupt the game for players who are already playing.
 
-#### Sync scene state
+### Sync scene state
 
 **Currently, scene states aren't shared between players unless manually implemented.** This is the simplest way to build a scene, but it’s not ideal for social experiences.
 
@@ -71,10 +72,10 @@ You can use the MessageBus to use the same messaging architecture used to share 
 Hosting your own server is also a recommended safety measure for games that involve transactions with valuable game items, as you can keep certain information like security tokens only in the server, never exposing that information outside.
 
 {{< hint warning >}}
-**📔 Note**:  In future releases, we will provide out-of-the-box solutions and code examples for how to implement your own server.
+**📔 Note**: In future releases, we will provide out-of-the-box solutions and code examples for how to implement your own server.
 {{< /hint >}}
 
-#### Game timing
+### Game timing
 
 **Games that use default communications architecture should take into account that there could be lag between players** and shouldn’t rely on fast reactions between the actions of different players. We recommend games that are turn based, or that are mostly based on player versus environment interactions.
 
@@ -148,19 +149,19 @@ In future releases they will also be able to do voice chat and to perform gestur
 
 The blockchain isn’t used to store the game state, player position or anything that needs to change in real time.
 
-#### LAND and MANA
+### LAND and MANA
 
 **Players don’t need to own any parcels of land to participate in the metaverse.** In fact, the vast majority of players won’t. Player avatars and the LAND tokens that they own aren’t connected in any direct way.
 
 **Players don’t need to previously own an Ethereum wallet or MANA tokens to enter Decentraland.** If your gameplay relies heavily on owning tokens, you would be excluding most players. A freemium game model could be an ideal way to tailor to both user bases.
 
-#### Other NFTs
+### Other NFTs
 
 **You can use special non-fungible tokens (NFTs) to represent game items, custom avatars or wearables.** If a player owns one of these tokens, your scene could respond to it in different ways.
 
 Read about what NFTs are in [this blogpost](https://decentraland.org/blog/technology/what-are-nfts/).
 
-#### In-game transactions
+### In-game transactions
 
 **Your scene can support blockchain transactions for players to buy or earn tokens.**
 

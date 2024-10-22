@@ -9,13 +9,13 @@ url: /creator/development-guide/sdk7/scene-metadata/
 weight: 1
 ---
 
-A scene is a Decentraland project that is spatially delimited, and is mapped to one or several LAND parcels. If a scene is deployed to the Decentraland Genesis City map, players can experience it by visiting the scene's coordinates. If a scene is deployed to a [World]({{< ref "/content/creator/worlds/about.md" >}}), players can visit it via URL.
+A scene is a Decentraland project that is spatially delimited, and is mapped to one or several parcels. If a scene is deployed to the Decentraland Genesis City map, players can experience it by visiting the scene's coordinates. If a scene is deployed to a [World]({{< ref "/content/creator/worlds/about.md" >}}), players can visit it via URL.
 
 See [Files in a scene]({{< ref "/content/creator/sdk7/projects/scene-files.md" >}}) for a list of what files are used in a scene project.
 
 ## Metadata
 
-To edit a scene's metadata from the Decentraland Editor, open the Inspector, and click the **pencil icon**.
+To edit a scene's metadata on the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), open a scene and click the **pencil icon**.
 
 <img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
 
@@ -24,6 +24,10 @@ This opens up the scene menu, where you can configure multiple properties.
 <img src="/images/editor/metadata-ui.png" alt="Scene name" width="300"/>
 
 Alternatively, you can directly edit the `scene.json` file, where all of these values are stored.
+
+{{< hint warning >}}
+**📔 Note**: Do not add custom fields to the `scene.json` file that are not mentioned in this page, as it could cause issues loading your scene.
+{{< /hint >}}
 
 ## Scene title, description, and image
 
@@ -35,7 +39,7 @@ When players navigate the world and enter your scene, they are able to read the 
 
 <img src="/images/media/scene-name.png" alt="Scene name" width="200"/>
 
-Add this data via the scene menu in the Decentraland Editor.
+Add this data via the scene menu in the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
 
 The thumbnail should be a _.png_ image of a recommended size of _228x160_ pixels. The minimum supported size is _196x143_ pixels. The image may be stretched if the width-to-height proportions don't match _228x160_.
 
@@ -47,9 +51,7 @@ The image on `navmapThumbnail` should be a path to an image file in the project 
 
 In case you want other developers to be able to reach out to you, you can also add contact information to your scene.
 
-
 ## Categories
-
 
 You can add categories to your scene to help players and users explore Decentraland better. These are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're interested in.
 
@@ -89,7 +91,7 @@ These are the predefined categories:
 - `business`
 - `sports`
 
-For example, an Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
+For example, a Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
 
 ```json
   "tags": [
@@ -139,7 +141,7 @@ Scenes with this rating won't load and no one will be able to interact with them
 
 There are certain features that can be disabled in specific scenes so that players can't use these abusively. Configure these on the **Settings** tab of the scene settings.
 
-<img src="/images/media/spawn-point.png" alt="Scene name" width="200"/>
+<img src="/images/editor/scene-restrictions.png" alt="Scene name" width="300"/>
 
 Currently, only the following feature is handled like this:
 
@@ -162,7 +164,7 @@ If a `featureToggles` property doesn't exist in your `scene.json` file, create i
 
 The **Spawn Settings** in the **Settings** tab define where players spawn when they access your scene directly, either by directly typing in the coordinates into the browser or teleporting.
 
-<img src="/images/media/spawn-point.png" alt="Scene name" width="200"/>
+<img src="/images/editor/spawn-point-ui.png" alt="Scene name" width="200"/>
 
 Your scene might have objects that can block players from moving if they happen to spawn right over them, like trees or stairs, or your scene might have an elevated terrain. It would be a bad experience for players if they spawned over something that doesn't let them move. That's why you have the option to set multiple spawn positions in ad-hoc locations.
 
@@ -344,9 +346,13 @@ If a `requiredPermissions` property doesn't exist in your `scene.json` file, cre
 
 When [deploying]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) a scene, the content is uploaded to the coordinates assigned in the scene configuration. A scene can include a single parcel, or a list of up to dozens of them.
 
-Edit this on the second tab of the scene menu in the Editor.
+Edit this on the second tab of the scene menu in the Scene Editor.
 
-<img src="/images/editor/scene-parcels.png" alt="Scene name" width="300"/>
+<img src="/images/editor/scene-parcels-3x3.png" alt="Scene name" width="300"/>
+
+Use the dropdowns and click **Apply Layout** to change the dimensions of your scene. You can also click each individual parcel to toggle it off from your layout.
+
+<img src="/images/editor/scene-parcels-toggled.png" alt="Scene name" width="300"/>
 
 The default scene has its coordinates set to _0,0_, this information is not necessary to change while developing a scene offline, unless you need to occupy multiple parcels. You will need to change this before deploying, to coordinates where you do have deploy permissions.
 

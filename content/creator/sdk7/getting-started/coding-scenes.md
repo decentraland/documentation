@@ -5,6 +5,21 @@ description: This set will help you understand how things work in the client and
 categories:
   - development-guide
 type: Document
+aliases:
+  - /documentation/introduction/
+  - /docs/sdk-overview/
+  - /docs/command-line-interface/
+  - /docs/sdk-quick-start-guide/
+  - /sdk-reference/introduction/
+  - /sdk-reference/scriptable-scene/
+  - /development-guide/scriptable-scene/
+  - /documentation/tsx-coding-guide/
+  - /development-guide/typescript-tips/
+  - /decentraland/SDK-Overview/
+  - /sdk-reference/SDK-Overview/
+  - /getting-started/coding-scenes/
+  - /development-guide/coding-scenes/
+  - /creator/development-guide/coding-scenes
 url: /creator/development-guide/sdk7/coding-scenes/
 weight: 10
 ---
@@ -19,11 +34,16 @@ At a very high level, the Decentraland **Software Development Kit** (SDK) allows
 - Upload the content of your scene to the content server.
 - Link your LAND tokens to the URL of the content you have uploaded.
 
-Our SDK includes the following components:
+Our SDK includes the following:
 
-- **The Decentraland Editor**: An extension for Visual Studio Code that allows you to create scenes, preview and debug, and publish. [Read more]({{< ref "/content/creator/sdk7/getting-started/decentraland-editor.md" >}})
+- **The Creator Hub**: A standalone application that, amongst other things, lets you create scenes with an easy drag-and-drop interface. You can run previews, debug, edit code, and publish. [Read more]({{< ref "/content/creator/scene-editor/about-editor.md" >}})
 - **The Decentraland ECS**: A TypeScript package containing the framework of helper methods that allows you to create interactive experiences. Use it to create and manipulate objects in the scene and also to facilitate in-world transactions between players or other applications. ( [latest ECS reference](https://github.com/decentraland/ecs-reference/blob/master/docs-latest/decentraland-ecs.md))
 - **Scene examples**: Take inspiration and coding best practices from the [scene examples](https://studios.decentraland.org/resources?sdk_version=SDK7).
+
+Other legacy tools:
+
+- **The Decentraland VS Code Extension**: An extension for Visual Studio Code that allows you to create scenes, preview and debug, and publish. [Read more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}})
+- **The Web Editor**: A web based too for creating simple scenes and publishing them. [Read more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}})
 
 ## Requirements
 
@@ -31,9 +51,9 @@ To develop a scene locally, you don't need to own LAND tokens. Developing and te
 
 You must have the following:
 
-- **Visual Studio Code**: Dowload it [here](https://code.visualstudio.com/). Beyond hosting the Decentraland Editor extension, it helps you create scenes a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
+- **The Creator Hub**: A standalone application that, amongst other things, lets you create scenes with an easy drag-and-drop interface. You can run previews, debug, edit code, and publish. [Read more]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
 
-- **The Decentraland Editor SDK7**: An extension for Visual Studio code that exposes many common functionalities as buttons in the UI. [How to install it]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#the-decentraland-editor" >}}).
+- **Visual Studio Code**: Only necessary if you plan to edit the scene's code. Download it [here](https://code.visualstudio.com/). It helps you write code a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
 
 ## Supported languages and syntax
 
@@ -55,7 +75,7 @@ Scenes are deployed to virtual LAND in Decentraland. LAND is a scarce and non-fu
 
 When players visit Decentraland, they download and render the content of each scene as they walk through the map. They unload scenes as they walk away from them.
 
-You can also run a scene locally on your machine by running a preview from the CLI. You can also [upload a preview]({{< ref "/content/creator/sdk7/publishing/deploy-third-party.md" >}}) to run remotely on a 3rd party server to easily share your work with others.
+You can also run a scene locally on your machine by running a preview from the CLI.
 
 ## Entities and Components
 
@@ -65,16 +85,16 @@ Three dimensional scenes in Decentraland are based on an [Entity-Component-Syste
 
 ```ts
 export function main() {
-  // Create an entity
-  const door = engine.addEntity()
+	// Create an entity
+	const door = engine.addEntity()
 
-  // Give the entity a position via a transform component
-  Transform.create(door, {
-    position: Vector3.create(5, 1, 5),
-  })
+	// Give the entity a position via a transform component
+	Transform.create(door, {
+		position: Vector3.create(5, 1, 5),
+	})
 
-  // Give the entity a visible shape via a GltfContainer component
-  GltfContainer.create(door)
+	// Give the entity a visible shape via a GltfContainer component
+	GltfContainer.create(door)
 }
 ```
 
@@ -94,6 +114,24 @@ You can also define _custom components_ to store data that might be useful to th
 
 See [Custom Components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) for more information.
 
+### Fetch entities by name
+
+The entities added by dragging and dropping on the Scene Editor can also be accessed via code to further edit them and add behavior.
+
+Use `engine.getEntityOrNullByName()` to fetch an entity, passing the name assigned to the entity on the Scene Editor UI. Each should have a unique name.
+
+```ts
+function main() {
+	const door = engine.getEntityOrNullByName('door3')
+}
+```
+
+You can then do anything you want with that entity, like add new components, modify its existing components, duplicate it or delete it.
+
+See [Get entity by name]({{< ref "/content/creator/sdk7/architecture/entities-components.md#get-an-entity-by-name" >}}) for more information.
+
+If the entity is a [Smart item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}), you can also call its **Actions** or subscribe to its **Triggers** via code. See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}).
+
 ## Systems
 
 Entities and components are places to store information about the objects in a scene. _Systems_ hold functions that change the information that's stored in components over time.
@@ -105,14 +143,14 @@ A system is a pure and simple function that gets called once on every tick (up t
 ```ts
 // Basic system
 function mySystem() {
-  console.log('my system is running')
+	console.log('my system is running')
 }
 
 engine.addSystem(mySystem)
 
 // System with dt
 function mySystemDT(dt: number) {
-  console.log('time since last frame:  ', dt)
+	console.log('time since last frame:  ', dt)
 }
 
 engine.addSystem(mySystemDT)
@@ -153,11 +191,11 @@ If you attempt to iterate over all the entities in the scene on every tick of th
 ```ts
 // Define a System
 function boxHeightSystem(dt: number) {
-  // query for entities that include both MeshRenderer and Transform components
-  for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
-    const transform = Transform.get(entity)
-    console.log('a box is at height:  ', transform.position.y)
-  }
+	// query for entities that include both MeshRenderer and Transform components
+	for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
+		const transform = Transform.get(entity)
+		console.log('a box is at height:  ', transform.position.y)
+	}
 }
 
 // Add the system to the engine
@@ -166,9 +204,9 @@ engine.addSystem(rotationSystem)
 
 ## Scene lifecycle
 
-If you start writing code directly in `index.ts`, your code may be lacking some important context. For example, you might be trying to do something with the `PlayerEntity`, or you with an entity that was added via the Decentraland Editor's UI, however at that point in time those things haven't been loaded yet.
+If you start writing code directly in `index.ts`, your code may be lacking some important context. For example, you might be trying to do something with the `PlayerEntity`, or you with an entity that was added via the Scene Editor's UI, however at that point in time those things haven't been loaded yet.
 
-To avoid that scenario, it's always recommended to write out your scene's initial loading code using the `main()` function (on the `index.ts` file) as an entrypoint. This function runs only once all of the scene's initial context is already loaded, this includes anything added via the Decentraland Editor's UI.
+To avoid that scenario, it's always recommended to write out your scene's initial loading code using the `main()` function (on the `index.ts` file) as an entrypoint. This function runs only once all of the scene's initial context is already loaded, this includes anything added via the Scene Editor's UI.
 
 You can write your code outside the `main()` function when:
 
@@ -215,28 +253,28 @@ After all the systems run, the components on each entity will have new values. W
 
 ```ts
 export function main() {
-  // Create an entity
-  const cube = engine.addEntity()
+	// Create an entity
+	const cube = engine.addEntity()
 
-  // Give the entity a position via a transform component
-  Transform.create(cube, {
-    position: Vector3.create(5, 1, 5),
-  })
+	// Give the entity a position via a transform component
+	Transform.create(cube, {
+		position: Vector3.create(5, 1, 5),
+	})
 
-  // Give the entity a visible shape via a MeshRenderer component
-  MeshRenderer.setBox(cube)
+	// Give the entity a visible shape via a MeshRenderer component
+	MeshRenderer.setBox(cube)
 }
 
 // Define a System
 function rotationSystem(dt: number) {
-  // query for entities that include both MeshRenderer and Transform components
-  for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
-    const transform = Transform.getMutable(entity)
-    transform.rotation = Quaternion.multiply(
-      transform.rotation,
-      Quaternion.fromAngleAxis(dt * 10, Vector3.Up())
-    )
-  }
+	// query for entities that include both MeshRenderer and Transform components
+	for (const [entity] of engine.getEntitiesWith(MeshRenderer, Transform)) {
+		const transform = Transform.getMutable(entity)
+		transform.rotation = Quaternion.multiply(
+			transform.rotation,
+			Quaternion.fromAngleAxis(dt * 10, Vector3.Up())
+		)
+	}
 }
 
 // Add the system to the engine
@@ -276,12 +314,12 @@ For example, suppose you have a file named `extraContent.ts` with the following 
 
 const myEntity = engine.addEntity()
 Transform.create(myEntity, {
-  position: { x: 8, y: 0, z: 8 },
+	position: { x: 8, y: 0, z: 8 },
 })
 MeshRenderer.setBox(myEntity)
 
 function mySystem(dt: number) {
-  console.log('system running')
+	console.log('system running')
 }
 
 engine.addSystem(mySystem)
@@ -293,15 +331,15 @@ To make it run as part of your scene, you can reference from `index.ts` in the f
 // on extraContent.ts
 
 export function addEntities() {
-  const myEntity = engine.addEntity()
-  Transform.create(myEntity, {
-    position: { x: 8, y: 0, z: 8 },
-  })
-  MeshRenderer.setBox(myEntity)
+	const myEntity = engine.addEntity()
+	Transform.create(myEntity, {
+		position: { x: 8, y: 0, z: 8 },
+	})
+	MeshRenderer.setBox(myEntity)
 }
 
 export function mySystem(dt: number) {
-  console.log('system running')
+	console.log('system running')
 }
 
 /////////////////////////////
@@ -311,7 +349,7 @@ export function mySystem(dt: number) {
 import { addEntities, mySystem } from '/extraContent'
 
 export function main() {
-  addEntities()
+	addEntities()
 }
 
 engine.addSystem(mySystem)
@@ -353,11 +391,11 @@ When developing a new scene, you use the `@latest` stable SDK release by default
 
 You can install the `@next` SDK release if you want to leverage or preview upcoming features that didn't yet make it into the latest stable release.
 
-To do so, open the Decentraland Editor tab, and press the `+` sign to install the following:
+To do so, open the Decentraland tab on the Visual Studio Code extension, and press the `+` sign to install the following:
 
 `@dcl/sdk@next`
 
-See [manage dependencies]({{< ref "/content/creator/scenes/libraries/manage-dependencies.md" >}}) for more details.
+See [manage dependencies]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md" >}}) for more details.
 
 {{< hint warning >}}
 **📔 Note**: Keep in mind that the @next version might suffer issues from time to time. The syntax and name of new features might change before it's released in a stable version.

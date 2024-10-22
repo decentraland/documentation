@@ -13,22 +13,28 @@ Smart wearables are a type of global scene. Like [portable experiences]({{< ref 
 
 Smart wearables are portable experiences that are turned on when the player puts on a certain item of clothing. Smart wearables can grant players new abilities, like a jetpack that lets them fly, or add a new layer of content on top of the rest of the world, like randomly placing coins to be collected throughout the whole of genesis city.
 
+{{< hint warning >}}
+**📔 Note**: Smart Wearables can only be created using SDK 7.
+
+The **Creator Hub** doesn't currently support creating Smart Wearables projects. Use the **VS Studio Code** extension instead.
+{{< /hint >}}
+
 ## Getting started
 
-### Using the Editor
+### Using the VS Code Extension
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}), then:
+Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}), then:
 
 1. Open a Visual Studio Code window on an _empty folder_.
 2. Select the Decentraland tab on Visual Studio's left margin sidebar
 3. Click **Create Project**
-4. The editor will prompt you about what kind of project to create. Select **Smart Wearable**.
+4. The Decentraland extension will prompt you about what kind of project to create. Select **Smart Wearable**.
 
 ### Using the CLI
 
 1. Open a command line in a new folder and run
 
-`npx sdk-commands init --project smart-wearable`
+`npx @dcl/sdk-commands init --project smart-wearable`
 
 This command creates the basic files and structure for a new smart wearable.
 
@@ -78,6 +84,7 @@ The following fields are required in `wearable.json`:
 - `rarity`: The rarity supply of the token. Possible values are:
   - unique (1 copy)
   - mythic (10 copies)
+  - exotic (50 copies)
   - legendary (100 copies)
   - epic (1000 copies)
   - uncommon (10.000 copies)
@@ -152,7 +159,7 @@ Chose an image that sets player expectations and properly represents your creati
 
 ## The Preview
 
-Running a preview of a portable experience is just like running that of a scene, simply click **Run Scene** on the editor, or run `npm run start` on the command line. If the `wearable.json` file is properly configured and the project is recognized as a smart wearable, you’ll notice that all the visible around you are the default empty parcels. In this preview mode, you are not restricted to any set of parcels, you can add 3D models or sounds anywhere in the world.
+Running a preview of a portable experience is just like running that of a scene, simply click **Run Scene** on the Decentraland tab, or run `npm run start` on the command line. If the `wearable.json` file is properly configured and the project is recognized as a smart wearable, you’ll notice that all the visible around you are the default empty parcels. In this preview mode, you are not restricted to any set of parcels, you can add 3D models or sounds anywhere in the world.
 
 To test how the smart wearable behaves in the context of a scene, you can also run a preview of your wearable at the same time as you run a preview of one or several scenes by using a [Workspace]({{< ref "/content/creator/sdk7/projects/workspaces.md" >}}). For example, you can run your smart wearable together with the [Genesis Plaza](https://github.com/decentraland-scenes/Genesis-Plaza) scene to test how it behaves on a busy scene, while on an elevator, etc.
 
@@ -186,9 +193,10 @@ To publish your smart wearable:
 4. Drag your compressed `smart-wearable.zip` file into the Builder, verify that all the information is accurate.
 
 > Note: If your wearable contains different model representations, you need to do a workaround:
->  <ol type="a">
->    <li>In your project, create a new folder for each representation(<code>male</code> and <code>female</code>), and put the 3D model for each representation in its corresponding folder.</li>
->    <li>Update your <code>wearable.json</code> file to include the new representations.</li>
+>
+> <ol type="a">
+> <li>In your project, create a new folder for each representation(<code>male</code> and <code>female</code>), and put the 3D model for each representation in its corresponding folder.</li>
+> <li>Update your <code>wearable.json</code> file to include the new representations.</li>
 >
 > ```lang-json
 > "representations": [{
@@ -207,13 +215,13 @@ To publish your smart wearable:
 > }],
 > ```
 >
->    <li>Run <code>npm run pack</code> to generate a new smart-wearable.zip file.</li>
->    <li>Drag the new smart-wearable.zip file into the Builder.</li>
->  </ol>
+> <li>Run <code>npm run pack</code> to generate a new smart-wearable.zip file.</li>
+> <li>Drag the new smart-wearable.zip file into the Builder.</li>
+> </ol>
 
-5. Open the editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
+5. Open wearables editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
 6. Create a new collection with this and perhaps other wearables.
-7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Goerli, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
+7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Sepolia, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
 8. At this point, your wearable is ready to be published.
 
 ## Restricted actions

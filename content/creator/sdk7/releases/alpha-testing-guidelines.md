@@ -24,7 +24,7 @@ If you run into any issues, please copy a URL to the current setup of your scene
 
 ## Using SDK 7
 
-Install the SDK 7 version of the editor on VS Studio Code. To install it, simply search in the extension market for **Decentraland Editor SDK7**.
+Install the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
 
 {{< hint warning >}}
 **📔 Note**: Notice that scenes that use SDK7 don't have the `decentraland-ecs` package installed. Instead, they have the `@dcl/sdk` package.
@@ -32,14 +32,17 @@ Install the SDK 7 version of the editor on VS Studio Code. To install it, simply
 
 ## In production
 
-You can deploy scenes with SDK7 via the **Publish Scene** button on the Editor.
+You can deploy scenes with SDK7 via the **Publish** button on the Scene Editor.
 
 ## Example scenes
 
 You can find more example scenes written with SDK7 here:
 
-- [SDK7 Scene Template](https://github.com/decentraland/sdk7-scene-template)
-- [Goerli Plaza](https://github.com/decentraland/sdk7-goerli-plaza)
+- [Scene examples](https://studios.decentraland.org/resources)
+
+{{< hint info >}}
+**💡 Tip**: To avoid downloading the entire repo, with dozens of scenes, and just copy one project, see [Scene from example]({{< ref "/content/creator/sdk7/getting-started/scene-from-example.md" >}}).
+{{< /hint >}}
 
 ## Reporting issues
 

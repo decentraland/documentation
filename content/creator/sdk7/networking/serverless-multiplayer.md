@@ -25,11 +25,11 @@ The first two options are covered in this document. They are simpler, as they re
 
 ## Mark an Entity as Synced
 
-{{< hint warning >}}
-**📔 Note**: This feature is currently in alpha state. Its syntax could potentially undergo changes on the next few releases.
-{{< /hint >}}
+In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), mark an entity as synced by adding a **Multiplayer component** to it. It includes a checkbox for each of the other components on the entity, allowing you to select which ones to update.
 
-To mark an entity as synced, use the `syncEntity` function:
+<img src="/images/editor/multiplayer-component.png" alt="Armature" width="300"/>
+
+To mark an entity as synced via code, use the `syncEntity` function:
 
 ```ts
 const doorEntity = engine.addEntity()
@@ -60,15 +60,15 @@ Explicitly setting this ID is important to avoid inconsistencies if a race condi
 
 ```ts
 enum EntityEnumId {
-  DOOR = 1,
-  DRAW_BRIDGE = 2,
-  ELEVATOR = 3
+	DOOR = 1,
+	DRAW_BRIDGE = 2,
+	ELEVATOR = 3,
 }
 
 syncEntity(
-  doorEntity,
-  [Transform.componentId, Animator.componentId],
-  EntityEnumId.DOOR
+	doorEntity,
+	[Transform.componentId, Animator.componentId],
+	EntityEnumId.DOOR
 )
 ```
 
@@ -85,13 +85,12 @@ For example, in a snowball fight scene, every time a player throws a snowball, t
 
 ```ts
 function onThrow() {
-  const ball = engine.addEntity()
-  Transform.create(ball, {})
-  GLTFContainer.create(ball, { src: 'assets/snowBall.glb' })
-  syncEntity(ball, [Transform.componentId, GLTFContainer.componentId])
+	const ball = engine.addEntity()
+	Transform.create(ball, {})
+	GLTFContainer.create(ball, { src: 'assets/snowBall.glb' })
+	syncEntity(ball, [Transform.componentId, GLTFContainer.componentId])
 }
 ```
-
 
 #### Parented entities
 
@@ -152,6 +151,36 @@ const getChildrenResult = Array.from(getChildren(parent))
 removeParent(child)
 ```
 
+## Check the sync state
+
+When a player just loads into a scene, they may not yet be synchronized with other players surrounding them. If the player starts altering the state of the game before they are synced, this could cause problems in your game. We recommend always checking for a player to be synchronized before they are allowed to edit anything about the scene.
+
+If a player steps out of the parcels of the scene, they will also be out of sync with the scene while they're standing outside. So it's also important that the scene's systems handle that scenario, as the scene keeps running while the player is nearby. Once the player steps back in, they are updated automatically with any changes from the scene's state.
+
+You can check if the scene state is currently synced for a player via the `isStateSyncronized()` function. This function returns a boolean, that is true if the player is already synchronized with the scene.
+
+```ts
+import { isStateSyncronized } from '@dcl/sdk/network'
+
+const isConnected = isStateSyncronized()
+```
+
+You could for example include this check in a system, and block any interaction if this function returns false.
+
+```ts
+engine.addSystem(() => {
+	if (isStateSyncronized() && !button.enabled) {
+		console.log('Enable Start Game')
+		button.enable()
+	}
+
+	if (!isStateSyncronized() && button.enabled) {
+		console.log(`Disable Start Game.`)
+		button.disable()
+	}
+})
+```
+
 ## Send Explicit MessageBus Messages
 
 #### Initiate a message bus
@@ -178,13 +207,13 @@ MeshRenderer.setBox(myEntity)
 MeshCollider.setBox(myEntity)
 
 pointerEventsSystem.onPointerDown(
-  {
-    entity: myEntity,
-    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
-  },
-  function () {
-    sceneMessageBus.emit('box1Clicked', {})
-  }
+	{
+		entity: myEntity,
+		opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
+	},
+	function () {
+		sceneMessageBus.emit('box1Clicked', {})
+	}
 )
 ```
 
@@ -212,16 +241,16 @@ import { MessageBus } from '@dcl/sdk/message-bus'
 const sceneMessageBus = new MessageBus()
 
 type NewBoxPosition = {
-  position: { x: number; y: number; z: number }
+	position: { x: number; y: number; z: number }
 }
 
 sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
-  const myEntity = engine.addEntity()
-  Transform.create(myEntity, {
-    position: { x: info.position.x, y: info.position.y, z: info.position.z },
-  })
-  MeshRenderer.setBox(myEntity)
-  MeshCollider.setBox(myEntity)
+	const myEntity = engine.addEntity()
+	Transform.create(myEntity, {
+		position: { x: info.position.x, y: info.position.y, z: info.position.z },
+	})
+	MeshRenderer.setBox(myEntity)
+	MeshCollider.setBox(myEntity)
 })
 ```
 
@@ -241,29 +270,29 @@ const sceneMessageBus = new MessageBus()
 
 // Cube factory
 function createCube(x: number, y: number, z: number): Entity {
-  const meshEntity = engine.addEntity()
-  Transform.create(meshEntity, { position: { x, y, z } })
-  MeshRenderer.setBox(meshEntity)
-  MeshCollider.setBox(meshEntity)
+	const meshEntity = engine.addEntity()
+	Transform.create(meshEntity, { position: { x, y, z } })
+	MeshRenderer.setBox(meshEntity)
+	MeshCollider.setBox(meshEntity)
 
-  // When a cube is clicked, send message to spawn another one
-  pointerEventsSystem.onPointerDown(
-    {
-      entity: myEntity,
-      opts: { button: InputAction.IA_PRIMARY, hoverText: 'Press E to spawn' },
-    },
-    function () {
-      sceneMessageBus.emit('spawn', {
-        position: {
-          x: 1 + Math.random() * 8,
-          y: Math.random() * 8,
-          z: 1 + Math.random() * 8,
-        },
-      })
-    }
-  )
+	// When a cube is clicked, send message to spawn another one
+	pointerEventsSystem.onPointerDown(
+		{
+			entity: myEntity,
+			opts: { button: InputAction.IA_PRIMARY, hoverText: 'Press E to spawn' },
+		},
+		function () {
+			sceneMessageBus.emit('spawn', {
+				position: {
+					x: 1 + Math.random() * 8,
+					y: Math.random() * 8,
+					z: 1 + Math.random() * 8,
+				},
+			})
+		}
+	)
 
-  return meshEntity
+	return meshEntity
 }
 
 // Init
@@ -271,12 +300,12 @@ createCube(8, 1, 8)
 
 // define type of data
 type NewBoxPosition = {
-  position: { x: number; y: number; z: number }
+	position: { x: number; y: number; z: number }
 }
 
 // on spawn message, create new cube
 sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
-  createCube(info.position.x, info.position.y, info.position.z)
+	createCube(info.position.x, info.position.y, info.position.z)
 })
 ```
 
@@ -289,3 +318,20 @@ Interact with the scene on one window, then switch to the other to see that the 
 {{< hint warning >}}
 **📔 Note**: Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
 {{< /hint >}}
+
+## Single player scenes
+
+If your scene is deployed to a [Decentraland World]({{< ref "/content/creator/worlds/about.md" >}}), you can make it a single player scene. Players won't see each other, won't be able to chat or see the effects of each other's actions.
+
+To do this, configure the scene's `scene.json` file to set the **fixedAdapter** to `offline:offline`. The scene will have no Communication Service at all and each user joining that world will always be alone.
+
+**Example:**
+
+```json
+{
+	"worldConfiguration": {
+		"name": "my-name.dcl.eth",
+		"fixedAdapter": "offline:offline"
+	}
+}
+```

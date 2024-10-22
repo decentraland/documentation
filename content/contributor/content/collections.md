@@ -33,7 +33,7 @@ For example:
 
 ```
 # A collection in the deprecated v1 space:
-urn:decentraland:goerli:collections-v1:DCL Test Masks
+urn:decentraland:mainnet:collections-v1:DCL Test Masks
 
 # A collection in the v2 community-approved space:
 urn:decentraland:matic:collections-v2:0x25a1d66891d44cdf7b8c45802489c1dea7aadf8b
@@ -55,7 +55,7 @@ You can find ample information about these in the [linked wearables]({{< ref "/c
 
 ## Discovering Collections
 
-Content servers can give you a list of all known collections, using the [`/lambdas/collections`](https://decentraland.github.io/catalyst-api-specs/#tag/Lambdas/operation/getCollections) endpoint. 
+Content servers can give you a list of all known collections, using the [`/lambdas/collections`](https://decentraland.github.io/catalyst-api-specs/#tag/Lambdas/operation/getCollections) endpoint.
 
 The response will be an object with a `collections` property, containing an array of URNs and names. For example:
 
@@ -63,7 +63,7 @@ The response will be an object with a `collections` property, containing an arra
 {
   "collections": [
     {
-      "id": "urn:decentraland:mumbai:collections-v2:0xff5d4ebc6bc1ff7262cab42d3c693d953f4614d2",
+      "id": "urn:decentraland:amoy:collections-v2:0xff5d4ebc6bc1ff7262cab42d3c693d953f4614d2",
       "name": "Winter clothes collection"
     },
     // ... many more

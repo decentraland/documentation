@@ -42,9 +42,9 @@ Ideally, the loading of the code in your scene should follow a clear sequential 
 
 To fix these dependencies, you often must resort to calling functions or object constructors passing references to already instanced entities/objects in the function arguments; Instead of hard-coding references to these entities/objects in the function, which may or may not already be instanced.
 
-## Issues when running the Editor Inspector
+## Issues when running the VS Code Extension
 
-### Issue: The editor never finishes loading the scene, it may say something like "Can't connect to server".
+### Issue: The Decentraland extension never finishes loading the scene, it may say something like "Can't connect to server".
 
 Make sure your Node version is up to date. It must be 16 or newer.
 
@@ -68,7 +68,16 @@ Make sure your Node version is up to date. It must be 16 or newer.
 
   `"position": {"x": [1,4], "y": [0,0], "z": [1,4]}`
 
-- The default catalyst server that you're assigned to deploy to might be down or having issues. You can force the `npm run deploy` command to deploy to a specific catalyst server instead. To deploy to a specific server, on the Decentraland Editor:
+- The default catalyst server that you're assigned to deploy to might be down or having issues. You can force the `npm run deploy` command to deploy to a specific catalyst server instead. To deploy to a specific server on the Decentraland Editor:
+
+  1. Open your scene and click **Publish**
+  2. Select the option **Publish to a different server** on the bottom.
+  3. On the dropdown, select **Custom Server**
+  4. Enter the address of the server, for example `peer-testing.decentraland.org`
+  5. Click **Publish to custom server**
+  6. Approve the transaction as with a normal deployment.
+
+  To deploy to a specific server, on the Decentraland Visual Studio Code Extension:
 
   1.  Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Deploy Scene To Custom Catalyst`
   2.  Enter the address of the server, for example `peer-testing.decentraland.org`

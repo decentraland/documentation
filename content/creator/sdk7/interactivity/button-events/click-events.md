@@ -14,7 +14,7 @@ A Decentraland scene can detect input actions from all of the buttons that are u
 You can detect input actions against an entity. This involves pressing a button while the player's cursor is pointing at that entity's collider. You can also detect _global_ input event, that involve pressing activating the input at any time, without consideration for where the pointer is aiming.
 
 {{< hint warning >}}
-**📔 Note**:  Entities must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) to respond to input actions. `MeshRenderer` models must also be given a `MeshCollider` component. Models from a `GLTFContainer` may have their own embedded collision geometry, or they can be configured to use their visible geometry, they can also be given a `MeshCollider` component.
+**📔 Note**: Entities must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) to respond to input actions. `MeshRenderer` models must also be given a `MeshCollider` component. Models from a `GLTFContainer` may have their own embedded collision geometry, or they can be configured to use their visible geometry, they can also be given a `MeshCollider` component.
 {{< /hint >}}
 
 There are several different ways to handle input actions, depending on the use case.
@@ -23,11 +23,15 @@ There are several different ways to handle input actions, depending on the use c
 - [**System-based**]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}): Ideal for handling multiple entities with similar behavior. Use a system to iterate over similar entities and query for input actions on each, handling them all with the same logic. Hover feedback needs to be set up separately. This approach is also required for handling global input actions.
 - [**Advanced**]({{< ref "/content/creator/sdk7/interactivity/button-events/advanced-button-events.md" >}}): Read the raw response data on each entity, including time-stamps and an event history of input events. This can be useful for defining custom interaction patterns.
 
+## Use the Scene Editor
+
+The easiest way to handle click events on an entity is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the no-code **On Click** or **On Input Action** Triggers on an item to call actions when clicking on it. Or use **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers to react to global button events. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+
 ## Hover Feedback
 
 Whichever method you use, it's important to make players aware that an entity is interactive. Otherwise, they might completely miss out on the experience you built. It's not a good experience to be clicking on every object hoping for one to respond. Users of Decentraland are used to the pattern that any interactive items offer feedback on hover, so they will discard an item with no feedback as non-interactive.
 
-The default way to add feedback is to display a hover hint on the UI whenever the player passes their cursor over the entity's collider.  You can implement this behavior by adding a `PointerEvents` component to an entity.  The [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach makes this even easier, as you don't have to explicitly create this component.
+The default way to add feedback is to display a hover hint on the UI whenever the player passes their cursor over the entity's collider. You can implement this behavior by adding a `PointerEvents` component to an entity. The [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach makes this even easier, as you don't have to explicitly create this component.
 
 You could also implement [advanced custom hints]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md#advanced-custom-hints" >}}), for example you could play a sound, making the entity change color, spin or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
 
@@ -36,9 +40,10 @@ You could also implement [advanced custom hints]({{< ref "/content/creator/sdk7/
 Button events cast rays that only interact with the first entity on their path that is subscribed to the pointer events collision layer, as long as the entity is closer than its distance limit.
 
 For an entity to be intercepted by the ray of a pointer event, either:
+
 - The model must contain [collider meshes]({{< ref "/content/creator/3d-modeling/colliders.md">}}).
 - The `GLTFContainer` must be configured to use the [visible geometry with collision masks]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models" >}}).
-- The entity must have a [MeshCollider component]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}). 
+- The entity must have a [MeshCollider component]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}).
 
 If another entity's collider is standing on the way of the entity that the player wants to interact with it, the player won't be able to click the entity that's behind, unless the entity has no collider, or this collider is configured to not respond to the pointer events collision layer.
 
@@ -47,38 +52,38 @@ If another entity's collider is standing on the way of the entity that the playe
 const clickableEntity = engine.addEntity()
 MeshRenderer.setBox(clickableEntity)
 MeshCollider.setBox(clickableEntity)
-Transform.create(clickableEntity, {position: Vector3.create(8, 1, 8)})
+Transform.create(clickableEntity, { position: Vector3.create(8, 1, 8) })
 
 pointerEventsSystem.onPointerDown(
-  {
-  entity: clickableEntity,
-  opts: {
-      button: InputAction.IA_POINTER,
-      hoverText: 'Click'
-    }
-  },
-  function () {
-    console.log("clicked entity")
-    const t = Transform.getMutable(clickableEntity)
-    t.scale.y += 0.2
-  }
-    )
+	{
+		entity: clickableEntity,
+		opts: {
+			button: InputAction.IA_POINTER,
+			hoverText: 'Click',
+		},
+	},
+	function () {
+		console.log('clicked entity')
+		const t = Transform.getMutable(clickableEntity)
+		t.scale.y += 0.2
+	}
+)
 
 // non-blocker for clicks
 const nonBlocker = engine.addEntity()
 MeshRenderer.setBox(nonBlocker)
 MeshCollider.setBox(nonBlocker, ColliderLayer.CL_PHYSICS)
-Transform.create(nonBlocker, {position: Vector3.create(10, 1, 8)})
+Transform.create(nonBlocker, { position: Vector3.create(10, 1, 8) })
 
 // blocker for clicks
 const blocker = engine.addEntity()
 MeshRenderer.setBox(blocker)
 MeshCollider.setBox(blocker, ColliderLayer.CL_POINTER)
-Transform.create(blocker, {position: Vector3.create(8, 1, 10)})
+Transform.create(blocker, { position: Vector3.create(8, 1, 10) })
 ```
 
 {{< hint warning >}}
-**📔 Note**: For an entity to not only intercept a pointer event, but also to return data, the entity also needs to have a `PointerEvents` component. The `pointerEventsSystem` helpers also take care of this requirment. 
+**📔 Note**: For an entity to not only intercept a pointer event, but also to return data, the entity also needs to have a `PointerEvents` component. The `pointerEventsSystem` helpers also take care of this requirment.
 {{< /hint >}}
 
 ## Pointer buttons
@@ -139,7 +144,7 @@ Using the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity
 
 ```ts
 pointerEventsSystem.onPointerDown({ entity: myEntity }, function (cmd) {
-  console.log(cmd.hit.entityId)
+	console.log(cmd.hit.entityId)
 })
 ```
 
@@ -147,34 +152,32 @@ Using the [**System-based**]({{< ref "/content/creator/sdk7/interactivity/button
 
 ```ts
 engine.addSystem(() => {
-  const cmd = inputSystem.getInputCommand(
-    InputAction.IA_POINTER,
-    PointerEventType.PET_DOWN,
-    myEntity
-  )
-  if (cmd) {
-    console.log(cmd.hit.entityId)
-  }
+	const cmd = inputSystem.getInputCommand(
+		InputAction.IA_POINTER,
+		PointerEventType.PET_DOWN,
+		myEntity
+	)
+	if (cmd) {
+		console.log(cmd.hit.entityId)
+	}
 })
 ```
 
 {{< hint warning >}}
-**📔 Note**: For an entity to not only intercept a pointer event, but also to return data, the entity also needs to have a `PointerEvents` component. The `pointerEventsSystem` helpers also take care of this requirment. 
+**📔 Note**: For an entity to not only intercept a pointer event, but also to return data, the entity also needs to have a `PointerEvents` component. The `pointerEventsSystem` helpers also take care of this requirment.
 {{< /hint >}}
 
 Using the [**Advanced**]({{< ref "/content/creator/sdk7/interactivity/button-events/advanced-button-events.md" >}}) approach, the `PointerEventsResults` contains an array with a recent history of all pointer events against that entity.
 
 ```ts
 engine.addSystem(() => {
-  const pointerEvents = engine.getEntitiesWith(PointerEventsResult)
-  for (const [entity] of pointerEvents) {
-    const poninterEvents = PointerEventsResult.get(entity)
+	const pointerEvents = engine.getEntitiesWith(PointerEventsResult)
+	for (const [entity] of pointerEvents) {
+		const poninterEvents = PointerEventsResult.get(entity)
 
-    if (poninterEvents.commands.length > 0) {
-      console.log(poninterEvents.commands[0].hit.entityId)
-    }
-  }
+		if (poninterEvents.commands.length > 0) {
+			console.log(poninterEvents.commands[0].hit.entityId)
+		}
+	}
 })
 ```
-
-

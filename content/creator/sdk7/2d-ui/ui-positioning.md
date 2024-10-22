@@ -17,15 +17,15 @@ The `uiTransform` component works in the screen's 2d space very much like the `T
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 
 ReactEcsRenderer.setUiRenderer(() => (
-  <UiEntity
-    uiTransform={{
-      width: '200px',
-      height: '100px',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}
-    uiBackground={{ color: Color4.Green() }}
-  />
+	<UiEntity
+		uiTransform={{
+			width: '200px',
+			height: '100px',
+			justifyContent: 'center',
+			alignItems: 'center',
+		}}
+		uiBackground={{ color: Color4.Green() }}
+	/>
 ))
 ```
 
@@ -36,6 +36,62 @@ The alignment of UI entities is based on the Flexbox alignment model. This is a 
 {{< hint info >}}
 **💡 Tip**: Decentraland's UI implementation is based on that of [Yoga](https://yogalayout.com/docs/). Read [this article](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/) for a very approachable and in-depth coverage of the properties available in Flexbox.
 {{< /hint >}}
+
+### Entity size
+
+Use `width` and `height` to set the size of the entity. The following kinds of values are supported:
+
+- `auto`: The size adapts to fit the content inside. This is very convenient for text that may vary in length. Write the value as "auto".
+- **Percentage**: As a percentage of the parent's measurements. Write the value as a string that ends in "%", for example `10 %`.
+- **Pixels**: Write the value as a number.
+- **Screen width or height**: Use vw (view width) and vh (view height) can be used to indicate a fraction of the full size of the window running Decentraland. For example `10vw` refers to 10% of the window's width, `25vh` to 25% of the window's height.
+
+Note that these properties affect the **default** size of that item, the size of the item before any flex grow and flex shrink calculations are performed. The final size may be interpreted differently based on the size of the parent entity, and the Flexbox properties that are set.
+
+{{< hint warning >}}
+**📔 Note**: In properties that support both numbers and strings, to set the value in pixels, write a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`. You can also set a pixel value as a string by ending the string in `px`, for example `200px`.
+
+- When values are expressed as a percentage, they're always in relation to the parent's container. If the entity has no parents, then the value is a percentage of the whole screen.
+- If values are expressed in pixels, they are absolute, and not affected by the parent's scale.
+- If values are expressed in `vh` or `vw`, they are a percentage of the full window, not affected by the parent's scale.
+
+For the `auto` width/height to work, the following rules apply:
+
+- The UiTransform that uses width/height as “auto” should have `alignSelf`: `“center”`/`“flex-start”`/`“flex-end”` OR `positionType: “absolute”`
+- If the UiTransform of a child use `positionType: “absolute”`, the parent won’t adapt to its size/position
+- If the UiTransform of a child uses any position overwrite, the parent won’t adapt to its size/position
+  {{< /hint >}}
+
+These other properties are also available to adjust size in a more advanced way:
+
+- `maxWidth` and `maxHeight`: _number_ or string (like height and width). The maximum size that the entity may have.
+- `minWidth` and `minHeight`: _number_ or string (like height and width). The minimum size that the entity may have. If the parent is too small to fit the minimum size of the entities, they will overflow from their parent.
+- `flexBasis`: This is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the width of that child if its parent is a container with flex direction: row or setting the height of a child if its parent is a container with flex direction: column.
+
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+
+ReactEcsRenderer.setUiRenderer(() => (
+	<UiEntity
+		uiTransform={{
+			alignSelf: 'center',
+			alignContent: 'center',
+			width: '80%',
+			height: '30%',
+			minWidth: 300,
+			maxWidth: 2500,
+			margin: { left: '10%', right: '10%' },
+		}}
+		uiBackground={{ color: Color4.Green() }}
+	/>
+))
+```
+
+<!--
+TODO
+examples:
+```ts
+``` -->
 
 ### Arranging child entities
 
@@ -79,53 +135,21 @@ By default, child entities are positioned in relation to the top-left corner of 
   - `space-between`: Evenly space wrapped lines across the container's main axis, distributing remaining space between the lines.
   - `space-around`: Evenly space wrapped lines across the container's main axis, distributing remaining space around the lines. Compared to space between using space around will result in space being distributed to the begining of the first lines and end of the last line.
 
+- `flexGrow`: This describes how any space within a container should be distributed among its children along the main axis. After laying out its children, a container will distribute any remaining space according to the flex grow values specified by its children. Flex grow accepts any floating point value >= 0, with 0 being the default value. A container will distribute any remaining space among its children weighted by the child’s flex grow value.
+
+- `flexShrink`: Describes how to shrink children along the main axis in the case that the total size of the children overflow the size of the container on the main axis. flex shrink is very similar to flex grow and can be thought of in the same way if any overflowing size is considered to be negative remaining space. These two properties also work well together by allowing children to grow and shrink as needed. Flex shrink accepts any floating point value >= 0, with 1 being the default value. A container will shrink its children weighted by the child’s flex shrink value.
+
+- `overflow`: Determines what happens if the size of the children of an entity overflow its parent. It uses values from the `OverflowType` type.
+
+  - `hidden`: Overflowing entities are made invisible.
+  - `visible`: Overflowing entities break out of the margins of the parent.
+  <!-- - `scroll`: The parent becomes scrollable, allowing to view the full extent of the children by scrolling.-->
+
 - `flexWrap`: The flex wrap property is set on containers and controls what happens when children overflow the size of the container along the main axis. By default children are forced into a single line (which can shrink entities). If wrapping is allowed items are wrapped into multiple lines along the main axis if needed. wrap reverse behaves the same, but the order of the lines is reversed. This property takes its value from the `FlexWrapType` type.
 
   - `wrap`
   - `no-wrap`
   - `wrap-reverse`
-
-<!--
-TODO
-examples:
-```ts
-``` -->
-
-### Entity size
-
-Use `width` and `height` to set the size of the entity. The following kinds of values are supported:
-
-- `auto`: The size adapts to fit the content inside. This is very convenient for text that may vary in length. Write the value as "auto".
-- Percentage: As a percentage of the parent's measurements. Write the value as a string that ends in "%", for example `10 %`.
-- Pixels: Write the value as a number.
-
-Note that these properties affect the **default** size of that item, the size of the item before any flex grow and flex shrink calculations are performed. The final size may be interpreted differently based on the size of the parent entity, and the Flexbox properties that are set.
-
-{{< hint warning >}}
-**📔 Note**: In properties that support both numbers and strings, to set the value in pixels, write a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`. You can also set a pixel value as a string by ending the string in `px`, for example `200px`.
-
-When values are expressed as a percentage, they're always in relation to the parent's container. If the entity has no parents, then the value is a percentage of the whole screen. If values are expressed in pixels, they are absolute, and not affected by the parent's scale.
-
-**📔 Note**: For the `auto` width/height to work, the following rules apply:
-- The UiTransform that uses width/height as “auto” should have `alignSelf`: `“center”`/`“flex-start”`/`“flex-end”` OR `positionType: “absolute”`
-- If the UiTransform of a child use `positionType: “absolute”`, the parent won’t adapt to its size/position
-- If the UiTransform of a child uses any position overwrite, the parent won’t adapt to its size/position 
-{{< /hint >}}
-
-These other properties are also available to adjust size in a more advanced way:
-
-- `maxWidth` and `maxHeight`: _number_ or string (like height and width). The maximum size that the entity may have.
-- `minWidth` and `minHeight`: _number_ or string (like height and width). The minimum size that the entity may have. If the parent is too small to fit the minimum size of the entities, they will overflow from their parent.
-- `flexBasis`: This is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the width of that child if its parent is a container with flex direction: row or setting the height of a child if its parent is a container with flex direction: column.
-- `flexGrow`: This describes how any space within a container should be distributed among its children along the main axis. After laying out its children, a container will distribute any remaining space according to the flex grow values specified by its children. Flex grow accepts any floating point value >= 0, with 0 being the default value. A container will distribute any remaining space among its children weighted by the child’s flex grow value.
-- `flexShrink`: Describes how to shrink children along the main axis in the case that the total size of the children overflow the size of the container on the main axis. flex shrink is very similar to flex grow and can be thought of in the same way if any overflowing size is considered to be negative remaining space. These two properties also work well together by allowing children to grow and shrink as needed. Flex shrink accepts any floating point value >= 0, with 1 being the default value. A container will shrink its children weighted by the child’s flex shrink value.
-- `overflow`: Determines what happens if the size of the children of an entity overflow its parent. It uses values from the `OverflowType` type.
-
-  - `hidden`: Overflowing entities are made invisible.
-  - `visible`: Overflowing entities break out of the margins of the parent.
-  - `scroll`: The parent becomes scrollable, allowing to view the full extent of the children by scrolling.
-
-<!-- TODO: Check that scrolling really works -->
 
 <!--
 TODO

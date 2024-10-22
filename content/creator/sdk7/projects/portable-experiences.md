@@ -14,20 +14,22 @@ Portable Experiences can be tied to a NAME and can be loaded by another scene us
 
 {{< hint warning >}}
 **📔 Note**: Portable experiences can only be created using SDK 7. Also, only scenes built with SDK 7 are capable of loading a portable experience.
+
+The **Creator Hub** doesn't currently support creating Portable Experience projects. Use the **VS Studio Code** extension instead.
 {{< /hint >}}
 
 Smart Wearables are a kind of portable experience that is associated to a wearable, and activated based on if the player is using that wearable. This document doesn't cover those, see [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}) for more details.
 
 ## Getting started
 
-### Using the Editor
+### Using the VS Code Extension
 
-Make sure you've [installed the Decentraland editor]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}), then:
+Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}), then:
 
 1. Open a Visual Studio Code window on an _empty folder_.
 2. Select the Decentraland tab on Visual Studio's left margin sidebar
 3. Click **Create Project**
-4. The editor will prompt you about what kind of project to create. Select **Portable Experience**.
+4. The Decentraland extension will prompt you about what kind of project to create. Select **Portable Experience**.
 
 This command creates the basic files and structure for a new portable experience scene. This folder is very similar to that of a Decentraland scene, but you will notice the following differences:
 
@@ -41,7 +43,7 @@ This command creates the basic files and structure for a new portable experience
 
 ## Preview
 
-Running a preview of a portable experience is just like running that of a scene, simply click the **Run Scene** button on the Editor, or run `npm run start` in the command line.
+Running a preview of a portable experience is just like running that of a scene, simply click the **Run Scene** button on the Decentraland tab, or run `npm run start` in the command line.
 
 You’ll notice that rather than seeing an empty grid, you are surrounded by the default empty parcels content. In a portable experience, you are not restricted to any set of parcels, you can add 3D models or sounds anywhere in the world. Since the portable experience is meant to be experienced anywhere in Decentraland, you're most likely going to focus on entities attached to the player or UI, but you can also place entities freely in the world.
 
@@ -63,7 +65,9 @@ To specify under what **name** to make your deployment, add the following sectio
 **📔 Note**: Each NAME references a single portable experience or world. If your name already pointed to a world, deploying a portable experience will override that content.
 {{< /hint >}}
 
-### Using the Editor
+Make sure you're either using the Ethereum account that owns this name, or an account that has been given permissions to deploy to this name.
+
+### Using the VS Code Extension
 
 Open the Decentraland tab and click the three-dots icon at the top, and select **Publish scene to your world**.
 
@@ -76,6 +80,12 @@ npm run deploy --target-content https://worlds-content-server.decentraland.org
 ```
 
 ## Lifecycle of a portable experience in a scene
+
+Portable expereinces need to be activated by a scene, either in Genesis City or a world.
+
+1. The player visits the scene that activates the portable experience. The scene can spawn the portable experience right away or use custom logic to do it after the player does an action.
+2. The player is prompted about the portable experience, including details about the requested permissions. The portable experience is only activated if the player gives conscent.
+3. The player will now carry the portable experience with them wherever they go for the rest of the session, including teleporting or jumping to worlds. If the player reloads the browser window, it will be gone.
 
 To spawn a portable experience from your scene, use the `spawn()` function. To terminate a portable experience, use `kill()`. In both cases, you just need yo know the DCL name where the Portable experience was deployed.
 
@@ -129,6 +139,10 @@ An alternative to terminating portable experiences is to change the behavior of 
 To prevent abuse, certain features aren't permitted on portable experiences by default, and require adding a permission flag.
 
 See [Required permissions]({{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">}}) for more details.
+
+{{< hint warning >}}
+**📔 Note**: Players are notified about the required flags by the portable experience. Avoid adding permissions you don't need, since it can make players distrust your portable experience and reject it.
+{{< /hint >}}
 
 ## Limitations
 
