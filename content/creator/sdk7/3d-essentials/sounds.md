@@ -21,7 +21,13 @@ _.wav_ files are also supported but not generally recommended as they are signif
 
 ## Play sounds
 
-The easiest way to play a sound is to use the `AudioSource.playSound` function.
+The easiest way to play a sound is to add an **Audio Source** component visually on the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) and set it to **Start Playing** and **Loop**. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}).
+
+<img src="/images/editor/audiosource-component.png" alt="Scene name" width="200"/>
+
+You can also trigger the playing of a sound in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+
+To play a sound via code, use the `AudioSource.playSound` function.
 
 ```ts
 // Create entity
@@ -153,6 +159,20 @@ AudioSource.create(sourceEntity, {
 {{< hint warning >}}
 **📔 Note**: Of course, the volume of a sound is also affected by the distance of the player from the audio source. As the player walks away, the volume will be lower.
 {{< /hint >}}
+
+## Global sounds
+
+By default, all sounds from an `AudioSource` are positional. This means they appear to generate from the position of the `Transform` component, and will sound louder as the player walks closer. But you can also configure a sound to be global, so that the volume is constant, no matter where the player is standing. This is ideal for using on background music, notification sounds, and other non-positional sound.
+
+To make a sound global, set the `global` property to _true_.
+
+```ts
+AudioSource.create(sourceEntity, {
+	audioClipUrl: 'sounds/music.mp3',
+	playing: true,
+	global: true,
+})
+```
 
 ## Play a segment of a sound
 

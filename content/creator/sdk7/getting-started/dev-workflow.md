@@ -16,7 +16,7 @@ This document outlines the steps recommended for developing a scene for Decentra
 
 <!-- diagram? icons? -->
 
-- [Install the Decentraland Editor](#install-the-decentraland-editor)
+- [Install the Creator Hub](#install-the-vs-code-extension)
 - [Design your experience](#design-your-experience)
 - [Where to publish](#where-to-publish)
 - [Templates and examples](#templates-and-examples)
@@ -28,11 +28,13 @@ This document outlines the steps recommended for developing a scene for Decentra
 - [Iterate](#iterate)
 - [Giving back](#giving-back)
 
-## Install the Decentraland Editor
+## Install the Creator Hub
 
-Make sure you have the Decentraland Editor installed.
+Make sure you have the Decentraland Creator Hub installed.
 
-- [Installation Guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}).
+- [Installation Guide]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
+
+If you intend to work with code, also make sure you install [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Design your experience
 
@@ -44,9 +46,11 @@ Think about how much space you need to take up, what kind of distribution, what 
 
 ## Where to publish
 
-In Decentraland, content is published to adjacent plots of land in a finit amount of space. Players can freely walk from one to the other. Each scene is its own contained little world, items from one scene can't extend out into another scene, and the code for each scene is sandboxed from all others.
+In Decentraland, content is published to adjacent plots of land in a finite amount of space. Players can freely walk from one to the other. Each scene is its own contained little world, items from one scene can't extend out into another scene, and the code for each scene is sandboxed from all others.
 
-Permission to publish to each of these is controlled via tokens. You don't need land to develop a scene, but you will need access to land once you're ready to publish. Alternatively, you have the option to publish to Decentraland [Worlds]({{< ref "/content/creator/worlds/about.md" >}}), which are self-contained and isolated scenes.
+Permission to publish to each of these is controlled via tokens. You don't need land to develop a scene, but you will need access to land once you're ready to publish.
+
+Alternatively, you have the option to publish to Decentraland [Worlds]({{< ref "/content/creator/worlds/about.md" >}}), which are self-contained and isolated scenes.
 
 The following options are available:
 
@@ -78,15 +82,23 @@ There are many sources to obtain free or paid art assets. For example:
 - [ShareCG](https://www.sharecg.com/)
 - [CGTrader](https://CGTrader.com)
 
+You can also use Generative AI tools to generate your own 3D models. Check out:
+
+- [Meshy](https://www.meshy.ai/)
+- [Luma AI](https://lumalabs.ai/genie)
+- [TRipo3D](https://www.tripo3d.ai/app)
+
 ## Run a local preview
 
-To run a preview of your scene, open a Visual Studio Code window on your project's root folder and click the **Preview** button on the Decentraland Editor tab.
+To run a preview of your scene, open a Visual Studio Code window on your project's root folder and click the **Preview** button on the Decentraland tab.
 
 - [Preview your scene]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md" >}}) ) for more details.
 - Check the [Debug a scene]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md#debug-a-scene" >}}) for tips on how to debug any issues.
 
 {{< hint info >}}
 **💡 Tip**: If you get stuck trying to debug an issue, visit the [Decentraland Discord server](https://dcl.gg/discord) to get help from other developers.
+
+You can also find help in the [Decentraland DAO Server](https://discord.gg/bxHtcMxUs4).
 {{< /hint >}}
 
 _Optional_: Your scene`s mechanics might rely on a 3rd party server to carry out player validations, permanent data storage, or other functionalities. See [3rd party servers]({{< ref "/content/creator/sdk7/networking/authoritative-servers.md" >}})
@@ -127,7 +139,7 @@ One great advantage of Decentraland is that you can easily iterate over your sce
 
 Decentraland is a community project, the community of creators learns together and leverage each other's creations. Consider the following:
 
-- Join the [Decentraland Discord server](https://dcl.gg/discord) and help other developers in need of advice.
+- Join the [Decentraland Discord server](https://dcl.gg/discord) or the [Decentraland DAO Server](https://discord.gg/bxHtcMxUs4) and help other developers in need of advice.
 - Share your scene's code as an open source repo on GitHub.
 - Build a minimal example to share a specific reusable mechanic, as an open source repo on GitHub.
 - Make a PR to the [Examples Repository](https://github.com/decentraland/sdk7-goerli-plaza) to include your scenes.

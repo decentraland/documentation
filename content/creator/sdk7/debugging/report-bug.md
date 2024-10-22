@@ -9,7 +9,7 @@ url: /creator/development-guide/sdk7/report-a-bug/
 weight: 4
 ---
 
-If you encounter any bugs or issues with the Decentraland SDK and the Editor, please report them on our GitHub repository [here](https://github.com/decentraland/sdk/issues/new/choose).
+If you encounter any bugs or issues with the Decentraland SDK and the Scene Editor, please report them on our GitHub repository [here](https://github.com/decentraland/sdk/issues/new/choose).
 
 ## Before you report a bug
 
@@ -39,6 +39,8 @@ Developers may ask follow-up questions on your ticket if they need clarification
 
 {{< hint warning >}}
 **📔 Note**: For any issues not related to the SDK please contact the support team. To reach out, please visit this page [intercom.decentraland.org](https://intercom.decentraland.org/) or send us an email to [hello@decentraland.org](mailto:hello@decentraland.org). You can also find us on [Discord](https://decentraland.org/discord/). The team is available to help out from Monday-Sunday, 12pm to 9pm UTC and will do its best to get back in touch as soon as possible. You can expect a reply within 60 min on Discord during the above time frame and within 24h on email.
+
+You can also contact the DAO support team on the [DAO Discord](https://discord.gg/bxHtcMxUs4).
 {{< /hint >}}
 
 **Additional Tips for Bug Reports:**

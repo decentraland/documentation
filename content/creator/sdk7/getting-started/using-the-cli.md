@@ -9,21 +9,21 @@ url: /creator/development-guide/sdk7/cli
 weight: 15
 ---
 
+To build scenes for Decentraland you an either use
 
-To create, preview, deploy and deal with a Decentraland scene you can either use 
+- The [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}})
+- The Command Line Interface (CLI)
 
-- The Decentraland Editor
-- The command line
+Both tools allow you to compile and preview your scene in an "off-chain" development environment. After testing your scene locally, you can upload your content to the content server, linking it with your LAND or WORLD.
 
-Although the Editor is easier to use, using the command line allows you more flexibility, and can be easily used in automated processes.
+Although the Scene Editor in the Creator Hub is easier to use, the CLI allows you more flexibility, and can be easily used in automated processes.
 
 {{< hint warning >}}
-**📔 Note**:  The Editor runs the same command-line operations behind the curtains.
+**📔 Note**: The Scene Editor runs the same command-line operations behind the curtains.
 {{< /hint >}}
 
-
 {{< hint info >}}
-**💡 Tip**:  See [Instalation guide]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md" >}}) for instructions on how to install the Editor.
+**💡 Tip**: See [Instalation guide]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}) for instructions on how to install the Scene Editor.
 {{< /hint >}}
 
 ## Before you Begin
@@ -68,18 +68,14 @@ Run `npm run deploy` to publish your scene to Decentraland. This command opens a
 
 See [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for details and special options when publishing a scene.
 
-
-
 ## Troubleshooting
 
 If you run into issues, see the [troubleshooting]({{< ref "/content/creator/sdk7/debugging/troubleshooting.md" >}}) section.
 
-
-
 <!--
 
 
-#### Optional: Install Git
+### Optional: Install Git
 
 Mac OS and linux-based machines should have git installed by default, these steps should only be relevant to Windows based machines.
 

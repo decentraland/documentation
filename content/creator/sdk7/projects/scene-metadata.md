@@ -9,13 +9,13 @@ url: /creator/development-guide/sdk7/scene-metadata/
 weight: 1
 ---
 
-A scene is a Decentraland project that is spatially delimited, and is mapped to one or several LAND parcels. If a scene is deployed to the Decentraland Genesis City map, players can experience it by visiting the scene's coordinates. If a scene is deployed to a [World]({{< ref "/content/creator/worlds/about.md" >}}), players can visit it via URL.
+A scene is a Decentraland project that is spatially delimited, and is mapped to one or several parcels. If a scene is deployed to the Decentraland Genesis City map, players can experience it by visiting the scene's coordinates. If a scene is deployed to a [World]({{< ref "/content/creator/worlds/about.md" >}}), players can visit it via URL.
 
 See [Files in a scene]({{< ref "/content/creator/sdk7/projects/scene-files.md" >}}) for a list of what files are used in a scene project.
 
 ## Metadata
 
-To edit a scene's metadata from a UI, open Visual Editor, and click the **pencil icon**.
+To edit a scene's metadata on the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), open a scene and click the **pencil icon**.
 
 <img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
 
@@ -39,7 +39,7 @@ When players navigate the world and enter your scene, they are able to read the 
 
 <img src="/images/media/scene-name.png" alt="Scene name" width="200"/>
 
-Add this data via the scene menu in the Decentraland Editor.
+Add this data via the scene menu in the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
 
 The thumbnail should be a _.png_ image of a recommended size of _228x160_ pixels. The minimum supported size is _196x143_ pixels. The image may be stretched if the width-to-height proportions don't match _228x160_.
 
@@ -91,7 +91,7 @@ These are the predefined categories:
 - `business`
 - `sports`
 
-For example, an Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
+For example, a Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
 
 ```json
   "tags": [
@@ -346,7 +346,7 @@ If a `requiredPermissions` property doesn't exist in your `scene.json` file, cre
 
 When [deploying]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) a scene, the content is uploaded to the coordinates assigned in the scene configuration. A scene can include a single parcel, or a list of up to dozens of them.
 
-Edit this on the second tab of the scene menu in the Editor.
+Edit this on the second tab of the scene menu in the Scene Editor.
 
 <img src="/images/editor/scene-parcels-3x3.png" alt="Scene name" width="300"/>
 

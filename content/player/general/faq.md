@@ -14,9 +14,11 @@ url: /player/general/faq
 weight: 2
 ---
 
+Download Decentraland [here](https://decentraland.org/download).
+
 {{< details class="faq-details" anchor="true" title="What equipment or software do I need to play in Decentraland?" >}}
 
-A PC or Mac running Chrome, Firefox or Brave. See [hardware requirements]({{< ref "/player/general/hardware-requirements.md" >}})
+A PC or Mac. See [hardware requirements]({{< ref "/player/general/hardware-requirements.md" >}})
 
 - **Can I play on a mobile device?<br/>**
 
@@ -24,11 +26,7 @@ A PC or Mac running Chrome, Firefox or Brave. See [hardware requirements]({{< re
 
 - **Can I log in from multiple computers?<br/>**
 
-  Yes, you can run Decentraland from multiple computers as long as you have your digital wallet installed on each machine.
-
-- **Can I use a different browser?<br/>**
-
-  While it may be technically possible to use another browser, we recommend Chrome, Firefox or Brave to ensure optimal performance.
+  Yes, you can run Decentraland from multiple computers.
 
 {{</ details >}}
 
@@ -40,11 +38,9 @@ Yes! You can easily login with your email address or social media account.
 
 {{< details class="faq-details" anchor="true" title="Do I need a wallet to play in Decentraland?" >}}
 
-If you want to fully enjoy the Decentraland experience, we recommend you get yourself a digital wallet. Digital wallets work as your personal account, keeping all your digital assets (such as names, collectibles, LANDs) and in-world progress safe.
+If you don't already have your own [digital wallet]({{< ref "/content/player/blockchain-integration/get-a-wallet.md" >}}), you don't need to get one if you don't want to. When you sign-in to Decentraland for the first time—creating your account—a digital wallet will be created for you behind the scenes, it's as simple as that!
 
-If you choose to experience Decentraland Explorer without a wallet, the information will only be locally stored: you will be able to walk around, customize your Avatar and chat with others in-world, but you won’t have the chance to receive daily rewards, participate in events or log in with a different device using the same Guest ID and Avatar.
-
-If this is the first time you’re hearing about digital wallets, we recommend reading <a href="https://docs.decentraland.org/blockchain-integration/get-a-wallet/">Get a Wallet – Beginners Guide</a>.
+This digital wallet is part of your Decentraland account and is used to store any digital assets you acquire, such as free Wearables you might claim in-world or a fun Emote you purchase in the Marketplace.
 
 {{</ details >}}
 
@@ -99,7 +95,7 @@ Yes. Visit the <a href="https://decentraland.org/builder/names">Names</a> page i
 
 {{< details class="faq-details" anchor="true" title="How can I block or report a player?" >}}
 
-Click on another player’s Avatar to see their card, then click on the tab block to view options. By blocking a player you will still see them on screen but they won’t be able to write to you on the chat window. If you report a player, you will be able to bring a player’s conduct to the attention of <a href="https://dcl.gg/discord">Decentraland’s Community</a>.
+Blocking other users is not currently possible on the latest version of the Decentraland client, but this functionality will be added back soon.
 
 {{</ details >}}
 
@@ -168,15 +164,15 @@ The visual, audio and three dimensional content of Decentraland will be stored i
 
 {{< details class="faq-details" anchor="true" title="What tools should I use to start building in Decentraland?" >}}
 
-There are two ways to create 3D content for Decentraland:
+The Creator Hub is the recommended tool for creators of all knowledge levels. It's a desktop application that lets you create:
 
-- The <a href="https://decentraland.org/builder/">Builder</a> is an easy drag and drop visual tool. You have access to a large library of pre-made items, including interactive items that react to player feedback. You can also import and use your own custom 3D models.
+- Wearables & Smart Wearables
+- Emotes
+- Scenes
 
-- The <a href="https://docs.decentraland.org/creator/development-guide/sdk7/installation-guide/">SDK</a> is for creating scenes writing code, which gives you much more power and flexibility.
+Download the Creator Hub [here](https://decentraland.org/download/creator-hub).
 
-Both tools can also be combined. You can create a scene visually with the Builder, then export it and work with its code to add interactive functionality. You can also use the SDK to create <a href="https://docs.decentraland.org/development-guide/smart-items/">custom smart items</a> and place these using the Builder.
-
-You will be able to use tools like SketchUp, Blender, and Maya to create 3D models that you can then import into Decentraland, these models must be in _.gltf_ or _.glb_ format.
+Learn more about [creating in Decentraland]({{< ref "/content/creator/_index.md" >}})
 
 {{</ details >}}
 
