@@ -110,15 +110,15 @@ Locate the Flag Scene button (Beneath the mini map). Select a category that you 
 Chat commands are used to trigger actions, such as teleporting or reloading, by entering specific text into the chat box in-world. To use one, just open the chat box, type the command, and hit enter.
 
 **Teleporting around Genesis City**
-- /goto x,y  (x,y are the coordinates of a scene)
+- ```/goto x,y```  (x,y are the coordinates of a scene)
 **Visiting Worlds**
-- /goto World’sName
+- ```/goto World’sName```
 **Reloading a Scene**
-- /reload
+- ```/reload```
 **Open Debug Mode (shows FPS and other metrics)**
-- /debug
+- ```/debug```
 **Discover More Chat Commands**
-- /help
+- ```/help```
 
 {{</ details >}}
 
@@ -128,9 +128,9 @@ To travel around Decentraland’s Genesis City quickly, you can teleport with ch
 
 **Chat Commands:**
 - Teleporting around Genesis City:
-/goto x,y (x,y are the coordinates of a scene)
+```/goto x,y``` (x,y are the coordinates of a scene)
 - Visiting Worlds:
-/goto World’sName
+```/goto World’sName```
 
 **Genesis City Map:**
 Open the in-world map in the upper left. To teleport to a specific parcel, click on it, then select ‘Jump In’. If you’re not sure where on the map the parcel you want to visit is, you can search for it by name in the map’s search bar.
