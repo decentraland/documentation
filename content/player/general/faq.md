@@ -105,6 +105,38 @@ Locate the Flag Scene button (Beneath the mini map). Select a category that you 
 
 {{</ details >}}
 
+{{< details class="faq-details" anchor="true" title="What are useful chat commands in Decentraland?" >}}
+
+Chat commands are used to trigger actions, such as teleporting or reloading, by entering specific text into the chat box in-world. To use one, just open the chat box, type the command, and hit enter.
+
+**Teleporting around Genesis City**
+- /goto x,y  (x,y are the coordinates of a scene)
+**Visiting Worlds**
+- /goto World’sName
+**Reloading a Scene**
+- /reload
+**Open Debug Mode (shows FPS and other metrics)**
+- /debug
+**Discover More Chat Commands**
+- /help
+
+{{</ details >}}
+
+{{< details class="faq-details" anchor="true" title="How can I teleport around Decentraland and into Worlds?" >}}
+
+To travel around Decentraland’s Genesis City quickly, you can teleport with chat commands in the chat box or via the map in the upper left corner. To visit someone’s World, all you’ll need is a chat command.
+
+**Chat Commands:**
+- Teleporting around Genesis City:
+/goto x,y (x,y are the coordinates of a scene)
+- Visiting Worlds:
+/goto World’sName
+
+**Genesis City Map:**
+Open the in-world map in the upper left. To teleport to a specific parcel, click on it, then select ‘Jump In’. If you’re not sure where on the map the parcel you want to visit is, you can search for it by name in the map’s search bar.
+
+{{</ details >}}
+
 {{< details class="faq-details" anchor="true" title="What is LAND?" >}}
 
 LAND is a non-fungible digital asset maintained in an Ethereum smart contract. LAND is divided into parcels that are referenced using unique x,y cartesian coordinates. Each LAND token includes a record of its coordinates, its owner, and a reference to a content description file or <a href="https://github.com/decentraland/proposals/blob/master/dsp/0020.mediawiki">parcel manifest</a> that describes and encodes the content the owner wishes to serve on his or her land.
