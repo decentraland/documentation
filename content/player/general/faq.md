@@ -126,11 +126,12 @@ Chat commands are used to trigger actions, such as teleporting or reloading, by 
 
 To travel around Decentraland’s Genesis City quickly, you can teleport with chat commands in the chat box or via the map in the upper left corner. To visit someone’s World, all you’ll need is a chat command.
 
-* **Chat Commands:**
-- Teleporting around Genesis City:
-```/goto x,y``` (x,y are the coordinates of a scene)
-- Visiting Worlds:
-```/goto World’sName```
+**Chat Commands:**
+
+* **Teleporting around Genesis City**:
+- ```/goto x,y``` (x,y are the coordinates of a scene)
+* **Visiting Worlds:**
+- ```/goto World’sName```
 
 **Genesis City Map:**
 Open the in-world map in the upper left. To teleport to a specific parcel, click on it, then select ‘Jump In’. If you’re not sure where on the map the parcel you want to visit is, you can search for it by name in the map’s search bar.
