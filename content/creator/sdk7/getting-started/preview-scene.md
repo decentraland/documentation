@@ -12,7 +12,7 @@ weight: 4
 
 Once you have [built a new scene](https://docs.decentraland.org/#create-your-first-scene) or downloaded a [scene example](https://studios.decentraland.org/resources?sdk_version=SDK7) you can preview it locally.
 
-## Using the Scene Editor
+## Using the Scene Editor
 
 Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
 
@@ -96,7 +96,7 @@ Y can also edit the _scene.json_ file to list multiple parcels in the "parcels" 
 **💡 Tip**: While running the preview, the parcel coordinates don't need to match those that your scene will really use, as long as they're adjacent and are arranged into the same shape. You will have to replace these with the actual coordinates later when you [deploy the scene](#upload-a-scene-to-decentraland).
 {{< /hint >}}
 
-## View the scene console
+## View the scene console
 
 Press the **\`** key on your keyboard to open the scene console. Here you can see any error messages, and also any text that your scene prints to the console via `console.log()`.
 
