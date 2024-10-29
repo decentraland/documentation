@@ -57,7 +57,7 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ## To publish the scene
 
-### Using the Scene Editor
+### Using the Scene Editor
 
 Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
 
