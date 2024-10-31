@@ -170,11 +170,15 @@ You can expand this menu to view details.
 **💡 Tip**: If you're building a Decentraland World, you can always increase the [scene size]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#scene-sizes" >}}) to increase your limits.
 {{< /hint >}}
 
-The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any of the models in your scene extend beyond the limits, the Scene Editor will mark these in red.
+The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any part of the models in your scene extend beyond the limits, when you open the scene preview you will see these parts cut off. The Scene Editor will mark the entire model in red, but you should only really worry about the parts of the model that extend beyond the scene limits.
 
 <img src="/images/editor/out-of-bounds.png" width="250" />
 
-These checks don't look at the visible geometry of the meshes, but rather they look at the bounding boxes of these meshes, as this is more performant. Learn more about [Bounding Boxes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
+{{< hint info >}}
+**💡 Tip**: If the models you want to display don't fit, you may want to increase the size of your scene. See [scene size]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#scene-sizes" >}}) to enlarge your scene.
+{{< /hint >}}
+
+Even if the whole geometry of the 3D model fits in your scene, a model might be marked in red if the model's Bounding Box extends beyond the area. If this is the case, you can ignore the warnings, as the entire model will be displayed correctly. Learn more about [Bounding Boxes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
 
 ## Scene settings
 

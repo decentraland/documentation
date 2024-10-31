@@ -512,7 +512,7 @@ See other ways to fetch other user's IDs in [Get Player Data]({{< ref "/content/
 
 All entities in your scene must fit within the scene boundaries, as what's outside those boundaries is parcels of land that are owned by other players.
 
-When running a preview of your scene, any entities outside the scene's parcels are colored red and their colliders are removed. When deployed to Decentraland, any entities outside the parcels will not be rendered at all by the engine.
+If any part of your models extend beyond these limits when running a preview, these parts that extend will be cut off and not rendered, both when running a preview and on the published scene.
 
 The position of entities in your scene is constantly being checked as they move, if an entity leaves the scene and then returns it will be removed and then rendered normally again.
 
@@ -521,9 +521,3 @@ A grid on the scene's ground shows the limits of the scene, which by default rag
 {{< hint info >}}
 **💡 Tip**: If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
 {{< /hint >}}
-
-It's important to note that the _entire_ 3D model must be within the scene's bounds. This includes the model's _bounding box_. Some 3D models may have bounding boxes that unnecessarily extend beyond the meshes themselves, and it can sometimes be tricky to tell when this happens. When an entity extends beyond the scene's boundaries, in the preview you'll see a cube that marks these bounding boxes. The entire cube must fit within your scene.
-
-<img src="/images/media/bounding-box.png" alt="nested entities" width="300"/>
-
-If an entity's cube extends beyond the shape of its meshes, you might need to edit the 3D model in an external editor to reduce these margins, or to _bake_ the rotation and scale of the meshes in the model.
