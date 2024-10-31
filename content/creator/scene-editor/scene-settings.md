@@ -61,9 +61,19 @@ To build something to deploy to LAND parcels you own, make sure the shape of the
 
 If you own a Decentraland NAME, you can also deploy your scene to a [Decentraland World]({{< ref "/content/creator/worlds/about.md" >}}). In that case, you'll have an unlimited number of parcels, but you will have a size limit in MB.
 
-You can also click the **Set Coordinates (Advanced)** button to manually list the coordinates of your scene. Remember that these coordinates must all be adjacent to be valid.
-
 See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
+
+### Advanced view
+
+You can also click the **Set Coordinates (Advanced)** button to manually list the coordinates of your scene.
+
+<img src="/images/editor/advanced-coordinates.png" alt="Scene name" width="250"/>
+
+In **Custom Coordinates**, write the coordinates of each of the parcels where you wish to publish. Separate the x and y coordinate with a comma, and each set of coordinates separated by spaces. Remember that these coordinates must all be adjacent to be valid. For example:
+
+`78,-2 79,-2 78,-3 79,-3`
+
+In the **Origin Point** field, define which of the coordinates in the scene should be treated as the point of origin. This has to be one of the coordinates you listed in the **Custom Coordinates** field. It's recommended to set the parcel on the bottom-left of the scene.
 
 ## Scene restrictions
 
