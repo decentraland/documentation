@@ -52,7 +52,7 @@ Ideally, the loading of the code in your scene should follow a clear sequential 
 
 To fix these dependencies, you often must resort to calling functions or object constructors passing references to already instanced entities/objects in the function arguments; Instead of hard-coding references to these entities/objects in the function, which may or may not already be instanced.
 
-# Issues when deploying
+## Issues when deploying
 
 ### Issue: You don't have permissions to deploy to these parcels
 
