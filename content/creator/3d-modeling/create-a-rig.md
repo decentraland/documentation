@@ -15,7 +15,7 @@ weight: 7
 
 This document shows how to set up a basic rig in Blender. If you want to get more familiar with some rigging concepts, check out [The Rig: Basic Concepts](https://docs.decentraland.org/creator/emotes/avatar-rig/).
 
-## **Adding the Armature**
+### Adding the Armature
 
 First of all, you’ll need to import your 3D model into Blender or, if you did it in Blender already, just open your blend file. In object mode, press `Shift+A` and select **_Armature_** on the menu, like show below. Then, in **_Object Data Properties_**, under **_Viewport Display_**, toggle **_In Front_**, so you can see the bone through the mesh. Mesh and armature should be aligned, so make sure the model is well positioned in the center of the world before adding the bones. The origin of the armature should be at 0,0,0 (X,Y,Z).
 
@@ -23,7 +23,7 @@ First of all, you’ll need to import your 3D model into Blender or, if you did 
 
 _Adding an armature and showing it through the mesh._
 
-## **Editing the Armature**
+### Editing the Armature
 
 After adding the Armature object, select it and go to **_Edit Mode_**. Here is where you add the other bones by extruding the original one (press `E`), duplicating it (`Shift+D`) or simply adding a new one with `Shift+A`. The skeleton should follow the shape of the model, like a real skeleton. Bones can be scaled, grabbed and rotated and they have two parts: the head and the tail. The head is the pivot point, which means that rotations and scale will start from there. That also means that it’s where the mesh deformation will happen, so position the bones as centered in the mesh as possible.
 
@@ -37,11 +37,11 @@ _Bone rotating from its pivot point._
 
 There’s no need to worry about creating bones for the right and left side for now. Focus on creating only one side first.
 
-## **Renaming the Bones**
+### Renaming the Bones
 
 Something really important to keep in mind is renaming all your bones properly, according to [Blender’s naming convention](https://docs.blender.org/manual/en/latest/animation/armatures/bones/editing/naming.html). This will not only keep everything organized, but also make it possible to mirror poses and weight paint. You could just rename it as the body part it represents, like Spine_01 or your could be more specific and call it DEF_spine.001 (DEF stands for deforming bone, so you kow that this bone is from the deforming hierarchy).
 
-## **Bone Orientation**
+### Bone Orientation
 
 Before moving on, you should check your bone orientation. You can do that by going to **_Object Data Properties_** and under **_Viewport Display_**, toggle **_Axes_**. This will make the bones’s axes visible, so you can check if they are going to rotate in the proper direction.
 
@@ -61,7 +61,7 @@ Fixing the bone roll is especially important for fingers, so all the joints bend
 
 _Press `Shift+N` to recalculate the bone roll._
 
-## **Mirroring the Rig**
+### Mirroring the Rig
 
 You don’t have to create bones for both sides. Just do one side first and when you’ve fixed all the naming and bone orientation, select all the bones you want to mirror, click with the right mouse button and select **_Symmetrize_**. That way all the bones will be mirrored properly, with the right orientations. Remember that in orderfor this tool to work, bones need to be named according to Blender’s naming convention. If there is a lower or upper case “L”, “R”, “left” or “right”, Blender handles the counterpart correctly.
 
@@ -82,7 +82,7 @@ _Use the Symmetrize option to mirror your bones._
 Symmetrize will only work if the bones are renamed properly. If it doesn’t mirror properly you might want to double check the bones’s names.
 {{< /hint >}}
 
-## **Skinning**
+### Skinning
 
 Skinning is the process of binding the mesh to the armature. To do so, in **_Object Mode_**, select the mesh, then the armature and press `CTRL+P` > **_Armature Deform > With Automatic Weights._** Then, go to **_Pose Mode_** and test different poses to test the mesh deformation. Most of the time it will need some adjustments, as seen below.
 
@@ -112,7 +112,7 @@ Use the **_Blur_** tool ont the left side of the screen to smooth the weight pai
 
 _Blur Tool._
 
-## **Setting Up the IK**
+### Setting Up the IK
 
 IK is essential when you want something to stay in place. The best example of its use is on legs, but it can be adopted in a variety of situations, like in the examples below:
 
@@ -150,7 +150,7 @@ _In Bone Constraint Properties you can edit the IK settings._
 
 For the **_Target_**, select **_Armature_**. Once you do that, an option called **_Bone_** will appear under Target. For that, select the IK bone you created. In **_Chain Length_** you will set the number of bones that should be affected by the IK. Since we are doing a leg, we want it to affect the shin and the thigh, so set it to **_2_**.
 
-## **Pole Target**
+### Pole Target
 
 The Pole Target lets you control the direction in which the bones will bend. These are the steps to properly add a pole target (or pole vector) to the IK chain:
 
@@ -180,7 +180,7 @@ Finally, make both the IK bone and the pole target chilld of the root bone by se
 
 Move the thigh and shin to another layer since you won’t need them for animation, they are just part os the IK setup.
 
-## **Binding Deform Bones to Non-Deforming Ones**
+### Binding Deform Bones to Non-Deforming Ones
 
 The IK chain is all set up, but it should drive the deform bones and right now that’s not happening, but you can use constraints to fix that. In **_Pose Mode_**, select a bone from the IK chain first and the respective deforming bone last, press `CTRL+Shift+C` and select **_Copy Transforms_**. Do that for all the bones, which in the example are thigh, shin, foot and toes. The deform bones will have a green color to them, which means that they have a constraint. If you click on **_Bone Constraint Properties_**, you can see which constraint is being used and what bone is driving it.
 
@@ -189,23 +189,20 @@ The IK chain is all set up, but it should drive the deform bones and right now t
 _Green bones have constraints. You can check them in Bone Constraints Properties._
 
 {{< hint info >}}
-
-### 💡Hint!
-
-You don’t have to set up the IK all over again for the other side. In _Edit Mode_, just delete all the bones from the side that doesn’t have the IK, then select all the deforming bones and IK chain that you want to mirror, right click with the mouse and select _Symmetrize_. It will not only mirror the bones, but also all the constraints!
+**💡 Tip**: You don’t have to set up the IK all over again for the other side. In _Edit Mode_, just delete all the bones from the side that doesn’t have the IK, then select all the deforming bones and IK chain that you want to mirror, right click with the mouse and select _Symmetrize_. It will not only mirror the bones, but also all the constraints!
 {{< /hint >}}
 
 <img src="/images/3d-models-and-animations/create-rig/23_symmetrize_constraints.gif" width="600" />
 
 _Use the option Symmetrize to mirror constraints too!_
 
-## **Non-deforming Skeleton and Controls**
+### Non-deforming Skeleton and Controls\*\*
 
 It’s good practice not to animate directly the deforming bones since you could end up breaking the rig and adding constraints to the deforming armature will affect the hierarchy and bone behaviour when exported.
 
 The solution to this is to create a non-deforming skeleton that will drive the deforming one through constraints, and that can be animated safely, without risking breaking anything. You can also customize their shape to make it easier to identify a bone’s function. They will be the controls for your rig.
 
-The process for this is pretty much the same done for the IK setup. Duplicate all the bones (except the IK setup) with `Shift+D` and move them to a different layer by pressing `M` and picking another slot. Rename them all by adding **Control_** or **CTRL_** as a suffix so you know these are part of the controls hierarchy. Press `A` to select all them and in **_Bone Property_**, press and hold `Alt` and uncheck **_Deform_**.
+The process for this is pretty much the same done for the IK setup. Duplicate all the bones (except the IK setup) with `Shift+D` and move them to a different layer by pressing `M` and picking another slot. Rename them all by adding **Control\_** or **CTRL\_** as a suffix so you know these are part of the controls hierarchy. Press `A` to select all them and in **_Bone Property_**, press and hold `Alt` and uncheck **_Deform_**.
 
 Now you’ll have to add constraints to bind the two skeletons together. To make this process easier, you can change the bone shape by clicking on **_Object Data Properties_** and, under **_Viewport Display_**, change **_Display As_** from **_Octahedral_** to **_B-Bone_**. Then, press `CTRL+Alt+S` to scale the bones up a little bit so their are bigger than the original ones.
 

@@ -14,7 +14,7 @@ weight: 2
 
 3D models have a _mesh_ composed of triangular _faces_. These faces meet each other on _edges_ (the lines along which they touch) and _vertices_ (the points where their corners join).
 
-## **Space Limitations**
+## Space Limitations
 
 All 3D models in your scene must fit within the limits of its parcels. If any part of your models extend beyond these limits when running a preview, these parts that extend will be cut off and not rendered.
 
@@ -28,7 +28,7 @@ In the Creator Hub editor, you will see the model tinted red and its bounding bo
 **📔 Note**: In the older Web client of Decentraland, for performance reasons, if any part of a 3D model was out of bounds, even if just the bounding box, then the entire model was not rendered. As of the Decentraland 2.0 desktop client, only the parts of a model that are out of bounds are cut off. The parts of the model that are within the scene are rendered.
 {{< /hint >}}
 
-## **Bounding Boxes**
+## Bounding Boxes
 
 If you have a model that has all of its vertices neatly inside the scene area, but that has large bounding boxes that are mostly empty and extend beyond the scene limits, the entire model will be marked as outside the scene limits in the Creator Hub. The parts of the model that are inside your parcels will be rendered correctly, and you will be allowed to publish your scene.
 
@@ -46,7 +46,7 @@ For example, be cautious when rotating a sub-mesh near the border of your model.
 
 We recommend that you bake the rotation and scale of every mesh in the model, to make sure that there are no unwanted bounding boxes extending beyond the size they need to have.
 
-## **Triangle Limitations**
+## Triangle Limitations
 
 Because Decentraland is an open world full of different scenes and objects that are being downloaded on the fly (in the same 3D space) is important to optimize our meshes in order to have a good performance while playing. In that sense, there are some scene limitations that we always need to keep in mind when it comes to meshes:
 
@@ -67,7 +67,7 @@ A valuable tip is to always keep on track of the polycount of your models. To do
 
 {{< /hint >}}
 
-## **Meshes On Large Scenes**
+## Meshes On Large Scenes
 
 When creating meshes, we should keep in mind these 2 best practices:
 
@@ -78,7 +78,7 @@ When creating meshes, we should keep in mind these 2 best practices:
 
 <img src="/images/3d-models-and-animations/3d-essentials/40-modularity.png" width="600" />
 
-### **What is Frustrum Culling?**
+### What is Frustrum Culling?
 
 Frustum Culling is an optimization technique that disables the renderers (meshes) for objects that are outside the camera’s viewing area. See these 2 examples:
 
@@ -90,7 +90,7 @@ _A maze-like indoor level. This normal scene view shows all visible Game Objects
 
 _Regular frustum culling only renders objects within the camera’s view. This is automatic and always happens._
 
-## **Instancing Objects vs Duplicating Objects**
+## Instancing Objects vs Duplicating Objects
 
 In Blender, duplicating an object creates a completely separate copy of the object, while instancing an object creates a duplicate that shares the same data as the original object.
 
@@ -112,7 +112,7 @@ On Blender, when you are at the stage of cloning and positioning elements on the
 
 Let's analyze what are the pros and cons of each procedure.
 
-### **Duplicate Objects**
+### Duplicate Objects
 
 | Menu:   | Object ‣ Duplicate Objects |
 | ------- | -------------------------- |
@@ -122,7 +122,7 @@ This will create a visually-identical copy of the selected object but they will 
 
 <img src="/images/3d-models-and-animations/3d-essentials/22-duplicate-objects-3.png" width="600" />
 
-### **Instancing Objects**
+### Instancing Objects
 
 | Panel:  | Toolbar ‣ Tools ‣ Edit ‣ Duplicate Linked |
 | ------- | ----------------------------------------- |
@@ -139,7 +139,7 @@ _When we export these models, we will still have the same number of draw calls (
 
 _To keep things organized you can simply instance collections in your scene, this way allows you to control all instances from one single folder and source._
 
-## **Mesh Naming**
+## Mesh Naming
 
 Use meaningful names for your meshes. Name should give context of where the asset is used or to which part of the object it relates.
 
@@ -156,11 +156,11 @@ For asset naming use mix of `PascalCase` and `snake_case`, which we can call `Pa
 
 If there is more than one object with the same name add a number after the word: `FountainStatue01, FountainStatue02, etc.`
 
-## **Tools For Creating Models**
+## Tools For Creating Models
 
 There are lots of addons and externals tools that facilitate the work when creating assets to make the pipeline faster and more efficient, some of they are free and some to purchase, to name a few:
 
-### **Decimate**
+### Decimate
 
 This is a well known modifier that can be used to reduce the amount of tris of your mesh while keeping the surface structure of the model. While this is a very powerful tool to optimize models take into account that once the model is decimated the topology may be affected causing a bad topology (because it breaks the geometry into unpredictable pieces). In another hand, decimation will convert the quads of your mesh into triangles making it difficult to modify it after being used. In that regard **decimation can be useful for static models but is not preferred for animated models.**
 
@@ -175,13 +175,13 @@ Some retopology addons that can be useful are (some of them are paid):
 - **Speedretopo:** https://blendermarket.com/products/speedretopo?ref=2
 - **Retopoflow:** https://blendermarket.com/products/retopoflow
 
-### **Mirror Modifier**
+### Mirror Modifier
 
 The Mirror Modifier in Blender is a tool used for creating symmetrical models by mirroring one half of an object to any direction (X,Y,Z). It's a great tool when you have symetrical models because it reduces the time of 3D modeling, doing UV Unwrapping (because you will need only to unwrapp one part of the model and the rest will share the same UV coordinates) and also optimize your textures avoiding wasting texture resolution on parts that are essentially mirrored.
 
 <img src="/images/3d-models-and-animations/3d-essentials/44-mirror-modifier.png" width="900" />
 
-### **Batch Rename**
+### Batch Rename
 
 A very handy tool to change name conventions in an easy way is using the Batch Rename that Blender has integrated in their toolkit. To access it go to _Edit_ and then _Batch Rename_.
 
@@ -192,7 +192,7 @@ Select the objects you want to change the name and just replace the default obje
 <img src="/images/3d-models-and-animations/3d-essentials/47-batch-rename-methods.png" width="400" />
 <img src="/images/3d-models-and-animations/3d-essentials/46-batch-rename-types.png" width="300" />
 
-# **Best practices for geometries [#](https://docs.decentraland.org/creator/3d-modeling/meshes/#best-practices-for-geometries)**
+## Best practices for geometries [#](https://docs.decentraland.org/creator/3d-modeling/meshes/#best-practices-for-geometries)
 
 - Be mindful of how many faces you add to your 3D models, as more faces make its rendering more demanding. See **[scene limitations](https://docs.decentraland.org/creator/development-guide/scene-limitations/)** for the limits imposed by a scene.
 - Make sure there are no hidden faces that can’t be seen but that add to the triangle count.
