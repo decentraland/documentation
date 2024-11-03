@@ -159,7 +159,7 @@ While viewing the preview, you can press `c` to view any collision meshes loaded
 Collision meshes can be added to any model in an external 3D modeling tool like Blender. Large models like houses often include these, they are usually a lot simpler geometrically than the original shape, as this implies much less computational requirements. Stairs typically use a simplified collision mesh like a ramp to make it easier to climb. See [colliders](/creator/3d-modeling/colliders) for more details.
 
 -->
-<!-- 
+<!--
 ## Lighting conditions
 
 The in-world time of day has a big impact on how 3D models look. The color of the light source changes subtly, having a bluish tint at night, and a reddish tint during sunrise and sunset. The direction of the light also moves across the sky, casting shadows in different directions.
@@ -174,6 +174,7 @@ Check that your scene looks good at all times of day by switching the game clock
 Your 3D model's materials might not look the same as they did in the modeling tool you created it with. This is to be expected, as all 3D rendering engines have subtle differences in how they deal with light and materials.
 
 -->
+
 ## Avatars and accounts
 
 When opening a preview, you connect via your Metamask account, so you can have access to all your owned wearables and tokens.
@@ -190,7 +191,7 @@ npm run start -- --web3
 Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL in the browser window.
 {{< /hint >}}
 
-## Network traffic
+## Network traffic
 
 If your scene interacts with a third party server, it's often useful to see what data goes in and out.
 

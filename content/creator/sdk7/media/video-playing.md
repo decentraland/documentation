@@ -370,7 +370,7 @@ A neat trick to have non-rectangular video screens is to apply an alpha texture 
 
 Use the following image to cut your video into a circular shape, with transparent corners.
 
-<img src="/images/circle_mask.png" width="250" />
+<img src="/images/circle_mask.png" width="250" height="140" />
 
 ```ts
 const videoTexture = Material.Texture.Video({

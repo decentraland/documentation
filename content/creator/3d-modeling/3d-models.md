@@ -19,7 +19,7 @@ When importing 3D models into Decentraland, it's important to make sure they're 
 
 Please note that all models, shaders, and textures must comply with the **[scene limitations](https://docs.decentraland.org/creator/development-guide/scene-limitations/)**.
 
-# **Supported 3D Model Formats**
+## **Supported 3D Model Formats**
 
 All 3D models in Decentraland must be in glTF format. **[glTF](https://www.khronos.org/gltf)** (GL Transmission Format) is an open project by Khronos providing a common, extensible format for 3D assets that is both efficient and highly interoperable with modern web technologies.
 
@@ -32,9 +32,11 @@ The following aspects of a 3D model can either be embedded in a *glTF* file or
 - Textures can either be embedded or referenced from an external image file.
 - Binary data about geometry, animations, and other buffer-related aspects of the model can either be embedded or referenced from an external *.bin* file.
 
-> **📔 Note**: Animations *must* be embedded inside the *glTF* file to use in Decentraland.
+{{< hint warning >}}
+**📔 Note**: Animations *must* be embedded inside the *glTF* file to use in Decentraland. Also, each model is only allowed to have 1 UV map. 
+{{< /hint >}}
 
-# **Why We Use glTF**
+## **Why We Use glTF**
 
 We use glTF because it provides a powerful set of features that includes:
 
@@ -45,9 +47,9 @@ We use glTF because it provides a powerful set of features that includes:
 
 Compared to *COLLADA*, the supported features are very similar. However, because glTF focuses on providing a “transmission format” rather than an editor format, it is more interoperable with web technologies.
 
-# **Export And Convert glTF**
+## **Export And Convert glTF**
 
-## **Export To glTF From Blender**
+### **Export To glTF From Blender**
 
 Blender has a native gltf exporter.
 
@@ -103,7 +105,7 @@ We recommend using these tools:
 - **[Blackthread](https://blackthread.io/gltf-converter)**: This the most complete web based tool. Less robust than the CLI, but a lot easier to use.
 - **[Modelconverter](https://modelconverter.com/convert.html)**: Another easy-to-use web based tool.
 
-# **Preview a glTF Model**
+## **Preview a glTF Model**
 
 A quick and easy way to preview the contents of a glTF model before importing it into a scene is to use the **[Babylon.js Sandbox](https://sandbox.babylonjs.com/)**. Just drag and drop the glTF file (and its *.bin* file if applicable) into the canvas to view the model.
 
@@ -123,7 +125,7 @@ This tool can be especially useful for large files containing multiple models, t
 
 <img src="/images/3d-models-and-animations/3d-essentials/05-gltf-report.png" width="600" />
 
-# **Optimize a glTF**
+## **Optimize a glTF**
 
 The following tool offers some optimizations that will make 3D models lighter and faster to download for players in your scene.
 

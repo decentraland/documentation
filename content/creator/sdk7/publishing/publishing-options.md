@@ -29,7 +29,7 @@ In order to publish to LAND in Genesis City, you can do the following:
 **📔 Note**: You can also deploy scenes to a test server where players are not around. The same permissions per parcel apply when deploying to the test server, see [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md#the-test-server" >}}) for more details.
 {{< /hint >}}
 
-## Decentraland Worlds
+## Decentraland Worlds
 
 If you own a Decentraland NAME you can also publish your scene to a Decentraland World. This option costs considerably less than buying land, a NAME costs 100 MANA.
 
