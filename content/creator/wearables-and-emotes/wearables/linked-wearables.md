@@ -23,7 +23,7 @@ weight: 3
   - [**Creating a Linked Wearable Collection**](#creating-a-linked-wearable-collection)
   - [**Adding Wearables to the Linked Wearables Collection - One by One**](#adding-wearables-to-the-linked-wearables-collection---one-by-one)
   - [**Adding Wearables to the Linked Wearables Collection - In Bulk**](#adding-wearables-to-the-linked-wearables-collection---in-bulk)
-  - [Seeing the wearables in world](#seeing-the-wearables-in-world)
+  - [Seeing the wearables in Decentraland](#seeing-the-wearables-in-decentraland)
 - [Editing Linked Wearables](#editing-linked-wearables)
   - [Editing the collection name](#editing-the-collection-name)
   - [Deleting the collection](#deleting-the-collection)
@@ -363,6 +363,10 @@ To be able to see a wearable in world, follow these steps:
 2. The Decentraland World will open. Navigate to your backpack to see the wearable.
 
    ![](/images/media/linked-wearables/see-in-world-item.png)
+
+{{< hint warning >}}
+**⚠️ Notice**: The in world preview works with the Outdated Web Version of the Decentraland Client. It is not possible to test them yet in the Decentraland Desktop Client 2.0.
+{{< /hint >}}
 
 # Editing Linked Wearables
 
