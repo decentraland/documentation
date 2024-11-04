@@ -21,8 +21,8 @@ weight: 3
   - [Types of Linked Wearables Collections](#types-of-linked-wearables-collections)
 - [Creating Linked Wearables](#creating--managing-linked-wearables)
   - [**Creating a Linked Wearable Collection**](#creating-a-linked-wearable-collection)
-  - [**Creating Linked Wearables One By One**](#creating-linked-wearables-one-by-one)
-  - [**Creating Linked Wearables In Bulk**](#creating-linked-wearables-in-bulk)
+  - [**Adding Wearables to the Linked Wearables Collection - One by One**](#adding-wearables-to-the-linked-wearables-collection---one-by-one)
+  - [**Adding Wearables to the Linked Wearables Collection - In Bulk**](#adding-wearables-to-the-linked-wearables-collection---in-bulk)
   - [Seeing the wearables in world](#seeing-the-wearables-in-world)
 - [Editing Linked Wearables](#editing-linked-wearables)
   - [Editing the collection name](#editing-the-collection-name)
@@ -78,9 +78,9 @@ Usually there are two types of NFT collections:
 
 We follow the same principle in Decentraland with the Linked Wearables Collections as well, there can be Standard Linked Wearable Collections for the hand crafted collections and Programmatic Linked Wearable Collections for the automatically generated ones. Both collections differ in the costs of publishing publishing fees the wearable have. Check the [Costs section](#costs) for more information about the publishing fees.
 
-# **Creating Linked Wearables**
+# Creating Linked Wearables
 
-## **Creating a Linked Wearable Collection**
+## Creating a Linked Wearable Collection
 
 Creating a Linked Wearable collection is the first step into creating our Linked Wearables.
 
@@ -102,7 +102,7 @@ To create a new Linked Wearable follow these steps:
 
 4. Click on the **Create** button to create the collection.
 
-## **Creating Linked Wearables One By One**
+## Adding Wearables to the Linked Wearables Collection - One by One
 
 It's possible to, as it already happens with standard wearables, upload your wearables' 3D models one by one.
 
@@ -120,7 +120,7 @@ To do so, follow these steps:
 
    ![](/images/media/linked-wearables/linkedw-mapping.png)
 
-## **Creating Linked Wearables In Bulk**
+## Adding Wearables to the Linked Wearables Collection - In Bulk
 
 As Linked Wearable collections can contain a big number of items, it is possible to upload the 3D models and the information of the wearables in bulk. This process involves creating a zip file with all the assets an item needs for each of the items. **Uploading wearables in bulk is recommended only for programmatic collections**.
 
