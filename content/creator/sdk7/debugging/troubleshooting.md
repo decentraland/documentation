@@ -113,7 +113,7 @@ As an alternative, you can run `npm run deploy --skip-build` to skip the running
 
 ### Issue: Once deployed, some 3D models are missing
 
-- Make sure the 3D models are all within the scene boundaries, even their bounding boxes. When running in preview, any 3D models that extend beyond the scene boundaries are marked in red and their bounding boxes are marked. In the deployed scene, these models aren't rendered at all, as they could be intruding into the parcels of your neighbors.
+- Make sure the 3D models are all within the scene boundaries, even their bounding boxes. If any part of your models extend beyond these limits when running a preview, these parts that extend will be cut off and not rendered, both when running a preview and on the published scene.
 
 ### Issue: Once deployed, my 3D models look different
 

@@ -126,7 +126,7 @@ You can detect the activation of a smart item's **Actions**, and respond to thes
 
 Use `getActionEvents` to fetch an object for handling the actions of a specific smart item. Then you can use the `.on()` function of the returned object to subscribe a callback function. This callback function gets executed every time that the action happens, regardless of if the action was activated by another smart item, or even by custom code of your own.
 
-For example, if a scene has a door with the following generic **Open** action, you can write the code below to run custom code whenever the door is opened.
+For example, if a scene has a door with the following default **Open** action, you can write the code below to run custom code whenever the door is opened.
 
 <img src="/images/editor/door-actions.png" width="600" />
 
@@ -154,8 +154,33 @@ function main() {
 }
 ```
 
+You can also emit action events from your code, this allows you to take advantage of actions that are already defined inside the smart item's Action component. The following snippet calls the "Open" action on a door smart item whenever a button smart item is triggered.
+
+```ts
+import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
+import { TriggerType } from '@dcl/asset-packs'
+
+function main() {
+	const button = engine.getEntityOrNullByName('Red Button')
+	const door = engine.getEntityOrNullByName('Wooden Door')
+	if (button && door) {
+
+		// references to actions and triggers
+		const buttonTriggers = getTriggerEvents(button)
+		const doorActions = getActionEvents(door)
+
+		// detect triggers on button
+		buttonTriggers.on(TriggerType.ON_INPUT_ACTION, () => {
+			// open door
+			doorActions.emit("Open", {})
+		})
+	}
+}
+```
+
+
 {{< hint info >}}
-**💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
+**💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
 {{< /hint >}}
 
 ## Version control

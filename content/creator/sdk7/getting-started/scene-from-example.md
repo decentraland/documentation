@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/scene-from-example
-weight: 4
+weight: 6
 ---
 
 Create a new Decentraland scene project based on an example to start out with a solid base. You can use this to reuse game mechanics, art assets, or anything that may be included in the parent project.

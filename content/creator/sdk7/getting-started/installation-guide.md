@@ -15,7 +15,7 @@ url: /creator/development-guide/sdk7/installation-guide/
 weight: 2
 ---
 
-## Creator Hub
+## Creator Hub
 
 The **Creator Hub** is the recommended tool for creating content for Decentraland.
 
@@ -25,7 +25,7 @@ See installation instructions on [Creator Hub Installation]({{< ref "/content/cr
 image & more info
  -->
 
-## VS Code Extension
+## VS Code Extension
 
 The Decentraland Visual Studio Code extension allows you to build, preview and deploy Decentraland scenes.
 
