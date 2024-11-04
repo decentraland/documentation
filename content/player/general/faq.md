@@ -177,6 +177,20 @@ Without LAND scarcity, many parcels would likely be left abandoned, negatively i
 
 {{</ details >}}
 
+{{< details class="faq-details" anchor="true" title="Creating an Event" >}}
+
+**- How do I post an event to the Event page?**
+Check out a quick breakdown [here](https://www.youtube.com/watch?v=jMNk_W1yqjU)
+And yes, you can edit your event after publishing!
+
+- **How does the event review process work?**
+Review times depend on day/time of event submission, but won’t take longer than a few hours. Events are reviewed by the team at the Decentraland Foundation. Make sure to add your email or Discord username so you can be contacted if there is something wrong with the event submission.
+
+- **My event wasn’t published, why not?**
+Your event may not have passed review because you did not fill in all the required information. Make sure you complete every field in the form when submitting an event.
+
+{{</ details >}}
+
 {{< details class="faq-details" anchor="true" title="Does Decentraland run on top of its own blockchain?" >}}
 
 Decentraland uses the Ethereum blockchain to store and verify information about LAND ownership and LAND content. It does not run on its own independent blockchain. Content within Decentraland is hosted and served to users via a network of community-owned content servers.
