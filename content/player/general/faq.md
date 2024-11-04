@@ -179,15 +179,18 @@ Without LAND scarcity, many parcels would likely be left abandoned, negatively i
 
 {{< details class="faq-details" anchor="true" title="Creating an Event" >}}
 
-**- How do I post an event to the Event page?**
+- **How do I post an event to the Event page?**
 Check out a quick breakdown [here](https://www.youtube.com/watch?v=jMNk_W1yqjU)
-And yes, you can edit your event after publishing!
+ 
+    And yes, you can edit your event after publishing!
 
 - **How does the event review process work?**
-Review times depend on day/time of event submission, but won’t take longer than a few hours. Events are reviewed by the team at the Decentraland Foundation. Make sure to add your email or Discord username so you can be contacted if there is something wrong with the event submission.
+
+    Review times depend on day/time of event submission, but won’t take longer than a few hours. Events are reviewed by the team at the Decentraland Foundation. Make sure to add your email or Discord username so you can be contacted if there is something wrong with the event submission.
 
 - **My event wasn’t published, why not?**
-Your event may not have passed review because you did not fill in all the required information. Make sure you complete every field in the form when submitting an event.
+
+    Your event may not have passed review because you did not fill in all the required information. Make sure you complete every field in the form when submitting an event.
 
 {{</ details >}}
 
