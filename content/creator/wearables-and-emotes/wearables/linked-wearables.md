@@ -18,7 +18,7 @@ weight: 3
   - [About](#about)
   - [What are linked wearables?](#what-are-linked-wearables)
   - [How do Linked Wearables represent NFTs?](#how-do-linked-wearables-represent-nfts)
-  - [NFT Collections & Linked Wearables Collections](#nft-collections--linked-wearables-collections)
+  - [Types of Linked Wearables Collections](#types-of-linked-wearables-collections)
 - [Creating Linked Wearables](#creating--managing-linked-wearables)
   - [**Creating a Linked Wearable Collection**](#creating-a-linked-wearable-collection)
   - [**Creating Linked Wearables One By One**](#creating-linked-wearables-one-by-one)
@@ -69,7 +69,7 @@ The following table shows the mentioned mechanisms:
 | Multiple NFTs | A user owning one of the multiple TOKEN IDs, described as separated by a comma will own the wearable. _e.g. 123456, 123457, 123458_ |
 | Range of NFTs | A user owning an NFT with a token id in the range of TOKEN IDs described, will own the wearable. _e.g. [1, 1000]_                   |
 
-## NFT Collections & Linked Wearables Collections
+## Types of Linked Wearables Collections
 
 Usually there are two types of NFT collections:
 
