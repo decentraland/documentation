@@ -508,7 +508,7 @@ The following sections will show you how to publish your Linked Wearables to be 
 
 ## Costs
 
-Converting your NFTs into Linked Wearables has a price depending on the type of Linked Wearable Collection you chose to build:
+Creating Linked Wearables has a cost depending on the type of Linked Wearable Collection you chose to build:
 
 1. **Standard**: each published wearable costs the same as a regular wearable.
 2. **Programmatic**: a fixed fee, payed once for all the wearables you'll be publishing.
