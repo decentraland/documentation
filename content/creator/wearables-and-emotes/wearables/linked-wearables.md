@@ -29,8 +29,9 @@ weight: 3
   - [Deleting the collection](#deleting-the-collection)
   - [Editing a single wearable](#editing-a-single-wearable)
   - [Editing wearables in bulk](#editing-wearables-in-bulk)
-- [Submitting your Linked Wearables](#submitting-your-linked-wearables)
-  - [Publishing wearables](#publishing-wearables)
+- [Publishing your Linked Wearables](#publishing-your-linked-wearables)
+  - [Publishing wearables for review](#publishing-wearables-for-review)
+  - [Pushing changes for review](#pushing-changes-for-review)
   - [Costs](#costs)
   - [Curation](#curation)
     - [Handcrafted wearables](#handcrafted-wearables)
@@ -500,7 +501,7 @@ Once the ZIP files are ready, follow these steps to edit the items in bulk:
 
    ![](/images/media/linked-wearables/edit-multiple-files-success.png)
 
-# Submitting your Linked Wearables
+# Publishing your Linked Wearables
 
 Your Linked Wearables need to go through a publishing and curation process as the regular wearables do. Although the publication and curation process is not the same as the one for the regular wearables, it keeps the same steps, all items must be first be published to later be curated by an assigned curator.
 
@@ -515,7 +516,7 @@ Creating Linked Wearables has a cost depending on the type of Linked Wearable Co
 
 For more information about the type of collection you're creating, check the [NFT Collections & Linked Wearables Collections](#nft-collections--linked-wearables-collections) section.
 
-## Publishing wearables
+## Publishing wearables for review
 
 Once your wearables are ready, they must be published for curation. Your wearables are published in groups of items, you can choose which items are ready to be curated
 by selecting them and clicking the `Publish` button. After publishing items, publishing will be blocked until the ones that are already published are curated.
@@ -558,7 +559,7 @@ To publish your wearables, you need to:
 
    ![](/images/media/linked-wearables/publication-success.png)
 
-## Pushing changes
+## Pushing changes for review
 
 Previously published and approved wearables that are edited need to go through the curation process again. Don't worry, there won't be any fees applied to already published wearables.
 
