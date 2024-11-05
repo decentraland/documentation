@@ -11,7 +11,7 @@ weight: 4
 
 Most smart items have a basic mode and an advanced mode. The basic mode is tailored to only display the most common settings in a simple way. The advanced mode allows you to customize almost anything about how the item behaves.
 
-{{< youtube 4wiYYX-_Hek >}}
+{{< youtube m_xWCSDDxpQ >}}
 
 Items start out int he basic mode, to switch to the advanced mode, click the three dots icon and select **Enable Advanced Mode**.
 

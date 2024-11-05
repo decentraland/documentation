@@ -9,7 +9,7 @@ url: /creator/editor/make-any-item-smart
 weight: 6
 ---
 
-{{< youtube qXjQxMC97H0 >}}
+{{< youtube wnnEU8GCLjc >}}
 
 Smart items are just regular items with an **Action** and/or **Trigger** component. You can add these components to any item in your scene. You can also import your own custom 3D models and add the same to those.
 
