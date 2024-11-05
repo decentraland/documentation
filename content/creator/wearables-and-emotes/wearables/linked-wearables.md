@@ -66,7 +66,7 @@ The following table shows the mentioned mechanisms:
 | Match         |                                                                                                                                     |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | All NFTs      | A user owning any of the NFTs of the collection will own the wearable                                                               |
-| Single NFT    | A user owning the specified TOKEN ID will own the wearable. _e.g. 123456_                                                           |
+| Single NFT    | A user owning an NFT specified by TOKEN ID will own the wearable. _e.g. 123456. The user will own the wearable if they own the NFT with TOKEN ID: 123456_                                                           |
 | Multiple NFTs | A user owning one of many NFTs specified by TOKEN IDs, described as separated by a comma will own the wearable. _e.g. 123456, 123457, 123458. The user will own the wearable if they own the NFT with TOKEN ID: 123456 or 123457 or  123458_ |
 | Range of NFTs | A user owning an NFT with a token id in the range of TOKEN IDs described, will own the wearable. _e.g. [1, 1000]_                   |
 
