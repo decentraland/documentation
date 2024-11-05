@@ -41,7 +41,7 @@ You can check the current state of this process for your scene using [this tool]
 
 When using Decentraland normally, it's not possible to open the console to check for debug messages. To make the console available, you must open decentraland with the `scene-console` parameter. You can then toggle the console by pressing the backtick key on your keyboard: **`**. This key is left of the 1 key on most english language keyboards.
 
-To open Decentraland with the `scene-console` parameter:
+To open Decentraland with the `scene-console` parameter, either:
 
 - Write the following deep link into a browser window: `decentraland://?position=0,0&scene-console`. This will open the Decentraland desktop application if you have it installed.
 - Write the following on the command line:
