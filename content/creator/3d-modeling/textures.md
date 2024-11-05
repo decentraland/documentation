@@ -12,11 +12,11 @@ url: /creator/3d-modeling/textures
 weight: 4
 ---
 
-Textures are a key part of the 3D art pipeline to achieve the look and feel you want for your scene. In this section you will find everything you need to know to create your textures, limitations, nodes in Blender and optimizing them to perform as its best! 
+Textures are a key part of the 3D art pipeline to achieve the look and feel you want for your scene. In this section you will find everything you need to know to create your textures, limitations, nodes in Blender and optimizing them to perform as its best!
 
-# **Limitations**
+## Limitations
 
-## **Texture Size Constraints**
+### Texture Size Constraints
 
 Currently the Decentraland Explorer compress the textures at a maximun of 512px for optimization purpeses using an Asset Bundle Converter after the scene is uplaoded to the content servers. Be sure to take this limitations into account when creating your assets!
 
@@ -42,12 +42,15 @@ Examples of other valid sizes:
 512x256px
 512x512px
 ```
+
 On another hand there is a limit for textures per parcel:
 
 ```
 log2(n+1) x 10 Amount of textures per parcel. It includes textures imported as part of models.
 ```
-# **UVMapping**
+
+## UVMapping
+
 UVmapping is the process of unwrapping the faces of your 3d model into a 2D coordinate that will be used later to add the different maps to your assets. It's a key part of the creation process. Doing a correct unwrap of your models is a key factor to squeeze the resolution of your models and also it will organize your maps to be flexible for modification.
 
 To know more about UV Unwrapping you can see this awesome video made by the Blender Foundation:
@@ -58,10 +61,11 @@ There is another great intermidiate level tutorial for unwrapping UVs made by [B
 
 [![Video Preview](https://i.ytimg.com/vi/scPSP_U858k/maxresdefault.jpg)](https://youtu.be/scPSP_U858k?si=Uw0xHbv9jtqVstDS)
 
-# **Maps**
+## Maps
+
 In the [materials section](https://docs.decentraland.org/creator/3d-modeling/materials/) we explained how Decentraland works with the PBR shaders. In this section we're going to show you how each texture map modify the shader and the look and feel of the 3D object that later is going to be exported to the world.
 
-# **Diffuse Maps**
+## Diffuse Maps
 
 This is the base color of the object's surface. Having a balanced color palette between your models is key to achieve a cohesive look and feel for your experience.
 
@@ -72,26 +76,27 @@ Here it is a cool free palette generator in case you need it!
 - **Coolors:** https://coolors.co/
 
 Or some palette inspiration provided by awesome films:
+
 - **Movies in Color:** https://moviesincolor.com/
 
-# **Metallic Maps**
+## Metallic Maps
 
-In a Metallic map, the grayscale map represents the grade of metalness an object posess, being white full metallic and black non metallic. In the following example we see how the light affects the model and how interacts with the environment. 
+In a Metallic map, the grayscale map represents the grade of metalness an object posess, being white full metallic and black non metallic. In the following example we see how the light affects the model and how interacts with the environment.
 
 <img src="/images/3d-models-and-animations/3d-essentials/64-metallic-map.png" width="900" />
 
 _In the image we can see how the dark parts of the texture affect the model. The dark stripes are opaque, while the white stripe is beahving under the metallic shader properties and gray being a mixture between both._
 
-# **Roughness Maps**
+## Roughness Maps
 
 In a roughness map, darker areas correspond to smoother surfaces, while brighter areas correspond to rough surfaces. This grayscale representation is used by rendering engines to determine how light should be scattered or reflected at different points on the surface.
 
 <img src="/images/3d-models-and-animations/3d-essentials/48-roughness.png" width="300" />
 <img src="/images/3d-models-and-animations/3d-essentials/49-roughness.gif" width="600" />
 
-# **Transparent Maps**
+## Transparent Maps
 
-### **Alpha Clip**
+### Alpha Clip
 
 Alpha Clip in Blender, when used with a texture, involves using the alpha channel of the texture to determine which parts of the material should be visible. Pixels with alpha values above a specified threshold are shown, while those below the threshold are discarded, creating a cutout effect based on the texture's transparency information.
 
@@ -103,7 +108,7 @@ In the following example we used a material with alpha clip, using 2 textures, t
 
 _As a result we can see the areas painted in black are discarted while the white area are being rendered_
 
-### **Alpha Blend**
+### Alpha Blend
 
 _Alpha Blend_ allows you to pick intermediate values per region.
 
@@ -116,11 +121,11 @@ _While Alpha Clip render values being 0 or 1 (in a specific threshold) Alpha Ble
 {{< hint warning >}}
 **🔥Optimization Tip🔥**
 
-- Take into account that transparent textures (RGB+A) are always more expensive in termns of performance that using a grayscale value for transparencies. 
+- Take into account that transparent textures (RGB+A) are always more expensive in termns of performance that using a grayscale value for transparencies.
 - Transparency is always an expensive operation when rendering the scene. Try always to keep the transparencies at minimun and use Alpha Blend only when it's necessary, otherwise Alpha Clip is preferred rather than Alpha Blend.
-{{< /hint >}}
+  {{< /hint >}}
 
-# **Emissive Maps**
+## Emissive Maps
 
 An emissive map is a type of texture map used to control the self-illumination or the emitted light of a surface in a 3D scene. It's a component of the shader that determines how much light (and color of light) a particular part of a 3D model emits, independently of external light sources. Emissive maps are commonly used to simulate materials or objects that appear to emit their own light.
 
@@ -128,23 +133,23 @@ An emissive map is a type of texture map used to control the self-illumination o
 
 _In this example we can see the use of an emissive map combined with emissive strenght in an environment that uses glow postprocessing to test approxivamtely how the emissive behavies in world._
 
-# **Normal Maps**
+## Normal Maps
 
 A normal map is a type of texture used in 3D graphics to simulate fine surface details and create the illusion of complex geometry without actually altering the underlying geometry of a model. It's commonly used to enhance the realism of low-poly models by adding the appearance of bumps, crevices, and other surface irregularities. It also allows you to keep the object themselves lighter, as lots of details can be provided on the normal map layer instead of complex geometry.
 
 <img src="/images/3d-models-and-animations/3d-essentials/51-normal-map.png" width="300" />
 <img src="/images/3d-models-and-animations/3d-essentials/50-normal.gif" width="600" />
 
-To add a normal map to your material using the *Shader Editor*, you will need to connect the ***Normal Map*** node between the texture and the *Principled BSDF* shader.
+To add a normal map to your material using the _Shader Editor_, you will need to connect the **_Normal Map_** node between the texture and the _Principled BSDF_ shader.
 
 <img src="/images/3d-models-and-animations/3d-essentials/56-normal-map.png" width="600" />
 
 {{< hint warning >}}
-**⚠️Important⚠️:** 
+**⚠️Important⚠️:**
 Never use a texture as albedo and normal at the same time because can create issues when rendering the scene.
 {{< /hint >}}
 
-# **Optimizing Textures**
+## Optimizing Textures
 
 The process of optimization textures brings a lot of benefits when rendering the scene in the explorer but also it's a good way to keep the style of your scene consistent and more flexible in the design process. Some of these benefits are:
 
@@ -158,7 +163,7 @@ The process of optimization textures brings a lot of benefits when rendering the
 
 - Sharing textures across models allows to have less textures per scene, reducing the draw calls in game drastically. If you're working with glbs (with embebbed textures) you will find an extruder in the following guidelines to extract the textures from it, redirecting the models to use the same texture.
 
-# **Shared Textures Between glTFs Models**
+## Shared Textures Between glTFs Models
 
 A wise and common practice for optimizing your scene is sharing textures and materials between models across the scene. Doing this will reduce the draw calls drastically and your Decentraland scene will run much smoother.
 
@@ -174,7 +179,7 @@ It converts .gltf format into .glb, which is binary and so occupies a lot les
 
 > 📔 Note: .glb format by default always has textures embedded in the file. The engine can’t recognize two embedded textures as the same, they need to be external files that share a same hash.
 
-## **How To Use GLB Texture Extractor.**
+### How To Use GLB Texture Extractor
 
 In this example scene, we have a simple sci-fi scene in Blender.
 
@@ -194,7 +199,7 @@ But we have a problem, the .glb files have the textures embedded in them, so if 
 ⚠️ IMPORTANT NOTE: Before using the tool do a BACKUP of your models, just in case something goes wrong!!!
 {{< /hint >}}
 
-### **On Mac:**
+#### On Mac
 
 Once you have exported all the assets to your models folder you can drag the script file to it.
 
@@ -220,7 +225,7 @@ Once you have exported all the assets to your models folder you can drag the scr
 
 <img src="/images/3d-models-and-animations/glb-extractor/09-replace-assets.png" width="600" />
 
-### **On Windows**
+#### On Windows
 
 Once you have exported all the assets to your models folder you can drag the script file into it.
 
@@ -243,7 +248,7 @@ If you follow all the steps your scene will be much faster now and the assets wi
 ⚠️ After completing this step, it is crucial to check that every texture follows the guidelines. If the textures do not follow the guidelines or are too heavy, optimize them to be lighter before deploying. The recommended texture size for performant scenes is 512x512px. Also check resolution, images with more than 72 DPI would affect performance and won’t make the image look any better.
 {{< /hint >}}
 
-# **Texture Atlas/ Trim Sheets**
+## Texture Atlas/ Trim Sheets
 
 A texture atlas is a single image file that contains data from several smaller images packed together. Rather than having one texture for each mesh, several meshes share a larger texture.
 
@@ -255,7 +260,7 @@ Below is an image showing several 3D objects that use one texture set:
 
 <img src="/images/3d-models-and-animations/3d-essentials/37-atlas-texture.png" width="300" /> <img src="/images/3d-models-and-animations/3d-essentials/38-uv-atlas.png" width="300" />
 
-Another way to do Atlases is the use of Trim Sheets, a common technique in 3D modeling and game development that big studios and game industry use to ensure visual consistency and efficent art pipeline. Trim Sheets is the usage of a single image or texture that contains multiple small details or elements that can be applied to different parts of a model. This technique is very useful when creating large scenes and it needs to be considered in the first stage of the art pipeline. 
+Another way to do Atlases is the use of Trim Sheets, a common technique in 3D modeling and game development that big studios and game industry use to ensure visual consistency and efficent art pipeline. Trim Sheets is the usage of a single image or texture that contains multiple small details or elements that can be applied to different parts of a model. This technique is very useful when creating large scenes and it needs to be considered in the first stage of the art pipeline.
 
 <img src="/images/3d-models-and-animations/3d-essentials/39-trim-sheets.png" width="300" />
 
@@ -263,7 +268,7 @@ _A collage example of a Trim Sheet that uses a diffuse texture, normal and emiss
 
 There is a great [tutorial](https://www.artstation.com/blogs/jennifermcgarry/yd4Q/jenns-guide-to-trim-sheets) by [Jennifer McGarry](https://www.artstation.com/jennifermcgarry/blog) that explain the use of Trim Sheets using Blender!
 
-# **Texture Naming**
+## Texture Naming
 
 **It's crucial to name our textures correctly.** Having a correct naming for the texture will:
 
@@ -272,34 +277,39 @@ There is a great [tutorial](https://www.artstation.com/blogs/jennifermcgarry/yd4
 - Avoid issues of overlapping textures when using Asset Bundles.
 - More efficient way to pain point issues when analasing the scene.
 
-**How to proper name your Textures:**
+**How to properly name your Textures:**
+
 - **Asset name** should clearly represent what the texture is.
 - Textures name should start with the prefix `T_`.
 - Texture name should end with the suffix that defines the texture type:
-    - `_D` - **Diffuse/ Color Map**
-    - `_A` - **Alpha Texture**
-    - `_MT` - **Metallic**
-    - `_R` - **Roughness**
-    - `_N` **- Normal Map**
-    - `_E` - **Emission**
+  - `_D` - **Diffuse/ Color Map**
+  - `_A` - **Alpha Texture**
+  - `_MT` - **Metallic**
+  - `_R` - **Roughness**
+  - `_N` **- Normal Map**
+  - `_E` - **Emission**
 
 Example: If it's a diffuse map of brick texture for a wall, the name `T_BrickWall_D` could be appropriate. If it's a Normal Map of the same asset the name could be `T_BrickWall_N`
+
 **Examples:**
+
 - 🟢 **Prefer** starting texture name with - `T_Parquet_D`, `T_Floor_R`, `T_Pipes_MT`,
 - 🔴 **Avoid** starting texture name with - `Image_`, `sprite_`,`Untitled`
 
-# **Optional Tools**
+## Optional Tools
+
 There are lots of addons and externals tools that facilitate the work when creating assets to make the pipeline faster and more efficient, some of they are free and some to purchase, to name a few:
 
-### **UVTools**
+### UVTools
+
 - **UV Packer (Free)**:https://www.uv-packer.com/blender/
 - **Zen UV:** https://blendermarket.com/products/zen-uv
 - **Uvpackmaster 3:** https://blendermarket.com/products/uvpackmaster
 
-### **Image Compressors**
+### Image Compressors
+
 There are several image compressors online that you can use in order to make your textures lighter. To name a few:
 
 - **CompressPNG:** https://compresspng.com/
 - **TinyPNG:** https://tinypng.com/
 - **FreeConvert:** https://www.freeconvert.com/
-

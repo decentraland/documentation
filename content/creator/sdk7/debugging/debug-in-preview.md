@@ -192,7 +192,7 @@ npm run start -- --web3
 Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL in the browser window.
 {{< /hint >}}
 
-## Network traffic
+## Network traffic
 
 If your scene interacts with a third party server, it's often useful to see what data goes in and out.
 
