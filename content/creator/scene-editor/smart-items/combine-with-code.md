@@ -9,6 +9,8 @@ url: /creator/editor/editor-plus-code
 weight: 7
 ---
 
+{{< youtube 55H37rygD7M >}}
+
 The Creator Hub plus custom code is a very powerful combination for creating content. You can use the canvas to visually position items intuitively, and then write code that interacts with these items with complete freedom. You can even place a smart item, that has its own default behavior, and write code that reacts to when the item is activated.
 
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
@@ -164,7 +166,6 @@ function main() {
 	const button = engine.getEntityOrNullByName('Red Button')
 	const door = engine.getEntityOrNullByName('Wooden Door')
 	if (button && door) {
-
 		// references to actions and triggers
 		const buttonTriggers = getTriggerEvents(button)
 		const doorActions = getActionEvents(door)
@@ -172,12 +173,11 @@ function main() {
 		// detect triggers on button
 		buttonTriggers.on(TriggerType.ON_INPUT_ACTION, () => {
 			// open door
-			doorActions.emit("Open", {})
+			doorActions.emit('Open', {})
 		})
 	}
 }
 ```
-
 
 {{< hint info >}}
 **💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
