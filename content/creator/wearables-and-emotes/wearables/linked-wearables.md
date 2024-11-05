@@ -512,7 +512,7 @@ The following sections will show you how to publish your Linked Wearables to be 
 Creating Linked Wearables has a cost depending on the type of Linked Wearable Collection you chose to build:
 
 1. **Standard**: each published wearable costs the same as a regular wearable: USD 100 payable in MANA.
-2. **Programmatic**: a fixed fee, payed once for all the wearables you'll be publishing.
+2. **Programmatic**: a fixed fee, payed once for all the wearables you'll be publishing. This fee equals publishing 20 regular wearables: 2000 USD payable in MANA.
 
 For more information about the type of collection you're creating, check the [NFT Collections & Linked Wearables Collections](#nft-collections--linked-wearables-collections) section.
 
@@ -561,7 +561,7 @@ To publish your wearables, you need to:
 
 ## Pushing changes for review
 
-Previously published and approved wearables that are edited need to go through the curation process again. Don't worry, there won't be any fees applied to already published wearables.
+Published and approved wearables that are edited need to go through the curation process again. Don't worry, there won't be any fees applied to already published wearables.
 
 To push changes to get them curated, you need to:
 
