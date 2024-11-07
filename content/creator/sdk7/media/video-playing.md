@@ -346,21 +346,16 @@ The videoEvent object passed as an input for the function contains the following
 
 ### Latest video event
 
-Query a video for its last state change by using `videoEventsSystem.getVideoState()`. This function returns an object with a `currentState` property, with one of the following values from the `VideoState` enum, indicating the current state of the video:
-
-- `VideoState.VS_READY`
-- `VideoState.VS_NONE`
-- `VideoState.VS_ERROR`
-- `VideoState.VS_SEEKING`
-- `VideoState.VS_LOADING`
-- `VideoState.VS_BUFFERING`
-- `VideoState.VS_PLAYING`
-- `VideoState.VS_PAUSED`
+Query a video for its last state change by using `videoEventsSystem.getVideoState()`. This function always returns the latest `VideoEvent` value for the video.
 
 ```ts
 function mySystem() {
-	const latestVideoEvent = videoEventsSystem.getVideoState(videoPlayerEntity)
-	console.log(latestVideoEvent.currentState)
+    const latestVideoEvent = videoEventsSystem.getVideoState(videoPlayerEntity)
+    if(!latestVideoEvent) return
+    
+    console.log(`state: ${latestVideoEvent.state}
+    \ncurrentOffset: ${latestVideoEvent.currentOffset}
+    \nvideoLength: ${latestVideoEvent.videoLength}`)
 }
 ```
 
