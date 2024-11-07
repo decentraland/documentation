@@ -70,7 +70,7 @@ The Avatar editor provides a big selection of wearables and accessories – all 
 
 {{< details class="faq-details" anchor="true" title="What do the collectibles colors mean?" >}}
 
-<img src="/images/media/faqs-rarities-2.png" style="margin: 2rem auto; display: block;width: 90%;" />
+<img src="/images/media/raritynew.png" style="margin: 2rem auto; display: block;width: 90%;" />
 
 Each collectible is assigned a rarity category, represented by a different name and color and denoting supply of collectible.
 
