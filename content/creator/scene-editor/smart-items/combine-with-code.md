@@ -15,7 +15,13 @@ The Creator Hub plus custom code is a very powerful combination for creating con
 
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
-Click the **< > CODE** button to open Visual Studio Code on your scene project.
+{{< hint warning >}}
+**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+{{< /hint >}}
+
+## Open a scene's code
+
+Once you installed VS Studio Code on your machine, you can click the **< > CODE** button to open Visual Studio Code on your scene project.
 
 <img src="/images/editor/code-button.png" width="200"/>
 
@@ -23,9 +29,9 @@ This opens a separate window with Visual Studio Code. On the left margin you can
 
 <img src="/images/editor/files-on-vs-studio.png" alt="Scene name" width="200"/>
 
-{{< hint warning >}}
-**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
-{{< /hint >}}
+Add your custom code in the `index.ts` file under `/src`, inside the `main()` function. You can otherwise add custom code outside that function or create new `.ts` files inside the `/src` folder, but these must be somehow referenced inside the `main()` function of `index.ts`.
+
+If you have a preview window open running your scene, whenever you change the code in your files and save, the scene reloads automatically with your changes.
 
 ## Reference an item
 
