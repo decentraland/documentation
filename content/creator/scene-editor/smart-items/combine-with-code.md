@@ -23,8 +23,6 @@ This opens a separate window with Visual Studio Code. On the left margin you can
 
 <img src="/images/editor/files-on-vs-studio.png" alt="Scene name" width="200"/>
 
-{{< youtube J_EO1LZkaiA >}}
-
 {{< hint warning >}}
 **📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
 {{< /hint >}}
