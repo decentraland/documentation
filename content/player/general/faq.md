@@ -247,7 +247,7 @@ You will be able to control who you can see and interact with (and who can see a
 
 Below you can find the frequently asked questions about Places.
 
-{{< details class="faq-details" anchor="true" title="Editing Your Place" >}}
+- **Editing Your Place**
 
 How do I edit the title, description or image of my Place?
 
@@ -261,7 +261,7 @@ What happens if I change my Place significantly?
 
 Each Place is assigned a unique ID. When certain conditions are met, your Place may be deemed "new", resulting in a new ID assignment. This change will cause your Place to lose any accumulated favorites and likes. For details on these conditions, please refer to ADR: Place Identifiers.
 
-{{< details class="faq-details" anchor="true" title="Like Percentage" >}}
+- **Like Percentage**
 
 How is the like percentage calculated?
 
@@ -269,7 +269,7 @@ In order to prevent abuse, the like percentage is calculated from likes and disl
 
 Increase your chances of getting a good rating by making sure your Place has a title, description and thumbnail.
 
-{{< details class="faq-details" anchor="true" title="Points of Interest" >}}
+- **Points of Interest**
 
 How can my Place become a Point of Interest?
 
@@ -277,7 +277,7 @@ Points of interest are notable locations in Decentraland. These “POIs” are p
 
 You can create a proposal in the DAO to nominate your Place as a Point of Interest.
 
-{{< details class="faq-details" anchor="true" title="Worlds" >}}
+- **Worlds**
 
 Which Worlds appear in the Worlds tab?
 
