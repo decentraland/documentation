@@ -261,8 +261,6 @@ What happens if I change my Place significantly?
 
 Each Place is assigned a unique ID. When certain conditions are met, your Place may be deemed "new", resulting in a new ID assignment. This change will cause your Place to lose any accumulated favorites and likes. For details on these conditions, please refer to ADR: Place Identifiers.
 
-{{</ details >}}
-
 {{< details class="faq-details" anchor="true" title="Like Percentage" >}}
 
 How is the like percentage calculated?
@@ -271,8 +269,6 @@ In order to prevent abuse, the like percentage is calculated from likes and disl
 
 Increase your chances of getting a good rating by making sure your Place has a title, description and thumbnail.
 
-{{</ details >}}
-
 {{< details class="faq-details" anchor="true" title="Points of Interest" >}}
 
 How can my Place become a Point of Interest?
@@ -280,8 +276,6 @@ How can my Place become a Point of Interest?
 Points of interest are notable locations in Decentraland. These “POIs” are promoted in several areas of the virtual world’s UI, and are promoted as good places for users to explore, especially people new to Decentraland.
 
 You can create a proposal in the DAO to nominate your Place as a Point of Interest.
-
-{{</ details >}}
 
 {{< details class="faq-details" anchor="true" title="Worlds" >}}
 
