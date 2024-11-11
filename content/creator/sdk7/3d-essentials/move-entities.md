@@ -385,6 +385,25 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
+To end a tween that doesn't need to be continued, delete the `Tween` component from the entity. If the entitiy was also using a `TweenSequence` component, delete that too.
+
+```ts
+pointerEventsSystem.onPointerDown(
+	{
+		entity: button,
+		opts: { button: InputAction.IA_POINTER, hoverText: 'pause' },
+	},
+	() => {
+		if( Tween.has(myEntity)){
+			Tween.deleteFrom(myEntity)
+		}
+		if( TweenSequence.has(myEntity)){
+			TweenSequence.deleteFrom(myEntity)
+		}
+	}
+)
+```
+
 ## Tweens based on a system
 
 Instead of using the Tween component and letting the engine handle the transformation, you may prefer to do this transition incrementally, frame by frame, via a [system]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) in your scene. By moving the entity a small amount each time the function runs.
