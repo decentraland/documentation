@@ -243,6 +243,54 @@ You will be able to control who you can see and interact with (and who can see a
 
 {{</ details >}}
 
+{{< details class="faq-details" anchor="true" title="Place FAQ?" >}}
+
+Below you can find the frequently asked questions about Places.
+
+{{< details class="faq-details" anchor="true" title="Editing Your Place" >}}
+
+How do I edit the title, description or image of my Place?
+
+The title, description and image of your Place are taken from the scene metadata. Find out more about editing the scene metadata.
+
+How does my Place get updated?
+
+When you re-upload your scene, the Places website will update any metadata automatically.
+
+What happens if I change my Place significantly?
+
+Each Place is assigned a unique ID. When certain conditions are met, your Place may be deemed "new", resulting in a new ID assignment. This change will cause your Place to lose any accumulated favorites and likes. For details on these conditions, please refer to ADR: Place Identifiers.
+
+{{</ details >}}
+
+{{< details class="faq-details" anchor="true" title="Like Percentage" >}}
+
+How is the like percentage calculated?
+
+In order to prevent abuse, the like percentage is calculated from likes and dislikes from users who have at least 100 voting power. Anyone with an account can like or dislike, but only qualifying votes are used to calculate the like percentage.
+
+Increase your chances of getting a good rating by making sure your Place has a title, description and thumbnail.
+
+{{</ details >}}
+
+{{< details class="faq-details" anchor="true" title="Points of Interest" >}}
+
+How can my Place become a Point of Interest?
+
+Points of interest are notable locations in Decentraland. These “POIs” are promoted in several areas of the virtual world’s UI, and are promoted as good places for users to explore, especially people new to Decentraland.
+
+You can create a proposal in the DAO to nominate your Place as a Point of Interest.
+
+{{</ details >}}
+
+{{< details class="faq-details" anchor="true" title="Worlds" >}}
+
+Which Worlds appear in the Worlds tab?
+
+As defined in the Worlds 1.0 - Short-Term Plan DAO proposal, we allow discoverability of Worlds deployed to Foundation’s World Content Server only for NAME owners that also hold LAND or an active LAND rental contract.
+
+{{</ details >}}
+
 {{< details class="faq-details" anchor="true" title="Can I monetize my content?" >}}
 
 Yes. You are free to decide whether you will charge other players to access your content and how you will implement said charge. Decentraland is in no way involved in the monetization of your content and does not guarantee any return, profit or income. The success of the platform depends entirely on the efforts of the users. Your fate, your success, and eventually your journey, depends on you, your efforts, your imagination.
