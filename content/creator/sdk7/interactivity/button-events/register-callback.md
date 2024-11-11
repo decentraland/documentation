@@ -176,6 +176,8 @@ pointerEventsSystem.onPointerDown(
 
 This approach is not ideal, as the hover hint shows a single string and won't specify what action to activate. Note that this will make the callback function run for every input action including movement keys, so you must filter out only the actions you care about.
 
+<!--
+
 ### Different meshes inside a model
 
 Often, _.glTF_ 3D models are made up of multiple meshes, that each have an individual internal name. All button events events include the information of what specific mesh was clicked, so you can use this information to trigger different click behaviors in each case.
@@ -205,3 +207,4 @@ pointerEventsSystem.onPointerDown(
   }
 )
 ```
+-->
