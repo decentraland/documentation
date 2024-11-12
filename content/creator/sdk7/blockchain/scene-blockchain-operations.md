@@ -379,7 +379,7 @@ The eth-connect library includes a number of other helpers you can use. For exam
 
 ## Using the Ethereum test network
 
-While testing your scene, to avoid transferring real MANA currency, you can use the _Ethereum Sepolia test network_ and transfer fake MANA instead.
+While testing your scene, to avoid transferring real MANA or other currencies, you can use the _Ethereum Sepolia test network_ and transfer fake testnet MANA instead.
 
 To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_.
 
@@ -391,7 +391,13 @@ You must acquire Sepolia Ether, which you can obtain for free from various exter
 **💡 Tip**: To run the transaction of transferring Sepolia MANA to your wallet, you will need to pay a gas fee in Sepolia Ether.
 {{< /hint >}}
 
-To preview your scene using the test network, add the `DEBUG` property to the URL you're using to access the scene preview on your browser. For example, if you're accessing the scene via `http://127.0.0.1:8000/?position=0%2C-1`, you should set the URL to `http://127.0.0.1:8000/?DEBUG&position=0%2C-1`.
+To preview your scene using the test network, open Decentraland with the following command:
+
+`npm run start -- --explorer-alpha --realm https://peer.decentraland.zone --dclenv zone --position 0,0`
+
+{{< hint info >}}
+**💡 Tip**: Change the position parameter to the coordinates of your scene, to load directly into your scene..
+{{< /hint >}}
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
 
