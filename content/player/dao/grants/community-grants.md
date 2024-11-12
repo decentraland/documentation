@@ -21,7 +21,7 @@ This grants program allows any member of the community to request funding to mak
 Grants can be requested by completing a proposal form within the [DAO](https://governance.decentraland.org/). If approved by the community, then the [DAO Committee]({{< ref "/content/player/dao/overview/how-does-the-dao-work.md#dao-committee" >}}) will execute the transfer of funds to the grant beneficiary by means of a one-time transfer, or a vesting contract.
 
 {{< hint warning >}}
-**📔 Note**:According to a [Governace Proposal](https://decentraland.org/governance/proposal/?id=18ae3b9b-e5e6-4b3c-acc9-bce877ec02b2) that passed on February 28, 2024, only Platform (50% of grants program budget) and Core Unit (10% of grants program budget) grant proposals can be submitted and funded throughout 2024. 
+**📔 Note**:According to a [Governace Proposal](https://decentraland.org/governance/proposal/?id=1a1433a1-db6f-4126-a0a0-731ed557af24) that passed on November 6, 2024, the deprecation of the current Grants Program and Bidding and Tendering process was approved, aiming to create a more effective, strategically aligned funding model. 
 {{< /hint >}}
 
 ## Grant categories and requirements
