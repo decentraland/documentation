@@ -182,7 +182,48 @@ Material.setPbrMaterial(myEntity, {
 
 ### Texture wrapping
 
-If you want the texture to be mapped to specific scale or alignment on your entities, then you need to configure _uv_ properties on the [MeshRenderer component]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}).
+You can set how a texture aligns with a surface. By default, the texture is stretched to occupy the surface once, but you can scale it, and offset it.
+
+The following fields are available on all textures:
+
+- `offset`: Shifts the texture to change its alignment. The value is a Vector2, where both axis go from 0 to 1, where 1 is the full width or height of the texture.
+- `tiling`: Scales the texture. The default value is the Vector 2 `[1, 1]`, which makes the image repeat once covering all of the surface.
+- `TextureWrapMode`: Determines what happens if the image tiling doesn't cover all of the surface. This property takes its values from the `TextureWrapMode` enum, which allows for the following values:
+
+  - `TextureWrapMode.TWM_CLAMP`: The texture is only displayed once in the specified size. The rest of the surface of the mesh is left transparent. The value of `tiling` is ignored.
+  - `TextureWrapMode.TWM_REPEAT`: The texture is repeated as many times as it fits in the mesh, using the specified size.
+  - `TextureWrapMode.TWM_MIRROR`: As in wrap, the texture is repeated as many times as it fits, but the orientation of these repetitions is mirrored.
+
+```ts
+Material.setPbrMaterial(myEntity, {
+	texture: Material.Texture.Common({
+		src: 'materials/wood.png',
+		wrapMode: TextureWrapMode.TWM_REPEAT,
+		offset: Vector2.create(0, 0.2),
+		tiling: Vector2.create(1, 1),
+	}),
+})
+```
+
+<!-- TODO: screenshot -->
+
+In the example below, the texture uses a _mirror_ wrap mode, and each repetition of the texture takes only 1/4 of the surface. This means that we'll see 4 copies of the image, mirrored against each other on both axis.
+
+```ts
+Material.setPbrMaterial(myEntity, {
+	texture: Material.Texture.Common({
+		src: 'materials/atlas.png',
+		wrapMode: TextureWrapMode.TWM_MIRROR,
+		tiling: Vector2.create(0.25, 0.25),
+	}),
+})
+```
+
+<!-- TODO: screenshot -->
+
+#### Set UVs
+
+Another alternative for changing a texture's scale or alignment is to configure _uv_ properties on the [MeshRenderer component]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}).
 
 You set _u_ and _v_ coordinates on the 2D image of the texture to correspond to the vertices of the shape. The more vertices the entity has, the more _uv_ coordinates need to be defined on the texture, a plane for example needs to have 8 _uv_ points defined, 4 for each of its two faces.
 
@@ -269,25 +310,8 @@ function setUVs(rows: number, cols: number) {
 
 For setting the UVs for a `box` mesh shape, the same structure applies. Each of the 6 faces of the cube takes 4 pairs of coordinates, one for each corner. All of these 48 values are listed as a single array.
 
-You can also define how the texture is tiled if the mapping spans more than the dimensions of the texture image. The `texture` object lets you configure the wrapping mode by setting the `wrapMode` field. This property takes its values from the `TextureWrapMode` enum, which allows for the following values:
-
-- `TextureWrapMode.TWM_CLAMP`: The texture is only displayed once in the specified size. The rest of the surface of the mesh is left transparent.
-- `TextureWrapMode.TWM_REPEAT`: The texture is repeated as many times as it fits in the mesh, using the specified size.
-- `TextureWrapMode.TWM_MIRROR`: As in wrap, the texture is repeated as many times as it fits, but the orientation of these repetitions is mirrored.
-
-```ts
-Material.setPbrMaterial(myEntity, {
-	texture: Material.Texture.Common({
-		src: 'materials/atlas.png',
-		wrapMode: TextureWrapMode.TWM_MIRROR,
-	}),
-})
-```
-
-The example above sets the wrapping mode to `TWM_MIRROR`.
-
 {{< hint warning >}}
-**📔 Note**: Uv properties are currently only available on `plane` and on `box` shapes.
+**📔 Note**: Uv properties are currently only available on `plane` and on `box` shapes. Also, _uv_ values affect all the texture layers equally, since they are set on the _shape_.
 {{< /hint >}}
 
 ### Texture scaling
