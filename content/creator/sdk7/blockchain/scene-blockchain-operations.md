@@ -17,13 +17,8 @@ Note that all transactions in the Ethereum mainnet that are triggered by a scene
 
 All blockchain operations also need to be carried out as [asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the timing depends on external events.
 
-When running a preview of a scene that uses one of the ethereum libraries, you must open the preview in a separate browser window, have Metamask open in your browser, and manually include the string `&ENABLE_WEB3`.
 
-If using the CLI, run the preview with:
 
-```
-npm run start -- --web3
-```
 
 <!--
 ## Download and import the ethers.js library
@@ -208,7 +203,7 @@ The example above listens for clicks on a _button_ entity. When clicked, the pla
 
 {{< hint info >}}
 **💡 Tip**:  We recommend defining the wallet address and the amount to pay as global constants at the start of the _.ts_ file. These are values you might need to change in the future, setting them as constants makes it easier to update the code.
-{{< /hint >}} --> -->
+{{< /hint >}} -->
 
 ## Check gas price
 
@@ -398,6 +393,8 @@ To preview your scene using the test network, open Decentraland with the followi
 {{< hint info >}}
 **💡 Tip**: Change the position parameter to the coordinates of your scene, to load directly into your scene..
 {{< /hint >}}
+
+When running a preview on the web client, of a scene that uses one of the ethereum libraries, you must open the preview in a separate browser window, have Metamask open in your browser, and manually include the string `&ENABLE_WEB3`.
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
 
