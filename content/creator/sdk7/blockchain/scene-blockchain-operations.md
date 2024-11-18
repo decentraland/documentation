@@ -11,8 +11,6 @@ weight: 1
 
 A Decentraland scene can interface with the Ethereum blockchain. This can serve to obtain data about the user's wallet and the tokens in it, or to trigger transactions that could involve any Ethereum token, fungible or non-fungible. This can be used in many ways, for example to sell tokens, to reward tokens as part of a game-mechanic, to change how a player interacts with a scene if they own certain tokens, etc.
 
-You use the **Ethers.js** library in Decentraland scenes, this is a popular 3rd party library to interact with the Ethereum blockchain.
-
 Note that all transactions in the Ethereum mainnet that are triggered by a scene will require a player to approve and pay a gas fee.
 
 All blockchain operations also need to be carried out as [asynchronous functions]({{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >}}), since the timing depends on external events.
@@ -386,19 +384,19 @@ You must acquire Sepolia Ether, which you can obtain for free from various exter
 **💡 Tip**: To run the transaction of transferring Sepolia MANA to your wallet, you will need to pay a gas fee in Sepolia Ether.
 {{< /hint >}}
 
-To preview your scene using the test network, open Decentraland with the following command:
+To preview your scene using the test network, paste the following URL into a browser tab. This will open the scene on the Decentraland desktop client:
 
-`npm run start -- --explorer-alpha --realm https://peer.decentraland.zone --dclenv zone --position 0,0`
+`decentraland://realm=http://127.0.0.1:8000&local-scene=true&debug=true&dclenv=zone&position=0,0`
 
 {{< hint info >}}
 **💡 Tip**: Change the position parameter to the coordinates of your scene, to load directly into your scene..
 {{< /hint >}}
 
-When running a preview on the web client, of a scene that uses one of the ethereum libraries, you must open the preview in a separate browser window, have Metamask open in your browser, and manually include the string `&ENABLE_WEB3`.
-
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
 
 If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you'll need to swap MANA to that network after acquiring it in Sepolia. To bridge Sepolia MANA to the Polygon Testnet, visit your [Decentraland account page in Sepolia](https://account.decentraland.zone/) and click on ‘swap’ on the Ethereum MANA side.
+
+When running a preview on the legacy web client, of a scene that uses one of the ethereum libraries, you must open the preview in a separate browser window, have Metamask open in your browser, and manually include the string `&ENABLE_WEB3`.
 
 ## Send custom RPC messages
 
