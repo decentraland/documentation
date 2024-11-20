@@ -28,7 +28,7 @@ What you should **never** give out is your ‘seed phrase’ (this applies if yo
 One of the most common scams are websites, social accounts, emails, and DMs impersonating Decentraland and advertising a free airdrop of MANA. This is something Decentraland will **NEVER** do.
 Another common tactic is pretending to be a potential client and sending a file containing a virus. Always be very cautious with messages from people you don’t know personally and **never** download files from them.
 
-![](/images/media/player/domains.png)
+![](/images/media/players/domains.png)
 
 A good rule is to always take the time to verify urls and email addresses before taking any actions. True Decentraland websites will always have the base [decentraland.org](http://decentraland.org) and the weekly newsletter will only come from hello@decentraland.org.
 Read more about [Safety Tips & Tricks](https://decentraland.org/blog/about-decentraland/how-to-keep-your-digital-assets-safe-in-the-metaverse).
