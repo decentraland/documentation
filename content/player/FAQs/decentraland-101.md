@@ -2,6 +2,9 @@
 date: 2024-11-20
 title: Decentraland 101
 description: General Overview about Decentraland
+aliases:
+  - /player/general/hardware-requirements
+  - /player/general/faq
 categories:
   - Decentraland
 type: Document
@@ -23,14 +26,45 @@ weight: 1
   In Decentraland users truly own their digital assets, such as Wearables or NAMEs, with ownership registered on the blockchain. To enable this, every Decentraland account is linked to a unique digital wallet. However, if you don’t already have a digital wallet, you don’t need to get one yourself. If you sign into Decentraland with a social account such as Google or Discord, a digital wallet will be made for your account behind the scenes, so you don’t have to worry about anything.
 - **What hardware do I need to run Decentraland?**
   Currently, Decentraland is available for PC on Windows and Mac. The minimum hardware specs for Decentraland to run smoothly are listed below:
-  <copy specs from [old docs](https://docs.decentraland.org/player/general/hardware-requirements/), only for desktop client>
+
+  #### Windows
+
+  |         | Minimum Required                                  | Recommended Settings                              |
+  | ------- | ------------------------------------------------- | ------------------------------------------------- |
+  | OS      | Windows 10 64-bit                                 | Windows 11 64-bit                                 |
+  | CPU     | Intel i5 7th generation or AMD Ryzen 5 Series     | Intel i7 12th generation or AMD Ryzen 7 Series    |
+  | GPU     | Nvidia RTX 10 Series or AMD Radeon RX 5000 Series | Nvidia RTX 30 Series or AMD Radeon RX 6000 Series |
+  | VRAM    | 6 GB                                              | 12 GB                                             |
+  | RAM     | 16GB                                              | 32 GB                                             |
+  | Storage | 8GB HDD                                           | 20GB SDD                                          |
+
+  #### Mac
+
+  |         | Minimum Required                               | Recommended Settings                                       |
+  | ------- | ---------------------------------------------- | ---------------------------------------------------------- |
+  | OS      | macOS 11 Big Sur                               | macOS 12 Monterey                                          |
+  | CPU     | Intel Core i5 (7th generation) or Apple M1     | Intel Core i7 (12th generation) or Apple M1 Pro/M2         |
+  | GPU     | Apple M1 integrated GPU or AMD Radeon Pro 5300 | Apple M1 Pro/M2 Pro integrated GPU or AMD Radeon Pro 5600M |
+  | VRAM    | 6 GB (for dedicated GPUs)                      | 12 GB (for dedicated GPUs)                                 |
+  | RAM     | 16GB                                           | 32 GB                                                      |
+  | Storage | 8GB HDD                                        | 20GB SDD                                                   |
+
+  {{< hint warning >}}
+  **📔 Note**: Decentraland currently does not run on any mobile devices.
+  {{< /hint >}}
+
 - **How do I explore and navigate Decentraland?**
   Decentraland consists of the open, traversable **Genesis City** made up of community parcels that are referenced by coordinates (e.g. Genesis Plaza, Decentraland’s central default spawn point is 0,0), as well as individual **Worlds**, more intimate 3D spaces in the Decentraland ecosystem that can be teleported into.
+
   To explore **Genesis City**, you can run around using your arrow or WASD keys, jump to locations by clicking on them from the map, or teleport by typing the following command into the chat box and hitting ‘Enter’:
+
   • `/goto x,y` (x,y are the coordinates of a scene)
   To teleport to a specific **World**, you’ll also use a chat command:
+
   • `/goto World’sName`
-  ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/3a84e8a5-6051-4138-b9d6-c05e2a30c7f3/abca2f87-6636-4962-b43f-200cc5e4c200/image.png)
+
+  ![](/images/media/player/keyboard.png)
+
 - **What are useful chat commands in Decentraland?**
   Chat commands are used to trigger actions, such as teleporting or reloading, by entering specific text into the chat box in-world. To use one, just open the chat box, type the command, and hit enter.
   - **Teleporting around Genesis City**

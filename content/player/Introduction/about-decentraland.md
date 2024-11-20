@@ -35,14 +35,14 @@ Welcome to Decentraland’s vibrant, international community of creators & explo
 
 {{< details class="faq-details" anchor="true" title="Decentraland is community-driven—what does that mean?" >}}
 
-    Because Decentraland is decentralized, there is no central entity that controls the platform or its future—this platform belongs to its users. Decentraland’s operations and future are proposed, voted on, and decided by the community in [governance forums](https://decentraland.org/dao) through the DAO (Decentralized Autonomous Organization). Decentraland’s code is also open source, so anyone can [**make improvements**]({{< ref "/content/contributor/index.md" >}}) or build on top of it, and its content is stored on a distributed network of servers, so it can never be shut down.
+    Because Decentraland is decentralized, there is no central entity that controls the platform or its future—this platform belongs to its users. Decentraland’s operations and future are proposed, voted on, and decided by the community in [governance forums](https://decentraland.org/dao) through the DAO (Decentralized Autonomous Organization). Decentraland’s code is also open source, so anyone can [**make improvements**]({{< ref "/content/contributor/_index.md" >}}) or build on top of it, and its content is stored on a distributed network of servers, so it can never be shut down.
 
     The contents of Decentraland’s virtual world is built by its community, from the builds on LAND parcels to the Wearables & Emotes in the [Marketplace]
     (https://decentraland.org/marketplace), creating a dynamic and ever-evolving environment. Creators benefit from a thriving digital economy, keeping 97.5% of their earnings—the highest revenue share in the industry—while 2.5% is reinvested into the DAO for community initiatives.
 
     [**Daily events**](https://events.decentraland.org/) are also organized by the community, ranging from concerts to art gallery openings and hang outs to game releases. Anyone can submit an event they’ve organized somewhere in Genesis City or in a [**World**](https://decentraland.org/blog/announcements/introducing-decentraland-worlds-beta-your-own-3d-space-in-the-metaverse), personal virtual spaces off of the main map.
 
-    All this is what makes Decentraland a truly community-driven world. [**Download Decentraland**](https://decentraland.org/download?utm_org=dcl&utm_source=decentraland&utm_medium=organic&utm_campaign=evergreen&utm_term=generaldocs&utm_content=faq) and explore dynamic community content, built side-by-side, or even [**contribute**]({{< ref "/content/creator/index.md" >}}) to it yourself!
+    All this is what makes Decentraland a truly community-driven world. [**Download Decentraland**](https://decentraland.org/download?utm_org=dcl&utm_source=decentraland&utm_medium=organic&utm_campaign=evergreen&utm_term=generaldocs&utm_content=faq) and explore dynamic community content, built side-by-side, or even [**contribute**]({{< ref "/content/creator/_index.md" >}}) to it yourself!
 
 {{</ details >}}
 
