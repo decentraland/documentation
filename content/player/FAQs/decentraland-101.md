@@ -5,6 +5,10 @@ description: General Overview about Decentraland
 aliases:
   - /player/general/hardware-requirements
   - /player/general/faq
+  - /login?redirect=docs
+  - /docs
+  - /docs/
+  - /decentraland/introduction/
 categories:
   - Decentraland
 type: Document
@@ -66,19 +70,22 @@ weight: 1
   ![](/images/media/player/keyboard.png)
 
 - **What are useful chat commands in Decentraland?**
+
   Chat commands are used to trigger actions, such as teleporting or reloading, by entering specific text into the chat box in-world. To use one, just open the chat box, type the command, and hit enter.
+
   - **Teleporting around Genesis City**
-  - `/goto x,y` (x,y are the coordinates of a scene)
+    `/goto x,y` (x,y are the coordinates of a scene)
   - **Visiting Worlds**
-  - `/goto World’sName`
+    `/goto World’sName`
   - **Reloading a Scene**
-  - `/reload`
+    `/reload`
   - **Open Debug Mode (shows FPS and other metrics)**
-  - `/debug`
+    `/debug`
   - **Discover More Chat Commands**
-  - `/help`
+    `/help`
+
 - **How do I get Wearables, Emotes, LAND, and NAMEs in the Marketplace?**
-  Ready to start your Decentraland shopping spree in the [Marketplace](https://www.notion.so/Decentraland-2-0-Brand-Identity-b5d4c4d7c6a74827a94418a7831344e2?pvs=21)? Browse through hundreds of community-made Wearables and Emotes to customize your digital identity, buy or rent Genesis City LAND parcels, or claim your unique NAME (which comes with it’s own World!).
+  Ready to start your Decentraland shopping spree in the [Marketplace](https://decentraland.org/marketplace/)? Browse through hundreds of community-made Wearables and Emotes to customize your digital identity, buy or rent Genesis City LAND parcels, or claim your unique NAME (which comes with it’s own World!).
   Once you’ve found an item you’d like to buy, you can easily pay by card or with a wide variety of cryptocurrencies. If you’re buying a Wearable or Emote, the item will appear in your Backpack in a matter of minutes and you can feel happy in the knowledge that you’re supporting Decentraland creators, who keep 97.5% of sales!
   Anything you purchase in the Marketplace is truly owned by you, with your ownership registered on the blockchain. You can resell items whenever you wish, which will also support the original creator with 2.5% royalties.
 - **How can I meet people in Decentraland?**
