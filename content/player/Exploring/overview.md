@@ -32,4 +32,4 @@ Chat commands are used to trigger actions, such as teleporting or reloading, by 
 - **Discover More Chat Commands**
   `/help`
 
-The best way to discover interesting places and meet new people is to attend [events]({{< ref "/content/player/FAQs/events.md">}}) – jump in and start chatting! Alternatively, you can run freely through Decentraland for a surprise adventure. Make sure to visit the boundaries of the city to watch a peaceful sunrise or sunset over the ocean.
+The best way to discover interesting places and meet new people is to attend [events]({{< ref "/content/player/FAQs/posting-events.md">}}) – jump in and start chatting! Alternatively, you can run freely through Decentraland for a surprise adventure. Make sure to visit the boundaries of the city to watch a peaceful sunrise or sunset over the ocean.
