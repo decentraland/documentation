@@ -149,7 +149,7 @@ A variety of free base Wearables are always available in your Backpack (click on
 
 Emotes are animations that allow your avatar to express reactions, perform dance moves, or engage in activities such as yoga or painting. Just like Wearables, there are a set of free, base Emotes available to everyone, but you can also browse the [Marketplace](https://decentraland.org/marketplace/browse?assetType=item&section=emotes&vendor=decentraland&page=1&sortBy=recently_listed&status=on_sale) to find an even larger variety. Or [make your own]({{< ref "/content/creator/wearables-and-emotes/emotes/emotes-overview.md" >}})
 
-![](/images/media/players/emotes_banner.png)
+![](/images/media/players/emote_banner.png)
 
 To use Emotes in Decentraland, you’ll want to become familiar with the Emote Wheel pictured below. This shows a set of the 10 Emotes you are most likely to use (you can customize these Emote slots from your Backpack).
 To trigger an Emote, you have 3 options:
