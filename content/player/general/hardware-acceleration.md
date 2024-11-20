@@ -11,16 +11,15 @@ url: /player/general/hardware-acceleration
 weight: 5
 ---
 
-Since the web version of Decentraland runs in a browser, you might need to configure your browser and/or operating system to have access to all of your machine's potential to run Decentraland as smoothly as possible. These guidelines do not apply to Explorer 2.0, as it runs natively on your device. 
+Since the web version of Decentraland runs in a browser, you might need to configure your browser and/or operating system to have access to all of your machine's potential to run Decentraland as smoothly as possible. These guidelines do not apply to Explorer 2.0, as it runs natively on your device.
 
 ![](/images/media/gpu.png)
 
 If you see this warning, it means that you are using a sub-optimal set up for rendering 3d graphics. Your experience when playing Decentraland might be laggy and unresponsive because of this. You might notice missing frames as you move around in a jumpy way.
 
 {{< hint warning >}}
-**📔 Note**:  Some lower end machines, or machines that are not designed for gaming, may not have a _dedicated_ graphics card at all. If that's your case, then ignore this warning. You might still be able to improve how you experience Decentraland by opening the Settings panel and lowering the graphics quality. See [hardware requirements]({{< ref "/content/player/general/hardware-requirements.md" >}}).
+**📔 Note**: Some lower end machines, or machines that are not designed for gaming, may not have a _dedicated_ graphics card at all. If that's your case, then ignore this warning. You might still be able to improve how you experience Decentraland by opening the Settings panel and lowering the graphics quality. See [Decentraland 101]({{< ref "/content/player/FAQs/decentraland-101.md" >}}).
 {{< /hint >}}
-
 
 ## Context
 
@@ -44,9 +43,8 @@ In Chrome or Brave:
 _On other browsers, the steps may vary slightly, but should be essentially the same._
 
 {{< hint warning >}}
-**📔 Note**:  If you keep seeing the warning message in Decentraland, you may also need to set up your operating system to allow the browser to access this hardware.
+**📔 Note**: If you keep seeing the warning message in Decentraland, you may also need to set up your operating system to allow the browser to access this hardware.
 {{< /hint >}}
-
 
 ## Operating System configuration
 
@@ -59,9 +57,8 @@ To set up hardware acceleration:
 - Uncheck the box for _Automatic graphics switching_. This will keep the _dedicated_ graphics card always in use when applicable.
 
 {{< hint warning >}}
-**📔 Note**  : Having this option checked turns off the _dedicated graphics card_ whenever the laptop is unplugged. Another alternative is to always keep the machine plugged to a power outlet.
+**📔 Note** : Having this option checked turns off the _dedicated graphics card_ whenever the laptop is unplugged. Another alternative is to always keep the machine plugged to a power outlet.
 {{< /hint >}}
-
 
 ### Windows
 
@@ -72,7 +69,6 @@ To set up hardware acceleration:
 - Under _Choose an app to set preference_ select _Chrome_ or your browser of choice
 - Click on the app and click **Options**
 - Under _Set graphics preference_, choose **High Performance** and click **Save**
-
 
 ### Linux
 
@@ -92,7 +88,6 @@ To set up hardware acceleration:
 
 - Hit Relaunch and close your browser again.
 - To force your browser to use NVIDIA gpu; run it using terminal using these commands:
-```__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia brave-browser```
-or
-```__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia google-chrome-stable```
-
+  `__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia brave-browser`
+  or
+  `__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia google-chrome-stable`
