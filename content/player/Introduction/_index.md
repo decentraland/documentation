@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
-weight: 4
-title: DAO
+weight: 1
+title: Introduction
 ---

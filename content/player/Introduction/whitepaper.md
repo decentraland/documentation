@@ -9,7 +9,7 @@ categories:
   - Decentraland
 type: Document
 url: /player/general/whitepaper
-weight: 3
+weight: 2
 ---
 
 ## White Paper 2.0 (2024)
