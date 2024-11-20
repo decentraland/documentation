@@ -20,11 +20,11 @@ weight: 1
 
 - **What do I need to do to start using Decentraland?**
 
-  1. The first step is downloading the Decentraland app onto your computer. Go to the download page [here](https://decentraland.org/download?utm_org=dcl&utm_source=decentraland&utm_medium=organic&utm_campaign=evergreen&utm_term=generaldocs&utm_content=faq).
-  2. Once you’ve successfully installed and loaded Decentraland on your computer, you’ll be asked to log into your Decentraland account, a process that happens online, so you can expect a browser window to open.
-  3. Create and sign into your Decentraland account by connecting your Google or Discord account or another social profile or a digital wallet such as MetaMask or Coinbase. Check out a tutorial for [making an account with a social profile](https://www.youtube.com/watch?v=ylZrPisyPl4) or [with an external wallet like MetaMask](https://www.youtube.com/watch?v=w3CCVrVe1M4).
-  4. Once online verification is complete, open the Decentraland app window on your computer and click ‘Jump Into Decentraland’.
-  5. You’re in! From here you can click on the backpack icon to customize your avatar, run around exploring Decentraland’s community-built world, or attend an [event](https://decentraland.org/events?utm_org=dcl&utm_source=generaldocs&utm_medium=organic&utm_content=faq) and make some friends. Have fun!
+1. The first step is downloading the Decentraland app onto your computer. Go to the download page [here](https://decentraland.org/download?utm_org=dcl&utm_source=decentraland&utm_medium=organic&utm_campaign=evergreen&utm_term=generaldocs&utm_content=faq).
+2. Once you’ve successfully installed and loaded Decentraland on your computer, you’ll be asked to log into your Decentraland account, a process that happens online, so you can expect a browser window to open.
+3. Create and sign into your Decentraland account by connecting your Google or Discord account or another social profile or a digital wallet such as MetaMask or Coinbase. Check out a tutorial for [making an account with a social profile](https://www.youtube.com/watch?v=ylZrPisyPl4) or [with an external wallet like MetaMask](https://www.youtube.com/watch?v=w3CCVrVe1M4).
+4. Once online verification is complete, open the Decentraland app window on your computer and click ‘Jump Into Decentraland’.
+5. You’re in! From here you can click on the backpack icon to customize your avatar, run around exploring Decentraland’s community-built world, or attend an [event](https://decentraland.org/events?utm_org=dcl&utm_source=generaldocs&utm_medium=organic&utm_content=faq) and make some friends. Have fun!
 
 - **Do I need crypto or a digital wallet to use Decentraland?**
   No, you do not need to own crypto or already have a digital wallet to use Decentraland. Decentraland is free to use, and if you’d like to purchase something from the [Marketplace](https://market.decentraland.org/), you can use a credit/debit card in addition to cryptocurrency.
