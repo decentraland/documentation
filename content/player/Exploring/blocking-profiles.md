@@ -15,7 +15,7 @@ weight: 2
 
 If you block a player in Decentraland, you will no longer see their avatar in-world, and they will not be able to send you friend requests or messages. You will also not see each other’s messages in public or private chats.
 
-## How to Block a Profile
+## How to Block a Profile
 
 To block a player, open their profile card by clicking on their avatar and click on the three dots in the upper right corner above their avatar image, then select the option ‘Block’. You can also block someone within a chat by clicking on the three dots to the right of their name and selecting ‘Block’.
 

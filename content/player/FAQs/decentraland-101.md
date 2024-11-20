@@ -100,17 +100,25 @@ weight: 1
 
 - **What are Wearables?**
   Wearables are the digital assets you can mix and match to customize your avatar’s appearance. They range from articles of clothing, accessories, body parts, and whole skins.
-  ![wearables_banner (1).png](<https://prod-files-secure.s3.us-west-2.amazonaws.com/3a84e8a5-6051-4138-b9d6-c05e2a30c7f3/72d0d0b0-62f3-416c-9949-3b333f1e4ebc/wearables_banner_(1).png>)
-  A variety of free base Wearables are always available in your Backpack (click on the backpack icon on the left when you’re in-world to try them on!), and you can browse through thousands of community-made items in the [Marketplace](https://decentraland.org/marketplace/browse?section=wearables&vendor=decentraland&page=1&sortBy=newest&status=on_sale) to craft your unique look. Can’t find what you’re looking for? Consider [making your own](https://docs.decentraland.org/creator/wearables/creating-wearables/)!
+
+  ![](/images/media/player/wearables_banner.png)
+
+  A variety of free base Wearables are always available in your Backpack (click on the backpack icon on the left when you’re in-world to try them on!), and you can browse through thousands of community-made items in the [Marketplace](https://decentraland.org/marketplace/browse?section=wearables&vendor=decentraland&page=1&sortBy=newest&status=on_sale) to craft your unique look. Can’t find what you’re looking for? Consider [making your own]({{< ref "/content/creator/wearables-and-emotes/wearables/wearables-overview.md" >}}).
+
 - **What are Emotes?**
-  Emotes are animations that allow your avatar to express reactions, perform dance moves, or engage in activities such as yoga or painting. Just like Wearables, there are a set of free, base Emotes available to everyone, but you can also browse the [Marketplace](https://decentraland.org/marketplace/browse?assetType=item&section=emotes&vendor=decentraland&page=1&sortBy=recently_listed&status=on_sale) to find an even larger variety. Or [make your own](https://docs.decentraland.org/creator/emotes/creating-and-exporting-emotes/)!
-  ![emote_banner (1).png](<https://prod-files-secure.s3.us-west-2.amazonaws.com/3a84e8a5-6051-4138-b9d6-c05e2a30c7f3/51197d43-9787-4adb-84db-280c546302c4/emote_banner_(1).png>)
+  Emotes are animations that allow your avatar to express reactions, perform dance moves, or engage in activities such as yoga or painting. Just like Wearables, there are a set of free, base Emotes available to everyone, but you can also browse the [Marketplace](https://decentraland.org/marketplace/browse?assetType=item&section=emotes&vendor=decentraland&page=1&sortBy=recently_listed&status=on_sale) to find an even larger variety. Or [make your own]({{< ref "/content/creator/wearables-and-emotes/emotes/emotes-overview.md" >}})
+
+  ![](/images/media/player/emotes_banner.png)
+
   To use Emotes in Decentraland, you’ll want to become familiar with the Emote Wheel pictured below. This shows a set of the 10 Emotes you are most likely to use (you can customize these Emote slots from your Backpack).
   To trigger an Emote, you have 3 options:
+
   - **Beginner:** Click on the icon of a dancing person in the bottom left of your screen to open the Emote Wheel and click on the Emote you want to use
   - **Intermediate:** Press **B** on your keyboard to open the Emote Wheel and click on the Emote you want to use
   - **Pro:** Use the shortcut **B** + the number of the Emote you want to use (e.g. **B1**) on your keyboard to trigger an Emote without opening the Emote Wheel
-    ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/3a84e8a5-6051-4138-b9d6-c05e2a30c7f3/50d21aed-db8e-47bc-be22-00f398d32b30/image.png)
+
+  ![](/images/media/player/emote-wheel.png)
+
 - **What is a NAME?**
   A Decentraland NAME is like an official username for your avatar, owned by you on the blockchain. When you see other avatars with a name that doesn’t have something like ‘#1234’ at the end, it’s because they have equipped a NAME to their avatar.
   Having a Decentraland NAME comes with a few extra perks: in addition to making your avatar uniquely recognizable, each NAME comes with a World—your personal virtual space to experiment with builds or host your own get-togethers. Each NAME you own also gives you 100 VP (Voting Power) to use in [DAO governance](https://dao.decentraland.org/). Decentraland NAMEs are also part of the ENS network, so you could use your NAME across Web3.
@@ -120,12 +128,12 @@ weight: 1
   [**MANA**](https://etherscan.io/token/decentraland) is Decentraland’s fungible, ERC20 cryptocurrency token. MANA can be used to purchase LAND parcels, NAMEs, and other digital assets or can be traded for various goods and services within the Decentraland ecosystem. For a current summary of critical stats like total and circulating supply, please visit the [**MANA Token Information**](https://governance.decentraland.org/transparency/) transparency dashboard.
 - **What is LAND?**
   LAND is a non-fungible digital asset maintained in an Ethereum smart contract. LAND parcels, make up the map of Decentraland’s Genesis City and are referenced using unique x,y coordinates. Each LAND token includes a record of its coordinates, its owner, and a reference to a content description file or parcel manifest that describes and encodes the content the owner wishes to serve on their LAND.
-  One parcel of LAND is 16m x 16m, or 52ft x 52ft. Height is restricted based on [**these limitations**](https://docs.decentraland.org/creator/development-guide/sdk7/scene-limitations/) .
+  One parcel of LAND is 16m x 16m, or 52ft x 52ft. Height is restricted based on [**these limitations**]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
 - **What is an Estate?**
   Like LAND, an Estate is a non-fungible digital asset. An Estate is an association of two or more directly adjacent parcels of LAND. These parcels must be directly adjacent and cannot be separated by a road, plaza or any other parcel. By connecting parcels to form Estates, you can more easily manage your larger LAND holdings. Estates are especially useful when building larger scenes that span more than one parcel.
 - **What are Worlds?**
   Worlds are your personal 3D space in the metaverse. The exist separately from the open-world map of Decentraland's Genesis City and are perfect for those looking to experiment with 3D creation or host their own virtual space.
-  Getting your own World is easy: when you [**claim a Decentraland NAME**](https://decentraland.org/marketplace/names/claim) you not only get a unique username that can be used across Web3, but also 100 [**Voting Power**](https://docs.decentraland.org/player/general/dao/dao-userguide/#voting-power) (used in [**Decentraland governance**](https://docs.decentraland.org/player/general/dao/overview/what-is-the-dao/)), and of course your own World to use as you wish. Learn more [**here**](https://decentraland.org/blog/about-decentraland/decentraland-worlds-your-own-virtual-space).
+  Getting your own World is easy: when you [**claim a Decentraland NAME**](https://decentraland.org/marketplace/names/claim) you not only get a unique username that can be used across Web3, but also 100 [**Voting Power**]({{< ref "/content/player/dao/dao-userguide.md#voting-power" >}}) (used in [**Decentraland governance**]({{< ref "/content/player/dao/overview/what-is-the-dao.md" >}})), and of course your own World to use as you wish. Learn more [**here**](https://decentraland.org/blog/about-decentraland/decentraland-worlds-your-own-virtual-space).
 - **What is a wallet address?**
   In Decentraland users truly own their digital assets, such as Wearables or NAMEs, with ownership registered on the blockchain. To enable this, every Decentraland account is linked to a unique digital wallet. If you created your Decentraland account by signing into a social profile such as Google or Discord, a digital wallet was made for your account behind the scenes.
   A wallet address is a unique string of characters associated with a digital wallet, similar to a bank account number. With it, others can send you items, such as Wearables. You can find the wallet address associated with your account under your name when you view your profile online or in-world.
