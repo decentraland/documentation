@@ -115,15 +115,15 @@ MeshRenderer.setBox(meshEntity)
 //Create material and configure its fields
 Material.setPbrMaterial(meshEntity, {
 	texture: Material.Texture.Common({
-		src: 'materials/wood.png',
+		src: 'assets/materials/wood.png',
 	}),
 })
 ```
 
-In the example above, the image for the material is located in a `materials` folder, which is located at root level of the scene project folder.
+In the example above, the image for the material is located in a `assets/materials` folder, which is located at root level of the scene project folder.
 
 {{< hint info >}}
-**💡 Tip**: We recommend keeping your texture image files separate in a `/materials` folder inside your scene.
+**💡 Tip**: We recommend keeping your texture image files somewhere in the `/assets` folder inside your scene.
 {{< /hint >}}
 
 While creating a texture, you can also pass additional parameters:
@@ -134,7 +134,7 @@ While creating a texture, you can also pass additional parameters:
 ```ts
 Material.setPbrMaterial(myEntity, {
 	texture: Material.Texture.Common({
-		src: 'materials/wood.png',
+		src: 'assets/materials/wood.png',
 		filterMode: TextureFilterMode.TFM_BILINEAR,
 		wrapMode: TextureWrapMode.TWM_CLAMP,
 	}),
@@ -146,7 +146,7 @@ To create a texture that is not affected by light and shadows in the environment
 ```ts
 Material.setBasicMaterial(myEntity, {
 	texture: Material.Texture.Common({
-		src: 'materials/wood.png',
+		src: 'assets/materials/wood.png',
 	}),
 })
 ```
@@ -165,21 +165,6 @@ Material.setBasicMaterial(myEntity, {
 
 The URL must start with `https`, `http` URLs aren't supported. The site where the image is hosted should also have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it.
 
-### Multi-layered textures
-
-You can use several image files as layers to compose more realistic textures, for example including a `bumpTexture` and a `emissiveTexture`.
-
-```ts
-Material.setPbrMaterial(myEntity, {
-	texture: Material.Texture.Common({
-		src: 'materials/wood.png',
-	}),
-	bumpTexture: Material.Texture.Common({
-		src: 'materials/woodBump.png',
-	}),
-})
-```
-
 ### Texture wrapping
 
 You can set how a texture aligns with a surface. By default, the texture is stretched to occupy the surface once, but you can scale it, and offset it.
@@ -197,7 +182,7 @@ The following fields are available on all textures:
 ```ts
 Material.setPbrMaterial(myEntity, {
 	texture: Material.Texture.Common({
-		src: 'materials/wood.png',
+		src: 'assets/materials/wood.png',
 		wrapMode: TextureWrapMode.TWM_REPEAT,
 		offset: Vector2.create(0, 0.2),
 		tiling: Vector2.create(1, 1),
@@ -205,7 +190,21 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-<!-- TODO: screenshot -->
+You can use this feature to cover a large surface with a tiled patter. For example, you can use the following image and tile it:
+
+<img src="/images/editor/tiles.png" width="200" />
+
+```ts
+Material.setPbrMaterial(myEntity, {
+	texture: Material.Texture.Common({
+		src: 'assets/materials/wood.png',
+		wrapMode: TextureWrapMode.TWM_REPEAT,
+		tiling: Vector2.create(8, 8),
+	}),
+})
+```
+
+<img src="/images/editor/tiles-in-scene.png" width="500" />
 
 In the example below, the texture uses a _mirror_ wrap mode, and each repetition of the texture takes only 1/4 of the surface. This means that we'll see 4 copies of the image, mirrored against each other on both axis.
 
@@ -219,7 +218,29 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-<!-- TODO: screenshot -->
+### Multi-layered textures
+
+You can use several image files as layers to compose more realistic textures, for example including a `bumpTexture` and a `emissiveTexture`.
+
+```ts
+Material.setPbrMaterial(myEntity, {
+	texture: Material.Texture.Common({
+		src: 'materials/wood.png',
+	}),
+	bumpTexture: Material.Texture.Common({
+		src: 'materials/woodBump.png',
+	}),
+	emissiveTexture: Material.Texture.Common({
+		src: 'materials/glow.png',
+	}),
+})
+```
+
+The `bumpTexture` can simulate bumps and wrinkles on a surface, by modifying how the normals of the surface behave on each pixel.
+
+<img src="/images/editor/wood-bump.png" width="500" />
+
+The `emissiveTexture` can accentuate glow on certain parts of a material, to achieve very interesting effects.
 
 #### Set UVs
 
@@ -385,15 +406,20 @@ Material.setPbrMaterial(meshEntity, {
 })
 ```
 
-To make a material with a texture only transparent in regions of the texture:
+If a material uses a .png texture that includes transparency, it will be opaque by default, but you can activate its transparency by setting the `transparencyMode` to `MaterialTransparencyMode.MTM_ALPHA_BLEND`.
 
-- Set an image in `alphaTexture`.
+<img src="/images/editor/transparent-image.png" width="500" />
 
-  > Note: This must be a single-channel image. In this image use the color red to determine what parts of the real texture should be transparent.
+```typescript
+Material.setPbrMaterial(floor, {
+	texture: Material.Texture.Common({
+		src: 'assets/scene/transparent-image.png',
+	}),
+	transparencyMode: MaterialTransparencyMode.MTM_ALPHA_BLEND,
+})
+```
 
-- Optionally set the texture normally, and set the `transparencyMode` to field.
-
-The `transparencyMode` takes its value from the `MaterialTransparencyMode` enum, that can have the following values:
+The `transparencyMode` can have the following values:
 
 - `MaterialTransparencyMode.MTM_OPAQUE`: No transparency at all
 - `MaterialTransparencyMode.MTM_ALPHA_TEST`: Each pixel is either completely opaque or completely transparent, based on a threshold.
@@ -414,15 +440,30 @@ Material.setPbrMaterial(meshEntity1, {
 	transparencyMode: MaterialTransparencyMode.MTM_ALPHA_TEST,
 	alphaTest: 1,
 })
+```
 
-// Using a alpha blend
+When using an [unlit material](#unlit-materials), you can add an `alphaTexture` to make only certain regions of the material transparent, based on a texture.
+
+{{< hint warning >}}
+**📔 Note**: This must be a single-channel image. In this image use the color red or black to determine what parts of the real texture should be transparent.
+{{< /hint >}}
+
+<img src="/images/circular-video-screen.png" width="500" />
+
+```ts
+// Using alpha test
 Material.setPbrMaterial(meshEntity1, {
 	texture: Material.Texture.Common({
 		src: 'images/myTexture.png',
 	}),
-	transparencyMode: MaterialTransparencyMode.MTM_ALPHA_BLEND,
+	alphaTexture: Material.Texture.Common({
+		src: 'assets/scene/circle_mask.png',
+		wrapMode: TextureWrapMode.TWM_MIRROR,
+	}),
 })
 ```
+
+This can be used in very interesting ways together with videos. See [video playing]({{< ref "/content/creator/sdk7/media/video-playing.md" >}}).
 
 <!--
 ## Casting no shadows
