@@ -9,11 +9,19 @@ url: /creator/editor/editor-plus-code
 weight: 7
 ---
 
+{{< youtube 55H37rygD7M >}}
+
 The Creator Hub plus custom code is a very powerful combination for creating content. You can use the canvas to visually position items intuitively, and then write code that interacts with these items with complete freedom. You can even place a smart item, that has its own default behavior, and write code that reacts to when the item is activated.
 
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
-Click the **< > CODE** button to open Visual Studio Code on your scene project.
+{{< hint warning >}}
+**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+{{< /hint >}}
+
+## Open a scene's code
+
+Once you installed VS Studio Code on your machine, you can click the **< > CODE** button to open Visual Studio Code on your scene project.
 
 <img src="/images/editor/code-button.png" width="200"/>
 
@@ -21,11 +29,9 @@ This opens a separate window with Visual Studio Code. On the left margin you can
 
 <img src="/images/editor/files-on-vs-studio.png" alt="Scene name" width="200"/>
 
-{{< youtube J_EO1LZkaiA >}}
+Add your custom code in the `index.ts` file under `/src`, inside the `main()` function. You can otherwise add custom code outside that function or create new `.ts` files inside the `/src` folder, but these must be somehow referenced inside the `main()` function of `index.ts`.
 
-{{< hint warning >}}
-**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
-{{< /hint >}}
+If you have a preview window open running your scene, whenever you change the code in your files and save, the scene reloads automatically with your changes.
 
 ## Reference an item
 
@@ -164,7 +170,6 @@ function main() {
 	const button = engine.getEntityOrNullByName('Red Button')
 	const door = engine.getEntityOrNullByName('Wooden Door')
 	if (button && door) {
-
 		// references to actions and triggers
 		const buttonTriggers = getTriggerEvents(button)
 		const doorActions = getActionEvents(door)
@@ -172,12 +177,11 @@ function main() {
 		// detect triggers on button
 		buttonTriggers.on(TriggerType.ON_INPUT_ACTION, () => {
 			// open door
-			doorActions.emit("Open", {})
+			doorActions.emit('Open', {})
 		})
 	}
 }
 ```
-
 
 {{< hint info >}}
 **💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).

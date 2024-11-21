@@ -37,7 +37,7 @@ You can also add `debugger` commands or use the `sources` tab in the developer t
 
 <!-- Once you deploy the scene, you won't be able to see the messages printed to console when you visit the scene in-world. If you need to check these messages on the deployed scene, you can turn the scene's console messages back on adding the following parameter to the URL:
 
-`DEBUG_SCENE_LOG`. -->
+`DEBUG_SCENE_LOG`.
 
 ## Add breakpoints in the VS Code Extension
 
@@ -52,6 +52,7 @@ Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/conten
 3. Click on `Run and Debug` and select `Decentraland` (this step is not necessary if your project already has a `.vscode/launch.json` file).
 4. Click on `Run`. A browser should open.
 5. Try setting a breakpoint and interacting with the scene in a way it will step on that line.
+-->
 
 ## View scene stats
 
