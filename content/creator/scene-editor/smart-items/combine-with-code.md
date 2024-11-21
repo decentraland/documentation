@@ -92,6 +92,7 @@ For example, if a scene has a button with the following generic **On Click** eve
 <img src="/images/editor/restart-button.png" width="600" />
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
@@ -114,6 +115,7 @@ You can also use custom code to activate trigger events based on your own custom
 <img src="/images/editor/door-triggers.png" width="600" />
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
@@ -137,6 +139,7 @@ For example, if a scene has a door with the following default **Open** action, y
 <img src="/images/editor/door-actions.png" width="600" />
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
@@ -163,6 +166,7 @@ function main() {
 You can also emit action events from your code, this allows you to take advantage of actions that are already defined inside the smart item's Action component. The following snippet calls the "Open" action on a door smart item whenever a button smart item is triggered.
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
