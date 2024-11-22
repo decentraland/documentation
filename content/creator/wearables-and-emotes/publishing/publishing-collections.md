@@ -104,11 +104,15 @@ When a user makes a primary purchase of one of your items, the store **mints th
 
 To sell your items via primary sales, begin by navigating to the **[Builder](https://builder.decentraland.org/)** and follow the next steps:
 
-To enable Primary Sales, go to the **Collections** tab, select the one you want to enable and toggle the **_On Sale_** button, after that click **Turn On** in the confirmation window that appears. **When this switch is enabled, your collection will be available to purchase within the Decentraland store.**
+To enable Primary Sales, go to the **Collections** tab, select the one you want to enable and click the **_Enable sales_** button, after that click **Enable Sales** in the confirmation window that appears. 
 
-<img src="/images/wearables-and-emotes/publishing-collections/selling-items-toggle.png" width="600" />
+<img src="/images/wearables-and-emotes/uploading-wearables/25_enable_sales.png" width="600" />
 
-If the switch is turned on, the Decentraland store will automatically mint one of your items whenever a user makes a primary purchase. This allows you to mint and sell all of your available items until the maximum supply is reached. If you want to save one or more of your items before listing them for sale, you need to manually mint an item to one of your own wallet addresses.
+Now you need to set the price and put each of your items for sale by clicking their **Put up for sale** button and set the price you want it to have. **When this is done, your item will be available to purchase within the Decentraland store.**
+
+<img src="/images/wearables-and-emotes/uploading-wearables/put_item_for_sale.png" width="600" />
+
+If the collection sales are enabled and the items price set, the Decentraland store will automatically mint one of your items whenever a user makes a primary purchase. This allows you to mint and sell all of your available items until the maximum supply is reached. If you want to save one or more of your items before listing them for sale, you need to manually mint an item to one of your own wallet addresses.
 
 Any purchaser of one of your items is able to resell it at any time and at any price in Decentraland's [Marketplace](https://market.decentraland.org/).
 
@@ -118,7 +122,7 @@ If you sell an item through a primary sale, you will receive your MANA on Polygo
 
 ### **Disabling Primary Sales**
 
-To unlist your items, untoggle the **On Sale** switch to turn it off. This will only apply to primary sales for your items.
+To unlist your items, click the **Remove from sale** button from the items you want to remove. This will only apply to primary sales for your items.
 
 ## **Secondary Sales**
 

@@ -81,7 +81,12 @@ After that uploading your wearables you will end up with a screen like this, tha
 
 ## **Setting the Price of Your Wearables**
 
-You can set the price of your wearable by clicking on **_Set Price_**. This can all be edited anytime, so don’t worry if you want to change it later on. Prices are set in MANA. Remember that when you mint wearables, they are minted directly on Matic/Polygon. When a user purchases your item, the transaction will be conducted in Matic/Polygon MANA.
+Once you publish your collection and it gets approved, you can then enable the sales on your collection. 
+
+<img src="/images/wearables-and-emotes/uploading-wearables/25_enable_sales.png" width="400"/>
+
+
+You can set the price of your wearable by clicking on **_Put up for sale_**. This can all be edited anytime, so don’t worry if you want to change it later on. Prices are set in MANA. Remember that when you mint wearables, they are minted directly on Matic/Polygon. When a user purchases your item, the transaction will be conducted in Matic/Polygon MANA.
 
 You could also **_Make it Free_**, which means that the price will be set as 0 MANA and the beneficiary address will be null. Know that making it free (primary sale) does not prevent it from being sold at any price as a secondary sale.
 
@@ -89,7 +94,7 @@ Don’t forget to set the beneficiary address, which is the one that will receiv
 
 <img src="/images/wearables-and-emotes/uploading-wearables/12_set_price.png" width="400"/>
 
-Save the price and you will be back to the list of wearables in your collection. When you click on the item, you will get its general info. Click on the button **_Preview_** to see it on the editor.
+Put the item up for sale and you will be back to the list of wearables in your collection. When you click on the item, you will get its general info. Click on the button **_Preview_** to see it on the editor.
 
 <img src="/images/wearables-and-emotes/uploading-wearables/13_click_item.png" width="900"/>
 
