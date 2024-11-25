@@ -75,7 +75,7 @@ url: /player
 <div class="dcl section medium">
   <p>Find help about the various topics in each of these sections</p>
   <div class="section-cards-container">
-    <a href="/player/introduction/about-decentraland/">
+    <a href="/player/introduction/">
       <div class="section-card" style="background: linear-gradient(212.97deg, rgb(235, 73, 90) 0%, rgb(212, 83, 223) 100%);">
         <img class="section-card-img" src="https://cdn.decentraland.org/@dcl/docs-site/1.0.0-3144676401.commit-a407e4c/player-world.png">
         <div class="section-card-info">
