@@ -108,11 +108,11 @@ To enable Primary Sales, go to the **Collections** tab, select the one you want 
 
 <img src="/images/wearables-and-emotes/uploading-wearables/25_enable_sales.png" width="600" />
 
-Now you need to set the price and put each of your items for sale by clicking their **Put up for sale** button and set the price you want it to have. **When this is done, your item will be available to purchase within the Decentraland store.**
+Now you need to set the price and put each of your items for sale by clicking their **Put up for sale** button and set the price you want it to have. **When this is done, your item will be available to purchase within the Decentraland [Marketplace](https://market.decentraland.org/).**
 
-<img src="/images/wearables-and-emotes/uploading-wearables/put_item_for_sale.png" width="600" />
+<img src="/images/wearables-and-emotes/publishing-collections/put_item_for_sale.png" width="600" />
 
-If the collection sales are enabled and the items price set, the Decentraland store will automatically mint one of your items whenever a user makes a primary purchase. This allows you to mint and sell all of your available items until the maximum supply is reached. If you want to save one or more of your items before listing them for sale, you need to manually mint an item to one of your own wallet addresses.
+If the collection sales are enabled and the items price set, the Decentraland [Marketplace](https://market.decentraland.org/) will automatically mint one of your items whenever a user makes a primary purchase. This allows you to mint and sell all of your available items until the maximum supply is reached. If you want to save one or more of your items before listing them for sale, you need to manually mint an item to one of your own wallet addresses.
 
 Any purchaser of one of your items is able to resell it at any time and at any price in Decentraland's [Marketplace](https://market.decentraland.org/).
 
