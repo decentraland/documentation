@@ -5,7 +5,7 @@ description: Places
 categories:
   - Decentraland
 type: Document
-url: /player/FAQs/seplacescurity
+url: /player/FAQs/places
 weight: 5
 ---
 
