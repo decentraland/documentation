@@ -18,13 +18,10 @@ You can freeze the player so that none of the input keys can move the avatar. Th
 Use the `InputModifier` component on the `engine.PlayerEntity` to prevent the player's inputs from affecting the avatar's locomotion. The avatar will remain still, the player will only be able to rotate the camera.
 
 ```ts
-InputModifier.createOrReplace(engine.PlayerEntity, {
-	mode: {
-		$case: 'standard',
-		standard: {
-			disableAll: disableAll,
-		},
-	},
+InputModifier.create(playerEntity, {
+	mode: InputModifier.Mode.Standard({
+		disableAll: true,
+	}),
 })
 ```
 
@@ -46,6 +43,23 @@ Instead of entirely freezing the player, you can restrict certain specific forms
 - `disableJump`: Player can't jump.
 - `disableEmote`: Player can't perform emotes voluntarily. The scene is able to trigger animations on the player's avatar.
 - `disableAll`: The player can't perform any of the above actions.
+
+```ts
+InputModifier.create(playerEntity, {
+	mode: InputModifier.Mode.Standard({
+		disableAll: false,
+		disableWalk: false,
+		disableRun: true,
+		disableJog: true,
+		disableJump: true,
+		disableEmote: true,
+	}),
+})
+```
+
+## Advanced syntax
+
+To use the component without any helpers, you can use the following syntax:
 
 ```ts
 InputModifier.createOrReplace(engine.PlayerEntity, {

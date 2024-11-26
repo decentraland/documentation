@@ -22,11 +22,11 @@ If you have a more complex model, such as a person, creature or machinery, then 
 
 For either method, though, all animations of a 3D model must be embedded inside its _glTF_ file since you can’t reference animations in separate files.
 
-### **Creating An Animation**
+## Creating An Animation
 
 This is how you create animations using Blender.
 
-**Object Animation**
+### Object Animation
 
 - Make sure you have the **_Dope Sheet_** > **_Action Editor_** tab open and click on **_New_** to add an animation clip.
 - Rename it as you see fit and make sure to  toggle **_Fake User_** (the shield icon) so your animation is saved.
@@ -37,7 +37,7 @@ This is how you create animations using Blender.
 
 _Creating an animation clip and adding keyframes._
 
-**Rig Animation**
+### Rig Animation
 
 For a rig animation, you’ll need an armature. If you want to do it yourself, see [Create a Rig](https://www.notion.so/686e6f59a1604585b059f990a36b2d55) for instructions on how to set up a consistent armature.
 
@@ -55,7 +55,7 @@ If you’re new to the animation process, check out this tutorial with some nice
 
 [![Video Preview](https://img.youtube.com/vi/-iWslh4uQIk/maxresdefault.jpg)](https://youtu.be/-iWslh4uQIk)
 
-### Skinned Animations vs Transform Animations
+## Skinned Animations vs Transform Animations
 
 **Transform animations are typically better than skinned mesh animations for performance because they involve less overhead in terms of computational resources required to display the animation.**
 
@@ -67,7 +67,7 @@ Additionally, transform animations can often be pre-calculated and stored in a m
 
 Overall, while skinned mesh animation can produce more detailed and realistic animations, transform animations are often preferred for performance-critical applications such as video games.
 
-### Creating and Exporting Multiple Animation Clips
+## Creating and Exporting Multiple Animation Clips
 
 You can have as many animations clips as you want for you model. You can check on how to create, browse and delete animations in [this section here](https://www.notion.so/5e962e5d54a24bcb9b906748007eb4cc).
 
@@ -75,7 +75,7 @@ In the video below, you will learn how to export multiple animations from Blende
 
 [![Video Preview](https://img.youtube.com/vi/YxAB4bujO_w/maxresdefault.jpg)](https://www.youtube.com/watch?v=YxAB4bujO_w&ab_channel=Decentraland)
 
-### Exporting Many Animations as a Single One
+## Exporting Many Animations as a Single One
 
 Unlike in a skeletal animation, where you can rig multiple objects and combine their animations in a single animation clip, in object animation you can’t do that. The animations will be exported separately and only one object will play at a time. A solution for that is merging many animations into a single one, so you have an animation clip that has all objects moving at the same time.
 
@@ -93,14 +93,11 @@ _Settings to export multiple animations as a single one._
 
 Keep in mind that this will only work if the objects have a single animation each. If the objects have multiple animation clips, it’s best to export them separately.
 
-### **Hint!**
-
-{{< hint warning >}}
-💡 _Instead of creating your own animations, you can also download generic animations and apply them to your model. For example, for 3D characters with human-like characteristics, you can download free or paid animations from [Mixamo](https://www.mixamo.com/#/)._
-
+{{< hint info >}}
+**💡 Tip**: Instead of creating your own animations, you can also download generic animations and apply them to your model. For example, for 3D characters with human-like characteristics, you can download free or paid animations from [Mixamo](https://www.mixamo.com/#/).
 {{< /hint >}}
 
-### Sampling
+## Sampling
 
 Sometimes your animation file might end up being too heavy due to the amount of animations or the combination of animation+model.
 
@@ -114,18 +111,16 @@ You can find the **_Sampling Rate_** in the export settings, under **_Animation_
 
 <img src="/images/3d-models-and-animations/animations/05_sampling_rate.png" width="600"/>
 
-### Hint!
-
-{{< hint warning >}}
-💡 _If the number of frames of the animation can be divided by the sampling rate, that’s a good thing! It means that the final frame will be baked, preserving the transition from end to start of the animation._
+{{< hint info >}}
+**💡 Tip**: If the number of frames of the animation can be divided by the sampling rate, that’s a good thing! It means that the final frame will be baked, preserving the transition from end to start of the animation.
 {{< /hint >}}
 
-### Implementing Animations
+## Implementing Animations
 
 This document covers how to add animations into a 3D model. See **[handle animations](https://docs.decentraland.org/creator/development-guide/3d-model-animations/)**
  for instructions on how to activate and handle animations in a scene.
 
-### Best Practices for Animation
+## Best Practices for Animations
 
 - Keep the armature as simple as possible, only create bones for the parts of the model that you intend to animate. Bones can affect performance, so make sure to only add what’s actually necessary.
 - If the animation is going to loop in your scene, make sure the final pose is identical to the starting one for better transition.

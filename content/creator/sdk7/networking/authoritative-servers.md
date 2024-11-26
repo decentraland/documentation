@@ -17,7 +17,7 @@ Allowing all players to see a scene as having the same content in the same state
 - **Send Explicit MessageBus Messages**: Manually send and listen for specific messages. See [Send explicit MessageBus messages]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages" >}})
 - **Use a Server**: This document deals with this option. This option is more work to set up, but is recommendable if there are incentives to exploit your scene.
 
-## Types of servers
+## Types of servers
 
 A server may have different levels of involvement with the scene:
 

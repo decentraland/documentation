@@ -9,7 +9,7 @@ url: /creator/editor/scene-settings
 weight: 7
 ---
 
-Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series of scene-level properties to edit.
+Click the **Pencil icon** on the top-right of the screen. This opens a series of scene-level properties to edit.
 
 <img src="/images/editor/pencil-icon.png" alt="Scene name" width="64"/>
 

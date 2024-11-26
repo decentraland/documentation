@@ -9,11 +9,19 @@ url: /creator/editor/editor-plus-code
 weight: 7
 ---
 
+{{< youtube 55H37rygD7M >}}
+
 The Creator Hub plus custom code is a very powerful combination for creating content. You can use the canvas to visually position items intuitively, and then write code that interacts with these items with complete freedom. You can even place a smart item, that has its own default behavior, and write code that reacts to when the item is activated.
 
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
-Click the **< > CODE** button to open Visual Studio Code on your scene project.
+{{< hint warning >}}
+**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+{{< /hint >}}
+
+## Open a scene's code
+
+Once you installed VS Studio Code on your machine, you can click the **< > CODE** button to open Visual Studio Code on your scene project.
 
 <img src="/images/editor/code-button.png" width="200"/>
 
@@ -21,11 +29,9 @@ This opens a separate window with Visual Studio Code. On the left margin you can
 
 <img src="/images/editor/files-on-vs-studio.png" alt="Scene name" width="200"/>
 
-{{< youtube J_EO1LZkaiA >}}
+Add your custom code in the `index.ts` file under `/src`, inside the `main()` function. You can otherwise add custom code outside that function or create new `.ts` files inside the `/src` folder, but these must be somehow referenced inside the `main()` function of `index.ts`.
 
-{{< hint warning >}}
-**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
-{{< /hint >}}
+If you have a preview window open running your scene, whenever you change the code in your files and save, the scene reloads automatically with your changes.
 
 ## Reference an item
 
@@ -86,6 +92,7 @@ For example, if a scene has a button with the following generic **On Click** eve
 <img src="/images/editor/restart-button.png" width="600" />
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
@@ -108,6 +115,7 @@ You can also use custom code to activate trigger events based on your own custom
 <img src="/images/editor/door-triggers.png" width="600" />
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
@@ -126,11 +134,12 @@ You can detect the activation of a smart item's **Actions**, and respond to thes
 
 Use `getActionEvents` to fetch an object for handling the actions of a specific smart item. Then you can use the `.on()` function of the returned object to subscribe a callback function. This callback function gets executed every time that the action happens, regardless of if the action was activated by another smart item, or even by custom code of your own.
 
-For example, if a scene has a door with the following generic **Open** action, you can write the code below to run custom code whenever the door is opened.
+For example, if a scene has a door with the following default **Open** action, you can write the code below to run custom code whenever the door is opened.
 
 <img src="/images/editor/door-actions.png" width="600" />
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
@@ -154,8 +163,32 @@ function main() {
 }
 ```
 
+You can also emit action events from your code, this allows you to take advantage of actions that are already defined inside the smart item's Action component. The following snippet calls the "Open" action on a door smart item whenever a button smart item is triggered.
+
+```ts
+import { engine } from '@dcl/sdk/ecs'
+import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
+import { TriggerType } from '@dcl/asset-packs'
+
+function main() {
+	const button = engine.getEntityOrNullByName('Red Button')
+	const door = engine.getEntityOrNullByName('Wooden Door')
+	if (button && door) {
+		// references to actions and triggers
+		const buttonTriggers = getTriggerEvents(button)
+		const doorActions = getActionEvents(door)
+
+		// detect triggers on button
+		buttonTriggers.on(TriggerType.ON_INPUT_ACTION, () => {
+			// open door
+			doorActions.emit('Open', {})
+		})
+	}
+}
+```
+
 {{< hint info >}}
-**💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
+**💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
 {{< /hint >}}
 
 ## Version control

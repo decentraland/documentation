@@ -309,7 +309,7 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-## Unlit Materials
+## Unlit Materials
 
 Most of the times you'll want the materials in your scene to be affected by the lighting conditions, including shadows and being tinted by the hue changes of different times of day. But in other cases you might want to show the colors in their pure state. This is useful when playing videos, or also for abstract markers that need to stand out, that are meant for signalling hints to the player.
 
