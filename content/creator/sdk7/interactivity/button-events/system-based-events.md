@@ -313,7 +313,9 @@ The `PointerEvents` component requires at least one pointer event definition. Ea
 - `eventInfo`: An object that can contain the following fields:
 
   - `button` (_required_): Which input to listen for, as a value from the `InputAction` enum. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options.
-  - `hoverText` _(optional)_: What string to display in the UI.
+  - `hoverText` _(optional)_: What string to display in the hover feedback hint. "Interact" by default.
+  - `hideFeedback` _(optional)_: If true, it hides both the hover hint and the edge highlight for this entity. _false_ by default.
+  - `showHighlight` _(optional)_: If true, players will see the edge highlight when hovering the cursor on the entity. _true_ by default. This value is only considered if `hideFeedback` is _false_.
   - `maxDistance` _(optional)_: Only show feedback when the player is closer than a certain distance from the entity. Default is _10 meters_.
 
 A single `PointerEvents` component can hold multiple pointer events definitions, that can detect different events for different buttons. Each entity can only have _one_ `PointerEvents` component, but this component can include multiple objects in its `pointerEvents` array, one for each event to respond to.
@@ -382,11 +384,18 @@ engine.addSystem(() => {
 })
 ```
 
-### Hint messages
+### Hover Feedback
 
-When a player hovers the cursor over an item with an `PointerEvents` component, the cursor changes shape to hint to the player that the entity is interactive.
+When a player hovers the cursor over an item with an `PointerEvents` component, they see:
 
-You can also display a toast message in the UI that lets the player know what happens if they interact with the entity.
+- An edge highlight on the entity
+- A hover hint near the cursor with an icon for the button they need to press and a string that reads "Interact".
+
+These elements can be toggled and customized.
+
+The hover feedback on the UI displays a different icon depending on what input you select in the `button` field. On PC, it displays an icon with an `E` for `InputAction.IA_PRIMARY`, an `F` for `InputAction.IA_SECONDARY`, and a mouse for `InputAction.IA_POINTER`.
+
+Change the string by changing the `hoverText` value. Keep this string short, so that it's quick to read and isn't too intrusive on the screen.
 
 ```ts
 // create entity
@@ -437,6 +446,67 @@ PointerEvents.create(entity, {
 			eventInfo: {
 				button: InputAction.IA_POINTER,
 				hoverText: 'Drop',
+			},
+		},
+	],
+})
+```
+
+To hide the hover hint, but leave the edge highlight, set the value of the `hoverText` to "".
+
+```ts
+// create entity
+const chest = engine.addEntity()
+
+// give entity a PointerEvents component
+PointerEvents.create(chest, {
+	pointerEvents: [
+		{
+			eventType: PointerEventType.PET_DOWN,
+			eventInfo: {
+				button: InputAction.IA_POINTER,
+				hoverText: '',
+			},
+		},
+	],
+})
+```
+
+To hide the edge highlight but leave the hover hint, set `showHighlight` to _false_.
+
+```ts
+// create entity
+const chest = engine.addEntity()
+
+// give entity a PointerEvents component
+PointerEvents.create(chest, {
+	pointerEvents: [
+		{
+			eventType: PointerEventType.PET_DOWN,
+			eventInfo: {
+				button: InputAction.IA_POINTER,
+				hoverText: 'Open door',
+				showHighlight: false,
+			},
+		},
+	],
+})
+```
+
+To hide both the hover hint and the edge highlight, set the `hideFeedback` to an true. When doing this, the cursor doesn't show any icons, text or any edge highlight. You could also just remove the `PointerEvents` component from the entity.
+
+```ts
+// create entity
+const chest = engine.addEntity()
+
+// give entity a PointerEvents component
+PointerEvents.create(chest, {
+	pointerEvents: [
+		{
+			eventType: PointerEventType.PET_DOWN,
+			eventInfo: {
+				button: InputAction.IA_POINTER,
+				hideFeedback: true,
 			},
 		},
 	],

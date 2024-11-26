@@ -30,20 +30,21 @@ This statement requires two parameters:
   - `entity`: The entity to handle
   - `opts`: An object with optional additional data:
     - `button`: Which button to listen for. See [Pointer buttons]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md#pointer-buttons" >}}) for supported options. If no button is specified, then all buttons are listened to, including movement buttons like forward and jump.
-    - `hoverText`: What string to display in the hover feedback hint. "Interact" by default.
-    - `hideFeedback`: If true, it hides the hover hint for this entity.
     - `maxDistance`: How far away can the player be from the entity to be able to interact with this entity, in meters. If the player is too far, there will be no hover feedback and pointer events won't work.
+    - `hoverText`: What string to display in the hover feedback hint. "Interact" by default.
+    - `hideFeedback`: If true, it hides both the hover hint and the edge highlight for this entity. _false_ by default.
+    - `showHighlight`: If true, players will see the edge highlight when hovering the cursor on the entity. _true_ by default. This value is only considered if `hideFeedback` is _false_.
 - `cb`: A callback function to run each time a button down event occurs while pointing at the entity
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  {
-    entity: myEntity,
-    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
-  },
-  function () {
-    console.log('clicked entity')
-  }
+	{
+		entity: myEntity,
+		opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
+	},
+	function () {
+		console.log('clicked entity')
+	}
 )
 ```
 
@@ -54,9 +55,16 @@ The above command leaves the callback function registered, and will be called as
 Only one `pointerEventsSystem.onPointerDown` can be registered per entity. Once added, it will keep listening for events till the listener is removed. Do not run this recurrently within a system, as that would keep rewriting the pointer event behavior.
 {{< /hint >}}
 
-## Feedback
+## Hover Feedback
 
-It's very important to give players some kind of indication that an entity can be interacted with. When registering an input action with the `EventsSystem`, by default players will see a hover feedback with an icon for the button they need to press and a string that reads "Interact". You can customize this.
+It's very important to give players some kind of indication that an entity can be interacted with.
+
+When registering an input action with the `EventsSystem`, by default players will see:
+
+- An edge highlight on the entity
+- A hover hint near the cursor with an icon for the button they need to press and a string that reads "Interact".
+
+These elements can be toggled and customized.
 
 The hover feedback on the UI displays a different icon depending on what input you select in the `button` field. On PC, it displays an icon with an `E` for `InputAction.IA_PRIMARY`, an `F` for `InputAction.IA_SECONDARY`, and a mouse for `InputAction.IA_POINTER`.
 
@@ -64,17 +72,46 @@ Change the string by changing the `hoverText` value. Keep this string short, so 
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  {
-    entity: myEntity,
-    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Open door' },
-  },
+	{
+		entity: myEntity,
+		opts: { button: InputAction.IA_PRIMARY, hoverText: 'Open door' },
+	},
+	function () {
+		// open door
+	}
+)
+```
+
+To hide the hover hint, but leave the edge highlight, set the value of the `hoverText` to "".
+
+```ts
+pointerEventsSystem.onPointerDown(
+  {entity: myEntity, opts: { button: InputAction.IA_PRIMARY, hoverText: ''}},,
   function () {
-    // open door
+    console.log("clicked on surprise interactive item")
   }
 )
 ```
 
-To hide a hover feedback, set the `hideFeedback` to an true. When doing this, the cursor doesn't show any icons.
+To hide the edge highlight but leave the hover hint, set `showHighlight` to _false_.
+
+```ts
+pointerEventsSystem.onPointerDown(
+	{
+		entity: myEntity,
+		opts: {
+			button: InputAction.IA_PRIMARY,
+			hoverText: 'Open door',
+			showHighlight: false,
+		},
+	},
+	function () {
+		console.log('opened secret door')
+	}
+)
+```
+
+To hide both the hover hint and the edge highlight, set the `hideFeedback` to an true. When doing this, the cursor doesn't show any icons, text or any edge highlight.
 
 ```ts
 pointerEventsSystem.onPointerDown(
@@ -101,13 +138,13 @@ Use `pointerEventsSystem.onPointerUp` to register a callback function that gets 
 
 ```ts
 pointerEventsSystem.onPointerUp(
-  {
-    entity: myEntity,
-    opts: { button: InputAction.IA_PRIMARY, hoverText: 'Button up' },
-  },
-  function () {
-    console.log('button up')
-  }
+	{
+		entity: myEntity,
+		opts: { button: InputAction.IA_PRIMARY, hoverText: 'Button up' },
+	},
+	function () {
+		console.log('button up')
+	}
 )
 ```
 
@@ -148,10 +185,10 @@ To fetch this data, pass a parameter to the callback function. This parameter co
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  { entity: myEntity, opts: { button: InputAction.IA_PRIMARY } },
-  function (cmd) {
-    console.log(cmd.hit.entityId)
-  }
+	{ entity: myEntity, opts: { button: InputAction.IA_PRIMARY } },
+	function (cmd) {
+		console.log(cmd.hit.entityId)
+	}
 )
 ```
 
@@ -196,15 +233,15 @@ In the example below we have a house model that includes a mesh named `firePlace
 
 ```ts
 pointerEventsSystem.onPointerDown(
-  {
-    entity: myEntity,
-    opts: { button: InputAction.IA_PRIMARY, hideFeedback: true },
-  },
-  function (cmd) {
-    if (cmd.hit.meshName === 'firePlace') {
-      // light fire
-    }
-  }
+	{
+		entity: myEntity,
+		opts: { button: InputAction.IA_PRIMARY, hideFeedback: true },
+	},
+	function (cmd) {
+		if (cmd.hit.meshName === 'firePlace') {
+			// light fire
+		}
+	}
 )
 ```
 -->
