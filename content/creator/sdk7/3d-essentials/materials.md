@@ -218,6 +218,123 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
+### Texture tweens
+
+Make a texture slide smoothly by using a `Tween`, with the `TextureMove` mode. The tween gradually changes the value of the `offset` or the `tiling` properties of a texture in a smooth and optimized way.
+
+The new `TextureMove` option on the `Tween` component has the following fields:
+
+- `TextureMovementType`: _(optional)_, defines if the movement will be on the `offset` or the `tiling` field. By default it uses `offset`.
+- `start`: _Vector2_ the initial value of the offset or tiling
+- `end`: _Vector2_ the final value of the offset or tiling
+- `duration`: _number_ how long the transition takes, in milliseconds
+- `easingFunction`: How the curve of movement over time changes, the default value is `EasingFunction.EF_LINEAR`
+
+```ts
+const myEntity = engine.addEntity()
+
+MeshRenderer.setPlane(myEntity)
+
+Transform.create(myEntity, {
+	position: Vector3.create(4, 1, 4),
+})
+
+Material.setPbrMaterial(myEntity, {
+	texture: Material.Texture.Common({
+		src: 'materials/water.png',
+		wrapMode: TextureWrapMode.TWM_REPEAT,
+	}),
+})
+
+Tween.create(myEntity, {
+	mode: Tween.Mode.TextureMove({
+		start: Vector2.create(0, 0),
+		end: Vector2.create(0, 1),
+	}),
+	duration: 1000,
+	easingFunction: EasingFunction.EF_LINEAR,
+})
+```
+
+The above example runs a tween that lasts 1 second, and moves the texture only once. To achieve a continuous movement, for example to simulate the falling of a cascade, you need to use a `TweenSequence` component.
+
+```ts
+const myEntity = engine.addEntity()
+
+MeshRenderer.setPlane(myEntity)
+
+Transform.create(myEntity, {
+	position: Vector3.create(4, 1, 4),
+})
+
+Material.setPbrMaterial(myEntity, {
+	texture: Material.Texture.Common({
+		src: 'materials/water.png',
+		wrapMode: TextureWrapMode.TWM_REPEAT,
+	}),
+})
+
+Tween.create(myEntity, {
+	mode: Tween.Mode.TextureMove({
+		start: Vector2.create(0, 0),
+		end: Vector2.create(0, 1),
+	}),
+	duration: 1000,
+	easingFunction: EasingFunction.EF_LINEAR,
+})
+
+TweenSequence.create(myEntity, { sequence: [], loop: TweenLoop.TL_RESTART })
+```
+
+The example above sets the `loop` mode to `TweenLoop.TL_RESTART`, which makes the same transition repeat continuously. You can also set the `loop`mode to `TweenLoop.TL_YOYO` to alternate back and forth in the opposite direction.
+
+#### Complex tween sequences
+
+You can also make the texture movements follow a complex sequence with as many steps as you want. Use the `sequence` field to list as many tweens as you want, they will be executed sequentially after the first tween described on the `Tween` component.
+
+```ts
+//(...)
+
+Tween.create(myEntity, {
+	mode: Tween.Mode.TextureMove({
+		start: Vector2.create(0, 0),
+		end: Vector2.create(0, 1),
+	}),
+	duration: 1000,
+	easingFunction: EasingFunction.EF_LINEAR,
+})
+
+TweenSequence.create(myEntity, {
+	sequence: [
+		{
+			mode: Tween.Mode.TextureMove({
+				start: Vector2.create(0, 1),
+				end: Vector2.create(1, 1),
+			}),
+			duration: 1000,
+			easingFunction: EasingFunction.EF_LINEAR,
+		},
+		{
+			mode: Tween.Mode.TextureMove({
+				start: Vector2.create(1, 1),
+				end: Vector2.create(1, 0),
+			}),
+			duration: 1000,
+			easingFunction: EasingFunction.EF_LINEAR,
+		},
+		{
+			mode: Tween.Mode.TextureMove({
+				start: Vector2.create(1, 0),
+				end: Vector2.create(0, 0),
+			}),
+			duration: 1000,
+			easingFunction: EasingFunction.EF_LINEAR,
+		},
+	],
+	loop: TweenLoop.TL_RESTART,
+})
+```
+
 ### Multi-layered textures
 
 You can use several image files as layers to compose more realistic textures, for example including a `bumpTexture` and a `emissiveTexture`.
