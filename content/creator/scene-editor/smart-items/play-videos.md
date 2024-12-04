@@ -31,7 +31,11 @@ You can configure the volume of the video's sounds. Note that the audio from the
 You can also configure the video to either loop or play once.
 
 {{< hint warning >}}
-**📔 Note**: Avoid playing more than one video at any given time in your scene, because it can severely impact performance for players. Always stop other videos before playing a second video.
+**📔 Note**: If too many videos are playing at the same time in your scene, some will be paused by the engine. The priority is determined based on proximity to the player, direction of the camera and size of the screen. The maximum amount of simultaneous videos depends on the player's quality settings.
+
+- Low: 1
+- Medium: 5
+- High: 10
 
 We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
 {{< /hint >}}
