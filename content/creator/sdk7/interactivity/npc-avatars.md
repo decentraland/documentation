@@ -80,26 +80,26 @@ Transform.create(myAvatar, {
 
 ## Copy wearables from player
 
-The following snippet creates an NPC avatar that uses the same wearables that the player currently has on. This could be used in a scene as a manequin, to show off a particular wearable or emote combined with the player's current outfit.
+The following snippet changes the wearables and other characteristics of an NPC avatar to match those that the player currently has on. This could be used in a scene as a manequin, to show off a particular wearable or emote combined with the player's current outfit.
 
 ```ts
 import { getPlayer } from '@dcl/sdk/src/players'
 
-export function main() {
-	let userData = getPlayer()
-	console.log(userData)
 
-	if (!userData || !userData.wearables) return
+export function swapAvatar(avatar: Entity) {
 
-	const myAvatar = engine.addEntity()
-	AvatarShape.create(myAvatar, {
-		id: 'Manequin',
-		emotes: [],
-		wearables: userData.wearables,
-	})
+  let userData = getPlayer()
+  console.log(userData)
 
-	Transform.create(myAvatar, {
-		position: Vector3.create(4, 0.25, 5),
-	})
+  if (!userData || !userData.wearables) return
+
+  const mutableAvatar = AvatarShape.getMutable(avatar)
+
+  mutableAvatar.wearables = userData.wearables
+  mutableAvatar.bodyShape = userData.avatar?.bodyShapeUrn
+  mutableAvatar.eyeColor = userData.avatar?.eyesColor
+  mutableAvatar.skinColor = userData.avatar?.skinColor
+  mutableAvatar.hairColor = userData.avatar?.hairColor
+  
 }
 ```

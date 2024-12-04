@@ -33,6 +33,10 @@ Add your custom code in the `index.ts` file under `/src`, inside the `main()` fu
 
 If you have a preview window open running your scene, whenever you change the code in your files and save, the scene reloads automatically with your changes.
 
+{{< hint warning >}}
+**📔 Note**: If you have VS Code installed but the **CODE** button doesn't open it, it may be that VS Code is not properly configured on your machine to open via the command line. In most cases, this is care of as part of the default installation, but in case it's not, see [these instructions from VS](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) to enable VS Code from the command line.
+{{< /hint >}}
+
 ## Reference an item
 
 When using the Scene Editor and adding entities by dragging them into the canvas, each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the scene's entity tree view in the Scene Editor.
