@@ -63,7 +63,7 @@ Transform.create(screen, { position: { x: 4, y: 1, z: 4 } })
 
 // #2
 VideoPlayer.create(screen, {
-	src: 'videos/myVideo.mp3',
+	src: 'videos/myVideo.mp4',
 	playing: true,
 })
 
