@@ -152,7 +152,7 @@ TextShape.create(sign, {
 
 The letters in the text can also have an outline in a different color surrounding its perimeter.
 
-- `outlineWidth`: _number_. How many pixels wide the text outline will be, in all directions. By default _0_, which makes it invisible.
+- `outlineWidth`: _number_. How wide the text outline will be, in all directions, as a number from 0 to 1. By default _0_, which makes it invisible.
 - `outlineColor`: _Color3_ object. _Color3_ objects store an _RBG_ color as three numbers from 0 to 1.
 
 ## Multiple lines
