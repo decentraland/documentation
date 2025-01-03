@@ -18,7 +18,7 @@ weight: 1
 
 The Marketplace is the go-to place to trade and manage all your Decentraland assets like Wearables, Emotes, LAND, and more.
 
-Access the Marketplace at [https://decentraland.org/marketplace/](https://https://decentraland.org/marketplace/).
+Access the Marketplace at [https://decentraland.org/marketplace/](https://decentraland.org/marketplace/).
 
 The Marketplace allows you to:
 
