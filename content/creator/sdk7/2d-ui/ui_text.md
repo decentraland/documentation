@@ -158,5 +158,8 @@ ReactEcsRenderer.setUiRenderer(() => (
 ```
 
 {{< hint info >}}
-**💡 Tip**: If you don't have different screen sizes to test, you can try resizing the window where you run the preview. The text will adjust instantly every time you change the window.
+**💡 Tip**: If you don't have different screen sizes to test, you can try using the Web Explorer and resizing the window where you run the preview. The text will adjust instantly every time you change the window.
 {{< /hint >}}
+
+As an alternative to using the `scaleFontSize()` function, you can also adjust font size to screen size using the methods described in [Responsive UI Size]({{< ref "/content/creator/sdk7/2d-ui/ui-positioning.md#responsive-ui-size">}}).
+

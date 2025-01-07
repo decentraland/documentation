@@ -1,5 +1,5 @@
 ---
-date: 2022-05-18
+date: 2024-12-16
 title: Deploying your own transactions server
 description: Provide users with costless transactions
 categories:
@@ -12,7 +12,7 @@ url: /creator/development-guide/sdk7/deploying-your-own-transactions-server/
 weight: 5
 ---
 
-The [transactions-server](https://github.com/decentraland/transactions-server/tree/v1) is a proxy server that relays transactions to [Biconomy](https://www.biconomy.io/). It receives a signed transaction from the client that it's in turn sent to the appropiate network behind the scenes. This allows the server's owner to facilitate it's users with costless transactions
+The [transactions-server](https://github.com/decentraland/transactions-server/tree/1.8.0) is a proxy server that relays transactions to [Gelato](https://www.gelato.network/relay). It receives a signed transaction from the client that it's in turn sent to the appropiate network behind the scenes. This allows the server's owner to facilitate it's users with costless transactions
 
 The transaction server is used to help with the UX of using multiple networks and to prevent them from switching network providers on the fly. The users can stay connected to [Ethereum](https://ethereum.org/en/) and interact with [Polygon](https://polygon.technology/) [by only signing transactions](https://docs.decentraland.org/blockchain-integration/transactions-in-polygon/)
 
@@ -29,37 +29,31 @@ The configurable restrictions the server has are:
   - The deployed contracts and collections. See [the contracts and collections section](#contracts-and-collections) for more info
 - The price of sales, restricting it if it's below a threshold. See [min sale value section](#min-sale-value) for more info
 
-## Configuring Biconomy
+## Configuring Gelato
 
-[Biconomy](https://www.biconomy.io/) is a Multichain Relayer Protocol. We use it's infrastructure to enable costless transactions. This effectively means that, when you go to send a transaction, you're instead signing a message and sending that to Biconomy. The service will take care of sending the transaction for you and giving you a response (transaction hash) back.
+[Gelato](https://www.gelato.network/relay) is a Multichain Relayer Protocol. We use it's infrastructure to enable costless transactions. This effectively means that, when you go to send a transaction, you're instead signing a message and sending that to Gelato. The service will take care of sending the transaction for you and giving you a response (transaction hash) back.
 
 It needs a contract to forward the transactions, but luckily we can reuse the one that's being used by Decentraland (see below)
 
-[Biconomy](https://www.biconomy.io/) works as an API to the server. [To configure](#configuring-the-server) it you'll first need an API KEY and an APP ID which we [we'll use later](#biconomy). To get these:
+[Gelato](https://www.gelato.network/relay) works as an API to the server. [To configure](#configuring-the-server) it you'll first need an API KEY which we [we'll use later](#gelato). To get these:
 
-- [Register](https://dashboard.biconomy.io/signup) in the service
-- Create new dapp for the network you intent to target. To mimic what Decentraland does, you'd pick `Matic Mainnet`
-- Copy the API KEY from the `Keys` section
-- Add a new contract. Click the `+ Add Contract` button. If you want to use the same Decentraland uses you can add [this one](https://polygonscan.com/address/0x14d4be0ef62fa7a322bbefe115d53a49f2754752#code), which has the following data:
-  - **Name**: Meta Transaction Forwarder
-  - **Address**: 0x14d4be0ef62fa7a322bbefe115d53a49f2754752
-  - \*Application Binary Interface (ABI)\*\*: Check the `Contract ABI` section on the `Contract` tab, in [Polygonscan](https://polygonscan.com/address/0x14d4be0ef62fa7a322bbefe115d53a49f2754752#code)
-  - **Meta Transaction Type**: Custom
-- Add a new API. Click the `Manage APIs` button. Continuing with the Decentraland's example:
-  - **Smart Contract**: Meta Transaction Forwarder
-  - **Method**: ForwardMetaTx
-  - **Name**: Forward Meta Tx
-- Get the APP ID from the created API
+- [Register](https://app.gelato.network/relay) in the service
+- Create new dapp for the network you intent to target. To mimic what Decentraland setup:
+  - Select the `Mainnets` options
+  - Set an appropiate `App name` for your dApp
+  - choose `Polygon` as the network for the `Smart Contract`
+  - Enable the `Any Contract` toggle option
+- Copy the API KEY from the `API Key` section
 
-Lastly, you'll need to fund your newly created dapp. You can do this by connecting your wallet in the `Gas Tank` section at the top right. Once connected, it'll enable you to deposit your [MATIC](https://polygon.technology/matic-token) to fund the transactions your users will send. If you need to get MATIC, check this [post](https://docs.decentraland.org/blockchain-integration/transactions-in-polygon/#where-can-i-get-matic-to-pay-for-transaction-fees).
+Lastly, you'll need to fund your newly created dapp. You can do this by connecting your wallet in the [1Balance](https://app.gelato.network/1balance) section at the left sidebar. Once connected, it'll enable you to deposit your [USDC](https://polygonscan.com/token/0x3c499c542cef5e3811e1192ce70d8cc03d5c3359) to fund the transactions your users will send. If you need to get MATIC, check this [post](https://docs.decentraland.org/blockchain-integration/transactions-in-polygon/#where-can-i-get-matic-to-pay-for-transaction-fees).
 
 ### Testnet
 
-If you want to test your app before going live and you're using Polygon you can do so in `Matic Amoy`, the Polygon testnet.
+If you want to test your app before going live and you're using Polygon you can do so in `Polygon Amoy`, the Polygon testnet.
 
-To do this simply repeat [the process](#configuring-biconomy) but picking `Matic Testnet (Amoy)` on the network field. Then use the [following contract](https://amoy.polygonscan.com/address/0x3dd1fef020741386bf9c8d905b7e2b02a668ccda#code) as your MetaTxForwarder.
+To do this simply repeat [the process](#configuring-gelato) but picking `Matic Testnet (Amoy)` on the network field.
 
-You'll need to fund your dapp, but you can do so easily by getting MATIC tokens from the [faucet](https://faucet.polygon.technology/).
+You'll need to fund your dapp, but you can do so easily by getting Sepolia ETH tokens from the [faucet](https://sepoliafaucet.com/).
 
 ## Downloading the transactions server
 
@@ -81,18 +75,17 @@ To do this:
 - Copy the `.env.example` file and paste it renamed to `.env`
 - Open the `.env` file. You'll see some variables have a default value, like `HTTP_SERVER_PORT=5000` (in which port to run the server)
 - You can leave most values as they are, but there're a few important values to consider:
-  - [Biconomy](#biconomy)
+  - [Gelato](#gelato)
   - [Transactions](#transactions)
   - [Contracts and collections](#contracts-and-collections)
   - [Min sale value](#min-sale-value)
 
-### Biconomy
+### Gelato
 
-Use the API KEY and API ID we got when [configuring biconomy](#configuring-biconomy).
+Use the API KEY we got when [configuring gelato](#configuring-gelato).
 
 ```
-BICONOMY_API_KEY=Bxl2UQrJG.3c1d0a43-2d58-123b-721i-abdcbf182b8a
-BICONOMY_API_ID=a890974a-5519-4d60-912a-ff2704258dc2
+GELATO_API_KEY=p_qXAlcVwWyU__Fjbn_qwr0rTy14asDf_Z2XCVBnmZX_
 ```
 
 ### Transactions

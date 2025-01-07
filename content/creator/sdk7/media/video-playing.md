@@ -29,7 +29,7 @@ In all cases, you'll need:
 
 Keep in mind that streaming video demands a significant effort from the player's machine. It's recommended to avoid playing more than one video at a time.
 
-If too many videos are playing at the same time in your scene, some will be paused by the engine. The priority is determined based on proximity to the player, direction of the camera and size of the screen. The maximum amount of simultaneous videos depends on the player's quality settings.
+If too many videos are playing at the same time in your scene, some will be paused by the engine. The priority for pausing a screen is determined based on several factors that include proximity to the player, size, and if the screen is in field of fiew of the player. The maximum amount of simultaneous videos depends on the player's quality settings.
 
 - Low: 1
 - Medium: 5
@@ -63,7 +63,7 @@ Transform.create(screen, { position: { x: 4, y: 1, z: 4 } })
 
 // #2
 VideoPlayer.create(screen, {
-	src: 'videos/myVideo.mp3',
+	src: 'videos/myVideo.mp4',
 	playing: true,
 })
 
