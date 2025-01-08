@@ -50,11 +50,19 @@ To rename a Custom Item, right click on the Custom Item definition on the **Cust
 
 You can't modify the definition of a Custom Item that's already created, you must create a new definition and delete the original.
 
-## Sharing Custom Items
+## Sharing Custom Items
 
 You can share your custom items with other creators, so they can use them on their own scenes.
 
-Custom Items are stored each on a separate folder on your local machine, under the path x x
+Custom Items are stored each on a separate folder on your local machine
+
+- In Windows: _User/AppData/Roaming/creator-hub/Custom_
+- In Mac: _Users/username/Library/Application Support/creator-hub/Custom_
+
+{{< hint warning >}}
+**📔 Note**:
+The _Library_ folder is hidden in Mac by default. The easiest way to access it is by opening Go > Go to Folder, and Typing _/Library_
+{{< /hint >}}
 
 To share with someone else, simply navigate with your file explorer of choice and copy the full folder for the item. The person using your Custom Item must then paste it on their own Custom Item path on their machine. This folder contains everything needed to use your Custom Item. If they can't see it in their **Custom Items** tab, users may need to close and re-open the project.
 
