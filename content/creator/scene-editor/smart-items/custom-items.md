@@ -56,8 +56,8 @@ You can share your custom items with other creators, so they can use them on the
 
 Custom Items are stored each on a separate folder on your local machine
 
-- In Windows: _User/AppData/Roaming/creator-hub/Custom_
-- In Mac: _Users/username/Library/Application Support/creator-hub/Custom_
+- In Windows: _User/AppData/Roaming/creator-hub/Custom Items_
+- In Mac: _Users/username/Library/Application Support/creator-hub/Custom Items_
 
 {{< hint warning >}}
 **📔 Note**:
