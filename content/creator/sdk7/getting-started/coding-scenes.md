@@ -204,9 +204,9 @@ engine.addSystem(rotationSystem)
 
 ## Scene lifecycle
 
-If you start writing code directly in `index.ts`, your code may be lacking some important context. For example, you might be trying to do something with the `PlayerEntity`, or you with an entity that was added via the Scene Editor's UI, however at that point in time those things haven't been loaded yet.
+If you start writing loose lines of code directly into `index.ts`, your code may be lacking some important context. For example, you'll be missing information about the player entity, or about entities that were added via drag and drop in the Creator Hub. At the time when your lines of code are read, those things aren't loaded yet.
 
-To avoid that scenario, it's always recommended to write out your scene's initial loading code using the `main()` function (on the `index.ts` file) as an entrypoint. This function runs only once all of the scene's initial context is already loaded, this includes anything added via the Scene Editor's UI.
+To avoid that scenario, it's always recommended to write out your scene's initial loading code using the `main()` function (on the `index.ts` file) as an entrypoint. This function runs only after all of the scene's initial context is already loaded, this includes anything added via the Scene Editor's UI.
 
 You can write your code outside the `main()` function when:
 
@@ -217,7 +217,7 @@ You can write your code outside the `main()` function when:
 {{< hint warning >}}
 **📔 Note**: By the time the code inside an async function or a system is first executed, everything in the scene is already properly initialized.
 
-[Custom Components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) must always be written outside the `main()` function, in a separate file. They need to be interpreted before `main()` is executed.
+[Custom Component]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) definitions are an exception, these must always be written outside the `main()` function, in a separate file. They need to be interpreted before `main()` is executed.
 {{< /hint >}}
 
 ## Mutability

@@ -232,14 +232,9 @@ import { engine, UiCanvasInformation } from "@dcl/sdk/ecs"
 
 let timer = 0
 let canvasInfoTimer = 0.5
-let scaleSystemAlreadyAdded = false
-
 export let scaleFactor = 1
 
 export function UIScaleUpdate() {
-
-  if (scaleSystemAlreadyAdded) return
-  scaleSystemAlreadyAdded = true
 
   engine.addSystem((dt) => {
     timer += dt
