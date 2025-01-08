@@ -127,6 +127,20 @@ Decentraland’s [Event Page](https://decentraland.org/events?utm_org=dcl&utm_so
 
 {{</ details >}}
 
+{{< details class="faq-details" anchor="true" title="How do I take pictures in-world?" >}}
+
+If you'd like to get snapshots of your favorite moments in Decentraland, just press C on your keyboard to open the Camera. A helpful guide with camera controls can be found on the bottom right of your screen.
+
+![](/images/players/CameraHotKeys.png)
+
+Your Gallery has space for up to 500 photos, from there you can easily share your images with a link or download them onto your computer.
+
+{{< hint info >}}
+**Pro tip:** Feature your favorite photos on your Decentraland Profile by toggling the 'Set as Public' option from the three dots menu in the upper right of your selected photo.
+{{< /hint >}}
+
+{{</ details >}}
+
 {{< details class="faq-details" anchor="true" title="How can I get involved in Decentraland governance?" >}}
 
 Decentraland’s DAO is the heart of the community-driven world’s governance. To get started, you can read through the [DAO forums](https://decentraland.org/governance) to learn about current issues, see what the community consensus is, and add your own comments. Learn more on the [DAO’s official page](https://decentraland.org/dao/).
