@@ -153,9 +153,9 @@ ReactEcsRenderer.setUiRenderer(() => (
 
 Note that in the example above, the color depends on a `buttonEnabled` variable. Whenever this variable's value changes, it inmediately affects the background color.
 
-## Tooltips
+## Hover Feedback
 
-Another common use case is to display tooltips when hovering over a button, to clarify what this button does. Use the `onMouseEnter` and `onMouseLeave` callbacks to display and hide these tooltips on your UI.
+Another common use case is to display some kind of visual hint when hovering over a button, to clarify that this is interactible, or even to display a hover hint explaining what this button does. Use the `onMouseEnter` and `onMouseLeave` callbacks to detect when the player's cursor is on the button, and react accordingly.
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
