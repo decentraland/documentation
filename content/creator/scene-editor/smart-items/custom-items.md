@@ -11,6 +11,9 @@ weight: 8
 
 Define a Custom Item to reuse it easily on any of your scenes, or share it with other scene creators. Custom items can consist of a single entity, or as many entities as you want. Custom items can be variations of existing Smart Items, or entirely custom, with their own tailored models and functionality.
 
+{{< youtube 7cGLu8P7dso >}}
+
+
 ## How to Define a Custom Item
 
 Right-click on an entity on the [Entity Tree]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#the-entity-tree" >}}), or select several entities and then right-click on them. Select **Create Custom Item**.
