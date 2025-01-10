@@ -190,6 +190,10 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
+{{< hint warning >}}
+**📔 Note**: The `offset` and `tiling` properties are only supported in the DCL 2.0 desktop client.
+{{< /hint >}}
+
 You can use this feature to cover a large surface with a tiled patter. For example, you can use the following image and tile it:
 
 <img src="/images/editor/tiles.png" width="200" />
@@ -221,6 +225,10 @@ Material.setPbrMaterial(myEntity, {
 ### Texture tweens
 
 Make a texture slide smoothly by using a `Tween`, with the `TextureMove` mode. The tween gradually changes the value of the `offset` or the `tiling` properties of a texture in a smooth and optimized way.
+
+{{< hint warning >}}
+**📔 Note**: Texture Tweens are a feature that's only supported in the DCL 2.0 desktop client.
+{{< /hint >}}
 
 The new `TextureMove` option on the `Tween` component has the following fields:
 
