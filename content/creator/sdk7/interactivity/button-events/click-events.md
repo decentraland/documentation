@@ -51,7 +51,7 @@ It's important to make players aware that an entity is interactive. Otherwise, t
 
 When you use the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) method, two kinds of feedback are displayed whenever the player passes their cursor over the object:
 
-- The entity's edge is highlighted. The highlight is green if the entity is close enough to click, red if the entity is too far away.
+- The entity's edge is highlighted (only on the Decentraland 2.0 Desktop client). The highlight is green if the entity is close enough to click, red if the entity is too far away.
 - A hover hint appears near the cursor with UI text, signalling what will happen if they click.
 
 When using the [**System-based**]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) method, you can achieve the same results by adding a `PointerEvents` component to the clickable entities.
