@@ -190,6 +190,10 @@ Make channels visible before keyframing!
 
 The exported file can only have **one animation**. If animations were duplicated during the process, make sure you delete all of them before exporting. Keep only the final version. Sequence emotes that need many animations to work (action start, action loop, and action end) are not supported right now.
 
+## **Baking Animations**
+When creating emotes, it's recommended to bake the complete animation into all affected bones instead of relying on skeleton hierarchy. While it's possible to animate only the Armature node and let the motion propagate through the hierarchy, this approach can break if wearables use non-standard naming (e.g., "Armature.001") or have modified hierarchies.
+Baking the full animation data into each bone makes the emote more robust and ensures it works consistently across all wearables, regardless of their skeleton setup.
+
 ## **Format**
 
 Animations should be exported as .**GLB**. The file can only contain the deforming skeleton and the animation. **Mesh, controls, and any other object should not be exported**. More details on how to export can be found [**below**](#exporting).
