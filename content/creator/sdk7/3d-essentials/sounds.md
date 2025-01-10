@@ -164,6 +164,10 @@ AudioSource.create(sourceEntity, {
 
 By default, all sounds from an `AudioSource` are positional. This means they appear to generate from the position of the `Transform` component, and will sound louder as the player walks closer. But you can also configure a sound to be global, so that the volume is constant, no matter where the player is standing. This is ideal for using on background music, notification sounds, and other non-positional sound.
 
+{{< hint warning >}}
+**📔 Note**: Global Sounds are a feature that's only supported in the DCL 2.0 desktop client.
+{{< /hint >}}
+
 To make a sound global, set the `global` property to _true_.
 
 ```ts

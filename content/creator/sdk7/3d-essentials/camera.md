@@ -14,7 +14,9 @@ As a creator, you can have full control over the player's camera. By default, pl
 Virtual cameras can be static, they can rotate to always look at the player or some other entity, or they can be attached to the player or some other entity so that they're always accompanying.
 
 {{< hint warning >}}
-**📔 Note**: To switch between the default 1st and 3rd person cameras, see [Camera modifier areas]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">}}).
+**📔 Note**: Virtual cameras are a feature that's only supported in the DCL 2.0 desktop client.
+
+To switch between the default 1st and 3rd person cameras, see [Camera modifier areas]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">}}).
 {{< /hint >}}
 
 ## Using virtual cameras
