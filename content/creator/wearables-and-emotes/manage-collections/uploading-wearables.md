@@ -128,7 +128,7 @@ Tags are simply descriptive words that users can use when searching or filtering
 
 When this property is enabled, it will allow owners of your item to include it in VRM Avatar Exports so they can show it off outside of Decentraland.
 
-# **Outline**
+## **Outline**
 
 The Outline toggle controls whether your wearable is compatible with Decentraland's outline rendering system (used in Medium/High quality settings). By default, this is enabled for all new wearables.
 
