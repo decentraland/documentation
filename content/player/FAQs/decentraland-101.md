@@ -58,9 +58,9 @@ Currently, Decentraland is available for PC on Windows and Mac. The minimum hard
 |         | Minimum Required                               | Recommended Settings                                       |
 | ------- | ---------------------------------------------- | ---------------------------------------------------------- |
 | OS      | macOS 11 Big Sur                               | macOS 12 Monterey                                          |
-| CPU     | Intel Core i5 (7th generation) or Apple M1     | Intel Core i7 (12th generation) or Apple M1 Pro/M2         |
-| GPU     | Apple M1 integrated GPU or AMD Radeon Pro 5300 | Apple M1 Pro/M2 Pro integrated GPU or AMD Radeon Pro 5600M |
-| VRAM    | 6 GB (for dedicated GPUs)                      | 12 GB (for dedicated GPUs)                                 |
+| CPU     | Apple M1                                       | Apple M1 Pro/M2                                            |
+| GPU     | Apple M1 integrated GPU                        | Apple M1 Pro/M2 Pro integrated GPU                         |
+| VRAM    | 6 GB                                           | 12 GB                                                      |
 | RAM     | 16GB                                           | 32 GB                                                      |
 | Storage | 8GB HDD                                        | 20GB SDD                                                   |
 
