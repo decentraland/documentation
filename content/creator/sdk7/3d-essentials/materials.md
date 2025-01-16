@@ -194,7 +194,7 @@ Material.setPbrMaterial(myEntity, {
 **📔 Note**: The `offset` and `tiling` properties are only supported in the DCL 2.0 desktop client.
 {{< /hint >}}
 
-You can use this feature to cover a large surface with a tiled patter. For example, you can use the following image and tile it:
+Use this feature to cover a large surface with a tiled pattern. For example, repeat the following image:
 
 <img src="/images/editor/tiles.png" width="200" />
 
@@ -224,7 +224,7 @@ Material.setPbrMaterial(myEntity, {
 
 ### Texture tweens
 
-Make a texture slide smoothly by using a `Tween`, with the `TextureMove` mode. The tween gradually changes the value of the `offset` or the `tiling` properties of a texture in a smooth and optimized way.
+Make a texture slide smoothly by using a `Tween` component, set up with the `TextureMove` mode. The tween gradually changes the value of the `offset` or the `tiling` properties of a texture over a period of time, in a smooth and optimized way.
 
 {{< hint warning >}}
 **📔 Note**: Texture Tweens are a feature that's only supported in the DCL 2.0 desktop client.
@@ -236,7 +236,7 @@ The new `TextureMove` option on the `Tween` component has the following fields:
 - `start`: _Vector2_ the initial value of the offset or tiling
 - `end`: _Vector2_ the final value of the offset or tiling
 - `duration`: _number_ how long the transition takes, in milliseconds
-- `easingFunction`: How the curve of movement over time changes, the default value is `EasingFunction.EF_LINEAR`
+- `easingFunction`: The curve for the rate of change over time, the default value is `EasingFunction.EF_LINEAR`. Other values make the change accelerate and/or decelerate at different rates.
 
 ```ts
 const myEntity = engine.addEntity()
