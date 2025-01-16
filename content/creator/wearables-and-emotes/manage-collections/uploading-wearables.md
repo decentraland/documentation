@@ -112,6 +112,7 @@ This is a brief statement describing your item that will be displayed in the mar
 
 Overrides determine which Wearable categories or avatar body parts your item will hide. For instance, a hat with attached hair might need to hide the _Hair_ category. A deep-sea diver helmet may require hiding head accessories like earrings, eyewear, tiaras, etc., which wouldn’t be visible. Multiple options can be selected for each override.
 
+
 - **Base Body**: This refers to core avatar parts like the _head_ and _hands_. For example, if you’re creating a **Handwear** item such as a robot mechanic hand, you’ll likely need to hide _hands_ to prevent overlap and clipping.
 
 - **Wearables**: This includes other Wearable categories. You can hide multiple categories. For more details on each category and how items interact, refer to **[Creating Wearables](https://docs.decentraland.org/creator/wearables/creating-wearables/)**.
@@ -137,8 +138,9 @@ You should disable this option if your wearable:
 - Uses inverted normals
 - Shows visual artifacts when the outline effect is applied
 
-Most wearables work fine with the default setting (enabled). Only disable this if you notice outline-related visual issues with your wearable.
+Most wearables work fine with the default setting (enabled). Only disable this if you notice outline-related visual issues with your wearable. Once you disable the outline, you will need to save the changes by clicking on **_Save_**.
 
+<img src="/images/wearables-and-emotes/uploading-wearables/26_outline.png" width="285"/>
 
 ## **Adding Another Representation**
 
