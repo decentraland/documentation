@@ -72,7 +72,7 @@ It's possible to position entities underground, to either hide them or to have o
 
 ## Lighting
 
-The scene's lighting conditions can't be changed from the default setting.
+The scene's lighting conditions can't be changed for all players from the default setting, although each individual player is free to change their own skybox settings from the Explorer UI.
 
 ## Texture size constraints
 
