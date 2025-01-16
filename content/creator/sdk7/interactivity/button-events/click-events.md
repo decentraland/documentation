@@ -27,11 +27,36 @@ There are several different ways to handle input actions, depending on the use c
 
 The easiest way to handle click events on an entity is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the no-code **On Click** or **On Input Action** Triggers on an item to call actions when clicking on it. Or use **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers to react to global button events. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
 
+## Simple example
+
+To detect clicks on an entity, use `pointerEventsSystem.onPointerDown`.
+
+```ts
+pointerEventsSystem.onPointerDown(
+	{
+		entity: myEntity,
+		opts: { button: InputAction.IA_PRIMARY, hoverText: 'Click' },
+	},
+	function () {
+		console.log('clicked entity')
+	}
+)
+```
+
+See [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) for more information.
+
 ## Hover Feedback
 
-Whichever method you use, it's important to make players aware that an entity is interactive. Otherwise, they might completely miss out on the experience you built. It's not a good experience to be clicking on every object hoping for one to respond. Users of Decentraland are used to the pattern that any interactive items offer feedback on hover, so they will discard an item with no feedback as non-interactive.
+It's important to make players aware that an entity is interactive. Otherwise, they might completely miss out on the experience you built. It's not a good experience to be clicking on every object hoping for one to respond.
 
-The default way to add feedback is to display a hover hint on the UI whenever the player passes their cursor over the entity's collider. You can implement this behavior by adding a `PointerEvents` component to an entity. The [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) approach makes this even easier, as you don't have to explicitly create this component.
+When you use the [**Register a callback**]({{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >}}) method, two kinds of feedback are displayed whenever the player passes their cursor over the object:
+
+- The entity's edge is highlighted (only on the Decentraland 2.0 Desktop client). The highlight is green if the entity is close enough to click, red if the entity is too far away.
+- A hover hint appears near the cursor with UI text, signalling what will happen if they click.
+
+When using the [**System-based**]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >}}) method, you can achieve the same results by adding a `PointerEvents` component to the clickable entities.
+
+Both the entity highlight and the hover hint can be disabled via properties in these methods and components.
 
 You could also implement [advanced custom hints]({{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md#advanced-custom-hints" >}}), for example you could play a sound, making the entity change color, spin or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
 

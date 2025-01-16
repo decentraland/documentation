@@ -32,6 +32,8 @@ In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}
 To mark an entity as synced via code, use the `syncEntity` function:
 
 ```ts
+import { syncEntity } from '@dcl/sdk/network'
+
 const doorEntity = engine.addEntity()
 
 syncEntity(doorEntity, [Transform.componentId, Animator.componentId], 1)
@@ -59,6 +61,8 @@ Explicitly setting this ID is important to avoid inconsistencies if a race condi
 **💡 Tip**: Create an enum in your scene, to keep clear references to each syncable id in your scene.
 
 ```ts
+import { syncEntity } from '@dcl/sdk/network'
+
 enum EntityEnumId {
 	DOOR = 1,
 	DRAW_BRIDGE = 2,
@@ -84,6 +88,8 @@ All entities instanced on scene initiation need to have a manually-assigned ID. 
 For example, in a snowball fight scene, every time a player throws a snowball, they're instancing a new entity that gets synced with other players. The snowball doesn't need a unique entityEnumId.
 
 ```ts
+import { syncEntity } from '@dcl/sdk/network'
+
 function onThrow() {
 	const ball = engine.addEntity()
 	Transform.create(ball, {})
@@ -168,6 +174,8 @@ const isConnected = isStateSyncronized()
 You could for example include this check in a system, and block any interaction if this function returns false.
 
 ```ts
+import { isStateSyncronized } from '@dcl/sdk/network'
+
 engine.addSystem(() => {
 	if (isStateSyncronized() && !button.enabled) {
 		console.log('Enable Start Game')

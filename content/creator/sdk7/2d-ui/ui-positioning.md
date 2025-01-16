@@ -199,9 +199,11 @@ examples:
 ```ts
 ``` -->
 
-## UI Canvas Information
+## Responsive UI size
 
-Instead of positioning and scaling UI elements in terms of screen percentages, you can also obtain the canvas dimensions and then calculate the absolute positions following your own custom logic. For example, you could chose different dialog arrangements depending on the screen size.
+Players with different screen sizes may see your UI layout differently. If you set the size of any UI element to a fixed number of pixels, this UI may look too small to read on retina displays, that have a much higher pixel density.
+
+Instead of positioning and scaling UI elements in terms of screen percentages, you can also obtain the canvas dimensions and then calculate the absolute positions and sizes following your own custom logic. For example, you could chose different dialog arrangements depending on the screen size.
 
 To obtain information about the screen's dimension, you can check the `UiCanvasInformation`, that's added by default to the scenes's root entity.
 
@@ -222,3 +224,72 @@ export function Main(){
 	console.log("CANVAS DIMENSIONS: ", canvas.width, canvas.height)
 })
 ```
+
+The following snippet continually calculates a multiplier value based on the screen size:
+
+```ts
+import { engine, UiCanvasInformation } from "@dcl/sdk/ecs"
+
+let timer = 0
+let canvasInfoTimer = 0.5
+export let scaleFactor = 1
+
+export function UIScaleUpdate() {
+
+  engine.addSystem((dt) => {
+    timer += dt
+
+    if (timer <= canvasInfoTimer) return
+    timer = 0
+
+    const uiCanvasInfo = UiCanvasInformation.getOrNull(engine.RootEntity)
+
+    if (!uiCanvasInfo) return
+
+    const newScaleFactor = Math.min(uiCanvasInfo.width / 1920, uiCanvasInfo.height / 1080)
+
+    if (newScaleFactor !== scaleFactor) {
+      scaleFactor = newScaleFactor
+      console.log('NEW UI scaleFactor: ', scaleFactor)
+    }
+  })
+}
+```
+
+The value of the `scaleFactor` variable, that this function updates, can then be used as a multiplier on any UI element in the scene, including `heigh`, `width` and `fontSize` values.
+
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { scaleFactor } from './calculate-scale-factor'
+
+ReactEcsRenderer.setUiRenderer(() => (
+	<UiEntity
+		uiTransform={{
+			width: 200 * scaleFactor,
+			height: 100 * scaleFactor,
+			justifyContent: 'center',
+			alignItems: 'center',
+			padding: 4 * scaleFactor
+		}}
+		uiBackground={{ color: Color4.Green() }}
+	>
+	  	<Label
+		        value={description}
+		        fontSize={18 * scaleFactor}
+		        textAlign="middle-center"
+		        uiTransform={{
+		          width: "auto",
+		          height: "auto",
+		          alignSelf: "center",
+		          margin: { top: 10 * scaleFactor, bottom: 10 * scaleFactor },
+		        }}
+	      />
+	</UiEntity>
+))
+```
+
+Some other best practices regarding UI sizes:
+
+- If the width or height of any UI element is dynamic, it's good to also use the `maxWidth`, `minWidth`, `maxHeight`, and `minHeight` parameters to make sure they stay within reasonable values.
+- The font size of text is relative to a fixed number of pixels, you should make it dynamic so it remains readable on retina displays. See [Responsive text size]({{< ref "/content/creator/sdk7/2d-ui/ui_text.md#responsive-text-size">}})
+

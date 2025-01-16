@@ -11,6 +11,10 @@ weight: 8
 
 You can restrict what actions the player can do in your scene. Use it to freeze the player, or to only restrict specific ways of locomotion, for example to prevent the player from jumping or running.
 
+{{< hint warning >}}
+**📔 Note**: Input Modifiers are a feature that's only supported in the DCL 2.0 desktop client.
+{{< /hint >}}
+
 ## Freeze the player
 
 You can freeze the player so that none of the input keys can move the avatar. This can be useful for many game mechanics. It's also a good practice to freeze a player while performing an important animation that shouldn't be interrupted by movement, or while a [Virtual Camera]({{< ref "/content/creator/sdk7/3d-essentials/camera.md" >}}) points away from the avatar and you don't want the player to move blindly.
@@ -18,13 +22,10 @@ You can freeze the player so that none of the input keys can move the avatar. Th
 Use the `InputModifier` component on the `engine.PlayerEntity` to prevent the player's inputs from affecting the avatar's locomotion. The avatar will remain still, the player will only be able to rotate the camera.
 
 ```ts
-InputModifier.createOrReplace(engine.PlayerEntity, {
-	mode: {
-		$case: 'standard',
-		standard: {
-			disableAll: disableAll,
-		},
-	},
+InputModifier.create(playerEntity, {
+	mode: InputModifier.Mode.Standard({
+		disableAll: true,
+	}),
 })
 ```
 
@@ -46,6 +47,23 @@ Instead of entirely freezing the player, you can restrict certain specific forms
 - `disableJump`: Player can't jump.
 - `disableEmote`: Player can't perform emotes voluntarily. The scene is able to trigger animations on the player's avatar.
 - `disableAll`: The player can't perform any of the above actions.
+
+```ts
+InputModifier.create(playerEntity, {
+	mode: InputModifier.Mode.Standard({
+		disableAll: false,
+		disableWalk: false,
+		disableRun: true,
+		disableJog: true,
+		disableJump: true,
+		disableEmote: true,
+	}),
+})
+```
+
+## Advanced syntax
+
+To use the component without any helpers, you can use the following syntax:
 
 ```ts
 InputModifier.createOrReplace(engine.PlayerEntity, {

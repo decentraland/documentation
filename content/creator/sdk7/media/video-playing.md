@@ -25,11 +25,21 @@ In all cases, you'll need:
 - A [material]({{< ref "/content/creator/sdk7/3d-essentials/materials.md" >}}) with a A `VideoTexture` assigned to its texture
 - A `VideoPlayer` component to control the state of the video.
 
-{{< hint warning >}}
-**📔 Note**: Keep in mind that streaming video demands a significant effort from the player's machine. For this reason, we recommend never having more than one video stream displayed at a time per scene. Videos are also not played if the player is standing on a different scene. Also avoid streaming videos that are in very high resolution, don't use anything above _HD_.
+## Performance considerations
 
-It's also ideal to play videos on Basic (unlit) materials, to reduce the performance load.
-{{< /hint >}}
+Keep in mind that streaming video demands a significant effort from the player's machine. It's recommended to avoid playing more than one video at a time.
+
+If too many videos are playing at the same time in your scene, some will be paused by the engine. The priority for pausing a screen is determined based on several factors that include proximity to the player, size, and if the screen is in field of fiew of the player. The maximum amount of simultaneous videos depends on the player's quality settings.
+
+- Low: 1
+- Medium: 5
+- High: 10
+
+We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
+
+Also avoid streaming videos that are in very high resolution, don't use anything above _HD_.
+
+It's also ideal to play videos on Basic (unlit) materials, to reduce the performance load, as is the case on all of the example snippets below.
 
 ## Show a video
 
@@ -53,7 +63,7 @@ Transform.create(screen, { position: { x: 4, y: 1, z: 4 } })
 
 // #2
 VideoPlayer.create(screen, {
-	src: 'videos/myVideo.mp3',
+	src: 'videos/myVideo.mp4',
 	playing: true,
 })
 
@@ -149,7 +159,7 @@ Material.setBasicMaterial(screen, {
 })
 ```
 
-If you instead want to project a video onto a PBR material, keep in mind that the default properties make the video look rather opaque. You can enhance that by altering other properties of the material. Here are some recommended settings for the video to stand out more:
+It's usually recommended to play videos on Basic unlit materials, as this is better for performance, but if you instead want to project a video onto a PBR material, keep in mind that the default properties make the video look rather opaque. You can enhance that by altering other properties of the material. Here are some recommended settings for the video to stand out more:
 
 ```ts
 Material.setPbrMaterial(screen, {

@@ -98,7 +98,7 @@ Players can access Decentraland via various platforms, currently via the browser
 Use `getPlatform()` to know what platform the current player is running Decentraland on.
 
 ```ts
-import { getPlatform } from '~system/EnvironmentAPI'
+import { getPlatform } from '~system/EnvironmentApi'
 
 executeTask(async () => {
   let data = await getPlatform()

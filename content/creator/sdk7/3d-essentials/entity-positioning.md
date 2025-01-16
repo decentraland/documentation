@@ -389,6 +389,9 @@ AvatarAttach.create(myEntity, {
 	anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 ```
+{{< hint danger >}}
+**❗Warning**: Attaching entities to another player's bones is currently not working, this is a known issue that needs to be fixed. It's currently only possible to attach something to the current player's bones. 
+{{< /hint >}}
 
 When creating an `AvatarAttach` component, pass an object with the following data:
 

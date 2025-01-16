@@ -15,7 +15,13 @@ The Creator Hub plus custom code is a very powerful combination for creating con
 
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
-Click the **< > CODE** button to open Visual Studio Code on your scene project.
+{{< hint warning >}}
+**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+{{< /hint >}}
+
+## Open a scene's code
+
+Once you installed VS Studio Code on your machine, you can click the **< > CODE** button to open Visual Studio Code on your scene project.
 
 <img src="/images/editor/code-button.png" width="200"/>
 
@@ -23,10 +29,12 @@ This opens a separate window with Visual Studio Code. On the left margin you can
 
 <img src="/images/editor/files-on-vs-studio.png" alt="Scene name" width="200"/>
 
-{{< youtube J_EO1LZkaiA >}}
+Add your custom code in the `index.ts` file under `/src`, inside the `main()` function. You can otherwise add custom code outside that function or create new `.ts` files inside the `/src` folder, but these must be somehow referenced inside the `main()` function of `index.ts`.
+
+If you have a preview window open running your scene, whenever you change the code in your files and save, the scene reloads automatically with your changes.
 
 {{< hint warning >}}
-**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+**📔 Note**: If you have VS Code installed but the **CODE** button doesn't open it, it may be that VS Code is not properly configured on your machine to open via the command line. In most cases, this is care of as part of the default installation, but in case it's not, see [these instructions from VS](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) to enable VS Code from the command line.
 {{< /hint >}}
 
 ## Reference an item
@@ -88,6 +96,7 @@ For example, if a scene has a button with the following generic **On Click** eve
 <img src="/images/editor/restart-button.png" width="600" />
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
@@ -110,6 +119,7 @@ You can also use custom code to activate trigger events based on your own custom
 <img src="/images/editor/door-triggers.png" width="600" />
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
@@ -133,6 +143,7 @@ For example, if a scene has a door with the following default **Open** action, y
 <img src="/images/editor/door-actions.png" width="600" />
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
@@ -159,6 +170,7 @@ function main() {
 You can also emit action events from your code, this allows you to take advantage of actions that are already defined inside the smart item's Action component. The following snippet calls the "Open" action on a door smart item whenever a button smart item is triggered.
 
 ```ts
+import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
 
