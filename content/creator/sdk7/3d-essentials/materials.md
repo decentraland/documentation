@@ -222,7 +222,7 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-### Texture tweens
+### Texture tweens
 
 Make a texture slide smoothly by using a `Tween` component, set up with the `TextureMove` mode. The tween gradually changes the value of the `offset` or the `tiling` properties of a texture over a period of time, in a smooth and optimized way.
 
@@ -296,7 +296,7 @@ TweenSequence.create(myEntity, { sequence: [], loop: TweenLoop.TL_RESTART })
 
 The example above sets the `loop` mode to `TweenLoop.TL_RESTART`, which makes the same transition repeat continuously. You can also set the `loop`mode to `TweenLoop.TL_YOYO` to alternate back and forth in the opposite direction.
 
-#### Complex tween sequences
+#### Complex tween sequences
 
 You can also make the texture movements follow a complex sequence with as many steps as you want. Use the `sequence` field to list as many tweens as you want, they will be executed sequentially after the first tween described on the `Tween` component.
 
