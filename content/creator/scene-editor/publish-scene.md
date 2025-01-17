@@ -41,10 +41,21 @@ To publish your scene:
 
   <img src="/images/editor/publish-options.png" alt="Scene name" width="500"/>
 
-3. Approve the transaction.
+3. If publishing to LAND, select the location on the map. You'll see your eligible parcels marked in red. If publishing to a WORLD, you'll see your eligible NAMEs in a dropdown.
+   {{< hint info >}}
+   **💡 Tip**: If you don't see your parcels or NAMEs, make sure you're connected to the Creator Hub using the right user account. Otherwise exit the project and click the user settings icon on the top-right corner, then select **Sign Out** and sign back in again.
+   {{< /hint >}}
 
-- For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
-- For LAND linked to a wallet you can use via Wallet Connect, click Connect wallet, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
+4. The next screen shows all of the files you're currently uploading and their sizes, confirm the operation.
+
+5. The publication process will then start. Stages **1** and **2** are necessary for your scene to be playable, once done a **Jump In** button appears. You don't need to wait for **Stage 3** to try out your scene.
+   <img src="/images/editor/deploy-steps.png" alt="Scene name" width="500"/>
+   {{< hint warning >}}
+   **📔 Note**: The three stages of the deployment involve:
+   - **1. Catalyst**: Uploading the files to the servers.
+   - **2. Asset Bundle**: The scene's 3D models are compressed for faster rendering. This may take 15 minutes or less. It may delay more for very large scenes, or if the servers are currently busy converting other scenes.
+   - **3, LODs**: Low Level of Detail versions of your assets are generated. These are only used to render your scene from far away, meaning you don't need to wait for this to finish to jump in and test your scene.
+     {{< /hint >}}
 
 ## Publish from a hardware wallet
 
