@@ -76,6 +76,8 @@ export function main() {
 }
 ```
 
-{{< hint warning >}}
-**📔 Note**: Note that this approach will only subscribe to `onChange()` for entities that exist at the start of the scene, for example entities created via the UI of the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+Note that this approach will only subscribe to `onChange()` for entities that exist at the start of the scene, for example entities created via the UI of the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+
+{{< hint info >}}
+**💡 Tip**: If you prefer to instead handle events that are not necessarily related to a component changing, we recommend importing the TypeScript library [Mitt](https://www.npmjs.com/package/mitt) into your scene. This library offers simple functions to emit and listen to events.
 {{< /hint >}}
