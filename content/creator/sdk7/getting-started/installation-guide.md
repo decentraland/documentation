@@ -27,9 +27,11 @@ image & more info
 
 ## VS Code Extension
 
-The Decentraland Visual Studio Code extension allows you to build, preview and deploy Decentraland scenes.
+{{< hint warning >}}
+**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the Creator Hub together with Visual Studio Code without the extension.
+{{< /hint >}}
 
-<img src="/images/editor/editor-header.png" alt="Header" width="100%"/>
+The Decentraland Visual Studio Code extension allows you to build, preview and deploy Decentraland scenes.
 
 To install the Decentraland Visual Studio Code extension:
 

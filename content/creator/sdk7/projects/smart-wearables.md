@@ -23,6 +23,10 @@ The **Creator Hub** doesn't currently support creating Smart Wearables projects.
 
 ### Using the VS Code Extension
 
+{{< hint warning >}}
+**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) together with Visual Studio Code without the extension.
+{{< /hint >}}
+
 Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}), then:
 
 1. Open a Visual Studio Code window on an _empty folder_.

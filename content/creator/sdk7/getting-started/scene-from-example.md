@@ -11,6 +11,10 @@ weight: 6
 
 Create a new Decentraland scene project based on an example to start out with a solid base. You can use this to reuse game mechanics, art assets, or anything that may be included in the parent project.
 
+{{< hint warning >}}
+**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) instead.
+{{< /hint >}}
+
 1. Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}})
 
 2. Open a Visual Studio Code window on an _empty folder_.

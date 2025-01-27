@@ -80,6 +80,10 @@ Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-edi
 
 ### Via the VS Code Extension
 
+{{< hint warning >}}
+**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) together with Visual Studio Code without the extension.
+{{< /hint >}}
+
 Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
 
 1. Open your scene's folder using Visual Studio Code.
@@ -162,6 +166,10 @@ If you're working in a confidential project that you don't want to unveil until 
 
 ### Via the VS Code Extension
 
+{{< hint warning >}}
+**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) together with Visual Studio Code without the extension.
+{{< /hint >}}
+
 To deploy a scene to the test server:
 
 1. Open VSCode in a Decentraland scene project.
@@ -200,6 +208,10 @@ See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
 
 ### Via the VS Code Extension
+
+{{< hint warning >}}
+**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) together with Visual Studio Code without the extension.
+{{< /hint >}}
 
 To deploy a scene to a custom server:
 
