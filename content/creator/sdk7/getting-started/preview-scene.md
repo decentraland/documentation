@@ -54,26 +54,6 @@ You can add the following flags to the `npm run start` command to change its beh
 **📔 Note**: Parameters need to be added with two series of dashes, for example `npm run start -- --web3`.
 {{< /hint >}}
 
-## Using the VS Code Extension
-
-{{< hint warning >}}
-**📔 Note**: The VS Code Extension will open your scene preview on the legacy Web Explorer.
-{{< /hint >}}
-
-To run a scene preview using the VS Code Extension:
-
-Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
-
-1. Open your scene's folder using Visual Studio Code.
-
-   > Note: The Visual Studio window must be at the root folder of the scene project.
-
-2. Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
-
-3. Click the **Run Scene** button.
-
-   This opens a browser tab running the Decentraland scene.
-
 ## Upload a scene to decentraland
 
 Once you're happy with your scene, you can upload it and publish it to Decentraland. For this you must own LAND, a Decentraland NAME, or an ETH ENS name, or have permissions given by someone that does. See [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for instructions on how to do that.

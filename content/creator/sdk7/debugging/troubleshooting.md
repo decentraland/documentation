@@ -42,12 +42,6 @@ Ideally, the loading of the code in your scene should follow a clear sequential 
 
 To fix these dependencies, you often must resort to calling functions or object constructors passing references to already instanced entities/objects in the function arguments; Instead of hard-coding references to these entities/objects in the function, which may or may not already be instanced.
 
-## Issues when running the VS Code Extension
-
-### Issue: The Decentraland extension never finishes loading the scene, it may say something like "Can't connect to server".
-
-Make sure your Node version is up to date. It must be 16 or newer.
-
 # Issues when deploying
 
 ### Issue: You don't have permissions to deploy to these parcels

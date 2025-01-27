@@ -19,6 +19,10 @@ Check the [Examples page](https://studios.decentraland.org/resources?sdk_version
 
 ## On the VS Code extension
 
+{{< hint warning >}}
+**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) together with Visual Studio Code without the extension.
+{{< /hint >}}
+
 ### Install a dependency
 
 Make sure you've [installed the VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
