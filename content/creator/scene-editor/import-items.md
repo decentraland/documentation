@@ -1,7 +1,7 @@
 ---
 date: 2024-07-25
-title: Import custom items
-description: Import your own 3D models and smart items to use in your scenes.
+title: Import custom assets
+description: Import your own 3D models, images, sound, etc to use in your scenes.
 categories:
   - scene-editor
 type: Document
@@ -11,7 +11,7 @@ aliases:
 weight: 4
 ---
 
-You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models.
+You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models. You can also import other assets like images, sound files, and videos.
 
 {{< youtube UepXpH-k0EI >}}
 
@@ -19,15 +19,13 @@ You can import your own 3D models into the Scene Editor. Pick models from a wide
 
 To import a 3D model, an image, a sound file, or a video into your scene from your local disk:
 
-1. Click the **+\*** icon on the top-right of the **Local Assets** screen.
+1. Drag files directly onto the bottom panel. You can also click the **+ Import Assets** button on the top-left of the bottom panel and select from your local drive.
 
-2. Drag the file or files onto the window. You can also click the upload icon to open a file browser window.
-
-3. Check the model thumbnail and click **Import**.
+2. Check the model thumbnail and click **Import**. When importing multiple assets, use the arrow buttons to cycle over each asset.
 
   <img src="/images/editor/import-model.png" width="500" />
 
-You can now find your asset in the **Local Assets** tab, under the **scene** folder.
+You can now find your asset in the **Local Assets** tab, under the **scene** folder. 3D models appear under the _scene/3D Model_ folder, images under _scene/Image_ 
 
 - For 3D models, drag the `.glb` or `.gltf` files onto the canvas to add them as items on your scene.
 
