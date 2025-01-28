@@ -194,7 +194,7 @@ Alternatively, you can manually add the URL parameter `&ENABLE_WEB3` to the URL 
 
 If your scene interacts with a third party server, it's often useful to see what data goes in and out.
 
-For this, there are several free tools you can run on your machine that report all the data coming in and out of the Decentraland application.
+For this, there are several free tools you can run on your machine that report all the data coming in and out of the Decentraland application. For example [Charles](https://www.charlesproxy.com/) or [Wireshark](https://www.wireshark.org/).
 
 ## Using the Ethereum test network
 
