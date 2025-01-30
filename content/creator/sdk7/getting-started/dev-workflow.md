@@ -87,6 +87,7 @@ You can also use Generative AI tools to generate your own 3D models. Check out:
 - [Meshy](https://www.meshy.ai/)
 - [Luma AI](https://lumalabs.ai/genie)
 - [TRipo3D](https://www.tripo3d.ai/app)
+- [Rodin](https://hyper3d.ai/rodin)
 
 ## Run a local preview
 
