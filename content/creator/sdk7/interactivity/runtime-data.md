@@ -77,7 +77,9 @@ The `getRealm()` function returns the following information:
 - `realmName`: _(string)_ The name of the realm server
 - `networkId`: _(number)_ The Ethereum network
 - `commsAdapter`: _(string)_ Comms adapter, removing all query parameters (credentials)
-- `preview`: _(boolean)_ True if the scene is running as a local preview, instead of published in Decentraland.
+- `isPreview`: _(boolean)_ True if the scene is running as a local preview, instead of published in Decentraland.
+- `room`: _(string)_ The room session id.
+- `isConnectedSceneRoom`: _(boolean)_ True if the user is connected to the scene room.
 
 {{< hint warning >}}
 **📔 Note**: The `layer` property is deprecated, and should be avoided.
