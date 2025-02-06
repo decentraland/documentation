@@ -1,7 +1,7 @@
 ---
 date: 2024-07-25
-title: Import custom items
-description: Import your own 3D models and smart items to use in your scenes.
+title: Import custom assets
+description: Import your own 3D models, images, sound, etc to use in your scenes.
 categories:
   - scene-editor
 type: Document
@@ -11,7 +11,7 @@ aliases:
 weight: 4
 ---
 
-You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models.
+You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models. You can also import other assets like images, sound files, and videos.
 
 {{< youtube UepXpH-k0EI >}}
 
@@ -19,29 +19,60 @@ You can import your own 3D models into the Scene Editor. Pick models from a wide
 
 To import a 3D model, an image, a sound file, or a video into your scene from your local disk:
 
-1. Click the **+\*** icon on the top-right of the **Local Assets** screen.
+1. Drag files directly onto the bottom panel. You can also click the **+ Import Assets** button on the top-left of the bottom panel and select from your local drive.
 
-2. Drag the file or files onto the window. You can also click the upload icon to open a file browser window.
+  <img src="/images/editor/import-assets.png" width="500" />
 
-3. Check the model thumbnail and click **Import**.
+2. Check the model thumbnail and click **Import**. When importing multiple assets, use the arrow buttons to cycle over each asset.
 
-  <img src="/images/editor/import-model.png" width="500" />
+  <img src="/images/editor/import-confirmation.png" width="500" />
 
-You can now find your asset in the **Local Assets** tab, under the **scene** folder.
+You can now find your asset in the **Local Assets** tab, under the **scene** folder. 3D models appear under the _scene/3D Model_ folder, images under _scene/Image_
 
 - For 3D models, drag the `.glb` or `.gltf` files onto the canvas to add them as items on your scene.
 
-- Other kinds of assets like images and sound files can be dragged onto the fields of an item.
+- Other kinds of assets like images and sound files can be dragged onto the fields of an item. For example you can drag an `.mp3` file onto the _Path_ field of an _Audio Source_ component.
 
-## Supported models
+## Supported formats
 
-All 3D models need to be in _.glTF_ or _.glb_ format. You can convert other formats into these formats with various different editors and tools. See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for recommendations and tips.
+### Audio
+
+The following Audio formats are supported:
+
+- _.mp3_
+- _.wav_
+- _.ogg_
+
+### Image
+
+The following image formats are supported:
+
+- _.png_
+- _.jpg_
+- _.jpeg_
+
+### Video
+
+The following video formats are supported:
+
+- _.mp4_
+
+### 3D Models
+
+The following 3D model formats are supported:
+
+- _.glTF_
+- _.glb_
+
+Both can include external texture image files, or external binary (_.bin_) files.
+
+You can convert other formats into these formats with various different editors and tools. See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for recommendations and tips.
 
 All materials in the models need to be either _basic material_ or _PBR_, and all textures need to be in sizes that are powers of two (ex: 256, 512). See [Scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}) for details.
 
 All 3D model files must each occupy less than 50 MB to be usable in a scene. Larger files aren't supported.
 
-### Free libraries for 3D models
+#### Free libraries for 3D models
 
 Instead of building your own 3D models, you can also download them from several free or paid libraries.
 
