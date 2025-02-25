@@ -9,79 +9,103 @@ url: /creator/editor/scene-admin
 weight: 8
 ---
 
-Grant certain players the special role of admin on your scene. When a scene admin visits your scene, they will see a special UI on the top-right corner that only they are able to see. Through this UI they can pass video URLs to play, send announcements, drop collectibles, or activate any smart item in the scene. These actions are seen by all players in the scene that are connected to the same island as the admin.
+Grant certain players the special role of **admin** on your scene. When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos, send announcements, drop collectibles, or activate any smart item in the scene. These actions are seen by all other players in the scene that are connected to the same island as the admin.
+
+  <img src="/images/editor/admin/admin-console.png" alt="Scene name" width="500"/>
+
 
 During a live event, an admin can spontaneously control what happens in the scene from inside Decentraland, without needing to pre-schedule actions or relying on a 3rd party service. Start playing the music when enough of a crowd gathered, drop confetti or make a spaceship appear when the time feels right.
 
 ## Setting up admins
 
-Add the Scene Admin Smart Item
+To assign admins, you need to add the **Scene Admin** smart item to your scene.
 
-- deployer
-- scene owners?
-- allowlisted
+  <img src="/images/editor/admin/admin-smart-item.png" alt="Scene name" width="500"/>
 
-Open the UI
 
-Icon screenshot, expanded
+Open the Scene Admin configuration to determine who can be an admin in this scene. The following options are available:
+
+- **Public**: Any player can be an admin. This is useful for debugging, but not recommended for live events.
+
+- **Private**: Only the allowed players can be an admins.
+
+    - **Me**: While you're developing the scene and trying it locally, you are always an admin.
+    - **Scene owners**: Players that own the LAND or NAME token of the scene can be a admins. This is the default option.
+    - **Allowlist**: Players in the allowlist are also admins. Paste their wallet address and click **Add**.
+
+Whenever an admin player is in the scene, they will see a special UI on the top-right corner. Non-admin players don't see this UI.
+
+  <img src="/images/editor/admin/admin-console.png" alt="Scene name" width="500"/>
 
 ## Video playing
 
-Add Video Player smart item
+One of the most common actions for admins to do is to play videos. The admin panel includes a video player section where they can control anything related to videos.
 
-Configure Scene Admin Smart Item to point to it
+To enable this, you need to add a **Video Player** smart item to your scene and link it to the Scene Admin smart item.
 
-You can list as many video players as you want
+1. Add a **Video Player** smart item to your scene
 
-Check **Link all screens by default** if you want all screens to show the same video.
+2. On the Scene Admin Smart Item, make sure the **Video Control** section is enabled. Then select the screen from a dropdown list and give it a name.
 
-Note: This will make your scene run a lot smoother. You should avoid trying to have more than one different video playing at the same time, as that hurts performance a lot. You can have up to dozens of screens playing at the same time without much effort, as long as they're linked and playing the same video.
 
-UI inworld
+{{< hint warning >}}
+**📔 Note**: You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
+{{< /hint >}}
 
-Screenshot
 
-- Select which screen
+Once the above is configured, admin users in your scene can open the admin panel and select the video section to control these video screens.
 
-- Paste a URL
-  Note: The videos need to have CORS, etc, link to video doc
+  <img src="/images/editor/admin/admin-video-player.png" alt="Scene name" width="500"/>
 
-Press **Share** for all players to see
 
-- Stop/pause/etc
+Paste a video URL into the main field and click **Share**. The video will start playing on the selected screen for all players. You can also stop, pause, mute or change the volume of the video.
 
-- Mute/ volume controls
+
+{{< hint warning >}}
+**📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming Videos]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md#streaming-videos" >}}) for more information on what you can and can't play in Decentraland.
+{{< /hint >}}
+
 
 ## Announcements
 
-In the Announcements tab, admins can write messages that get seen by all players in the scene. Messages sent like this are perceived as more legitimate than a message on the chat by someone claiming to be an admin.
+In the **Announcements** tab of the admin panel, admins can write messages that get seen by all players in the scene. Messages like this can only be sent by admins, so other players will perceive them as more legitimate than a message on the chat by someone claiming to be an admin.
 
-Write a message and click **Share**. The message can be up to 150 characters long.
+Select the Message section of the admin UI. Write a message and click **Share**. The message can be up to 90 characters long.
 
-You can write a message
+  <img src="/images/editor/admin/admin-announcement.png" alt="Scene name" width="500"/>
+
 
 ## Airdrops
 
-- Create an airdop in the Rewards server (link)
+To create an airdrop, you need to:
 
-- Add a Collectible dispenser Smart Item
+- Create an airdop in the [Rewards server]({{< ref "/content/creator/rewards/gatting-started.md" >}})
 
-- Configure it with your Campaign ID and Dispenser Key
+- Add a **Collectible dispenser** Smart Item to your scene. Configure it with your **Campaign ID** and **Dispenser Key**
+- Open the settings for the **Scene Admin** Smart Item. In the **Airdrops** section, select the **Collectible dispenser** smart item you just added from the dropdown list and give it a name.
 
-- Reference it from the Scene Admin smart item, give it a name
+Once the above is configured, admins can release the airdrop by selecting the **Airdrop** section of the admin UI and clicking **Release**. Players will then see the airdrop drone descend to the ground, where they can click on the item to claim it. If the Rewards campagin is configured to require a captcha, players will have to complete this captcha before they're allowed to claim the item.
 
-- In world select the Airdrop tab, select the airdop from the dropdown and select **Release**. Players will then see the airdrop drone descend to the ground, where they can click on the item to claim it. They will have to complete a Captcha
+  <img src="/images/editor/admin/airdrops.png" alt="Scene name" width="500"/>
 
-TODO: Always captcha or only if configured in the campaign??
+
+{{< hint info >}}
+**💡 Tip**: Configure the Rewards Campaign to require a captcha to claim the item. This will make the airdrop more secure and prevent bots from claiming the item. You can also configure the campaign to only allow claiming the item once per player, and to only allow claims coming from the coordinates of your scene on Decentraland. See [Securing the Rewards Dispenser]({{< ref "/content/creator/rewards/api.md#securing-the-rewards-dispenser" >}}) for more information.
+
+{{< /hint >}}
+
 
 ## Trigger smart items
 
-Trigger any action from a smart item that is present in the scene.
+To Trigger an action from any smart item in the scene:
 
-- Add any smart item
-- Configure the Scene Admin Smart Item to reference it. give it a custom name and select a default action
-- In the scene, select the Smart Item Actions tab
+- Add a smart item to your scene
+- Open the settings for the **Scene Admin** Smart Item in the Creator Hub
+- In the **Smart item actions** section, add the smart item from the dropdown, give it a custom name and select a default action
 
-Select from the list of smart items configured on the Scene Admin Smart item, select the action and trigger it
 
-You can also show or hide any smart item in this list, even if it doesn't have an action configured for that
+Once the above is configured, admins can trigger the action by opening the **Smart Item Actions** section of the admin UI and then selecting an item from the dropdown list. They can then either click the **Default** button to trigger the default action of that item, or select any other of the item's actions from the list.
+
+  <img src="/images/editor/admin/smart-item-actions.png" alt="Scene name" width="500"/>
+
+You can also show or hide any smart item in this list, even if it doesn't include an action to do that.
