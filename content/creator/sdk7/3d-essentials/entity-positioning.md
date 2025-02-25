@@ -378,7 +378,7 @@ To attach an object to one of the avatar´s bones, and have it move together wit
 You can pick different anchor points on the avatar, most of these points are linked to the player's armature and follow the player's animations. For example, when using the right hand anchor point the attached entity will move when the avatar waves or swings their arms while running, just as if the player was holding the entity in their hand.
 
 ```ts
-// Attach to loacl player
+// Attach to main player, if avatarId is not set, engine.PlayerEntity is used by default
 AvatarAttach.create(myEntity, {
 	anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
