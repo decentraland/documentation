@@ -9,7 +9,7 @@ url: /creator/editor/scene-admin
 weight: 8
 ---
 
-Grant certain players the special role of **admin** on your scene. When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos, send announcements, drop collectibles, or activate any smart item in the scene. These actions are seen by all other players in the scene that are connected to the same island as the admin.
+Grant certain players the special role of **admin** on your scene. When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos, send announcements, or activate any smart item in the scene. These actions are seen by all other players in the scene that are connected to the same island as the admin.
 
   <img src="/images/editor/admin/admin-console.png" alt="Scene name" width="500"/>
 
@@ -60,7 +60,7 @@ You can include as many video screens as you want. In general, avoid having more
 
 Once the above is configured, admin users in your scene can open the admin panel and select the video section to control these video screens.
 
-  <img src="/images/editor/admin/admin-video-player.png" alt="Scene name" width="500"/>
+  <img src="/images/editor/admin/video-player.png" alt="Scene name" width="500"/>
 
 
 Paste a video URL into the main field and click **Share**. The video will start playing on the selected screen for all players. You can also stop, pause, mute or change the volume of the video.
@@ -77,9 +77,9 @@ In the **Announcements** tab of the admin panel, admins can write messages that 
 
 Select the Message section of the admin UI. Write a message and click **Share**. The message can be up to 90 characters long.
 
-  <img src="/images/editor/admin/admin-announcement.png" alt="Scene name" width="500"/>
+  <img src="/images/editor/admin/announcement.png" alt="Scene name" width="500"/>
 
-
+<!-- TODO: Waiting for rewards to be released
 ## Airdrops
 
 To create an airdrop, you need to:
@@ -102,7 +102,7 @@ Once the above is configured, admins can release the airdrop by selecting the **
 **💡 Tip**: Configure the Rewards Campaign to require a captcha to claim the item. This will make the airdrop more secure and prevent bots from claiming the item. You can also configure the campaign to only allow claiming the item once per player, and to only allow claims coming from the coordinates of your scene on Decentraland. See [Securing the Rewards Dispenser]({{< ref "/content/creator/rewards/api.md#securing-the-rewards-dispenser" >}}) for more information.
 
 {{< /hint >}}
-
+ -->
 
 ## Trigger smart items
 
