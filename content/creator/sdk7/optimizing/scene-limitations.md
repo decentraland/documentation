@@ -79,14 +79,14 @@ The scene's lighting conditions can't be changed for all players from the defaul
 Texture sizes must use width and height numbers (in pixels) that match the following numbers:
 
 ```
-1, 2, 4, 8, 16, 32, 64, 128, 256, 512
+1, 2, 4, 8, 16, 32, 64, 128, 256, 512 1024
 ```
 
 > This sequence is made up of powers of two: `f(x) = 2 ^ x` . 512 is the maximum number we allow for a texture size. This is a fairly common requirement among other rendering engines, it's there due internal optimizations of the graphics processors.
 
 The width and height don't need to have the same number, but they both need to belong to this sequence.
 
-**The recommended size for textures is 512x512**, we have found this to be the optimal size to be transported through domestic networks and to provide reasonable loading/quality experiences.
+**The recommended size for textures is 1024x1024**, we have found this to be the optimal size to be transported through domestic networks and to provide reasonable loading/quality experiences.
 
 Examples of other valid sizes:
 
@@ -95,6 +95,7 @@ Examples of other valid sizes:
 64x32
 512x256
 512x512
+1024x1024
 ```
 
 {{< hint warning >}}
