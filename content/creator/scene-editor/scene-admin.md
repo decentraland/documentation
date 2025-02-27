@@ -45,11 +45,16 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
 1. Add a **Video Player** smart item to your scene
 
+    <img src="/images/editor/admin/video-player-item.png" alt="Scene name" width="500"/>
+
+
 2. On the Scene Admin Smart Item, make sure the **Video Control** section is enabled. Then select the screen from a dropdown list and give it a name.
 
 
 {{< hint warning >}}
-**📔 Note**: You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
+**📔 Note**: An admin can only control video screens that are added as Smart Items in the Creator Hub, not screens added via SDK code.
+
+You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
 {{< /hint >}}
 
 
@@ -75,14 +80,18 @@ Select the Message section of the admin UI. Write a message and click **Share**.
   <img src="/images/editor/admin/admin-announcement.png" alt="Scene name" width="500"/>
 
 
-## Airdrops
+## Airdrops
 
 To create an airdrop, you need to:
 
-- Create an airdop in the [Rewards server]({{< ref "/content/creator/rewards/gatting-started.md" >}})
+1. Create an airdop in the [Rewards server]({{< ref "/content/creator/rewards/gatting-started.md" >}})
 
-- Add a **Collectible dispenser** Smart Item to your scene. Configure it with your **Campaign ID** and **Dispenser Key**
-- Open the settings for the **Scene Admin** Smart Item. In the **Airdrops** section, select the **Collectible dispenser** smart item you just added from the dropdown list and give it a name.
+2. Add a **Collectible dispenser** Smart Item to your scene. Configure it with your **Campaign ID** and **Dispenser Key**
+
+    <img src="/images/editor/admin/airdrop-item.png" alt="Scene name" width="500"/>
+
+
+3. Open the settings for the **Scene Admin** Smart Item. In the **Airdrops** section, select the **Collectible dispenser** smart item you just added from the dropdown list and give it a name.
 
 Once the above is configured, admins can release the airdrop by selecting the **Airdrop** section of the admin UI and clicking **Release**. Players will then see the airdrop drone descend to the ground, where they can click on the item to claim it. If the Rewards campagin is configured to require a captcha, players will have to complete this captcha before they're allowed to claim the item.
 
