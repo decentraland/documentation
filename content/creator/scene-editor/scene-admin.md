@@ -31,7 +31,12 @@ Open the Scene Admin configuration to determine who can be an admin in this scen
 
     - **Me**: While you're developing the scene and trying it locally, you are always an admin.
     - **Scene owners**: Players that own the LAND or NAME token of the scene can be a admins. This is the default option.
-    - **Allowlist**: Players in the allowlist are also admins. Paste their wallet address and click **Add**.
+    - **Allowlist**: Players in the allowlist are also admins. Paste their **wallet address** and click **Add**.
+
+{{< hint warning >}}
+**📔 Note**: When publishing to a World, scene owners must be explicitly added to the allowlist to be admins.
+{{< /hint >}}
+
 
 Whenever an admin player is in the scene, they will see a special UI on the top-right corner. Non-admin players don't see this UI.
 
