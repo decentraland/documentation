@@ -56,21 +56,23 @@ However, Worlds granted by ENS domain ownership serve as the perfect first step 
 
 ## Publish a World
 
-Users have various options to publish content on their World:
+Users have various options to publish content on their World. As a prerequisite for any of the options below, you must hold a Decentraland NAME or ENS Domain in your wallet, or have permissions granted by an owner.
 
-### 1. Using the Web Editor (no-code)
+### 1. Use the Creator Hub (no-code / code)
+
+The Creator Hub is the go-to option for creating Decentraland Scenes. It can be used to create no-code scenes via an easy drag-and-drop interface, or you can also combine it with Visual Studio Code to write code freely.
+
+See [Publish Scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}) for more details.
+
+### 2. Using the Web Editor (no-code)
 
 The Builder is the ideal choice for non-developers. Scenes can be created from scratch using the Scene Builder by simply dragging and dropping items into the scene. [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) can also be used for player interaction once the scene is deployed.
 
-Creators can also use Templates, edit them, and then deploy them to their World. More templates from the Foundation will be uploaded over time. Another option is to use a scene from the Scene Pool. Anyone can get a scene from the pool, download it, and then import it into the Builder to edit it or deploy it to a World as it is.
-
-When deploying a scene from the Builder, users will have the option to select either a Decentraland NAME or an ENS Domain held in their wallet.
-
 The [Builder](https://builder.decentraland.org/worlds) also serves as the go-to place for visualizing your allocated space and monitoring how much is consumed by each Decentraland NAME or ENS Domain. Additionally, users can easily undeploy scenes to release storage space, view when their storage capacity is exceeded, and access comprehensive information about their Worlds, whether they are hosted on Decentraland NAMES or ENS Domains.
 
-### 2. Using the SDK and Editor
+### 3. Using the SDK and Editor
 
-The starting point for this product is having a scene that meets the size requirements mentioned above. If you wish to know more about how to create a scene, check out the [Decentraland SDK]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}) documentation.
+If you wish to know more about how to create a scene, check out the [Decentraland SDK]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}) documentation.
 
 If you are a Content Creator, you may be already familiar with how the [publishing of a scene]({{< ref "/content/creator/deprecated/scenes/publishing/publishing.md" >}}) works, the experience is quite similar, but with a small caveat:
 
@@ -108,14 +110,18 @@ If you wish to opt-out from your Worlds being indexed in Places, you can add the
 }
 ```
 
-### 3. Publish via the VS Code Extension:
+### 4. Publish via the VS Code Extension:
+
+{{< hint warning >}}
+**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) instead.
+{{< /hint >}}
 
 1. Open VSCode in a Decentraland scene project.
 2. Click on the Decentraland icon on the left sidebar.
 3. Click on the three-dot menu at the top right of the sidebar, next to the green reload arrow button, select **Publish Scene To Your World**
 4. Approve the transaction.
 
-### 4. Publish via the CLI
+### 5. Publish via the CLI
 
 To deploy a scene to a world via the CLI, you need to specify the target server in the deployment command-line and use the Worlds Content Server URL.
 

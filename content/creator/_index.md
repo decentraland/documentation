@@ -95,7 +95,7 @@ You don't need to own any tokens to start building your scene with the Scene Edi
 
 See [Kinds of project]({{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >}}) to better understand the different options.
 
-See [publishing]({{< ref "/content/creator/deprecated/scenes/publishing/publishing.md" >}}) for details and special options when publishing a scene, to either Genesis City or Worlds.
+See [publishing]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) for details and special options when publishing a scene, to either Genesis City or Worlds.
 
 ### Alternative tools
 
@@ -106,7 +106,7 @@ There are also some community-built tools that can help you create Decentraland 
 - [**DCL Edit**](https://dcl-edit.com/): Drag and drop 3d models into your scene. You can then work on adding interactivity to the resulting scene using the SDK.
 - [**Unity Exporter Toolkit**](https://github.com/PolygonalMind/dcl-dev-exportersdk7-release): Build in Unity, with a number of pre-built interactive modules. Export a fully-working Decentraland scene.
 
-The following deprecated tools are also available:
+The following **deprecated tools** are also available:
 
 - **Web Editor:** Use an easy drag and drop interface to create scenes. [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
 
