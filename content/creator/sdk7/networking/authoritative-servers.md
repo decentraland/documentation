@@ -43,15 +43,25 @@ API + DB:
 
 ## Preview scenes with dedicated servers
 
-To preview a scene that uses a 3rd party server, you must run both the scene and the server it relies on. The server can be run locally in the same machine as the preview, as an easier way to test it.
+To preview a scene that uses a 3rd party server, you must run both the scene and the server it relies on. The server can be run locally in the same machine as the preview, as an easier way to test it. When running locally, the server can use unsafe `http` or `ws` connections, for easier setup. 
 
 To start the server, go to the `/server` folder and run `npm run start`.
 
-Once the server is running, either remotely or locally, you can run `npm run start` on the scene as you normally do for local scenes.
+Once the server is running, either remotely or locally, you can run your scene as you normally do.
 
-Once the scene preview is running, you can open multiple browser tabs pointing at the same local address. Each tab will instantiate a separate player in the same scene, these players will share the same scene state as the scene changes.
+### Test a multiplayer scene locally
 
-See [preview a scene]({{< ref "/content/creator/sdk7/getting-started/preview-scene.md" >}}) for more details.
+If you launch a scene preview and open it in two (or more) different explorer windows, each open window will be interpreted as a separate player, and a mock communications server will keep these players in sync.
+
+Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
+
+Using the Creator Hub, click the Preview button a second time, and that opens a second Decentraland explorer window. You must connect on both windows with different addresses. The same sessions will remain open as the scene reloads.
+
+<img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
+
+As an alternative, you can open a second Decentraland explorer window by writing the following into a browser URL:
+
+> `decentraland://realm=http://127.0.0.1:8000&local-scene=true&debug=true`
 
 ## Separate realms
 
@@ -75,3 +85,5 @@ When loading the scene, make sure its built based on the shared information stor
 In some cases, it makes sense to include some kind of reset button in the scene. Pressing the reset button would reset the scene gracefully.
 
 Sometimes, this just implies setting the variables in the scene state back to default values. But resetting the scene might also involve unsubscribing listeners and stopping loops in the server side. If empty loops remain each time the scene is reset, these would keep piling up and will have an ill effect on the scene's performance.
+
+
