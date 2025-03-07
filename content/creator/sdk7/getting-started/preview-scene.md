@@ -82,23 +82,17 @@ Press the **\`** key on your keyboard to open the scene console. Here you can se
 
 You can also press Shift + **\`** to open the console even wider, in case you need to view more text.
 
-<!--
-## Run preview in Desktop
+## Test a multiplayer scene locally
 
-To run a preview scene in the Desktop native client, instead of in the web browser:
+If you launch a scene preview and open it in two (or more) different explorer windows, each open window will be interpreted as a separate player, and a mock communications server will keep these players in sync.
 
-1. Make sure you have downloaded and installed the [Windows](https://decentraland.org/download/) or [Mac](https://github.com/decentraland/explorer-desktop-launcher/releases/latest/download/Decentraland.dmg) desktop client.
+Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
 
-2. Run the preview with:
+Using the Creator Hub, click the Preview button a second time, and that opens a second Decentraland explorer window. You must connect on both windows with different addresses. The same sessions will remain open as the scene reloads.
 
-   `npm run start -- --desktop-client`
+<img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
 
-3. Copy the URL provided by the console output under **Desktop Client** and paste in your browser.
+As an alternative, you can open a second Decentraland explorer window by writing the following into a browser URL:
 
-   > Note: The Browser might ask you for permission to open an external executable: Decentraland. Select **Open**.
+> `decentraland://realm=http://127.0.0.1:8000&local-scene=true&debug=true`
 
-4. You'll see the following screen. Check that the URL is correct, then click **Continue** to launch the preview.
-
-   ![](/images/media/desktop-preview.png)
-
-   If you need to manually add anything to the URL, to change the default way the scene runs, tick the box **Add custom URL parameters** and write those in the dialog below. -->

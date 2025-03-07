@@ -157,7 +157,7 @@ const getChildrenResult = Array.from(getChildren(parent))
 removeParent(child)
 ```
 
-## Check the sync state
+## Check the sync state
 
 When a player just loads into a scene, they may not yet be synchronized with other players surrounding them. If the player starts altering the state of the game before they are synced, this could cause problems in your game. We recommend always checking for a player to be synchronized before they are allowed to edit anything about the scene.
 
@@ -319,13 +319,17 @@ sceneMessageBus.on('spawn', (info: NewBoxPosition) => {
 
 ## Test a multiplayer scene locally
 
-If you launch a scene preview and open it in two (or more) different browser windows, each open window will be interpreted as a separate player, and a mock communications server will keep these players in sync.
+If you launch a scene preview and open it in two (or more) different explorer windows, each open window will be interpreted as a separate player, and a mock communications server will keep these players in sync.
 
 Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
 
-{{< hint warning >}}
-**📔 Note**: Open separate browser _windows_. If you open separate _tabs_ in the same window, the interaction won't work properly, as only one tab will be treated as active by the browser at a time.
-{{< /hint >}}
+Using the Creator Hub, click the Preview button a second time, and that opens a second Decentraland explorer window. You must connect on both windows with different addresses. The same sessions will remain open as the scene reloads.
+
+<img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
+
+As an alternative, you can open a second Decentraland explorer window by writing the following into a browser URL:
+
+> `decentraland://realm=http://127.0.0.1:8000&local-scene=true&debug=true`
 
 ## Single player scenes
 

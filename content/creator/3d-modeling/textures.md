@@ -18,21 +18,21 @@ Textures are a key part of the 3D art pipeline to achieve the look and feel you 
 
 ### Texture Size Constraints
 
-Currently the Decentraland Explorer compress the textures at a maximun of 512px for optimization purpeses using an Asset Bundle Converter after the scene is uplaoded to the content servers. Be sure to take this limitations into account when creating your assets!
+Currently the Decentraland Explorer compress the textures at a maximun of 1024px for optimization purpeses using an Asset Bundle Converter after the scene is uplaoded to the content servers. Be sure to take this limitations into account when creating your assets!
 
 Another important point to take into account is that textures should be always power of two, any textures that are not following this specification may bring issues when rendering the scene.
 
 Texture sizes must use width and height numbers (in pixels) that match the following numbers:
 
 ```
-1, 2, 4, 8, 16, 32, 64, 128, 256, 512
+1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
 ```
 
 > This sequence is made up of powers of two: `f(x) = 2 ^ x` . **512px is the maximum number we allow for a texture size.** This is a fairly common requirement among other rendering engines, it's there due internal optimizations of the graphics processors.
 
 The width and height don't need to have the same number, but they both need to belong to this sequence.
 
-**The recommended size for textures is 512x512**, we have found this to be the optimal size to be transported through domestic networks and to provide reasonable loading/quality experiences.
+**The recommended size for textures is 1024x1024**, we have found this to be the optimal size to be transported through domestic networks and to provide reasonable loading/quality experiences.
 
 Examples of other valid sizes:
 
@@ -41,6 +41,7 @@ Examples of other valid sizes:
 64x32px
 512x256px
 512x512px
+1024x1024px
 ```
 
 On another hand there is a limit for textures per parcel:
