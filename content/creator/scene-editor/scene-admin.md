@@ -16,7 +16,7 @@ Grant certain players the special role of **admin** on your scene. When a scene 
 
 During a live event, an admin can spontaneously control what happens in the scene from inside Decentraland, without needing to pre-schedule actions or relying on a 3rd party service. Start playing the music when enough of a crowd gathered, drop confetti or make a spaceship appear when the time feels right.
 
-## Setting up admins
+## Setting up admins
 
 To assign admins, you need to add the **Scene Admin** smart item to your scene.
 
