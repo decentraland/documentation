@@ -23,6 +23,14 @@ To assign admins, you need to add the **Scene Admin** smart item to your scene.
   <img src="/images/editor/admin/admin-smart-item.png" alt="Scene name" width="500"/>
 
 
+{{< hint warning >}}
+**📔 Note**: Update your scene to use the latest dependencies. The Scene Admin Smart item won't work if the scene is outdated. 
+
+ <img src="/images/editor/admin/update-dependencies.png" alt="Scene name" width="500"/>
+
+{{< /hint >}}
+
+
 Open the Scene Admin configuration to determine who can be an admin in this scene. The following options are available:
 
 - **Public**: Any player can be an admin. This is useful for debugging, but not recommended for live events.
