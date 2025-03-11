@@ -42,7 +42,9 @@ Gas fees are variable.
 
 ## What can I do if network fees are higher than 300 gwei?
 
-Network fees are variable, so the best you can do is wait and try again at another moment.
+Gwei is a unit of measurement used in the Ethereum blockchain. It is short for "Giga-wei," where "giga" denotes one billion. In Polygon, gwei is the smallest denomination of MATIC that is equivalent to 1/1,000,000,000 of 1 MATIC (1 MATIC = 1,000,000,000 gwei). All transaction fees on the Polygon network are denominated in gwei.
+
+Network fees (exoressed ub gwei) are variable, so the best you can do is wait and try again at another moment. [Here](https://polygonscan.com/gastracker) you can check the Polygon Gas Fee in real time. 
 
 Alternatively, you can buy these items by connecting to the Polygon network to use the MATIC in your wallet to pay for the fees. The MATIC fee will be deducted automatically as part of the transaction fee of the Polygon network. You only need to be connected to the Polygon network and have MATIC in your wallet.
 
