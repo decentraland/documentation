@@ -168,3 +168,16 @@ Are there any fees associated with minting items? No, items are minted on the Ma
 To add minters, simply enter their Ethereum address, and click **Add**. You can add as many minters as you want. To remove a minter, simply click **Remove** next to the minter’s address.
 
 <img src="/images/wearables-and-emotes/publishing-collections/add-minters.png" width="600" />
+
+### **Collection Ownership Transfer**
+
+In order to transfer the ownership of a Collection, you will need: 
+- The wallet address used to create the Collection
+- The new wallet address you will transfer it to
+- The contract of the collection
+
+{{< hint warning >}}⚠️ Note: This applies only to Polygon Wearables. {{< /hint >}}
+
+Use this URL - `https://polygonscan.com/address/collection_address#writeContract` and replace `collection_address` with the your collection contract.
+
+<img src="/images/wearables-and-emotes/publishing-collections/ownership_transfer.png" width="600" />
