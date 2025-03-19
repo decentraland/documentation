@@ -19,11 +19,11 @@ No steps are required. The Creator Hub application checks for updates every time
 
 ## Editing code
 
-If you also plan on reading and editing code in your scene, you'll also need to install <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+If you also plan on reading and editing code in your scene, you'll also need to install either:
 
-<img src="/images/editor/editor-header.png" alt="Header" width="100%"/>
+- <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Visual Studio Code](https://code.visualstudio.com/). This is the recommended option.
 
-You can instead try <img src="/images/editor/cursor-icon.png" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/), a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free.
+- <img src="/images/editor/cursor-icon.png" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/). This is a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free.
 
 
 ## Troubleshooting
