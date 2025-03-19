@@ -19,6 +19,9 @@ weight: 2
 
 The **Creator Hub** is the recommended tool for creating content for Decentraland.
 
+<img src="/images/editor/icon-creator-hub.png" alt="Header" width="128"/>
+
+
 See installation instructions on [Creator Hub Installation]({{< ref "/content/creator/scene-editor/editor-installation.md" >}})
 
 <!-- TODO

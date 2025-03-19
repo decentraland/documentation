@@ -55,6 +55,10 @@ You must have the following:
 
 - **Visual Studio Code**: Only necessary if you plan to edit the scene's code. Download it [here](https://code.visualstudio.com/). It helps you write code a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
 
+{{< hint info >}}
+**💡 Tip**: Instead of VS Code, you can also try <img src="/images/editor/cursor-icon.jpg" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/), a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. The AI assistant doesn't just autocomplete as you write, you can also prompt it to refactor a large code base, write documentation, and more.
+{{< /hint >}}
+
 ## Supported languages and syntax
 
 Decentraland employs [TypeScript (.ts)](https://www.typescriptlang.org/docs/handbook/jsx.html) as the default language for writing scenes.

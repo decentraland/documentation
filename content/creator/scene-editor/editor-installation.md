@@ -23,7 +23,8 @@ If you also plan on reading and editing code in your scene, you'll also need to 
 
 <img src="/images/editor/editor-header.png" alt="Header" width="100%"/>
 
-<!-- TODO: will we support other IDEs? -->
+You can instead try <img src="/images/editor/cursor-icon.jpg" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/), a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free.
+
 
 ## Troubleshooting
 
