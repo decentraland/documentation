@@ -38,7 +38,7 @@ Add your custom code in the `index.ts` file under `/src`, inside the `main()` fu
 If you have a preview window open running your scene, whenever you change the code in your files and save, the scene reloads automatically with your changes.
 
 {{< hint info >}}
-**💡 Tip**: Instead of VS Code, you can also try <img src="/images/editor/cursor-icon.jpg" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/), a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. The AI assistant doesn't just autocomplete as you write, you can also prompt it to refactor a large code base, write documentation, and more.
+**💡 Tip**: Instead of VS Code, you can also try <img src="/images/editor/cursor-icon.png" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/), a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. The AI assistant doesn't just autocomplete as you write, you can also prompt it to refactor a large code base, write documentation, and more.
 {{< /hint >}}
 
 
