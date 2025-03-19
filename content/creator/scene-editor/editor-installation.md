@@ -21,9 +21,9 @@ No steps are required. The Creator Hub application checks for updates every time
 
 If you also plan on reading and editing code in your scene, you'll also need to install either:
 
-- <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Visual Studio Code](https://code.visualstudio.com/). This is the recommended option.
+- <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Visual Studio Code](https://code.visualstudio.com/): This is the recommended option for experienced developers.
 
-- <img src="/images/editor/cursor-icon.png" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/). This is a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free.
+- <img src="/images/editor/cursor-icon.png" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/): This is a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. This is a good option for developers who are new to Decentraland or TypeScript, or if you want to save time writing code.
 
 
 ## Troubleshooting
