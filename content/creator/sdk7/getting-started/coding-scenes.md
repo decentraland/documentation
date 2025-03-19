@@ -55,9 +55,9 @@ You must have:
 
 If you plan to edit the scene's code, you'll also need to install one of the following:
 
-	<img src="/images/editor/vscode.png" alt="Header" width="25"/> **Visual Studio Code**: Download it [here](https://code.visualstudio.com/). It helps you write code a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
+- <img src="/images/editor/vscode.png" alt="Header" width="25"/> **Visual Studio Code**: Download it [here](https://code.visualstudio.com/). It helps you write code a lot faster and with less errors. A source code editor marks syntax errors, autocompletes while you write and even shows you smart suggestions that depend on the context that you're in. You can also click on an object in the code to see the full definition of its class and what attributes it supports.
 
-	<img src="/images/editor/cursor-icon.png" alt="Header" width="25"/> **Cursor AI**: Download it [here](https://www.cursor.com/). A powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. The AI assistant doesn't just autocomplete as you write, you can also prompt it to refactor a large code base, write documentation, and more.
+- <img src="/images/editor/cursor-icon.png" alt="Header" width="25"/> **Cursor AI**: Download it [here](https://www.cursor.com/). A powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. The AI assistant doesn't just autocomplete as you write, you can also prompt it to refactor a large code base, write documentation, and more.
 
 
 ## Supported languages and syntax
