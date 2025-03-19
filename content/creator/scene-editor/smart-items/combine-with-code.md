@@ -31,11 +31,17 @@ This opens a separate window with Visual Studio Code. On the left margin you can
 
 Add your custom code in the `index.ts` file under `/src`, inside the `main()` function. You can otherwise add custom code outside that function or create new `.ts` files inside the `/src` folder, but these must be somehow referenced inside the `main()` function of `index.ts`.
 
-If you have a preview window open running your scene, whenever you change the code in your files and save, the scene reloads automatically with your changes.
-
 {{< hint warning >}}
 **📔 Note**: If you have VS Code installed but the **CODE** button doesn't open it, it may be that VS Code is not properly configured on your machine to open via the command line. In most cases, this is care of as part of the default installation, but in case it's not, see [these instructions from VS](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) to enable VS Code from the command line.
 {{< /hint >}}
+
+If you have a preview window open running your scene, whenever you change the code in your files and save, the scene reloads automatically with your changes.
+
+{{< hint info >}}
+**💡 Tip**: Instead of VS Code, you can also try <img src="/images/editor/cursor-icon.png" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/), a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. The AI assistant doesn't just autocomplete as you write, you can also prompt it to refactor a large code base, write documentation, and more.
+{{< /hint >}}
+
+
 
 ## Reference an item
 
