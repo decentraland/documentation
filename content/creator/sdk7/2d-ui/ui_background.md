@@ -9,6 +9,8 @@ url: /creator/development-guide/sdk7/ui-background/
 weight: 4
 ---
 
+The following properties are used to set a background and border on a UI entity.
+
 ## Background
 
 A `uiBackground` component gives color or a texture an entity's area. It uses the size and position defined by the entity's `uiTransform`.
