@@ -1,7 +1,7 @@
 ---
 date: 2022-10-28
-title: UI Background
-description: Set a background color on a UI entity.
+title: Container Styling
+description: Set a background and border of a UI entity.
 categories:
   - development-guide
 type: Document
@@ -9,7 +9,7 @@ url: /creator/development-guide/sdk7/ui-background/
 weight: 4
 ---
 
-## uiBackground
+## Background
 
 A `uiBackground` component gives color or a texture an entity's area. It uses the size and position defined by the entity's `uiTransform`.
 
@@ -81,6 +81,48 @@ ReactEcsRenderer.setUiRenderer(() => (
 ))
 ```
 
+## Borders
+
+A few properties are used to set a border around a UI entity. These properties exist on the `uiTransform` component. They each allow you to set either a single value for all sides of the border, or different values for each side.
+
+- `borderColor`: The color to use on the entity, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}) value.
+- `borderWidth`: The width of the border, as a number in pixels. It also supports values in percentages, for example `borderWidth: '2%'` will set the border width to 2% of the entity's width.
+- `borderRadius`: Use this property to give the corners of the entity a rounded border. It sets the radius of the corners in pixels. It also supports values in percentages, for example `borderRadius: '19%'` will set the border radius to 10% of the entity's width.
+
+```ts
+import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+
+ReactEcsRenderer.setUiRenderer(() => (
+  <UiEntity
+    uiTransform={{
+      width: 700,
+      height: 400,
+      borderColor: Color4.Red(),
+      borderWidth: 4,
+      borderRadius: 10
+    }}
+  >
+))
+```
+
+`borderWidth`, `borderColor` and `borderRadius` can also be set with different values for each side of the entity.
+
+```ts
+import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+
+ReactEcsRenderer.setUiRenderer(() => (
+  <UiEntity
+    uiTransform={{
+      width: 700,
+      height: 400,
+      borderColor: { top: Color4.White(), left: Color4.Red(), right: Color4.Blue(), bottom: Color4.Gray() },
+      borderRadius: { topLeft: 20, topRight: 20, bottomLeft: 20, bottomRight:0},
+      borderWidth: { top: 3, left: 2, right: 3, bottom: 4}
+    }}
+  >
+))
+```
+
 ## Nine-slice textures
 
 You can use [9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling) with your textures, to ensure that corners and margins don't get stretched unevenly.
@@ -107,16 +149,16 @@ ReactEcsRenderer.setUiRenderer(() => (
   <UiEntity
     uiTransform={{ width: 700, height: 400 }}
     uiBackground={{
-		textureMode: 'nine-slices',
-		texture: {
-			src: 'images/rounded_alpha_square.png'
-		},
-		textureSlices: {
-      top: 0.2,
-      bottom: 0.2,
-      left: 0.2,
-      right: 0.2
-    }
+      textureMode: 'nine-slices',
+      texture: {
+        src: 'images/rounded_alpha_square.png'
+      },
+      textureSlices: {
+        top: 0.2,
+        bottom: 0.2,
+        left: 0.2,
+        right: 0.2
+      }
 	}}
   >
 ))
