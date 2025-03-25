@@ -89,7 +89,7 @@ A few properties are used to set a border around a UI entity. These properties e
 
 - `borderColor`: The color to use on the entity, as a [Color4]({{< ref "/content/creator/sdk7/3d-essentials/color-types.md">}}) value.
 - `borderWidth`: The width of the border, as a number in pixels. It also supports values in percentages, for example `borderWidth: '2%'` will set the border width to 2% of the entity's width.
-- `borderRadius`: Use this property to give the corners of the entity a rounded border. It sets the radius of the corners in pixels. It also supports values in percentages, for example `borderRadius: '19%'` will set the border radius to 10% of the entity's width.
+- `borderRadius`: Use this property to give the corners of the entity a rounded border. It sets the radius of the corners in pixels.
 
 ```ts
 import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
