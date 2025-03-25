@@ -15,12 +15,13 @@ Each of your available scenes is shown as a card. Open the card to edit that sce
 
 ## Create a scene
 
-Click **Create scene** to create a new scene. This may take a minute or two, as it downloads dependencies and sets up a folder on your local machine with everything it needs. This will then open your scene in the [Scene Editor]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md" >}}).
+Click **Create scene** to create a new scene. You'll then be asked to choose a template, there are a few options, including a blank scene.
 
-Click the three dots on a scene's card and click **Duplicate** to make a copy of an existing scene.
+Then you'll be asked to name your scene, and choose a location to save it.
 
-<!-- TODO future:
-create from template -->
+Once you confirm these steps, the scene project will be created. This may take a minute or two, as it downloads dependencies and sets up a folder on your local machine with everything it needs. When done, your scene will be opened in the [Scene Editor]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md" >}}).
+
+Click the three dots on an already created scene's card and click **Duplicate** to make a copy of an existing scene.
 
 To rename your scene, open it and click the pencil icon to change the **Name** field and other properties.
 
