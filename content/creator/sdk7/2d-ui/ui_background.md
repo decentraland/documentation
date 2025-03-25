@@ -119,7 +119,7 @@ ReactEcsRenderer.setUiRenderer(() => (
       height: 400,
       borderColor: { top: Color4.White(), left: Color4.Red(), right: Color4.Blue(), bottom: Color4.Gray() },
       borderRadius: { topLeft: 20, topRight: 20, bottomLeft: 20, bottomRight:0 },
-      borderWidth: { top: 3, left: 2, right: 3, bottom: 4}
+      borderWidth: { top: 3, left: 2, right: 3, bottom: 4 }
     }}
   >
 ))
