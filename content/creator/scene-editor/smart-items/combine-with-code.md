@@ -17,6 +17,7 @@ For example, you can take advantage of an existing lever smart item, that alread
 
 {{< hint warning >}}
 **📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
+If you are on macOS, make sure the Visual Studio app is in the Applications directory.
 {{< /hint >}}
 
 ## Open a scene's code
