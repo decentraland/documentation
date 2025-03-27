@@ -233,7 +233,7 @@ _*Lower tones of gray will appear darker and higher tones of gray will appear br
 
 ## **Base Materials and Textures**
 
-There are two basic materials for avatar models. One is the material used for the wearable itself and the other one is used for the skin.
+There are three basic materials for avatar models. One is the material used for the wearable itself, another one is used for the skin and another one for the eyebrows, eyes and mouth.
 
 <img src="/images/wearables-and-emotes/creating-wearables/15_avatar_skin_mat.png" width="300"/>
 
@@ -258,6 +258,10 @@ You can create custom textures for your wearables! However, it’s always best t
 <img src="/images/wearables-and-emotes/creating-wearables/20_wearables_uv.png" width="600" />
 
 {{< hint warning >}}
+To prevent triggering facial feature-specific shaders, do not include '_mouth,' '_eyebrows,' or '_eyes' in the naming of any meshes. These terms are reserved for facial features, and using them inappropriately will apply the wrong shader to the mesh.
+{{< /hint >}}
+
+{{< hint warning >}}
 ✨ In the case you want to do your own textures for the model we recommend the following addons for better UV Unwrapping:
 
 **UVPacker**
@@ -275,7 +279,7 @@ UvToolKit is a addon that helps you to expand your UV settings and options to cr
 Here is the link for the download:
 [**https://alexbel.gumroad.com/l/NbMya**](https://alexbel.gumroad.com/l/NbMya)
 
-{{< /hint >}}
+
 
 ## **Skin Weighting**
 
