@@ -24,8 +24,10 @@ To find your way around the Scene Editor:
 
 - Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
 - Use **S** and **D** to move sideways.
-- Click the mouse and drag to rotate. You can click either with the Right or the Left button.
+- Use **Q** and **E** to move up and down.
+- Click the **Right Mouse Button** and drag to rotate the camera.
 - Press **Space bar** to reset the camera back to the default position
+- Use **Left Mouse Button** to click and select items and to move them around.
 
 ## Set the Ground
 
@@ -73,21 +75,21 @@ Open the **Local Assets** tab to delete any unused models.
 
 {{< youtube cNl02PFPdcQ >}}
 
-Click and drag a selected item to move it freely around the scene at ground level.
+Click with the **Left Mouse Button** and drag a selected item to move it freely around the scene at ground level.
 
 You can also use the tools on the top menu:
 
 <img src="/images/editor/gizmos.png" alt="Scene name" width="124"/>
 
-- **Move tool**: Each arrow lets you move the item in a single axis at a time. With this tool you can also position things above the ground level.
+- **Move tool**: Click and drag each arrow to move the item in a single axis at a time. With this tool you can also position things above the ground level.
 
-- **Rotate tool**: A gizmo appears on the selected item, and you can use each of the hoops to rotate the item on one axis at a time.
+- **Rotate tool**: Click and drag each of the hoops around the item to rotate the item on one axis at a time.
 
-- **Scale tool**: Click on the center of the gizmo and drag in or out to enlarge. This tool also lets you stretch an item in a single axis to change its proportions, to do this click on one of the axis of the gizmo and drag it.
+- **Scale tool**: Click on the center of the gizmo and drag in or out to enlarge. This tool also lets you stretch an item in a single axis to change its proportions, to do this click on one of the axis of the gizmo and drag.
 
 <img src="/images/editor/move-items.gif" alt="Scene name" width="300"/>
 
-To have greater precision while moving, rotating or scaling an item, press and hold the _Shift_ key while making adjustments.
+To have greater precision while moving, rotating or scaling an item, press and hold the _Shift_ key while making adjustments. This will avoid snapping to the grid.
 
 To change the movement granularity and other settings, click the downward arrow on the right of the tools. The following settings are available:
 

@@ -33,6 +33,13 @@ You can now find your asset in the **Local Assets** tab, under the **scene** fol
 
 - Other kinds of assets like images and sound files can be dragged onto the fields of an item. For example you can drag an `.mp3` file onto the _Path_ field of an _Audio Source_ component.
 
+{{< hint info >}}
+**💡 Tip**: You can also paste files directly into the project folder. After doing this, press the **Refresh** button next to the **Import Assets** button to see the new files.
+
+<img src="/images/editor/refresh-assets.png" width="34" />
+{{< /hint >}}
+
+
 ## Supported formats
 
 ### Audio
