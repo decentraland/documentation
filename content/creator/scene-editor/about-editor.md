@@ -27,6 +27,8 @@ To create a new scene, open the Creator Hub and press the _Create scene_ button.
 
 You can then select what template to use as a starting point. You can pick a blank scene or a project with some initial content.
 
+Then you'll be asked to name your scene, and choose a location to save it.
+
 See [Manage scenes]({{< ref "/content/creator/scene-editor/manage-scenes.md" >}}) for more details.
 
 ## Moving around
@@ -35,8 +37,10 @@ To find your way around the Scene Editor:
 
 - Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
 - Use **S** and **D** to move sideways.
-- Click the mouse and drag to rotate. You can click either with the Right or the Left button.
+- Use **Q** and **E** to move up and down.
+- Click the **Right Mouse Button** and drag to rotate the camera.
 - Press **Space bar** to reset the camera back to the default position
+- Use **Left Mouse Button** to click and select items and to move them around.
 
 ## Add items
 
