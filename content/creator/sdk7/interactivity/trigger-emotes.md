@@ -74,7 +74,13 @@ The following list covers some of the default emotes that are available to all p
 **❗Warning**: Currently, avatar animations from scene files do not work in preview using the new Decentraland 2.0 , this is a known issue. These animations do work correctly once the scene is published.
 {{< /hint >}}
 
-Use the `triggerSceneEmote()` to make the player perform a custom animation, stored as a .glb file as part of the scene's asset. This function takes an object as an argument with the following arguments:
+Use the `triggerSceneEmote()` to make the player perform a custom animation, stored as a .glb file as part of the scene's asset. 
+
+{{< hint warning >}}
+**📔 Note**: The file's name **must** end in `_emote.glb` to work as an avatar animation.
+{{< /hint >}}
+
+This function takes an object as an argument with the following arguments:
 
 - `src`: A string with a path to the emote file.
 - `loop`: If true, the animation will loop continuously until the player moves or the animation is stopped. False by default.
@@ -92,7 +98,7 @@ pointerEventsSystem.onPointerDown(
 		opts: { button: InputAction.IA_POINTER, hoverText: 'Make snowball' },
 	},
 	() => {
-		triggerSceneEmote({ src: 'animations/Snowball_Throw.glb', loop: false })
+		triggerSceneEmote({ src: 'animations/Snowball_Throw_emote.glb', loop: false })
 	}
 )
 ```

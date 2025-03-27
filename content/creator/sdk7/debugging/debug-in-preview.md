@@ -198,9 +198,27 @@ For this, there are several free tools you can run on your machine that report a
 
 ## Using the Ethereum test network
 
-You can avoid using real currency while previewing the scene. For this, you must use the _Ethereum Sepolia test network_ and transfer fake MANA instead. To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_. You must also own MANA in the Sepolia blockchain, which you can acquire for free from Decentraland.
+
+While testing your scene, to avoid transferring real MANA or other currencies, you can use the Ethereum Sepolia test network and transfer fake testnet MANA instead.
+
+To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_. You must also own MANA in the Sepolia blockchain, which you can acquire for free from Decentraland.
+
+{{< hint info >}}
+**💡 Tip**: To run the transaction of transferring Sepolia MANA to your wallet, you will need to pay a gas fee in Sepolia Ether.
+{{< /hint >}}
 
 Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
+
+To preview your scene using the test network, paste the following URL into a browser tab. This will open the scene on the Decentraland desktop client:
+
+> decentraland://realm=http://127.0.0.1:8000&local-scene=true&debug=true&dclenv=zone&position=0,0
+
+{{< hint info >}}
+**💡 Tip**: Change the position parameter to the coordinates of your scene, to load directly into your scene..
+Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
+{{< /hint >}}
+
+If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you’ll need to swap MANA to that network after acquiring it in Sepolia. To bridge Sepolia MANA to the Polygon Testnet, visit your Decentraland account page in Sepolia and click on ‘swap’ on the Ethereum MANA side.
 
 ## Multiplayer testing
 

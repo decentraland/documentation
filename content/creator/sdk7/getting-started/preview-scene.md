@@ -43,7 +43,7 @@ You can add the following flags to the `npm run start` command to change its beh
 
 - `-- --web3` Connects preview to browser wallet to use the associated avatar and account.
 - `-- --skip-version-checks` Avoids checking if the scene's SDK framework version matches your CLI version, and launches the preview anyway.
-- `-- --desktop-client` Runs the preview in the Decentraland Desktop client.
+- `-- --explorer-alpha` Runs the preview in the new Decentraland Desktop client.
 - `-- --port` to assign a specific port to run the scene. Otherwise it will use whatever port is available.
 - `-- --no-debug` Disable the debug panel, that shows scene and performance stats.
 - `-- --no-browser` to prevent the preview from opening a new browser tab.

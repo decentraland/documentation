@@ -11,10 +11,13 @@ weight: 8
 
 Grant certain players the special role of **admin** on your scene. When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos, send announcements, or activate any smart item in the scene. These actions are seen by all other players in the scene that are connected to the same island as the admin.
 
-  <img src="/images/editor/admin/admin-console.png" alt="Scene name" width="500"/>
+{{< youtube JDH0Sf6O_30 >}}
 
 
 During a live event, an admin can spontaneously control what happens in the scene from inside Decentraland, without needing to pre-schedule actions or relying on a 3rd party service. Start playing the music when enough of a crowd gathered, drop confetti or make a spaceship appear when the time feels right.
+
+  <img src="/images/editor/admin/admin-console.png" alt="Scene name" width="500"/>
+
 
 ## Setting up admins
 
