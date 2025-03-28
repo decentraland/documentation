@@ -454,9 +454,7 @@ executeTask(async () => {
   const sceneInfo = await getSceneInformation({})
 
   if (!sceneInfo) return
-    console.log("SCENE INFO: ", sceneInfo)
-  }
-
+  console.log("SCENE INFO: ", sceneInfo)
 })
 ```
 
