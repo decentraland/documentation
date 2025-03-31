@@ -70,6 +70,12 @@ To test your scene and experience it like a player, click the _Preview_ button o
 
 <img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
 
+Configure different preview options from the dropdown menu next to the **Preview** button:
+
+- **Open Console Window During Preview**: Opens a new window with the console output of the scene. This is useful to debug errors in the scene.
+- **Skip Auth Screen**: Skips the account selection screen and automatically logs you in with your currently logged in account. This is disabled by default, enable it if you want to test multiple accounts.
+- **Landscape Terrain Enabled**: Toggles the landscape around the scene. This is enabled by default, disable it to lower the scene's memory footprint.
+
 ## Scene settings
 
 Click the **Pencil icon** on the top-right of the screen. This opens a series of scene-level properties to edit, including name, thumbnail, scene size, and more.
