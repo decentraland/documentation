@@ -191,7 +191,7 @@ By default, a MeshCollider affects both the Physics and the Pointer layers, but 
 MeshCollider.setBox(myEntity, ColliderLayer.CL_PHYSICS)
 
 // only responds to the player's pointer
-// for example for example for an item you can click to pick up, but can walk right through
+// for example for an item you can click to pick up, but can walk right through
 MeshCollider.setBox(myEntity2, ColliderLayer.CL_POINTER)
 ```
 
