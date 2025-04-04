@@ -9,7 +9,7 @@ aliases:
 categories:
   - examples
 type: Document
-url: player/blockchain-integration/get-a-wallet
+url: player/blockchain-integration/get-a-wallet0x90864934e8Ab1A5632466A0Cc0366f7C6F9A385A
 weight: 1
 ---
 
