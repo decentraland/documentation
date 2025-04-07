@@ -11,7 +11,7 @@ You can stream your webcam or desktop to Decentraland. This is useful for live e
 
 To do this, you need a streaming software that can output to an URL. Some popular choices are [OBS](https://obsproject.com/) and [XSplit](https://www.xsplit.com/).
 
-On your scene, you will need to add an [Admin Tools smart item]({{< ref "/content/creator/scene-editor/scene-admin.md" >}}) and a [Video Screen smart item]({{< ref "/content/creator/scene-editor/smart-items/video-screen.md" >}}).
+On your scene, you will need to add an [Admin Tools smart item]({{< ref "/content/creator/scene-editor/scene-admin.md" >}}) and a [Video Screen smart item]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md" >}}).
 
 IMAGE
 
