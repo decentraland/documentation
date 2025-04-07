@@ -123,11 +123,11 @@ The following simple set-up is recommended:
 
 ## Live streaming
 
-You can livestream from your camera or share your screen using the [Live streaming]({{< ref "/creator/editor/live-streaming.md">}}) feature of the [Admin tools]({{< ref "/creator/editor/scene-admin.md">}}) smart item.
+You can livestream from your camera or share your screen using the [Live streaming]({{< ref "/creator/scene-editor/live-streaming.md">}}) feature of the [Admin tools]({{< ref "/creator/scene-editor/scene-admin.md">}}) smart item.
 
 This streaming method uses the same comms architecture used for live communications between players, and is easy to set up and has a lot less delay than streaming from external sources.
 
-1. Add an [Admin tools]({{< ref "/creator/editor/scene-admin.md">}}) smart item to your scene, as well as a [Video player]({{< ref "/creator/editor/smart-items/play-videos.md">}}) smart item.
+1. Add an [Admin tools]({{< ref "/creator/scene-editor/scene-admin.md">}}) smart item to your scene, as well as a [Video player]({{< ref "/creator/scene-editor/smart-items/play-videos.md">}}) smart item.
 2. Publish your scene, either to a World or to Genesis City.
 3. Enter the scene as a player with the permission to use the Admin tools.
 4. Open the Amin console, select the **Video** tab, then select the **Live** functionality and click the **Get Stream Key** button.

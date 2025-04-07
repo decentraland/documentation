@@ -50,7 +50,7 @@ Read [Setting up OBS for successful streaming]({{< ref "/content/creator/sdk7/me
 
 ## Live streaming
 
-To stream live content into your scene, you can use the [Live streaming]({{< ref "/creator/editor/live-streaming.md">}}) feature of the [Admin tools]({{< ref "/creator/editor/scene-admin.md">}}) smart item.
+To stream live content into your scene, you can use the [Live streaming]({{< ref "/creator/scene-editor/live-streaming.md">}}) feature of the [Admin tools]({{< ref "/creator/scene-editor/scene-admin.md">}}) smart item.
 
 ## About Video Files
 
