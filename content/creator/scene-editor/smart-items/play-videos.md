@@ -48,6 +48,10 @@ There are a number of options for streaming video. The simplest option is to use
 
 Read [Setting up OBS for successful streaming]({{< ref "/content/creator/sdk7/media/video-playing.md#setting-up-obs-for-successful-streaming" >}}) for tips on how to best stream content into Decentraland.
 
+## Live streaming
+
+To stream live content into your scene, you can use the [Live streaming]({{< ref "/creator/editor/live-streaming.md">}}) feature of the [Admin tools]({{< ref "/creator/editor/scene-admin.md">}}) smart item.
+
 ## About Video Files
 
 The following file formats are supported:

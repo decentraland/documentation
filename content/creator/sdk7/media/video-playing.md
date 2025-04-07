@@ -121,33 +121,41 @@ The following simple set-up is recommended:
 - Small errors like a digit wrong in the stream key are the most likely to mess up the stream.
 - Do not go above 720 resolution or a bitrate of 2500 kbps.
 
-## Streaming using Decentraland Cast
+## Live streaming
 
-You can livestream from your camera or share your screen using [Decentraland Cast]({{< ref "/creator/worlds/cast.md">}}). This streaming method uses the same comms architecture used for live communications between players, and is easy to set up and has a lot less delay than streaming from external sources.
+You can livestream from your camera or share your screen using the [Live streaming]({{< ref "/creator/editor/live-streaming.md">}}) feature of the [Admin tools]({{< ref "/creator/editor/scene-admin.md">}}) smart item.
 
-{{< hint warning >}}
-**📔 Note**: Decentraland cast is only available to use in a World, not in scenes published to Genesis City. See [Decentraland Cast]({{< ref "/creator/worlds/cast.md">}}) for more information. As Worlds have a limited capacity of maximum 100 players at a time, this streaming method can only reach that maximum amount.
-{{< /hint >}}
+This streaming method uses the same comms architecture used for live communications between players, and is easy to set up and has a lot less delay than streaming from external sources.
 
-Call `getActiveVideoStreams` to fetch a list of all live streams active in the current World. The example below uses the first stream returned by this method:
+1. Add an [Admin tools]({{< ref "/creator/editor/scene-admin.md">}}) smart item to your scene, as well as a [Video player]({{< ref "/creator/editor/smart-items/play-videos.md">}}) smart item.
+2. Publish your scene, either to a World or to Genesis City.
+3. Enter the scene as a player with the permission to use the Admin tools.
+4. Open the Amin console, select the **Video** tab, then select the **Live** functionality and click the **Get Stream Key** button.
+5. Copy the **Server URL** and *Streaming key** to your streaming software (for example OBS).
+6. Press the **Activate** button to start streaming.
+
+Instead of adding a Video player smart item to your scene, you can also use the URL `livekit-video://current-stream` as the video source, to play the stream in your scene. You will still need the Admin tools to get the stream key.
 
 ```ts
-const { streams } = await getActiveVideoStreams({})
-if (streams.length > 0) {
-	const stream = streams[0]
-	VideoPlayer.createOrReplace(screen, {
-		src: stream.trackSid,
-		playing: true,
-	})
-	console.log(`playing ${stream.identity} ${stream.sourceType} stream`)
-}
+// #1
+const screen = engine.addEntity()
+MeshRenderer.setPlane(screen)
+Transform.create(screen, { position: { x: 4, y: 1, z: 4 } })
+
+// #2
+VideoPlayer.create(screen, {
+	src: `livekit-video://current-stream`,
+	playing: true,
+})
+
+// #3
+const videoTexture = Material.Texture.Video({ videoPlayerEntity: screen })
+
+// #4
+Material.setBasicMaterial(screen, {
+	texture: videoTexture,
+})
 ```
-
-Each stream returned by `getActiveVideoStreams` contains the following fields:
-
-- `trackSid`: contains a unique track id that allow the player to play the video stream
-- `identity` : the address of the person that is streaming
-- `sourceType`: can be `VideoTrackSourceType.VTST_SCREEN_SHARE` or `VideoTrackSourceType.VTST_CAMERA`
 
 ## Video Materials
 
