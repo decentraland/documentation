@@ -46,11 +46,11 @@ Below are the maximum number of elements that a scene is allowed to render at th
 
   > Important: Only entities that are currently being rendered in the scene are counted for these limits. If your scene switches between 3D models, what matters is the rendered models at any point in time, not the total sum. Player avatars and any items brought by a player from outside the scene don't count for calculating these limits either.
 
-- **File size:** In Genesis City -`15 MB per parcel - 300 MB max`. For Worlds, see [World size](#world-size). Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages. You can see the full list of files being published and their sizes before you confirm a deployment.
+- **Total file size:** In Genesis City -`15 MB per parcel - 300 MB max`. For Worlds, see [World size](#world-size). Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages. You can see the full list of files being published and their sizes before you confirm a deployment.
 
 - **File count:** `200 files per parcel` Total count of the files uploaded. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages.
 
-- **Max file size** `50 MB per file` No individual file of any type in the scene can exceed 50 MB, no matter how many parcels the scene has.
+- **Max file size** `50 MB per file` No individual file of any type in the scene can exceed 50 MB. Small scenes are restricted further because the file mustn't exceed their Total File Size limit (For example, a single-parcel scene is limited to 15 MB total).
 
 ## Optimizing
 
