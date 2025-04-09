@@ -142,7 +142,7 @@ Once you run the command, you will be prompted to sign the deployment with your 
 ## Joining a World
 
 Once a scene is uploaded to the Worlds server you can access it by using the
-Decentraland Explorer with the following friendly URL `https://play.decentraland.org/world/NAME`, where `NAME` should be replaced by the Decentraland NAME or ENS Domain to which the deployment was done to. You may use the NAME with or without the `.dcl.eth` suffix. If no suffix is added, it will assume `.dcl.eth`.
+Decentraland Explorer with the following friendly URL `https://decentraland.org/jump/?realm=NAME.dcl.eth`, where `NAME` should be replaced by the Decentraland NAME or ENS Domain to which the deployment was done to.
 
 On the other hand, NAMEs also work as realms, so you can leverage the existing change realm mechanisms to access a world. One way would be by typing the `/goto NAME.dcl.eth` command in the chatbox and another possibility is by changing the query parameter in the Explorer URL: if your NAME is `my-name.dcl.eth` you can use the following URL to access the world: ` decentraland://?realm=my-name.dcl.eth`
 
