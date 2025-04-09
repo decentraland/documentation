@@ -35,18 +35,18 @@ To assign admins, you need to add the **Scene Admin** smart item to your scene.
 
 While you're developing the scene and trying it locally, you are always an admin. Once the scene is published, anyone with publish permissions to the scene is also automatically an admin. This includes the scene owner, operators or renters.
 
-You can assign additional people to the admin list once your scene is published by visiting your scene as an admin and opening the **Moderation** tab.
+You can assign additional people to the admin list once your scene is published by visiting your scene as an admin and opening the **Moderation Tools** tab.
 
-IMAGE
+  <img src="/images/editor/admin/moderation-tools.png" alt="Scene name" width="500"/>
 
 Write the wallet address of the person you want to add to the admin list and click **Add**.
 
-You can see who is an admin in the scene by clicking the **Admin List** button. From this screen you can also remove people from the admin list.
+You can see who is an admin in the scene by clicking the **Admin List** button. From this screen you can also **Remove** people from the admin list.
 
-IMAGE
+  <img src="/images/editor/admin/admin-list.png" alt="Scene name" width="500"/>
 
 {{< hint warning >}}
-**📔 Note**: It's only possible to remove the admin role from players that were added to the list via the **Moderation** tab. Players who are owners or operators of the scene are always admins and can't be removed from the list.
+**📔 Note**: It's only possible to remove the admin role from players that were added manually to the list via the **Moderation Tools** tab. Players who are owners, operators, or renters of the scene are displayed on this list but can't be removed from their admin roles.
 {{< /hint >}}
 
 Whenever an admin player is in the scene, they will see a special UI on the top-right corner. Non-admin players don't see this UI.
@@ -79,16 +79,14 @@ Once the above is configured, admin users in your scene can open the admin panel
 
 If your scene has multiple video screens, a dropdown list allows you to select which one you want to control. The list displays the names you gave to each video screen on the Admin Tools smart item configuration.
 
-IMAGE
-
 ### Video playing modes
 
 There are two different modes for playing videos:
 
 - **Video**: Play a video file from your local filesystem or from an URL.
-  Paste a video URL into the main field and click **Share**. The video will start playing on the selected screen for all players. You can also stop, pause, mute or change the volume of the video.
+  Paste a video URL into the **Video URL** field and click the green **Activate** button. The video will start playing on the selected screen for all players. You can also stop, pause, restart, mute, or change the volume of the video.
 
-  IMAGE
+  <img src="/images/editor/admin/video-from-url.png" alt="Scene name" width="500"/>
 
   {{< hint warning >}}
   **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming Videos]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md#streaming-videos" >}}) for more information on what you can and can't play in Decentraland.
@@ -96,21 +94,13 @@ There are two different modes for playing videos:
 
 - **Live stream**: Play a live stream using a streaming software like OBS.
 
-  IMAGE
+  <img src="/images/editor/admin/live-stream.png" alt="Scene name" width="500"/>
 
   See [Live Streaming]({{< ref "/content/creator/scene-editor/live-streaming.md" >}}) for more information on how to set up a live stream.
 
-Each screen in your scene will have one of those two modes set as **Active**.
+Each screen in your scene will have one of these modes set as **Active**. You can click the **Video** or **Live** buttons to explore the settings on each section, they won't interrupt what's currently playing until you click the **Activate** button on either section.
 
-IMAGE
-
-
-
-
-
-
-
-
+<img src="/images/editor/admin/activate.png" alt="Scene name" width="200"/>
 
 
 ## Announcements
