@@ -244,3 +244,17 @@ engine.removeSystem(mySystemInstance)
 ```
 
 Note that the pointer is to the _instance_ of the system, not to the system's class. In the above example, `engine.removeSystem()` is not being passed `mySystem` (the system class declaration). It's being passed `mySystemInstance` (the instance that was added to the engine).
+
+You can use the method below to make a system self-terminate when its purpose is complete.
+
+```ts
+   const mySystem = function(dt: number){
+        time += dt
+        if(time > 3){
+		engine.removeSystem(mySystem)
+        }    
+    }
+    engine.addSystem(mySystem)
+```
+
+
