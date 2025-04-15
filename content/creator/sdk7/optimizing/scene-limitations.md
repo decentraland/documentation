@@ -106,7 +106,7 @@ Examples of other valid sizes:
 
 Decentraland [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) have different limitations, since they are loaded as single scenes.
 
-- Worlds published to Decentraland NAMEs have at least `100 MB`. That number can be increased by owning additional NAMEs, LAND and MANA on that same account account.
+- Worlds published to Decentraland NAMEs have at least `100 MB`. That number can be increased by owning additional NAMEs, LAND, and MANA on that same account.
 
 - Worlds published to ENS domains have a limit of `25MB` that cannot be expanded.
 
