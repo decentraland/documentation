@@ -123,7 +123,7 @@ The following simple set-up is recommended:
 
 ## Live streaming
 
-You can livestream from your camera or share your screen using the [Live streaming]({{< ref "/creator/scene-editor/live-streaming.md">}}) feature of the [Admin tools]({{< ref "/creator/scene-editor/scene-admin.md">}}) smart item.
+You can livestream from your camera or share your screen using the [Live streaming]({{< ref "/creator/scene-editor/play-videos.md#live-streaming">}}) feature of the [Admin tools]({{< ref "/creator/scene-editor/scene-admin.md">}}) smart item.
 
 This streaming method uses the same comms architecture used for live communications between players, and is easy to set up and has a lot less delay than streaming from external sources.
 
