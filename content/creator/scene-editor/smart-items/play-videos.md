@@ -21,6 +21,7 @@ These settings are relevant for all scenarios, either if you're playing videos o
 
 You can configure the volume of the video's audio. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
 
+<!--
 The Video Screen smart item includes an **Image Placeholder** field, that lets you point to a local image or URL. This image will be displayed as a texture on the screen whenever there is no video or stream to show.
 
 It's a good practice to set an image as a placeholder for whenever your sceen is not playing any videos, to avoid a simple black screen before a video starts or after it ends, of if technical difficulties arise.
@@ -29,6 +30,8 @@ It's a good practice to set an image as a placeholder for whenever your sceen is
 **💡 Tip**: 
 Take advantage of this space to display instructions for how to play the video, the time of the next event, or a simple "We'll be back soon", depending on the scenario.
 {{< /hint >}}
+
+-->
 
 The **Default Media Source** dropdown lets you pick between two different kinds of sources:
 
