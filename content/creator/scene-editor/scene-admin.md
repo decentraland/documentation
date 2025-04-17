@@ -9,21 +9,23 @@ url: /creator/editor/scene-admin
 weight: 8
 ---
 
-Grant certain players the special role of **admin** on your scene. When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos, send announcements, or activate any smart item in the scene. These actions are seen by all other players in the scene that are connected to the same island as the admin.
-
-{{< youtube JDH0Sf6O_30 >}}
-
+Grant certain players the special role of **admin** on your scene. 
 
 During a live event, an admin can spontaneously control what happens in the scene from inside Decentraland, without needing to pre-schedule actions or relying on a 3rd party service. Start playing the music when enough of a crowd gathered, drop confetti or make a spaceship appear when the time feels right.
 
-  <img src="/images/editor/admin/admin-console.png" alt="Scene name" width="500"/>
+
+{{< youtube JDH0Sf6O_30 >}}
+
+When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos or live streams, send announcements, or activate any smart item that is configured to be activated like this. These actions are seen by all other players in the scene that are connected to the same comms island as the admin.
+
+  <img src="/images/editor/admin/admin-console.png" alt="Scene name" width="256"/>
 
 
 ## Setting up admins
 
 To assign admins, you need to add the **Scene Admin** smart item to your scene.
 
-  <img src="/images/editor/admin/admin-smart-item.png" alt="Scene name" width="500"/>
+  <img src="/images/editor/admin/admin-smart-item.png" alt="Scene name" width="300"/>
 
 
 {{< hint warning >}}
@@ -33,21 +35,25 @@ To assign admins, you need to add the **Scene Admin** smart item to your scene.
 
 {{< /hint >}}
 
+While you're developing the scene and trying it locally, you are always an admin. Once the scene is published, anyone with publish permissions to the scene is also automatically an admin. This includes:
 
-Open the Scene Admin configuration to determine who can be an admin in this scene. The following options are available:
+- The owner of the LAND parcels or World NAME where the scene is published
+- Anyone who is granted **Operator rights** on these parcels or name. See [Give permissions]({{< ref "/content/player/marketplace/land-manager.md#give-permissions" >}}).
+- Any user renting that land. See [Rentals]({{< ref "/content/player/marketplace/rentals.md" >}}).
 
-- **Public**: Any player can be an admin. This is useful for debugging, but not recommended for live events.
+You can also assign additional people to the admin list once your scene is published by visiting your scene as an admin and opening the **Moderation Tools** tab.
 
-- **Private**: Only the allowed players can be an admins.
+  <img src="/images/editor/admin/moderation-tools.png" alt="Scene name" width="500"/>
 
-    - **Me**: While you're developing the scene and trying it locally, you are always an admin.
-    - **Scene owners**: Players that own the LAND or NAME token of the scene can be a admins. This is the default option.
-    - **Allowlist**: Players in the allowlist are also admins. Paste their **wallet address** and click **Add**.
+Write the wallet address of the person you want to add to the admin list and click **Add**.
+
+You can see who is an admin in the scene by clicking the **Admin List** button. From this screen you can also **Remove** people from the admin list.
+
+  <img src="/images/editor/admin/admin-list.png" alt="Scene name" width="256"/>
 
 {{< hint warning >}}
-**📔 Note**: When publishing to a World, scene owners must be explicitly added to the allowlist to be admins.
+**📔 Note**: It's only possible to remove the admin role from players that were added manually to the list via the **Moderation Tools** tab. Players who are owners, operators, or renters of the scene are displayed on this list but can't be removed from their admin roles from this UI.
 {{< /hint >}}
-
 
 Whenever an admin player is in the scene, they will see a special UI on the top-right corner. Non-admin players don't see this UI.
 
@@ -61,30 +67,49 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
 1. Add a **Video Player** smart item to your scene
 
-    <img src="/images/editor/admin/video-player-item.png" alt="Scene name" width="500"/>
+    <img src="/images/editor/admin/video-player-item.png" alt="Scene name" width="256"/>
 
+    See [Video Playing]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md" >}}) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
 
-2. On the Scene Admin Smart Item, make sure the **Video Control** section is enabled. Then select the screen from a dropdown list and give it a name.
+    {{< hint warning >}}
+    **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
 
+    You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
+    {{< /hint >}}
 
-{{< hint warning >}}
-**📔 Note**: An admin can only control video screens that are added as Smart Items in the Creator Hub, not screens added via SDK code.
+2. Open the Scene Admin Smart Item, make sure the **Video Screens** checkbox is enabled for this section to show. Then select the screen from a dropdown list and give it a friendly name to display on the Admin UI. You can add as many Video Screens as you want, each screen is controlled independently.
 
-You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
-{{< /hint >}}
-
+      <img src="/images/editor/admin/multi-video-setup.png" alt="Scene name" width="500"/>
 
 Once the above is configured, admin users in your scene can open the admin panel and select the video section to control these video screens.
 
   <img src="/images/editor/admin/video-player.png" alt="Scene name" width="500"/>
 
 
-Paste a video URL into the main field and click **Share**. The video will start playing on the selected screen for all players. You can also stop, pause, mute or change the volume of the video.
+If your scene has multiple video screens, the **Current Screen** dropdown lets you pick which video screen to control. The list displays the names you gave to each video screen on the Admin Tools smart item configuration.
 
+### Media Sources
 
-{{< hint warning >}}
-**📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming Videos]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md#streaming-videos" >}}) for more information on what you can and can't play in Decentraland.
-{{< /hint >}}
+There are two kidns of media sources for playing videos:
+
+- **Video**: Play a video file from your local filesystem or from an URL.
+  Paste a video URL into the **Video URL** field and click the green **Activate** button. The video will start playing on the selected screen for all players. You can also stop, pause, restart, mute, or change the volume of the video.
+
+  <img src="/images/editor/admin/video-from-url.png" alt="Scene name" width="500"/>
+
+  {{< hint warning >}}
+  **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md#streaming-from-other-sources" >}}) for more information on what you can and can't play in Decentraland.
+  {{< /hint >}}
+
+- **Live stream**: Play a live stream using Decentraland's free streaming infrastructure and a streaming software like OBS or StreamYard.
+
+  <img src="/images/editor/admin/live-stream.png" alt="Scene name" width="500"/>
+
+  See [Live Streaming]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md#live-streaming" >}}) for more information on how to set up a live stream.
+
+Each screen in your scene will have one of the above media sources set as **Active**. You can click the **Video** or **Live** buttons to explore the settings on each section, you won't interrupt what's currently playing until you click the **Activate** button on either section.
+
+<img src="/images/editor/admin/activate.png" alt="Scene name" width="200"/>
 
 
 ## Announcements
