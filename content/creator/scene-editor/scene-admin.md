@@ -105,7 +105,7 @@ There are two kidns of media sources for playing videos:
 
   <img src="/images/editor/admin/live-stream.png" alt="Scene name" width="500"/>
 
-  See [Live Streaming]({{< ref "/content/creator/scene-editor/play-videos.md#live-streaming" >}}) for more information on how to set up a live stream.
+  See [Live Streaming]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md#live-streaming" >}}) for more information on how to set up a live stream.
 
 Each screen in your scene will have one of the above media sources set as **Active**. You can click the **Video** or **Live** buttons to explore the settings on each section, you won't interrupt what's currently playing until you click the **Activate** button on either section.
 
