@@ -25,7 +25,7 @@ The first two options are covered in this document. They are simpler, as they re
 
 ## Mark an Entity as Synced
 
-In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), mark an entity as synced by adding a **Multiplayer component** to it. It includes a checkbox for each of the other components on the entity, allowing you to select which ones to update.
+In the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), mark an entity as synced by adding a **Multiplayer component** to it. It includes a checkbox for each of the other components on the entity, allowing you to select which ones to update.
 
 <img src="/images/editor/multiplayer-component.png" alt="Armature" width="300"/>
 
@@ -78,6 +78,12 @@ syncEntity(
 
 Here the EntityEnumId enum is used to tag entities with a unique identifier, ensuring that every client recognizes the modified entity, regardless of creation order.
 {{< /hint >}}
+
+{{< hint warning >}}
+**📔 Note**: Avoid using numbers that are higher than **8001** if your scene also includes Smart Items. Items that are created by the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) with a Multiplayer component will use automatically assigned IDs from 8001 up. Any ID lower than 8001 is safe to assign to your synced entities.
+{{< /hint >}}
+
+
 
 #### Entities created by a player
 
