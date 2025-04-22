@@ -48,7 +48,7 @@ Currently, Decentraland is available for PC on Windows and Mac. The minimum hard
 | ------- | ------------------------------------------------- | ------------------------------------------------- |
 | OS      | Windows 10 64-bit                                 | Windows 11 64-bit                                 |
 | CPU     | Intel i5 7th generation or AMD Ryzen 5 Series     | Intel i7 12th generation or AMD Ryzen 7 Series    |
-| GPU     | Nvidia RTX 10 Series or AMD Radeon RX 5000 Series | Nvidia RTX 30 Series or AMD Radeon RX 6000 Series |
+| GPU     | Nvidia RTX 20 Series or AMD Radeon RX 5000 Series (DirectX 12 compatible) | Nvidia RTX 30 Series or AMD Radeon RX 6000 Series |
 | VRAM    | 6 GB                                              | 12 GB                                             |
 | RAM     | 16GB                                              | 32 GB                                             |
 | Storage | 8GB HDD                                           | 20GB SDD                                          |
@@ -59,7 +59,7 @@ Currently, Decentraland is available for PC on Windows and Mac. The minimum hard
 | ------- | ---------------------------------------------- | ---------------------------------------------------------- |
 | OS      | macOS 11 Big Sur                               | macOS 12 Monterey                                          |
 | CPU     | Apple M1                                       | Apple M1 Pro/M2                                            |
-| GPU     | Apple M1 integrated GPU                        | Apple M1 Pro/M2 Pro integrated GPU                         |
+| GPU     | Apple M1 integrated GPU (Metal support required) | Apple M1 Pro/M2 Pro integrated GPU                         |
 | VRAM    | 6 GB                                           | 12 GB                                                      |
 | RAM     | 16GB                                           | 32 GB                                                      |
 | Storage | 8GB HDD                                        | 20GB SDD                                                   |
