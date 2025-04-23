@@ -72,7 +72,8 @@ function main() {
 
 <img src="/images/editor/door-names.png" width="600" />
 
-The `EntityNames`enum contains the full list of entities added by on Creator Hub and is updated imediately as soon as you make any changes on the Creator Hub. If you write `EntityNames.` into your code, your IDE will present you with a dropdown including all the names of the entities available.
+The `EntityNames` enum contains the full list of entities added by the Creator Hub and is updated immediately as soon as you make any changes.
+If you import `EntityNames.` into your code, your IDE will present you with a dropdown including all the names of the entities available.
 
 <img src="/images/editor/EntityNames.png" width="300" />
 
