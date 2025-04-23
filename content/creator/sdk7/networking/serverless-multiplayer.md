@@ -337,7 +337,7 @@ As an alternative, you can open a second Decentraland explorer window by writing
 
 > `decentraland://realm=http://127.0.0.1:8000&local-scene=true&debug=true`
 
-## Single player scenes
+## Single player scenes
 
 If your scene is deployed to a [Decentraland World]({{< ref "/content/creator/worlds/about.md" >}}), you can make it a single player scene. Players won't see each other, won't be able to chat or see the effects of each other's actions.
 
