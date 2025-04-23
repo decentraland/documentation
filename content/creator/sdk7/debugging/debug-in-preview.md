@@ -222,16 +222,14 @@ If you need to test transactions in the Polygon Testnet and need to have MANA on
 
 ## Multiplayer testing
 
-{{< hint warning >}}
-**📔 Note**: Currently you can only open one window at a time for the desktop explorer.
-{{< /hint >}}
+If you launch a scene preview and open it in two (or more) different explorer windows, each open window will be interpreted as a separate player, and a mock communications server will keep these players in sync.
 
-When opening the web explorer, if you open a second preview window on your machine, you will enter the scene with a different avatar. The avatars on both tabs will be able to see each other and interact, although currently they might have inconsistent names and wearables on.
+Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
 
-{{< hint warning >}}
-**📔 Note**: You can't open multiple tabs using the same account. So if your URL has a hardcoded `PLAYER` parameter with the same string on multiple tabs, or you're connecting to Metamask on more than one tab, it won't be possible to load them all. Each simultaneous tab should load a different account.
-{{< /hint >}}
+Using the Creator Hub, click the Preview button a second time, and that opens a second Decentraland explorer window. You must connect on both windows with different addresses. The same sessions will remain open as the scene reloads.
 
-If the scene uses the MessageBus to send messages between players, these will work between the different tabs.
+<img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
 
-If the scene connects to a third party server via websockets, these connections should also work independently on each tab, as separate players.
+As an alternative, you can open a second Decentraland explorer window by writing the following into a browser URL:
+
+> `decentraland://realm=http://127.0.0.1:8000&local-scene=true&debug=true`
