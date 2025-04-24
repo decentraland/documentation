@@ -9,7 +9,7 @@ url: /creator/development-guide/sdk7/ui-text/
 weight: 3
 ---
 
-Ad text to your UI by creating a `Label` entity.
+Add text to your UI by creating a `Label` entity.
 
 A `Label` entity has the following fields that can be configured:
 
