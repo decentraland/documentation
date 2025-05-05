@@ -116,6 +116,10 @@ To do this, you need a streaming software that can output to an URL. Some popula
   <img src="/images/editor/admin/activate.png" alt="Scene name" width="256"/>
 
 
+{{< hint warning >}}
+**📔 Note**: If you add multiple **Video Screen** smart items to your scene, make sure you mute all except one. Otherwise the sound might be glitchy and have artifacts. You can have as many Video screens showing the screen without a significant impact on performance. 
+{{< /hint >}}
+
 ### Stream Keys
 
 Stream keys are used to only allow authenticated users to stream content into your stream. They are generated per scene, and are valid for 4 days (96 hours), then they expire and you must obtain a new key.
@@ -128,7 +132,7 @@ Click **Reset Stream Key** to revoke the current key and generate a new key. Any
 
 Each scene has its own streaming address and key, only the scene admins have access to the key, but they can share it with other users. Users who are streaming don't need to be in Decentraland, they could even be using a mobile app.
 
-Only one stream can be active at a time in your scene, even if your scene has multiple screens. If you try to start a new stream while another is active, the new stream will stop and overwrite the current one.
+Only one stream can be active at a time in your scene, even if your scene has multiple screens. If you try to start a new stream while another is active, the new stream will stop and overwrite the current one, so if there are multiple streamers make sure they're well coordinated.
 
 ### Streaming from other sources
 
