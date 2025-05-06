@@ -148,9 +148,7 @@ Not all streaming services allow you to play their audio outside their site. The
 ```ts
 GRAFFITI =
 	'https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5'
-SIGNS = 'https://edge.singsingmusic.net/MC2.mp3'
 DELTA = 'https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e'
-JAZZ = 'https://live.vegascity.fm/radio/8010/the_flamingos.mp3'
 ```
 
 {{< /hint >}}
