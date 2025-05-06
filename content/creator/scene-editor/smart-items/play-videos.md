@@ -17,7 +17,7 @@ To play pre-recorded or streamed videos on a screen on your scene, use the Video
 
 These settings are relevant for all scenarios, either if you're playing videos or streaming.
 
- <img src="/images/editor/smart-items/video-automatic.png" width="300"/>
+ <img src="/images/editor/admin/video-automatic.png" width="300"/>
 
 You can configure the volume of the video's audio. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
 
@@ -49,13 +49,13 @@ The timing of when the Video Player smart item plays a video can depend on diffe
 
 - **Automatic**: The video starts playing as soon as the scene loads. For this, set the default media source dropdown to **Video URL** and paste a URL directly into the **Default Video URL** field.
 
-  <img src="/images/editor/video-automatic.png" width="300"/>
+  <img src="/images/editor/video-automatic.png" width="400"/>
 
 - **Triggered by an admin**: A [Scene admin]({{< ref "/content/creator/scene-editor/scene-admin.md" >}}) who's currently in the scene can use the Admin UI to paste a video URL and play it for all players who are currently in the scene.
 
 - **Based on player actions**: Define an Action of type **Play Video Stream**. This lets you trigger the playing of the video as the result of interacting with some other smart item, like walking into a room, or pushing a button. See [Smart Items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}}).
 
-  <img src="/images/editor/video-from-action.png" width="300"/>
+  <img src="/images/editor/video-from-action.png" width="400"/>
 
 In all cases you configure the video to either loop or play once.
 
@@ -105,28 +105,28 @@ To do this, you need a streaming software that can output to an URL. Some popula
 
 4. Open the Amin console, select the **Video** tab, then select the **Live** functionality and click the **Get Stream Key** button.
 
-    <img src="/images/editor/admin/get-key.png" alt="Scene name" width="200"/>
+    <img src="/images/editor/admin/get-key.png" alt="Scene name" width="400"/>
 
 5. Copy the **RMTP Server** and **Stream key** to your streaming software. For example for OBS, open **Settings**, then the **Stream** tab, and paste these values into the **Server** and **Stream Key** fields. Then press **Start Streaming**.
 
-  <img src="/images/editor/admin/OBS-configuration.png" alt="Scene name" width="600"/>
+    <img src="/images/editor/admin/OBS-configuration.png" alt="Scene name" width="600"/>
 
 6. Back in the scene's Amdin Tools console, press the **Activate** button to start showing your stream in the scene.
 
-  <img src="/images/editor/admin/activate.png" alt="Scene name" width="200"/>
+    <img src="/images/editor/admin/activate.png" alt="Scene name" width="200"/>
 
 
 {{< hint warning >}}
 **📔 Note**: If you add multiple **Video Screen** smart items to your scene, make sure you mute all except one. Otherwise the sound might be glitchy and have artifacts. You can have as many Video screens showing the screen without a significant impact on performance. 
 {{< /hint >}}
 
-### Stream Keys
+### Stream Keys
 
 Stream keys are used to only allow authenticated users to stream content into your stream. They are generated per scene, and are valid for 4 days (96 hours), then they expire and you must obtain a new key.
 
 Although the keys are valid for 4 days, you can stream continuosly for up to 4 hours at a time. After that, you will need to end the stream session and start streaming again. This is to prevent usused streams from being left open indefinitely and using up unnecessary server capacity.
 
-<img src="/images/editor/admin/live-stream-settings.png" alt="Scene name" width="200"/>
+<img src="/images/editor/admin/live-stream-settings.png" alt="Scene name" width="400"/>
 
 Click **Reset Stream Key** to revoke the current key and generate a new key. Any stream that's taking place at the time will be interrupted. To keep on streaming after that, you will need to copy the new stream key into your streaming software.
 
