@@ -38,7 +38,7 @@ The **Default Media Source** dropdown lets you pick between two different kinds 
 - **Video URL**: Fetch a video or a stream from a URL or local video file
 - **Live Stream**: Use Decentraland's free streaming infrastructure to display a stream. To use this, you must also include an [Admin tools]({{< ref "/creator/scene-editor/scene-admin.md">}}) smart item iin your scene.
 
-## Play Videos
+## Play Videos
 
 You can Play pre-recorded videos from either:
 
@@ -89,31 +89,31 @@ To do this, you need a streaming software that can output to an URL. Some popula
 
 1. Besides the Video Screen smart item, aslo add a an [Admin Tools smart item]({{< ref "/content/creator/scene-editor/scene-admin.md" >}}).
 
-  <img src="/images/editor/admin/admin-smart-item.png" alt="Scene name" width="256"/>
+    <img src="/images/editor/admin/admin-smart-item.png" alt="Scene name" width="200"/>
 
 2. Open the Scene Admin Smart Item, make sure the **Video Screens** checkbox is enabled for this section to show. Then select the screen from a dropdown list and give it a friendly name to display on the Admin UI. You can add as many Video Screens as you want, each screen is controlled independently.
 
-      <img src="/images/editor/admin/multi-video-setup.png" alt="Scene name" width="500"/>
+      <img src="/images/editor/admin/multi-video-setup.png" alt="Scene name" width="400"/>
 
 3. Publish your scene, either to a World or to Genesis City.
 
-  <img src="/images/editor/publish-button.png" alt="Scene name" width="256"/>
+    <img src="/images/editor/publish-button.png" alt="Scene name" width="200"/>
 
 3. Enter the scene as a player with the permission to use the Admin tools. You should be able to see the Admin tools UI on the top-right corner of the screen.
 
-  <img src="/images/editor/admin/admin-icon.png" alt="Scene name" width="74"/>
+    <img src="/images/editor/admin/admin-icon.png" alt="Scene name" width="74"/>
 
 4. Open the Amin console, select the **Video** tab, then select the **Live** functionality and click the **Get Stream Key** button.
 
-  <img src="/images/editor/admin/get-key.png" alt="Scene name" width="100"/>
+    <img src="/images/editor/admin/get-key.png" alt="Scene name" width="200"/>
 
 5. Copy the **RMTP Server** and **Stream key** to your streaming software. For example for OBS, open **Settings**, then the **Stream** tab, and paste these values into the **Server** and **Stream Key** fields. Then press **Start Streaming**.
 
-  <img src="/images/editor/admin/OBS-configuration.png" alt="Scene name" width="500"/>
+  <img src="/images/editor/admin/OBS-configuration.png" alt="Scene name" width="600"/>
 
 6. Back in the scene's Amdin Tools console, press the **Activate** button to start showing your stream in the scene.
 
-  <img src="/images/editor/admin/activate.png" alt="Scene name" width="256"/>
+  <img src="/images/editor/admin/activate.png" alt="Scene name" width="200"/>
 
 
 {{< hint warning >}}
@@ -126,7 +126,7 @@ Stream keys are used to only allow authenticated users to stream content into yo
 
 Although the keys are valid for 4 days, you can stream continuosly for up to 4 hours at a time. After that, you will need to end the stream session and start streaming again. This is to prevent usused streams from being left open indefinitely and using up unnecessary server capacity.
 
-<img src="/images/editor/admin/live-stream-settings.png" alt="Scene name" width="100"/>
+<img src="/images/editor/admin/live-stream-settings.png" alt="Scene name" width="200"/>
 
 Click **Reset Stream Key** to revoke the current key and generate a new key. Any stream that's taking place at the time will be interrupted. To keep on streaming after that, you will need to copy the new stream key into your streaming software.
 
