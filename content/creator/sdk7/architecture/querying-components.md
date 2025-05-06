@@ -1,6 +1,6 @@
 ---
 date: 2018-02-2
-title: Querying components
+title: Querying by component
 description: Learn about how to obtain lists of entities that have components in common, to make checking or updating them easier.
 categories:
   - development-guide

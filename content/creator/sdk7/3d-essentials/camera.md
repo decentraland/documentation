@@ -90,6 +90,30 @@ function main() {
 **💡 Tip**: When the camera turns away from the avatar, it's often a good practice to also freeze the avatar's movements. That way the player doesn't move blindly into obstacles. See [Input Modifiers]({{< ref "/content/creator/sdk7/interactivity/input-modifiers.md" >}})
 {{< /hint >}}
 
+## Birds eye view
+
+You can use a virtual camera to look at the scene from a top-down view, this can be a fun variation on the normal perspective of your avatar and enable different game mechanics.
+
+You should avoid placing a camera looking in a perfect straight down direction. Instead, always tilt the camera slightly, even 1 degree is enough. This is because the player direction controls are based on the perspective of the camera, not on the avatar's orientation. If the camera is looking from a perfect birds-eye view, there is no clear definition of which way is which. An imperceptible tilt of 1 degree is enough to establish a forward direction.
+
+```ts
+function main() {
+	// birds eye view camera
+	const myCustomCamera = engine.addEntity()
+	Transform.create(myCustomCamera, {
+		position: Vector3.create(8, 5, 8),
+		rotation: Quaternion.Euler(0, 0, 91) 
+		// Note that the rotation is 91º, not 90º
+	})
+	VirtualCamera.create(myCustomCamera, {})
+
+	const mainCamera = MainCamera.createOrReplace(engine.CameraEntity, {
+		virtualCameraEntity: myCustomCamera,
+	})
+}
+```
+
+
 ## Camera Transitions
 
 Whenever the scene switches between virtual cameras, or between the default camera behavior and virtual cameras, players see a transition. The position, rotation and any other parameters of the virtual camera change smoothly over a period time.
