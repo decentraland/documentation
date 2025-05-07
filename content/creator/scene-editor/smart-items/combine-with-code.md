@@ -16,31 +16,34 @@ The Creator Hub plus custom code is a very powerful combination for creating con
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
 {{< hint warning >}}
-**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/), if you don't have it already.
-If you are on macOS, make sure the Visual Studio app is in the Applications directory.
+**📔 Note**: Install [Visual Studio Code](https://code.visualstudio.com/) or [Cursor AI](https://www.cursor.com/), if you don't have it already.
+If you are on macOS, make sure the Visual Studio or Cursor apps are in the Applications directory.
 {{< /hint >}}
 
 ## Open a scene's code
 
-Once you installed VS Studio Code on your machine, you can click the **< > CODE** button to open Visual Studio Code on your scene project.
+Once you installed VS Studio Code or Cursor on your machine, you can click the **< > CODE** button to open a separate window with your code editor of choice on your scene project.
 
 <img src="/images/editor/code-button.png" width="200"/>
 
-This opens a separate window with Visual Studio Code. On the left margin you can navigate the files and folder structure of your project.
+On the left margin you can navigate the files and folder structure of your project.
 
 <img src="/images/editor/files-on-vs-studio.png" alt="Scene name" width="200"/>
 
 Add your custom code in the `index.ts` file under `/src`, inside the `main()` function. You can otherwise add custom code outside that function or create new `.ts` files inside the `/src` folder, but these must be somehow referenced inside the `main()` function of `index.ts`.
 
+To change the default code editor, open the Creator Hub **Settings** and select a different code editor from the dropdown, for example instead of VS Code, you can try <img src="/images/editor/cursor-icon.png" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/), a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. The AI assistant doesn't just autocomplete as you write, you can also prompt it to refactor a large code base, write documentation, and more.
+
+
+<<ADD IMAGE HERE>>
+
+
 {{< hint warning >}}
-**📔 Note**: If you have VS Code installed but the **CODE** button doesn't open it, it may be that VS Code is not properly configured on your machine to open via the command line. In most cases, this is care of as part of the default installation, but in case it's not, see [these instructions from VS](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) to enable VS Code from the command line.
+**📔 Note**: If you have the selected Visual Studio Code as your editor, you have it installed installed but the **CODE** button doesn't open it, it may be that the Visual Studio Code app is not properly configured on your machine to open via the command line. In most cases, this is taken care of as part of the default installation, but in case it's not, see [these instructions from VS](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) to enable VS Code from the command line.
 {{< /hint >}}
 
 If you have a preview window open running your scene, whenever you change the code in your files and save, the scene reloads automatically with your changes.
 
-{{< hint info >}}
-**💡 Tip**: Instead of VS Code, you can also try <img src="/images/editor/cursor-icon.png" alt="Header" width="25"/> [Cursor AI](https://www.cursor.com/), a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. The AI assistant doesn't just autocomplete as you write, you can also prompt it to refactor a large code base, write documentation, and more.
-{{< /hint >}}
 
 
 ## Reference an item
