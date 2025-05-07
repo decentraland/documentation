@@ -52,8 +52,9 @@ To open Decentraland with the `scene-console` parameter, either:
 **💡 Tip**: Change the **position** parameter to the coordinates of your scene, to load directly into your scene.
 {{< /hint >}}
 
-When running Decentraland with the `scene-console`, you can open the console in two ways:
+When running Decentraland with the `scene-console`, you can open the console in three ways:
 
+- Click the <img src="/images/console-icon.png" alt="Header" width="25"/> icon on the bottom-right corner
 - Press the **`** key for a short console
 - Press Shift + **\`** to open a larger view of the console
 
