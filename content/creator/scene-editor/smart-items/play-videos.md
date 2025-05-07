@@ -49,7 +49,7 @@ The timing of when the Video Player smart item plays a video can depend on diffe
 
 - **Automatic**: The video starts playing as soon as the scene loads. For this, set the default media source dropdown to **Video URL** and paste a URL directly into the **Default Video URL** field.
 
-  <img src="/images/editor/video-automatic.png" width="400"/>
+  <img src="/images/editor/admin/video-automatic.png" width="400"/>
 
 - **Triggered by an admin**: A [Scene admin]({{< ref "/content/creator/scene-editor/scene-admin.md" >}}) who's currently in the scene can use the Admin UI to paste a video URL and play it for all players who are currently in the scene.
 
@@ -116,9 +116,15 @@ To do this, you need a streaming software that can output to an URL. Some popula
     <img src="/images/editor/admin/activate.png" alt="Scene name" width="200"/>
 
 
+Streaming works on all Decentraland scenes, including Worlds and LAND in Genesis City. There are no limits to how many players can be in the scene watching the stream, they should all be able to see it.
+
+A single scene can include as many Video screens showing the same stream without a significant impact on performance.
+
 {{< hint warning >}}
-**📔 Note**: If you add multiple **Video Screen** smart items to your scene, make sure you mute all except one. Otherwise the sound might be glitchy and have artifacts. You can have as many Video screens showing the screen without a significant impact on performance. 
+**📔 Note**: If you add multiple **Video Screen** smart items to your scene, make sure you mute all except one. Otherwise the sound might be glitchy and have artifacts resulting from multiple copies of the same audio.
 {{< /hint >}}
+
+
 
 ### Stream Keys
 
