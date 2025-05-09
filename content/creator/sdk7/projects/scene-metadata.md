@@ -68,6 +68,7 @@ You can add categories to your scene to help players and users explore Decentral
 - 🛍️ Shop
 - 🏢 Business
 - 🏅 Sports
+- 🏃 Parkour
 
 A scene can belong to more than one category, it can have a maximum of 3 listed categories.
 
@@ -90,6 +91,7 @@ These are the predefined categories:
 - `shop`
 - `business`
 - `sports`
+- `parkour`
 
 For example, a Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
 
