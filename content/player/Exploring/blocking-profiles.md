@@ -9,10 +9,6 @@ url: /player/exploring-decentraland/blocking-profiles
 weight: 2
 ---
 
-{{< hint warning >}}
-**📔 Note**: Blocking Profiles is not currently supported, but this feature will be coming soon.
-{{< /hint >}}
-
 If you block a player in Decentraland, you will no longer see their avatar in-world, and they will not be able to send you friend requests or messages. You will also not see each other’s messages in public or private chats.
 
 ## How to Block a Profile
