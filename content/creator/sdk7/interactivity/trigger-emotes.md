@@ -70,10 +70,6 @@ The following list covers some of the default emotes that are available to all p
 
 ## Custom animations
 
-{{< hint danger >}}
-**❗Warning**: Currently, avatar animations from scene files do not work in preview using the new Decentraland 2.0 , this is a known issue. These animations do work correctly once the scene is published.
-{{< /hint >}}
-
 Use the `triggerSceneEmote()` to make the player perform a custom animation, stored as a .glb file as part of the scene's asset. 
 
 {{< hint warning >}}
