@@ -24,7 +24,7 @@ Use the `InputModifier` component on the `engine.PlayerEntity` to prevent the pl
 ```ts
 import {InputModifier, engine} from '@dcl/sdk/ecs'
 
-InputModifier.create(engine.playerEntity, {
+InputModifier.create(engine.PlayerEntity, {
 	mode: InputModifier.Mode.Standard({
 		disableAll: true,
 	}),

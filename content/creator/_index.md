@@ -1,5 +1,5 @@
 ---
-title: Let’s build the metaverse together
+title: Let’s build Decentraland together
 date: 2022-02-08
 description: Creators intro
 categories:
