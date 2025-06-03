@@ -1,12 +1,9 @@
 # Use Alpine Linux as base image for smaller size
-FROM --platform=$BUILDPLATFORM alpine:3.17
+FROM alpine:3.17
 
 # Set Hugo version
 ENV HUGO_VERSION=0.108.0
-
-# Set the correct binary based on architecture
-ARG TARGETARCH
-ENV HUGO_BINARY=hugo_extended_${HUGO_VERSION}_Linux-${TARGETARCH:-amd64}.tar.gz
+ENV HUGO_BINARY=hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz
 
 # Install dependencies
 RUN apk add --no-cache \
