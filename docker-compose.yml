@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  hugo-docs:
+    build:
+      context: .
+      platforms:
+        - linux/amd64
+        - linux/arm64
+    platform: ${DOCKER_DEFAULT_PLATFORM:-linux/arm64}
+    ports:
+      - "1313:1313"
+    volumes:
+      - .:/src
+    environment:
+      - HUGO_ENV=development
+    command: hugo server --config config.toml --bind 0.0.0.0 --port 1313 --disableFastRender --watch
+    restart: unless-stopped
+
+  hugo-build:
+    build:
+      context: .
+      platforms:
+        - linux/amd64
+        - linux/arm64
+    platform: ${DOCKER_DEFAULT_PLATFORM:-linux/arm64}
+    volumes:
+      - .:/src
+      - ./public:/src/public
+    command: hugo --config config.toml
+    profiles:
+      - build
