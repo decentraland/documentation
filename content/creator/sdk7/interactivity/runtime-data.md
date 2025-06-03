@@ -94,25 +94,29 @@ See [onRealmChangedObservable]({{< ref "/content/creator/sdk7/interactivity/even
 
 ## Get player platform
 
-Players can access Decentraland via various platforms, currently via the browser or via the native desktop app.
+Players can access Decentraland via various platforms, including the official desktop app, and deprecated web and desktop versions, as well as [alternative experimental clients](https://github.com/decentraland/protocol-squad) built for other engines.
 
-Use `getPlatform()` to know what platform the current player is running Decentraland on.
+Use `getExplorerInformation()` to know what platform the current player is running Decentraland on.
 
 ```ts
-import { getPlatform } from '~system/EnvironmentApi'
+import { getExplorerInformation } from '~system/Runtime';
 
 executeTask(async () => {
-  let data = await getPlatform()
-  console.log(data.platform)
-  if (data.platform === Platform.BROWSER) {
-    console.log('In browser')
-  } else if (data.platform === Platform.DESKTOP) {
-    console.log('In native desktop app')
-  }
+  let data = await getExplorerInformation({})
+  console.log("PLATFORM: ", data.platform, " AGENT: ", data.agent)
 })
 ```
 
-Players using the desktop app are likely to have a much smoother experience than those on the browser, since the browser imposes performance limitations on how much of the machine's processing power the browser tab can use. You could use this information to render higher quality materials or other performance-heavy improvements only for players on desktop, as they are less likely to suffer bad frame rate from the extra content.
+When using the official Decentraland desktop app, this function should return the following data:
+
+```
+{
+    agent: unity-explorer,
+    platform: desktop
+}
+```
+
+Players using the official Decentraland desktop app are likely to have a much smoother experience than those on the browser, since the browser imposes performance limitations on how much of the machine's processing power the browser tab can use. They will also be missing many features like camera control, dynamic lights, freezing player movement, UI enhancements, etc.
 
 ## The EngineInfo Component
 
