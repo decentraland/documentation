@@ -37,7 +37,7 @@ Each entity is defined as an HTML-like node, with properties for each of its com
 
 `ui.tsx file:`
 ```ts
-import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
@@ -50,15 +50,14 @@ export const uiMenu = () => (
     uiBackground={{ color: Color4.Red() }}
   />
 )
-
-ReactEcsRenderer.setUiRenderer(uiMenu)
 ```
 `index.ts file:`
 ```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'
 
 export function main() {
-    uiMenu()
+    ReactEcsRenderer.setUiRenderer(uiMenu)
 }
 ```
 
