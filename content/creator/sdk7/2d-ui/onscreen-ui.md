@@ -16,7 +16,7 @@ UI elements are only visible when the player is standing inside the scene's LAND
 Build a UI by defining a structure of `UIEntity` in JSX. The syntax used for UIs is very similar to that of [React](https://reactjs.org/) (a very popular javascript-based library for building web UIs).
 
 {{< hint warning >}}
-**📔 Note**: You can only define JSX UI syntax in files that have a `.tsx` extension. `.tsx` files support everything that `.ts` files support, plus UI syntax. We recommend creating a `ui.tsx` file and defining your UI there. Remember to call your UI render method from `index.ts`, see example below.
+**📔 Note**: You can only define JSX UI syntax in files that have a `.tsx` extension. `.tsx` files support everything that `.ts` files support, plus UI syntax. We recommend creating a `ui.tsx` file and defining your UI there. Remember to call your UI render method from `index.ts` with `ReactEcsRenderer.setUiRenderer(yourUiMethodName)`, see example below.
 {{< /hint >}}
 
 A simple UI with static elements can look a lot like HTML, but when you add dynamic elements that respond to a change in state, you can do things that are a lot more powerful.
