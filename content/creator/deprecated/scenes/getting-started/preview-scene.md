@@ -30,21 +30,6 @@ Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-edi
 
 <img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
 
-## Using the VS Code Extension
-
-To run a scene preview using the VS Code Extension:
-
-Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
-
-1. Open your scene's folder using Visual Studio Code.
-
-   > Note: The Visual Studio window must be at the root folder of the scene project.
-
-2. Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
-
-3. Click the **Run Scene** button.
-
-   This opens a new browser tab running the Decentraland scene.
 
 ## Using the CLI
 

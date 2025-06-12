@@ -24,16 +24,6 @@ Run this command in your scene's directory:
 $ npm install @dcl/quests-client
 ```
 
-#### Via the VS Code Extension
-
-Follow the steps in [Install a dependency]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md#install-a-dependency" >}}):
-
-1. Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
-
-2. Click the `+` icon on the header of the **Dependencies** view.
-
-3. Visual Studio opens an input box at the top of the screen. Write `@dcl/quests-client`.
-
 ## Quests Client overview
 
 The types below are defined in [Quests Client for SDK 7](https://github.com/decentraland/quests-client).

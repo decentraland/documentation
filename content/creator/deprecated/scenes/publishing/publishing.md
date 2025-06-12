@@ -62,24 +62,6 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ## To publish the scene
 
-### Via the VS Studio Extension
-
-Make sure you've [installed the VS Studio Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
-
-1. Open your scene's folder using Visual Studio Code.
-
-{{< hint warning >}}
-**📔 Note**: The Visual Studio window must be at the root folder of the scene project.
-{{< /hint >}}
-
-2. Open the Decentraland tab, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
-
-   This opens a new tab in Visual Studio, showing what parcels you're deploying to.
-
-3. Approve the transaction
-
-   - For LAND on a Metamask browser extension, click **Approve**. Then approve the transaction on the Metamask browser extension.
-   - For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
 
 ### Via the CLI
 
@@ -141,21 +123,6 @@ You can deploy content to the test catalyst server to run full tests with multip
 Players are never directed to this server, the only way to access it is to explicitly provide a URL parameter to connect to it.
 
 If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
-
-### Via the Decentraland Editor
-
-To deploy a scene to the test server:
-
-1. Open VSCode in a Decentraland scene project.
-2. Click on the Decentraland icon on the left sidebar.
-3. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Publish scene to test server`
-4. Approve the transaction
-   - For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
-   - For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
-
-To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
-
-_play.decentraland.org/?&CATALYST=peer-testing.decentraland.org_
 
 ### Via the CLI
 

@@ -51,38 +51,6 @@ The **Decentraland ECS Utils** library includes a number of helpful pre-built to
 
 ## Using the Utils library
 
-### On the VS Code extension
-
-Make sure you've [installed the VS Code extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
-
-1. Open your scene's folder using Visual Studio Code.
-
-{{< hint warning >}}
-**📔 Note**: The Visual Studio window must be at the root folder of the scene project.
-{{< /hint >}}
-
-2. Open the Decentraland tab on Visual Studio. Note that the bottom section lists all of your project's currently installed dependencies.
-
-3. Click the `+` icon on the header of the **Dependencies** view.
-
-4. Visual Studio opens an input box at the top of the screen. Provide the name of the dependency you wish to install and hit enter. The dependency is then installed to your scene. For example `react`.
-
-{{< hint warning >}}
-**📔 Note**: If you wish to install a specific version of a dependency (and not the default latest version), you can specify this as part of the name with an `@` at the end. For example `@dcl/ecs-scene-utils@1.7.5`.
-{{< /hint >}}
-
-5. If it is a Decentraland library (ie. `decentraland-ecs-utils`) select `Yes`, otherwise `No`.
-
-6. Import the library into the scene's script. Add this line at the start of your `game.ts` file, or any other TypeScript files that require it:
-
-```ts
-import * as utils from '@dcl/ecs-scene-utils'
-```
-
-7. In your TypeScript file, write `utils.` and let the suggestions of your IDE show the available helpers.
-
-### Via the CLI
-
 To use any of the helpers provided by the utils library
 
 1. Install it as an `npm` package. Run this command in your scene's project folder:
