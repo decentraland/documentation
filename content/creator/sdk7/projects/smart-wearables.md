@@ -16,23 +16,10 @@ Smart wearables are portable experiences that are turned on when the player puts
 {{< hint warning >}}
 **📔 Note**: Smart Wearables can only be created using SDK 7.
 
-The **Creator Hub** doesn't currently support creating Smart Wearables projects. Use the **VS Studio Code** extension instead.
+The **Creator Hub** doesn't currently support creating Smart Wearables projects.
 {{< /hint >}}
 
 ## Getting started
-
-### Using the VS Code Extension
-
-{{< hint warning >}}
-**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) together with Visual Studio Code without the extension.
-{{< /hint >}}
-
-Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}), then:
-
-1. Open a Visual Studio Code window on an _empty folder_.
-2. Select the Decentraland tab on Visual Studio's left margin sidebar
-3. Click **Create Project**
-4. The Decentraland extension will prompt you about what kind of project to create. Select **Smart Wearable**.
 
 ### Using the CLI
 

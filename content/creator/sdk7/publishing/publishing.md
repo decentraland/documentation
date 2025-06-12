@@ -78,28 +78,6 @@ Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-edi
    - For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
    - For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
 
-### Via the VS Code Extension
-
-{{< hint warning >}}
-**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) together with Visual Studio Code without the extension.
-{{< /hint >}}
-
-Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
-
-1. Open your scene's folder using Visual Studio Code.
-
-{{< hint warning >}}
-**📔 Note**: The Visual Studio window must be at the root folder of the scene project.
-{{< /hint >}}
-
-2. Open the Decentraland tab menu, by clicking the Decentraland logo on the tabs on the left. Then click **Publish scene**.
-
-   This opens a new tab in your browser, showing what parcels you're deploying to.
-
-3. Approve the transaction
-
-- For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
-- For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
 
 ### Via the CLI
 
@@ -164,25 +142,6 @@ Players are never directed to this server, the only way to access it is to expli
 
 If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
 
-### Via the VS Code Extension
-
-{{< hint warning >}}
-**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) together with Visual Studio Code without the extension.
-{{< /hint >}}
-
-To deploy a scene to the test server:
-
-1. Open VSCode in a Decentraland scene project.
-2. Click on the Decentraland icon on the left sidebar.
-3. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Publish scene to test server`
-4. Approve the transaction
-
-- For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
-- For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
-
-To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
-
-_play.decentraland.org/&CATALYST=peer-testing.decentraland.org_
 
 ### Via the CLI
 
@@ -206,22 +165,6 @@ See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/
 {{< /hint >}}
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
-
-### Via the VS Code Extension
-
-{{< hint warning >}}
-**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) together with Visual Studio Code without the extension.
-{{< /hint >}}
-
-To deploy a scene to a custom server:
-
-1. Open VSCode in a Decentraland scene project.
-2. Click on the Decentraland icon on the left sidebar.
-3. Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Publish scene to custom server`
-4. Type in the URL for your server
-5. Approve the transaction
-
-The URL to enter your deployed scene on your custom server will depend on the domain where it's being hosted.
 
 ### Via the CLI
 
