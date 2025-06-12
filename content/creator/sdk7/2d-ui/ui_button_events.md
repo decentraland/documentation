@@ -17,10 +17,11 @@ To make a button in your UI, create a `Button` UI element with the following pro
 
 The following example shows how to create a clickable UI button.
 
-```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+`ui.tsx file:`
+```tsx
+import { Button } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<Button
 		value="Click me"
 		uiTransform={{ width: 100, height: 100 }}
@@ -28,25 +29,40 @@ ReactEcsRenderer.setUiRenderer(() => (
 			console.log('Clicked on the UI')
 		}}
 	/>
-))
+)
 ```
+
+`index.ts file:`
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
+}
+```
+
+{{< hint warning >}}
+**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+{{< /hint >}}
+
 
 You can also write the function that is executed by the click outside the UI definition, and reference it by name. This helps keep the UI code more readable, and is also useful if multiple clickable UI entities need to call the same function.
 
-```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+```tsx
+import { Button } from '@dcl/sdk/react-ecs'
 
 function handleClick() {
 	// Do something onClick
 	console.log('Clicked on the UI')
 }
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<Button
 		value="Click me"
 		uiTransform={{ width: 100 }}
 		onMouseDown={{ handleClick }}
 	/>
-))
+)
 ```
 
 The following fields can be added to a `Button` UI element:
@@ -67,10 +83,10 @@ The following fields can be added to a `Button` UI element:
 
 Set the variant to `primary` or `secondary` to take advantage of the default styling options for buttons. `primary` makes your button red with white text, `secondary` makes your button white with red text.
 
-```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+```tsx
+import { UiEntity, Button } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
 			width: 500,
@@ -98,15 +114,15 @@ ReactEcsRenderer.setUiRenderer(() => (
 			}}
 		/>
 	</UiEntity>
-))
+)
 ```
 
 You're also free to use all of the properties on background freely. You can also set a variant and then override some of its properties. This example uses the `primary` variant, but overrides the color to be green:
 
-```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+```tsx
+import { Button } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<Button
 		value="My Button!"
 		variant="primary"
@@ -118,19 +134,19 @@ ReactEcsRenderer.setUiRenderer(() => (
 			color: Color4.Green(),
 		}}
 	/>
-))
+)
 ```
 
 ## Togglable buttons
 
 A common use case is to make a button toggle between two states, like a switch. The example below switches between two colors each time the button is pressed:
 
-```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+```tsx
+import { Button } from '@dcl/sdk/react-ecs'
 
 let buttonEnabled = false
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<Button
 		value="My Button"
 		variant="primary"
@@ -148,7 +164,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 			color: buttonEnabled ? Color4.Green() : Color4.Red(),
 		}}
 	/>
-))
+)
 ```
 
 Note that in the example above, the color depends on a `buttonEnabled` variable. Whenever this variable's value changes, it inmediately affects the background color.
@@ -157,12 +173,12 @@ Note that in the example above, the color depends on a `buttonEnabled` variable.
 
 Another common use case is to display some kind of visual hint when hovering over a button, to clarify that this is interactible, or even to display a hover hint explaining what this button does. Use the `onMouseEnter` and `onMouseLeave` callbacks to detect when the player's cursor is on the button, and react accordingly.
 
-```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+```tsx
+import { Button } from '@dcl/sdk/react-ecs'
 
 let buttonEnabled = false
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<Button
 		value="My Button"
 		uiTransform={{ width: 100, height: 100 }}
@@ -176,17 +192,17 @@ ReactEcsRenderer.setUiRenderer(() => (
 			// hide hint
 		}}
 	/>
-))
+)
 ```
 
 ## Making other elements clickable
 
 Any element in the UI can be made clickable by adding an `onMouseDown` property to it, it works identically to a button. The following example adds `onMouseDown` properties to background images and text.
 
-```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+```tsx
+import { UiEntity } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity
 		onMouseDown={() => {
 			console.log('Background clicked!')
@@ -206,7 +222,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 			uiTransform={{ width: '100%', height: 30 }}
 		/>
 	</UiEntity>
-))
+)
 ```
 
 ## Pointer blocking
@@ -222,11 +238,11 @@ The supported values for `pointerFilter` are:
 
 Below is a simple UI that doesn't have an `onMouseDown`, but that is overrides the default behavior of not being pointer-blocking by setting `pointerFilter` to `block`.
 
-```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+```tsx
+import { UiEntity } from '@dcl/sdk/react-ecs'
 
 // draw UI
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
 			width: '100%',
@@ -236,5 +252,5 @@ ReactEcsRenderer.setUiRenderer(() => (
 		uiText={{ value: `This element is pointer blocking`, fontSize: 40 }}
 		uiBackground={{ color: Color4.create(0.5, 0.8, 0.1, 0.6) }}
 	/>
-))
+)
 ```

@@ -13,10 +13,11 @@ For all kinds of UI content, use the `uiTransform` component to set the size, po
 
 The `uiTransform` component works in the screen's 2d space very much like the `Transform` component works in the the scene's 3D space.
 
+`ui.tsx file:`
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { UiEntity } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
 			width: '200px',
@@ -26,8 +27,23 @@ ReactEcsRenderer.setUiRenderer(() => (
 		}}
 		uiBackground={{ color: Color4.Green() }}
 	/>
-))
+)
 ```
+
+`index.ts file:`
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
+}
+```
+
+{{< hint warning >}}
+**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+{{< /hint >}}
+
 
 ## Positioning properties
 
@@ -69,9 +85,9 @@ These other properties are also available to adjust size in a more advanced way:
 - `flexBasis`: This is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the width of that child if its parent is a container with flex direction: row or setting the height of a child if its parent is a container with flex direction: column.
 
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { UiEntity } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
 			alignSelf: 'center',
@@ -84,7 +100,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 		}}
 		uiBackground={{ color: Color4.Green() }}
 	/>
-))
+)
 ```
 
 <!--
@@ -259,10 +275,10 @@ export function UIScaleUpdate() {
 The value of the `scaleFactor` variable, that this function updates, can then be used as a multiplier on any UI element in the scene, including `heigh`, `width` and `fontSize` values.
 
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { UiEntity, Label } from '@dcl/sdk/react-ecs'
 import { scaleFactor } from './calculate-scale-factor'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
 			width: 200 * scaleFactor,
@@ -285,7 +301,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 		        }}
 	      />
 	</UiEntity>
-))
+)
 ```
 
 Some other best practices regarding UI sizes:

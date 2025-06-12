@@ -13,10 +13,10 @@ You can build a UI for your scene, to be displayed in the screen's fixed 2D spac
 
 UI elements are only visible when the player is standing inside the scene's LAND parcels, as neighboring scenes might have their own UI to display. Parts of the UI can also be triggered to open when certain events occur in the world-space, for example if the player clicks on a specific place.
 
-Build a UI by defining a structure of `UIEntity` in JSX. The syntax used for UIs is very similar to that of [React](https://reactjs.org/) (a very popular javascript-based library for building web UIs).
+Build a UI by defining a structure of nested `UIEntity` objects in JSX. The syntax used for UIs is very similar to that of [React](https://reactjs.org/) (a very popular javascript-based library for building web UIs).
 
 {{< hint warning >}}
-**📔 Note**: You can only define JSX UI syntax in files that have a `.tsx` extension. `.tsx` files support everything that `.ts` files support, plus UI syntax. We recommend creating a `ui.tsx` file and defining your UI there. Remember to call your UI render method from `index.ts` with `ReactEcsRenderer.setUiRenderer(yourUiMethodName)`, see example below.
+**📔 Note**: You can only define UI syntax in files that have a `.tsx` extension. `.tsx` files support everything that `.ts` files support, plus UI syntax. We recommend creating a `ui.tsx` file and defining your UI there. Remember to call your UI render method from `index.ts` with `ReactEcsRenderer.setUiRenderer(yourUiMethodName)`, see example below.
 {{< /hint >}}
 
 A simple UI with static elements can look a lot like HTML, but when you add dynamic elements that respond to a change in state, you can do things that are a lot more powerful.
@@ -25,13 +25,11 @@ The default Decentraland explorer UI includes a chat widget, a map, and other el
 
 See [UX guidelines]({{< ref "/content/creator/sdk7/design-experience/ux-ui-guide.md" >}}) for tips on how to design the look and feel of your UI.
 
-<!-- TODO: Should I call it JSX? any better name?? -->
-
-When the player clicks the _close UI_ button, on the bottom-right corner of the screen, all UI elements go away.
+When the player clicks the _close UI_ button, on the bottom-right corner of the screen, all UI elements are hidden.
 
 ## Render a UI
 
-To display a UI in your scene, use the `ReactEcsRenderer.setUiRenderer()` function, passing it a valid structure of entities, described in JSX.
+To display a UI in your scene, use the `ReactEcsRenderer.setUiRenderer()` function, passing it a valid structure of entities, described in a `.tsx` file.
 
 Each entity is defined as an HTML-like node, with properties for each of its components.
 
@@ -51,6 +49,7 @@ export const uiMenu = () => (
   />
 )
 ```
+
 `index.ts file:`
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -62,22 +61,35 @@ export function main() {
 ```
 
 
-You can also define an entity structure and render it, all in one same command.
+You can also define an entity structure and render it, all in one same command in a `.tsx` file.
 
-```ts
+`ui.tsx file:`
+```tsx
 import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
-  <UiEntity
-    uiTransform={{
-      width: 700,
-      height: 400,
-      margin: { top: '35px', left: '500px' },
-    }}
-    uiBackground={{ color: Color4.Red() }}
-  />
-))
+export function setupUI() {
+  ReactEcsRenderer.setUiRenderer(() => (
+    <UiEntity
+      uiTransform={{
+        width: 700,
+        height: 400,
+        margin: { top: '35px', left: '500px' },
+      }}
+      uiBackground={{ color: Color4.Red() }}
+    />
+  ))
+}
+```
+
+`index.ts file:`
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { setupUI } from './ui'
+
+export function main() {
+    setupUI()
+}
 ```
 
 {{< hint warning >}}
@@ -86,13 +98,13 @@ ReactEcsRenderer.setUiRenderer(() => (
 
 ## UI Entities
 
-Each element in the UI must be defined as a separate `UiEntity`, wether it's an image, text, an invisible alignment box, etc. Just like in the scene's 3D space, each `UiEntity` has its own components to give it a position, color, etc.
+Each element in the UI must be defined as a separate `UiEntity`, wether it's an image, text, background, an invisible alignment box, etc. Just like in the scene's 3D space, each `UiEntity` has its own components to give it a position, color, etc.
 
 The React-like syntax allows you to specify each component as a property within the `UiEntity`, this makes the code shorter and more readable.
 
 The components used in a `UiEntity` are different from those used in regular entities. You cannot apply a UI component to a regular entity, nor a regular component to a UI entity.
 
-The following components are available to use in the UI:
+The following components are available to use in a `UiEntity`:
 
 - `uiTransform`
 - `uiBackground`
@@ -101,11 +113,12 @@ The following components are available to use in the UI:
 
 Like with HTML tags, you can define components as self-closing or nest one within another.
 
-```ts
+`ui.tsx file:`
+```tsx
 import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   // parent entity
   <UiEntity
     uiTransform={{
@@ -126,14 +139,24 @@ ReactEcsRenderer.setUiRenderer(() => (
     />
     // closing statement for the parent entity
   </UiEntity>
-))
+)
 ```
 
-A JSX statement can only have one parent-level entity. You can define as many other entities as you want, but they must all fit inside a structure with one single parent at the top.
+`index.ts file:`
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
+}
+```
+
+A definition of a UI module can only have one parent-level entity. You can define as many other entities as you want, but they must all fit inside a structure with one single parent at the top.
 
 ## Multiple UI modules
 
-Your scene should have a single call to the `ReactEcsRenderer.setUiRenderer()` function. To define your UI via a series of separate modules in different files, you can pass an array to this function listing each section. This is also useful when combining UI modules from a library (like the [DCL UI toolkit library](https://github.com/decentraland-scenes/dcl-ui-toolkit)) with custom UI.:
+Your scene should have a single call to the `ReactEcsRenderer.setUiRenderer()` function. To define your UI via a series of separate modules in different files, you can pass an array to the renderer function listing each module. This is also useful when combining UI modules from a library (like the [DCL UI toolkit library](https://github.com/decentraland-scenes/dcl-ui-toolkit)) with custom UI.:
 
 ```ts
 const uiComponent = () => [
@@ -147,20 +170,8 @@ ReactEcsRenderer.setUiRenderer(uiComponent)
 
 Below is a more complete example:
 
+`ui.tsx file:`
 ```ts
-const uiComponent = () => [
-  UIModule1(),
-  UIModule2(),
-  // ...
-  // The line below is to use the DCL UI Toolkit library
-  // https://github.com/decentraland-scenes/dcl-ui-toolkit
-  ui.render(),
-]
-
-ReactEcsRenderer.setUiRenderer(uiComponent)
-
-// file for UI module 1
-
 export function UIModule1() {
   return (
     <UiEntity
@@ -176,8 +187,6 @@ export function UIModule1() {
     </UiEntity>
   )
 }
-
-// file for UI module 2
 
 export function UIModule2() {
   return (
@@ -197,5 +206,22 @@ export function UIModule2() {
       />
     </UiEntity>
   )
+}
+```
+
+`index.ts file:`
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { UIModule1, UIModule2 } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer([
+      UIModule1(),
+      UIModule2(),
+      // ...
+      // The line below is to use the DCL UI Toolkit library
+      // https://github.com/decentraland-scenes/dcl-ui-toolkit
+      ui.render(),
+    ])
 }
 ```

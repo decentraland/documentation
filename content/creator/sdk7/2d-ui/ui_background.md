@@ -45,10 +45,11 @@ The following fields can be configured, all of them are optional:
 
 Simple color:
 
-```ts
-import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+`ui.tsx file:`
+```tsx
+import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 700,
@@ -58,15 +59,30 @@ ReactEcsRenderer.setUiRenderer(() => (
 		color: Color4.create(0.5, 0.8, 0.1, 0.6)
 	}}
   >
-))
+)
 ```
+
+`index.ts file:`
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
+}
+```
+
+{{< hint warning >}}
+**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+{{< /hint >}}
+
 
 Repeated texture pattern:
 
 ```ts
-import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 700,
@@ -80,7 +96,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 		}
 	}}
   >
-))
+)
 ```
 
 ## Borders
@@ -92,9 +108,9 @@ A few properties are used to set a border around a UI entity. These properties e
 - `borderRadius`: Use this property to give the corners of the entity a rounded border. It sets the radius of the corners in pixels.
 
 ```ts
-import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 700,
@@ -104,15 +120,15 @@ ReactEcsRenderer.setUiRenderer(() => (
       borderRadius: 10
     }}
   >
-))
+)
 ```
 
 `borderWidth`, `borderColor` and `borderRadius` can also be set with different values for each side of the entity.
 
 ```ts
-import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 700,
@@ -122,7 +138,7 @@ ReactEcsRenderer.setUiRenderer(() => (
       borderWidth: { top: 3, left: 2, right: 3, bottom: 4 }
     }}
   >
-))
+)
 ```
 
 ## Nine-slice textures
@@ -145,9 +161,9 @@ Here's how each segment is affected, using the above image as reference.
 To use nine-slice stretching on an entity, set the `textureMode` to `BackgroundTextureMode.NINE_SLICES`. You can optionally also set a width for the margin on each side in `textureSlices`.
 
 ```ts
-import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+import { UiEntity } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{ width: 700, height: 400 }}
     uiBackground={{
@@ -163,7 +179,7 @@ ReactEcsRenderer.setUiRenderer(() => (
       }
 	}}
   >
-))
+)
 ```
 
 <!--

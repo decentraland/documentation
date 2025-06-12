@@ -20,14 +20,13 @@ You can simply reference a variable in any property of one of the components in 
 
 The example below defines a variable `playerCurrentPosition` and references it as part of a string in a `uiText` component. A system then updates the value of this variable on every tick, using the player's current position. As the value of the variable changes, the UI updates accordingly, without ever needing to explicitly modify the UI.
 
-```ts
-import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
-
-// define variable
-let playerCurrentPosition: string = ""
+`ui.tsx file:`
+```tsx
+import { UiEntity} from '@dcl/sdk/react-ecs'
+import { playerCurrentPosition } from '/index.ts'
 
 // draw UI
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
 			width: '100%',
@@ -38,7 +37,20 @@ ReactEcsRenderer.setUiRenderer(() => (
     uiText={{ value: `Player: `+  playerCurrentPosition, fontSize: 40 }}
     uiBackground={{ color: Color4.create(0.5, 0.8, 0.1, 0.6) }}
   />
-))
+)
+```
+
+`index.ts file:`
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
+}
+
+// define variable
+let playerCurrentPosition: string = ""
 
 // system to update variable
 engine.addSystem(() => {
@@ -48,6 +60,7 @@ engine.addSystem(() => {
   playerCurrentPosition =  `{x: ${x.toFixed(2)}, y: ${y.toFixed(2)}, z: ${z.toFixed(2)} }`
 })
 ```
+
 
 In the example above, you could also include the variable as part of the string, by signaling the variable with a `$`.
 
@@ -67,11 +80,11 @@ In the example below, a `uiText` component calls the `getPlayerPosition()` funct
 
 This example is similar to the one in the previous section, but by calling a function from inside the UI definition we avoid declaring a separate variable and defining a system to alter that variable. Note that `getPlayerPosition()` gets called on every tick of the game loop, without needing to explicitly declare a system.
 
+`ui.tsx file:`
+```tsx
+import { UiEntity} from '@dcl/sdk/react-ecs'
 
-```ts
-import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
-
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: '100%',
@@ -82,13 +95,23 @@ ReactEcsRenderer.setUiRenderer(() => (
     uiText={{ value: `Player: `+  getPlayerPosition(), fontSize: 40 }}
     uiBackground={{ color: Color4.create(0.5, 0.8, 0.1, 0.6) }}
   />
-))
+)
 
 function getPlayerPosition(){
   const playerPosition = Transform.getOrNull(engine.PlayerEntity)
   if (!playerPosition) return
   const { x, y, z } = playerPosition.position
   return `{x: ${x.toFixed(2)}, y: ${y.toFixed(2)}, z: ${z.toFixed(2)} }`
+}
+```
+
+`index.ts file:`
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
 }
 ```
 
@@ -99,13 +122,14 @@ The easiest way to toggle a UI on and off is to use a variable for the value of 
 
 The following example uses a variable to set the `display` field of a part of the UI. The value of this variable can be toggled by clicking on another UI element.
 
-```ts
-import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+`ui.tsx file:`
+```tsx
+import { UiEntity} from '@dcl/sdk/react-ecs'
 
 // Variable to reflect current state of menu visibility
 var isMenuVisible: boolean = false
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
    // parent
    <UiEntity>
       // Menu
@@ -138,11 +162,21 @@ ReactEcsRenderer.setUiRenderer(() => (
         onClick = {{toggleMenuVisibility}}
       />
    </UiEntity>
-))
+)
 
 // Function to toggle the state of the menu
 function toggleMenuVisibility(){
   isMenuVisible = !isMenuVisible
+}
+```
+
+`index.ts file:`
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
 }
 ```
 
@@ -158,10 +192,11 @@ The examples in the sections above show how to dynamically change a single prope
 
 The following example lists the ids of all entities in the scene that have a `MeshRenderer` and `Transform`. It creates a `uiText` for each. As the scene's content changes, the list of UI entities also adapts on every tick.
 
-```ts
-import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+`ui.tsx file:`
+```tsx
+import { UiEntity} from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: '100%',
@@ -175,7 +210,7 @@ ReactEcsRenderer.setUiRenderer(() => (
       {generateText()}
     </UiEntity>
   </UiEntity>
-))
+)
 
 
 function generateText(){
@@ -193,6 +228,16 @@ function TextComponent(props: { value: string; key: string | number }) {
     uiText={{ value: props.value, textAlign: 'middle-center', fontSize: 12 }}
     uiBackground={{ color: { r: 255, g: 45, b: 85, a: 1 } }}
   />
+}
+```
+
+`index.ts file:`
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
 }
 ```
 
