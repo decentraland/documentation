@@ -22,8 +22,11 @@ A `Dropdown` entity must have at least the following properties:
 
 You can also configure other comopnents of the `Dropdown` entity, like a `uiTransform`, as in other UI entities.
 
-```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+_**ui.tsx file:**_
+```tsx
+import { UiEntity, Label, Dropdown, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+import { Color4Type } from '@dcl/sdk/ecs'
 
 function selectOption(index: number) {
   switch (index) {
@@ -41,8 +44,7 @@ function selectOption(index: number) {
 
 let textColor: Color4Type = Color4.Red()
 
-ReactEcsRenderer.setUiRenderer(() => {
-  return (
+export const uiMenu = () => (
     <UiEntity
       uiTransform={{
         width: '200px',
@@ -70,9 +72,24 @@ ReactEcsRenderer.setUiRenderer(() => {
         }}
       />
     </UiEntity>
-  )
-})
+)
 ```
+
+_**index.ts file:**_
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
+}
+```
+
+{{< hint warning >}}
+**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+{{< /hint >}}
+
+
 
 ## Input text
 
@@ -86,8 +103,12 @@ The behavior of the `Input` entity is managed via the following properties:
 
 The following example uses `onSubmit` to log the provided text to the console.
 
-```ts
-ReactEcsRenderer.setUiRenderer(() => (
+```tsx
+import { UiEntity, Input, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+
+
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 400,
@@ -115,15 +136,19 @@ ReactEcsRenderer.setUiRenderer(() => (
       }}
     ></Input>
   </UiEntity>
-))
+)
 ```
 
 It's a good practice to provide both a button for submitting and handling the "onSubmit" event when the player presses the Enter/Return key. The following example shows how you can do this. Note that for consistency, the function carried out by the button is manually clearing the text in the input field.
 
-```ts
+```tsx
+import { UiEntity, Input, Button, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+
+
 let currentValue: string = ''
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 400,
@@ -163,7 +188,7 @@ ReactEcsRenderer.setUiRenderer(() => (
       }}
     />
   </UiEntity>
-))
+)
 
 function handleSubmitText(value: string) {
   console.log('submitted value: ' + value)
@@ -196,13 +221,13 @@ The following properties are also available to customize the look of the text fi
 
 You can also configure other components of the `Input` entity, like a `uiTransform`, `OnMouseDown` as in other UI entities.
 
-```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+```tsx
+import { UiEntity, Input, Label, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 var currentTextString = ''
 
-ReactEcsRenderer.setUiRenderer(() => {
-  return (
+export const uiMenu = () => (
     <UiEntity
       uiTransform={{
         width: '50%',
@@ -225,6 +250,6 @@ ReactEcsRenderer.setUiRenderer(() => {
       />
       <Label value={currentTextString} fontSize={40} />
     </UiEntity>
-  )
-})
+)
+
 ```
