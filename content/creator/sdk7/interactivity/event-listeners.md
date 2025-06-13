@@ -169,7 +169,7 @@ The event on `AvatarBase` includes the following information:
 You can also detect changes in wearables or avatars form other players in the scene, simply pass a reference to the other player instead of `engine.PlayerEntity`.
 
 {{< hint info >}}
-**💡 Tip**: When testing in preview with the legacy web editor, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet. In the Decentraland deprecated VS Code Extension, open the Decentraland tab and hover your mouse over it to display the three dots icon on the top-right. Click this icon and select **Open in browser with Web3**.
+**💡 Tip**: When testing in preview with the legacy web editor, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet.
 {{< /hint >}}
 
 You can also detect changes on the profiles of other players in the scene, simply pass a reference to the other player instead of `engine.PlayerEntity`.
