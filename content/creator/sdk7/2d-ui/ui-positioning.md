@@ -217,6 +217,31 @@ examples:
 ```ts
 ``` -->
 
+## Z Index
+
+The `zIndex` property of a `UiEntity` determines the order in which entities are rendered. Entities with a higher `zIndex` are rendered on top of entities with a lower `zIndex`. The default `zIndex` is 0.
+
+```ts
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+
+export const uiMenu = () => (
+	<UiEntity
+		uiTransform={{
+			zIndex: 4
+		}}
+		uiBackground={{ color: Color4.Green() }}
+	/>
+)
+```
+
+{{< hint warning >}}
+**📔 Note** : The default Decentraland UI, including the map, chat, etc is always rendered on top of all other UI elements.
+{{< /hint >}}
+
+
+
+
 ## Responsive UI size
 
 Players with different screen sizes may see your UI layout differently. If you set the size of any UI element to a fixed number of pixels, this UI may look too small to read on retina displays, that have a much higher pixel density.

@@ -59,7 +59,7 @@ export const uiMenu = () => (
     uiBackground={{
 		color: Color4.create(0.5, 0.8, 0.1, 0.6)
 	}}
-  >
+  />
 )
 ```
 
@@ -96,7 +96,7 @@ export const uiMenu = () => (
 			wrapMode: 'repeat'
 		}
 	}}
-  >
+  />
 )
 ```
 
@@ -121,7 +121,7 @@ export const uiMenu = () => (
       borderWidth: 4,
       borderRadius: 10
     }}
-  >
+  />
 )
 ```
 
@@ -140,9 +140,73 @@ export const uiMenu = () => (
       borderRadius: { topLeft: 20, topRight: 20, bottomLeft: 20, bottomRight:0 },
       borderWidth: { top: 3, left: 2, right: 3, bottom: 4 }
     }}
-  >
+  />
 )
 ```
+
+## Opacity
+
+Use the `opacity` property in the `Transform` of a `UiEntity` to add transparency to the entity and all of its children. The opacity property is a value from 0 to 1, where 0 is fully transparent and 1 fully opaque.
+
+```ts
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+
+export const uiMenu = () => (
+  <UiEntity
+    uiTransform={{
+      width: 700,
+      height: 400,
+      opacity: 0.7
+    }}
+    uiBackground={{ color: Color4.Green() }}
+  >
+    <UiEntity
+        uiTransform={{
+          width: 100,
+          height: 30,
+        }}
+        uiText={{
+          value: "This text is transparent too",
+          fontSize: 40
+        }}
+      />
+   </UiEntity>
+)
+```
+
+
+As the opacity value affects all children of a `UiEntity`, adding transparency to background color, text color, and background images. If both the parent and child have opacity values, the child's opacity will be multiplied by the parent's opacity.
+
+```ts
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+
+export const uiMenu = () => (
+  <UiEntity
+    uiTransform={{
+      width: 700,
+      height: 400,
+      opacity: 0.7
+    }}
+    uiBackground={{ color: Color4.Green() }}
+  >
+    <UiEntity
+      uiTransform={{
+        width: 100,
+        height: 30,
+        opacity: 0.7
+      }}
+      uiText={{
+        value: "This text is even more transparent",
+        fontSize: 40
+      }}
+    />
+  </UiEntity>
+)
+```
+
+
 
 ## Nine-slice textures
 
@@ -181,7 +245,7 @@ export const uiMenu = () => (
         right: 0.2
       }
 	}}
-  >
+  />
 )
 ```
 
