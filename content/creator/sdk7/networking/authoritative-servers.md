@@ -37,9 +37,6 @@ API + DB:
 - [Guestbook](https://github.com/decentraland/sdk7-goerli-plaza/tree/main/guest-book-api)
 - [Validate authenticity](https://github.com/decentraland/sdk7-goerli-plaza/tree/main/validate-player-authenticity)
 
-{{< hint info >}}
-**💡 Tip**: To avoid downloading the entire repo, with dozens of scenes, and just copy one project, see [Scene from example]({{< ref "/content/creator/sdk7/getting-started/scene-from-example.md" >}}).
-{{< /hint >}}
 
 ## Preview scenes with dedicated servers
 

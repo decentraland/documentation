@@ -43,19 +43,6 @@ You can also add `debugger` commands or use the `sources` tab in the developer t
 
 `DEBUG_SCENE_LOG`.
 
-## Add breakpoints in the VS Code Extension
-
-Using VS Studio Code, you can add breakpoints to your scene's code. When running a preview, whenever the code passes through these breakpoints, it pauses execution. A **Debug** panel opens, showing the current values of all variables at that point in time.
-
-This is especially useful to validate that the data at a given point in time is what you expect. You can also modify the values of any variable manually and resume execution with the blue play button, using those new variables. This is great to test corner cases, to make sure the scene behaves as expected on every scenario, which might otherwise be a lot harder to reproduce.
-
-Make sure you've [installed the Decentraland VS Code Extension]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).
-
-1. Open VSCode in a Decentraland scene project.
-2. Click on the Debugger icon on the left sidebar.
-3. Click on `Run and Debug` and select `Decentraland` (this step is not necessary if your project already has a `.vscode/launch.json` file).
-4. Click on `Run`. A browser should open.
-5. Try setting a breakpoint and interacting with the scene in a way it will step on that line.
 -->
 
 ## View scene stats

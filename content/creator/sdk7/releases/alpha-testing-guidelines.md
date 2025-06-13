@@ -40,9 +40,6 @@ You can find more example scenes written with SDK7 here:
 
 - [Scene examples](https://studios.decentraland.org/resources)
 
-{{< hint info >}}
-**💡 Tip**: To avoid downloading the entire repo, with dozens of scenes, and just copy one project, see [Scene from example]({{< ref "/content/creator/sdk7/getting-started/scene-from-example.md" >}}).
-{{< /hint >}}
 
 ## Reporting issues
 
