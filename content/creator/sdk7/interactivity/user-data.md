@@ -407,3 +407,48 @@ The `PointerLock` component of the `engine.CameraEntity` is read-only, you can't
 
 Another option is to refer to the entity inside a system. It will always be available, because the first execution of the system is called once the scene is already properly initialized.
 {{< /hint >}}
+
+## Check the player's cursor position
+
+Use the `primaryPointerInfo` component on the `engine.RootEntity` to get the player's cursor position. This can be used for mechanics like drag and drop interactions, swipe gestures, etc.
+
+```ts
+import { PrimaryPointerInfo } from '@dcl/sdk/ecs'
+
+function CursorSystem() {
+	const pointerInfo = PrimaryPointerInfo.get(engine.RootEntity)
+	console.log(pointerInfo)
+}
+
+engine.addSystem(CursorSystem)
+```
+
+{{< hint warning >}}
+**📔 Note**: Avoid referring to the `engine.RootEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, always refer to the entity inside a system. It will always be available, because the first execution of the system is called once the scene is already properly initialized.
+{{< /hint >}}
+
+The `primaryPointerInfo` component returns an object with the following properties:
+
+- `screenCoordinates`: _(Vector2)_ The position of the cursor in the scene, expressed in pixels. The origin is the top left corner of the screen.
+- `screenDelta`: _(Vector2)_ The delta change in the position of the cursor since the last frame, expressed in pixels.
+- `worldRayDirection`: _(Vector3)_ A vector that represents the direction of the ray from the camera to the cursor.The origin is the camera position. Use this to calculate the position of the cursor in the world.
+- `pointerType`: 0 for `none`, 1 for `mouse`
+
+
+You can use the `worldRayDirection` to set the `direction` field of a raycast to know if an entity is in the cursor's line of sight. See [Raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}) for more details.
+
+
+{{< hint info >}}
+**💡 Tip**: To react to simple hover events on UI elements, you may find it easier to use the `onMouseEnter` and `onMouseLeave` events, see [UI Button Events]({{< ref "/content/creator/sdk7/2d-ui/ui_button_events.md#hover-feedback" >}}). 
+{{< /hint >}}
+
+
+
+
+The `primaryPointerInfo` component is read-only, you can't force the player to change the cursor position.
+
+
+
+
+
+
