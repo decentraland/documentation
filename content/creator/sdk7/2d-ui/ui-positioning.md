@@ -15,7 +15,8 @@ The `uiTransform` component works in the screen's 2d space very much like the `T
 
 `ui.tsx file:`
 ```ts
-import { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
 	<UiEntity
@@ -85,7 +86,8 @@ These other properties are also available to adjust size in a more advanced way:
 - `flexBasis`: This is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the width of that child if its parent is a container with flex direction: row or setting the height of a child if its parent is a container with flex direction: column.
 
 ```ts
-import { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
 	<UiEntity
@@ -275,8 +277,9 @@ export function UIScaleUpdate() {
 The value of the `scaleFactor` variable, that this function updates, can then be used as a multiplier on any UI element in the scene, including `heigh`, `width` and `fontSize` values.
 
 ```ts
-import { UiEntity, Label } from '@dcl/sdk/react-ecs'
+import { UiEntity, Label, ReactEcs } from '@dcl/sdk/react-ecs'
 import { scaleFactor } from './calculate-scale-factor'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
 	<UiEntity

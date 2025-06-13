@@ -32,7 +32,8 @@ A `Label` entity can also have other common components found on other types of U
 
 `ui.tsx file:`
 ```ts
-import { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, Label, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
 	<UiEntity uiTransform={{ width: 'auto', height: 'auto' }}>
@@ -70,7 +71,7 @@ You can also force a line break by explicitly adding `\n` to the string.
 
 ```ts
 import { TextWrap } from "@dcl/sdk/ecs";
-import { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, Label, ReactEcs } from '@dcl/sdk/react-ecs'
 
 export const uiMenu = () => (
 	<UiEntity uiTransform={{ width: 700, height: 400 }}>
@@ -85,7 +86,8 @@ export const uiMenu = () => (
 If no explicit `height` or `width` is set on the `uiTransform` of the container, the container will use the value `auto`, which adjusts to fit all the text. You can set a `maxWidth` and a `maxHeight` to ensure it doesn't exceed certain limits. You can also use `minWidth` and `minHeight` to ensure the container does't grow too small, even if the text is shorter.
 
 ```ts
-import { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
 	<UiEntity
@@ -113,7 +115,8 @@ Use the `scaleFontSize()` function to provide font values that adjust to the pla
 
 ```ts
 import { scaleFontSize } from '@dcl/sdk/react-ecs'
-import { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
   <UiEntity
@@ -155,7 +158,7 @@ For example, in the snippet below uses a `scaleUnit` value of 0.8. If the screen
 
 ```ts
 import { scaleFontSize } from '@dcl/sdk/react-ecs'
-import { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 
 export const uiMenu = () => (
   <UiEntity

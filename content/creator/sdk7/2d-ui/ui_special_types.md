@@ -24,7 +24,9 @@ You can also configure other comopnents of the `Dropdown` entity, like a `uiTran
 
 `ui.tsx file:`
 ```tsx
-import { UiEntity, Label, Dropdown } from '@dcl/sdk/react-ecs'
+import { UiEntity, Label, Dropdown, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+import { Color4Type } from '@dcl/sdk/ecs'
 
 function selectOption(index: number) {
   switch (index) {
@@ -102,7 +104,8 @@ The behavior of the `Input` entity is managed via the following properties:
 The following example uses `onSubmit` to log the provided text to the console.
 
 ```tsx
-import { UiEntity, Input } from '@dcl/sdk/react-ecs'
+import { UiEntity, Input, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 
 export const uiMenu = () => (
@@ -139,7 +142,8 @@ export const uiMenu = () => (
 It's a good practice to provide both a button for submitting and handling the "onSubmit" event when the player presses the Enter/Return key. The following example shows how you can do this. Note that for consistency, the function carried out by the button is manually clearing the text in the input field.
 
 ```tsx
-import { UiEntity, Input, Button } from '@dcl/sdk/react-ecs'
+import { UiEntity, Input, Button, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 
 let currentValue: string = ''
@@ -218,7 +222,8 @@ The following properties are also available to customize the look of the text fi
 You can also configure other components of the `Input` entity, like a `uiTransform`, `OnMouseDown` as in other UI entities.
 
 ```tsx
-import { UiEntity, Input, Label } from '@dcl/sdk/react-ecs'
+import { UiEntity, Input, Label, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 var currentTextString = ''
 

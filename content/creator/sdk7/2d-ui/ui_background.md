@@ -47,7 +47,8 @@ Simple color:
 
 `ui.tsx file:`
 ```tsx
-import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
+import { ReactEcs, UiEntity } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
   <UiEntity
@@ -80,7 +81,7 @@ export function main() {
 Repeated texture pattern:
 
 ```ts
-import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 
 export const uiMenu = () => (
   <UiEntity
@@ -108,7 +109,8 @@ A few properties are used to set a border around a UI entity. These properties e
 - `borderRadius`: Use this property to give the corners of the entity a rounded border. It sets the radius of the corners in pixels.
 
 ```ts
-import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
   <UiEntity
@@ -126,7 +128,8 @@ export const uiMenu = () => (
 `borderWidth`, `borderColor` and `borderRadius` can also be set with different values for each side of the entity.
 
 ```ts
-import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
   <UiEntity
@@ -161,7 +164,7 @@ Here's how each segment is affected, using the above image as reference.
 To use nine-slice stretching on an entity, set the `textureMode` to `BackgroundTextureMode.NINE_SLICES`. You can optionally also set a width for the margin on each side in `textureSlices`.
 
 ```ts
-import { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 
 export const uiMenu = () => (
   <UiEntity

@@ -35,7 +35,7 @@ Each entity is defined as an HTML-like node, with properties for each of its com
 
 `ui.tsx file:`
 ```ts
-import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (

@@ -22,8 +22,9 @@ The example below defines a variable `playerCurrentPosition` and references it a
 
 `ui.tsx file:`
 ```tsx
-import { UiEntity} from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { playerCurrentPosition } from '/index.ts'
+import { Color4 } from '@dcl/sdk/math'
 
 // draw UI
 export const uiMenu = () => (
@@ -82,7 +83,9 @@ This example is similar to the one in the previous section, but by calling a fun
 
 `ui.tsx file:`
 ```tsx
-import { UiEntity} from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+import { engine } from "@dcl/sdk/ecs";
 
 export const uiMenu = () => (
   <UiEntity
@@ -124,10 +127,16 @@ The following example uses a variable to set the `display` field of a part of th
 
 `ui.tsx file:`
 ```tsx
-import { UiEntity} from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 // Variable to reflect current state of menu visibility
 var isMenuVisible: boolean = false
+
+// Function to toggle the state of the menu
+function toggleMenuVisibility() {
+  isMenuVisible = !isMenuVisible
+}
 
 export const uiMenu = () => (
    // parent
@@ -159,15 +168,10 @@ export const uiMenu = () => (
           fontSize: 40
         }}
         uiBackground={{ color: Color4.Red() }}
-        onClick = {{toggleMenuVisibility}}
+        onMouseDown={toggleMenuVisibility}
       />
    </UiEntity>
 )
-
-// Function to toggle the state of the menu
-function toggleMenuVisibility(){
-  isMenuVisible = !isMenuVisible
-}
 ```
 
 `index.ts file:`
@@ -180,10 +184,6 @@ export function main() {
 }
 ```
 
-<!-- TODO: Make example pretty, with better positioning of entities -->
-
-
-
 
 
 ## Dynamic UI entities
@@ -194,7 +194,11 @@ The following example lists the ids of all entities in the scene that have a `Me
 
 `ui.tsx file:`
 ```tsx
-import { UiEntity} from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+import { engine } from '@dcl/sdk/ecs'
+import { MeshRenderer } from '@dcl/sdk/ecs'
+import { Transform } from '@dcl/sdk/ecs'
 
 export const uiMenu = () => (
   <UiEntity

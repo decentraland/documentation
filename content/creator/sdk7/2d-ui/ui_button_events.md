@@ -84,7 +84,8 @@ The following fields can be added to a `Button` UI element:
 Set the variant to `primary` or `secondary` to take advantage of the default styling options for buttons. `primary` makes your button red with white text, `secondary` makes your button white with red text.
 
 ```tsx
-import { UiEntity, Button } from '@dcl/sdk/react-ecs'
+import { UiEntity, Button, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
 	<UiEntity
@@ -121,6 +122,7 @@ You're also free to use all of the properties on background freely. You can also
 
 ```tsx
 import { Button } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
 	<Button
@@ -143,6 +145,7 @@ A common use case is to make a button toggle between two states, like a switch. 
 
 ```tsx
 import { Button } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 let buttonEnabled = false
 
@@ -200,7 +203,8 @@ export const uiMenu = () => (
 Any element in the UI can be made clickable by adding an `onMouseDown` property to it, it works identically to a button. The following example adds `onMouseDown` properties to background images and text.
 
 ```tsx
-import { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
 	<UiEntity
@@ -239,7 +243,8 @@ The supported values for `pointerFilter` are:
 Below is a simple UI that doesn't have an `onMouseDown`, but that is overrides the default behavior of not being pointer-blocking by setting `pointerFilter` to `block`.
 
 ```tsx
-import { UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
 // draw UI
 export const uiMenu = () => (
