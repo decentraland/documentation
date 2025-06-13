@@ -17,7 +17,7 @@ To make a button in your UI, create a `Button` UI element with the following pro
 
 The following example shows how to create a clickable UI button.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```tsx
 import { Button } from '@dcl/sdk/react-ecs'
 
@@ -32,7 +32,7 @@ export const uiMenu = () => (
 )
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'

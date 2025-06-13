@@ -30,7 +30,7 @@ A `Label` entity has the following fields that can be configured:
 
 A `Label` entity can also have other common components found on other types of UI entities, like `uiTransform` and `uiBackground`.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```ts
 import { UiEntity, Label, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -48,7 +48,7 @@ export const uiMenu = () => (
 )
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'

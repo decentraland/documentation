@@ -45,7 +45,7 @@ The following fields can be configured, all of them are optional:
 
 Simple color:
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```tsx
 import { ReactEcs, UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -63,7 +63,7 @@ export const uiMenu = () => (
 )
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'

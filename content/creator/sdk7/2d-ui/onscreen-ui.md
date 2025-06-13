@@ -33,7 +33,7 @@ To display a UI in your scene, use the `ReactEcsRenderer.setUiRenderer()` functi
 
 Each entity is defined as an HTML-like node, with properties for each of its components.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -50,7 +50,7 @@ export const uiMenu = () => (
 )
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'
@@ -63,7 +63,7 @@ export function main() {
 
 You can also define an entity structure and render it, all in one same command in a `.tsx` file.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```tsx
 import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -82,7 +82,7 @@ export function setupUI() {
 }
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { setupUI } from './ui'
@@ -113,7 +113,7 @@ The following components are available to use in a `UiEntity`:
 
 Like with HTML tags, you can define components as self-closing or nest one within another.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```tsx
 import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -142,7 +142,7 @@ export const uiMenu = () => (
 )
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'
@@ -170,7 +170,7 @@ ReactEcsRenderer.setUiRenderer(uiComponent)
 
 Below is a more complete example:
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```ts
 export function UIModule1() {
   return (
@@ -209,7 +209,7 @@ export function UIModule2() {
 }
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { UIModule1, UIModule2 } from './ui'

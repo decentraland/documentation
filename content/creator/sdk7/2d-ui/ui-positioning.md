@@ -13,7 +13,7 @@ For all kinds of UI content, use the `uiTransform` component to set the size, po
 
 The `uiTransform` component works in the screen's 2d space very much like the `Transform` component works in the the scene's 3D space.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -31,7 +31,7 @@ export const uiMenu = () => (
 )
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'

@@ -22,7 +22,7 @@ A `Dropdown` entity must have at least the following properties:
 
 You can also configure other comopnents of the `Dropdown` entity, like a `uiTransform`, as in other UI entities.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```tsx
 import { UiEntity, Label, Dropdown, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -75,7 +75,7 @@ export const uiMenu = () => (
 )
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'

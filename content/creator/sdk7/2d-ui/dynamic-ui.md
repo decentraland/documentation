@@ -20,7 +20,7 @@ You can simply reference a variable in any property of one of the components in 
 
 The example below defines a variable `playerCurrentPosition` and references it as part of a string in a `uiText` component. A system then updates the value of this variable on every tick, using the player's current position. As the value of the variable changes, the UI updates accordingly, without ever needing to explicitly modify the UI.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { playerCurrentPosition } from '/index.ts'
@@ -41,7 +41,7 @@ export const uiMenu = () => (
 )
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'
@@ -81,7 +81,7 @@ In the example below, a `uiText` component calls the `getPlayerPosition()` funct
 
 This example is similar to the one in the previous section, but by calling a function from inside the UI definition we avoid declaring a separate variable and defining a system to alter that variable. Note that `getPlayerPosition()` gets called on every tick of the game loop, without needing to explicitly declare a system.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -108,7 +108,7 @@ function getPlayerPosition(){
 }
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'
@@ -125,7 +125,7 @@ The easiest way to toggle a UI on and off is to use a variable for the value of 
 
 The following example uses a variable to set the `display` field of a part of the UI. The value of this variable can be toggled by clicking on another UI element.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -174,7 +174,7 @@ export const uiMenu = () => (
 )
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'
@@ -192,7 +192,7 @@ The examples in the sections above show how to dynamically change a single prope
 
 The following example lists the ids of all entities in the scene that have a `MeshRenderer` and `Transform`. It creates a `uiText` for each. As the scene's content changes, the list of UI entities also adapts on every tick.
 
-`ui.tsx file:`
+_**ui.tsx file:**_
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -235,7 +235,7 @@ function TextComponent(props: { value: string; key: string | number }) {
 }
 ```
 
-`index.ts file:`
+_**index.ts file:**_
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { uiMenu } from './ui'
