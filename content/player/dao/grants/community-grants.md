@@ -29,7 +29,7 @@ Grants can be requested by completing a proposal form within the [DAO](https://g
 Grant requests can fall under one of eight broad categories: **Core Unit, Platform, Documentation, In-world Building, Community Experiences, Social Media Content, Sponsorship, and Accelerator.** These categories represent areas of Decentraland that benefit most from community contributions.
 
 Every active grant must:
-* Comply with Decentraland’s [Content Policy](https://decentraland.org/content),  [Terms of Use](https://decentraland.org/terms), and [Code of Ethics](https://decentraland.org/ethics).
+* Comply with Decentraland’s [Content Policy](https://decentraland.org/content), [Terms of Use](https://decentraland.org/terms),and [Code of Ethics](https://decentraland.org/ethics).
 * Provide monthly updates on the [Governance dApp](https://governance.decentraland.org/).
 * Provide a presentation in a video format to be shared publicly.
 * [Provide recognition](https://governance.decentraland.org/proposal/?id=b46b6cc0-0ff4-11ee-bb17-db98a4ce871d) of Decentraland DAO's Support
