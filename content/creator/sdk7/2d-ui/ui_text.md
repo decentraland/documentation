@@ -30,10 +30,12 @@ A `Label` entity has the following fields that can be configured:
 
 A `Label` entity can also have other common components found on other types of UI entities, like `uiTransform` and `uiBackground`.
 
+_**ui.tsx file:**_
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { UiEntity, Label, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity uiTransform={{ width: 'auto', height: 'auto' }}>
 		<Label
 			value="This is a label"
@@ -43,8 +45,23 @@ ReactEcsRenderer.setUiRenderer(() => (
 			textAlign="top-left"
 		/>
 	</UiEntity>
-))
+)
 ```
+
+_**index.ts file:**_
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
+}
+```
+
+{{< hint warning >}}
+**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+{{< /hint >}}
+
 
 <!-- TODO: examples with textAlign -->
 
@@ -53,25 +70,26 @@ If a line of text is too long to fit in the assigned width, or the maximum width
 You can also force a line break by explicitly adding `\n` to the string.
 
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { TextWrap } from "@dcl/sdk/ecs";
+import { UiEntity, Label, ReactEcs } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity uiTransform={{ width: 700, height: 400 }}>
 		<Label 
 			value="Hello World!\nThis other bit is quite long. It probably won't fit in a single line, so it will include a line break somewhere.\nFourth line"
 			textWrap= {`nowrap`} 
 		/>
 	</UiEntity>
-))
+)
 ```
 
 If no explicit `height` or `width` is set on the `uiTransform` of the container, the container will use the value `auto`, which adjusts to fit all the text. You can set a `maxWidth` and a `maxHeight` to ensure it doesn't exceed certain limits. You can also use `minWidth` and `minHeight` to ensure the container does't grow too small, even if the text is shorter.
 
 ```ts
-import { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
 			minWidth: 100,
@@ -88,7 +106,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 			fontSize: 18,
 		}}
 	/>
-))
+)
 ```
 
 ## Responsive text size
@@ -96,10 +114,11 @@ ReactEcsRenderer.setUiRenderer(() => (
 Use the `scaleFontSize()` function to provide font values that adjust to the player's screen size. When setting the `fontSize` property of a text UI entity, pass this function instead of a single number.
 
 ```ts
-import { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 import { scaleFontSize } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 'auto',
@@ -112,7 +131,7 @@ ReactEcsRenderer.setUiRenderer(() => (
       fontSize={scaleFontSize(15)}
     }}
   />
-))
+)
 ```
 
 The `scaleFontSize()` function requires two parameters:
@@ -138,10 +157,10 @@ final font = fontSize + (screen width * scaleUnit / 100 )
 For example, in the snippet below uses a `scaleUnit` value of 0.8. If the screen width is _1280px_ that will result in text of size of **26.84**, having followed the equation `15 + (1280 * 0.8 / 100)`.
 
 ```ts
-import { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 import { scaleFontSize } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 'auto',
@@ -154,7 +173,7 @@ ReactEcsRenderer.setUiRenderer(() => (
       fontSize={scaleFontSize(15, 0.8)}
     }}
   />
-))
+)
 ```
 
 {{< hint info >}}

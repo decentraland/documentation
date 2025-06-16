@@ -1,5 +1,5 @@
 ---
-title: Let’s build the metaverse together
+title: Let’s build Decentraland together
 date: 2022-02-08
 description: Creators intro
 categories:
@@ -109,5 +109,3 @@ There are also some community-built tools that can help you create Decentraland 
 The following **deprecated tools** are also available:
 
 - **Web Editor:** Use an easy drag and drop interface to create scenes. [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
-
-- **Visual Studio Code Extension:** An extension to VS Studio Code that lets you create scene, run previews, deploy, and manage dependencies. It also lets you open a drag-and-drop editor inside a VS Code window. [Learn more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}}).

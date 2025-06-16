@@ -47,7 +47,7 @@ All smart items can be configured to behave in custom ways. For example how far 
 
 {{< hint info >}}
 **📔 Note**:
-Smart items are available on both the web editor, and the desktop VS Studio Code extension. See [using smart items on VS Studio](#using-smart-items-on-vs-studio) if you encounter issues.
+Smart items are available on both the web editor, and the Creator Hub.
 {{< /hint >}}
 
 ## Configure an item

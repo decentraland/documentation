@@ -16,7 +16,7 @@ This document outlines the steps recommended for developing a scene for Decentra
 
 <!-- diagram? icons? -->
 
-- [Install the Creator Hub](#install-the-vs-code-extension)
+- [Install the Creator Hub](#install-the-creator-hub)
 - [Design your experience](#design-your-experience)
 - [Where to publish](#where-to-publish)
 - [Templates and examples](#templates-and-examples)

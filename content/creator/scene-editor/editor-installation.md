@@ -5,6 +5,13 @@ description: How to install the scene editor.
 categories:
   - scene-editor
 type: Document
+aliases:
+  - /documentation/installation-guide/
+  - /getting-started/installation-guide/
+  - /development-guide/installation-guide/
+  - /creator/editor/installation-guide
+  - /creator/development-guide/installation-guide
+  - /creator/development-guide/sdk7/installation-guide/
 url: /creator/editor/install-editor
 weight: 2
 ---
