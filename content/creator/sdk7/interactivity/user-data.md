@@ -435,17 +435,62 @@ The `primaryPointerInfo` component returns an object with the following properti
 - `pointerType`: 0 for `none`, 1 for `mouse`
 
 
-You can use the `worldRayDirection` to set the `direction` field of a raycast to know if an entity is in the cursor's line of sight. See [Raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}) for more details.
-
-
 {{< hint info >}}
 **💡 Tip**: To react to simple hover events on UI elements, you may find it easier to use the `onMouseEnter` and `onMouseLeave` events, see [UI Button Events]({{< ref "/content/creator/sdk7/2d-ui/ui_button_events.md#hover-feedback" >}}). 
 {{< /hint >}}
 
 
-
-
 The `primaryPointerInfo` component is read-only, you can't force the player to change the cursor position.
+
+
+The following example shows how to display the cursor position on a UI element.
+
+
+_**ui.tsx file:**_
+```tsx
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+import {cursorXpos, cursorYpos} from './index'
+
+export const uiMenu = () => (
+  <UiEntity
+    uiTransform={{
+			width: '100%',
+			height: '100px',
+			justifyContent: 'center',
+			alignItems: 'center',
+    }}
+    uiText={{ value: `Cursor pos: `+  cursorXpos + `,` + cursorYpos, fontSize: 40 }}
+    uiBackground={{ color: Color4.create(0.5, 0.8, 0.1, 0.6) }}
+  />
+)
+```
+
+_**index.ts file:**_
+```ts
+import { engine } from '@dcl/sdk/ecs'
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+  ReactEcsRenderer.setUiRenderer(uiMenu)
+}
+
+export let cursorXpos: number | undefined = undefined
+export let cursorYpos: number | undefined = undefined
+
+function CursorSystem() {
+  const pointerInfo = PrimaryPointerInfo.get(engine.RootEntity)
+  console.log(pointerInfo)
+
+  cursorXpos = pointerInfo.screenCoordinates?.x
+  cursorYpos = pointerInfo.screenCoordinates?.y
+}
+
+engine.addSystem(CursorSystem)
+```
+
+You can use the `worldRayDirection` to set the `direction` field of a raycast to know if an entity is in the cursor's line of sight. See [Raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}) for more details.
 
 
 
