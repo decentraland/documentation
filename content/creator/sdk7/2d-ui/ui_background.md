@@ -176,7 +176,7 @@ export const uiMenu = () => (
 ```
 
 
-As the opacity value affects all children of a `UiEntity`, adding transparency to background color, text color, and background images. If both the parent and child have opacity values, the child's opacity will be multiplied by the parent's opacity.
+The opacity value affects all children of a `UiEntity`, adding transparency to background color, text color, and background images. If both the parent and child have opacity values, the child's opacity will be multiplied by the parent's opacity.
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
