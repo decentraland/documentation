@@ -194,11 +194,18 @@ raycastSystem.registerLocalDirectionRaycast(
 ```
 
 {{< hint warning >}}
-**📔 Note**: You can get a raycast result from hitting an entity on a different scene. This may be especially useful when creating portable experiences or smart wearables, that can react to the surroundings.
-
-However, note that currently you can only obtain raycast responses when the collision is with conent in a scene done with SDK7. Older SDK6 scenes won't return any hit result.
+**📔 Note**: You can get a raycast result from hitting an entity on a different scene.
 {{< /hint >}}
 
+## Handle hit entities
+ 
+When you get a raycast result that hit an entity, you can use the `entityId` to interact with the entity and its components. An entity is  [nothing more than a number]({{< ref "/content/creator/sdk7/architecture/entities-components.md#overview" >}}), so the `entityId` value itself can be interpreted as an `Entity` type.
+
+```ts
+const hitEntity = result.entityId as Entity
+const transform = Transform.get(entity)
+console.log(transform.position)
+```
 
 ## Collision layers
 
@@ -383,6 +390,74 @@ raycastSystem.registerGlobalDirectionRaycast(
 {{< hint warning >}}
 **📔 Note**: Keep in mind that in 3rd person the cursor could in the future not behave the same as in 1st person. It's recommended to only use this if the player is in 1st person.
 {{< /hint >}}
+
+## Raycast from the cursor position
+
+You can also trace a ray from the player's cursor position into the 3D world. This can be used to drag objects around, shooters, etc.
+
+```ts
+import { engine, Entity, InputAction, inputSystem, PointerEventType, RaycastQueryType, raycastSystem, TextShape, Transform } from '@dcl/sdk/ecs'
+import { EntityNames } from '../assets/scene/entity-names'
+import { PrimaryPointerInfo } from '@dcl/sdk/ecs'
+
+let cooldown = 1
+let rayFrequency = 0.1
+let mousePressed = false
+
+export function main() {
+   engine.addSystem(rayCastSystem)
+}
+
+const rayCastSystem = (t: number) => {
+
+    if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_DOWN)) {
+      mousePressed = true
+    }
+
+    if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_UP)) {
+      mousePressed = false
+    }
+
+    if (!mousePressed) {
+      cooldown = 0
+      raycastSystem.removeRaycasterEntity(engine.CameraEntity)
+      return
+    }
+
+    cooldown += t
+    if (cooldown > rayFrequency) return
+    cooldown = 0
+
+    const pointerInfo = PrimaryPointerInfo.getOrCreateMutable(engine.RootEntity)
+    let dir = pointerInfo.worldRayDirection
+
+    raycastSystem.registerGlobalDirectionRaycast(
+      {
+        entity: engine.CameraEntity,
+        opts: {
+          queryType: RaycastQueryType.RQT_HIT_FIRST,
+          direction: dir,
+        },
+      },
+      function (raycastResult) {
+        let result = raycastResult.hits[0]
+
+        // do something in the hit position
+        if (result && result.position) {
+          console.log("x:", result.position.x, ", y:", result.position.y, ", z:", result.position.z)
+        }
+
+        // do something with the hit entity
+        const entity = result.entityId as Entity
+        if (entity) {
+          console.log("entity: ", entity)
+        }
+      }
+    )
+}
+
+```
+
 
 ## Advanced syntax
 
