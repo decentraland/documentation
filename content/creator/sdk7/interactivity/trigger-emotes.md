@@ -45,7 +45,26 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
-The following list covers some of the default emotes that are available to all players, all of these are valid values for the `predefinedEmote` field:
+The following emotes show feedback about player actions in your scene, all of these are valid values for the `predefinedEmote` field:
+
+- `buttonDown`
+- `buttonFront`
+- `getHit`
+- `knockOut`
+- `lever`
+- `openChest`
+- `openDoor`
+- `punch`
+- `push`
+- `swingWeaponOneHand`
+- `swingWeaponTwoHands`
+- `throw`
+- `sittingChair1`
+- `sittingChair2`
+- `sittingGround1`
+- `sittingGround2`
+
+These emotes are available to all players in their default emote wheel, and can also be used in any scene.
 
 - `wave`
 - `fistpump`
@@ -63,6 +82,9 @@ The following list covers some of the default emotes that are available to all p
 - `disco`
 - `dab`
 - `headexplode`
+
+
+
 
 {{< hint info >}}
 **💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with [Input Modifiers]({{< ref "/content/creator/sdk7/interactivity/input-modifiers.md" >}}) for the duration of the avatar animation.
