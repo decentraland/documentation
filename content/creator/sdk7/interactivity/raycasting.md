@@ -395,6 +395,8 @@ raycastSystem.registerGlobalDirectionRaycast(
 
 You can also trace a ray from the player's cursor position into the 3D world. This can be used to drag objects around, shooters, etc.
 
+In this example, we detect when the player presses the E key, and then we trace a ray from the cursor position into the 3D world. We then check if the ray hit any entity, and if so, we do something with it.
+
 ```ts
 import { engine, Entity, InputAction, inputSystem, PointerEventType, RaycastQueryType, raycastSystem, TextShape, Transform } from '@dcl/sdk/ecs'
 import { EntityNames } from '../assets/scene/entity-names'
@@ -410,11 +412,11 @@ export function main() {
 
 const rayCastSystem = (t: number) => {
 
-    if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_DOWN)) {
+    if (inputSystem.isTriggered(InputAction.IA_PRIMARY, PointerEventType.PET_DOWN)) {
       mousePressed = true
     }
 
-    if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_UP)) {
+    if (inputSystem.isTriggered(InputAction.IA_PRIMARY, PointerEventType.PET_UP)) {
       mousePressed = false
     }
 
@@ -457,6 +459,10 @@ const rayCastSystem = (t: number) => {
 }
 
 ```
+
+{{< hint info >}}
+**💡 Tip**: In this example we use the primary button (E) to trigger the raycast. We don't use the pointer button (left click) because clicking and dragging also shifts the camera angle by default. If you want to prevent rotating the camera while dragging, you can use a [Virtual Camera]({{< ref "/content/creator/sdk7/3d-essentials/camera.md">}}) to set the camera angle as fixed.
+{{< /hint >}}
 
 
 ## Advanced syntax
