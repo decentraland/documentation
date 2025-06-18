@@ -38,6 +38,8 @@ The following fields are available:
 - **Author**
 - **Email**
 
+The thumbnail should be a .png image of a recommended size of 228x160 pixels. The minimum supported size is 196x143 pixels. The image may be stretched if the width-to-height proportions don’t match 228x160.
+
 See [scene metadata]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}) for more details on these fields.
 
 ## Layout
