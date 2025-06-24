@@ -142,15 +142,15 @@ After clicking the following pop up is going to appear. Selecting **_Empty Parce
 
 <img src="/images/wearables-and-emotes/uploading-wearables/23_see_in_world.png" width="600"/>
 
-Once you select See in world, a new tab will open on your browser and you will get this message.
+Once you select See in world, a new tab will open on your browser, and you will get this message.
 
-Once you select the location to teleport, a new tab will open on your browser and you will get this message.
+Once you select the location to teleport, a new tab will open on your browser, and you will get this message.
 
-<img src="/images/wearables-and-emotes/uploading-wearables/21_goerli.png" width="900"/>
+<img src="/images/wearables-and-emotes/uploading-emotes/13_emote_preview.png" width="900"/>
 
-Click on **_Switch to Sepolia_** and a popup from your wallet will show up asking to switch the network. Simply click on **_Switch Network_** and the new tab will automatically refresh. To test your wearable, go to the backpack and select it.
+Click on **TRUST PEER-TESTING.DECENTRALAND.ORG** and a pop-up will show up. Simply click on **Open Decentraland**. To test your emote, go to the backpack, switch to the **Emotes** tab, equip it, then open the emote wheel and play it.
 
-<img src="/images/wearables-and-emotes/uploading-emotes/11_macarena.gif" width="900" />
+<img src="/images/wearables-and-emotes/uploading-emotes/14_emote_preview_gif.gif" width="900" />
 
 ## **Before Publishing**
 
