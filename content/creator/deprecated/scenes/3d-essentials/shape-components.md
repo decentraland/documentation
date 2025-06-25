@@ -79,6 +79,7 @@ Instead of building your own 3d models, you can also download them from several 
 To get you started, below is a list of libraries that have free or relatively inexpensive content:
 
 - [Assets from the Builder](https://github.com/decentraland/builder-assets/tree/master/assets)
+- [IWB Catalog](https://dcl-iwb.co/)
 - [SketchFab](https://sketchfab.com/)
 - [Clara.io](https://clara.io/)
 - [Archive3D](https://archive3d.net/)

@@ -134,6 +134,7 @@ Instead of building your own 3D models, you can also download them from several 
 
 To get you started, below is a list of libraries that have free or relatively inexpensive content:
 
+- [IWB Catalog](https://dcl-iwb.co/)
 - [Asset Ovi](https://assetovi.com/)
 - [Assets from the Builder](https://github.com/decentraland/builder-assets/tree/master/assets)
 - [SketchFab](https://sketchfab.com/)
