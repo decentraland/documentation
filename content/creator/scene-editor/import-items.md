@@ -39,7 +39,6 @@ You can now find your asset in the **Local Assets** tab, under the **scene** fol
 <img src="/images/editor/refresh-assets.png" width="34" />
 {{< /hint >}}
 
-
 ## Supported formats
 
 ### Audio
@@ -85,6 +84,7 @@ Instead of building your own 3D models, you can also download them from several 
 
 To get you started, below is a list of libraries that have free or relatively inexpensive content:
 
+- [IWB Catalog](https://dcl-iwb.co/)
 - [SketchFab](https://sketchfab.com/)
 - [Clara.io](https://clara.io/)
 - [Archive3D](https://archive3d.net/)

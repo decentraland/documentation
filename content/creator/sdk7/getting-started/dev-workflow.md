@@ -74,6 +74,7 @@ If you're an experienced artist or you have access to someone who is, you can cr
 
 There are many sources to obtain free or paid art assets. For example:
 
+- [IWB Catalog](https://dcl-iwb.co/)
 - [SketchFab](https://sketchfab.com/)
 - [Clara.io](https://clara.io/)
 - [Archive3D](https://archive3d.net/)
