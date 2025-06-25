@@ -144,7 +144,7 @@ After clicking the following pop up is going to appear. Selecting **_Empty Parce
 
 Once you select See in world, a new tab will open on your browser and you will get this message.
 
-<img src="/images/wearables-and-emotes/uploading-wearables/13_emote_preview.png" width="900"/>
+<img src="/images/wearables-and-emotes/uploading-emotes/13_emote_preview.png" width="900"/>
 
 Click on **_TRUST PEER-TESTING.DECENTRALAND.ORG_** and a pop-up will show up. Simply click on **_Open Decentraland_**. To test your emote, go to the backpack, switch to the **_Emotes_** tab, equip it, then open the emote wheel and play it.
 
