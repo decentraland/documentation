@@ -218,6 +218,7 @@ const areaSize = Vector3.create(8, 3, 8)
 AvatarModifierArea.create(entity, {
 	area: areaSize,
 	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+  	excludeIds: []
 })
 
 Transform.create(entity, {
