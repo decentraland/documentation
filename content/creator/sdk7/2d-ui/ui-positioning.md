@@ -217,7 +217,7 @@ examples:
 ```ts
 ``` -->
 
-## Z Index
+### Z Index
 
 The `zIndex` property of a `UiEntity` determines the order in which entities are rendered. Entities with a higher `zIndex` are rendered on top of entities with a lower `zIndex`. The default `zIndex` is 0.
 
@@ -236,10 +236,10 @@ export const uiMenu = () => (
 ```
 
 {{< hint warning >}}
-**📔 Note** : The default Decentraland UI, including the map, chat, etc is always rendered on top of all other UI elements.
+**📔 Note** : The `zIndex` property will only order elements relative to direct siblings, it cannot be used to render an entity on top of other parts of the layout tree. In html/CSS terms, every DCL UI element creates a new [stacking context](https://web.dev/learn/css/z-index#stacking_context).
+
+The default Decentraland UI, including the map, chat, etc is always rendered on top of all other UI elements.
 {{< /hint >}}
-
-
 
 
 ## Responsive UI size
