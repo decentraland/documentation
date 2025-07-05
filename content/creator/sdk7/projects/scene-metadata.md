@@ -434,6 +434,28 @@ The above commands all generate rectangular-shaped scenes. Decentraland scenes c
 **📔 Note**: The base parcel must be one of the parcels in the scene.
 {{< /hint >}}
 
+
+## Skybox time of day
+
+To set the skybox in your scene to a fixed time of day, add the following section to your `scene.json` at root level:
+
+```json
+ "skyboxConfig": {
+    "fixedTimeOfDay": 36000
+  }
+``` 
+
+The number refers to the number of seconds since the start of the day, ranging from 0 (that refers to _00:00_) to 86400 (that refers to _24:00_). Any number higher than 86400 is interpreted also as midnight.
+
+Here are some more examples of valid values:
+
+- 0 seconds  =>   _00:00_
+- 21600 seconds   =>   _06:00_
+- 43200 seconds    =>   _12:00_
+- 64800 seconds    =>   _18:00_
+- 86400 seconds    =>   _24:00_
+
+
 ## Fetch metadata from scene code
 
 [Scene API Reference](https://js-sdk-toolchain.pages.dev/modules/js_runtime_apis.__system_Scene_)
