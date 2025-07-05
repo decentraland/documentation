@@ -74,9 +74,8 @@ Transform.create(myAvatar, {
 })
 ```
 
-{{< hint warning >}}
-**📔 Note**: The above only works with the predefined emotes (like `clap` or `wave`). It currently doesn't work with custom emotes from NFTs or local files.
-{{< /hint >}}
+The `expressionTriggerId` field supports all [default animations]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#default-animations">}}), as well as custom animations [from a scene file]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#custom-animations">}}), and even URNs from emotes that are published to the marketplace.
+
 
 ## Copy wearables from player
 
