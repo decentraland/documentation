@@ -17,7 +17,7 @@ Run multiple Decentraland projects in preview by grouping these into a workspace
 Running multiple projects in a workspace provides a much more complete testing alternative, to ensure different content works well together. A workspace is a debugging feature, it doesn't affect the experience in the published scene.
 
 {{< hint warning >}}
-**📔 Note**: The **Creator Hub** doesn't currently support handling Workspaces. Use the **VS Studio Code** extension instead.
+**📔 Note**: The **Creator Hub** doesn't currently support handling Workspaces.
 {{< /hint >}}
 
 ## Create a workspace

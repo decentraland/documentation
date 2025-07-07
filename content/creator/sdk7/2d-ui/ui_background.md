@@ -45,10 +45,12 @@ The following fields can be configured, all of them are optional:
 
 Simple color:
 
-```ts
-import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+_**ui.tsx file:**_
+```tsx
+import { ReactEcs, UiEntity } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 700,
@@ -57,16 +59,31 @@ ReactEcsRenderer.setUiRenderer(() => (
     uiBackground={{
 		color: Color4.create(0.5, 0.8, 0.1, 0.6)
 	}}
-  >
-))
+  />
+)
 ```
+
+_**index.ts file:**_
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
+}
+```
+
+{{< hint warning >}}
+**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+{{< /hint >}}
+
 
 Repeated texture pattern:
 
 ```ts
-import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 700,
@@ -79,8 +96,8 @@ ReactEcsRenderer.setUiRenderer(() => (
 			wrapMode: 'repeat'
 		}
 	}}
-  >
-))
+  />
+)
 ```
 
 ## Borders
@@ -92,9 +109,10 @@ A few properties are used to set a border around a UI entity. These properties e
 - `borderRadius`: Use this property to give the corners of the entity a rounded border. It sets the radius of the corners in pixels.
 
 ```ts
-import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 700,
@@ -103,16 +121,17 @@ ReactEcsRenderer.setUiRenderer(() => (
       borderWidth: 4,
       borderRadius: 10
     }}
-  >
-))
+  />
+)
 ```
 
 `borderWidth`, `borderColor` and `borderRadius` can also be set with different values for each side of the entity.
 
 ```ts
-import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{
       width: 700,
@@ -121,9 +140,73 @@ ReactEcsRenderer.setUiRenderer(() => (
       borderRadius: { topLeft: 20, topRight: 20, bottomLeft: 20, bottomRight:0 },
       borderWidth: { top: 3, left: 2, right: 3, bottom: 4 }
     }}
-  >
-))
+  />
+)
 ```
+
+## Opacity
+
+Use the `opacity` property in the `Transform` of a `UiEntity` to add transparency to the entity and all of its children. The opacity property is a value from 0 to 1, where 0 is fully transparent and 1 fully opaque.
+
+```ts
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+
+export const uiMenu = () => (
+  <UiEntity
+    uiTransform={{
+      width: 700,
+      height: 400,
+      opacity: 0.7
+    }}
+    uiBackground={{ color: Color4.Green() }}
+  >
+    <UiEntity
+        uiTransform={{
+          width: 100,
+          height: 30,
+        }}
+        uiText={{
+          value: "This text is transparent too",
+          fontSize: 40
+        }}
+      />
+   </UiEntity>
+)
+```
+
+
+The opacity value affects all children of a UiEntity, applying transparency to background colors, text colors, and background images. When both the parent and a child have opacity values, the child's final opacity is the product of its own value and the parent's.
+
+```ts
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+
+export const uiMenu = () => (
+  <UiEntity
+    uiTransform={{
+      width: 700,
+      height: 400,
+      opacity: 0.7
+    }}
+    uiBackground={{ color: Color4.Green() }}
+  >
+    <UiEntity
+      uiTransform={{
+        width: 100,
+        height: 30,
+        opacity: 0.7
+      }}
+      uiText={{
+        value: "This text is even more transparent",
+        fontSize: 40
+      }}
+    />
+  </UiEntity>
+)
+```
+
+
 
 ## Nine-slice textures
 
@@ -145,9 +228,9 @@ Here's how each segment is affected, using the above image as reference.
 To use nine-slice stretching on an entity, set the `textureMode` to `BackgroundTextureMode.NINE_SLICES`. You can optionally also set a width for the margin on each side in `textureSlices`.
 
 ```ts
-import { ReactEcsRenderer} from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
   <UiEntity
     uiTransform={{ width: 700, height: 400 }}
     uiBackground={{
@@ -162,8 +245,8 @@ ReactEcsRenderer.setUiRenderer(() => (
         right: 0.2
       }
 	}}
-  >
-))
+  />
+)
 ```
 
 <!--

@@ -43,29 +43,69 @@ If you have a preview window open running your scene, whenever you change the co
 {{< /hint >}}
 
 
-
 ## Reference an item
 
-When using the Scene Editor and adding entities by dragging them into the canvas, each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the scene's entity tree view in the Scene Editor.
+When using the Creator Hub and adding entities by dragging them into the canvas, each entity has a unique name. Use the
+`engine.getEntityOrNullByName()` function to reference one of these entities from your code.
+
+Use the `EntityNames` enum to easily access the names of the entities that you added via the Creator Hub, or write the name as a string as written on the scene's entity tree view in the Scene Editor.
+
 
 ```ts
+import { EntityNames } from '../assets/scene/entity-names'
+
 function main() {
-	const door = engine.getEntityOrNullByName('Pot1')
+
+	// Use the EntityNames enum
+	const door1 = engine.getEntityOrNullByName(EntityNames.Door_1)
+
+	// Write the name as a string
+	const door2 = engine.getEntityOrNullByName('Door 2')
+
+	// Ensure both doors exsist in the scene
+	(if door1 && door2){
+		// 
+	}
+
 }
 ```
 
-<img src="/images/editor/check-name.png" width="600" />
+<img src="/images/editor/door-names.png" width="600" />
 
-{{< hint warning >}}
-**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the Scene Editor may not yet be instanced.
-{{< /hint >}}
+The `EntityNames` enum contains the full list of entities added by the Creator Hub and is updated immediately as soon as you make any changes.
+If you import `EntityNames.` into your code, your IDE will present you with a dropdown including all the names of the entities available.
 
-You're free to perform any action on an entity fetched via this method, like add or remove components, modify values of existing components, or remove the entity from the engine.
+<img src="/images/editor/EntityNames.png" width="300" />
+
+
+You can also use the `engine.getEntityByName<EntityNames>()` function, passing `<EntityNames>` as a [TypeScript generic](https://www.typescriptlang.org/docs/handbook/2/generics.html), to validate that an entity by that name really exists in your scene. If the referenced entity is renamed on the Creator Hub, this method will warn you with an error. As the output of this function can't be `null`, you can avoid checking that the entity exists.
 
 ```ts
+import { EntityNames } from '../assets/scene/entity-names'
+
+function main() {
+
+	const door1 = engine.getEntityByName<EntityNames>(EntityNames.Door_1)
+
+	// Ne need to check for null
+	console.log(Transform.get(door1).position.x)
+
+}
+```
+
+
+{{< hint warning >}}
+**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` and `engine.getEntityByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the Scene Editor may not yet be instanced.
+{{< /hint >}}
+
+Once you fetched a reference to an entity with any of the above methods, you're free to perform any action with it, like add or remove components, modify values of existing components, or even remove the entity from the engine.
+
+```ts
+import { EntityNames } from '../assets/scene/entity-names'
+
 function main() {
 	// fetch entity
-	const door = engine.getEntityOrNullByName('door-3')
+	const door = engine.getEntityOrNullByName(EntityNames.Door_3)
 	// verify that the entity exists
 	if (door) {
 		// add a pointer events callback
@@ -106,9 +146,10 @@ For example, if a scene has a button with the following generic **On Click** eve
 import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
+import { EntityNames } from '../assets/scene/entity-names'
 
 function main() {
-	const restart = engine.getEntityOrNullByName('Restart_Button')
+	const restart = engine.getEntityOrNullByName(EntityNames.Restart_Button)
 	if (restart) {
 		const restart_event = getTriggerEvents(restart)
 		restart_event.on(TriggerType.ON_CLICK, () => {
@@ -153,9 +194,10 @@ For example, if a scene has a door with the following default **Open** action, y
 import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
+import { EntityNames } from '../assets/scene/entity-names'
 
 function main() {
-	const door = engine.getEntityOrNullByName('Wooden Door')
+	const door = engine.getEntityOrNullByName(EntityNames.Wooden_Door)
 	if (door) {
 		// detect actions
 		const actions = getActionEvents(door)
@@ -180,10 +222,11 @@ You can also emit action events from your code, this allows you to take advantag
 import { engine } from '@dcl/sdk/ecs'
 import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
 import { TriggerType } from '@dcl/asset-packs'
+import { EntityNames } from '../assets/scene/entity-names'
 
 function main() {
-	const button = engine.getEntityOrNullByName('Red Button')
-	const door = engine.getEntityOrNullByName('Wooden Door')
+	const button = engine.getEntityOrNullByName(EntityNames.Red_Button)
+	const door = engine.getEntityOrNullByName(EntityNames.Wooden_Door)
 	if (button && door) {
 		// references to actions and triggers
 		const buttonTriggers = getTriggerEvents(button)
@@ -201,6 +244,39 @@ function main() {
 {{< hint info >}}
 **💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
 {{< /hint >}}
+
+## Other smart item components
+
+Smart items can include special components that are part of the asset-packs library, like `States` or `Counter`. These components are not part of the Decentraland SDK, but they can be fetched via the `getComponents()` function from the library. You can then read or write values to these components from your scene's code, to have an even tighter integration between smart item behavior and code.
+
+The example below reads and logs the value of a State component of a chest smart item, whenever the chest's actions are triggered.
+
+```ts
+
+import { engine } from '@dcl/sdk/ecs'
+import { getComponents } from '@dcl/asset-packs'
+import { getTriggerEvents } from '@dcl/asset-packs/dist/events'
+import { TriggerType } from '@dcl/asset-packs'
+import { EntityNames } from '../assets/scene/entity-names'
+
+
+export function main() {
+
+    const chest = engine.getEntityByName<EntityNames>(EntityNames.chest)
+ 
+    if (chest) {
+
+        const chestTriggers = getTriggerEvents(chest)
+
+        chestTriggers.on(TriggerType.ON_INPUT_ACTION, () => {
+            const { States } = getComponents(engine)
+            let state = States.getMutableOrNull(chest)?.currentValue
+            console.log( "chest new state ", state)
+        })
+    }
+}
+```
+
 
 ## Version control
 

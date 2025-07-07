@@ -13,10 +13,12 @@ For all kinds of UI content, use the `uiTransform` component to set the size, po
 
 The `uiTransform` component works in the screen's 2d space very much like the `Transform` component works in the the scene's 3D space.
 
+_**ui.tsx file:**_
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
 			width: '200px',
@@ -26,8 +28,23 @@ ReactEcsRenderer.setUiRenderer(() => (
 		}}
 		uiBackground={{ color: Color4.Green() }}
 	/>
-))
+)
 ```
+
+_**index.ts file:**_
+```ts
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { uiMenu } from './ui'
+
+export function main() {
+    ReactEcsRenderer.setUiRenderer(uiMenu)
+}
+```
+
+{{< hint warning >}}
+**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+{{< /hint >}}
+
 
 ## Positioning properties
 
@@ -69,9 +86,10 @@ These other properties are also available to adjust size in a more advanced way:
 - `flexBasis`: This is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the width of that child if its parent is a container with flex direction: row or setting the height of a child if its parent is a container with flex direction: column.
 
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
 			alignSelf: 'center',
@@ -84,7 +102,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 		}}
 		uiBackground={{ color: Color4.Green() }}
 	/>
-))
+)
 ```
 
 <!--
@@ -199,6 +217,31 @@ examples:
 ```ts
 ``` -->
 
+### Z Index
+
+The `zIndex` property of a `UiEntity` determines the order in which entities are rendered. Entities with a higher `zIndex` are rendered on top of entities with a lower `zIndex`. The default `zIndex` is 0.
+
+```ts
+import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
+import { Color4 } from '@dcl/sdk/math'
+
+export const uiMenu = () => (
+	<UiEntity
+		uiTransform={{
+			zIndex: 4
+		}}
+		uiBackground={{ color: Color4.Green() }}
+	/>
+)
+```
+
+{{< hint warning >}}
+**📔 Note** : The `zIndex` property will only order elements relative to direct siblings, it cannot be used to render an entity on top of other parts of the layout tree. In html/CSS terms, every DCL UI element creates a new [stacking context](https://web.dev/learn/css/z-index#stacking_context).
+
+The default Decentraland UI, including the map, chat, etc is always rendered on top of all other UI elements.
+{{< /hint >}}
+
+
 ## Responsive UI size
 
 Players with different screen sizes may see your UI layout differently. If you set the size of any UI element to a fixed number of pixels, this UI may look too small to read on retina displays, that have a much higher pixel density.
@@ -259,10 +302,11 @@ export function UIScaleUpdate() {
 The value of the `scaleFactor` variable, that this function updates, can then be used as a multiplier on any UI element in the scene, including `heigh`, `width` and `fontSize` values.
 
 ```ts
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+import { UiEntity, Label, ReactEcs } from '@dcl/sdk/react-ecs'
 import { scaleFactor } from './calculate-scale-factor'
+import { Color4 } from '@dcl/sdk/math'
 
-ReactEcsRenderer.setUiRenderer(() => (
+export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
 			width: 200 * scaleFactor,
@@ -285,7 +329,7 @@ ReactEcsRenderer.setUiRenderer(() => (
 		        }}
 	      />
 	</UiEntity>
-))
+)
 ```
 
 Some other best practices regarding UI sizes:

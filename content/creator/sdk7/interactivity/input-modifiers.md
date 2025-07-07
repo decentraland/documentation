@@ -22,7 +22,9 @@ You can freeze the player so that none of the input keys can move the avatar. Th
 Use the `InputModifier` component on the `engine.PlayerEntity` to prevent the player's inputs from affecting the avatar's locomotion. The avatar will remain still, the player will only be able to rotate the camera.
 
 ```ts
-InputModifier.create(playerEntity, {
+import {InputModifier, engine} from '@dcl/sdk/ecs'
+
+InputModifier.create(engine.PlayerEntity, {
 	mode: InputModifier.Mode.Standard({
 		disableAll: true,
 	}),
@@ -49,7 +51,9 @@ Instead of entirely freezing the player, you can restrict certain specific forms
 - `disableAll`: The player can't perform any of the above actions.
 
 ```ts
-InputModifier.create(playerEntity, {
+import {InputModifier, engine} from '@dcl/sdk/ecs'
+
+InputModifier.create(engine.playerEntity, {
 	mode: InputModifier.Mode.Standard({
 		disableAll: false,
 		disableWalk: false,
@@ -66,6 +70,8 @@ InputModifier.create(playerEntity, {
 To use the component without any helpers, you can use the following syntax:
 
 ```ts
+import {InputModifier, engine} from '@dcl/sdk/ecs'
+
 InputModifier.createOrReplace(engine.PlayerEntity, {
 	mode: {
 		$case: 'standard',

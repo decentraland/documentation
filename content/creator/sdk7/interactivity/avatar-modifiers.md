@@ -28,7 +28,7 @@ const entity = engine.addEntity()
 AvatarModifierArea.create(entity, {
 	area: Vector3.create(4, 3, 4),
 	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
-	excludeIds: [],
+	excludeIds: []
 })
 
 Transform.create(entity, {
@@ -75,6 +75,7 @@ const entity = engine.addEntity()
 AvatarModifierArea.create(entity, {
 	area: Vector3.create(4, 3, 4),
 	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+	excludeIds: []
 })
 
 Transform.create(entity, {
@@ -94,6 +95,7 @@ const entity = engine.addEntity()
 AvatarModifierArea.create(entity, {
 	area: Vector3.create(4, 3, 4),
 	modifiers: [AvatarModifierType.AMT_DISABLE_PASSPORTS],
+	excludeIds: []
 })
 
 Transform.create(entity, {
@@ -216,6 +218,7 @@ const areaSize = Vector3.create(8, 3, 8)
 AvatarModifierArea.create(entity, {
 	area: areaSize,
 	modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+  	excludeIds: []
 })
 
 Transform.create(entity, {

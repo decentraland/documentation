@@ -38,19 +38,19 @@ The following collider shapes are available on `MeshCollider`. Several shapes in
 
 - **box**:
 
-  Use `MeshRenderer.setBox()`, passing the entity.
+  Use `MeshCollider.setBox()`, passing the entity.
 
 - **plane**:
 
-  Use `MeshRenderer.setPlane()`, passing the entity.
+  Use `MeshCollider.setPlane()`, passing the entity.
 
 - **sphere**:
 
-  Use `MeshRenderer.setSphere()`, passing the entity.
+  Use `MeshCollider.setSphere()`, passing the entity.
 
 - **cylinder**:
 
-  Use `MeshRenderer.setCylinder()`, passing the entity. Pass `radiusTop` and `radiusBottom` as additional optional fields, to modify the cylinder.
+  Use `MeshCollider.setCylinder()`, passing the entity. Pass `radiusTop` and `radiusBottom` as additional optional fields, to modify the cylinder.
 
   {{< hint info >}}
   **💡 Tip**:: Set either `radiusTop` or `radiusBottom` to 0 to make a cone.
@@ -191,7 +191,7 @@ By default, a MeshCollider affects both the Physics and the Pointer layers, but 
 MeshCollider.setBox(myEntity, ColliderLayer.CL_PHYSICS)
 
 // only responds to the player's pointer
-// for example for example for an item you can click to pick up, but can walk right through
+// for example for an item you can click to pick up, but can walk right through
 MeshCollider.setBox(myEntity2, ColliderLayer.CL_POINTER)
 ```
 

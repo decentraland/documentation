@@ -1,0 +1,34 @@
+# Git
+.gitignore
+README.md
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
