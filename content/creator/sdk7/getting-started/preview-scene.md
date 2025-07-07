@@ -21,6 +21,14 @@ Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-edi
 
 <img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
 
+
+Configure different preview options from the dropdown menu next to the **Preview** button:
+
+- **Open Console Window During Preview**: Opens a new window with the console output of the scene. This is useful to debug errors in the scene.
+- **Skip Auth Screen**: Skips the account selection screen and automatically logs you in with your currently logged in account. This is disabled by default, enable it if you want to test multiple accounts.
+- **Landscape Terrain Enabled**: Toggles the landscape around the scene. This is enabled by default, disable it to lower the scene's memory footprint.
+
+
 ## Using the CLI
 
 To preview a scene run the following command on the scene's main folder:
@@ -42,13 +50,14 @@ Every time you make changes to the scene, the preview reloads and updates automa
 You can add the following flags to the `npm run start` command to change its behavior:
 
 - `-- --web3` Connects preview to browser wallet to use the associated avatar and account.
-- `-- --skip-version-checks` Avoids checking if the scene's SDK framework version matches your CLI version, and launches the preview anyway.
-- `-- --explorer-alpha` Runs the preview in the new Decentraland Desktop client.
-- `-- --port` to assign a specific port to run the scene. Otherwise it will use whatever port is available.
 - `-- --no-debug` Disable the debug panel, that shows scene and performance stats.
+- `-- --explorer-alpha` Runs the preview in the new Decentraland Desktop client.
+- `-- --skip-version-checks` Avoids checking if the scene's SDK framework version matches your CLI version, and launches the preview anyway.
+- `-- --port` to assign a specific port to run the scene. Otherwise it will use whatever port is available.
 - `-- --no-browser` to prevent the preview from opening a new browser tab.
 - `-- --w` or `-- --no-watch` to not open watch for filesystem changes and avoid hot-reload whenever the scene's code changes.
 - `-- --c` or `-- --ci` To run the parcel previewer on a remote unix server,
+
 
 {{< hint warning >}}
 **📔 Note**: Parameters need to be added with two series of dashes, for example `npm run start -- --web3`.
