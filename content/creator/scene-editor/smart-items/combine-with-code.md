@@ -245,6 +245,39 @@ function main() {
 **💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
 {{< /hint >}}
 
+## Other smart item components
+
+Smart items can include special components that are part of the asset-packs library, like `States` or `Counter`. These components are not part of the Decentraland SDK, but they can be fetched via the `getComponents()` function from the library. You can then read or write values to these components from your scene's code, to have an even tighter integration between smart item behavior and code.
+
+The example below reads and logs the value of a State component of a chest smart item, whenever the chest's actions are triggered.
+
+```ts
+
+import { engine } from '@dcl/sdk/ecs'
+import { getComponents } from '@dcl/asset-packs'
+import { getTriggerEvents } from '@dcl/asset-packs/dist/events'
+import { TriggerType } from '@dcl/asset-packs'
+import { EntityNames } from '../assets/scene/entity-names'
+
+
+export function main() {
+
+    const chest = engine.getEntityByName<EntityNames>(EntityNames.chest)
+ 
+    if (chest) {
+
+        const chestTriggers = getTriggerEvents(chest)
+
+        chestTriggers.on(TriggerType.ON_INPUT_ACTION, () => {
+            const { States } = getComponents(engine)
+            let state = States.getMutableOrNull(chest)?.currentValue
+            console.log( "chest new state ", state)
+        })
+    }
+}
+```
+
+
 ## Version control
 
 We recommend that you create a repo for your project on GitHub, and use it to keep track of your project's versions and to work collaboratively with others.

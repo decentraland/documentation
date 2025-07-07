@@ -71,11 +71,6 @@ To fix these dependencies, you often must resort to calling functions or object 
   5. Click **Publish to custom server**
   6. Approve the transaction as with a normal deployment.
 
-  To deploy to a specific server, on the Decentraland Visual Studio Code Extension:
-
-  1.  Click on the three dot menu at the top right of the sidebar, next to the green reload arrow button, select `Deploy Scene To Custom Catalyst`
-  2.  Enter the address of the server, for example `peer-testing.decentraland.org`
-  3.  Approve the transaction
 
   To do this via the CLI:
 

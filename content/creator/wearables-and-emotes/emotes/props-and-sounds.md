@@ -152,9 +152,14 @@ You should **NOT** export the avatar mesh into the .glb.
 - While there is no limitation for size in the audio, the emote with props and sounds cannot be bigger than 3mb.
 
 {{< hint info >}}
+**📔 Note**: If the emote has sound (mp3 or ogg), it must be zipped with the .glb. After that, just drag and drop the .zip to the builder. More details can be found here: [Uploading emote with sound](https://docs.decentraland.org/creator/wearables-and-emotes/manage-collections/uploading-emotes/#uploading-emotes-using-a-zip-file)
+{{< /hint >}}
+
+{{< hint info >}}
 **💡 Attention!**
 Take into consideration that audio clips used in the emote must be original IP (Intellectual Property), having the rights for reproducing and follows the [Content Policy](https://decentraland.org/content/)criteria.
 {{< /hint >}}
+
 
 ## Editing Sounds
 

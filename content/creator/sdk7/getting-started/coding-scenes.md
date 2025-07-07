@@ -42,7 +42,6 @@ Our SDK includes the following:
 
 Other legacy tools:
 
-- **The Decentraland VS Code Extension**: An extension for Visual Studio Code that allows you to create scenes, preview and debug, and publish. [Read more]({{< ref "/content/creator/sdk7/getting-started/installation-guide.md#vs-code-extension" >}})
 - **The Web Editor**: A web based too for creating simple scenes and publishing them. [Read more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}})
 
 ## Requirements
@@ -396,9 +395,20 @@ When developing a new scene, you use the `@latest` stable SDK release by default
 
 You can install the `@next` SDK release if you want to leverage or preview upcoming features that didn't yet make it into the latest stable release.
 
-To do so, open the Decentraland tab on the Visual Studio Code extension, and press the `+` sign to install the following:
+To do so, open the `package.json` file of your scene, and change the following lines:
 
-`@dcl/sdk@next`
+```json
+  "devDependencies": {
+    "@dcl/js-runtime": "next",
+    "@dcl/sdk": "next"
+  },
+```
+
+Then run the following command on your scene project's folder:
+
+´´´
+npm i
+´´´
 
 See [manage dependencies]({{< ref "/content/creator/sdk7/libraries/manage-dependencies.md" >}}) for more details.
 

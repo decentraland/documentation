@@ -74,7 +74,7 @@ The [Builder](https://builder.decentraland.org/worlds) also serves as the go-to 
 
 If you wish to know more about how to create a scene, check out the [Decentraland SDK]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}) documentation.
 
-If you are a Content Creator, you may be already familiar with how the [publishing of a scene]({{< ref "/content/creator/deprecated/scenes/publishing/publishing.md" >}}) works, the experience is quite similar, but with a small caveat:
+If you are a Content Creator, you may be already familiar with how the [publishing of a scene]({{< ref "/content/creator/sdk7/publishing/publishing.md" >}}) works, the experience is quite similar, but with a small caveat:
 
 You need to specify under what **name** your deployment is to be made. Add the following section in your
 `scene.json`:
@@ -109,17 +109,6 @@ If you wish to opt-out from your Worlds being indexed in Places, you can add the
 	}
 }
 ```
-
-### 4. Publish via the VS Code Extension:
-
-{{< hint warning >}}
-**📔 Note**: The Decentraland Visual Studio Code Extension is deprecated. We encourage you to use the [Creator Hub]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) instead.
-{{< /hint >}}
-
-1. Open VSCode in a Decentraland scene project.
-2. Click on the Decentraland icon on the left sidebar.
-3. Click on the three-dot menu at the top right of the sidebar, next to the green reload arrow button, select **Publish Scene To Your World**
-4. Approve the transaction.
 
 ### 5. Publish via the CLI
 
