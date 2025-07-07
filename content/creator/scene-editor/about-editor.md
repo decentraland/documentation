@@ -38,12 +38,12 @@ To find your way around the Scene Editor:
 - Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
 - Use **S** and **D** to move sideways.
 - Use **Q** and **E** to move up and down.
-- Click the **Right Mouse Button** and drag to rotate the camera.
+- Use the **Left Mouse Button** to click and select items and to move them around.
+- Use the **Right Mouse Button** and drag to rotate the camera.
     {{< hint info >}}
-    **💡 Tip**: You can also rotate the camera by pressing <<ADD KEY>> while dragging. This is especially handy when using a trackpad instead of a mouse.
+    **💡 Tip**: You can also rotate the camera by pressing **Alt** on Windows, or **Option** on Mac while dragging. This is especially handy when using a trackpad instead of a mouse.
     {{< /hint >}}
 - Press **Space bar** to reset the camera back to the default position
-- Use **Left Mouse Button** to click and select items and to move them around.
 
 
 
