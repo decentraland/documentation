@@ -1,5 +1,5 @@
 ---
-date: 2025-07-12
+date: 2025-07-10
 title: Skybox control
 description: Change the skybox time
 categories:
@@ -48,17 +48,41 @@ executeTask(async () => {
 })
 ```
 
-The function returns a number between 0 and 86400, where 0 is midnight and 86400 is 24:00. This value is updated if the scene changes the time of day dynamically or if the player changes the time of day in the UI.
+The function returns a number between 0 and 86400, where 0 is midnight and 86400 is 24:00. This value is updated if the scene changes the time of day dynamically or if the player changes the time of day in the UI. Otherwise, it returns the value relative to the default day/night cycle.
 
-<!--
+
 ## Changing the time of day dynamically
 
-You can change the time of day dynamically using the 
+You can change the time of day dynamically using the `SkyboxTime` component. This component can only be added to the root entity of the scene `engine.rootEntity`.
 
 ```ts
-import { setWorldTime } from '~system/Runtime'
+import { SkyboxTime } from '~system/Runtime'
 
-setWorldTime({ seconds: 36000 })
+function main() {
+  SkyboxTime.create(engine.rootEntity, { fixed_time: 36000 })
+}
 ```
+
+The `fixed_time` property is a number between 0 and 86400, where 0 is midnight and 86400 is 24:00. Any number higher than 86400 is interpreted also as midnight.
+
+Whenever this component is added, removed, or the `fixed_time` property is changed, the skybox time of day transitions smoothly over a few seconds to this new value. The same happens when the player steps out or into the scene. While the skybox time of day is fixed, the skybox will no longer follow progress in its day/night cycle and players can't change the time of day via the UI.
+
+By default, the transition always happens in the forward direction, but you can change this by setting the `direction` property to `TransitionMode.TM_FORWARD` or `TransitionMode.TM_BACKWARD`.
+
+```ts
+import { TransitionMode } from '~system/Runtime'
+
+function main() {
+  SkyboxTime.create(engine.rootEntity, { fixed_time: 36000, direction: TransitionMode.TM_BACKWARD })
+}
+```
+
+<!-- 
+
+TODO
+
+SkyboxTime.encode("16:00)
+
+SkyboxTime.decode("36000")
 
 -->

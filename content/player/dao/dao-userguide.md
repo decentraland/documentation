@@ -181,7 +181,7 @@ The “banned name” list includes offensive or harmful avatar and location nam
 
 #### 🌐 Catalyst nodes 
 
-Catalyst nodes are the community-run servers that provide the content and establish the peer-to-peer connections needed to keep Decentraland’s virtual world running. Whenever a user visits play.decentraland.org, they are connected to one of these nodes. However, only nodes that have been approved by the DAO are used in Decentraland’s network.
+Catalyst nodes are the community-run servers that provide the content and establish the peer-to-peer connections needed to keep Decentraland’s virtual world running. Whenever a user opens Decentraland, they are connected to one of these nodes. However, only nodes that have been approved by the DAO are used in Decentraland’s network.
 
 To suggest the addition of a new node to the network, you can use the Catalyst Node category.
 
