@@ -132,6 +132,31 @@ function main() {
 }
 ```
 
+### Fetch all the children of an item
+
+You can also write a script that lets you deal with all of the items that are grouped as children of a certain item on the entity tree on the left of the screen.
+The following script iterates over all entities that have a Transform and a parent, and checks if the name of the parent matches the name `some-parent` in this case. You can then apply any custom logic you want to those specific entities.
+
+```ts
+import { engine, Entity, Transform, Name } from '@dcl/sdk/ecs'
+import { EntityNames } from '../assets/scene/entity-names'
+
+function main() {
+	for (const [entity, { parent }] of engine.getEntitiesWith(Transform){
+		if(parent){
+			const parentName = Name.get(parent).value
+			if(name.includes('some-parent')){
+				// handle entity
+			}
+		}
+	}
+}
+
+
+
+```
+
+
 ## Smart item triggers
 
 You can detect a smart item's **Trigger events**, and respond to these with custom code. For example, you could place a button smart item, and activate custom code when the button is clicked.
