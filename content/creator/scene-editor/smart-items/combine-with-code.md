@@ -142,18 +142,29 @@ import { engine, Entity, Transform, Name } from '@dcl/sdk/ecs'
 import { EntityNames } from '../assets/scene/entity-names'
 
 function main() {
-	for (const [entity, { parent }] of engine.getEntitiesWith(Transform){
-		if(parent){
-			const parentName = Name.get(parent).value
-			if(name.includes('some-parent')){
-				// handle entity
-			}
-		}
+	// get parent entity
+	const parent = engine.getEntityByName<EntityNames>(EntityNames.ParentEntity)
+	
+	// obtain all children entities of that parent
+	const childEntities = getChildren(parent)
+	
+	// loop over each child
+	for(const entity of childEntities){
+		// handle entity
 	}
+
 }
 
-
-
+// reusable function to obtain all the child entities of a parent
+function getChildren(parent: Entity): Entity[] {
+	const childEntities: Entity[] = []
+	for (const [entity, transform] of engine.getEntitiesWith(Transform)) {
+		if (transform.parent === parent) {
+			childEntities.push(entity)
+		}
+	}
+	return childEntities
+}
 ```
 
 
