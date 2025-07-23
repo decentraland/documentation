@@ -38,9 +38,14 @@ To find your way around the Scene Editor:
 - Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
 - Use **S** and **D** to move sideways.
 - Use **Q** and **E** to move up and down.
-- Click the **Right Mouse Button** and drag to rotate the camera.
+- Use the **Left Mouse Button** to click and select items and to move them around.
+- Use the **Right Mouse Button** and drag to rotate the camera.
+    {{< hint info >}}
+    **💡 Tip**: You can also rotate the camera by pressing **Alt** on Windows, or **Option** on Mac while dragging. This is especially handy when using a trackpad instead of a mouse.
+    {{< /hint >}}
 - Press **Space bar** to reset the camera back to the default position
-- Use **Left Mouse Button** to click and select items and to move them around.
+
+
 
 ## Add items
 
@@ -69,6 +74,12 @@ To test your scene and experience it like a player, click the _Preview_ button o
 {{< /hint >}}
 
 <img src="/images/editor/preview-button.png" width="150" alt="Scene name"/>
+
+Configure different preview options from the dropdown menu next to the **Preview** button:
+
+- **Open Console Window During Preview**: Opens a new window with the console output of the scene. This is useful to debug errors in the scene.
+- **Skip Auth Screen**: Skips the account selection screen and automatically logs you in with your currently logged in account. This is disabled by default, enable it if you want to test multiple accounts.
+- **Landscape Terrain Enabled**: Toggles the landscape around the scene. This is enabled by default, disable it to lower the scene's memory footprint.
 
 ## Scene settings
 
