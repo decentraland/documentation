@@ -75,4 +75,4 @@ If you discover issues in the content of the Documentation website, you can subm
 
 ## Feature Requests and Suggestions
 
-If you have suggestions for adding new functionality or features rather than reporting a problem, please use the [Decentraland Discord Server](https://dcl.gg/discord) and post a message in the [Creator Hub Channel](https://discord.com/channels/417796904760639509/1288888172318560326) instead of creating a GitHub Issue.
+If you have suggestions for adding new functionality or features rather than reporting a problem, please join the [Decentraland Discord Server](https://dcl.gg/discord) and post a message in the [Creator Hub Channel](https://discord.com/channels/417796904760639509/1288888172318560326) instead of creating a GitHub Issue.
