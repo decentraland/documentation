@@ -13,7 +13,7 @@ weight: 3
 
 Materials can be applied to entities that use primitive shapes (cube, sphere, plane, etc) by adding a `Material` component. This component has several fields that allow you to configure the properties of the material, add a texture, etc.
 
-You can't add material components to _glTF_ models. _glTF_ models include their own materials that are implicitly imported into a scene together with the model.
+_glTF_ models include their own materials that are implicitly imported into a scene together with the model. To modify or override these materials, use the `GltfNodeModifiers` component. See [Modify glTF materials](#modify-gltf-materials) for more details.
 
 When importing a 3D model with its own materials, keep in mind that not all shaders are supported by the Decentraland engine. Only standard materials and PBR (physically based rendering) materials are supported. See [external 3D model considerations](/creator/3d-modeling/materials) for more details.
 
@@ -652,3 +652,148 @@ The supported values for `$case` are the following:
 Depending on the value of `$case`, it's valid to define the object for the corresponding shape, passing any relevant properties.
 
 To add a `Material` component to an entity that potentially already has an instance of this component, use `Material.createOrReplace()`. The helper functions like `MeshRenderer.setPbrMaterial()` handle overwriting existing instances of the component, but running `Material.create()` on an entity that already has this component returns an error.
+
+## Modify glTF materials
+
+Use the `GltfNodeModifiers` component to modify the materials of a _glTF_ model. This component allows you to override the materials of a _glTF_ model with your own materials. You can use any of the properties of the `Material` component, including texture, video texture, unlit materials, etc.
+
+The following example shows how to modify the material of a _glTF_ model. In this case, the material of the entire model is modified to be red.
+
+```ts
+const myEntity = engine.addEntity()
+
+GltfContainer.create(myEntity, {
+  src: 'models/myModel.glb',
+})
+
+Transform.create(myEntity, {
+  position: Vector3.create(4, 0, 4),
+})
+
+GltfNodeModifiers.create(
+          myEntity,
+          {
+            modifiers: [{
+              path: '',
+              material: {
+                material: {
+                  $case: 'pbr', pbr: {
+					albedoColor: Color4.Red(),
+                  }
+                }
+              }
+            }]
+          }
+        )
+```
+
+The `GltfNodeModifiers` component has the following properties:
+
+- `modifiers`: An array of modifiers. Each modifier has the following properties:
+  - `path`: The path to the node in the model to modify.
+  - `material`: The material to use.
+
+The `path` property is a string that represents the path to the node in the _glTF_ model to modify. If you want to modify the material of the entire model, you can use an empty string. If you want to modify the material of a specific node, you can use the path to the node. The path must point to a mesh node, not a vertex node.
+
+{{< hint info >}}
+**💡 Tip**: You can use the [Babylon Sandbox app](https://sandbox.babylonjs.com/) to inspect the _glTF_ model and find the path to the node you want to modify.
+
+In some models, however, the Babylon sandbox may list paths that belong to vertexes rather than meshes, which will not work. If you attempt to use a path that isn't valid, the scene's console will display an error message that includes the full list of valid paths on that model.
+{{< /hint >}}
+
+The `material` property is an object that represents the material to use. It needs to be written using the [advanced syntax](#advanced-syntax) for materials, as shown in the example above. Helper functions like `Material.setPbrMaterial()` can't be used here. 
+
+The following example shows how to modify the material of a specific node in the _glTF_ model. In this case, the material of the head is modified to use an alternative texture.
+
+```ts
+const myEntity = engine.addEntity()
+
+GltfContainer.create(myEntity, {
+  src: 'models/myModel.glb',
+})
+
+Transform.create(myEntity, {
+  position: Vector3.create(4, 0, 4),
+})
+
+GltfNodeModifiers.create(
+  myEntity,
+  {
+    modifiers: [{	
+      path: 'M_Head_BaseMesh',
+      material: {
+        material: {
+          $case: 'pbr', pbr: {
+            texture: Material.Texture.Common({
+                      src: 'assets/scene/images/blinking-head.png',
+            }),
+          }
+        }
+      }
+    }]
+  }
+)
+```
+
+A `GltfNodeModifiers` can contain several modifiers, each modifying a different node in the model. The following example shows how to modify the material of the head and the body of a _glTF_ model.
+
+```ts
+const myEntity = engine.addEntity()
+
+GltfContainer.create(myEntity, {
+  src: 'models/myModel.glb',
+})
+
+Transform.create(myEntity, {
+  position: Vector3.create(4, 0, 4),
+})
+
+GltfNodeModifiers.create(
+  myEntity,
+  {
+    modifiers: [{
+      path: 'M_Head_BaseMesh',
+      material: {	
+        material: {
+          $case: 'pbr', pbr: {
+            albedoColor: Color4.Red(),
+          }	
+        }
+      }
+    },
+	{
+      path: 'M_Body_BaseMesh',
+      material: {	
+        material: {
+          $case: 'pbr', pbr: {
+            albedoColor: Color4.Blue(),
+          }	
+        }
+      }
+    }
+  ]
+})
+```
+
+
+### Remove shadows from a glTF model
+
+To remove shadows from a _glTF_ model, you can set the `castShadows` property to `false` in the `GltfNodeModifiers` object. This retains the original material of the model, but prevents it from casting shadows. This is useful for models that are not meant to cast shadows, such as light beams.
+
+
+```ts
+GltfNodeModifiers.create(
+  myEntity,
+  {
+    modifiers: [{
+      path: '',
+      castShadows: false,
+    }]
+  }
+)
+```
+
+
+
+
+
