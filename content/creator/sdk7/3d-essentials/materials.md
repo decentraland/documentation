@@ -657,6 +657,12 @@ To add a `Material` component to an entity that potentially already has an insta
 
 Use the `GltfNodeModifiers` component to modify the materials of a _glTF_ model. This component allows you to override the materials of a _glTF_ model with your own materials. You can use any of the properties of the `Material` component, including texture, video texture, unlit materials, etc.
 
+There are two ways to use the `GltfNodeModifiers` component:
+- Modify the material of the entire model by leaving the `path` property as an empty string.
+- Modify the material of a specific node in the model (or several nodes) by setting the `path` property to the path to the node.
+
+### Modify the material of the entire model
+
 The following example shows how to modify the material of a _glTF_ model. In this case, the material of the entire model is modified to be red.
 
 ```ts
@@ -702,6 +708,8 @@ In some models, however, the Babylon sandbox may list paths that belong to verte
 {{< /hint >}}
 
 The `material` property is an object that represents the material to use. It needs to be written using the [advanced syntax](#advanced-syntax) for materials, as shown in the example above. Helper functions like `Material.setPbrMaterial()` can't be used here. 
+
+### Modify the material of a specific node in the model
 
 The following example shows how to modify the material of a specific node in the _glTF_ model. In this case, the material of the head is modified to use an alternative texture.
 
