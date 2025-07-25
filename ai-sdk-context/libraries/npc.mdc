@@ -1,0 +1,777 @@
+# @dcl-sdk/npc Context7 Reference
+
+## Installation & Import
+```typescript
+// NPC functionality is built into the SDK
+import { AvatarShape, Transform, engine } from '@dcl/sdk/ecs'
+import { Vector3, Color3 } from '@dcl/sdk/math'
+import { getPlayer } from '@dcl/sdk/src/players'
+```
+
+## Basic NPC Creation
+
+### Create Simple NPC
+```typescript
+const npc = engine.addEntity()
+
+// Add avatar shape component
+AvatarShape.create(npc, {
+  id: 'npc-001',                    // Required: unique identifier
+  name: 'Guide NPC',                // Display name (optional, default: "NPC")
+  bodyShape: 'urn:decentraland:off-chain:base-avatars:BaseMale', // Optional
+  wearables: [                      // Optional: array of wearable URNs
+    'urn:decentraland:off-chain:base-avatars:blue_tshirt',
+    'urn:decentraland:off-chain:base-avatars:brown_pants'
+  ],
+  emotes: [],                       // Optional: array of emote URNs
+  eyeColor: Color3.create(0.3, 0.7, 0.9),    // Optional
+  skinColor: Color3.create(0.8, 0.6, 0.5),   // Optional
+  hairColor: Color3.create(0.1, 0.1, 0.1),   // Optional
+  talking: false                    // Optional: shows voice chat indicator
+})
+
+// Position the NPC
+Transform.create(npc, {
+  position: Vector3.create(8, 0.25, 8),
+  rotation: { x: 0, y: 0, z: 0, w: 1 }
+})
+```
+
+### Create NPC with Random Appearance
+```typescript
+const randomNPC = engine.addEntity()
+AvatarShape.create(randomNPC, {
+  id: 'random-npc-' + Math.random().toString(36).substr(2, 9)
+})
+Transform.create(randomNPC, {
+  position: Vector3.create(4, 0.25, 4)
+})
+```
+
+## NPC Animations & Emotes
+
+### Play Predefined Emotes
+```typescript
+// Set NPC to play a predefined emote
+AvatarShape.create(npc, {
+  id: 'animated-npc',
+  expressionTriggerId: 'wave'  // 'clap', 'dance', 'robot', etc.
+})
+
+// Change emote dynamically
+AvatarShape.getMutable(npc).expressionTriggerId = 'clap'
+```
+
+### Available Predefined Emotes
+```typescript
+// Social emotes
+'wave', 'fistpump', 'robot', 'raiseHand', 'clap', 'money', 'kiss', 'tik', 'hammer', 'tektonik', 'dontsee', 'handsair', 'shrug', 'disco', 'dab', 'headexplode'
+
+// Action emotes
+'buttonDown', 'buttonFront', 'getHit', 'knockOut', 'lever', 'openChest', 'openDoor', 'punch', 'push', 'swingWeaponOneHand', 'swingWeaponTwoHands', 'throw'
+
+// Sitting emotes
+'sittingChair1', 'sittingChair2', 'sittingGround1', 'sittingGround2'
+```
+
+### Custom Emotes (Advanced)
+```typescript
+// Note: Custom emotes require .glb files ending with _emote.glb
+// This is currently limited and may not work with NPCs
+AvatarShape.create(npc, {
+  id: 'custom-npc',
+  emotes: [
+    'urn:decentraland:ethereum:erc721:0xcontract:tokenId' // NFT emote URN
+  ]
+})
+```
+
+## NPC Appearance Management
+
+### Copy Player Appearance
+```typescript
+function copyPlayerAppearance(npcEntity: Entity) {
+  const playerData = getPlayer()
+  
+  if (!playerData || !playerData.wearables) return
+  
+  const mutableNPC = AvatarShape.getMutable(npcEntity)
+  
+  // Copy wearables
+  mutableNPC.wearables = playerData.wearables
+  
+  // Copy avatar base properties
+  mutableNPC.bodyShape = playerData.avatar?.bodyShapeUrn
+  mutableNPC.eyeColor = playerData.avatar?.eyesColor
+  mutableNPC.skinColor = playerData.avatar?.skinColor
+  mutableNPC.hairColor = playerData.avatar?.hairColor
+}
+```
+
+### Update NPC Properties
+```typescript
+// Update NPC name
+AvatarShape.getMutable(npc).name = 'New Name'
+
+// Update talking status
+AvatarShape.getMutable(npc).talking = true
+
+// Update wearables
+AvatarShape.getMutable(npc).wearables = [
+  'urn:decentraland:off-chain:base-avatars:red_tshirt',
+  'urn:decentraland:off-chain:base-avatars:black_pants'
+]
+
+// Update colors
+AvatarShape.getMutable(npc).eyeColor = Color3.create(1, 0, 0)  // Red eyes
+AvatarShape.getMutable(npc).skinColor = Color3.create(0.9, 0.8, 0.7)
+AvatarShape.getMutable(npc).hairColor = Color3.create(0.8, 0.6, 0.4)
+```
+
+## NPC Interaction Systems
+
+### Click Interaction
+```typescript
+import { pointerEventsSystem, InputAction } from '@dcl/sdk/ecs'
+
+// Add click interaction to NPC
+pointerEventsSystem.onPointerDown(
+  {
+    entity: npc,
+    opts: { 
+      button: InputAction.IA_POINTER, 
+      hoverText: 'Talk to NPC' 
+    }
+  },
+  () => {
+    console.log('NPC clicked!')
+    // Handle NPC interaction
+    handleNPCInteraction(npc)
+  }
+)
+```
+
+### Proximity Interaction
+```typescript
+import * as utils from '@dcl-sdk/utils'
+
+// Create trigger area around NPC
+utils.triggers.addTrigger(
+  npc,
+  utils.LAYER_1,        // NPC layer
+  utils.LAYER_2,        // Player layer
+  [{ type: 'sphere', radius: 3 }],
+  (playerEntity) => {
+    console.log('Player entered NPC area')
+    showNPCDialogue(npc)
+  },
+  (playerEntity) => {
+    console.log('Player left NPC area')
+    hideNPCDialogue()
+  }
+)
+```
+
+## NPC Dialogue Systems
+
+### Simple Text Dialogue
+```typescript
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
+
+let currentDialogue: string | null = null
+
+function showNPCDialogue(npcEntity: Entity) {
+  const npcName = AvatarShape.get(npcEntity).name
+  currentDialogue = `Hello! I'm ${npcName}. How can I help you?`
+  
+  ReactEcsRenderer.setUiRenderer(() => (
+    <UiEntity
+      uiTransform={{
+        width: 400,
+        height: 100,
+        positionType: 'absolute',
+        position: { bottom: '20%', left: '50%' },
+        margin: { left: -200 }
+      }}
+      uiBackground={{ color: Color4.create(0, 0, 0, 0.8) }}
+    >
+      <Label
+        value={currentDialogue || ''}
+        color={Color4.White()}
+        fontSize={16}
+        textAlign="middle-center"
+      />
+    </UiEntity>
+  ))
+}
+
+function hideNPCDialogue() {
+  currentDialogue = null
+  ReactEcsRenderer.setUiRenderer(() => null)
+}
+```
+
+### Multi-Choice Dialogue
+```typescript
+interface DialogueOption {
+  text: string
+  action: () => void
+}
+
+function showDialogueOptions(npcEntity: Entity, options: DialogueOption[]) {
+  ReactEcsRenderer.setUiRenderer(() => (
+    <UiEntity
+      uiTransform={{
+        width: 400,
+        height: 200,
+        positionType: 'absolute',
+        position: { bottom: '20%', left: '50%' },
+        margin: { left: -200 }
+      }}
+      uiBackground={{ color: Color4.create(0, 0, 0, 0.8) }}
+    >
+      {options.map((option, index) => (
+        <Button
+          key={index}
+          value={option.text}
+          variant="secondary"
+          fontSize={14}
+          onMouseDown={option.action}
+          uiTransform={{
+            width: 350,
+            height: 40,
+            margin: { top: 10 }
+          }}
+        />
+      ))}
+    </UiEntity>
+  ))
+}
+
+// Usage
+showDialogueOptions(npc, [
+  { text: "Tell me about this place", action: () => console.log("Place info") },
+  { text: "Give me a quest", action: () => console.log("Quest given") },
+  { text: "Goodbye", action: () => hideNPCDialogue() }
+])
+```
+
+## NPC Movement & Behavior
+
+### Simple Path Following
+```typescript
+import * as utils from '@dcl-sdk/utils'
+
+function createPatrollingNPC() {
+  const patrollingNPC = engine.addEntity()
+  
+  AvatarShape.create(patrollingNPC, {
+    id: 'patrol-npc',
+    name: 'Guard'
+  })
+  
+  Transform.create(patrollingNPC, {
+    position: Vector3.create(0, 0.25, 0)
+  })
+  
+  // Define patrol path
+  const patrolPath = [
+    Vector3.create(0, 0.25, 0),
+    Vector3.create(5, 0.25, 0),
+    Vector3.create(5, 0.25, 5),
+    Vector3.create(0, 0.25, 5),
+    Vector3.create(0, 0.25, 0)
+  ]
+  
+  // Start patrolling
+  utils.paths.startSmoothPath(
+    patrollingNPC,
+    patrolPath,
+    20,  // Duration in seconds
+    30,  // Segments for smoothness
+    true, // Face movement direction
+    () => {
+      // Restart patrol when complete
+      utils.paths.startSmoothPath(patrollingNPC, patrolPath, 20, 30, true)
+    }
+  )
+  
+  return patrollingNPC
+}
+```
+
+### NPC Following Player
+```typescript
+function createFollowingNPC() {
+  const followingNPC = engine.addEntity()
+  
+  AvatarShape.create(followingNPC, {
+    id: 'follower-npc',
+    name: 'Companion'
+  })
+  
+  Transform.create(followingNPC, {
+    position: Vector3.create(2, 0.25, 2)
+  })
+  
+  // System to make NPC follow player
+  engine.addSystem(() => {
+    const playerPos = utils.getPlayerPosition()
+    if (!playerPos) return
+    
+    const npcTransform = Transform.getMutable(followingNPC)
+    const currentPos = npcTransform.position
+    
+    // Calculate direction to player
+    const direction = Vector3.subtract(playerPos, currentPos)
+    const distance = Vector3.length(direction)
+    
+    // Only follow if player is within range
+    if (distance > 3 && distance < 10) {
+      const normalizedDir = Vector3.normalize(direction)
+      const newPos = Vector3.add(currentPos, Vector3.scale(normalizedDir, 0.05))
+      npcTransform.position = newPos
+      
+      // Make NPC face player
+      const lookAtRotation = Quaternion.lookRotation(normalizedDir)
+      npcTransform.rotation = lookAtRotation
+    }
+  })
+  
+  return followingNPC
+}
+```
+
+## NPC State Management
+
+### NPC State Component
+```typescript
+// Define custom component for NPC state
+@Component('NPCState')
+export class NPCState {
+  currentDialogue: string = ''
+  isInteracting: boolean = false
+  lastInteractionTime: number = 0
+  interactionCooldown: number = 5000 // 5 seconds
+}
+
+// Create NPC with state
+function createStatefulNPC() {
+  const npc = engine.addEntity()
+  
+  AvatarShape.create(npc, {
+    id: 'stateful-npc',
+    name: 'Merchant'
+  })
+  
+  Transform.create(npc, {
+    position: Vector3.create(8, 0.25, 8)
+  })
+  
+  NPCState.create(npc, {
+    currentDialogue: 'Welcome to my shop!',
+    isInteracting: false,
+    lastInteractionTime: 0,
+    interactionCooldown: 3000
+  })
+  
+  return npc
+}
+```
+
+### NPC Interaction System
+```typescript
+function createNPCInteractionSystem() {
+  engine.addSystem(() => {
+    for (const [entity, npcState] of engine.getEntitiesWith(NPCState)) {
+      const currentTime = Date.now()
+      
+      // Reset interaction state if cooldown has passed
+      if (npcState.isInteracting && 
+          currentTime - npcState.lastInteractionTime > npcState.interactionCooldown) {
+        NPCState.getMutable(entity).isInteracting = false
+      }
+    }
+  })
+}
+
+// Handle NPC interaction with cooldown
+function interactWithNPC(npcEntity: Entity) {
+  const npcState = NPCState.getMutable(npcEntity)
+  const currentTime = Date.now()
+  
+  if (npcState.isInteracting) {
+    console.log('NPC is busy, please wait...')
+    return
+  }
+  
+  npcState.isInteracting = true
+  npcState.lastInteractionTime = currentTime
+  
+  // Show dialogue
+  showNPCDialogue(npcEntity)
+}
+```
+
+## NPC Multiplayer Considerations
+
+### Syncing NPC State
+```typescript
+import { syncEntity } from '@dcl/sdk/network'
+
+function createSyncedNPC() {
+  const syncedNPC = engine.addEntity()
+  
+  AvatarShape.create(syncedNPC, {
+    id: 'synced-npc',
+    name: 'Multiplayer NPC'
+  })
+  
+  Transform.create(syncedNPC, {
+    position: Vector3.create(4, 0.25, 4)
+  })
+  
+  // Sync NPC position and state across all players
+  syncEntity(syncedNPC, [
+    Transform.componentId,
+    AvatarShape.componentId
+  ], 1) // Unique network ID
+  
+  return syncedNPC
+}
+```
+
+### NPC Message Bus Communication
+```typescript
+import { MessageBus } from '@dcl/sdk/message-bus'
+
+const messageBus = new MessageBus()
+
+// Send NPC interaction message
+function sendNPCInteraction(npcId: string, playerId: string, action: string) {
+  messageBus.emit('npc-interaction', {
+    npcId,
+    playerId,
+    action,
+    timestamp: Date.now()
+  })
+}
+
+// Listen for NPC interactions
+messageBus.on('npc-interaction', (message) => {
+  console.log(`NPC ${message.npcId} interacted by ${message.playerId} with action ${message.action}`)
+  // Handle the interaction for all players
+})
+```
+
+## Common NPC Patterns
+
+### NPC with Multiple Dialogue States
+```typescript
+enum NPCState {
+  IDLE = 'idle',
+  GREETING = 'greeting',
+  IN_DIALOGUE = 'dialogue',
+  FAREWELL = 'farewell'
+}
+
+function createAdvancedNPC() {
+  const npc = engine.addEntity()
+  
+  AvatarShape.create(npc, {
+    id: 'advanced-npc',
+    name: 'Quest Giver'
+  })
+  
+  Transform.create(npc, {
+    position: Vector3.create(8, 0.25, 8)
+  })
+  
+  // Add click interaction
+  pointerEventsSystem.onPointerDown(
+    {
+      entity: npc,
+      opts: { button: InputAction.IA_POINTER, hoverText: 'Talk to Quest Giver' }
+    },
+    () => handleNPCClick(npc)
+  )
+  
+  return npc
+}
+
+function handleNPCClick(npcEntity: Entity) {
+  const currentState = getNPCState(npcEntity) // Custom function to get state
+  
+  switch (currentState) {
+    case NPCState.IDLE:
+      setNPCState(npcEntity, NPCState.GREETING)
+      showDialogue(npcEntity, "Hello traveler! I have a quest for you.")
+      break
+    case NPCState.GREETING:
+      setNPCState(npcEntity, NPCState.IN_DIALOGUE)
+      showDialogueOptions(npcEntity, [
+        { text: "Tell me about the quest", action: () => showQuestDetails(npcEntity) },
+        { text: "I'll pass for now", action: () => setNPCState(npcEntity, NPCState.FAREWELL) }
+      ])
+      break
+    case NPCState.IN_DIALOGUE:
+      // Already in dialogue, do nothing
+      break
+    case NPCState.FAREWELL:
+      setNPCState(npcEntity, NPCState.IDLE)
+      showDialogue(npcEntity, "Come back if you change your mind!")
+      break
+  }
+}
+```
+
+### NPC with Inventory/Shop System
+```typescript
+interface ShopItem {
+  id: string
+  name: string
+  price: number
+  description: string
+}
+
+function createShopNPC() {
+  const shopNPC = engine.addEntity()
+  
+  AvatarShape.create(shopNPC, {
+    id: 'shop-npc',
+    name: 'Merchant'
+  })
+  
+  Transform.create(shopNPC, {
+    position: Vector3.create(8, 0.25, 8)
+  })
+  
+  // Add shop interaction
+  pointerEventsSystem.onPointerDown(
+    {
+      entity: shopNPC,
+      opts: { button: InputAction.IA_POINTER, hoverText: 'Open Shop' }
+    },
+    () => openShop(shopNPC)
+  )
+  
+  return shopNPC
+}
+
+function openShop(npcEntity: Entity) {
+  const shopItems: ShopItem[] = [
+    { id: 'sword', name: 'Magic Sword', price: 100, description: 'A powerful weapon' },
+    { id: 'potion', name: 'Health Potion', price: 25, description: 'Restores health' },
+    { id: 'shield', name: 'Iron Shield', price: 75, description: 'Provides protection' }
+  ]
+  
+  ReactEcsRenderer.setUiRenderer(() => (
+    <UiEntity
+      uiTransform={{
+        width: 500,
+        height: 400,
+        positionType: 'absolute',
+        position: { top: '50%', left: '50%' },
+        margin: { top: -200, left: -250 }
+      }}
+      uiBackground={{ color: Color4.create(0.1, 0.1, 0.1, 0.95) }}
+    >
+      <Label
+        value="Merchant's Shop"
+        color={Color4.White()}
+        fontSize={24}
+        textAlign="middle-center"
+        uiTransform={{ width: '100%', height: 50 }}
+      />
+      
+      {shopItems.map((item, index) => (
+        <UiEntity key={index} uiTransform={{ width: '100%', height: 80, margin: { top: 10 } }}>
+          <Label
+            value={`${item.name} - ${item.price} coins`}
+            color={Color4.White()}
+            fontSize={16}
+            uiTransform={{ width: '70%', height: 40 }}
+          />
+          <Button
+            value="Buy"
+            variant="primary"
+            fontSize={14}
+            onMouseDown={() => buyItem(item)}
+            uiTransform={{ width: '25%', height: 40, position: { right: 0 } }}
+          />
+        </UiEntity>
+      ))}
+      
+      <Button
+        value="Close"
+        variant="secondary"
+        fontSize={16}
+        onMouseDown={() => ReactEcsRenderer.setUiRenderer(() => null)}
+        uiTransform={{ width: 100, height: 40, position: { bottom: 10, left: '50%' }, margin: { left: -50 } }}
+      />
+    </UiEntity>
+  ))
+}
+
+function buyItem(item: ShopItem) {
+  console.log(`Bought ${item.name} for ${item.price} coins`)
+  // Implement actual purchase logic here
+}
+```
+
+## Performance Optimization
+
+### NPC Pool Management
+```typescript
+class NPCPool {
+  private activeNPCs: Entity[] = []
+  private inactiveNPCs: Entity[] = []
+  private maxNPCs: number = 10
+  
+  createNPC(position: Vector3): Entity {
+    let npc: Entity
+    
+    if (this.inactiveNPCs.length > 0) {
+      npc = this.inactiveNPCs.pop()!
+      Transform.getMutable(npc).position = position
+    } else if (this.activeNPCs.length < this.maxNPCs) {
+      npc = this.createNewNPC(position)
+    } else {
+      // Reuse oldest NPC
+      npc = this.activeNPCs.shift()!
+      Transform.getMutable(npc).position = position
+    }
+    
+    this.activeNPCs.push(npc)
+    return npc
+  }
+  
+  private createNewNPC(position: Vector3): Entity {
+    const npc = engine.addEntity()
+    
+    AvatarShape.create(npc, {
+      id: 'pool-npc-' + Math.random().toString(36).substr(2, 9)
+    })
+    
+    Transform.create(npc, { position })
+    
+    return npc
+  }
+  
+  deactivateNPC(npc: Entity) {
+    const index = this.activeNPCs.indexOf(npc)
+    if (index > -1) {
+      this.activeNPCs.splice(index, 1)
+      this.inactiveNPCs.push(npc)
+    }
+  }
+}
+
+// Usage
+const npcPool = new NPCPool()
+const npc1 = npcPool.createNPC(Vector3.create(4, 0.25, 4))
+const npc2 = npcPool.createNPC(Vector3.create(8, 0.25, 8))
+```
+
+### NPC LOD (Level of Detail)
+```typescript
+function createLODNPC() {
+  const npc = engine.addEntity()
+  
+  AvatarShape.create(npc, {
+    id: 'lod-npc',
+    name: 'LOD NPC'
+  })
+  
+  Transform.create(npc, {
+    position: Vector3.create(8, 0.25, 8)
+  })
+  
+  // System to adjust NPC detail based on distance
+  engine.addSystem(() => {
+    const playerPos = utils.getPlayerPosition()
+    if (!playerPos) return
+    
+    const npcPos = Transform.get(npc).position
+    const distance = Vector3.distance(playerPos, npcPos)
+    
+    const avatarShape = AvatarShape.getMutable(npc)
+    
+    if (distance > 20) {
+      // Far distance: hide name and disable interactions
+      avatarShape.name = ''
+    } else if (distance > 10) {
+      // Medium distance: show name, no interactions
+      avatarShape.name = 'LOD NPC'
+    } else {
+      // Close distance: full functionality
+      avatarShape.name = 'LOD NPC (Click to interact)'
+    }
+  })
+  
+  return npc
+}
+```
+
+## Best Practices
+
+### NPC Design Guidelines
+```typescript
+// 1. Use unique IDs for all NPCs
+const npcId = 'unique-npc-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9)
+
+// 2. Set appropriate interaction ranges
+const INTERACTION_RANGE = 3
+const DIALOGUE_RANGE = 5
+
+// 3. Implement proper state management
+enum NPCBehavior {
+  IDLE = 'idle',
+  WALKING = 'walking',
+  TALKING = 'talking',
+  WORKING = 'working'
+}
+
+// 4. Use cooldowns for interactions
+const INTERACTION_COOLDOWN = 2000 // 2 seconds
+
+// 5. Provide clear visual feedback
+function addNPCHighlight(npc: Entity) {
+  // Add visual indicator when player is close
+  const highlight = engine.addEntity()
+  Transform.create(highlight, { parent: npc })
+  MeshRenderer.setSphere(highlight)
+  Material.setPbrMaterial(highlight, {
+    albedoColor: Color4.create(1, 1, 0, 0.3),
+    transparencyMode: MaterialTransparencyMode.MTM_ALPHA_BLEND
+  })
+}
+```
+
+### Memory Management
+```typescript
+// Clean up NPCs when they're no longer needed
+function cleanupNPC(npc: Entity) {
+  // Remove all components
+  engine.removeEntity(npc)
+  
+  // Clear any UI associated with this NPC
+  if (currentDialogueNPC === npc) {
+    hideNPCDialogue()
+  }
+}
+
+// Batch NPC operations for better performance
+function updateAllNPCs() {
+  const npcs = engine.getEntitiesWith(AvatarShape)
+  
+  for (const [entity, avatarShape] of npcs) {
+    // Batch update logic here
+    updateNPCBehavior(entity, avatarShape)
+  }
+}
+```
+description:
+globs:
+alwaysApply: false
+---
