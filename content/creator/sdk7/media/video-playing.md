@@ -406,6 +406,49 @@ Material.setBasicMaterial(screen, {
 **📔 Note**: In previous versions, the `alphaTexture` property was only present in PRB materials, currently it only works in basic materials.
 {{< /hint >}}
 
+## Play a video on a glTF model
+
+You can play a video on a _glTF_ model by using the [GltfNodeModifiers]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#modify-gltf-materials" >}}) component. See [Modify glTF materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#modify-gltf-materials" >}}) for more details.
+
+This allows you to play your videos on any shape, not just planes. For example, you can play videos on a curved screen, or even the entire body of an NPC. 
+```ts
+const myEntity = engine.addEntity()
+
+GltfContainer.create(myEntity, {
+  src: 'models/myModel.glb',
+})
+
+Transform.create(myEntity, {
+  position: Vector3.create(4, 0, 4),
+})
+
+VideoPlayer.create(myEntity, {
+	src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
+	playing: true,
+})
+
+GltfNodeModifiers.create(
+	myEntity,
+	{
+		modifiers: [{
+			path: '',
+			material: {
+				material: {
+					$case: 'pbr', pbr: {
+						texture: Material.Texture.Video({
+							videoPlayerEntity: myEntity,
+						}),
+					},
+				},
+			},
+		}],
+	})
+```
+
+The mapping of the video will follow the original UV mapping that the model uses. This means that if the model has a texture that is mapped to a specific part of the model, the video will be mapped to that same part.
+
+You can also use the `GltfNodeModifiers` component to play a video only on a specific mesh inside the model. For example, you can play it on a specific wall of a building, even though the model spans the entire building. See [Modify glTF materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#modify-gltf-materials" >}}) for more details.
+
 <!--
 
 ## Map a video texture

@@ -159,6 +159,11 @@ In conclusion,
 - 🟢 **Prefer** using names starting with the object and clasification: _"Wood_Oak_MAT"_, _"SciFiFence_Metallic_MAT"_, etc.
 - 🔴 **Avoid** using names like _"Material009"_, _"material1"_, which makes the scene and models really difficult to track and analize.
 
+## Override glTF materials
+
+You can override the materials of a _glTF_ model by using the [GltfNodeModifiers]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#modify-gltf-materials" >}}) component in your scene's code. See [Modify glTF materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#modify-gltf-materials" >}}) for more details.
+
+
 ## Best Practices For Materials
 
 - If your scene includes multiple models that use the same texture, reference the texture as an external file instead of having it embedded in the 3D model.
