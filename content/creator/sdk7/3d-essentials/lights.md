@@ -255,7 +255,7 @@ LightSource.create(light, {
         outerAngle: 120,	
 	}),
 	shadow: true
-	shadowMaskTexture: Material.Texture.Common({src: "images/lightmask1.png"})         
+	shadowMaskTexture: Material.Texture.Common({src: "assets/scene/images/lightmask1.png"})         
 })
 ```
 
@@ -276,7 +276,7 @@ Transform.create(light, {
 
 LightSource.create(light, {
 	type: LightSource.Type.Point({}),
-	shadowMaskTexture: Material.Texture.Common({src: "images/point-light-mask1.png"})         
+	shadowMaskTexture: Material.Texture.Common({src: "assets/scene/images/point-light-mask1.png"})         
 })
 ```
 
