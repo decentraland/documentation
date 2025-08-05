@@ -26,6 +26,7 @@ There are two supported types of lights:
 To add a light to your scene, you need to create a light entity and add the `LightSource` component to it.
 
 ```ts
+import { engine, LightSource } from '@dcl/sdk/ecs'
 
 const light = engine.addEntity()
 
@@ -48,6 +49,8 @@ LightSource.create(light, {
 Spot lights are lights that shine in a specific direction, and cover a specific cone-shaped area. The direction of the light is defined by the entity's Transform component. The aperture of the cone is defined by the `innerAngle` and `outerAngle` properties of the `LightSource` component. 
 
 ```ts
+import { engine, LightSource } from '@dcl/sdk/ecs'
+
 const light = engine.addEntity()
 
 Transform.create(light, {
@@ -71,6 +74,8 @@ The `innerAngle` is the angle of the inner cone, where the light is at full brig
 All lights, both point and spot, have a color and an intensity. The color is defined by the `color` property of the `LightSource` component, and the intensity is defined by the `intensity` property.
 
 ```ts
+import { engine, LightSource } from '@dcl/sdk/ecs'
+
 const light = engine.addEntity()
 
 Transform.create(light, {
@@ -102,6 +107,8 @@ The distance at which the light is visible is the square root of the intensity v
 Each light can cast shadows or not. By default they don't, but you can enable them by setting the `shadow` property of the `LightSource` component to `true`.
 
 ```ts
+import { engine, LightSource } from '@dcl/sdk/ecs'
+
 const light = engine.addEntity()
 
 Transform.create(light, {
@@ -129,6 +136,8 @@ LightSource.create(light, {
 The LightSource component has a `active` property that can be used to switch a light on and off. This is useful if you want to turn a light off without removing it from the scene, or without setting the `intensity` to 0 and losing reference of what the original intensity was.
 
 ```ts
+import { engine, LightSource } from '@dcl/sdk/ecs'
+
 const light = engine.addEntity()
 
 Transform.create(light, {
@@ -204,6 +213,8 @@ The default setting ensures that the dropoff curve is smooth and looks natural. 
 
 
 ```ts
+import { engine, LightSource } from '@dcl/sdk/ecs'
+
 const light = engine.addEntity()
 
 Transform.create(light, {
@@ -230,6 +241,8 @@ You can use a light mask to produce some interesting effects. Instead of illumin
 Masks are more typically used with spot lights, but they can also be used with point lights. Below is an example of a spot light with a mask applied.
 
 ```ts
+import { engine, LightSource } from '@dcl/sdk/ecs'
+
 const light = engine.addEntity()
 
 Transform.create(light, {
@@ -253,6 +266,8 @@ For example, you can apply the image below to produce a fun effect where the lig
 When applying a mask to a point light, the texture will be wrapped as a cube around the light source. If you want to avoid having visible edges between the sides of the cube, make sure the texture has continuity in the edges.
 
 ```ts
+import { engine, LightSource } from '@dcl/sdk/ecs'
+
 const light = engine.addEntity()
 
 Transform.create(light, {
