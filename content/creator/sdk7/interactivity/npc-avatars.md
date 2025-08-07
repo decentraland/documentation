@@ -102,3 +102,30 @@ export function swapAvatar(avatar: Entity) {
   
 }
 ```
+
+
+## Display only wearables
+
+Use the `isBodyInvisible` field to display only the listed wearables of an avatar. The rest of the avatar's body will be invisible.
+
+```ts
+const myAvatar = engine.addEntity()
+AvatarShape.create(myAvatar, {
+	id: '',
+	emotes: [],
+	wearables: [
+    'urn:decentraland:matic:collections-v2:0x90e5cb2d673699be8f28d339c818a0b60144c494:0'
+  ],
+	isBodyInvisible: true,
+})
+
+Transform.create(myAvatar, {
+	position: Vector3.create(4, 0.25, 5),
+})
+```
+
+This is useful for displaying wearables, for example in a store.
+
+{{< hint info >}}
+**💡 Tip**: If a wearable is rather small, try setting the `scale` of the `Transform` to a larger value.
+{{< /hint >}}
