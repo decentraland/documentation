@@ -111,10 +111,10 @@ GltfContainer.create(houseEntity, {
 The `src` field is required, you must give it a value when constructing the component. In the example above, the model is located in a `models` folder at root level of the scene project folder.
 
 {{< hint info >}}
-**💡 Tip**: We recommend keeping your models separate in a `/models` folder inside your scene.
+**💡 Tip**: We recommend keeping your models separate in the `assets/scene/models` folder inside your scene.
 {{< /hint >}}
 
-glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this.
+glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](/creator/3d-modeling/3d-models) for more information on this. To override the materials of a model, use the [GltfNodeModifiers]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#modify-gltf-materials" >}}) component. See [Modify glTF materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#modify-gltf-materials" >}}) for more details.
 
 To prevent players from walking through a 3D model, or to make a model clickable, you must have a [collider]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}), which may be embedded in the model or provided via a `MeshCollider` component.
 
@@ -123,7 +123,7 @@ Keep in mind that all models, their shaders and their textures must be within th
 {{< hint warning >}}
 **📔 Note**: The `GltfContainer` component must be imported via
 
-> `import { GltfContainer } from "@dcl/sdk/ecs"`
+`import { GltfContainer } from "@dcl/sdk/ecs"`
 
 See [Imports]({{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >}}) for how to handle these easily.
 {{< /hint >}}
