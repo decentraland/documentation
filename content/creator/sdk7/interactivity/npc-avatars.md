@@ -104,7 +104,7 @@ export function swapAvatar(avatar: Entity) {
 ```
 
 
-## Display only wearables
+## Display only wearables
 
 Use the `isBodyInvisible` field to display only the listed wearables of an avatar. The rest of the avatar's body will be invisible.
 
