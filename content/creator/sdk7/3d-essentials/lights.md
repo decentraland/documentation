@@ -35,7 +35,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-  type: type: LightSource.Type.Point({})
+  type: {
+            $case: 'point',
+            point: {}
+        }
 })
 ```
 
@@ -59,10 +62,13 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: LightSource.Type.Spot({
-	    innerAngle: 20,
-        outerAngle: 120,	
-	}),
+	type: {
+            $case: 'spot',
+            spot: {
+                innerAngle: 20,
+                outerAngle: 120
+            }
+        },
 	shadow: true
 })
 ```
@@ -83,7 +89,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-  type: type: LightSource.Type.Point({})
+  type: {
+            $case: 'point',
+            point: {}
+        },
   color: Color3.Red(),
   intensity: 1000,
 })
@@ -117,10 +126,13 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: LightSource.Type.Spot({
-	    innerAngle: 20,
-        outerAngle: 120,	
-	}),
+	type: {
+            $case: 'spot',
+            spot: {
+                innerAngle: 20,
+                outerAngle: 120
+            }
+    },
 	shadow: true
 })
 ```
@@ -146,10 +158,13 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: LightSource.Type.Spot({
-	    innerAngle: 20,
-        outerAngle: 120,	
-	}),
+	type: {
+            $case: 'spot',
+            spot: {
+                innerAngle: 20,
+                outerAngle: 120
+            }
+        },
 	shadow: true
 })
 
@@ -222,7 +237,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-  type: type: LightSource.Type.Point({})
+  type: {
+            $case: 'point',
+            point: {}
+        },
   intensity: 1000,
   range: 20,
 })
@@ -250,10 +268,13 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: LightSource.Type.Spot({
-	    innerAngle: 20,
-        outerAngle: 120,	
-	}),
+	type: {
+            $case: 'spot',
+            spot: {
+                innerAngle: 20,
+                outerAngle: 120
+            }
+        },
 	shadow: true
 	shadowMaskTexture: Material.Texture.Common({src: "assets/scene/images/lightmask1.png"})         
 })
@@ -271,6 +292,7 @@ With a black and white image, the light is either hitting an area or not. It's a
 
 When applying a mask to a point light, the texture will be wrapped as a cube around the light source. If you want to avoid having visible edges between the sides of the cube, make sure the texture has continuity in the edges.
 
+
 ```ts
 import { engine, LightSource } from '@dcl/sdk/ecs'
 
@@ -281,7 +303,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: LightSource.Type.Point({}),
+	type: {
+            $case: 'point',
+            point: {}
+        },
 	shadowMaskTexture: Material.Texture.Common({src: "assets/scene/images/point-light-mask1.png"})         
 })
 ```
