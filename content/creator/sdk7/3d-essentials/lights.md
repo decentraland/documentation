@@ -26,7 +26,6 @@ There are two supported types of lights:
 To add a light to your scene, you need to create a light entity and add the `LightSource` component to it.
 
 ```ts
-
 const light = engine.addEntity()
 
 Transform.create(light, {
@@ -34,7 +33,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-  type: type: LightSource.Type.Point({})
+  type: {
+            $case: 'point',
+            point: {}
+        }
 })
 ```
 
@@ -56,10 +58,13 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: LightSource.Type.Spot({
-	    innerAngle: 20,
-        outerAngle: 120,	
-	}),
+	type: {
+            $case: 'spot',
+            spot: {
+                innerAngle: 20,
+                outerAngle: 120
+            }
+        },
 	shadow: true
 })
 ```
@@ -78,7 +83,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-  type: type: LightSource.Type.Point({})
+  type: {
+            $case: 'point',
+            point: {}
+        },
   color: Color3.Red(),
   intensity: 1000,
 })
@@ -110,10 +118,13 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: LightSource.Type.Spot({
-	    innerAngle: 20,
-        outerAngle: 120,	
-	}),
+	type: {
+            $case: 'spot',
+            spot: {
+                innerAngle: 20,
+                outerAngle: 120
+            }
+    },
 	shadow: true
 })
 ```
@@ -137,10 +148,13 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: LightSource.Type.Spot({
-	    innerAngle: 20,
-        outerAngle: 120,	
-	}),
+	type: {
+            $case: 'spot',
+            spot: {
+                innerAngle: 20,
+                outerAngle: 120
+            }
+        },
 	shadow: true
 })
 
@@ -211,7 +225,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-  type: type: LightSource.Type.Point({})
+  type: {
+            $case: 'point',
+            point: {}
+        },
   intensity: 1000,
   range: 20,
 })
@@ -237,10 +254,13 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: LightSource.Type.Spot({
-	    innerAngle: 20,
-        outerAngle: 120,	
-	}),
+	type: {
+            $case: 'spot',
+            spot: {
+                innerAngle: 20,
+                outerAngle: 120
+            }
+        },
 	shadow: true
 	shadowMaskTexture: Material.Texture.Common({src: "images/lightmask1.png"})         
 })
@@ -260,7 +280,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: LightSource.Type.Point({}),
+	type: {
+            $case: 'point',
+            point: {}
+        },
 	shadowMaskTexture: Material.Texture.Common({src: "images/point-light-mask1.png"})         
 })
 ```
