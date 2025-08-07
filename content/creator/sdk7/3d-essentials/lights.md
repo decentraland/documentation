@@ -263,6 +263,12 @@ For example, you can apply the image below to produce a fun effect where the lig
 
 <img src="/images/lightmask1.png" width="500" />
 
+With a black and white image, the light is either hitting an area or not. It's also possible to pass an image with colors, and these colors will tint your light on each area, this can be used to project a colored logo or image onto a surface.
+
+{{< hint warning >}}
+**📔 Note**: The image used as a mask must have a height and width in pixels that is a power of 2 (eg: 1024, 512, 256). This feature doesn't work for images that have different dimensions.
+{{< /hint >}}
+
 When applying a mask to a point light, the texture will be wrapped as a cube around the light source. If you want to avoid having visible edges between the sides of the cube, make sure the texture has continuity in the edges.
 
 ```ts
