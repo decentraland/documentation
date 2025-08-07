@@ -215,7 +215,7 @@ Besides the maximum number of allowed lights, shadows also depend on distance fr
 
 It's also important to note that lights are only rendered if the player is standing inside the scene. If the player is outside the scene, the lights will not be rendered.
 
-## Light range
+## Light range
 
 
 The lightSource component has a `range` property that can be used to set the maximum distance at which the light is visible. By default, the value of the `range` property is -1, which means that the light range depends on the intensity of the light.
