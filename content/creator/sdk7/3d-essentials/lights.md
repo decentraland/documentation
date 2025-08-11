@@ -35,10 +35,7 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-  type: {
-            $case: 'point',
-            point: {}
-        }
+  type: LightSource.Type.Point({})
 })
 ```
 
@@ -62,13 +59,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: {
-            $case: 'spot',
-            spot: {
-                innerAngle: 20,
-                outerAngle: 120
-            }
-        },
+	type: LightSource.Type.Spot({
+      innerAngle: 30,
+      outerAngle: 60
+    }),
 	shadow: true
 })
 ```
@@ -89,10 +83,7 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-  type: {
-            $case: 'point',
-            point: {}
-        },
+  type: LightSource.Type.Point({}),
   color: Color3.Red(),
   intensity: 1000,
 })
@@ -126,13 +117,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: {
-            $case: 'spot',
-            spot: {
-                innerAngle: 20,
-                outerAngle: 120
-            }
-    },
+	type: LightSource.Type.Spot({
+      innerAngle: 30,
+      outerAngle: 60
+    }),
 	shadow: true
 })
 ```
@@ -158,13 +146,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: {
-            $case: 'spot',
-            spot: {
-                innerAngle: 20,
-                outerAngle: 120
-            }
-        },
+	type: LightSource.Type.Spot({
+      innerAngle: 30,
+      outerAngle: 60
+    }),
 	shadow: true
 })
 
@@ -237,10 +222,7 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-  type: {
-            $case: 'point',
-            point: {}
-        },
+  type: LightSource.Type.Point({}),
   intensity: 1000,
   range: 20,
 })
@@ -268,13 +250,10 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: {
-            $case: 'spot',
-            spot: {
-                innerAngle: 20,
-                outerAngle: 120
-            }
-        },
+	type: LightSource.Type.Spot({
+      innerAngle: 30,
+      outerAngle: 60
+    }),
 	shadow: true
 	shadowMaskTexture: Material.Texture.Common({src: "assets/scene/images/lightmask1.png"})         
 })
@@ -303,10 +282,7 @@ Transform.create(light, {
 })
 
 LightSource.create(light, {
-	type: {
-            $case: 'point',
-            point: {}
-        },
+	type: LightSource.Type.Point({}),
 	shadowMaskTexture: Material.Texture.Common({src: "assets/scene/images/point-light-mask1.png"})         
 })
 ```
