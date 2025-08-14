@@ -254,7 +254,7 @@ LightSource.create(light, {
       innerAngle: 30,
       outerAngle: 60
     }),
-	shadow: true
+	shadow: true,
 	shadowMaskTexture: Material.Texture.Common({src: "assets/scene/images/lightmask1.png"})         
 })
 ```
