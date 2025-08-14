@@ -367,7 +367,7 @@ The `bumpTexture` can simulate bumps and wrinkles on a surface, by modifying how
 
 The `emissiveTexture` can accentuate glow on certain parts of a material, to achieve very interesting effects.
 
-#### Set UVs
+#### Set UVs
 
 Another alternative for changing a texture's scale or alignment is to configure _uv_ properties on the [MeshRenderer component]({{< ref "/content/creator/sdk7/3d-essentials/shape-components.md" >}}).
 
@@ -666,6 +666,9 @@ There are two ways to use the `GltfNodeModifiers` component:
 The following example shows how to modify the material of a _glTF_ model. In this case, the material of the entire model is modified to be red.
 
 ```ts
+import { GltfNodeModifiers, GltfContainer, Transform} from '@dcl/sdk/ecs'
+
+
 const myEntity = engine.addEntity()
 
 GltfContainer.create(myEntity, {
@@ -714,6 +717,9 @@ The `material` property is an object that represents the material to use. It nee
 The following example shows how to modify the material of a specific node in the _glTF_ model. In this case, the material of the head is modified to use an alternative texture.
 
 ```ts
+import { GltfNodeModifiers, GltfContainer, Transform} from '@dcl/sdk/ecs'
+
+
 const myEntity = engine.addEntity()
 
 GltfContainer.create(myEntity, {
@@ -746,6 +752,8 @@ GltfNodeModifiers.create(
 A `GltfNodeModifiers` can contain several modifiers, each modifying a different node in the model. The following example shows how to modify the material of the head and the body of a _glTF_ model.
 
 ```ts
+import { GltfNodeModifiers, GltfContainer, Transform} from '@dcl/sdk/ecs'
+
 const myEntity = engine.addEntity()
 
 GltfContainer.create(myEntity, {
@@ -790,6 +798,8 @@ To remove shadows from a _glTF_ model, you can set the `castShadows` property to
 
 
 ```ts
+import { GltfNodeModifiers} from '@dcl/sdk/ecs'
+
 GltfNodeModifiers.create(
   myEntity,
   {
