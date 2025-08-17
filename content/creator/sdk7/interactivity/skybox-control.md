@@ -21,7 +21,7 @@ To set the skybox in your scene to a fixed time of day, add the following sectio
 
 ```json
  "skyboxConfig": {
-    "fixedTimeOfDay": 36000
+    "fixedTime": 36000
   }
 ``` 
 
