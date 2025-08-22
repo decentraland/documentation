@@ -36,7 +36,7 @@ Learn more about creating in Decentraland with the [Creator Docs]({{< ref "/cont
 {{< details class="faq-details" anchor="true" title="Is it possible to monetize my creations?" >}}
 
 Yes, of course! Decentraland creators are able to monetize their skills in many ways.
-Wearable and Emote creators publish their creations in the Marketplace, paying a $100 USD [**publication fee**]({{< ref "/content/creator/wearables-and-emotes/manage-collections/creating-a-collection.md#publication-fees" >}}) which goes to the DAO to fund [**community grants**]({{< ref "/content/player/dao/overview/the-dao-fund.md" >}}), and as a result earn 97.5% of the profits on all primary sales and 2.5% royalties on any secondary sales.
+Wearable and Emote creators publish their creations in the Marketplace, paying a $100 USD [**publication fee**]({{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md#publication-fees" >}}) which goes to the DAO to fund [**community grants**]({{< ref "/content/player/dao/overview/the-dao-fund.md" >}}), and as a result earn 97.5% of the profits on all primary sales and 2.5% royalties on any secondary sales.
 Some scene creators monetize their experiences, the revenue of which they are able to keep fully for themselves, and lastly many creators offer their services for hire through [**Decentraland Studios**](https://studios.decentraland.org/).
 
 {{</ details >}}
