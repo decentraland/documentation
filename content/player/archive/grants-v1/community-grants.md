@@ -14,7 +14,7 @@ The Decentraland DAO possesses a [MANA fund]({{< ref "/content/player/dao/overvi
 
 This grants program allows any member of the community to request funding to help reimburse their efforts in community building and education, creating 3D content for the world, or implementing new features and improvements to the platform.
 
-Grants can be requested by [completing a proposal]({{< ref "/content/player/dao/grants/requesting-grants.md" >}}) form within the [DAO](https://governance.decentraland.org). If approved by the community, then the [DAO Committee]({{< ref "/content/player/dao/overview/how-does-the-dao-work.md#dao-committee" >}}) will execute the [transfer of funds]({{< ref "/content/player/dao/grants/receiving-grants.md" >}}) to the grant beneficiary by means of a one-time transfer, or a vesting contract.
+Grants can be requested by [completing a proposal]({{< ref "/content/player/archive/grants/requesting-grants.md" >}}) form within the [DAO](https://governance.decentraland.org). If approved by the community, then the [DAO Committee]({{< ref "/content/player/dao/overview/how-does-the-dao-work.md#dao-committee" >}}) will execute the [transfer of funds]({{< ref "/content/player/archive/grants/receiving-grants.md" >}}) to the grant beneficiary by means of a one-time transfer, or a vesting contract.
 
 ## Grant categories
 

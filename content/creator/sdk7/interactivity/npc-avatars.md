@@ -76,6 +76,49 @@ Transform.create(myAvatar, {
 
 The `expressionTriggerId` field supports all [default animations]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#default-animations">}}), as well as custom animations [from a scene file]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#custom-animations">}}), and even URNs from emotes that are published to the marketplace.
 
+### Looping Animations
+
+Animations on an `AvatarShape` play once, if you want the avatar to keep looping an animation, you should create a system that tells it to play the animation again every couple of seconds.
+
+Use the `expressionTriggerTimestamp` to replay a same emote. The value of this field is a [lamport timestamp](https://en.wikipedia.org/wiki/Lamport_timestamp), meaning that it's not a time value, but rather an index that is raised by 1 for each repetition of the emote. 
+
+So the first time you play an emote, you set `expressionTriggerTimestamp` to _0_. To play the emote again, you must update this value to 1. That's how the engine knows that this is a new instruction, and not an instruction it already acted upon.
+
+The following snippet creates a system that runs a same emote every 2 seconds:
+
+```ts
+const myAvatar = engine.addEntity()
+AvatarShape.create(myAvatar, {
+	id: '',
+	emotes: [],
+	wearables: [],
+	expressionTriggerId: 'clap',
+    expressionTriggerTimestamp: 0
+})
+
+Transform.create(myAvatar, {
+	position: Vector3.create(4, 0.25, 5),
+})
+
+let clapTimer = 0
+let emoteDuration = 2  // 2 seconds
+
+// system
+engine.addSystem((dt: number) => {
+    clapTimer += dt
+      
+    if (clapTimer >= emoteDuration) {
+        // Trigger the clap emote
+        AvatarShape.getMutable(wearable).expressionTriggerTimestamp =+ 1 
+        
+        clapTimer = 0 // Reset timer
+    }
+})
+```
+
+{{< hint info >}}
+**💡 Tip**: You must know the duration of the emote, and make that the duration of the system. If you create an emote that fixes the avatar still in a same pose, it's recommendable to make the duration of the emote longer than the system. That way, you can make sure that there are no artifacts when finishing and resetting the animation. 
+{{< /hint >}}
 
 ## Copy wearables from player
 

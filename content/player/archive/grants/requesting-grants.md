@@ -12,7 +12,7 @@ url: /player/general/dao/overview/requesting-grants
 weight: 3
 ---
 
-To [request a grant]({{< ref "/content/player/dao/grants/community-grants.md" >}}) from the Decentraland DAO, begin by navigating to **[governance.decentraland.org](https://governance.decentraland.org)** click on the button “start voting” and sign in with your wallet.
+To [request a grant]({{< ref "/content/player/archive/grants/community-grants.md" >}}) from the Decentraland DAO, begin by navigating to **[governance.decentraland.org](https://governance.decentraland.org)** click on the button “start voting” and sign in with your wallet.
 
 
 Head to the Grants tab and on the lower left side of the platform you’ll see a REQUEST A GRANT button. 
@@ -142,7 +142,7 @@ Depending on the category you have applied to, you will have different performan
 
 ## Final Consent
 Here you are asked to review and check the following:
-* [Grants Framework]({{< ref "/content/player/dao/grants/community-grants.md" >}})
+* [Grants Framework]({{< ref "/content/player/archive/grants/community-grants.md" >}})
 * [Content Policy](https://decentraland.org/content) 
 * [Terms of Use](https://decentraland.org/terms) 
 * [Code of Ethics](https://decentraland.org/ethics) 

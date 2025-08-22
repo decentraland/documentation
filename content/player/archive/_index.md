@@ -1,5 +1,4 @@
 ---
 bookCollapseSection: false
-weight: 20
-title: Blockchain
+weight: 5
 ---

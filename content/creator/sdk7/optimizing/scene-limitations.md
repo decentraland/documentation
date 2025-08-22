@@ -52,6 +52,14 @@ Below are the maximum number of elements that a scene is allowed to render at th
 
 - **Max file size** `50 MB per file` No individual file of any type in the scene can exceed 50 MB. Small scenes are restricted further because the file mustn't exceed their Total File Size limit (For example, a single-parcel scene is limited to 15 MB total).
 
+
+{{< hint info >}}
+**💡 Tip**: Not all files in your scene project folder count for the file size limit, only those that are uploaded to servers. 
+All of the contents of the _node_modules_ folder, which are very large, are dependencies that are not uploaded and therefore don't count. The same applies to any files in the `/src` folder, since the source code is not uploaded.
+
+You can list any other files or folders you want to exclude from being uploaded in the `.dclignore` file in your project.
+{{< /hint >}}
+
 ## Optimizing
 
 See [Performance Optimization]({{< ref "/content/creator/sdk7/optimizing/performance-optimization.md" >}}) for tips about how you can keep your scene below these limits and make it run smoother for players.

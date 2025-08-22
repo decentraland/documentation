@@ -10,7 +10,7 @@ weight: 2
 ---
 
 
-If your [grant request]({{< ref "/content/player/dao/grants/community-grants.md" >}}) was approved by the DAO, congratulations! Following is an overview of what happens when your grant is approved, the actions you need to take to receive your funding, and how you are expected to report your work to the community.
+If your [grant request]({{< ref "/content/player/archive/grants/community-grants.md" >}}) was approved by the DAO, congratulations! Following is an overview of what happens when your grant is approved, the actions you need to take to receive your funding, and how you are expected to report your work to the community.
 
 
 ## Receiving your funds

@@ -103,3 +103,17 @@ Check the Random Offset box to randomly offset the spawning players around the s
 Set the Camera Target to set the direction in which players start looking when they jump into your scene. This allows you to have better control over their first impression.
 
 Click **Add Spawn Point** to include as many spawn points as you want. Players will randomly appear in one of those.
+
+
+## Skybox Control
+
+You can control the skybox time of day in the **Settings** tab. You can set a fixed time of day for your scene. All players will see the scene with this time of day, and the skybox will not follow the day/night cycle.
+
+In the Creator Hub, open the scene settings and click on the **Settings** tab to find the **Skybox** section. Uncheck the **Auto** option to avoid using the day/night cycle and set the time of day you want.
+
+<img src="/images/editor/fixed-time-of-day.png" alt="Scene name" width="300"/>
+
+
+
+
+

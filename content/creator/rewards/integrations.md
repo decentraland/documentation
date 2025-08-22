@@ -26,11 +26,11 @@ Keep in mind that determined users with enough technical knowledge could potenti
 
 The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
 
-- [Limit Assignments]({{< ref "/content/creator/rewards/api.md" >}}#limit-assignments)
-- [Beneficiary Signature]({{< ref "/content/creator/rewards/api.md" >}}#beneficiary-signature)
-- [Captcha Protection]({{< ref "/content/creator/rewards/api.md" >}}#captcha-protection)
-- [Connected to Decentraland]({{< ref "/content/creator/rewards/api.md" >}}#connected-to-decentraland)
-- [Position inside Decentraland]({{< ref "/content/creator/rewards/api.md" >}}#position-inside-decentraland) (if it applies to your use case)
+- [Limit Assignments]({{< ref "/content/contributor/land/api.md" >}}#limit-assignments)
+- [Beneficiary Signature]({{< ref "/content/contributor/land/api.md" >}}#beneficiary-signature)
+- [Captcha Protection]({{< ref "/content/contributor/land/api.md" >}}#captcha-protection)
+- [Connected to Decentraland]({{< ref "/content/contributor/land/api.md" >}}#connected-to-decentraland)
+- [Position inside Decentraland]({{< ref "/content/contributor/land/api.md" >}}#position-inside-decentraland) (if it applies to your use case)
 
 ### Example
 
@@ -80,7 +80,7 @@ You can easily integrate Rewards with the [Decentraland Quests]({{< ref "/conten
 
 The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
 
-- [Limit Assignments]({{< ref "/content/creator/rewards/api.md" >}}#limit-assignments) (if it applies to your use case)
+- [Limit Assignments]({{< ref "/content/contributor/land/api.md" >}}#limit-assignments) (if it applies to your use case)
 
 Any other of the other flags will make your integration fail, avoid using them.
 
@@ -116,7 +116,7 @@ You can integrate Rewards directly from your server, which is ideal for performi
 
 The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
 
-- [Limit Assignments]({{< ref "/content/creator/rewards/api.md" >}}#limit-assignments) (if it applies to your use case)
+- [Limit Assignments]({{< ref "/content/contributor/land/api.md" >}}#limit-assignments) (if it applies to your use case)
 
 Enabling any of the other flags could complicate your integration or, depending on your use case, potentially cause it to fail. Therefore, it is not recommend using them unless there is a specific need. However, you may want to explore their potential benefits.
 

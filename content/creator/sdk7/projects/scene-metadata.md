@@ -135,9 +135,6 @@ There is a third category for scenes: 🔴 `R` for Restricted. This rating is ma
 
 Scenes with this rating won't load and no one will be able to interact with them. If your scene falls into this category, you should review and update it to comply with the [Content Policy](https://decentraland.org/content).
 
-{{< hint warning >}}
-**📔 Note**: Incorrectly categorizing your scene may result in player reports and subsequent moderation actions. For more details, refer to [Age Rating and Scene Reporting]({{< ref "/content/player/exploring/age-rating.md" >}}).
-{{< /hint >}}
 
 ## Feature Toggles
 
@@ -437,7 +434,14 @@ The above commands all generate rectangular-shaped scenes. Decentraland scenes c
 
 ## Skybox time of day
 
-To set the skybox in your scene to a fixed time of day, add the following section to your `scene.json` at root level:
+You can set a fixed time of day for your scene. All players will see the scene with this time of day, and the skybox will not follow the day/night cycle.
+
+Open the scene settings and click on the **Settings** tab to find the **Skybox** section. Uncheck the **Auto** option and set the time of day you want.
+
+<img src="/images/editor/fixed-time-of-day.png" alt="Scene name" width="300"/>
+
+
+You can also set the skybox time of day in your scene code. To do this, add the following section to your `scene.json` at root level:
 
 ```json
  "skyboxConfig": {

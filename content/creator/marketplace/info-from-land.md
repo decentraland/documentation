@@ -48,3 +48,4 @@ The `dcl status` command returns a list with the files deployed to a scene. This
 The `dcl info` command also lets you see info about an Ethereum wallet and the LAND tokens that it owns.
 
 - `dcl info xxxx`, where _xxxx_ is the Ethereum address you're interested in, returns a list of all the LAND parcels and estates owned by that address and their details.
+

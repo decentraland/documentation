@@ -27,8 +27,6 @@ Digital wallets are tools that work as a bridge between the blockchain and the d
 
 If you want to fully enjoy the Decentraland experience, we highly recommend you get yourself a digital wallet. Why? Because it will work as your personal account, allowing you to connect from different devices, keeping all your digital assets (such as names, collectibles, LANDs) and progress safe.
 
-If you choose to experience Decentraland without a wallet, the information will be only be locally stored: you will be able to walk around, customize your avatar and chat with others in-world, but you won’t have the chance to receive daily rewards, participate in events or log in with a different device using the same Guest ID and Avatar.
-
 ## How do I get a digital wallet?
 
 To enter Decentraland, you must use a wallet that is integrated to your web browser, so we recommend you [MetaMask](https://metamask.io/)
