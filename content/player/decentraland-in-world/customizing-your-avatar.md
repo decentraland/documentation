@@ -16,7 +16,7 @@ In Decentraland—with community-made Wearables and Emotes—you can shape your 
 
 Edit your avatar’s appearance in the Backpack. Look for a backpack icon in the sidebar menu. Here you can change your avatar’s body features and attire. 
 
-<img src="\images\media\backpack1.png" width="500" />
+<img src="\images\media\backpack1.png" width="700" />
 
 **Getting More Wearables**
 
@@ -26,13 +26,13 @@ In addition to the free, starter items that are always available in your Backpac
 
 Emotes are animations that allow your avatar to express reactions, perform dance moves, or engage in activities such as yoga or painting. You can trigger them from the Emote Wheel when you press ‘**B**’ or click on the dancing figure icon in the sidebar menu.
 
-<img src="\static\images\media\emote1.png" width="500" />
+<img src="images\media\emote1.png" width="700" />
 
 **Customizing Your Emote Wheel**
 
 The Emote Wheel has 10 slots for different Emotes. You can customize which Emotes appear there from your Backpack. 
 
-<img src="\images\media\backpack2.png" width="500" />
+<img src="\images\media\backpack2.png" width="700" />
 
 **Getting More Emotes**
 
