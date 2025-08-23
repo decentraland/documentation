@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
 weight: 3
-title: Decentrlaland In-World
+title: Decentraland In-World
 ---
