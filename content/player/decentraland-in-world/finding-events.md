@@ -1,7 +1,7 @@
 ---
 date: 2024-11-20
-title: Finding Events
-_hide_title: true
+title: 
+menuTitle: Finding Events
 description: Exploring Decentraland Finding Events
 categories:
   - Finding Events
@@ -10,6 +10,7 @@ url: /player/decentraland-in-world/finding-events
 weight: 4
 ---
 
+# Events
 
 The best way to meet new people in Decentraland is to attend events! Anyone in the community can submit an event to Decentraland’s Event page, so you can discover a wide variety of events, from annual music festivals to weekly hang outs, if you stay updated.
 
@@ -21,3 +22,5 @@ The best way to meet new people in Decentraland is to attend events! Anyone in 
 - Follow Decentraland [**socials**](https://twitter.com/decentraland) or [**subscribe**](https://decentraland.beehiiv.com/subscribe) to the weekly newsletter to stay updated
 
 Want to submit your own event? Learn more [**here**](https://www.youtube.com/watch?v=jMNk_W1yqjU).
+
+
