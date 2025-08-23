@@ -43,6 +43,7 @@ To create your first Estate, you need to own two or more adjacent LAND parcels.
 2. In the parcel's details page, click **Create Estate**.
 3. You will be shown a view of the Atlas centered on the parcel you selected, with the remaining adjacent parcels you own highlighted. Select the different parcels you want to include in your Estate.
    ![](/images/media/market_estates1.png)
+   ![](/images/media/market_estates3.png)
 
 4. Click **Continue**.
 5. Enter a name and description for your Estate. These details will be publicly displayed in the Atlas, just like the name and description for any individual parcel.
