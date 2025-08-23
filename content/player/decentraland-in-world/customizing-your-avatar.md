@@ -16,9 +16,9 @@ In Decentraland—with community-made Wearables and Emotes—you can shape your 
 
 Edit your avatar’s appearance in the Backpack. Look for a backpack icon in the sidebar menu. Here you can change your avatar’s body features and attire. 
 
-<img src="\images\media\backpack1.png" width="800" />
+<img src="\images\media\backpack1.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
-**Getting More Wearables**
+## Getting More Wearables
 
 In addition to the free, starter items that are always available in your Backpack, you can choose from thousands of community-made Wearables in Decentraland’s Marketplace at [decentraland.org/marketplace](http://decentraland.org/marketplace). Featuring everything from clothing, hair styles, full skins, and more, you’re sure to find what you need to create your unique look. Purchased items will appear in your Backpack in-world.
 
@@ -26,15 +26,15 @@ In addition to the free, starter items that are always available in your Backpac
 
 Emotes are animations that allow your avatar to express reactions, perform dance moves, or engage in activities such as yoga or painting. You can trigger them from the Emote Wheel when you press ‘**B**’ or click on the dancing figure icon in the sidebar menu.
 
-<img src="\images\media\emote1.png" width=100% />
+<img src="\images\media\emote1.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
-**Customizing Your Emote Wheel**
+## Customizing Your Emote Wheel
 
 The Emote Wheel has 10 slots for different Emotes. You can customize which Emotes appear there from your Backpack. 
 
-<img src="\images\media\backpack2.png" width="750" />
+<img src="\images\media\backpack2.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
-**Getting More Emotes**
+## Getting More Emotes
 
 Like the starter Wearables in your Backpack, your avatar will always have the free, basic  Emotes available to everyone, but there’s even more community-made Emotes waiting to be discovered in Decentraland’s Marketplace at [decentraland.org/marketplace](http://decentraland.org/marketplace). Any Emotes you purchase will appear in your Backpack in-world.
 
