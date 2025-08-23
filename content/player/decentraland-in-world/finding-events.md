@@ -10,27 +10,17 @@ weight: 4
 ---
 
 
-Decentraland consists of the open, traversable Genesis City made up of community parcels that are referenced by coordinates (e.g. Genesis Plaza, Decentraland’s central default spawn point is 0,0), as well as individual Worlds, more intimate 3D spaces in the Decentraland ecosystem that can be teleported into.
-
-<img src="/images/players/Genesis-City-2024.png" width="500" />
-
-To explore **Genesis City**, you can run around using your arrow or WASD keys, jump to locations by clicking on them from the map, or teleport with chat commands.
-
-Chat commands are used to trigger actions, such as teleporting or reloading, by entering specific text into the chat box in-world. To use one, just open the chat box, type the command, and hit enter.
-
-- **Teleporting around Genesis City**
-  `/goto x,y` (x,y are the coordinates of a scene)
-
-- **Visiting Worlds**
-  `/goto World’sName`
-
-- **Reloading a Scene**
-  `/reload`
-
-- **Open Debug Mode (shows FPS and other metrics)**
-  `/debug`
-
-- **Discover More Chat Commands**
-  `/help`
-
 The best way to discover interesting places and meet new people is to attend [events]({{< ref "/content/player/FAQs/posting-events.md">}}) – jump in and start chatting! Alternatively, you can run freely through Decentraland for a surprise adventure. Make sure to visit the boundaries of the city to watch a peaceful sunrise or sunset over the ocean.
+
+# Events
+
+The best way to meet new people in Decentraland is to attend events! Anyone in the community can submit an event to Decentraland’s Event page, so you can discover a wide variety of events, from annual music festivals to weekly hang outs, if you stay updated.
+
+**How check current and upcoming events in Decentraland:**
+
+- **Event Page:** Browse Decentraland’s Event page at [decentraland.org/events](http://decentraland.org/events). You can jump directly to live events or RSVP to upcoming events to get an in-world notification when they start.
+- **Genesis Plaza:** Check the Event board when you land in Genesis Plaza. It will display events happening soon.
+- **World Map:** To see where live events are happening, open the map in-world and look for a red and white icon. Clicking on it will bring up event info and a jump in button.
+- Follow Decentraland [**socials**](https://twitter.com/decentraland) or [**subscribe**](https://decentraland.beehiiv.com/subscribe) to the weekly newsletter to stay updated
+
+Want to submit your own event? Learn more [**here**](https://www.youtube.com/watch?v=jMNk_W1yqjU).
