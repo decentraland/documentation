@@ -106,7 +106,7 @@ A collection of invisible shapes that can block players from walking through or 
 when to use,
 models without colliders, link to collider properties for alternatives, link to 3d models colliders doc -->
 
-### Click area
+### Click area
 
 An invisible cube that can be clicked by players to trigger actions on any other smart items. This item can be enabled or disabled by any other smart item, when disabled it won't be clickable. You can also set the text that players see when pointing their cursor at it.
 
