@@ -913,6 +913,19 @@ function checkCameraMode() {
 engine.addSystem(checkCameraMode)
 ```
 
+#### Trigger Emotes
+```typescript
+import { triggerEmote, triggerSceneEmote } from '~system/RestrictedActions'
+
+// Default emote
+triggerEmote({ predefinedEmote: 'robot' })
+
+// Custom emote (file must end with _emote.glb)
+triggerSceneEmote({ src: 'animations/Snowball_Throw_emote.glb', loop: false })
+```
+Notes:
+- Plays only while the player is still; walking/jumping interrupts.
+
 #### Cursor State
 ```typescript
 // Check if cursor is locked
@@ -1224,6 +1237,26 @@ Transform.create(mannequin, {
 ```
 Use this to showcase items (e.g., storefront mannequins).
 
+### Input Modifiers
+```typescript
+import { InputModifier } from '@dcl/sdk/ecs'
+
+// Freeze player
+InputModifier.create(engine.PlayerEntity, {
+  mode: InputModifier.Mode.Standard({ disableAll: true })
+})
+
+// Restrict specific locomotion
+InputModifier.createOrReplace(engine.PlayerEntity, {
+  mode: InputModifier.Mode.Standard({
+    disableRun: true,
+    disableJump: true,
+    disableEmote: true
+  })
+})
+```
+Note: Supported in the DCL 2.0 desktop client; only affects the local player inside scene bounds.
+
 ### Move Player
 
 #### Teleport Player
@@ -1280,6 +1313,18 @@ function runtimeSystem() {
 }
 
 engine.addSystem(runtimeSystem)
+```
+
+#### Scene Metadata (getSceneInformation)
+```typescript
+import { getSceneInformation } from '~system/Runtime'
+
+executeTask(async () => {
+  const info = await getSceneInformation({})
+  if (!info) return
+  const sceneJson = JSON.parse(info.metadataJson)
+  console.log(sceneJson.scene?.parcels, sceneJson.spawnPoints)
+})
 ```
 
 ### Skybox Control
@@ -3304,6 +3349,8 @@ Only reference by name inside `main()`, systems, or functions called after `main
 
 #### Iterate named entities and fetch children
 ```typescript
+import { Name } from '@dcl/sdk/ecs'
+
 // Iterate all named entities
 for (const [entity, name] of engine.getEntitiesWith(Name)) {
   console.log({ entity, name })
