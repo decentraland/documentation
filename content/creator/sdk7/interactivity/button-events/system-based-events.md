@@ -27,7 +27,7 @@ For example, the following system uses the `inputSystem.isTriggered()` function 
 
 ```ts
 engine.addSystem(() => {
-	if (inputSystem.isTriggered(InputAction.IA_POINTER)) {
+	if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_DOWN)) {
 		// Logic in response to button press
 	}
 })
