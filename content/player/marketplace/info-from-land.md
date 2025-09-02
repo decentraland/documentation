@@ -35,7 +35,7 @@ The `dcl status` command returns a list with the files deployed to a scene. This
 
 {{< hint warning >}}
 **📔 Note**: Don't add a space between both coordinates.
-{{< /hint >}}
+{{< /hint >}} 
 
 - `dcl status id`, where _id_ is an estate id, returns info about the scene with that estate id.
 
