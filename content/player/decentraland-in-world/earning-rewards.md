@@ -9,27 +9,27 @@ url: /player/decentraland-in-world/earning-rewards
 weight: 6
 ---
 
-Decentraland consists of the open, traversable Genesis City made up of community parcels that are referenced by coordinates (e.g. Genesis Plaza, Decentraland’s central default spawn point is 0,0), as well as individual Worlds, more intimate 3D spaces in the Decentraland ecosystem that can be teleported into.
+# Earning Rewards
 
-<img src="/images/players/Genesis-City-2024.png" width="500" />
+Exploring Decentraland, you never know what you’ll find—sometimes treasure in the form of Wearable and Emote giveaways! But those can depend on the particular scene or if a special event is happening. 
 
-To explore **Genesis City**, you can run around using your arrow or WASD keys, jump to locations by clicking on them from the map, or teleport with chat commands.
+If you’re on the hunt for *guaranteed goodies*, look no farther than Decentraland’s Weekly Marketplace Credit Rewards and the multi-day Gaming Quest.
 
-Chat commands are used to trigger actions, such as teleporting or reloading, by entering specific text into the chat box in-world. To use one, just open the chat box, type the command, and hit enter.
+## Weekly Marketplace Credits Rewards
 
-- **Teleporting around Genesis City**
-  `/goto x,y` (x,y are the coordinates of a scene)
+Marketplace Credits can be used in Decentraland’s Marketplace to buy Wearables and Emotes for free! 1 Credit = 1 MANA in value. As long as a Credit season is currently active, anyone can earn Credits in exchange for completing weekly goals, such as jumping into Decentraland regularly and attending events. 
 
-- **Visiting Worlds**
-  `/goto World’sName`
+Click on the Marketplace Credit icon in the sidebar menu to open your Weekly Rewards interface. There you can track your progress towards your weekly goals and your Credit balance. Learn more about Marketplace Credits [here](https://decentraland.org/blog/announcements/marketplace-credits-earn-weekly-rewards-to-power-up-your-look).
 
-- **Reloading a Scene**
-  `/reload`
+<img src="/static/images/media/Credits.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
-- **Open Debug Mode (shows FPS and other metrics)**
-  `/debug`
+## Gaming Quest
 
-- **Discover More Chat Commands**
-  `/help`
+If you’re looking for a challenge that comes with great rewards, the Gaming Quest is for you! You can access it at anytime by clicking on the treasure chest icon to the right of the Mini Map. 
 
-The best way to discover interesting places and meet new people is to attend [events]({{< ref "/content/player/FAQs/posting-events.md">}}) – jump in and start chatting! Alternatively, you can run freely through Decentraland for a surprise adventure. Make sure to visit the boundaries of the city to watch a peaceful sunrise or sunset over the ocean.
+<img src="/static/images/media/quest.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+
+Currently, the Quest comprises 25 days of gaming challenges, each with its own Wearable or Emote prize. If you open the map, you’ll see purple treasure chest icons marking the locations of the current day’s Gaming Quest challenges—you can also teleport directly to the challenge locations by clicking on the red arrows next to each task. Once you complete all the challenges for the current day, that day’s prize will be sent to your Backpack!
+
+<img src="/static/images/media/gamepad.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+

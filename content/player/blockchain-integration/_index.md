@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: false
 weight: 20
-title: Blockchain
+title: Blockchain 101
 ---

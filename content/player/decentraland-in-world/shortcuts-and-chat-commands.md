@@ -9,27 +9,33 @@ url: /player/decentraland-in-world/shortcuts-and-chat-commands
 weight: 10
 ---
 
-Decentraland consists of the open, traversable Genesis City made up of community parcels that are referenced by coordinates (e.g. Genesis Plaza, Decentraland’s central default spawn point is 0,0), as well as individual Worlds, more intimate 3D spaces in the Decentraland ecosystem that can be teleported into.
+# Shortcuts & Chat Commands
 
-<img src="/images/players/Genesis-City-2024.png" width="500" />
+<img src="/static/images/media/Shortcuts.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
-To explore **Genesis City**, you can run around using your arrow or WASD keys, jump to locations by clicking on them from the map, or teleport with chat commands.
+## Keyboard Shortcuts
 
-Chat commands are used to trigger actions, such as teleporting or reloading, by entering specific text into the chat box in-world. To use one, just open the chat box, type the command, and hit enter.
+In addition to using the WASD or arrow keys to move your avatar around Decentraland, your keyboard can do a lot more for you when you’re in-world. All the keyboard shortcuts are shown above. You can pull up this graphic in-world whenever you need it, just click the keyboard icon in the sidebar menu.
 
-- **Teleporting around Genesis City**
-  `/goto x,y` (x,y are the coordinates of a scene)
+**Remember these shortcuts:**
 
-- **Visiting Worlds**
-  `/goto World’sName`
+- [**B**]: Open Emote Wheel
+- [**Shift**]: Run while moving
+- [**C**]: Open Camera
+- [**K**]: Open Photo Gallery
+- [**U**]: Show/Hide UI
+- [**N**]: Show/Hide nametags
 
-- **Reloading a Scene**
-  `/reload`
+## Chat Commands
 
-- **Open Debug Mode (shows FPS and other metrics)**
-  `/debug`
+When you’re in-world, you can always see a chat bar in the lower left corner of your screen. This is where you can access chats with your friends, as well as the **Nearby Chat**. Identifiable by the Decentraland icon, Nearby Chat is where you can chat freely with people around you in-world, even if you aren’t friends. The Nearby Chat can also be used for entering Chat commands that only you will see.
 
-- **Discover More Chat Commands**
-  `/help`
+Chat commands are specific strings of text used to trigger actions, such as teleporting or reloading. To use one, type the command in the Nearby Chat, and hit [**Enter**].
 
-The best way to discover interesting places and meet new people is to attend [events]({{< ref "/content/player/FAQs/posting-events.md">}}) – jump in and start chatting! Alternatively, you can run freely through Decentraland for a surprise adventure. Make sure to visit the boundaries of the city to watch a peaceful sunrise or sunset over the ocean.
+- **Teleporting around Genesis City** `/goto x,y` (e.g. `/goto 0,0` for Genesis Plaza)
+- **Visiting Worlds** `/goto World’sName` (e.g. `/goto officehours`)
+- **Reloading a Scene** `/reload`
+- **Open Debug Mode (shows FPS and other metrics)** `/debug`
+- **Discover More Chat Commands** `/help`
+
+<img src="/static/images/media/Chat10.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />

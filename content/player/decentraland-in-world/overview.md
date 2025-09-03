@@ -9,27 +9,25 @@ url: /player/exploring-decentraland/overview
 weight: 1
 ---
 
-Decentraland consists of the open, traversable Genesis City made up of community parcels that are referenced by coordinates (e.g. Genesis Plaza, Decentraland’s central default spawn point is 0,0), as well as individual Worlds, more intimate 3D spaces in the Decentraland ecosystem that can be teleported into.
 
-<img src="/images/players/Genesis-City-2024.png" width="500" />
+# Decentraland In-World Overview
 
-To explore **Genesis City**, you can run around using your arrow or WASD keys, jump to locations by clicking on them from the map, or teleport with chat commands.
+<img src="/static/images/players/minimapGP.png" width=100% />
 
-Chat commands are used to trigger actions, such as teleporting or reloading, by entering specific text into the chat box in-world. To use one, just open the chat box, type the command, and hit enter.
+Decentraland’s main landmass, Genesis City.
 
-- **Teleporting around Genesis City**
-  `/goto x,y` (x,y are the coordinates of a scene)
+**‘In-World**’ refers to anything happening inside Decentraland’s virtual world—this is where the magic happens! 
 
-- **Visiting Worlds**
-  `/goto World’sName`
+## **How to Jump Into Decentraland**
 
-- **Reloading a Scene**
-  `/reload`
+To enter the virtual world, you must first download [Decentraland’s desktop app](https://decentraland.org/download/). Once you’ve installed it and logged into your Decentraland account, you can start exploring Decentraland’s Genesis City (pictured above), and it’s archipelago of off-map Worlds. 
 
-- **Open Debug Mode (shows FPS and other metrics)**
-  `/debug`
+## Genesis City vs. Worlds: Decentraland’s Landscape Explained
 
-- **Discover More Chat Commands**
-  `/help`
+**Genesis City** is the main landmass of Decentraland, visible on the virtual world’s map. It’s made up of thousands of community-owned LAND parcels, each 16m x 16m in size, and traded in [Decentraland’s Marketplace](https://decentraland.org/marketplace/lands). As the city is laid out in a massive, four-quadrant grid, each parcel is referenced by a set of coordinates—at the very center (0,0), lies Decentraland’s default spawn point: Genesis Plaza.
 
-The best way to discover interesting places and meet new people is to attend [events]({{< ref "/content/player/FAQs/posting-events.md">}}) – jump in and start chatting! Alternatively, you can run freely through Decentraland for a surprise adventure. Make sure to visit the boundaries of the city to watch a peaceful sunrise or sunset over the ocean.
+Despite being a patchwork of individually-owned parcels, Genesis City is unique in its openness and traversability. If you’re looking for an adventure, just take a walk across the map—there’s always something new to discover from Decentraland’s global community!
+
+In contrast to Genesis City LAND parcels, **Worlds** are more intimate virtual spaces, like personal islands located off the Decentraland map. While you can’t walk to them, you can teleport to a World if you know its name or have an invite link. Unlock your own World by [getting a Decentraland NAME](https://decentraland.org/marketplace/names/claim). It’s your space to use as you wish—set it as private or public, host events, or practice your building skills. Learn more about NAMEs [here](https://docs.decentraland.org/player/FAQs/decentraland-101/#what-is-a-name).
+
+Learn more about how to explore and navigate Decentraland [**here**]({{< ref "/content/player/FAQs/decentraland-101.md#what-is-a-name" >}}).

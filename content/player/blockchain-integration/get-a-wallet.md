@@ -23,9 +23,9 @@ Digital wallets are tools that work as a bridge between the blockchain and the d
 
 ## Do I need a wallet to play in Decentraland?
 
-<img src="/images/media/get-a-wallet-wallet.png" style="max-width: 400px;margin: 2rem auto;display: block;" />
+No, you do not need to own crypto or already have a digital wallet to use Decentraland. Decentraland is free to use, and if you’d like to purchase something from the [**Marketplace**](https://market.decentraland.org/), you can use a credit/debit card in addition to cryptocurrency.
 
-If you want to fully enjoy the Decentraland experience, we highly recommend you get yourself a digital wallet. Why? Because it will work as your personal account, allowing you to connect from different devices, keeping all your digital assets (such as names, collectibles, LANDs) and progress safe.
+See a tutorial for [**making an account with a social profile**](https://www.youtube.com/watch?v=ylZrPisyPl4) or [**with an external wallet like MetaMask**](https://www.youtube.com/watch?v=w3CCVrVe1M4).
 
 ## How do I get a digital wallet?
 

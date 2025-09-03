@@ -10,27 +10,35 @@ weight: 8
 ---
 
 
-Decentraland consists of the open, traversable Genesis City made up of community parcels that are referenced by coordinates (e.g. Genesis Plaza, Decentraland’s central default spawn point is 0,0), as well as individual Worlds, more intimate 3D spaces in the Decentraland ecosystem that can be teleported into.
+## Your Profile
 
-<img src="/images/players/Genesis-City-2024.png" width="500" />
+In-world, your profile helps others get to know who you are. When you hover over someone’s avatar, the option to ‘View Profile’ will appear. To view and edit your own profile, click on your profile picture, located at the top of the sidebar menu, on the left of your screen.
 
-To explore **Genesis City**, you can run around using your arrow or WASD keys, jump to locations by clicking on them from the map, or teleport with chat commands.
+You’ll see a pencil icon next to the Profile components you can edit, such as your username and ‘About Me’ section. Writing a little bit about yourself and your interests can make it easier to make friends, but be mindful not to share sensitive personal information.
 
-Chat commands are used to trigger actions, such as teleporting or reloading, by entering specific text into the chat box in-world. To use one, just open the chat box, type the command, and hit enter.
+<img src="/static/images/media/enji.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
-- **Teleporting around Genesis City**
-  `/goto x,y` (x,y are the coordinates of a scene)
+## Badges
 
-- **Visiting Worlds**
-  `/goto World’sName`
+Badges are a fun way to celebrate your achievements and activities in Decentraland. They can also say a lot about you! 
 
-- **Reloading a Scene**
-  `/reload`
+Check the Badges tab of your profile to see your Badges progress and what you need to do to unlock a new Badge or the next tier of a Badge you’ve already earned.
 
-- **Open Debug Mode (shows FPS and other metrics)**
-  `/debug`
+<img src="/static/images/media/badge.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
-- **Discover More Chat Commands**
-  `/help`
 
-The best way to discover interesting places and meet new people is to attend [events]({{< ref "/content/player/FAQs/posting-events.md">}}) – jump in and start chatting! Alternatively, you can run freely through Decentraland for a surprise adventure. Make sure to visit the boundaries of the city to watch a peaceful sunrise or sunset over the ocean.
+<img src="/static/images/media/badge2.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+
+## Photos
+
+Help others get to know you by sharing your favorite pictures of your time in Decentraland. 
+
+**How to add a photo to your Profile:**
+
+1. Open your Photo Gallery by clicking on the Picture icon in the sidebar menu. Any pictures you’ve taken with the Camera in-world will appear here.
+2. Click on the 3 dots in the top right corner of the photo you want to share on your profile
+3. Toggle ‘Set as Public’ to the on position
+
+You’re set! Any photo marked as Public will appear in your Profile. To remove a photo, just toggle off the Public setting.
+
+<img src="/static/images/media/Pictures.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
