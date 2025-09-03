@@ -11,7 +11,7 @@ weight: 10
 
 # Shortcuts & Chat Commands
 
-<img src="/static/images/media/Shortcuts.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/Shortcuts.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 ## Keyboard Shortcuts
 
@@ -38,4 +38,4 @@ Chat commands are specific strings of text used to trigger actions, such as tele
 - **Open Debug Mode (shows FPS and other metrics)** `/debug`
 - **Discover More Chat Commands** `/help`
 
-<img src="/static/images/media/Chat10.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/Chat10.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />

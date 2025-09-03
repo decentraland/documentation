@@ -16,7 +16,7 @@ In-world, your profile helps others get to know who you are. When you hover over
 
 You’ll see a pencil icon next to the Profile components you can edit, such as your username and ‘About Me’ section. Writing a little bit about yourself and your interests can make it easier to make friends, but be mindful not to share sensitive personal information.
 
-<img src="/static/images/media/enji.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/enji.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 ## Badges
 
@@ -24,10 +24,10 @@ Badges are a fun way to celebrate your achievements and activities in Decentrala
 
 Check the Badges tab of your profile to see your Badges progress and what you need to do to unlock a new Badge or the next tier of a Badge you’ve already earned.
 
-<img src="/static/images/media/badge.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/badge.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 
-<img src="/static/images/media/badge2.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/badge2.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 ## Photos
 
@@ -41,4 +41,4 @@ Help others get to know you by sharing your favorite pictures of your time in De
 
 You’re set! Any photo marked as Public will appear in your Profile. To remove a photo, just toggle off the Public setting.
 
-<img src="/static/images/media/Pictures.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/Pictures.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />

@@ -12,7 +12,7 @@ weight: 1
 
 # Decentraland In-World Overview
 
-<img src="/static/images/players/minimapGP.png" width=100% />
+<img src="/images/players/minimapGP.png" width=100% />
 
 Decentraland’s main landmass, Genesis City.
 

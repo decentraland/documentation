@@ -33,7 +33,7 @@ The red ‘**Live Events**’ pins show the location of an event that is current
 
 The yellow ‘**Points of Interest**’ pins mark locations the community deemed to be must-see—they could be anything from a game to an impressive work of art. Clicking on the icon will bring up a description and a ‘Jump In’ button to teleport you directly.
 
-<img src="/static/images/media/POS.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/POS.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 ### **Location Categories**
 
@@ -41,7 +41,7 @@ Discoverer interesting locations in Decentraland based on categories. When you o
 
 Click on a category to bring up pins marking the locations tagged with that category. Clicking on one will open an information card with a description as well as a ‘Jump In’ button so you can teleport directly to the scene.
 
-<img src="/static/images/media/Location.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/Location.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 ### **Teleport to Specific Parcels**
 
@@ -62,11 +62,11 @@ While Worlds tend to be more private, you can discover them by browsing Worlds l
 
 Over 1K World owners choose to publicly list their Worlds on the Places page, making them easier to discover. Browse through them and filter by categories to find the perfect World for your daily adventure.
 
-<img src="/static/images/media/worlds.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/worlds.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 Events can also be hosted in Worlds—attending them you can make friends and explore! Below is an example of an event hosted in a World. By the ruby ‘jump in’ arrow, you can see the World’s name in place of Genesis City coordinates.
 
-<img src="/static/images/media/events.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/events.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 ### Teleport to a World
 
