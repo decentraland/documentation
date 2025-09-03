@@ -13,7 +13,7 @@ weight: 3
 
 Decentraland is completely made up of community-generated content. When you’re out exploring, you never know what you might discover—whether it’s on the Genesis City map or in someone’s World! The options can feel overwhelming, so here are a few tips for getting the most out of your adventure.
 
-Learn more about the difference between Genesis City and Worlds [**here**]({{< ref "/content/player/FAQs/decentraland-101.md#what-is-land" >}}).
+Learn more about the difference between Genesis City and Worlds [**here**]({{< ref "/content/player/decentraland-in-world/overview.md#genesis-city-vs-worlds-decentralands-landscape-explained" >}}).
 
 ## Exploring Genesis City
 
@@ -48,7 +48,7 @@ In-world, you can jump directly to a specific parcel using the **Map** or **Chat
 - **Teleportation via Map:** Clicking any location on the Map will bring up an info card on the location, even if it’s an empty parcel. This card will also have a ‘Jump In’ button that will teleport you to the spot.
 - **Teleportation via Chat Command:** If you know the coordinates of the parcel you want to jump to, put the following command into the Nearby chat box (in the bottom left of your screen) and hit [**Enter**].
     - `/goto x,y` (e.g. `/goto 0,0` for Genesis Plaza)
-        - Learn more about Chat Commands [**here**]({{< ref "/content/player/FAQs/decentraland-101.md#what-are-useful-chat-commands-in-decentraland" >}}).
+        - Learn more about Chat Commands [**here**]({{< ref "/content/player/decentraland-in-world/shortcuts-and-chat-commands.md#chat-commands" >}}).
 
 ## Exploring Worlds
 
@@ -64,11 +64,11 @@ Over 1K World owners choose to publicly list their Worlds on the Places page, ma
 
 Events can also be hosted in Worlds—attending them you can make friends and explore! Below is an example of an event hosted in a World. By the ruby ‘jump in’ arrow, you can see the World’s name in place of Genesis City coordinates.
 
-<img src="/images/media/events.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/events.png" width=50% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 ### Teleport to a World
 
 If you know the name of a World, you can teleport to it using a **Chat Command**. Just put the following command into the Nearby chat box (in the bottom left  of your screen) and hit [**Enter**].
 
 - `/goto World’sName`  (e.g. `/goto officehours`)
-    - Learn more about Chat Commands [**here**]({{< ref "/content/player/FAQs/decentraland-101.md#what-are-useful-chat-commands-in-decentraland" >}}).
+    - Learn more about Chat Commands [**here**]({{< ref "/content/player/decentraland-in-world/shortcuts-and-chat-commands.md#chat-commands" >}}).

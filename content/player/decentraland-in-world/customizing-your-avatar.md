@@ -18,7 +18,7 @@ Edit your avatar’s appearance in the Backpack. Look for a backpack icon in the
 
 <img src="/images/media/backpack1.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
-## Getting More Wearables
+### Getting More Wearables
 
 In addition to the free, starter items that are always available in your Backpack, you can choose from thousands of community-made Wearables in Decentraland’s Marketplace at [decentraland.org/marketplace](http://decentraland.org/marketplace). Featuring everything from clothing, hair styles, full skins, and more, you’re sure to find what you need to create your unique look. Purchased items will appear in your Backpack in-world.
 
@@ -45,7 +45,7 @@ The Emote Wheel has 10 slots for different Emotes. You can customize which Emote
 
 <img src="/images/media/backpack2.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
-## Getting More Emotes
+### Getting More Emotes
 
 Like the starter Wearables in your Backpack, your avatar will always have the free, basic  Emotes available to everyone, but there’s even more community-made Emotes waiting to be discovered in Decentraland’s Marketplace at [decentraland.org/marketplace](http://decentraland.org/marketplace). Any Emotes you purchase will appear in your Backpack in-world.
 

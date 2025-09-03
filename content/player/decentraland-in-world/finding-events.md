@@ -9,7 +9,6 @@ url: /player/decentraland-in-world/finding-events
 weight: 4
 ---
 
-# Events
 
 The best way to meet new people in Decentraland is to attend events! Anyone in the community can submit an event to Decentraland’s Event page, so you can discover a wide variety of events, from annual music festivals to weekly hang outs, if you stay updated.
 
@@ -20,6 +19,6 @@ The best way to meet new people in Decentraland is to attend events! Anyone in 
 - **World Map:** To see where live events are happening, open the map in-world and look for a red and white icon. Clicking on it will bring up event info and a jump in button.
 - Follow Decentraland [**socials**](https://twitter.com/decentraland) or [**subscribe**](https://decentraland.beehiiv.com/subscribe) to the weekly newsletter to stay updated
 
-Want to submit your own event? Learn more [**here**](https://www.youtube.com/watch?v=jMNk_W1yqjU).
+Want to submit your own event? Learn more [**here**]({{< ref "/content/player/FAQs/posting-events.md" >}}).
 
 

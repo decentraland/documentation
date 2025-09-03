@@ -9,14 +9,11 @@ url: /player/exploring-decentraland/overview
 weight: 1
 ---
 
-
-# Decentraland In-World Overview
+**‘In-World**’ refers to anything happening inside Decentraland’s virtual world—this is where the magic happens! 
 
 <img src="/images/players/minimapGP.png" width=100% />
 
 Decentraland’s main landmass, Genesis City.
-
-**‘In-World**’ refers to anything happening inside Decentraland’s virtual world—this is where the magic happens! 
 
 ## **How to Jump Into Decentraland**
 
@@ -30,4 +27,4 @@ Despite being a patchwork of individually-owned parcels, Genesis City is unique 
 
 In contrast to Genesis City LAND parcels, **Worlds** are more intimate virtual spaces, like personal islands located off the Decentraland map. While you can’t walk to them, you can teleport to a World if you know its name or have an invite link. Unlock your own World by [getting a Decentraland NAME](https://decentraland.org/marketplace/names/claim). It’s your space to use as you wish—set it as private or public, host events, or practice your building skills. Learn more about NAMEs [here](https://docs.decentraland.org/player/FAQs/decentraland-101/#what-is-a-name).
 
-Learn more about how to explore and navigate Decentraland [**here**]({{< ref "/content/player/FAQs/decentraland-101.md#what-is-a-name" >}}).
+Learn more about how to explore and navigate Decentraland [**here**]({{< ref "/content/player/decentraland-in-world/exploring.md" >}}).
