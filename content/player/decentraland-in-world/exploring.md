@@ -64,7 +64,7 @@ Over 1K World owners choose to publicly list their Worlds on the Places page, ma
 
 Events can also be hosted in Worlds—attending them you can make friends and explore! Below is an example of an event hosted in a World. By the ruby ‘jump in’ arrow, you can see the World’s name in place of Genesis City coordinates.
 
-<img src="/images/media/events.png" width=50% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/events.png" width="50%" style="display:block; margin:30px auto;" />
 
 ### Teleport to a World
 
