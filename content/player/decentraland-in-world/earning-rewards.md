@@ -9,8 +9,6 @@ url: /player/decentraland-in-world/earning-rewards
 weight: 6
 ---
 
-# Earning Rewards
-
 Exploring Decentraland, you never know what you’ll find—sometimes treasure in the form of Wearable and Emote giveaways! But those can depend on the particular scene or if a special event is happening. 
 
 If you’re on the hunt for *guaranteed goodies*, look no farther than Decentraland’s Weekly Marketplace Credit Rewards and the multi-day Gaming Quest.

@@ -11,8 +11,6 @@ weight: 3
 
 
 
-# Exploring
-
 Decentraland is completely made up of community-generated content. When you’re out exploring, you never know what you might discover—whether it’s on the Genesis City map or in someone’s World! The options can feel overwhelming, so here are a few tips for getting the most out of your adventure.
 
 Learn more about the difference between Genesis City and Worlds [**here**]({{< ref "/content/player/FAQs/decentraland-101.md#what-is-land" >}}).

@@ -10,8 +10,6 @@ weight: 7
 ---
 
 
-# Friends & Chatting
-
 Decentraland is all about bringing people from around the world together. Making friends and chatting is key to feeling a part of the virtual world’s community. Here you’ll learn how to manage your friendships and chats.
 
 ## Friendship Management

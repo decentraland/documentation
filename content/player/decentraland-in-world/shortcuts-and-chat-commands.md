@@ -9,8 +9,6 @@ url: /player/decentraland-in-world/shortcuts-and-chat-commands
 weight: 10
 ---
 
-# Shortcuts & Chat Commands
-
 <img src="/images/media/Shortcuts.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 ## Keyboard Shortcuts

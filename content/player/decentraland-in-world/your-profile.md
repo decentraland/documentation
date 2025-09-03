@@ -10,8 +10,6 @@ weight: 8
 ---
 
 
-## Your Profile
-
 In-world, your profile helps others get to know who you are. When you hover over someone’s avatar, the option to ‘View Profile’ will appear. To view and edit your own profile, click on your profile picture, located at the top of the sidebar menu, on the left of your screen.
 
 You’ll see a pencil icon next to the Profile components you can edit, such as your username and ‘About Me’ section. Writing a little bit about yourself and your interests can make it easier to make friends, but be mindful not to share sensitive personal information.
