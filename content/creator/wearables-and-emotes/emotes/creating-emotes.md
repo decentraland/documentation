@@ -278,5 +278,5 @@ If you’re still not sure where to start or need some reference or inspiration,
 
 [Chic.glb](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/chic.glb)
 
-[Glag_Emote.glb](/images/emotes/Flag_Emote.glb)
+[Flag_Emote.glb](/images/emotes/Flag_Emote.glb)
 
