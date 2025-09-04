@@ -18,7 +18,7 @@ Remember that you need to create a collection before you can upload your file. I
 
 <img src="/images/wearables-and-emotes/uploading-emotes/01_new_item.png" width="400" />
 
-_Drag and drop your animation file to upload it._
+Drag and drop your animation file to upload it.
 
 You will be asked to enter a name for your emote, define its rarity, the category and the play mode. Below the thumbnail is shown the number of animation clips in your file, the length of the animation in seconds, the length in frames and the frame rate.
 
@@ -86,7 +86,7 @@ People should be able to identify what the animation is about through the thumbn
 
 <img src="/images/wearables-and-emotes/uploading-emotes/Edit_thumbnail.gif" width="600" />
 
-_Rotate, zoom in or out, pan up and down. Use the tools to get the best shot of your animation!_
+Rotate, zoom in or out, pan up and down. Use the tools to get the best shot of your animation!
 
 
 ## The Editor
@@ -94,17 +94,17 @@ _Rotate, zoom in or out, pan up and down. Use the tools to get the best shot of 
 Once you set the thumbnail, you will have the editor open. This is where you can check if the animation is playing well since a 3D avatar will be performing it.
 
 <img src="/images/wearables-and-emotes/uploading-emotes/editor.png" width="900" />
-_The editor._
+The editor.
 
 By clicking on the icon at the lower left you will be able to edit the avatar. Click on the cilinder icon on the lower right to check if you animation is staying within the boundaries of height and space.
 
 <img src="/images/wearables-and-emotes/uploading-emotes/edit_avatar.gif" width="900" />
 
-_The icon at the botton left allows you to edit the avatar._
+The icon at the botton left allows you to edit the avatar.
 
 <img src="/images/wearables-and-emotes/uploading-emotes/boundaries.gif" width="900" />
 
-_Cylinder icon shows the boundaries for the animation._
+Cylinder icon shows the boundaries for the animation.
 
 You can also edit the emote’s name, thumbnail, category, rarity and play mode, as well as add a description of the animation and add tags to it. Click on **_Save_** when you are done.
 
@@ -134,7 +134,7 @@ After that, you will get a pop-up asking to open the Decentraland Explorer. Once
 
 Once in world, press I to open the backpack and, in the emotes tab, select the emote to test.
 
-<img src="/images/wearables-and-emotes/uploading-emotes/Test_In_World.mp4" width="900" />
+<img src="/images/wearables-and-emotes/uploading-emotes/testing.gif" width="900" />
 
 
 ## **Before Publishing**
@@ -143,4 +143,4 @@ Make sure to add a nice description and verify if all the information and settin
 
 <img src="/images/wearables-and-emotes/uploading-emotes/last.png" width="900" />
 
-_The Ready to Submit status means that your file is ready be published!_
+The Ready to Submit status means that your file is ready be published!
