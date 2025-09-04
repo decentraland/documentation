@@ -135,9 +135,6 @@ There is a third category for scenes: 🔴 `R` for Restricted. This rating is ma
 
 Scenes with this rating won't load and no one will be able to interact with them. If your scene falls into this category, you should review and update it to comply with the [Content Policy](https://decentraland.org/content).
 
-{{< hint warning >}}
-**📔 Note**: Incorrectly categorizing your scene may result in player reports and subsequent moderation actions. For more details, refer to [Age Rating and Scene Reporting]({{< ref "/content/player/exploring/age-rating.md" >}}).
-{{< /hint >}}
 
 ## Feature Toggles
 

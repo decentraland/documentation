@@ -41,7 +41,7 @@ See [Worlds]({{< ref "/content/creator/worlds/about.md" >}}) for more info.
 
 If you have a great idea and the means to achieve it, but need financing, you can request for a grant in the DAO. If the proposal convinces enough people from the community to vote on it, you can get a sum of money to achieve your vision, including funds for buying or renting LAND.
 
-See [Community grants]({{< ref "/content/player/dao/grants/community-grants.md" >}}).
+See [Community grants]({{< ref "/content/player/archive/grants/community-grants.md" >}}).
 
 ## How land permissions work
 

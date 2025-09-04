@@ -35,9 +35,11 @@ Learn more about creating in Decentraland with the [Creator Docs]({{< ref "/cont
 {{</ details >}}
 {{< details class="faq-details" anchor="true" title="Is it possible to monetize my creations?" >}}
 
-Yes, of course! Decentraland creators are able to monetize their skills in many ways.
-Wearable and Emote creators publish their creations in the Marketplace, paying a $100 USD [**publication fee**]({{< ref "/content/creator/wearables-and-emotes/manage-collections/creating-a-collection.md#publication-fees" >}}) which goes to the DAO to fund [**community grants**]({{< ref "/content/player/dao/overview/the-dao-fund.md" >}}), and as a result earn 97.5% of the profits on all primary sales and 2.5% royalties on any secondary sales.
-Some scene creators monetize their experiences, the revenue of which they are able to keep fully for themselves, and lastly many creators offer their services for hire through [**Decentraland Studios**](https://studios.decentraland.org/).
+Yes, of course! Decentraland creators are able to monetize their skills in many ways:
+
+- Wearable and Emote creators earn 97.5% of the profits on all primary sales and 2.5% royalties on any secondary sales after publishing their creations in the Marketplace paying a $100 USD [**publication fee**]({{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md#publication-fees" >}})
+- Scene creators are free to monetize their in-world experiences and retain 100% of the revenue they generate
+- Creators can offer their services for hire on [**Decentraland Studios**](https://studios.decentraland.org/) .
 
 {{</ details >}}
 {{< details class="faq-details" anchor="true" title="Does Decentraland take a cut from creator earnings?" >}}
@@ -54,16 +56,12 @@ operational costs.
 {{</ details >}}
 {{< details class="faq-details" anchor="true" title="Do I need to own LAND to build in Decentraland?" >}}
 
-No, owning LAND is not necessary to create scenes or interactive experiences in Decentraland. Anyone is free to create content with Decentraland's [Creator Hub](https://decentraland.org/download/creator-hub/). Then, if you want to publish your creations so that you and others can explore and enjoy them, there are multiple options available to you, in addition to owning LAND.
-**Worlds**
-Worlds are your personal 3D space in the metaverse. The exist separately from the open-world map of Decentraland's Genesis City and are perfect for those looking to experiment with 3D creation or host their own virtual space.
-Getting your own World is easy: when you [**claim a Decentraland NAME**](https://decentraland.org/marketplace/names/claim) you not only get a unique username that can be used across Web3, but also 100 [**Voting Power**]({{< ref "/content/player/dao/dao-userguide.md#voting-power" >}}) (used in [**Decentraland governance**]({{< ref "/content/player/dao/overview/what-is-the-dao.md" >}})), and of course your own World to use as you wish. Learn more [**here**](https://decentraland.org/blog/about-decentraland/decentraland-worlds-your-own-virtual-space).
+Not necessarily. Anyone is free to create content (scenes and interactive experiences) with Decentraland’s [**Creator Hub**](https://decentraland.org/download/creator-hub/) —once it’s time to publish your creations in-world, there are multiple options available besides owning LAND. 
 
-**Rent LAND**
-If you're interested in publishing your content in Decentraland's open-world Genesis City but don't want to commit to a LAND purchase, you don't have to! It's easy to rent LAND for the short or long term in the Marketplace where you can pay by card, bank transfer, or cryptocurrency. [**Browse rentals**](https://decentraland.org/marketplace/lands?assetType=nft&section=land&vendor=decentraland&page=1&sortBy=newest&onlyOnRent=true) and see what's available!
-**Community Connections, Community Grants, and Open Calls for Creators**
-If someone is passionate about sharing their creations with the community, in Decentraland there will always be a way to make it happen. The creator community is very welcoming and open to lending a hand. If you're just getting started, you can meet many creators in the [**Community Building Discord**](https://discord.gg/cbdcl).
-If you want to build an experience that benefits the community, but need the resources to make it happen, you can always try applying for a [**Community Grant**]({{< ref "/content/player/dao/grants/community-grants.md" >}}) in the DAO. You may also apply to one of the [**Open Calls**](https://twitter.com/decentraland/status/1704918402907726030) that happen periodically through the year to build experiences and scenes for various Decentraland events such as the annual music, art, and fashion festivals. Stay tuned to Decentraland [**socials**](https://twitter.com/decentraland) or [**subscribe**](https://decentraland.beehiiv.com/subscribe) to the weekly newsletter to stay updated!
+- **Worlds:** Worlds are your personal 3D space in the metaverse. The exist separately from the open-world map of Decentraland’s Genesis City and are perfect for those looking to experiment with 3D creation or host their own virtual space. You can get your own when you [get a Decentraland NAME](https://decentraland.org/marketplace/names/claim). Learn more about NAMEs [**here**](https://decentraland.org/blog/about-decentraland/decentraland-worlds-your-own-virtual-space) .
+- **Rent LAND:** If you want to publish in Decentraland’s open-world Genesis City but don’t want to commit to a LAND purchase, you don’t have to! It’s easy to rent LAND for the short or long term in the Marketplace where you can pay by card, bank transfer, or cryptocurrency. [**Browse rentals**](https://decentraland.org/marketplace/lands?assetType=nft&section=land&vendor=decentraland&page=1&sortBy=newest&onlyOnRent=true) to see what’s available.
+- **Open Calls for Creators:** The Foundation often announces **[Open Calls](https://twitter.com/decentraland/status/1704918402907726030)** to collaborate with creators to build experiences and scenes for various Decentraland events such as the annual music, art, and fashion festivals. Stay tuned to Decentraland [**socials**](https://twitter.com/decentraland) or [**subscribe**](https://decentraland.beehiiv.com/subscribe) to the weekly newsletter to stay updated!
+- **Community Magic:** If you’re passionate about sharing your creations with the community, in Decentraland there will always be a way to make it happen. The creator community is very welcoming and helpful. If you’re just getting started, join the  [**Community Building Discord**](https://discord.gg/cbdcl)  to start making connections.
 
 {{</ details >}}
 {{< details class="faq-details" anchor="true" title="Where can I hire creators to design or build something for me?" >}}
