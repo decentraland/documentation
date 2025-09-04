@@ -13,8 +13,6 @@ weight: 4
 
 This documentation explains the set up for Rig 1.0, its controls, and features.
 
-### Rig Structure and Features
-
 ### Armature Transforms
 
 These are the armature’s transforms in Object Mode with the controls’ setup. **Do not edit this in any way**. The rig should only be manipulated in Pose Mode. To avoid unwanted editing, the transforms have been locked in Object Mode.
