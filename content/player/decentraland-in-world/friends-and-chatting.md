@@ -59,7 +59,7 @@ In Decentraland, the main line of communication is text-based chatting. In-world
 
 Identifiable by the Decentraland icon, Nearby Chat is where you can chat with the people around you in-world, even if you aren’t friends. It will always be listed at the top of your chat list. Nearby Chat can also be used for entering Chat commands that only you will see—learn more [**here**]({{< ref "/content/player/decentraland-in-world/shortcuts-and-chat-commands.md#chat-commands" >}}).
 
-<img src="/images/media/nearby.png" style="margin: 1rem; display: block; width: 120px;"/>
+<img src="/images/media/nearby.png" style="margin: 1rem; display: block; width: 240px;"/>
 
 
 ### Private Chats
@@ -71,7 +71,7 @@ The option to start chatting with someone can be accessed from their Profile or 
 
 Please also note that messages can only be sent to players that are currently online.
 
-<img src="/images/media/offline.png" style="margin: 1rem; display: block; width: 180px;" />
+<img src="/images/media/offline.png" style="margin: 1rem; display: block; width: 240px;" />
 
 
 ### Chat Settings
