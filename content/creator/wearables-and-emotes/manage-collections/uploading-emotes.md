@@ -84,27 +84,50 @@ For emotes, you don’t have to upload any images since the editor already has a
 People should be able to identify what the animation is about through the thumbnail. If a front shot isn’t good enough, try rotating the model, zoom in or out, pan up or down, pick any frame from your clip. It’s really important that you select the best shot!
 {{< /hint >}}
 
+<br><br>
+
 <img src="/images/wearables-and-emotes/uploading-emotes/Edit_thumbnail.gif" width="600" />
 
+<br><br>
+
+{{< hint info >}}
 Rotate, zoom in or out, pan up and down. Use the tools to get the best shot of your animation!
+{{< /hint >}}
 
 
 ## The Editor
 
 Once you set the thumbnail, you will have the editor open. This is where you can check if the animation is playing well since a 3D avatar will be performing it.
 
+<br><br>
+
 <img src="/images/wearables-and-emotes/uploading-emotes/editor.png" width="900" />
 
+<br><br>
 
+{{< hint info >}}
 By clicking on the icon at the lower left you will be able to edit the avatar. Click on the cilinder icon on the lower right to check if you animation is staying within the boundaries of height and space.
+{{< /hint >}}
+
+<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/edit_avatar.gif" width="900" />
 
+<br><br>
+
+{{< hint info >}}
 The icon at the botton left allows you to edit the avatar.
+{{< /hint >}}
+
+<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/boundaries.gif" width="900" />
 
+<br><br>
+
+{{< hint info >}}
 Cylinder icon shows the boundaries for the animation.
+{{< /hint >}}
 
 You can also edit the emote’s name, thumbnail, category, rarity and play mode, as well as add a description of the animation and add tags to it. Click on **_Save_** when you are done.
 
@@ -116,26 +139,54 @@ You can also edit the emote’s name, thumbnail, category, rarity and play mode,
 
 # Testing in World
 
+
 Even after testing the animation in the editor, it’s important to check how it’s actually going to look like and behave in Decentraland. To test it in world, go to the Collections tab, select the desired collection and it will show all the items you have in it. Click on See in Decentraland.
+
+<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/getting_started.png" width="900" />
 
+<br><br>
+
+{{< hint info >}}
 You will be asked to choose if you want to test it in an Empty Parcel or in Genesis Plaza. Selecting Empty Parcels will teleport you to a place without too much content, which will load faster. Selecting Genesis Plaza will take you to the main plaza.
+{{< /hint >}}
+
+<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/choice.png" width="900" />
 
+<br><br>
+
+{{< hint info >}}
 After choosing, a new tab will be open in your browser with a message informing you that you are about to use a custom Catalyst. Click on TRUST PEER-TESTING.DECENTRALAND.ORG to continue.
+{{< /hint >}}
+
+<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/custom_catalyst.png" width="900" />
 
+<br><br>
+
+{{< hint info >}}
 After that, you will get a pop-up asking to open the Decentraland Explorer. Once the explorer is running, click on Jump Into Decentraland. 
+{{< /hint >}}
+
+<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/monoco.png" width="900" />
 
+<br><br>
+
+{{< hint info >}}
 Once in world, press I to open the backpack and, in the emotes tab, select the emote to test.
+{{< /hint >}}
+
+<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/testing.gif" width="900" />
 
+<br><br>
 
 ## **Before Publishing**
 
