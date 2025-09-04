@@ -67,7 +67,7 @@ In the rig file, other than the two windows for the viewport (front and side vie
 With this workspace, you have everything needed to start animating!
 
 
-<img src="/images/emotes/workspace.png" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/workspace.png" width="100%" style="margin:30px 0;" />
 
 These are the bottom windows. The top one is in the _**Graph Editor,**_ the middle one in the _**Dope Sheet,**_ and the bottom one is the _**Timeline.**_ The top red arrow shows the _**Only Show Selected**_ tool and the bottom one shows the _**Auto Keying**_.
 
@@ -141,19 +141,19 @@ On the *Browse Action* section, simply click on ***Create A New Action*** button
 
 Belnder 4.4 introduced *Slotted Actions*, the icon to the right of the *Browse Action* section from previous versions. There’s no need to mess with that if you’re creating an emote with no prop, so you can just leave it as it is. If you’re animating the avatar, make sure the slotted action is Avatar_Animation.
 
-<img src="/images/emotes/duplicating_animation.gif" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/duplicating_animation.gif" width="100%" style="margin:30px 0;" />
 Create a new animation by duplicating the existing one or by clicking on _**Unlink Action**_ and then _**New**_.
 
 ## **Browsing and Deleting Animations**
 
 In Blender, you can have multiple animation tracks in the same file. It is possible to browse them by clicking on the Browse Action dropdown menu. All animation with and F (Fake User) will be saved. To delete an animation, press Shift on the keyboard and click on the X. After doing that, the animation will show a 0 next to it, which means that it will be deleted the next time you close Blender or re-open the file.
 
-<img src="/images/emotes/deleting_animation.gif" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/deleting_animation.gif" width="100%" style="margin:30px 0;" />
 Browsing animations: The ones with an F will be saved, and the ones with 0 will be deleted.
 
 Another way of deleting animations without having to reload Blender is by changing the Display Mode  from View Layer to Blender File. Expand Actions and delete any unwanted animation by right clicking on them and selecting Delete.
 
-<img src="/images/emotes/deleting_animation2.gif" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/deleting_animation2.gif" width="100%" style="margin:30px 0;" />
 
 You can delete animations directly from Blender File under Display Mode in the outliner.
 
@@ -163,7 +163,7 @@ You can delete animations directly from Blender File under Display Mode in the o
 Do not always edit the same animation track. Before making major changes, just duplicate the animation. That way you have a back up version in case you regret deleting or changing something. This is also a nice way to keep track of the progress made so far!
 {{< /hint >}}
 
-<img src="/images/emotes/duplicating_animation2.gif" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/duplicating_animation2.gif" width="100%" style="margin:30px 0;" />
 Duplicating animation clips.
 
 ## **Naming**
@@ -185,7 +185,7 @@ To avoid that, select all layers with bones in them (which can be found in **_Ob
 
 **Make sure to select the deform bones, this is especially important!** The deform bones can be found in the last bottom layer and are shown as green bones in the **_Viewport_**.
 
-<img src="/images/emotes/keyframe_bones.gif" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/keyframe_bones.gif" width="100%" style="margin:30px 0;" />
 Setting keyframes on all bones in the first and last frames prevents emote overrides.
 
 # **The Animation Specifications**
@@ -198,7 +198,7 @@ The max length of an animation is **10 seconds** or **300 frames**. Remember to 
 ⚠️ Channels with visibility turned off in the Graph Editor won’t be keyframed, deleted, or even shown in the Action Editor. Unless it was intentionally done that way, pay extra attention to the visibility.
 {{< /hint >}}
 
-<img src="/images/emotes/channel_visibility.gif" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/channel_visibility.gif" width="100%" style="margin:30px 0;" />
 
 Make channels visible before keyframing!
 
@@ -236,23 +236,23 @@ If the emote contains any additional 3D models, the textures in these models can
 
 Since we only want the armature and the animation to be exported, turn off the mesh visibility and any object other than the armature before exporting, as shown below:
 
-<img src="/images/emotes/mesh_visibility.gif" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/mesh_visibility.gif" width="100%" style="margin:30px 0;" />
 
 Turn off the mesh visibility before exporting!
 
 To export, go to _File_ > _Export_ > _glTF2.0 (.glb, .gltf)_
 
-<img src="/images/emotes/export_gltf.gif" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/export_gltf.gif" width="100%" style="margin:30px 0;" />
 
 For the export settings, expand Include and in Limit to toggle Visible Objects. Then, expand the Data tab, expand Armature and enable Export Deformation Bones Only.
 
-<img src="/images/emotes/export_settings.png" style="margin: 1rem; display: block;width: 120px;"/>
-<img src="/images/emotes/export_settings_GIF.gif" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/export_settings.png" width="100%" style="margin:30px 0;" />
+<img src="/images/emotes/export_settings_GIF.gif" width="100%" style="margin:30px 0;" />
 
 If you need to sample the animation, expand the Animation tab, expand Sampling Animations and choose the number of samples wanted. 
 
-<img src="/images/emotes/sampling_rate.png" style="margin: 1rem; display: block;width: 120px;"/>
-<img src="/images/emotes/sampling_rate_GIF.gif" style="margin: 1rem; display: block;width: 120px;"/>
+<img src="/images/emotes/sampling_rate.png" width="100%" style="margin:30px 0;" />
+<img src="/images/emotes/sampling_rate_GIF.gif" width="100%" style="margin:30px 0;" />
 
 That’s it for exporting the animation!
 
