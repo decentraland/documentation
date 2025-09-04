@@ -20,7 +20,7 @@ The Friends icon lives in the bottom left of your screen and is home to your Fri
 
 Hovering by a Friend’s name will make other options appear. If you’re friend is online, you can chat or jump to their location. If you click on the three dots by their name, you can access their personal menu.
 
-<img src="/images/media/friends.png" style="margin: 1rem; display: block; width: 120px;" />
+<img src="/images/media/friends.png" style="margin: 1rem; display: block; width: 240px;" />
 
 ### **Friend Requests**
 
@@ -71,7 +71,7 @@ The option to start chatting with someone can be accessed from their Profile or 
 
 Please also note that messages can only be sent to players that are currently online.
 
-<img src="/images/media/offline.png" style="margin: 1rem; display: block; width: 120px;" />
+<img src="/images/media/offline.png" style="margin: 1rem; display: block; width: 180px;" />
 
 
 ### Chat Settings
