@@ -80,54 +80,30 @@ There are currently two play modes:
 
 For emotes, you don’t have to upload any images since the editor already has a built in tool to create a thumbnail. Just select the frame that best represents the action.
 
-{{< hint warning >}}
 People should be able to identify what the animation is about through the thumbnail. If a front shot isn’t good enough, try rotating the model, zoom in or out, pan up or down, pick any frame from your clip. It’s really important that you select the best shot!
-{{< /hint >}}
-
-<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/Edit_thumbnail.gif" width="600" />
 
-<br><br>
-
-{{< hint info >}}
 Rotate, zoom in or out, pan up and down. Use the tools to get the best shot of your animation!
-{{< /hint >}}
-
 
 ## The Editor
 
 Once you set the thumbnail, you will have the editor open. This is where you can check if the animation is playing well since a 3D avatar will be performing it.
 
-<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/editor.png" width="900" />
 
-<br><br>
-
-{{< hint info >}}
 By clicking on the icon at the lower left you will be able to edit the avatar. Click on the cilinder icon on the lower right to check if you animation is staying within the boundaries of height and space.
-{{< /hint >}}
 
-<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/edit_avatar.gif" width="900" />
 
-<br><br>
 
-{{< hint info >}}
 The icon at the botton left allows you to edit the avatar.
-{{< /hint >}}
-
-<br><br>
 
 <img src="/images/wearables-and-emotes/uploading-emotes/boundaries.gif" width="900" />
 
-<br><br>
-
-{{< hint info >}}
 Cylinder icon shows the boundaries for the animation.
-{{< /hint >}}
 
 You can also edit the emote’s name, thumbnail, category, rarity and play mode, as well as add a description of the animation and add tags to it. Click on **_Save_** when you are done.
 
