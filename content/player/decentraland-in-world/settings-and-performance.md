@@ -40,9 +40,7 @@ Rendering Decentraland’s open world requires a certain level of technical powe
 
 ### Adjusting Graphic Settings
 
-If your computer doesn’t meet all of Decentraland’s minimum hardware requirements, you can try to optimize your experience by lowering your graphic settings in-world. 
-
-Here are the settings for best performance:
+If your computer doesn’t meet all of Decentraland’s minimum hardware requirements, you can try to optimize your experience by lowering your graphic settings in-world. Here are the settings for best performance:
 
 <img src="/images/media/lowsettings.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />
 
@@ -65,6 +63,6 @@ Here you can modify the sensitivity of your mouse in-world.
 
 ## Chat Settings
 
-From the main settings, you can modify notification and chat bubble preferences for all your chats simultaneously as well as your DM permissions. See the Chat section for a full breakdown.
+From the main settings, you can modify notification and chat bubble preferences for all your chats simultaneously as well as your DM permissions. See the [**Chat**]({{< ref "/content/player/decentraland-in-world/friends-and-chatting.md#chat-settings" >}}). section for a full breakdown.
 
 <img src="/images/media/chat15.png" width=100% style="margin-bottom:30px;" style="margin-top:30px;" />

@@ -20,7 +20,7 @@ The Friends icon lives in the bottom left of your screen and is home to your Fri
 
 Hovering by a Friend’s name will make other options appear. If you’re friend is online, you can chat or jump to their location. If you click on the three dots by their name, you can access their personal menu.
 
-<img src="/images/media/friends.png" width=75% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/friends.png" width=25% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 ### **Friend Requests**
 
@@ -59,7 +59,7 @@ In Decentraland, the main line of communication is text-based chatting. In-world
 
 Identifiable by the Decentraland icon, Nearby Chat is where you can chat with the people around you in-world, even if you aren’t friends. It will always be listed at the top of your chat list. Nearby Chat can also be used for entering Chat commands that only you will see—learn more [**here**]({{< ref "/content/player/decentraland-in-world/shortcuts-and-chat-commands.md#chat-commands" >}}).
 
-<img src="/images/media/nearby.png" width=75% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/nearby.png" width=25% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 
 ### Private Chats
@@ -71,7 +71,7 @@ The option to start chatting with someone can be accessed from their Profile or 
 
 Please also note that messages can only be sent to players that are currently online.
 
-<img src="/images/media/offline.png" width=75% style="margin-bottom:30px;" style="margin-top:30px;" />
+<img src="/images/media/offline.png" width=25% style="margin-bottom:30px;" style="margin-top:30px;" />
 
 
 ### Chat Settings
