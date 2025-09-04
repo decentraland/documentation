@@ -18,7 +18,7 @@ weight: 1
 
 ## Getting Started
 
-{{< details class="faq-details" anchor="true" title="What do I need to do to start using Decentraland?" >}}
+{{< details class="faq-details" anchor="true" title="How do I enter Decentraland?" >}}
 
 1. The first step is downloading the Decentraland app onto your computer. Go to the download page [here](https://decentraland.org/download?utm_org=dcl&utm_source=decentraland&utm_medium=organic&utm_campaign=evergreen&utm_term=generaldocs&utm_content=faq).
 2. Once you’ve successfully installed and loaded Decentraland on your computer, you’ll be asked to log into your Decentraland account, a process that happens online, so you can expect a browser window to open.
@@ -86,22 +86,7 @@ To teleport to a specific **World**, you’ll also use a chat command:
 
 {{</ details >}}
 
-{{< details class="faq-details" anchor="true" title="What are useful chat commands in Decentraland?" >}}
 
-Chat commands are used to trigger actions, such as teleporting or reloading, by entering specific text into the chat box in-world. To use one, just open the chat box, type the command, and hit enter.
-
-- **Teleporting around Genesis City**
-  `/goto x,y` (x,y are the coordinates of a scene)
-- **Visiting Worlds**
-  `/goto World’sName`
-- **Reloading a Scene**
-  `/reload`
-- **Open Debug Mode (shows FPS and other metrics)**
-  `/debug`
-- **Discover More Chat Commands**
-  `/help`
-
-{{</ details >}}
 
 {{< details class="faq-details" anchor="true" title="How do I get Wearables, Emotes, LAND, and NAMEs in the Marketplace?" >}}
 
