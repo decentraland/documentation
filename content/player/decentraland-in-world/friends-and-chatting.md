@@ -18,9 +18,9 @@ The Friends icon lives in the bottom left of your screen and is home to your Fri
 
 ### **Friend’s List**
 
-Hovering by a Friend’s name will make other options appear. If you’re friend is online, you can chat or jump to their location. If you click on the three dots by their name, you can access their personal menu.
+Hovering by a Friend’s name will make other options appear. If your friend is online, you can chat or jump to their location. If you click on the three dots by their name, you can access their personal menu.
 
-<img src="/images/media/friends.png" style="margin: 1rem; display: block; width: 240px;" />
+<img src="/images/media/friends.png" style="margin: 1rem; display: block; width: 360px;" />
 
 ### **Friend Requests**
 
