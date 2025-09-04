@@ -61,7 +61,6 @@ Identifiable by the Decentraland icon, Nearby Chat is where you can chat with th
 
 <img src="/images/media/nearby.png" style="margin: 1rem; display: block; width: 300px;"/>
 
-
 ### Private Chats
 
 The option to start chatting with someone can be accessed from their Profile or personal menu. If you are friends with them, a chat icon will also appear next to their name in your Friends List. However, keep in mind, outside of friendships, who you can send and receive DMs from will depend on both parties’ chat settings.
@@ -72,7 +71,6 @@ The option to start chatting with someone can be accessed from their Profile or 
 Please also note that messages can only be sent to players that are currently online.
 
 <img src="/images/media/offline.png" style="margin: 1rem; display: block; width: 300px;" />
-
 
 ### Chat Settings
 

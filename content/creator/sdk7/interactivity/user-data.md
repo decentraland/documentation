@@ -340,6 +340,12 @@ executeTask(fetchWearablesData)
 
 <!-- TODO: Update snippet -->
 
+{{< hint info >}}
+**💡 Tip**: You can fetch even more info about specific wearables from the [following API](https://decentraland.github.io/catalyst-api-specs/#tag/Lambdas/operation/searchWearables).
+{{< /hint >}}
+
+
+
 ## Check the player's camera mode
 
 Players can either be using a 1st or 3rd person camera when exploring Decentraland. Check which of these the player is using by checking the value `CameraMode` component of the `engine.CameraEntity` entity.
