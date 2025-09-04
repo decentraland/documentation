@@ -22,7 +22,7 @@ _Drag and drop your animation file to upload it._
 
 You will be asked to enter a name for your emote, define its rarity, the category and the play mode. Below the thumbnail is shown the number of animation clips in your file, the length of the animation in seconds, the length in frames and the frame rate.
 
-<img src="/images/wearables-and-emotes/uploading-emotes/02_new_emote.png" width="400" />
+<img src="/images/wearables-and-emotes/uploading-emotes/upload_emote.png" width="400" />
 
 ## **Uploading Emotes Using a .zip File**
 
@@ -84,7 +84,7 @@ For emotes, you don’t have to upload any images since the editor already has a
 People should be able to identify what the animation is about through the thumbnail. If a front shot isn’t good enough, try rotating the model, zoom in or out, pan up or down, pick any frame from your clip. It’s really important that you select the best shot!
 {{< /hint >}}
 
-<img src="/images/wearables-and-emotes/uploading-emotes/03_edit_thumbnail.gif" width="600" />
+<img src="/images/wearables-and-emotes/uploading-emotes/Edit_thumbnail.gif" width="600" />
 
 _Rotate, zoom in or out, pan up and down. Use the tools to get the best shot of your animation!_
 
@@ -93,11 +93,14 @@ _Rotate, zoom in or out, pan up and down. Use the tools to get the best shot of 
 
 Once you set the thumbnail, you will have the editor open. This is where you can check if the animation is playing well since a 3D avatar will be performing it.
 
-<img src="/images/wearables-and-emotes/uploading-emotes/06_edit_avatar.gif" width="900" />
+<img src="/images/wearables-and-emotes/uploading-emotes/boundaries.png" width="900" />
+_The editor._
 
 By clicking on the icon at the lower left you will be able to edit the avatar. Click on the cilinder icon on the lower right to check if you animation is staying within the boundaries of height and space.
 
-<img src="/images/wearables-and-emotes/uploading-emotes/07_boundaries.gif" width="900" />
+<img src="/images/wearables-and-emotes/uploading-emotes/edit_avatar.gif" width="900" />
+
+<img src="/images/wearables-and-emotes/uploading-emotes/edit_avatar.gif" width="900" />
 
 _Cylinder icon shows the boundaries for the animation._
 
