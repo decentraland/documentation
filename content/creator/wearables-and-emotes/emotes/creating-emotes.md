@@ -246,17 +246,13 @@ To export, go to _File_ > _Export_ > _glTF2.0 (.glb, .gltf)_
 
 For the export settings, expand Include and in Limit to toggle Visible Objects. Then, expand the Data tab, expand Armature and enable Export Deformation Bones Only.
 
-<div style="display:flex; flex-wrap:wrap; gap:16px;">
-  <img src="/images/emotes/export_settings.png"        style="flex:1 1 48%; max-width:48%;">
-  <img src="/images/emotes/export_settings_GIF.gif"    style="flex:1 1 48%; max-width:48%;">
-</div>
+| ![](/images/emotes/export_settings.png) | ![](/images/emotes/export_settings_GIF.gif) |
+|-----------------------------------------|---------------------------------------------|
 
 If you need to sample the animation, expand the Animation tab, expand Sampling Animations and choose the number of samples wanted. 
 
-<div style="display:flex; flex-wrap:wrap; gap:16px;">
-  <img src="/images/emotes/sampling_rate.png"          style="flex:1 1 48%; max-width:48%;">
-  <img src="/images/emotes/sampling_rate_GIF.gif"      style="flex:1 1 48%; max-width:48%;">
-</div>
+| ![](/images/emotes/sampling_rate.png)   | ![](/images/emotes/sampling_rate_GIF.gif)   |
+|-----------------------------------------|---------------------------------------------|
 
 That’s it for exporting the animation!
 
@@ -283,10 +279,3 @@ If you’re still not sure where to start or need some reference or inspiration,
 [Chic.glb](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/chic.glb)
 
 [Flag_Emote.glb](/images/emotes/Flag_Emote.glb)
-
-| ![](/images/emotes/export_settings.png) | ![](/images/emotes/export_settings_GIF.gif) |
-|-----------------------------------------|---------------------------------------------|
-
-
-| ![](/images/emotes/sampling_rate.png)   | ![](/images/emotes/sampling_rate_GIF.gif)   |
-|-----------------------------------------|---------------------------------------------|
