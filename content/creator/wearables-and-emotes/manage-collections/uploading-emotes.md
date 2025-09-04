@@ -94,7 +94,7 @@ Rotate, zoom in or out, pan up and down. Use the tools to get the best shot of y
 Once you set the thumbnail, you will have the editor open. This is where you can check if the animation is playing well since a 3D avatar will be performing it.
 
 <img src="/images/wearables-and-emotes/uploading-emotes/editor.png" width="900" />
-The editor.
+
 
 By clicking on the icon at the lower left you will be able to edit the avatar. Click on the cilinder icon on the lower right to check if you animation is staying within the boundaries of height and space.
 
