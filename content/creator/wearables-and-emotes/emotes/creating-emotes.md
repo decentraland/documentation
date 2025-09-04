@@ -284,3 +284,9 @@ If you’re still not sure where to start or need some reference or inspiration,
 
 [Flag_Emote.glb](/images/emotes/Flag_Emote.glb)
 
+| ![](/images/emotes/export_settings.png) | ![](/images/emotes/export_settings_GIF.gif) |
+|-----------------------------------------|---------------------------------------------|
+
+
+| ![](/images/emotes/sampling_rate.png)   | ![](/images/emotes/sampling_rate_GIF.gif)   |
+|-----------------------------------------|---------------------------------------------|
