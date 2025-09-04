@@ -140,7 +140,7 @@ Once the above is configured, admins can release the airdrop by selecting the **
 
 
 {{< hint info >}}
-**💡 Tip**: Configure the Rewards Campaign to require a captcha to claim the item. This will make the airdrop more secure and prevent bots from claiming the item. You can also configure the campaign to only allow claiming the item once per player, and to only allow claims coming from the coordinates of your scene on Decentraland. See [Securing the Rewards Dispenser]({{< ref "/content/creator/rewards/api.md#securing-the-rewards-dispenser" >}}) for more information.
+**💡 Tip**: Configure the Rewards Campaign to require a captcha to claim the item. This will make the airdrop more secure and prevent bots from claiming the item. You can also configure the campaign to only allow claiming the item once per player, and to only allow claims coming from the coordinates of your scene on Decentraland. See [Securing the Rewards Dispenser]({{< ref "/content/contributor/land/api.md#securing-the-rewards-dispenser" >}}) for more information.
 
 {{< /hint >}}
  -->

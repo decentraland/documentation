@@ -16,7 +16,7 @@ weight: 5
 {{</ details >}}
 {{< details class="faq-details" anchor="true" title="How do I edit the title, description or image of my Place?" >}}
 
-The title, description and image of your Place are taken from the scene metadata. Find out more about editing the [**scene metadata**]({{< ref "/content/creator/scene-editor/scene-settings.md" >}})).
+The title, description and image of your Place are taken from the scene metadata. Learn more about editing scene metadata [**here**]({{< ref "/content/creator/sdk7/projects/scene-metadata.md" >}}).
 
 {{</ details >}}
 {{< details class="faq-details" anchor="true" title="How does my Place get updated?" >}}
