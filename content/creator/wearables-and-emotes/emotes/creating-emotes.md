@@ -246,13 +246,17 @@ To export, go to _File_ > _Export_ > _glTF2.0 (.glb, .gltf)_
 
 For the export settings, expand Include and in Limit to toggle Visible Objects. Then, expand the Data tab, expand Armature and enable Export Deformation Bones Only.
 
-<img src="/images/emotes/export_settings.png" width="100%" style="margin:30px 0;" />
-<img src="/images/emotes/export_settings_GIF.gif" width="100%" style="margin:30px 0;" />
+<div>
+  <img src="/images/emotes/export_settings.png" width="50%" style="display:inline-block; margin:10px 0;" />
+  <img src="/images/emotes/export_settings_GIF.gif" width="50%" style="display:inline-block; margin:10px 0;" />
+</div>
 
 If you need to sample the animation, expand the Animation tab, expand Sampling Animations and choose the number of samples wanted. 
 
-<img src="/images/emotes/sampling_rate.png" width="100%" style="margin:30px 0;" />
-<img src="/images/emotes/sampling_rate_GIF.gif" width="100%" style="margin:30px 0;" />
+<div>
+  <img src="/images/emotes/sampling_rate.png" width="50%" style="display:inline-block; margin:10px 0;" />
+  <img src="/images/emotes/sampling_rate_GIF.gif" width="50%" style="display:inline-block; margin:10px 0;" />
+</div>
 
 That’s it for exporting the animation!
 
