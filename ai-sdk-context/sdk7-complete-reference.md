@@ -532,6 +532,33 @@ Material.setPbrMaterial(entity, {
 })
 ```
 
+#### Modify GLTF materials
+```typescript
+import { GltfNodeModifiers, GltfContainer } from '@dcl/sdk/ecs'
+
+// Override the material of an entire GLB
+const model = engine.addEntity()
+GltfContainer.create(model, { src: 'models/myModel.glb' })
+Transform.create(model, { position: Vector3.create(4, 0, 4) })
+
+GltfNodeModifiers.create(model, {
+  modifiers: [
+    {
+      path: '', // empty string = whole model
+      material: {
+        material: {
+          $case: 'pbr',
+          pbr: {
+            albedoColor: Color4.Red()
+          }
+        }
+      }
+    }
+  ]
+})
+```
+Tip: set `path` to a specific mesh node to target only that part; use `Material.Texture.Common({ src: '...' })` inside `pbr` to swap textures.
+
 ### Move Entities
 
 #### Tween System
@@ -780,6 +807,50 @@ const animator = Animator.getMutable(entity)
 animator.states[0].playing = false
 ```
 
+### Lights
+
+#### Dynamic Lights
+```typescript
+import { LightSource } from '@dcl/sdk/ecs'
+
+// Point light
+const point = engine.addEntity()
+Transform.create(point, { position: Vector3.create(10, 3, 10) })
+LightSource.create(point, {
+  type: LightSource.Type.Point({}),
+  color: Color3.White(),
+  intensity: 300 // candela
+})
+
+// Spot light with shadows
+const spot = engine.addEntity()
+Transform.create(spot, {
+  position: Vector3.create(8, 4, 8),
+  rotation: Quaternion.fromEulerDegrees(-90, 0, 0)
+})
+LightSource.create(spot, {
+  type: LightSource.Type.Spot({ innerAngle: 25, outerAngle: 45 }),
+  shadow: true,
+  intensity: 800
+})
+
+// Toggle a light on/off
+const lightData = LightSource.getMutable(point)
+lightData.active = !lightData.active
+
+// Limit range (optional)
+LightSource.getMutable(point).range = 20
+
+// Light mask (gobo) for spot/point
+LightSource.getMutable(spot).shadowMaskTexture = Material.Texture.Common({
+  src: 'assets/scene/images/lightmask1.png'
+})
+```
+
+Notes:
+- One active light per parcel maximum; overall lights/shadows are auto-culled based on quality and proximity (up to ~3 shadowed lights visible at once).
+- Intensity is in candela; visible distance roughly grows with (sqrt(intensity)).
+
 ---
 
 ## Interactivity
@@ -841,6 +912,19 @@ function checkCameraMode() {
 
 engine.addSystem(checkCameraMode)
 ```
+
+#### Trigger Emotes
+```typescript
+import { triggerEmote, triggerSceneEmote } from '~system/RestrictedActions'
+
+// Default emote
+triggerEmote({ predefinedEmote: 'robot' })
+
+// Custom emote (file must end with _emote.glb)
+triggerSceneEmote({ src: 'animations/Snowball_Throw_emote.glb', loop: false })
+```
+Notes:
+- Plays only while the player is still; walking/jumping interrupts.
 
 #### Cursor State
 ```typescript
@@ -1130,6 +1214,49 @@ AvatarModifierArea.create(constraintArea, {
 })
 ```
 
+### NPC Avatars
+
+#### Display only wearables
+```typescript
+import { AvatarShape } from '@dcl/sdk/ecs'
+
+const mannequin = engine.addEntity()
+AvatarShape.create(mannequin, {
+  id: 'npc-1',
+  name: 'NPC',
+  wearables: [
+    'urn:decentraland:matic:collections-v2:0x90e5cb2d673699be8f28d339c818a0b60144c494:0'
+  ],
+  show_only_wearables: true
+})
+
+Transform.create(mannequin, {
+  position: Vector3.create(4, 0.25, 5),
+  scale: Vector3.create(1.2, 1.2, 1.2)
+})
+```
+Use this to showcase items (e.g., storefront mannequins).
+
+### Input Modifiers
+```typescript
+import { InputModifier } from '@dcl/sdk/ecs'
+
+// Freeze player
+InputModifier.create(engine.PlayerEntity, {
+  mode: InputModifier.Mode.Standard({ disableAll: true })
+})
+
+// Restrict specific locomotion
+InputModifier.createOrReplace(engine.PlayerEntity, {
+  mode: InputModifier.Mode.Standard({
+    disableRun: true,
+    disableJump: true,
+    disableEmote: true
+  })
+})
+```
+Note: Supported in the DCL 2.0 desktop client; only affects the local player inside scene bounds.
+
 ### Move Player
 
 #### Teleport Player
@@ -1186,6 +1313,51 @@ function runtimeSystem() {
 }
 
 engine.addSystem(runtimeSystem)
+```
+
+#### Scene Metadata (getSceneInformation)
+```typescript
+import { getSceneInformation } from '~system/Runtime'
+
+executeTask(async () => {
+  const info = await getSceneInformation({})
+  if (!info) return
+  const sceneJson = JSON.parse(info.metadataJson)
+  console.log(sceneJson.scene?.parcels, sceneJson.spawnPoints)
+})
+```
+
+### Skybox Control
+
+#### Fixed time of day (scene.json)
+```json
+"skyboxConfig": {
+  "fixedTime": 36000
+}
+```
+
+#### Read current world time
+```typescript
+import { getWorldTime } from '~system/Runtime'
+
+executeTask(async () => {
+  const time = await getWorldTime({})
+  console.log('Seconds since midnight:', time.seconds)
+})
+```
+
+#### Change time dynamically
+```typescript
+import { SkyboxTime, TransitionMode } from '~system/Runtime'
+
+// Must target root entity
+SkyboxTime.create(engine.RootEntity, { fixed_time: 36000 })
+
+// Optional transition direction
+SkyboxTime.createOrReplace(engine.RootEntity, {
+  fixed_time: 54000,
+  direction: TransitionMode.TM_BACKWARD
+})
 ```
 
 ---
@@ -3134,6 +3306,125 @@ export function executeAction(entity: Entity, action: SmartItemAction, parameter
         volume: parameters.volume || 1.0
       })
       break
+  }
+}
+```
+
+### Combine Scene Editor with Code
+
+Link your scene code to entities created and configured via the Creator Hub.
+
+#### Reference entities by name
+```typescript
+import { EntityNames } from '../assets/scene/entity-names'
+
+export function main() {
+  // Get by enum (generated by Creator Hub)
+  const door1 = engine.getEntityOrNullByName(EntityNames.Door_1)
+
+  // Get by string name (as shown in the Scene Editor tree)
+  const door2 = engine.getEntityOrNullByName('Door 2')
+
+  if (door1 && door2) {
+    pointerEventsSystem.onPointerDown(
+      { entity: door1, opts: { button: InputAction.IA_PRIMARY, hoverText: 'Open' } },
+      () => {
+        // custom logic
+      }
+    )
+  }
+}
+```
+
+Validate existence at compile-time with a generic:
+```typescript
+import { EntityNames } from '../assets/scene/entity-names'
+
+const door = engine.getEntityByName<EntityNames>(EntityNames.Door_1)
+// No null-check needed
+console.log(Transform.get(door).position.x)
+```
+
+Only reference by name inside `main()`, systems, or functions called after `main()` to ensure entities are instantiated.
+
+#### Iterate named entities and fetch children
+```typescript
+import { Name } from '@dcl/sdk/ecs'
+
+// Iterate all named entities
+for (const [entity, name] of engine.getEntitiesWith(Name)) {
+  console.log({ entity, name })
+}
+
+// Helper to get all children of a parent entity
+function getChildren(parent: Entity): Entity[] {
+  const childEntities: Entity[] = []
+  for (const [entity, transform] of engine.getEntitiesWith(Transform)) {
+    if (transform.parent === parent) childEntities.push(entity)
+  }
+  return childEntities
+}
+```
+
+#### Smart item triggers (Creator Hub asset-packs)
+```typescript
+import { getTriggerEvents } from '@dcl/asset-packs/dist/events'
+import { TriggerType } from '@dcl/asset-packs'
+import { EntityNames } from '../assets/scene/entity-names'
+
+export function main() {
+  const restart = engine.getEntityOrNullByName(EntityNames.Restart_Button)
+  if (restart) {
+    const triggers = getTriggerEvents(restart)
+    triggers.on(TriggerType.ON_CLICK, () => {
+      // restartGame()
+    })
+  }
+}
+```
+
+#### Smart item actions (listen and emit)
+```typescript
+import { getTriggerEvents, getActionEvents } from '@dcl/asset-packs/dist/events'
+import { TriggerType } from '@dcl/asset-packs'
+import { EntityNames } from '../assets/scene/entity-names'
+
+export function main() {
+  const button = engine.getEntityOrNullByName(EntityNames.Red_Button)
+  const door = engine.getEntityOrNullByName(EntityNames.Wooden_Door)
+  if (button && door) {
+    const buttonTriggers = getTriggerEvents(button)
+    const doorActions = getActionEvents(door)
+
+    // Listen to actions
+    doorActions.on('Open', () => {
+      console.log('Door opened!')
+    })
+
+    // Emit an action when button is triggered
+    buttonTriggers.on(TriggerType.ON_INPUT_ACTION, () => {
+      doorActions.emit('Open', {})
+    })
+  }
+}
+```
+
+#### Read other smart item components
+```typescript
+import { getComponents } from '@dcl/asset-packs'
+import { getTriggerEvents } from '@dcl/asset-packs/dist/events'
+import { TriggerType } from '@dcl/asset-packs'
+import { EntityNames } from '../assets/scene/entity-names'
+
+export function main() {
+  const chest = engine.getEntityOrNullByName(EntityNames.chest)
+  if (chest) {
+    const chestTriggers = getTriggerEvents(chest)
+    chestTriggers.on(TriggerType.ON_INPUT_ACTION, () => {
+      const { States } = getComponents(engine)
+      const current = States.getMutableOrNull(chest)?.currentValue
+      console.log('chest new state', current)
+    })
   }
 }
 ```
