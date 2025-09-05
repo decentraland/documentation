@@ -1,6 +1,6 @@
 ---
 date: 2022-09-01
-title: Rigging Features
+title: Rig Features
 description: Features about the avatar rig and downloadable file.
 categories:
   - emotes
@@ -11,11 +11,13 @@ url: /creator/emotes/rig-features
 weight: 4
 ---
 
-## Armature Transforms
+This documentation explains the set up for Rig 1.0, its controls, and features.
+
+### Armature Transforms
 
 These are the armature’s transforms in Object Mode with the controls’ setup. **Do not edit this in any way**. The rig should only be manipulated in Pose Mode. To avoid unwanted editing, the transforms have been locked in Object Mode.
 
-![Rig 1.0 transforms.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/base_armature_object_mode.png)
+<img src="/images/media/RigTransforms.png" width="100%" style="margin:30px 0;" />
 
 _Rig 1.0 transforms._
 
@@ -25,62 +27,37 @@ _Rig 1.0 transforms._
 
 This is the bone orientation for Rig 1.0. As it is right now, it’s not possible to mirror behavior on the shoulders, arms, hands, or fingers.
 
-![Axes for bone orientation.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/bone_orientation_rig_1.0.png)
+<img src="/images/media/AxesBoneOrientation.png" width="100%" style="margin:30px 0;" />
 
 _Axes for bone orientation._
 
-![Behavior when mirrorring poses.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/bone_orientation_problem.gif)
+<img src="/images/media/MirrorPose.png" width="100%" style="margin:30px 0;" />
 
 _Behavior when mirrorring poses._
 
-## Layers
+### Bone Collections
 
-To avoid any accidents and to make it easier to identify the controls, this rig is organized in layers that can be accessed in the _Object Data Properties_ tab in Blender. The first set of layers (on the left) has all the controls needed for avatar animation. The second set (on the right) has constraint setups and the base skeleton; there’s no need to select those.
+To avoid any accidents and to make it easier to identify the controls, this rig is organized in bone collections that can be accessed in the *Data Properties* tab in Blender. These collections’ visibility can be toggled on and off by clicking on the *Eye Icon.* By default, they are all visible, except for the DON'T TOUCH ones.
 
-![Object Data Properties tab.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/layers.png)
+<img src="/images/media/BoneCollections.png" width="100%" style="margin:30px 0;" />
 
-_Object Data Properties tab._
+Armature Data Properties tab.
 
-This is how it’s organized:
+This is how the bones were separated into the collections:
 
-- 1st Top Layer: here are the global controls, such as the root and spine ones, as well as shoulders. Controls with any custom attributes are also in this layer.
-- 2nd Top Layer: has all the upper body FK setup controls.
-- 2nd Bottom Layer: has all the lower body FK setup controls.
-- 3rd Top Layer: has all the upper body IK setup controls.
-- 3rd Bottom Layer: has all the lower body IK setup controls.
-- 4th Top Layer: has the finger controls.
+- Global/Switch: global controls, such as the root and spine ones, as well as shoulders. Controls with any custom attributes are also in this collection.
+- FK Upper: all upper body FK setup controls.
+- FK Lower: all lower body FK setup controls.
+- IK Upper: all upper body IK setup controls.
+- IK Lower: all lower body IK setup controls.
+- Fingers: controls for both hands’ fingers.
+- Deformation Bones: this is where the deformation bones are stored.
 
-![1st Top Layer.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/layer1.png)
+{{< hint info >}}
+**💡 Attention!**
 
-_1st Top Layer._
-
-![2nd Top Layer.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/layer2.png)
-
-_2nd Top Layer._
-
-![2nd Bottom Layer.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/layer2.2.png)
-
-_2nd Bottom Layer._
-
-![3rd Top Layer.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/layer3.png)
-
-_3rd Top Layer._
-
-![3rd Bottom Layer.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/layer3.2.png)
-
-_3rd Bottom Layer._
-
-![4th Top Layer.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/layer6.png)
-
-_4th Top Layer._
-
-To see all the controls together, select all of the first top four and bottom 2nd and 3rd. To work with separate groups, select just the one you need. While going through the layers, make sure you’re selecting only _Layers_.
-
-> **Warning**: **Do not select _Protected Layers_.**
-
-![The first set of layers has all the controls needed for animating.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/layer4.png)
-
-_The first set of layers has all the controls needed for animating._
+The DON'T TOUCH collections  hold the set ups for IK and other rig constraints and should remain hidden. Editing these bone could brake  the functionality of the rig
+{{< /hint >}}
 
 ## Controls and Grouping
 
@@ -93,7 +70,7 @@ Controls are non-deforming bones that drive the base skeleton. They have differe
 - Pink: left side controls
 - Orange: right side controls
 
-![All the controls and their colors.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/controls_rig_1.0.png)
+<img src="/images/media/RigControls.png" width="100%" style="margin:30px 0;" />
 
 _All the controls and their colors._
 
@@ -133,15 +110,16 @@ _Isolate rotation attribute for the head._
 
 _How the IsoRot attribute for the head works._
 
-{{< hint warning >}} **Warning**: When animating, even if all controls have been selected and key framed, these custom attributes won’t be automatically key framed. Make sure to manually insert a keyframe in each attribute so you don’t lose the pose/motion you created or, in Blender 3.1, press I, then select Location, Rotation, Scale & Custom Properties. {{< /hint >}}
+{{< hint warning >}} **Warning**: In older Blender versions, even if all controls have been selected and key framed, these custom attributes won’t be automatically key framed. Make sure to manually insert a keyframe in each attribute so you don’t lose the pose/motion you created. In Blender 4.4, by pressing I, a keyframe is set on all attributes and custom properties. {{< /hint >}}
 
 ![In previous versions of Blender, make sure to keyframe all the controls and custom attributes!](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/custom_attributes.gif)
 
 _In previous versions of Blender, make sure to keyframe all the controls and custom attributes!_
 
-![In Blender 3.1, to keyframe custom properties, press I, then select Location, Rotation, Scale & Custom Properties.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/custom_properties_rig_1.0.gif)
+<img src="/images/media/keyframes.gif" width="100%" style="margin:30px 0;" />
 
-_In Blender 3.1, to keyframe custom properties, press I, then select Location, Rotation, Scale & Custom Properties._
+
+_In Blender 4.4, press I to automatically set a keyframe on Location, Rotation, Scale & Custom Properties.._
 
 Another solution for keyframing custom properties is selecting **_Keying_** under on the Timeline tab and on **_Active Keying Set_** select Location, Rotation, Scale & Custom Properties, like shown on the gif below. That way, everytime you press I, a keyframe will be created without the pop-up menu. Since some animators prefer the menu, by default, that option is not enabled. But feel free to choose the method that suits you best.
 

@@ -23,21 +23,21 @@ To start adding the props to your emotes it's important to use the [Decentraland
 
 The emote with their props must be exported all together in one single _.glb_ file (Avatar_Armature + Props_Armature with its animations).
 
-- The size limit per emote is 3MB (megabytes) in total (incluiding prop and sounds).
+- No more than 3 MB in total.
 
-- The tris limit per emote is 3000 tris (including all props).
+- No more than 3k tris for props in total.
 
 - No more than 2 materials and 2 textures for props.
 
-- No more than 62 bones for the armature.
+- No more than 62 bones for the prop armature.
 
-- The emote must have one animation for the avatar and one animation for the prop. _Currently multiple animations are not allowed._
+- The emote must have one animation for the avatar and one animation for the prop. *Currently multiple animations are not allowed.*
 
 - Both animations (Avatar and Prop) must have the same keyframe length.
 
-- Each animation cannot exceed more than 299 frames or 10 seconds.
+- Animations cannot exceed 300 frames or 10 seconds.
 
-- The space boundaries are the same as standard emotes. For more information check [the space limitations](https://docs.decentraland.org/creator/emotes/creating-and-exporting-emotes/#the-animation-specifications).
+- Space boundaries are 4 square meters. Props and particles should stay within the reference cube provided in the Avatar File. For avatar movement, check [Ground Reference and Animation Area](/creator/wearables-and-emotes/emotes/creating-emotes.md#ground-reference-and-animation-area). section.
 
 # **Naming Conventions:**
 
@@ -71,6 +71,7 @@ Naming conventions must be strictly followed for the emotes to work! Otherwise t
 
 Before starting you animation, you will have to create a rig for the prop. If you’re not familiar with the process, check [Create a Rig](/creator/3d-modeling/create-a-rig) for more information on how to do it.
 
+
 Ensure that the prop object and armature have their origins located at the 0,0 location within Blender. Additionally, apply transformations to the prop object and armature, ensuring they are frozen at a scale of 1,1,1. This is crucial to prevent any potential issues with the prop's behavior when being utilized within the world or during animations.
 
 <img src="/images/wearables-and-emotes/props-and-sound/18-freeze-transforms.png" width="600" />
@@ -91,7 +92,10 @@ Then, in **_Target_**, select the avatar armature and in **_Bone_** select the b
 
 _***Chlid of*** constraint menu. Keyframe the influence to turn it on and off._
 
+{{< hint info >}}
+**💡Animation Tip!**
 If you use the slide to turn off the Influence, the prop will not maintain its previous position, making it hard to keep the animation fluid. To avoid having to manually fix the position, instead of using the slide, click on the X next to Influence, set a keyframe on it and another one on all the transform attributes. This way the prop will keep the same poistion as when the Influence was on!
+{{< /hint >}}
 
 <img src="/images/wearables-and-emotes/props-and-sound/17-influence.gif" width="600" />
 
@@ -101,22 +105,58 @@ If you use the slide to turn off the Influence, the prop will not maintain its p
 Don’t leave the prop visible from the start! To avoid spoiling what’s about to happen and an abrupt transition, start the animation with the prop scaled down to 0.001 and only turn it to 1 when you want it to appear. Remember to scale back down to 0 by the end of the action. This will make the transitions much more fluid and cool!
 {{< /hint >}}
 
-# **Exporting**
+## Animation Slots
+
+Belnder 4.4 introduced a new feature: animation slots. According to Blender documentation, “the purpose of slots is to allow an action to store distinct animation data for multiple data-blocks”. In a nutshell, slots make it possible to store the animation of multiple things in the same Action. How does it affect emotes 2.0?
+
+<img src="/images/wearables-and-emotes/props-and-sound/animationslots.png" width="600" />
+
+Blender 4.4 new feature: animation slots.
+
+Even though it’s possible to have both the avatar and prop sharing the same action clip, because of the naming convention and number of animation clips involved in Emotes 2.0, it won’t work. So the pipeline for this would be: 
+
+1. Create an animation clip for the avatar, or rename the one provided (***Starting_Pose***). It already has an animation slot, but feel free to use it (***Avatar_Animation***) or create a new one.
+2. Rename the animation clip ***AnimationName_Avatar***
+3. Create an animation clip for the prop and rename it ***AnimationName_Prop***
+4. Click on ***New*** button to create an animation slot for it (it will receive an automatic name: ***Armature_Prop***)
+5. Animate as you would do in previous Blender versions.
+
+<img src="/images/wearables-and-emotes/props-and-sound/animation-slot-prop.gif" width="600" />
+
+Creating and action clip and a slot for the prop animation.
+
+# **NLA Tracks**
 
 In order for all the animations to be exported, the clips should be added to the NLA Tracks. Make sure there’s only one animation clip for the avatar and another one for the prop, **they must have the exact same number of frames.**
 
-In Object Mode, select the avatar armature, select the respective animation clip in the Browse Action menu and click on the Push Down button.
 
-Then, select prop armature, select the proper animation clip for it and click on the Push Down button again.
+In ***Object Mode***, select the avatar armature, got to ***Pose Mode***, select the respective animation clip in the Browse Action menu, click on ***Action*** and then the ***Push Down*** option.
 
-<img src="/images/wearables-and-emotes/props-and-sound/02-nla-tracks.png" width="600" />
+Then, change back to ***Object Mode***, select the prop armature, go to ***Pose mode***, select the respective animation clip in the Browse Action menu, click on ***Action*** and then the ***Push Down*** option.
+
+<img src="/images/wearables-and-emotes/props-and-sound/nla-tracks.gif" width="600" />
+
+Pushing actions down to the NLA tracks.
+
+{{< hint warning >}}
+⚠️ Be careful when pushing actions down . Make sure you select the desired armature with the respective animation. Don’t just change the animation and push it down before selecting the other armature or else you will be assigning two actions to an armature and none to the other.
+{{< /hint >}}
+
+<img src="/images/wearables-and-emotes/props-and-sound/NLA-tracks.png" width="600" />
+
+The NLA tracks should look like this: one animation for each armature.
+
 
 {{< hint info >}}
 **🔥 Optimization Tip**
 
 **Before this step make sure to do a backup of your project.**
 
-If you have different objects for your props you can merge them together in one single mesh. This would help to reduce the draw calls in game making the emote more performant.
+If you have different objects for your props you can merge them together in one single mesh. You can do this by simply selecting the objects and pressing the shortcut ctrl + J. 
+
+This would help to reduce the draw calls in game making the emote more performant.
+
+Keep in mind that this won’t work for particles, though.
 
 <img src="/images/wearables-and-emotes/props-and-sound/03-merge-mesh.png" width="400" />
 
@@ -126,20 +166,26 @@ _Select objects and press `Ctrl+J` to merge them together._
 
 {{< /hint >}}
 
-To export **be sure to select only both Avatar and Prop Armatures with its animations and the Prop mesh**. Then go to the export glb settings and be sure to export only selected objects and untoggle unnecessary features like _Shapekeys Animation_. Always remember to enable Export Deformation Bones Only, so you don’t end up exporting unnecessary bones, like controls.
 
-<img src="/images/wearables-and-emotes/props-and-sound/05-export-props.png" width="600" />
+# **Exporting**
 
-<img src="/images/wearables-and-emotes/props-and-sound/06-export-settings.png" width="600" />
+Emotes 2.0 are exported the same way as common emotes. Make sure only the avatar armature, prop armature and prop meshes are visible and hide everything else.
 
-<img src="/images/wearables-and-emotes/props-and-sound/13-export-deformation-bones.png" width="600" />
 
-_Under *Data>Armature* make sure to toggle **Export Deformation Bones Only**_
+<img src="/images/wearables-and-emotes/props-and-sound/visibility.png" width="600" />
 
-{{< hint info >}}
-**💡 Attention!**
-You should **NOT** export the avatar mesh into the .glb.
-{{< /hint >}}
+Have only avatar armature, prop armature and prop mesh visible for exporting.
+
+
+To export, go to File > Export > glTF2.0 (.glb, .gltf)
+<img src="/images/wearables-and-emotes/props-and-sound/export.gif" width="600" />
+
+For the export settings, expand Include and in Limit to toggle Visible Objects. Then, expand the Data tab, expand Armature and enable Export Deformation Bones Only.
+
+| ![](/images/wearables-and-emotes/props-and-sound/export_settings.png) | ![](/images/wearables-and-emotes/props-and-sound/export_settings_GIF.gif) |
+|-----------------------------------------|---------------------------------------------|
+
+Hit Export and you are done!
 
 # **Add Audio to the Emotes**
 
