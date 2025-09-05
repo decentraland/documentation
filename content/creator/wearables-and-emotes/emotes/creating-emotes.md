@@ -98,7 +98,7 @@ In order to avoid ground penetration during animation, a plane has been added to
 
 Ground and animation area reference.
 
-The avatar center of gravity is the CTRL_Avatar_UpperBody. The limit to move it around is 1 meter (left, right, front, back), so try to keep it inside the smaller circle during animation. Arms and legs can exceed the small circle up to the larger one. As for the height, the limit is also 1 meter. The avatar cannot move over a meter up from its original position.
+The avatar center of gravity is the CTRL_Avatar_UpperBody. The limit to move it around is 1 meter (left, right, front, back), so try to keep it inside the smaller circle during animation. Arms and legs can exceed the small circle up to the larger one. As for the height, as long as the avatar body isn’t outside the box, it should be good to go. 
 
 ![Avatar centered.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/animation_area_center.png)
 
