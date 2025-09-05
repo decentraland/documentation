@@ -41,7 +41,7 @@ You can now find your asset in the **Local Assets** tab, under the **scene** fol
 
 ## Supported formats
 
-### Audio
+### Audio
 
 The following Audio formats are supported:
 
