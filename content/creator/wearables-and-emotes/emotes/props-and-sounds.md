@@ -99,6 +99,11 @@ If you use the slide to turn off the Influence, the prop will not maintain its p
 
 <img src="/images/wearables-and-emotes/props-and-sound/17-influence.gif" width="600" />
 
+{{< hint info >}}
+**💡Animation Tip**
+
+Don’t leave the prop visible from the start! To avoid spoiling what’s about to happen and an abrupt transition, start the animation with the prop scaled down to 0.001 and only turn it to 1 when you want it to appear. Remember to scale back down to 0 by the end of the action. This will make the transitions much more fluid and cool!
+{{< /hint >}}
 
 ## Animation Slots
 
@@ -124,11 +129,6 @@ Creating and action clip and a slot for the prop animation.
 
 In order for all the animations to be exported, the clips should be added to the NLA Tracks. Make sure there’s only one animation clip for the avatar and another one for the prop, **they must have the exact same number of frames.**
 
-{{< hint info >}}
-**💡Animation Tip**
-
-Don’t leave the prop visible from the start! To avoid spoiling what’s about to happen and an abrupt transition, start the animation with the prop scaled down to 0.001 and only turn it to 1 when you want it to appear. Remember to scale back down to 0 by the end of the action. This will make the transitions much more fluid and cool!
-{{< /hint >}}
 
 In ***Object Mode***, select the avatar armature, got to ***Pose Mode***, select the respective animation clip in the Browse Action menu, click on ***Action*** and then the ***Push Down*** option.
 
