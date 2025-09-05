@@ -138,12 +138,25 @@ Then, change back to ***Object Mode***, select the prop armature, go to ***Pose 
 
 Pushing actions down to the NLA tracks.
 
+{{< hint warning >}}
+⚠️ Be careful when pushing actions down . Make sure you select the desired armature with the respective animation. Don’t just change the animation and push it down before selecting the other armature or else you will be assigning two actions to an armature and none to the other.
+{{< /hint >}}
+
+<img src="/images/wearables-and-emotes/props-and-sound/NLA-tracks.png" width="600" />
+
+The NLA tracks should look like this: one animation for each armature.
+
+
 {{< hint info >}}
 **🔥 Optimization Tip**
 
 **Before this step make sure to do a backup of your project.**
 
-If you have different objects for your props you can merge them together in one single mesh. This would help to reduce the draw calls in game making the emote more performant.
+If you have different objects for your props you can merge them together in one single mesh. You can do this by simply selecting the objects and pressing the shortcut ctrl + J. 
+
+This would help to reduce the draw calls in game making the emote more performant.
+
+Keep in mind that this won’t work for particles, though.
 
 <img src="/images/wearables-and-emotes/props-and-sound/03-merge-mesh.png" width="400" />
 
@@ -153,20 +166,26 @@ _Select objects and press `Ctrl+J` to merge them together._
 
 {{< /hint >}}
 
-To export **be sure to select only both Avatar and Prop Armatures with its animations and the Prop mesh**. Then go to the export glb settings and be sure to export only selected objects and untoggle unnecessary features like _Shapekeys Animation_. Always remember to enable Export Deformation Bones Only, so you don’t end up exporting unnecessary bones, like controls.
 
-<img src="/images/wearables-and-emotes/props-and-sound/05-export-props.png" width="600" />
+# **Exporting**
 
-<img src="/images/wearables-and-emotes/props-and-sound/06-export-settings.png" width="600" />
+Emotes 2.0 are exported the same way as common emotes. Make sure only the avatar armature, prop armature and prop meshes are visible and hide everything else.
 
-<img src="/images/wearables-and-emotes/props-and-sound/13-export-deformation-bones.png" width="600" />
 
-_Under *Data>Armature* make sure to toggle **Export Deformation Bones Only**_
+<img src="/images/wearables-and-emotes/props-and-sound/visibility.png" width="600" />
 
-{{< hint info >}}
-**💡 Attention!**
-You should **NOT** export the avatar mesh into the .glb.
-{{< /hint >}}
+Have only avatar armature, prop armature and prop mesh visible for exporting.
+
+
+To export, go to File > Export > glTF2.0 (.glb, .gltf)
+<img src="/images/wearables-and-emotes/props-and-sound/export.gif" width="600" />
+
+For the export settings, expand Include and in Limit to toggle Visible Objects. Then, expand the Data tab, expand Armature and enable Export Deformation Bones Only.
+
+| ![](/images/wearables-and-emotes/props-and-sound/export_settings.png) | ![](/images/wearables-and-emotes/props-and-sound/export_settings_GIF.gif) |
+|-----------------------------------------|---------------------------------------------|
+
+Hit Export and you are done!
 
 # **Add Audio to the Emotes**
 
