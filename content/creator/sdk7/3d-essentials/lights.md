@@ -131,7 +131,7 @@ LightSource.create(light, {
 
 
 
-## Switching a light on and off
+## Switching a light on and off
 
 The LightSource component has a `active` property that can be used to switch a light on and off. This is useful if you want to turn a light off without removing it from the scene, or without setting the `intensity` to 0 and losing reference of what the original intensity was.
 
