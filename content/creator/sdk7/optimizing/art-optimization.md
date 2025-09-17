@@ -24,10 +24,12 @@ The best metric to know how well a scene is performing is the FPS (Frames Per Se
 To see the current FPS (Frames Per Second) of the explorer
 
 1) Open the debug panel, on the top-right corner of the screen.
-<img src="/images/editor/debug-panel.png" width="254" />
+
+<img src="/images/debug-panel.png" width="100" />
 
 2) Check  Average FPS in the **PERFORMANCE** tab.
-<img src="/images/editor/FPS.png" width="500" />
+
+<img src="/images/FPS.png" width="300" />
 
 Check this value periodically, as it may vary over time depending on what you're doing in your scene.
 
