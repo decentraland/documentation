@@ -47,29 +47,29 @@ Always ask players for feedback. Never take for granted that how you experience 
 
 When working with the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}), you can see stats about the resources used by 3D models in your scene, and if they pass any of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
 
-<img src="/images/editor/triangle-limit1.png" width="250" />
+<img src="/images/triangle-limit1.png" width="250" />
 
 You can expand this menu to view details.
 
-<img src="/images/editor/triangle-limit2.png" width="300" />
+<img src="/images/triangle-limit2.png" width="300" />
 
 Here are some tips for improving on these metrics:
 
-## Transparent materials
+## Transparent materials
 
 Transparent materials are always more expensive in terms of performance than opaque materials. Avoid using blended transparencies. Blended transparencies have to bypass quite a few of the rendering optimizations. If possible, favor opaque or alpha tested geometry. See [Alpha materials]({{< ref "/content/creator/3d-modeling/materials.md#Alpha" >}}) and [Transparent Maps]({{< ref "/content/creator/3d-modeling/textures.md#Transparent-Maps" >}}) for more details.
 
-## Merging meshes
+## Merging meshes
 
 Merging meshes is a great way to reduce the number of draw calls and improve performance. Instead of executing one draw call per mesh, you can merge them into a single draw call.
 
 This however is not always ideal in cases where the meshes might not all be visible at the same time. If the meshes are separate, the engine is able to cull the ones that are not visible. See [Meshes on large scenes]({{< ref "/content/creator/3d-modeling/meshes.md#Meshes-on-large-scenes" >}}) for more details.
 
-## Face Culling
+## Face Culling
 
 Face culling is a great way to improve performance. It allows the engine to skip rendering the faces that are not visible. Only untoggle **backface culling** in your models if you need a model to be renderer in both sides (for example, a group of leafs of a tree made by 3D planes).
 
-## Texture atlases
+## Texture atlases
 
 Texture atlases are a great way to reduce the number of textures in your scene. It allows you to share the same texture across multiple models. See [Shared textures betewen GlTF models]({{< ref "/content/creator/3d-modeling/textures.md#Shared-textures-betewen-GlTFs-models" >}}) for more details.
 
@@ -91,7 +91,7 @@ You could even use a single texture as an atlas map, shared across all models in
 **💡 Tip**: Read more on 3D model best practices in the [3D Modeling Section](/creator/3d-modeling/3d-models
 {{< /hint >}}
 
-### Asset Bundle conversion
+## Asset Bundle conversion
 
 After your scene is deployed, the Decentraland content servers run a process to compress every _.gltf_ and _.glb_ model in your scene to asset bundle format. This format is _significantly_ lighter, making scenes a lot faster to load and smoother to run on the browser. This proces is carried out automatically, so you don't need to do anything to trigger it, the process may typically take 15 minutes or more.
 
