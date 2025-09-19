@@ -63,10 +63,10 @@ The function returns a number between 0 and 86400, where 0 is midnight and 86400
 You can change the time of day dynamically using the `SkyboxTime` component. This component can only be added to the root entity of the scene `engine.rootEntity`.
 
 ```ts
-import { SkyboxTime } from '~system/Runtime'
+import { SkyboxTime } from '@dcl/sdk/ecs'
 
 function main() {
-  SkyboxTime.create(engine.rootEntity, { fixed_time: 36000 })
+  SkyboxTime.create(engine.RootEntity, { fixedTime: 36000 })
 }
 ```
 
@@ -78,9 +78,10 @@ By default, the transition always happens in the forward direction, but you can 
 
 ```ts
 import { TransitionMode } from '~system/Runtime'
+import { SkyboxTime } from '@dcl/sdk/ecs'
 
 function main() {
-  SkyboxTime.create(engine.rootEntity, { fixed_time: 36000, direction: TransitionMode.TM_BACKWARD })
+  SkyboxTime.create(engine.RootEntity, { fixedTime: 36000, direction: TransitionMode.TM_BACKWARD })
 }
 ```
 
