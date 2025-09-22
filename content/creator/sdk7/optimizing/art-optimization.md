@@ -53,11 +53,17 @@ Transparent materials are always more expensive in terms of performance than opa
 
 Merging meshes is a great way to reduce the number of draw calls and improve performance. Instead of executing one draw call per mesh, you can merge them into a single draw call.
 
-This however is not always ideal in cases where the meshes might not all be visible at the same time. If the meshes are separate, the engine is able to cull the ones that are not visible. See [Meshes on large scenes]({{< ref "/content/creator/3d-modeling/meshes.md#Meshes-on-large-scenes" >}}) for more details.
+Merge smaller objects which are close to each other and do not move or are animated into a single object. If the objects are on screen together 95% of the time, e.g. a table with chairs, or dishes on a table, then they can be merged together into a single mesh and will all be rendered at the same time. 
+
+This however is not always ideal in cases where the meshes might not all be visible at the same time. Don’t merge all static objects together in a single scene, as objects which are outside of the view will still be rendered if they are merged with other visible objects. Try to merge clusters of visible objects together.
+ If the meshes are separate, the engine is able to cull the ones that are not visible. See [Meshes on large scenes]({{< ref "/content/creator/3d-modeling/meshes.md#Meshes-on-large-scenes" >}}) for more details.
+
 
 ## Face Culling
 
 Face culling is a great way to improve performance. It allows the engine to skip rendering the faces that are not visible. Only untoggle **backface culling** in your models if you need a model to be renderer in both sides (for example, a group of leafs of a tree made by 3D planes).
+
+The engine doesn't support any other face culling options than back-face culling, as it is not batch friendly. Billboard style art won’t work with that workflow, instead you can duplicate the mesh and invert normals to achieve the same effect. As an example a quad billboard would become two quads back to back, as a single mesh.
 
 ## Texture atlases
 
@@ -72,6 +78,10 @@ You could even use a single texture as an atlas map, shared across all models in
 
 ## Other Best practices
 
+
+- Reduce triangle count. Often people will try to create vertex geometry for finer details on an object, instead try to use textures for finer detail, using normal maps, roughness maps etc. Think about merging adjacent meshes and removing non-visible triangles that are in between. Consider utilising simpler billboards to fake complex geometry where possible, e.g. a bush or grass is more often than not a set of billboards instead of finer geometric detail.
+
+- Merge materials. A lot of users will attempt to avoid textures and use material settings to colour the objects. The downside to this is that every object has its own material and will increase material count quite dramatically. Instead utilise a texture atlas of the colours you require and look up colours per object. There are two advantages to this: material reduction and therefore batching is improved as objects share materials and textures. This means batching in the engine is easier and more efficient.
 
 - _.glb_ is a compressed format, it will always weigh less than a _.gltf_. On the other hand, with _.gltf_ it's easy to share texture images by exporting textures as a separate file. You can have the best of both worlds by using the [following pipeline](https://github.com/AnalyticalGraphicsInc/gltf-pipeline), that allows you to have _.glb_ models with external texture files.
 
