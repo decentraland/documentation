@@ -175,6 +175,61 @@ You can use the 8 different custom layers for whatever suits your scene best, fo
 
 See [Raycasting]({{< ref "/content/creator/sdk7/interactivity/raycasting.md" >}}) for more on how to use custom collision layers.
 
+### Cameras and colliders
+
+When a player's camera moves in 3rd person mode, the camera might be blocked by colliders or not, depending on the collision layers assigned to the entities. Be mindful of this when designing your scene, you may want to prevent the camera from going through walls or other entities.
+
+To avoid the camera from going through walls, you must assign both the `ColliderLayer.CL_PHYSICS` and the `ColliderLayer.CL_POINTER` layers to the entities that you want to block the camera. It's important that both layers are assigned to the same geometry on the entity. So if you assign the `ColliderLayer.CL_PHYSICS` layer to the visible layer of the entity, you must also assign the `ColliderLayer.CL_POINTER` layer to the same geometry.
+
+For example, on the Creator Hub, the following combination of settings will prevent the camera from going through walls:
+
+<img src="/images/colliders-camera.png" width="300" />
+
+Both the `ColliderLayer.CL_PHYSICS` and the `ColliderLayer.CL_POINTER` layers are assigned to the same invisible layer of the geometry of the entity. If they were both assigned to the visible layer, the result would be the same. This is the default behavior, both when adding an entity via the Creator Hub or via code.
+
+<img src="/images/colliders-no-camera.png" width="300" />
+
+In this second example, the camera can go through the wall, because the `ColliderLayer.CL_PHYSICS` layer is assigned to the invisible layer of the entity, and the `ColliderLayer.CL_POINTER` layer is assigned to the visible layer of the entity, even if both geometries have the same overall shape.
+
+
+```ts
+// NO CAMERA GOING THROUGH THE WALL
+// default (both pointer and physics use the invisible geometry)
+GLTFContainer.create(myEntity, {
+	src: '/models/myModel.gltf',
+})
+
+// NO CAMERA GOING THROUGH THE WALL
+// Both use the same invisible geometry
+GltfContainer.create(myEntity2, {
+	src: '/models/myModel.gltf',
+	invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER,
+})
+
+// NO CAMERA GOING THROUGH THE WALL
+// Both use the same visible geometry
+GltfContainer.create(myEntity2, {
+	src: '/models/myModel.gltf',
+	visibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER,
+})
+
+// YES CAMERA GOES THROUGH THE WALL
+// physics and pointer are on diferent layers
+GltfContainer.create(myEntity2, {
+	src: '/models/myModel.gltf',
+	invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
+	visibleMeshesCollisionMask: ColliderLayer.CL_POINTER
+})
+
+// YES CAMERA GOES THROUGH THE WALL
+// physics and pointer are on diferent layers
+GltfContainer.create(myEntity2, {
+	src: '/models/myModel.gltf',
+	invisibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
+	visibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS
+})
+```
+
 ### Pointer blocking
 
 Only shapes that have colliders can be activated with [pointer events]({{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >}}). An entity also needs to have a collider to block pointer events from going through it and prevent hitting entities behind it. So for example, a player can't pick something up that is locked inside a chest, if the chest has colliders around it. The player's pointer events are only affected by meshes that are active in the `ColliderLayer.CL_POINTER` layer.
@@ -198,7 +253,7 @@ MeshCollider.setBox(myEntity2, ColliderLayer.CL_POINTER)
 By default, the visible geometry of a `GLTFContainer` isn't mapped to any collision layers, but the invisible geometry affects both the Physics and the Pointer layers. You can change this value to only affect one, or neither, and to affect custom layers instead. You can also configure the visible geometry layer in the same way.
 
 ```ts
-// default: both player physics and pointer events use the simpler invisible geometry
+// default (both pointer and physics use the invisible geometry)
 GLTFContainer.create(myEntity, {
 	src: '/models/myModel.gltf',
 })
