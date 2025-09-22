@@ -45,18 +45,6 @@ It's always a good practice to try deploying your scene first to the [test envir
 Always ask players for feedback. Never take for granted that how you experience the scene is the same for everyone else.
 
 
-## Keep an eye on metrics
-
-When working with the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}), you can see stats about the resources used by 3D models in your scene, and if they pass any of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
-
-<img src="/images/triangle-limit1.png" width="250" />
-
-You can expand this menu to view details.
-
-<img src="/images/triangle-limit2.png" width="300" />
-
-Here are some tips for improving on these metrics:
-
 ## Transparent materials
 
 Transparent materials are always more expensive in terms of performance than opaque materials. Avoid using blended transparencies. Blended transparencies have to bypass quite a few of the rendering optimizations. If possible, favor opaque or alpha tested geometry. See [Alpha materials]({{< ref "/content/creator/3d-modeling/materials.md#Alpha" >}}) and [Transparent Maps]({{< ref "/content/creator/3d-modeling/textures.md#Transparent-Maps" >}}) for more details.
