@@ -50,7 +50,11 @@ TriggerArea.setBox(triggerEntity)
 TriggerArea.setSphere(triggerEntity)
 ```
 
-Tip: The sphere is the easiest shape to calculate for the engine, as it's achieved by checking the distance from the center of the sphere. If in doubt, use a sphere.
+
+{{< hint info >}}
+**💡 Tip**: The sphere is the easiest shape to calculate for the engine, as it's achieved by checking the distance from the center of the sphere. If in doubt, use a sphere.
+{{< /hint >}}
+
 
 To alter the size of the trigger area, you can use the `scale` property of the `Transform` component.
 
@@ -155,7 +159,9 @@ Allowed values are the same as the ones for the `MeshCollider` component. See [C
 - `ColliderLayer.CL_CUSTOM1` through to `CL_CUSTOM8`
 - `ColliderLayer.CL_NONE`
 
-Tip: The layers `CL_CUSTOM1` through to `CL_CUSTOM8` don't have any special behavior on their own, you can use them for whatever suits your scene best.
+{{< hint info >}}
+**💡 Tip**: The layers `CL_CUSTOM1` through to `CL_CUSTOM8` don't have any special behavior on their own, you can use them for whatever suits your scene best.
+{{< /hint >}}
 
 You can also set up a trigger area to detect multiple layers at once.
 
