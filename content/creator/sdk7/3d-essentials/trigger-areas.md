@@ -123,6 +123,63 @@ triggerAreaEventsSystem.onTriggerStay(triggerEntity, function(result) {
 })
 ```
 
+## Trigger event responses
+
+When a trigger area event is triggered, you can use the `result` parameter to get information about both the entity that was triggered and the entity that triggered the event.
+
+The following properties are available in the `result` parameter:
+
+
+- `triggeredEntity`: The ID of the entity that was triggered (this is the entity that owns the trigger area)
+- `triggeredEntityPosition`: The position of the entity that was triggered
+- `triggeredEntityRotation`: The rotation of the entity that was triggered
+- `eventType`: The type of trigger event (ENTER, EXIT, STAY)
+- `timestamp`: The timestamp of the trigger event
+- `trigger`: An object with the following fields:
+    - `entity`: The ID of the entity that triggered the trigger (the entity that entered the trigger area)
+    - `layer`: The collision layer of the entity that triggered the trigger
+    - `position`: The position of the entity that triggered the trigger
+    - `rotation`: The rotation of the entity that triggered the trigger
+    - `scale`: The scale of the entity that triggered the trigger
+
+```ts
+import { engine } from '@dcl/sdk/ecs'
+import { TriggerArea } from '@dcl/sdk/triggers'
+
+// Trigger area
+const triggeredEntity = engine.addEntity()
+
+TriggerArea.setBox(triggerEntity)
+
+Transform.create(triggerEntity, {
+  position: Vector3.create(8, 0, 8),
+})
+
+// Entity that will trigger the trigger area
+const triggerEntity = engine.addEntity()
+
+const triggeredEntity = engine.addEntity()
+
+Transform.create(triggeredEntity, {
+  position: Vector3.create(8, 0, 8),
+})
+
+// On enter
+triggerAreaEventsSystem.onTriggerEnter(triggerEntity, function(result) {
+  console.log('An entity entered trigger area!', result.triggeredEntity)
+  console.log('Triggered entity position: ', result.triggeredEntityPosition)
+  console.log('Triggered entity rotation: ', result.triggeredEntityRotation)
+  console.log('Event type: ', result.eventType)
+  console.log('Timestamp: ', result.timestamp)
+  console.log('Trigger entity: ', result.trigger.entity)
+  console.log('Trigger layer: ', result.trigger.layer)
+  console.log('Trigger position: ', result.trigger.position)
+  console.log('Trigger rotation: ', result.trigger.rotation)
+  console.log('Trigger scale: ', result.trigger.scale)
+})
+```
+
+
 ## Trigger area layers
 
 Use the optional second argument of the `TriggerArea` component to set the layers that will activate the trigger area.
@@ -179,59 +236,3 @@ Transform.create(triggerEntity, {
 ```
 
 This will activate the trigger area when any entity with the layers `CL_CUSTOM1` or `CL_CUSTOM2` enters the trigger area.
-
-## Trigger event responses
-
-When a trigger area event is triggered, you can use the `result` parameter to get information about both the entity that was triggered and the entity that triggered the event.
-
-The following properties are available in the `result` parameter:
-
-
-- `triggeredEntity`: The ID of the entity that was triggered (this is the entity that owns the trigger area)
-- `triggeredEntityPosition`: The position of the entity that was triggered
-- `triggeredEntityRotation`: The rotation of the entity that was triggered
-- `eventType`: The type of trigger event (ENTER, EXIT, STAY)
-- `timestamp`: The timestamp of the trigger event
-- `trigger`: An object with the following fields:
-    - `entity`: The ID of the entity that triggered the trigger (the entity that entered the trigger area)
-    - `layer`: The collision layer of the entity that triggered the trigger
-    - `position`: The position of the entity that triggered the trigger
-    - `rotation`: The rotation of the entity that triggered the trigger
-    - `scale`: The scale of the entity that triggered the trigger
-
-```ts
-import { engine } from '@dcl/sdk/ecs'
-import { TriggerArea } from '@dcl/sdk/triggers'
-
-// Trigger area
-const triggeredEntity = engine.addEntity()
-
-TriggerArea.setBox(triggerEntity)
-
-Transform.create(triggerEntity, {
-  position: Vector3.create(8, 0, 8),
-})
-
-// Entity that will trigger the trigger area
-const triggerEntity = engine.addEntity()
-
-const triggeredEntity = engine.addEntity()
-
-Transform.create(triggeredEntity, {
-  position: Vector3.create(8, 0, 8),
-})
-
-// On enter
-triggerAreaEventsSystem.onTriggerEnter(triggerEntity, function(result) {
-  console.log('An entity entered trigger area!', result.triggeredEntity)
-  console.log('Triggered entity position: ', result.triggeredEntityPosition)
-  console.log('Triggered entity rotation: ', result.triggeredEntityRotation)
-  console.log('Event type: ', result.eventType)
-  console.log('Timestamp: ', result.timestamp)
-  console.log('Trigger entity: ', result.trigger.entity)
-  console.log('Trigger layer: ', result.trigger.layer)
-  console.log('Trigger position: ', result.trigger.position)
-  console.log('Trigger rotation: ', result.trigger.rotation)
-  console.log('Trigger scale: ', result.trigger.scale)
-})
-```
