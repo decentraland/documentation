@@ -56,7 +56,7 @@ TriggerArea.setSphere(triggerEntity)
 {{< /hint >}}
 
 
-To alter the size of the trigger area, you can use the `scale` property of the `Transform` component.
+To alter the size of the trigger area, you can use the `scale` property of the `Transform` component on the entity holding the `TriggerArea`.
 
 ```ts
 import { engine } from '@dcl/sdk/ecs'
