@@ -17,8 +17,6 @@ When running a scene that's already deployed to land in Decentraland, there are 
 
 Before you deploy your scene to Decentraland, make sure the scene runs well in preview using the latest version of the Decentraland SDK. See [debug in preview]({{< ref "/content/creator/sdk7/debugging/debug-in-preview.md" >}}).
 
-Although there should always be backwards compatibility of content built with older SDK versions, some platform-level aspects are subject to change over time. For example, lighting, avatar animations, skybox textures, global UIs, etc. By running a preview with the latest SDK version, you're using a newer version of the engine, which should render your scene in a way that's closer to what's used in production.
-
 ### The test server
 
 You can deploy scenes to a test server as a staging environment, before publishing them to the live content servers. This server is not frequented by any players that visit Decentraland normally. To enter this server you must manually write its URL, but keep in mind that it's not a private environment.
@@ -54,12 +52,12 @@ To open Decentraland with the `scene-console` parameter, either:
 
 When running Decentraland with the `scene-console`, you can open the console in three ways:
 
-- Click the <img src="/images/console-icon.png" alt="Header" width="25"/> icon on the bottom-right corner
+- Click the <img src="/images/console-icon.png" alt="Header" width="25"/> icon on the top-right corner
 - Press the **`** key for a short console
 - Press Shift + **\`** to open a larger view of the console
 
 
-Messages from each active scene will be logged to the console.
+Keep in mind that messages from each active scene will be logged to the console, so some of the things you see in the console might not be relevant to your scene.
 
 <!-- ## Access debug information
 
