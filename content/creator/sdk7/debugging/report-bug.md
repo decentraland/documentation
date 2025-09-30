@@ -69,6 +69,13 @@ Keep your example as concise as possible, while still reproducing the issue. A s
 **📔 Note**: It's not possible to import assets to your scene on the Playground. So if reproducing the issue requires importing a 3D model or a sound file, it won't be possible to display there.
 {{< /hint >}}
 
+## Getting logs
+
+It's often useful to get the logs of the Decentraland explorer when reporting a bug.
+
+To get your logs, simply open the chat and write `/logs`. This will open a new window with the logs of the Decentraland explorer. Attach the `Player.log` file to your issue report.
+
+
 ## Editing Documentation
 
 If you discover issues in the content of the Documentation website, you can submit change requests. Simply scroll down to the bottom of the page and click the **Edit this page** button. GitHub will guide you through creating a pull request with your changes. The foundation team will review your changes and publish them if they're deemed useful.
