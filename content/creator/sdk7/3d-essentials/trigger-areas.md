@@ -83,7 +83,7 @@ const triggerEntity = engine.addEntity()
 
 TriggerArea.setBox(triggerEntity)
 
-MeshShape.setBox(triggerEntity)
+MeshRenderer.setBox(triggerEntity)
 
 Transform.create(triggerEntity, {
   position: Vector3.create(8, 0, 8),
