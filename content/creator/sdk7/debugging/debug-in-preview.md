@@ -89,7 +89,7 @@ If your scene interacts with a third party server, it's often useful to see what
 {{< hint warning >}}
 **📔 Note**: To use this feature, you must first install the [Creator Hub]({{< ref "/content/creator/sdk7/getting-started/creator-hub.md" >}}), as the necessary dependencies are bundled with that installation. 
 
-You don't need to run your scene preview via the Creator Hub to use this feature, this can also be used if you're using the CLI to run your scene preview. You must however have the Creator Hub open the first time you want to open the Chrome Devtools Network tab, for dependencies to be installed.
+You don't need to have the Creator Hub open or run your scene preview via the Creator Hub to use this feature, it can also be used if you're using the CLI to run your scene preview.
 {{< /hint >}}
 
 As an alternative, there are several free tools you can run on your machine that report all the data coming in and out of the Decentraland application. For example [Charles](https://www.charlesproxy.com/) or [Wireshark](https://www.wireshark.org/).
