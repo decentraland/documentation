@@ -43,8 +43,8 @@ To open Decentraland with the `scene-console` parameter, either:
 
 - Write the following deep link into a browser window: `decentraland://?position=0,0&scene-console`. This will open the Decentraland desktop application if you have it installed.
 - Write the following on the command line:
-  - **macOS**: `open Decentraland.app --args --position 0,0 --scene-console`
-  - **winOS**: `"C:\Users\[YOUR-USER]\Downloads\Decentraland_windows64\Decentraland.exe" --position 0,0 --scene-console`
+  - **macOS**: `open Decentraland.app --args --position 0,0 --scene-console true`
+  - **winOS**: `"C:\Users\[YOUR-USER]\Downloads\Decentraland_windows64\Decentraland.exe" --position 0,0 --scene-console true`
 
 {{< hint info >}}
 **💡 Tip**: Change the **position** parameter to the coordinates of your scene, to load directly into your scene.
