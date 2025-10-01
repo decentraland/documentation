@@ -9,7 +9,11 @@ url: /creator/development-guide/sdk7/portable-experiences/
 weight: 4
 ---
 
-Portable experiences are essentially scenes that are not constrained to parcels of land. Players can carry these with them anywhere they go in Decentraland, adding a new layer of content over their experience.
+{{< hint warning >}}
+**📔 Note**:  Portable expereinces are currently not supported in the Decentraland desktop client.
+{{< /hint >}}
+
+<!-- Portable experiences are essentially scenes that are not constrained to parcels of land. Players can carry these with them anywhere they go in Decentraland, adding a new layer of content over their experience.
 Portable Experiences can be tied to a NAME and can be loaded by another scene using the SDK.
 
 {{< hint warning >}}
@@ -142,4 +146,4 @@ Portable experiences only run for the player that activates it. Other players do
   - You can’t directly send any instructions to nearby scenes or other portable experiences, the `messageBus` is sandboxed for each portable experience/scene.
   - You can use an intermediate server to send information between the portable experience and a scene.
   - If you do a raycast, you can detect hits against the colliders of entities from the surrounding scenes. This can tell you the exact hit location, normal direction, and even the entity name and mesh name of the 3D model. This only works when hitting entities on scenes written with SDK7.
-- Kill a portable experience: Run the `kill()` method to self-terminate a portable experience.
+- Kill a portable experience: Run the `kill()` method to self-terminate a portable experience. -->
