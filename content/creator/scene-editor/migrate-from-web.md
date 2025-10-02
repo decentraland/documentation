@@ -15,7 +15,7 @@ The Creator Hub is the recommended tool for creating Decentraland scenes. It has
 
 ## Export your project
 
-To edit the code in a scene created with the [Web Editor]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}), you must export the scene to your machine and open it with the Creator Hub.
+To edit the code in a scene created with the Web Editor, you must export the scene to your machine and open it with the Creator Hub.
 
 {{< hint warning >}}
 **📔 Note**: If you don't have the Creator Hub installed, follow the steps in the following page before your start.
