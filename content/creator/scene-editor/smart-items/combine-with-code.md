@@ -153,9 +153,9 @@ You can then fetch all entities that have a specific tag by using the `engine.ge
 import { engine } from '@dcl/sdk/ecs'
 
 export function main() {
-	const boxes = engine.getEntitiesByTag('myTag')
+	const taggedEntities = engine.getEntitiesByTag('myTag')
   
-	for (const entity of myTag) {
+	for (const entity of taggedEntities) {
       // Do something with each entity
     }
 }
