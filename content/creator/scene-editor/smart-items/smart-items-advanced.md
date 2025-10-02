@@ -6,6 +6,8 @@ categories:
   - scene-editor
 type: Document
 url: /creator/editor/smart-items-advanced
+aliases:
+  - /creator/smart-items-advanced
 weight: 4
 ---
 
