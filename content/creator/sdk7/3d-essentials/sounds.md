@@ -79,7 +79,7 @@ The following properties can be set:
   {{< hint info >}}
   **💡 Tip**: To prevent a sound effect from becoming too repetitive during a game, it's useful to randomize some slight variations to the sound's pitch every time it plays.
   {{< /hint >}}
-- `currentTime`: _(optional)_ The current playback time of the sound file, in seconds. 0 by default. Set this value to avoid starting from the beginning of the sound file. You can also query this value at any time to check the sound's progress.
+- `currentTime`: _(optional)_ 0 by default. Set this value to avoid starting from the beginning of the sound file.
 
 Each entity can only have a single `AudioSource` component, that can only play a single clip at a time. This limitation can be easily overcome by modifying the audio source at the time of playing a new sound, or by including multiple invisible child entities, each with their own sound.
 
