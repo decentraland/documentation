@@ -6,6 +6,8 @@ categories:
   - scene-editor
 type: Document
 url: /creator/editor/editor-plus-code
+aliases:
+  - /creator/editor-plus-code
 weight: 7
 ---
 

@@ -42,7 +42,7 @@ Our SDK includes the following:
 
 Other legacy tools:
 
-- **The Web Editor**: A web based too for creating simple scenes and publishing them. [Read more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}})
+- **The Web Editor**: A web based too for creating simple scenes and publishing them.
 
 ## Requirements
 

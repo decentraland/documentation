@@ -6,6 +6,8 @@ categories:
   - scene-editor
 type: Document
 url: /creator/editor/about-scene-editor
+aliases:
+  - /creator/web-editor
 weight: 1
 ---
 
