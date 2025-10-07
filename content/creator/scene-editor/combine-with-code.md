@@ -159,7 +159,45 @@ function main() {
 }
 ```
 
-### Fetch all the children of an item
+## Fetch by Tag
+
+You can also fetch entities by their tags. Tags are a way to group entities together, and are useful to identify entities that have the same purpose or behavior.
+
+Add Tags to an entity via the **Tags** section at the top of the item's properties panel. You can pick from the generic tags like **Tag Group 1** through to **Tag Group 4**, or create your own with a more specific name. 
+
+<img src="/images/editor/tags.png" width="600" />
+
+{{< hint info >}}
+**💡 Tip**: A single entity can have multiple tags assigned to it.
+
+<img src="/images/editor/tags-multiple.png" width="600" />
+
+{{< /hint >}}
+
+You can then fetch all entities that have a specific tag by using the `engine.getEntitiesByTag()` function. This is ideal for when you want to iterate over a group of entities that have the same purpose or behavior.
+
+```ts
+import { engine } from '@dcl/sdk/ecs'
+
+export function main() {
+	const taggedEntities = engine.getEntitiesByTag('myTag')
+  
+	for (const entity of taggedEntities) {
+      // Do something with each entity
+    }
+}
+```
+
+You can also add or remove tags to an entity from your code. This is useful if you want to change tags based on some logic, or to spawn entities dynamically that have specific tags.
+
+```ts
+import { Tags } from '@dcl/sdk/ecs'
+
+Tags.remove(entity, tagName);
+Tags.add(entity, tagName);
+```
+
+## Fetch all the children of an item
 
 You can also write a script that lets you deal with all of the items that are grouped as children of a certain item on the entity tree on the left of the screen.
 The following script iterates over all entities that have a Transform and a parent, and checks if the name of the parent matches the name `some-parent` in this case. You can then apply any custom logic you want to those specific entities.

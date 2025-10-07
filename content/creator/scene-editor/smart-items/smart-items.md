@@ -242,4 +242,4 @@ Make sure that it's not being obstructed by something else. You can't click thro
 - [Smart items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}})
 - [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}})
 - [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
-- [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}})
+- [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}})
