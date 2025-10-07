@@ -6,6 +6,8 @@ categories:
   - scene-editor
 type: Document
 url: /creator/editor/about-scene-editor
+aliases:
+  - /creator/web-editor
 weight: 1
 ---
 
@@ -40,9 +42,9 @@ To find your way around the Scene Editor:
 - Use **Q** and **E** to move up and down.
 - Use the **Left Mouse Button** to click and select items and to move them around.
 - Use the **Right Mouse Button** and drag to rotate the camera.
-    {{< hint info >}}
-    **💡 Tip**: You can also rotate the camera by pressing **Alt** on Windows, or **Option** on Mac while dragging. This is especially handy when using a trackpad instead of a mouse.
-    {{< /hint >}}
+  {{< hint info >}}
+  **💡 Tip**: You can also rotate the camera by pressing **Alt** on Windows, or **Option** on Mac while dragging. This is especially handy when using a trackpad instead of a mouse.
+  {{< /hint >}}
 - Press **Space bar** to reset the camera back to the default position
 
 
@@ -101,5 +103,5 @@ See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}
 
 - See [Scene Editor Essentials]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md" >}}) for more details about the Scene Editor's interface.
 - See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for how to add simple interactivity to your scene.
-- See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}) for how to edit the code of your scene.
+- See [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}}) for how to edit the code of your scene.
 - See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}) for how to publish your scene to Decentraland.
