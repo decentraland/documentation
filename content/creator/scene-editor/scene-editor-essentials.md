@@ -195,5 +195,5 @@ See [Scene Settings]({{< ref "/content/creator/scene-editor/scene-settings.md" >
 ## See also
 
 - See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for how to add simple interactivity to your scene.
-- See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}) for how to edit the code of your scene.
+- See [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}}) for how to edit the code of your scene.
 - See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}) for how to publish your scene to Decentraland.
