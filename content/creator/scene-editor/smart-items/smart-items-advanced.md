@@ -275,4 +275,4 @@ In the advanced mode, these items have a **Visibility** component set to invisib
 - [Smart items - Basics]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}})
 - [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}})
 - [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
-- [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}})
+- [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}})
