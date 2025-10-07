@@ -35,4 +35,4 @@ To edit the code in a scene created with the Web Editor, you must export the sce
 
 Once you're done, you can keep working on your project inside the Creator Hub, with a visual interface that looks a lot like the Web Editor, but much more polished.
 
-You can also edit the files under the `/src` folder to add behavior with code to your scene. See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}) for how to edit the code of your scene.
+You can also edit the files under the `/src` folder to add behavior with code to your scene. See [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}}) for how to edit the code of your scene.
