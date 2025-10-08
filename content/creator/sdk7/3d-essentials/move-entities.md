@@ -288,33 +288,46 @@ Tween.setMove(myEntity,
 
 TweenSequence.create(myEntity, {
 	sequence: [
-		Tween.setMove(myEntity, 
-			Vector3.create(6.5, 7, 12), 
-			Vector3.create(6.5, 10.5, 12), 
-			4000
-		)
-	,
-	Tween.setMove(myEntity, 
-		Vector3.create(6.5, 10.5, 12), 
-		Vector3.create(6.5, 10.5, 4), 
-		3000
-	)
-	,	
-	Tween.setMove(myEntity, 
-		Vector3.create(6.5, 10.5, 4), 
-		Vector3.create(6.5, 7, 4), 
-		3000
-	)
-	,
-	Tween.setMove(myEntity, 
-		Vector3.create(6.5, 7, 4), 
-		Vector3.create(6.5, 7, 12), 
-		3000
-	)
+		{
+			duration: 2000,
+			easingFunction: EasingFunction.EF_LINEAR,
+			mode: Tween.Mode.Move({
+				start: Vector3.create(6.5, 7, 12),
+				end: Vector3.create(6.5, 10.5, 12),
+			}),
+		},
+		{
+			duration: 3000,
+			easingFunction: EasingFunction.EF_LINEAR,
+			mode: Tween.Mode.Move({
+				start: Vector3.create(6.5, 10.5, 12),
+				end: Vector3.create(6.5, 10.5, 4),
+			}),
+		},
+		{
+			duration: 3000,
+			easingFunction: EasingFunction.EF_LINEAR,
+			mode: Tween.Mode.Move({
+				start: Vector3.create(6.5, 10.5, 4),
+				end: Vector3.create(6.5, 7, 4),
+			}),
+		},
 	],
 	loop: TweenLoop.TL_RESTART,
 })
 ```
+
+Note that when defining a tween within a TweenSequence, you need to use the more verbose format of `Tween.Mode.Move`, or `Tween.Mode.Rotate`, or `Tween.Mode.Scale` to define the tween. In this more verbose format, you need to specify:
+
+- `duration`: How many milliseconds it takes to move between the two positions
+- `easingFunction`: What easing function to use. See [Non-linear tweens](#non-linear-tweens). In this format the value is required.
+- `mode`: The mode of the tween, which can be `Tween.Mode.Move`, `Tween.Mode.Rotate`, or `Tween.Mode.Scale`.
+
+And within the `mode` field, you need to specify:
+
+- `start`: The starting value of the tween
+- `end`: The ending value of the tween
+
 
 ## On tween finished
 

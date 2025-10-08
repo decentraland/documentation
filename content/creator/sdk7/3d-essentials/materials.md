@@ -356,6 +356,9 @@ TweenSequence.create(myEntity, {
 })
 ```
 
+Note that when defining a tween within a TweenSequence, you need to use the more verbose format of `Tween.Mode.TextureMove` to define the tween.
+
+
 ### Multi-layered textures
 
 You can use several image files as layers to compose more realistic textures, for example including a `bumpTexture` and a `emissiveTexture`.
