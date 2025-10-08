@@ -16,9 +16,18 @@ To move, rotate or resize an entity in your scene over a period of time, use the
 In the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can move entities in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
 {{< /hint >}}
 
+The Tween component has the following functions:
+- `setMove`: Move between two points
+- `setRotate`: Rotate between two directions
+- `setScale`: Scale between two sizes
+- `setMoveContinuous`: Move constantly in the same direction
+- `setRotateContinuous`: Rotate constantly in the same direction
+- `setTextureMove`: Offset the texture of a material between two positions
+- `setTextureMoveContinuous`: Offset the texture of a material constantly in the same direction
+
 ## Move between two points
 
-To move an entity between two points, create a `Tween` component with its mode set to `Tween.Mode.Move`.
+To move an entity between two points, create a `Tween` component with the `setMove` function.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -27,30 +36,28 @@ Transform.create(myEntity, {
 })
 MeshRenderer.setBox(myEntity)
 
-Tween.create(myEntity, {
-	mode: Tween.Mode.Move({
-		start: Vector3.create(1, 1, 1),
-		end: Vector3.create(8, 1, 8),
-	}),
-	duration: 2000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setMove(myEntity, 
+	Vector3.create(1, 1, 1), 
+	Vector3.create(8, 1, 8), 
+	2000
+)
 ```
 
 The movement tween takes the following information:
 
+- `entity`: The entity to move
 - `start`: A Vector3 for the starting position
 - `end`: A Vector3 for the ending position
-- `faceDirection` _(optional)_: If true, the entity is rotated to face in the direction of the movement.
-
-Also, all tweens include the following required properties:
-
 - `duration`: How many milliseconds it takes to move between the two positions
+
+These other optonal parameters are also available:
+
+- `faceDirection` _(optional)_: If true, the entity is rotated to face in the direction of the movement.
 - `easingFunction`: What easing function to use. See [Non-linear tweens](#non-linear-tweens)
 
 ## Rotate between two directions
 
-To rotate an entity between two points, create a `Tween` component with its mode set to `Tween.Mode.Rotate`.
+To rotate an entity between two points, create a `Tween` component with the `setRotate` function.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -59,24 +66,21 @@ Transform.create(myEntity, {
 })
 MeshRenderer.setBox(myEntity)
 
-Tween.create(myEntity, {
-	mode: Tween.Mode.Rotate({
-		start: Quaternion.fromEulerDegrees(0, 0, 0),
-		end: Quaternion.fromEulerDegrees(0, 170, 0),
-	}),
-	duration: 700,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setRotate(myEntity, 
+	Quaternion.fromEulerDegrees(0, 0, 0), 
+	Quaternion.fromEulerDegrees(0, 170, 0), 
+	700
+)
 ```
 
 The rotate tween takes the following information:
 
 - `start`: A Quaternion for the starting rotation
 - `end`: A Quaternion for the ending rotation
-
-Also, all tweens include the following required properties:
-
 - `duration`: How many milliseconds it takes to move between the two positions
+
+This other optional parameter is also available:
+
 - `easingFunction`: What easing function to use. See [Non-linear tweens](#non-linear-tweens)
 
 ### Rotate with a pivot point
@@ -98,14 +102,11 @@ Transform.create(childEntity, {
 })
 MeshRenderer.setBox(myEntity)
 
-Tween.create(pivotEntity, {
-	mode: Tween.Mode.Rotate({
-		start: Quaternion.fromEulerDegrees(0, 0, 0),
-		end: Quaternion.fromEulerDegrees(0, 170, 0),
-	}),
-	duration: 700,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setRotate(pivotEntity, 
+	Quaternion.fromEulerDegrees(0, 0, 0), 
+	Quaternion.fromEulerDegrees(0, 170, 0), 
+	700
+)
 ```
 
 Note that in this example, the system is rotating the `pivotEntity` entity, that's a parent of the `childEntity` entity.
@@ -121,24 +122,22 @@ Transform.create(myEntity, {
 })
 MeshRenderer.setBox(myEntity)
 
-Tween.create(myEntity, {
-	mode: Tween.Mode.Scale({
-		start: Vector3.create(1, 1, 1),
-		end: Vector3.create(4, 4, 4),
-	}),
-	duration: 2000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setScale(myEntity, 
+	Vector3.create(1, 1, 1), 
+	Vector3.create(4, 4, 4), 
+	2000
+)	
+
 ```
 
 The scale tween takes the following information:
 
 - `start`: A Vector3 for the starting size
 - `end`: A Vector3 for the ending size
-
-Also, all tweens include the following required properties:
-
 - `duration`: How many milliseconds it takes to move between the two positions
+
+This other optional parameter is also available:
+
 - `easingFunction`: What easing function to use. See [Non-linear tweens](#non-linear-tweens)
 
 ## Non-linear tweens
@@ -152,18 +151,16 @@ Tweens can follow different **Easing Functions** that affect the rate of change 
 {{< /hint >}}
 
 ```ts
-Tween.create(myEntity, {
-	mode: Tween.Mode.Scale({
-		start: Vector3.create(1, 1, 1),
-		end: Vector3.create(4, 4, 4),
-	}),
-	duration: 2000,
-	easingFunction: EasingFunction.EF_EASEOUTBOUNCE,
-	playing: true,
-})
+Tween.setScale(myEntity, 
+	Vector3.create(1, 1, 1), 
+	Vector3.create(4, 4, 4), 
+	2000,
+	EasingFunction.EF_EASEOUTBOUNCE
+)
+
 ```
 
-The `easingFunction` field takes its value from the `EasingFunction` enum, that offers the following options:
+The optional `easingFunction` parameter takes its value from the `EasingFunction` enum, that offers the following options:
 
 - `EF_EASEBACK`
 - `EF_EASEBOUNCE`
@@ -197,6 +194,50 @@ The `easingFunction` field takes its value from the `EasingFunction` enum, that 
 - `EF_EASESINE`
 - `EF_LINEAR`
 
+## Constant rotation
+
+To make an entity rotate constantly, use the `Tween` component with the `setRotateContinuous` function.
+
+```ts
+Tween.setRotateContinuous(myEntity, 
+	Quaternion.fromEulerDegrees(0, -1, 0), 
+	700
+)
+```
+
+The rotate continuous tween takes the following information:
+
+- `entity`: The entity to rotate
+- `direction`: A Quaternion for the rotation
+- `speed`: How many degrees per second the entity will rotate
+
+This other optional parameter is also available:
+
+- `duration`: How many milliseconds to sustain the rotation. After this time, the rotation will stop.
+
+## Constant movement
+
+To make an entity move constantly in the same direction, use the `Tween` component with the `setMoveContinuous` function.
+
+```ts
+Tween.setMoveContinuous(myEntity, 
+	Vector3.create(0, 0, 1), 
+	700
+)
+```
+
+The move continuous tween takes the following information:
+
+- `entity`: The entity to move
+- `direction`: A Vector3 for the movement
+- `speed`: How many meters per second the entity will move
+
+This other optional parameter is also available:
+
+- `duration`: How many milliseconds to sustain the movement. After this time, the movement will stop.
+
+The move continuous tween takes the following information:
+
 ## Tween sequences
 
 To make an entity play a series of tweens in sequence, use the `TweenSequence` component. This component requires two fields:
@@ -217,14 +258,11 @@ Transform.create(myEntity, {
 })
 MeshRenderer.setBox(myEntity)
 
-Tween.create(myEntity, {
-	mode: Tween.Mode.Move({
-		start: Vector3.create(1, 1, 1),
-		end: Vector3.create(8, 1, 8),
-	}),
-	duration: 2000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setMove(myEntity, 
+	Vector3.create(1, 1, 1), 
+	Vector3.create(8, 1, 8), 
+	2000
+)
 
 TweenSequence.create(myEntity, { sequence: [], loop: TweenLoop.TL_YOYO })
 ```
@@ -242,78 +280,39 @@ Transform.create(myEntity, {
 })
 MeshRenderer.setBox(myEntity)
 
-Tween.create(myEntity, {
-	duration: 4000,
-	easingFunction: EasingFunction.EF_LINEAR,
-	currentTime: 0,
-	playing: true,
-	mode: Tween.Mode.Move({
-		start: Vector3.create(6.5, 7, 4),
-		end: Vector3.create(6.5, 7, 12),
-	}),
-})
+Tween.setMove(myEntity, 
+	Vector3.create(6.5, 7, 4), 
+	Vector3.create(6.5, 7, 12), 
+	4000
+)
 
 TweenSequence.create(myEntity, {
 	sequence: [
-		{
-			duration: 2000,
-			easingFunction: EasingFunction.EF_LINEAR,
-			mode: Tween.Mode.Move({
-				start: Vector3.create(6.5, 7, 12),
-				end: Vector3.create(6.5, 10.5, 12),
-			}),
-		},
-		{
-			duration: 3000,
-			easingFunction: EasingFunction.EF_LINEAR,
-			mode: Tween.Mode.Move({
-				start: Vector3.create(6.5, 10.5, 12),
-				end: Vector3.create(6.5, 10.5, 4),
-			}),
-		},
-		{
-			duration: 3000,
-			easingFunction: EasingFunction.EF_LINEAR,
-			mode: Tween.Mode.Move({
-				start: Vector3.create(6.5, 10.5, 4),
-				end: Vector3.create(6.5, 7, 4),
-			}),
-		},
+		Tween.setMove(myEntity, 
+			Vector3.create(6.5, 7, 12), 
+			Vector3.create(6.5, 10.5, 12), 
+			4000
+		)
+	,
+	Tween.setMove(myEntity, 
+		Vector3.create(6.5, 10.5, 12), 
+		Vector3.create(6.5, 10.5, 4), 
+		3000
+	)
+	,	
+	Tween.setMove(myEntity, 
+		Vector3.create(6.5, 10.5, 4), 
+		Vector3.create(6.5, 7, 4), 
+		3000
+	)
+	,
+	Tween.setMove(myEntity, 
+		Vector3.create(6.5, 7, 4), 
+		Vector3.create(6.5, 7, 12), 
+		3000
+	)
 	],
 	loop: TweenLoop.TL_RESTART,
-})
-```
-
-### Keep spinning
-
-A basic "constant rotation" can be achieved with the `TweenSequence` component as well.
-
-```ts
-const myEntity = engine.addEntity()
-Transform.create(myEntity, {
-	position: Vector3.create(8, 1, 8),
-})
-MeshRenderer.setBox(myEntity)
-Tween.create(myEntity, {
-	mode: Tween.Mode.Rotate({
-		start: Quaternion.fromEulerDegrees(0, 0, 0),
-		end: Quaternion.fromEulerDegrees(0, 180, 0),
-	}),
-	duration: 700,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
-TweenSequence.create(myEntity, {
-	loop: TweenLoop.TL_RESTART,
-	sequence: [
-		{
-			mode: Tween.Mode.Rotate({
-				start: Quaternion.fromEulerDegrees(0, 180, 0),
-				end: Quaternion.fromEulerDegrees(0, 360, 0),
-			}),
-			duration: 700,
-			easingFunction: EasingFunction.EF_LINEAR,
-		},
-	],
 })
 ```
 
@@ -911,3 +910,51 @@ The example above defines a 3D path that's made up of four 3D vectors. The `Path
 The system is very similar to the system in the _lerp_ example, but when a lerp action is completed, it sets the `target` and `origin` fields to new values. If we reach the end of the path, we return to the first value in the path.
 
  <img src="/images/media/gifs/lerp-path.gif" alt="Move entity" width="300"/>
+
+## Texture tweens
+
+To make a texture slide smoothly, use the `Tween` component with the `setTextureMove` function.
+
+```ts
+Tween.setTextureMove(myEntity, 
+	Vector2.create(0, 0), 
+	Vector2.create(1, 0), 
+	2000
+)
+```
+
+The texture tween takes the following information:
+
+- `entity`: The entity to move the texture of
+- `start`: A Vector2 for the starting position
+- `end`: A Vector2 for the ending position
+
+This other optional parameter is also available:
+
+- `duration`: How many milliseconds it takes to move between the two positions
+- `movementType`: (optional), defines if the movement will be on the offset or the tiling field. By default it uses offset.
+- `easingFunction`: What easing function to use. See [Non-linear tweens](#non-linear-tweens). Note: This parameter is only used if a duration is provided.
+
+## Constant texture movement
+
+To make a texture slide constantly, use the `Tween` component with the `setTextureMoveContinuous` function.
+
+```ts
+Tween.setTextureMoveContinuous(myEntity, 
+	Vector2.create(0, 1), 
+	700
+)
+```
+
+The texture continuous tween takes the following information:
+
+- `entity`: The entity to move the texture of
+- `direction`: A Vector2 for the movement
+- `speed`: How many units per second the entity will move
+
+This other optional parameter is also available:
+
+- `movementType`: (optional), defines if the movement will be on the offset or the tiling field. By default it uses offset.
+- `duration`: How many milliseconds to sustain the movement. After this time, the movement will stop.
+
+Read more about texture tweens in the [Texture Tweens]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#texture-tweens" >}}) section.

@@ -230,12 +230,27 @@ Make a texture slide smoothly by using a `Tween` component, set up with the `Tex
 **📔 Note**: Texture Tweens are a feature that's only supported in the DCL 2.0 desktop client.
 {{< /hint >}}
 
-The new `TextureMove` option on the `Tween` component has the following fields:
+Use the `Tween` component with the `setTextureMove` function to move the texture between two positions.
 
-- `TextureMovementType`: _(optional)_, defines if the movement will be on the `offset` or the `tiling` field. By default it uses `offset`.
-- `start`: _Vector2_ the initial value of the offset or tiling
-- `end`: _Vector2_ the final value of the offset or tiling
-- `duration`: _number_ how long the transition takes, in milliseconds
+```ts
+Tween.setTextureMove(myEntity, 
+	Vector2.create(0, 0), 
+	Vector2.create(1, 0), 
+	2000
+)
+```
+
+The texture tween takes the following information:
+
+- `entity`: The entity to move the texture of
+- `start`: A Vector2 for the starting position
+- `end`: A Vector2 for the ending position
+- `duration`: How many milliseconds it takes to move between the two positions
+
+This other optional parameter is also available:
+
+- `movementType`: _(optional)_, defines if the movement will be on the `offset` or the `tiling` field. By default it uses `offset`.
+- `duration`: How many milliseconds it takes to move between the two positions
 - `easingFunction`: The curve for the rate of change over time, the default value is `EasingFunction.EF_LINEAR`. Other values make the change accelerate and/or decelerate at different rates.
 
 ```ts
@@ -254,17 +269,14 @@ Material.setPbrMaterial(myEntity, {
 	}),
 })
 
-Tween.create(myEntity, {
-	mode: Tween.Mode.TextureMove({
-		start: Vector2.create(0, 0),
-		end: Vector2.create(0, 1),
-	}),
-	duration: 1000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setTextureMove(myEntity, 
+	Vector2.create(0, 0), 
+	Vector2.create(0, 1), 
+	1000
+)
 ```
 
-The above example runs a tween that lasts 1 second, and moves the texture only once. To achieve a continuous movement, for example to simulate the falling of a cascade, you need to use a `TweenSequence` component.
+The above example runs a tween that lasts 1 second, and moves the texture only once. To achieve a continuous movement, for example to simulate the falling of a cascade, you need to use `setTextureMoveContinuous`.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -282,19 +294,24 @@ Material.setPbrMaterial(myEntity, {
 	}),
 })
 
-Tween.create(myEntity, {
-	mode: Tween.Mode.TextureMove({
-		start: Vector2.create(0, 0),
-		end: Vector2.create(0, 1),
-	}),
-	duration: 1000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
-
-TweenSequence.create(myEntity, { sequence: [], loop: TweenLoop.TL_RESTART })
+Tween.setTextureMoveContinuous(myEntity, 
+	Vector2.create(0, 1), 
+	1000
+)
 ```
 
-The example above sets the `loop` mode to `TweenLoop.TL_RESTART`, which makes the same transition repeat continuously. You can also set the `loop`mode to `TweenLoop.TL_YOYO` to alternate back and forth in the opposite direction.
+The example above use `setTextureMoveContinuous`, with a direction of `(0, 1)`, and a speed of 1 unit per second.
+
+The texture continuous tween takes the following information:
+
+- `entity`: The entity to move the texture of
+- `direction`: A Vector2 for the movement
+- `speed`: How many units per second the entity will move
+
+These other optional parameters are also available:
+
+- `movementType`: (optional), defines if the movement will be on the offset or the tiling field. By default it uses offset.
+- `duration`: How many milliseconds to sustain the movement. After this time, the movement will stop.
 
 #### Complex tween sequences
 
@@ -302,15 +319,11 @@ You can also make the texture movements follow a complex sequence with as many s
 
 ```ts
 //(...)
-
-Tween.create(myEntity, {
-	mode: Tween.Mode.TextureMove({
-		start: Vector2.create(0, 0),
-		end: Vector2.create(0, 1),
-	}),
-	duration: 1000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setTextureMove(myEntity, 
+	Vector2.create(0, 0), 
+	Vector2.create(0, 1), 
+	1000
+)
 
 TweenSequence.create(myEntity, {
 	sequence: [
