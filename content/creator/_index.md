@@ -105,7 +105,3 @@ There are also some community-built tools that can help you create Decentraland 
 - [**Virtual Land Manager**](https://vlm.gg/): Control various aspects of your scene in real time, including highly customized controls. Includes analytics: View historical user activity, track custom interactions, export lists of players in scene, and more.
 - [**DCL Edit**](https://dcl-edit.com/): Drag and drop 3d models into your scene. You can then work on adding interactivity to the resulting scene using the SDK.
 - [**Unity Exporter Toolkit**](https://github.com/PolygonalMind/dcl-dev-exportersdk7-release): Build in Unity, with a number of pre-built interactive modules. Export a fully-working Decentraland scene.
-
-The following **deprecated tools** are also available:
-
-- **Web Editor:** Use an easy drag and drop interface to create scenes. [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).
