@@ -17,8 +17,8 @@ Trigger areas allow you to react to the event of a player entering or leaving an
 To use trigger areas you need to add a `TriggerArea` component to an entity, then use a `triggerAreaEventsSystem` to react to the events.
 
 ```ts
-import { engine } from '@dcl/sdk/ecs'
-import { TriggerArea } from '@dcl/sdk/triggers'
+import { engine, Transform, TriggerArea } from '@dcl/sdk/ecs'
+import { triggerAreaEventsSystem } from '@dcl/sdk/ecs'
 
 const triggerEntity = engine.addEntity()
 
@@ -40,8 +40,7 @@ Trigger areas can be either a box or a sphere.
 
 
 ```ts
-import { engine } from '@dcl/sdk/ecs'
-import { TriggerArea } from '@dcl/sdk/triggers'
+import { engine, Transform, TriggerArea } from '@dcl/sdk/ecs'
 
 // Box
 TriggerArea.setBox(triggerEntity)
@@ -59,8 +58,7 @@ TriggerArea.setSphere(triggerEntity)
 To alter the size of the trigger area, you can use the `scale` property of the `Transform` component on the entity holding the `TriggerArea`.
 
 ```ts
-import { engine } from '@dcl/sdk/ecs'
-import { TriggerArea } from '@dcl/sdk/triggers'
+import { engine, Transform, TriggerArea } from '@dcl/sdk/ecs'
 
 const triggerEntity = engine.addEntity()
 
@@ -76,8 +74,7 @@ Transform.create(triggerEntity, {
 To debug your scene and see the area covered by the trigger area, you can add a `MeshShape` component to the entity with the trigger area, and set the shape to the one you want to debug. The dimensions of the default mesh will match the dimensions of the trigger area.
 
 ```ts
-import { engine } from '@dcl/sdk/ecs'
-import { TriggerArea } from '@dcl/sdk/triggers'
+import { engine, Transform, TriggerArea } from '@dcl/sdk/ecs'
 
 const triggerEntity = engine.addEntity()
 
@@ -100,8 +97,8 @@ You can use the `triggerAreaEventsSystem` to react to the different events of a 
 
 
 ```ts
-import { engine } from '@dcl/sdk/ecs'
-import { TriggerArea } from '@dcl/sdk/triggers'
+import { engine, Transform, TriggerArea } from '@dcl/sdk/ecs'
+import { triggerAreaEventsSystem } from '@dcl/sdk/ecs'
 
 const triggerEntity = engine.addEntity()
 
@@ -143,8 +140,8 @@ The following properties are available in the `result` parameter:
     - `scale`: The scale of the entity that triggered the trigger
 
 ```ts
-import { engine } from '@dcl/sdk/ecs'
-import { TriggerArea } from '@dcl/sdk/triggers'
+import { engine, Transform, TriggerArea } from '@dcl/sdk/ecs'
+import { triggerAreaEventsSystem } from '@dcl/sdk/ecs'
 
 // Trigger area
 const triggeredEntity = engine.addEntity()
@@ -187,8 +184,7 @@ Use the optional second argument of the `TriggerArea` component to set the layer
 By deault, the trigger area is activated only by the player, via the layer `ColliderLayer.CL_PLAYER`. You can change this to any other collision layer by passing it as the second argument of the `TriggerArea` component.
 
 ```ts
-import { engine } from '@dcl/sdk/ecs'
-import { TriggerArea } from '@dcl/sdk/triggers'
+import { engine, Transform, TriggerArea, MeshCollider } from '@dcl/sdk/ecs'
 
 // Trigger area
 const triggerEntity = engine.addEntity()
@@ -223,8 +219,7 @@ Allowed values are the same as the ones for the `MeshCollider` component. See [C
 You can also set up a trigger area to detect multiple layers at once.
 
 ```ts
-import { engine } from '@dcl/sdk/ecs'
-import { TriggerArea } from '@dcl/sdk/triggers'
+import { engine, Transform, TriggerArea } from '@dcl/sdk/ecs'
 
 const triggerEntity = engine.addEntity()
 
