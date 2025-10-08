@@ -341,14 +341,11 @@ Transform.create(parentEntity, {
 	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(parentEntity)
-Tween.create(parentEntity, {
-	mode: Tween.Mode.Rotate({
-		start: Quaternion.fromEulerDegrees(0, 0, 0),
-		end: Quaternion.fromEulerDegrees(0, 170, 0),
-	}),
-	duration: 5000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setRotate(parentEntity, 
+	Quaternion.fromEulerDegrees(0, 0, 0), 
+	Quaternion.fromEulerDegrees(0, 170, 0), 
+	5000
+)
 
 const childEntity = engine.addEntity()
 Transform.create(childEntity, {
@@ -356,15 +353,11 @@ Transform.create(childEntity, {
 	parent: parentEntity,
 })
 MeshRenderer.setBox(childEntity)
-
-Tween.create(childEntity, {
-	mode: Tween.Mode.Scale({
-		start: Vector3.create(1, 1, 1),
-		end: Vector3.create(4, 4, 4),
-	}),
-	duration: 5000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setScale(childEntity, 
+	Vector3.create(1, 1, 1), 
+	Vector3.create(4, 4, 4), 
+	5000
+)
 ```
 
 ## Pause a tween
