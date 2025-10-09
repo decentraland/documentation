@@ -52,7 +52,7 @@ The movement tween takes the following information:
 
 These other optonal parameters are also available:
 
-- `faceDirection` _(optional)_: If true, the entity is rotated to face in the direction of the movement.
+- `faceDirection`: If true, the entity is rotated to face in the direction of the movement.
 - `easingFunction`: What easing function to use. See [Non-linear tweens](#non-linear-tweens)
 
 ## Rotate between two directions
@@ -222,7 +222,7 @@ To make an entity move constantly in the same direction, use the `Tween` compone
 ```ts
 Tween.setMoveContinuous(myEntity, 
 	Vector3.create(0, 0, 1), 
-	700
+	0.7
 )
 ```
 
@@ -948,7 +948,7 @@ To make a texture slide constantly, use the `Tween` component with the `setTextu
 ```ts
 Tween.setTextureMoveContinuous(myEntity, 
 	Vector2.create(0, 1), 
-	700
+	0.7
 )
 ```
 
@@ -960,7 +960,7 @@ The texture continuous tween takes the following information:
 
 This other optional parameter is also available:
 
-- `movementType`: (optional), defines if the movement will be on the offset or the tiling field. By default it uses offset.
+- `movementType`: defines if the movement will be on the offset or the tiling field. By default it uses offset.
 - `duration`: How many milliseconds to sustain the movement. After this time, the movement will stop.
 
 Read more about texture tweens in the [Texture Tweens]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#texture-tweens" >}}) section.
