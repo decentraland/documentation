@@ -222,7 +222,7 @@ To make an entity move constantly in the same direction, use the `Tween` compone
 ```ts
 Tween.setMoveContinuous(myEntity, 
 	Vector3.create(0, 0, 1), 
-	700
+	0.7
 )
 ```
 
