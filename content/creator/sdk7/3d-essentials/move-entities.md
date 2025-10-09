@@ -948,7 +948,7 @@ To make a texture slide constantly, use the `Tween` component with the `setTextu
 ```ts
 Tween.setTextureMoveContinuous(myEntity, 
 	Vector2.create(0, 1), 
-	700
+	0.7
 )
 ```
 
