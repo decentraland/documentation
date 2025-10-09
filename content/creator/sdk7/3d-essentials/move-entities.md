@@ -52,7 +52,7 @@ The movement tween takes the following information:
 
 These other optonal parameters are also available:
 
-- `faceDirection` _(optional)_: If true, the entity is rotated to face in the direction of the movement.
+- `faceDirection`: If true, the entity is rotated to face in the direction of the movement.
 - `easingFunction`: What easing function to use. See [Non-linear tweens](#non-linear-tweens)
 
 ## Rotate between two directions
