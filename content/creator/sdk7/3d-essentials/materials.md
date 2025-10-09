@@ -310,7 +310,7 @@ The texture continuous tween takes the following information:
 
 These other optional parameters are also available:
 
-- `movementType`: (optional), defines if the movement will be on the offset or the tiling field. By default it uses offset.
+- `movementType`: defines if the movement will be on the offset or the tiling field. By default it uses offset.
 - `duration`: How many milliseconds to sustain the movement. After this time, the movement will stop.
 
 #### Complex tween sequences
