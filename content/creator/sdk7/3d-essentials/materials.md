@@ -296,7 +296,7 @@ Material.setPbrMaterial(myEntity, {
 
 Tween.setTextureMoveContinuous(myEntity, 
 	Vector2.create(0, 1), 
-	1000
+	1
 )
 ```
 
