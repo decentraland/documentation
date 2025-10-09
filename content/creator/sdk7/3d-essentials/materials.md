@@ -249,7 +249,7 @@ The texture tween takes the following information:
 
 This other optional parameter is also available:
 
-- `movementType`: _(optional)_, defines if the movement will be on the `offset` or the `tiling` field. By default it uses `offset`.
+- `movementType`: defines if the movement will be on the `offset` or the `tiling` field. By default it uses `offset`.
 - `duration`: How many milliseconds it takes to move between the two positions
 - `easingFunction`: The curve for the rate of change over time, the default value is `EasingFunction.EF_LINEAR`. Other values make the change accelerate and/or decelerate at different rates.
 
