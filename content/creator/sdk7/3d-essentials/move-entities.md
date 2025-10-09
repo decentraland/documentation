@@ -938,7 +938,7 @@ The texture tween takes the following information:
 This other optional parameter is also available:
 
 - `duration`: How many milliseconds it takes to move between the two positions
-- `movementType`: (optional), defines if the movement will be on the offset or the tiling field. By default it uses offset.
+- `movementType`: defines if the movement will be on the offset or the tiling field. By default it uses offset.
 - `easingFunction`: What easing function to use. See [Non-linear tweens](#non-linear-tweens). Note: This parameter is only used if a duration is provided.
 
 ## Constant texture movement
