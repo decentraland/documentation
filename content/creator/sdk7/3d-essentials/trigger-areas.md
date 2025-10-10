@@ -17,18 +17,21 @@ Trigger areas allow you to react to the event of a player entering or leaving an
 To use trigger areas you need to add a `TriggerArea` component to an entity, then use a `triggerAreaEventsSystem` to react to the events.
 
 ```ts
-import { engine, Transform, TriggerArea } from '@dcl/sdk/ecs'
-import { triggerAreaEventsSystem } from '@dcl/sdk/ecs'
+import { engine, Transform, TriggerArea, triggerAreaEventsSystem } from '@dcl/sdk/ecs'
+import {  } from '@dcl/sdk/ecs'
 
+// create entity
 const triggerEntity = engine.addEntity()
 
+// set Transform
+Transform.create(triggerEntity, {
+  position: Vector3.create(8, 0, 8)
+  })
+
+// Trigger area
 TriggerArea.setBox(triggerEntity)
 
-Transform.create(triggerEntity, {
-  position: Vector3.create(8, 0, 8),
-  scale: Vector3.create(1, 1, 1),
-})
-
+// Event when trigger area activated
 triggerAreaEventsSystem.onTriggerEnter(triggerEntity, function(result) {
   console.log('Player entered trigger area!')
 })
