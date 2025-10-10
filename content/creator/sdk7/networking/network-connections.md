@@ -164,3 +164,13 @@ It builds a layer of abstraction on top of the websocket connections that makes 
 - [AI NPC](https://github.com/decentraland-scenes/inworld-ai-sdk7)
 
 {{< /hint >}}
+
+## Debugging network requests
+
+You can debug network requests by opening Debug Panel.
+
+To open the Debug Panel, you can click the <img src="/images/debug-icon.png" alt="Header" width="25"/> icon on the top-right corner. Then select the **Web Requests** tab and click **Open Chrome Devtools**.
+
+This will open a new Chrome window with the Network tab open.
+
+See [Debug in preview]({{< ref "/content/creator/sdk7/debugging/debug-in-preview.md#web-requests">}}) for more details.
