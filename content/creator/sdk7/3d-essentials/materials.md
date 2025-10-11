@@ -230,12 +230,22 @@ Make a texture slide smoothly by using a `Tween` component, set up with the `Tex
 **📔 Note**: Texture Tweens are a feature that's only supported in the DCL 2.0 desktop client.
 {{< /hint >}}
 
-The new `TextureMove` option on the `Tween` component has the following fields:
+Use the `Tween` component with the `setTextureMove` function to move the texture between two positions.
 
-- `TextureMovementType`: _(optional)_, defines if the movement will be on the `offset` or the `tiling` field. By default it uses `offset`.
-- `start`: _Vector2_ the initial value of the offset or tiling
-- `end`: _Vector2_ the final value of the offset or tiling
-- `duration`: _number_ how long the transition takes, in milliseconds
+```ts
+Tween.setTextureMove(myEntity, Vector2.create(0, 0), Vector2.create(1, 0), 2000)
+```
+
+The texture tween takes the following information:
+
+- `entity`: The entity to move the texture of
+- `start`: A Vector2 for the starting position
+- `end`: A Vector2 for the ending position
+- `duration`: How many milliseconds it takes to move between the two positions
+
+This other optional parameter is also available:
+
+- `movementType`: defines if the movement will be on the `offset` or the `tiling` field. By default it uses `offset`.
 - `easingFunction`: The curve for the rate of change over time, the default value is `EasingFunction.EF_LINEAR`. Other values make the change accelerate and/or decelerate at different rates.
 
 ```ts
@@ -254,17 +264,10 @@ Material.setPbrMaterial(myEntity, {
 	}),
 })
 
-Tween.create(myEntity, {
-	mode: Tween.Mode.TextureMove({
-		start: Vector2.create(0, 0),
-		end: Vector2.create(0, 1),
-	}),
-	duration: 1000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setTextureMove(myEntity, Vector2.create(0, 0), Vector2.create(0, 1), 1000)
 ```
 
-The above example runs a tween that lasts 1 second, and moves the texture only once. To achieve a continuous movement, for example to simulate the falling of a cascade, you need to use a `TweenSequence` component.
+The above example runs a tween that lasts 1 second, and moves the texture only once. To achieve a continuous movement, for example to simulate the falling of a cascade, you need to use `setTextureMoveContinuous`.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -282,19 +285,21 @@ Material.setPbrMaterial(myEntity, {
 	}),
 })
 
-Tween.create(myEntity, {
-	mode: Tween.Mode.TextureMove({
-		start: Vector2.create(0, 0),
-		end: Vector2.create(0, 1),
-	}),
-	duration: 1000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
-
-TweenSequence.create(myEntity, { sequence: [], loop: TweenLoop.TL_RESTART })
+Tween.setTextureMoveContinuous(myEntity, Vector2.create(0, 1), 1)
 ```
 
-The example above sets the `loop` mode to `TweenLoop.TL_RESTART`, which makes the same transition repeat continuously. You can also set the `loop`mode to `TweenLoop.TL_YOYO` to alternate back and forth in the opposite direction.
+The example above use `setTextureMoveContinuous`, with a direction of `(0, 1)`, and a speed of 1 unit per second.
+
+The texture continuous tween takes the following information:
+
+- `entity`: The entity to move the texture of
+- `direction`: A Vector2 for the movement
+- `speed`: How many units per second the entity will move
+
+These other optional parameters are also available:
+
+- `movementType`: defines if the movement will be on the offset or the tiling field. By default it uses offset.
+- `duration`: How many milliseconds to sustain the movement. After this time, the movement will stop.
 
 #### Complex tween sequences
 
@@ -302,15 +307,7 @@ You can also make the texture movements follow a complex sequence with as many s
 
 ```ts
 //(...)
-
-Tween.create(myEntity, {
-	mode: Tween.Mode.TextureMove({
-		start: Vector2.create(0, 0),
-		end: Vector2.create(0, 1),
-	}),
-	duration: 1000,
-	easingFunction: EasingFunction.EF_LINEAR,
-})
+Tween.setTextureMove(myEntity, Vector2.create(0, 0), Vector2.create(0, 1), 1000)
 
 TweenSequence.create(myEntity, {
 	sequence: [
@@ -342,6 +339,8 @@ TweenSequence.create(myEntity, {
 	loop: TweenLoop.TL_RESTART,
 })
 ```
+
+Note that when defining a tween within a TweenSequence, you need to use the more verbose format of `Tween.Mode.TextureMove` to define the tween.
 
 ### Multi-layered textures
 
@@ -658,6 +657,7 @@ To add a `Material` component to an entity that potentially already has an insta
 Use the `GltfNodeModifiers` component to modify the materials of a _glTF_ model. This component allows you to override the materials of a _glTF_ model with your own materials. You can use any of the properties of the `Material` component, including texture, video texture, unlit materials, etc.
 
 There are two ways to use the `GltfNodeModifiers` component:
+
 - Modify the material of the entire model by leaving the `path` property as an empty string.
 - Modify the material of a specific node in the model (or several nodes) by setting the `path` property to the path to the node.
 
@@ -666,34 +666,33 @@ There are two ways to use the `GltfNodeModifiers` component:
 The following example shows how to modify the material of a _glTF_ model. In this case, the material of the entire model is modified to be red.
 
 ```ts
-import { GltfNodeModifiers, GltfContainer, Transform} from '@dcl/sdk/ecs'
-
+import { GltfNodeModifiers, GltfContainer, Transform } from '@dcl/sdk/ecs'
 
 const myEntity = engine.addEntity()
 
 GltfContainer.create(myEntity, {
-  src: 'models/myModel.glb',
+	src: 'models/myModel.glb',
 })
 
 Transform.create(myEntity, {
-  position: Vector3.create(4, 0, 4),
+	position: Vector3.create(4, 0, 4),
 })
 
-GltfNodeModifiers.create(
-          myEntity,
-          {
-            modifiers: [{
-              path: '',
-              material: {
-                material: {
-                  $case: 'pbr', pbr: {
-					albedoColor: Color4.Red(),
-                  }
-                }
-              }
-            }]
-          }
-        )
+GltfNodeModifiers.create(myEntity, {
+	modifiers: [
+		{
+			path: '',
+			material: {
+				material: {
+					$case: 'pbr',
+					pbr: {
+						albedoColor: Color4.Red(),
+					},
+				},
+			},
+		},
+	],
+})
 ```
 
 The `GltfNodeModifiers` component has the following properties:
@@ -710,108 +709,100 @@ The `path` property is a string that represents the path to the node in the _glT
 In some models, however, the Babylon sandbox may list paths that belong to vertexes rather than meshes, which will not work. If you attempt to use a path that isn't valid, the scene's console will display an error message that includes the full list of valid paths on that model.
 {{< /hint >}}
 
-The `material` property is an object that represents the material to use. It needs to be written using the [advanced syntax](#advanced-syntax) for materials, as shown in the example above. Helper functions like `Material.setPbrMaterial()` can't be used here. 
+The `material` property is an object that represents the material to use. It needs to be written using the [advanced syntax](#advanced-syntax) for materials, as shown in the example above. Helper functions like `Material.setPbrMaterial()` can't be used here.
 
 ### Modify the material of a specific node in the model
 
 The following example shows how to modify the material of a specific node in the _glTF_ model. In this case, the material of the head is modified to use an alternative texture.
 
 ```ts
-import { GltfNodeModifiers, GltfContainer, Transform} from '@dcl/sdk/ecs'
-
+import { GltfNodeModifiers, GltfContainer, Transform } from '@dcl/sdk/ecs'
 
 const myEntity = engine.addEntity()
 
 GltfContainer.create(myEntity, {
-  src: 'models/myModel.glb',
+	src: 'models/myModel.glb',
 })
 
 Transform.create(myEntity, {
-  position: Vector3.create(4, 0, 4),
+	position: Vector3.create(4, 0, 4),
 })
 
-GltfNodeModifiers.create(
-  myEntity,
-  {
-    modifiers: [{	
-      path: 'M_Head_BaseMesh',
-      material: {
-        material: {
-          $case: 'pbr', pbr: {
-            texture: Material.Texture.Common({
-                      src: 'assets/scene/images/blinking-head.png',
-            }),
-          }
-        }
-      }
-    }]
-  }
-)
+GltfNodeModifiers.create(myEntity, {
+	modifiers: [
+		{
+			path: 'M_Head_BaseMesh',
+			material: {
+				material: {
+					$case: 'pbr',
+					pbr: {
+						texture: Material.Texture.Common({
+							src: 'assets/scene/images/blinking-head.png',
+						}),
+					},
+				},
+			},
+		},
+	],
+})
 ```
 
 A `GltfNodeModifiers` can contain several modifiers, each modifying a different node in the model. The following example shows how to modify the material of the head and the body of a _glTF_ model.
 
 ```ts
-import { GltfNodeModifiers, GltfContainer, Transform} from '@dcl/sdk/ecs'
+import { GltfNodeModifiers, GltfContainer, Transform } from '@dcl/sdk/ecs'
 
 const myEntity = engine.addEntity()
 
 GltfContainer.create(myEntity, {
-  src: 'models/myModel.glb',
+	src: 'models/myModel.glb',
 })
 
 Transform.create(myEntity, {
-  position: Vector3.create(4, 0, 4),
+	position: Vector3.create(4, 0, 4),
 })
 
-GltfNodeModifiers.create(
-  myEntity,
-  {
-    modifiers: [{
-      path: 'M_Head_BaseMesh',
-      material: {	
-        material: {
-          $case: 'pbr', pbr: {
-            albedoColor: Color4.Red(),
-          }	
-        }
-      }
-    },
-	{
-      path: 'M_Body_BaseMesh',
-      material: {	
-        material: {
-          $case: 'pbr', pbr: {
-            albedoColor: Color4.Blue(),
-          }	
-        }
-      }
-    }
-  ]
+GltfNodeModifiers.create(myEntity, {
+	modifiers: [
+		{
+			path: 'M_Head_BaseMesh',
+			material: {
+				material: {
+					$case: 'pbr',
+					pbr: {
+						albedoColor: Color4.Red(),
+					},
+				},
+			},
+		},
+		{
+			path: 'M_Body_BaseMesh',
+			material: {
+				material: {
+					$case: 'pbr',
+					pbr: {
+						albedoColor: Color4.Blue(),
+					},
+				},
+			},
+		},
+	],
 })
 ```
-
 
 ### Remove shadows from a glTF model
 
 To remove shadows from a _glTF_ model, you can set the `castShadows` property to `false` in the `GltfNodeModifiers` object. This retains the original material of the model, but prevents it from casting shadows. This is useful for models that are not meant to cast shadows, such as light beams.
 
-
 ```ts
-import { GltfNodeModifiers} from '@dcl/sdk/ecs'
+import { GltfNodeModifiers } from '@dcl/sdk/ecs'
 
-GltfNodeModifiers.create(
-  myEntity,
-  {
-    modifiers: [{
-      path: '',
-      castShadows: false,
-    }]
-  }
-)
+GltfNodeModifiers.create(myEntity, {
+	modifiers: [
+		{
+			path: '',
+			castShadows: false,
+		},
+	],
+})
 ```
-
-
-
-
-
