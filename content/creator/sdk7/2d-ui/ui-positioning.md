@@ -255,11 +255,12 @@ The `UiCanvasInformation` component holds the following information:
 - `height`: Canvas height in pixels
 - `width`: Canvas width in pixels
 - `devicePixelRatio`: The ratio of the resolution in physical pixels in the device to the pixels on the canvas
-- `interactableArea`: A `rect` object, detailing the size of the area designated for scene UI elements. This object contains the following fields:
-  - `height`: Height of interactable area
-  - `width`: Width of interactable area
-  - `x`: Leftmost x position of the interactable area
-  - `y`: Lowest y position of the interactable area
+- `interactableArea`: A `BorderRect` object, detailing the area designated for scene UI elements. This object contains values for `top`, `bottom`, `left` and `right`, each of these is the number of pixels on that margin of the screen that are taken up by the explorer UI.
+
+{{< hint warning >}}
+**📔 Note** : Different Decentraland explorers will have different values for these, as the global UIs of the platform may differ, and the values might change dynamically as the user expands or hides different global UI menus.
+{{< /hint >}}
+
 
 ```ts
 export function Main(){

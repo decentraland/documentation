@@ -41,7 +41,7 @@ You can now find your asset in the **Local Assets** tab, under the **scene** fol
 
 ## Supported formats
 
-### Audio
+### Audio
 
 The following Audio formats are supported:
 
@@ -103,7 +103,7 @@ You can also use Generative AI tools to generate your own 3D models. Check out:
 - [TRipo3D](https://www.tripo3d.ai/app)
 - [Rodin](https://hyper3d.ai/rodin)
 
-Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _.glTF_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting them with one of the available _.glTF_ export add-ons.
+Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ or _.glb_ format if available. If not available, you must convert them to _.glTF_ or _.glb_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting them with one of the available _.glTF_ export add-ons.
 
 ## Colliders
 

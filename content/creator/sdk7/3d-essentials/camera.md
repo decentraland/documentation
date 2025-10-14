@@ -243,3 +243,9 @@ function main() {
 	})
 }
 ```
+
+## Cameras and colliders
+
+When a player's camera moves in 3rd person mode, the camera might be blocked by colliders or not, depending on the collision layers assigned to the entities. Be mindful of this when designing your scene, you may want to prevent the camera from going through walls or other entities.
+
+See [Colliders]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#cameras-and-colliders" >}}) for more details on how to configure colliders for your scene.

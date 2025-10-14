@@ -87,4 +87,4 @@ To make an action occur only once when passing a threshold, and not repeat on ev
 - [Smart items - Basics]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}})
 - [Smart items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}})
 - [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
-- [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}})
+- [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}})

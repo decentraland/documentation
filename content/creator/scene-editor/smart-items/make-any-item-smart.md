@@ -100,4 +100,4 @@ This will react to when the player enters or leaves an area of a default size of
 - [Smart items - Basics]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}})
 - [Smart items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}})
 - [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}})
-- [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}})
+- [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}})

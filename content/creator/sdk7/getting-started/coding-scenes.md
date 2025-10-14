@@ -42,7 +42,7 @@ Our SDK includes the following:
 
 Other legacy tools:
 
-- **The Web Editor**: A web based too for creating simple scenes and publishing them. [Read more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}})
+- **The Web Editor**: A web based too for creating simple scenes and publishing them.
 
 ## Requirements
 
@@ -134,7 +134,7 @@ You can then do anything you want with that entity, like add new components, mod
 
 See [Get entity by name]({{< ref "/content/creator/sdk7/architecture/entities-components.md#get-an-entity-by-name" >}}) for more information.
 
-If the entity is a [Smart item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}), you can also call its **Actions** or subscribe to its **Triggers** via code. See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}).
+If the entity is a [Smart item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}), you can also call its **Actions** or subscribe to its **Triggers** via code. See [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}}).
 
 ## Systems
 
