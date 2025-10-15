@@ -702,6 +702,7 @@ GltfContainer.create(entity, {
 ColliderLayer.CL_NONE
 ColliderLayer.CL_POINTER      // Pointer events
 ColliderLayer.CL_PHYSICS      // Player movement blocking
+ColliderLayer.CL_PLAYER       // Player avatar body
 ColliderLayer.CL_CUSTOM1      // Custom layer 1
 ColliderLayer.CL_CUSTOM2      // Custom layer 2
 // ... up to CL_CUSTOM8
@@ -709,6 +710,49 @@ ColliderLayer.CL_CUSTOM2      // Custom layer 2
 // Combine layers
 const combinedLayers = ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER
 ```
+
+### Trigger Areas
+
+Detect when the player or any entity enters, stays in, or exits a shaped area. Shapes: box or sphere. Size the area via `Transform.scale`. By default, reacts to the player layer; customize with `ColliderLayer`.
+
+```typescript
+import { engine, Transform, TriggerArea, MeshRenderer, MeshCollider, ColliderLayer } from '@dcl/sdk/ecs'
+import { Vector3 } from '@dcl/sdk/math'
+import { triggerAreaEventsSystem } from '@dcl/sdk/ecs'
+
+// Create a box trigger at (8,0,8), size 4x2x4
+const area = engine.addEntity()
+TriggerArea.setBox(area) // or TriggerArea.setSphere(area)
+Transform.create(area, { position: Vector3.create(8, 0, 8), scale: Vector3.create(4, 2, 4) })
+
+// Optional: visualize area for debugging
+MeshRenderer.setBox(area)
+
+// Events
+triggerAreaEventsSystem.onTriggerEnter(area, (e) => {
+  console.log('Enter by entity', e.trigger.entity)
+})
+triggerAreaEventsSystem.onTriggerExit(area, () => {
+  console.log('Exit')
+})
+triggerAreaEventsSystem.onTriggerStay(area, () => {
+  // Called every frame while inside
+})
+
+// Layers: restrict which entities activate the area
+TriggerArea.setBox(area, ColliderLayer.CL_CUSTOM1 | ColliderLayer.CL_CUSTOM2)
+
+// Mark a moving entity to activate the area
+const mover = engine.addEntity()
+Transform.create(mover, { position: Vector3.create(8, 0, 8) })
+MeshCollider.setBox(mover, ColliderLayer.CL_CUSTOM1)
+```
+
+Result payload (enter/exit/stay callback parameter):
+- `triggeredEntity`: area entity id
+- `eventType`: ENTER | EXIT | STAY
+- `trigger.entity`: entering entity id
+- `trigger.layer`, `trigger.position`, `trigger.rotation`, `trigger.scale`
 
 ### Sounds
 
@@ -2575,7 +2619,8 @@ if (!Transform.has(entity)) {
 // Ensure entity has collider
 if (!MeshCollider.has(entity) && !GltfContainer.has(entity)) {
   console.log('Entity needs collider for click events')
-  MeshCollider.setBox(entity)
+  // Use pointer layer so raycasts/clicks hit this entity
+  MeshCollider.setBox(entity, ColliderLayer.CL_POINTER)
 }
 ```
 
@@ -3364,6 +3409,26 @@ function getChildren(parent: Entity): Entity[] {
   }
   return childEntities
 }
+```
+
+#### Fetch entities by tag
+```typescript
+import { engine } from '@dcl/sdk/ecs'
+
+export function main() {
+  const tagged = engine.getEntitiesByTag('myTag')
+  for (const entity of tagged) {
+    // Handle each tagged entity
+  }
+}
+```
+
+Add or remove tags from code:
+```typescript
+import { Tags } from '@dcl/sdk/ecs'
+
+Tags.add(entity, 'myTag')
+Tags.remove(entity, 'myTag')
 ```
 
 #### Smart item triggers (Creator Hub asset-packs)
