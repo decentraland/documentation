@@ -500,20 +500,14 @@ Material.setPbrMaterial(entity, {
 #### Texture Animation
 ```typescript
 // Animate texture offset
-Tween.create(entity, {
-  mode: Tween.Mode.TextureMove({
-    start: Vector2.create(0, 0),
-    end: Vector2.create(1, 0)
-  }),
-  duration: 2000,
-  easingFunction: EasingFunction.EF_LINEAR
-})
+Tween.setTextureMove(entity,
+  Vector2.create(0, 0),
+  Vector2.create(1, 0),
+  2000
+)
 
 // Loop texture animation
-TweenSequence.create(entity, {
-  sequence: [],
-  loop: TweenLoop.TL_RESTART
-})
+TweenSequence.create(entity, { sequence: [], loop: TweenLoop.TL_RESTART })
 ```
 
 #### Transparency
@@ -560,6 +554,39 @@ GltfNodeModifiers.create(model, {
 Tip: set `path` to a specific mesh node to target only that part; use `Material.Texture.Common({ src: '...' })` inside `pbr` to swap textures.
 
 ### Move Entities
+
+#### Tween helpers (concise syntax)
+```typescript
+// Move between two points
+Tween.setMove(entity,
+  Vector3.create(4, 1, 4),
+  Vector3.create(8, 1, 8),
+  2000,
+  { faceDirection: false, easingFunction: EasingFunction.EF_LINEAR }
+)
+
+// Rotate between two rotations
+Tween.setRotate(entity,
+  Quaternion.fromEulerDegrees(0, 0, 0),
+  Quaternion.fromEulerDegrees(0, 180, 0),
+  700,
+  EasingFunction.EF_EASEOUTBOUNCE
+)
+
+// Scale between sizes
+Tween.setScale(entity,
+  Vector3.create(1, 1, 1),
+  Vector3.create(4, 4, 4),
+  2000,
+  EasingFunction.EF_LINEAR
+)
+
+// Continuous movement (meters/second)
+Tween.setMoveContinuous(entity, Vector3.create(0, 0, 1), 0.7)
+
+// Continuous rotation (degrees/second)
+Tween.setRotateContinuous(entity, Quaternion.fromEulerDegrees(0, -1, 0), 700)
+```
 
 #### Tween System
 ```typescript
