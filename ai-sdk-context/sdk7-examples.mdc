@@ -819,34 +819,40 @@ import { Tween, EasingFunction, TweenSequence, TweenLoop } from '@dcl/sdk/ecs'
 import { Vector3, Quaternion } from '@dcl/sdk/math'
 
 // Move an entity
-Tween.create(entity, {
-  mode: Tween.Mode.Move({
-    start: Vector3.create(1, 0, 1),
-    end: Vector3.create(5, 0, 5)
-  }),
-  duration: 2000,  // In milliseconds
-  easingFunction: EasingFunction.EF_LINEAR
-})
+Tween.setMove(entity, 
+  Vector3.create(1, 0, 1), 
+  Vector3.create(5, 0, 5), 
+  2000,
+  EasingFunction.EF_LINEAR
+)
 
 // Rotate an entity
-Tween.create(entity, {
-  mode: Tween.Mode.Rotate({
-    start: Quaternion.fromEulerDegrees(0, 0, 0),
-    end: Quaternion.fromEulerDegrees(0, 180, 0)
-  }),
-  duration: 2000,
-  easingFunction: EasingFunction.EF_EASEINQUAD
-})
+Tween.setRotate(entity, 
+  Quaternion.fromEulerDegrees(0, 0, 0), 
+  Quaternion.fromEulerDegrees(0, 180, 0), 
+  2000,
+  EasingFunction.EF_EASEINQUAD
+)
 
 // Scale an entity
-Tween.create(entity, {
-  mode: Tween.Mode.Scale({
-    start: Vector3.create(1, 1, 1),
-    end: Vector3.create(2, 2, 2)
-  }),
-  duration: 2000,
-  easingFunction: EasingFunction.EF_EASEOUTQUAD
+Tween.setScale(entity, 
+  Vector3.create(1, 1, 1), 
+  Vector3.create(2, 2, 2), 
+  2000,
+  EasingFunction.EF_EASEOUTQUAD
 })
+
+// Move continuously
+Tween.setMoveContinuous(entity, 
+  Vector3.create(0, 0, 1), 
+  2000
+)
+
+// Rotate continuously
+Tween.setRotateContinuous(entity, 
+  Quaternion.fromEulerDegrees(0, 0, 90), 
+  2000
+)
 
 // Tween sequences (chained animations)
 TweenSequence.create(entity, {
@@ -870,6 +876,20 @@ TweenSequence.create(entity, {
   ],
   loop: TweenLoop.TL_RESTART  // Can be TL_RESTART, TL_YOYO, or undefined (no loop)
 })
+
+// Texture move
+Tween.setTextureMove(entity, 
+  Vector2.create(0, 0), 
+  Vector2.create(1, 0), 
+  2000
+)
+
+// Texture move continuously
+Tween.setTextureMoveContinuous(entity, 
+  Vector2.create(0, 1), 
+  2000
+)
+
 
 // Control tween playback
 const tween = Tween.getMutable(entity)
