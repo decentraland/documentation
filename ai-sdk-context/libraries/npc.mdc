@@ -1,21 +1,30 @@
-# @dcl-sdk/npc Context7 Reference
+# dcl-npc-toolkit Context7 Reference
 
 ## Installation & Import
-```typescript
-// NPC functionality is built into the SDK
-import { AvatarShape, Transform, engine } from '@dcl/sdk/ecs'
-import { Vector3, Color3 } from '@dcl/sdk/math'
-import { getPlayer } from '@dcl/sdk/src/players'
+
+To install the NPC toolkit, run the following command:
+
+```bash
+npm i dcl-npc-toolkit
 ```
+
+Then import the toolkit in your code:
+
+```typescript
+import { createNPC, Dialog } from 'dcl-npc-toolkit'
+```
+
+Then you can use the toolkit to create NPCs.
+
 
 ## Basic NPC Creation
 
 ### Create Simple NPC
 ```typescript
-const npc = engine.addEntity()
+const npcEntity = engine.addEntity()
 
 // Add avatar shape component
-AvatarShape.create(npc, {
+AvatarShape.create(npcEntity, {
   id: 'npc-001',                    // Required: unique identifier
   name: 'Guide NPC',                // Display name (optional, default: "NPC")
   bodyShape: 'urn:decentraland:off-chain:base-avatars:BaseMale', // Optional
@@ -31,7 +40,7 @@ AvatarShape.create(npc, {
 })
 
 // Position the NPC
-Transform.create(npc, {
+Transform.create(npcEntity, {
   position: Vector3.create(8, 0.25, 8),
   rotation: { x: 0, y: 0, z: 0, w: 1 }
 })
@@ -46,6 +55,27 @@ AvatarShape.create(randomNPC, {
 Transform.create(randomNPC, {
   position: Vector3.create(4, 0.25, 4)
 })
+```
+
+### Create NPC with toolkit (GLB + dialog)
+```typescript
+// Use the toolkit to instantiate an NPC from a GLB with a simple dialog and activation callback
+const guide = createNPC(
+  {
+    position: { x: 8, y: 0, z: 8 },
+    rotation: { x: 0, y: 0, z: 0, w: 1 },
+    scale: { x: 1, y: 1, z: 1 }
+  },
+  {
+    type: 'custom',
+    model: 'models/guide.glb',
+    dialog: [{ text: "Welcome!", isEndOfDialog: true } as Dialog],
+    onActivate: () => {
+      // Called on click; open dialog or run logic
+      console.log('Guide activated')
+    }
+  }
+)
 ```
 
 ## NPC Animations & Emotes
@@ -151,128 +181,84 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
-### Proximity Interaction
+### Proximity Interaction (TriggerArea)
 ```typescript
-import * as utils from '@dcl-sdk/utils'
+// Use SDK7 TriggerArea directly (no @dcl-sdk/utils)
+import { TriggerArea, triggerAreaEventsSystem, ColliderLayer } from '@dcl/sdk/ecs'
 
-// Create trigger area around NPC
-utils.triggers.addTrigger(
-  npc,
-  utils.LAYER_1,        // NPC layer
-  utils.LAYER_2,        // Player layer
-  [{ type: 'sphere', radius: 3 }],
-  (playerEntity) => {
-    console.log('Player entered NPC area')
-    showNPCDialogue(npc)
-  },
-  (playerEntity) => {
-    console.log('Player left NPC area')
-    hideNPCDialogue()
-  }
-)
+// Add a spherical trigger around the NPC
+TriggerArea.setSphere(npcEntity, ColliderLayer.CL_PLAYER)
+Transform.createOrReplace(npcEntity, {
+  position: Transform.get(npcEntity).position,
+  scale: Vector3.create(3, 3, 3) // radius ~3
+})
+
+// Listen for player entering/leaving
+triggerAreaEventsSystem.onTriggerEnter(npcEntity, () => {
+  showNPCDialogue(npcEntity)
+})
+triggerAreaEventsSystem.onTriggerExit(npcEntity, () => {
+  hideNPCDialogue()
+})
 ```
 
 ## NPC Dialogue Systems
 
 ### Simple Text Dialogue
 ```typescript
-import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
-
-let currentDialogue: string | null = null
-
-function showNPCDialogue(npcEntity: Entity) {
-  const npcName = AvatarShape.get(npcEntity).name
-  currentDialogue = `Hello! I'm ${npcName}. How can I help you?`
-  
-  ReactEcsRenderer.setUiRenderer(() => (
-    <UiEntity
-      uiTransform={{
-        width: 400,
-        height: 100,
-        positionType: 'absolute',
-        position: { bottom: '20%', left: '50%' },
-        margin: { left: -200 }
-      }}
-      uiBackground={{ color: Color4.create(0, 0, 0, 0.8) }}
-    >
-      <Label
-        value={currentDialogue || ''}
-        color={Color4.White()}
-        fontSize={16}
-        textAlign="middle-center"
-      />
-    </UiEntity>
-  ))
-}
-
-function hideNPCDialogue() {
-  currentDialogue = null
-  ReactEcsRenderer.setUiRenderer(() => null)
-}
+// Create a talking NPC using the toolkit's Dialog[]
+const greeter = createNPC(
+  { position: { x: 8, y: 0, z: 8 }, rotation: { x: 0, y: 0, z: 0, w: 1 }, scale: { x: 1, y: 1, z: 1 } },
+  {
+    type: 'custom',
+    model: 'models/greeter.glb',
+    dialog: [
+      { text: "Hello! I'm your guide. How can I help you today?", isEndOfDialog: true } as Dialog
+    ],
+    onActivate: () => {
+      // Optional extra behavior when clicked
+      console.log('Greeter activated')
+    }
+  }
+)
 ```
 
 ### Multi-Choice Dialogue
 ```typescript
-interface DialogueOption {
-  text: string
-  action: () => void
-}
-
-function showDialogueOptions(npcEntity: Entity, options: DialogueOption[]) {
-  ReactEcsRenderer.setUiRenderer(() => (
-    <UiEntity
-      uiTransform={{
-        width: 400,
-        height: 200,
-        positionType: 'absolute',
-        position: { bottom: '20%', left: '50%' },
-        margin: { left: -200 }
-      }}
-      uiBackground={{ color: Color4.create(0, 0, 0, 0.8) }}
-    >
-      {options.map((option, index) => (
-        <Button
-          key={index}
-          value={option.text}
-          variant="secondary"
-          fontSize={14}
-          onMouseDown={option.action}
-          uiTransform={{
-            width: 350,
-            height: 40,
-            margin: { top: 10 }
-          }}
-        />
-      ))}
-    </UiEntity>
-  ))
-}
-
-// Usage
-showDialogueOptions(npc, [
-  { text: "Tell me about this place", action: () => console.log("Place info") },
-  { text: "Give me a quest", action: () => console.log("Quest given") },
-  { text: "Goodbye", action: () => hideNPCDialogue() }
-])
+// Create an NPC with a multi-choice dialog flow via toolkit Dialog[]
+const questGiver = createNPC(
+  { position: { x: 10, y: 0, z: 10 }, rotation: { x: 0, y: 0, z: 0, w: 1 }, scale: { x: 1, y: 1, z: 1 } },
+  {
+    type: 'custom',
+    model: 'models/quest_giver.glb',
+    dialog: [
+      {
+        text: 'Welcome, traveler! What do you seek?',
+        isQuestion: true,
+        buttons: [
+          { label: 'Tell me about this place', goToDialog: 1 },
+          { label: 'Give me a quest', goToDialog: 2 },
+          { label: 'Goodbye', goToDialog: 3 }
+        ]
+      } as unknown as Dialog,
+      { text: 'These lands are rich with secrets and stories.', isEndOfDialog: true } as Dialog,
+      { text: 'Take this task and return victorious!', isEndOfDialog: true } as Dialog,
+      { text: 'Safe travels!', isEndOfDialog: true } as Dialog
+    ]
+  }
+)
 ```
 
 ## NPC Movement & Behavior
 
 ### Simple Path Following
 ```typescript
-import * as utils from '@dcl-sdk/utils'
-
 function createPatrollingNPC() {
-  const patrollingNPC = engine.addEntity()
-  
-  AvatarShape.create(patrollingNPC, {
-    id: 'patrol-npc',
-    name: 'Guard'
-  })
-  
-  Transform.create(patrollingNPC, {
-    position: Vector3.create(0, 0.25, 0)
-  })
+  // Create NPC via toolkit (handles walk/idle animations)
+  const patrollingNPC = createNPC(
+    { position: { x: 0, y: 0, z: 0 }, rotation: { x: 0, y: 0, z: 0, w: 1 }, scale: { x: 1, y: 1, z: 1 } },
+    { type: 'custom', model: 'models/guard.glb' }
+  )
   
   // Define patrol path
   const patrolPath = [
@@ -283,18 +269,20 @@ function createPatrollingNPC() {
     Vector3.create(0, 0.25, 0)
   ]
   
-  // Start patrolling
-  utils.paths.startSmoothPath(
-    patrollingNPC,
-    patrolPath,
-    20,  // Duration in seconds
-    30,  // Segments for smoothness
-    true, // Face movement direction
-    () => {
-      // Restart patrol when complete
-      utils.paths.startSmoothPath(patrollingNPC, patrolPath, 20, 30, true)
-    }
-  )
+  // Start walking animation via toolkit (handles walk/idle clips)
+  // import * as npc from 'dcl-npc-toolkit'
+  npc.playAnimation(patrollingNPC, 'Walk', true)
+
+  // Patrol using Tween helpers; keep looping
+  Tween.setMove(patrollingNPC, patrolPath[0], patrolPath[1], 4000, EasingFunction.EF_LINEAR)
+  TweenSequence.create(patrollingNPC, {
+    sequence: [
+      { duration: 4000, easingFunction: EasingFunction.EF_LINEAR, mode: Tween.Mode.Move({ start: patrolPath[1], end: patrolPath[2] }) },
+      { duration: 4000, easingFunction: EasingFunction.EF_LINEAR, mode: Tween.Mode.Move({ start: patrolPath[2], end: patrolPath[3] }) },
+      { duration: 4000, easingFunction: EasingFunction.EF_LINEAR, mode: Tween.Mode.Move({ start: patrolPath[3], end: patrolPath[4] }) }
+    ],
+    loop: TweenLoop.TL_RESTART
+  })
   
   return patrollingNPC
 }
@@ -303,21 +291,16 @@ function createPatrollingNPC() {
 ### NPC Following Player
 ```typescript
 function createFollowingNPC() {
-  const followingNPC = engine.addEntity()
+  // Create NPC via toolkit
+  const followingNPC = createNPC(
+    { position: { x: 2, y: 0, z: 2 }, rotation: { x: 0, y: 0, z: 0, w: 1 }, scale: { x: 1, y: 1, z: 1 } },
+    { type: 'custom', model: 'models/companion.glb' }
+  )
   
-  AvatarShape.create(followingNPC, {
-    id: 'follower-npc',
-    name: 'Companion'
-  })
-  
-  Transform.create(followingNPC, {
-    position: Vector3.create(2, 0.25, 2)
-  })
-  
-  // System to make NPC follow player
+  // System to make NPC follow player (read player via engine.PlayerEntity)
   engine.addSystem(() => {
-    const playerPos = utils.getPlayerPosition()
-    if (!playerPos) return
+    if (!Transform.has(engine.PlayerEntity)) return
+    const playerPos = Transform.get(engine.PlayerEntity).position
     
     const npcTransform = Transform.getMutable(followingNPC)
     const currentPos = npcTransform.position
@@ -344,73 +327,38 @@ function createFollowingNPC() {
 
 ## NPC State Management
 
-### NPC State Component
+### Toolkit-managed NPC state
 ```typescript
-// Define custom component for NPC state
-@Component('NPCState')
-export class NPCState {
-  currentDialogue: string = ''
-  isInteracting: boolean = false
-  lastInteractionTime: number = 0
-  interactionCooldown: number = 5000 // 5 seconds
-}
+// The toolkit tracks basic interaction state and dialog progression internally.
+// Prefer defining behavior via createNPC options and Dialog[] rather than custom components.
 
-// Create NPC with state
-function createStatefulNPC() {
-  const npc = engine.addEntity()
-  
-  AvatarShape.create(npc, {
-    id: 'stateful-npc',
-    name: 'Merchant'
-  })
-  
-  Transform.create(npc, {
-    position: Vector3.create(8, 0.25, 8)
-  })
-  
-  NPCState.create(npc, {
-    currentDialogue: 'Welcome to my shop!',
-    isInteracting: false,
-    lastInteractionTime: 0,
-    interactionCooldown: 3000
-  })
-  
-  return npc
-}
+const merchant = createNPC(
+  { position: { x: 8, y: 0, z: 8 }, rotation: { x: 0, y: 0, z: 0, w: 1 }, scale: { x: 1, y: 1, z: 1 } },
+  {
+    type: 'custom',
+    model: 'models/merchant.glb',
+    dialog: [
+      { text: 'Welcome to my shop!', isEndOfDialog: true } as Dialog
+    ],
+    onActivate: () => {
+      // Optional: extra side effects on interaction
+      console.log('Merchant activated')
+    }
+  }
+)
 ```
 
-### NPC Interaction System
+### Interaction flow
 ```typescript
-function createNPCInteractionSystem() {
-  engine.addSystem(() => {
-    for (const [entity, npcState] of engine.getEntitiesWith(NPCState)) {
-      const currentTime = Date.now()
-      
-      // Reset interaction state if cooldown has passed
-      if (npcState.isInteracting && 
-          currentTime - npcState.lastInteractionTime > npcState.interactionCooldown) {
-        NPCState.getMutable(entity).isInteracting = false
-      }
-    }
-  })
-}
-
-// Handle NPC interaction with cooldown
-function interactWithNPC(npcEntity: Entity) {
-  const npcState = NPCState.getMutable(npcEntity)
-  const currentTime = Date.now()
-  
-  if (npcState.isInteracting) {
-    console.log('NPC is busy, please wait...')
-    return
+// Clicks are handled via the toolkit's onActivate; use TriggerArea for proximity prompts if needed.
+const helper = createNPC(
+  { position: { x: 6, y: 0, z: 6 }, rotation: { x: 0, y: 0, z: 0, w: 1 }, scale: { x: 1, y: 1, z: 1 } },
+  {
+    type: 'custom', model: 'models/helper.glb',
+    dialog: [{ text: 'Need assistance?', isEndOfDialog: true } as Dialog],
+    onActivate: () => console.log('Helper clicked')
   }
-  
-  npcState.isInteracting = true
-  npcState.lastInteractionTime = currentTime
-  
-  // Show dialogue
-  showNPCDialogue(npcEntity)
-}
+)
 ```
 
 ## NPC Multiplayer Considerations
@@ -468,60 +416,22 @@ messageBus.on('npc-interaction', (message) => {
 
 ### NPC with Multiple Dialogue States
 ```typescript
-enum NPCState {
-  IDLE = 'idle',
-  GREETING = 'greeting',
-  IN_DIALOGUE = 'dialogue',
-  FAREWELL = 'farewell'
-}
-
 function createAdvancedNPC() {
-  const npc = engine.addEntity()
-  
-  AvatarShape.create(npc, {
-    id: 'advanced-npc',
-    name: 'Quest Giver'
-  })
-  
-  Transform.create(npc, {
-    position: Vector3.create(8, 0.25, 8)
-  })
-  
-  // Add click interaction
-  pointerEventsSystem.onPointerDown(
+  // Multi-step dialog with branching via toolkit only
+  return createNPC(
+    { position: { x: 8, y: 0, z: 8 }, rotation: { x: 0, y: 0, z: 0, w: 1 }, scale: { x: 1, y: 1, z: 1 } },
     {
-      entity: npc,
-      opts: { button: InputAction.IA_POINTER, hoverText: 'Talk to Quest Giver' }
-    },
-    () => handleNPCClick(npc)
+      type: 'custom', model: 'models/quest_giver.glb',
+      dialog: [
+        { text: 'Hello traveler! I have a quest for you.', isQuestion: true, buttons: [
+          { label: 'Tell me about the quest', goToDialog: 1 },
+          { label: 'I\'ll pass for now', goToDialog: 2 }
+        ] } as unknown as Dialog,
+        { text: 'Retrieve the ancient token from the ruins to the east.', isEndOfDialog: true } as Dialog,
+        { text: 'Come back if you change your mind!', isEndOfDialog: true } as Dialog
+      ]
+    }
   )
-  
-  return npc
-}
-
-function handleNPCClick(npcEntity: Entity) {
-  const currentState = getNPCState(npcEntity) // Custom function to get state
-  
-  switch (currentState) {
-    case NPCState.IDLE:
-      setNPCState(npcEntity, NPCState.GREETING)
-      showDialogue(npcEntity, "Hello traveler! I have a quest for you.")
-      break
-    case NPCState.GREETING:
-      setNPCState(npcEntity, NPCState.IN_DIALOGUE)
-      showDialogueOptions(npcEntity, [
-        { text: "Tell me about the quest", action: () => showQuestDetails(npcEntity) },
-        { text: "I'll pass for now", action: () => setNPCState(npcEntity, NPCState.FAREWELL) }
-      ])
-      break
-    case NPCState.IN_DIALOGUE:
-      // Already in dialogue, do nothing
-      break
-    case NPCState.FAREWELL:
-      setNPCState(npcEntity, NPCState.IDLE)
-      showDialogue(npcEntity, "Come back if you change your mind!")
-      break
-  }
 }
 ```
 
@@ -671,46 +581,6 @@ class NPCPool {
 const npcPool = new NPCPool()
 const npc1 = npcPool.createNPC(Vector3.create(4, 0.25, 4))
 const npc2 = npcPool.createNPC(Vector3.create(8, 0.25, 8))
-```
-
-### NPC LOD (Level of Detail)
-```typescript
-function createLODNPC() {
-  const npc = engine.addEntity()
-  
-  AvatarShape.create(npc, {
-    id: 'lod-npc',
-    name: 'LOD NPC'
-  })
-  
-  Transform.create(npc, {
-    position: Vector3.create(8, 0.25, 8)
-  })
-  
-  // System to adjust NPC detail based on distance
-  engine.addSystem(() => {
-    const playerPos = utils.getPlayerPosition()
-    if (!playerPos) return
-    
-    const npcPos = Transform.get(npc).position
-    const distance = Vector3.distance(playerPos, npcPos)
-    
-    const avatarShape = AvatarShape.getMutable(npc)
-    
-    if (distance > 20) {
-      // Far distance: hide name and disable interactions
-      avatarShape.name = ''
-    } else if (distance > 10) {
-      // Medium distance: show name, no interactions
-      avatarShape.name = 'LOD NPC'
-    } else {
-      // Close distance: full functionality
-      avatarShape.name = 'LOD NPC (Click to interact)'
-    }
-  })
-  
-  return npc
-}
 ```
 
 ## Best Practices
