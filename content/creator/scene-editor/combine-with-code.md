@@ -64,7 +64,13 @@ If you are using Cursor, you can use the AI assistant to help you write code. To
 
 2. There you can prompt the AI assistant to help you write code. You can also select a model to use from the dropdown.
 
-Decentraland provides a context folder for the AI assistant to help you write code, this context folder is located at `/context` in your scene project. The AI assistant will know to search this context whenever generating code, to get familiar with the Decentraland SDK. 
+Decentraland provides a context folder for the AI assistant to help you write code, this context folder is located at `/dclcontext` in your scene project. The AI assistant will know to search this context whenever generating code, to get familiar with the Decentraland SDK.
+
+This folder is updated with the latest context files every time your scene's dependencies are updated. You can also force update this folder by running the following:
+
+```
+npx sdk-commands get-context-files
+```
 
 
 {{< hint info >}}
