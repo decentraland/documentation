@@ -249,6 +249,75 @@ const questGiver = createNPC(
 )
 ```
 
+### Toolkit Dialog UI vs Bubble UI (SDK7)
+
+When opening dialogs on an EXISTING entity (not created via `createNPC`), the toolkit expects internal per-NPC data to exist. Otherwise, UI helpers (e.g., `getTheme`, `displayDialog`) may crash.
+
+- UI Dialog (React HUD)
+  1) Mount the toolkit UI once in your scene UI:
+  ```typescript
+  import { NpcUtilsUi } from 'dcl-npc-toolkit'
+
+  ReactEcsRenderer.setUiRenderer(() => (
+    <UiEntity uiTransform={{ width: '100%', height: '100%', positionType: 'absolute' }}>
+      <NpcUtilsUi />
+    </UiEntity>
+  ))
+  ```
+  2) Ensure the NPC has toolkit dialog data before opening a window:
+  ```typescript
+  import { addDialog } from 'dcl-npc-toolkit/dist/dialog'
+  import { openDialogWindow } from 'dcl-npc-toolkit'
+  import { npcDataComponent } from 'dcl-npc-toolkit/dist/npc'
+
+  function ensureNpcToolkitData(entity: Entity) {
+    if (npcDataComponent.has(entity)) return
+    npcDataComponent.set(entity as any, {
+      introduced: false,
+      inCooldown: false,
+      coolDownDuration: 5,
+      faceUser: undefined,
+      walkingSpeed: 2,
+      walkingAnim: undefined,
+      pathData: undefined,
+      currentPathData: [],
+      manualStop: false,
+      pathIndex: 0,
+      state: 'STANDING',
+      idleAnim: 'Idle',
+      hasBubble: false,
+      turnSpeed: 2,
+      theme: 'https://decentraland.org/images/ui/light-atlas-v3.png',
+      bubbleXOffset: 0,
+      bubbleYOffset: 0,
+      lastPlayedAnim: 'Idle'
+    })
+  }
+
+  // On setup
+  addDialog(npcEntity)           // required for dialog state
+  ensureNpcToolkitData(npcEntity) // required for UI helpers
+
+  // On click
+  openDialogWindow(npcEntity, dialogs, startIndex)
+  ```
+
+- Bubble Dialog (world-space speech bubbles)
+  1) Initialize a bubble instance per entity BEFORE calling `talkBubble`:
+  ```typescript
+  import { addDialog } from 'dcl-npc-toolkit/dist/dialog'
+  import { createDialogBubble } from 'dcl-npc-toolkit/dist/bubble'
+  import { talkBubble } from 'dcl-npc-toolkit'
+
+  addDialog(npcEntity)
+  createDialogBubble(npcEntity)
+  talkBubble(npcEntity, dialogs, startIndex)
+  ```
+
+Common symptoms and fixes:
+- Error: "Cannot set properties of undefined (setting 'script')" in bubble.js → Missing `createDialogBubble(npc)` before `talkBubble`.
+- Error in `<NpcUtilsUi>` caused by `getTheme`/`displayDialog` → Missing `npcDataComponent` for that entity; call `addDialog` and ensure a minimal `npcDataComponent.set(...)` exists before `openDialogWindow`.
+
 ## NPC Movement & Behavior
 
 ### Simple Path Following
