@@ -145,6 +145,29 @@ Once the above is configured, admins can release the airdrop by selecting the **
 {{< /hint >}}
  -->
 
+## Ban players
+
+You can ban players from your scene by selecting the **Moderation** tab of the admin UI, writing the name or wallet address of the player you want to ban and clicking the **Ban** button.
+
+  <img src="/images/editor/admin/ban-players.png" alt="Scene name" width="300"/>
+
+
+{{< hint info >}}
+**💡 Tip**: To obtain a player's wallet address, click on their avatar to open up their profile, then click on the **Copy to clipboard** button next to the wallet address.
+{{< /hint >}}
+
+
+Banned players will be unable to load your scene or interact with any of its content. Other players will not see them in the scene, or read any of their chat messages.
+
+
+{{< hint warning >}}
+**📔 Note**: The effects of your ban are immediate and permanent. Once a player is banned, they will remain banned until the ban is lifted. Banning a player from your scene only affects what players who are standing inside your scene can see, if a player steps outside your scene's bounds, they are no longer affected by the ban. Banned players are invisible to other players if they're standing outside your scene too.
+{{< /hint >}}
+
+Click **View Ban List** to see the list of currently banned players. From this list you can also **Unban** players.
+
+
+
 ## Trigger smart items
 
 To Trigger an action from any smart item in the scene:
