@@ -111,7 +111,7 @@ You can control the skybox time of day in the **Settings** tab. You can set a fi
 
 In the Creator Hub, open the scene settings and click on the **Settings** tab to find the **Skybox** section. Uncheck the **Auto** option to avoid using the day/night cycle and set the time of day you want.
 
-<img src="/images/editor/fixed-time-of-day.png" alt="Scene name" width="300"/>
+<img src="/images/fixed-time-of-day.png" alt="Scene name" width="300"/>
 
 
 
