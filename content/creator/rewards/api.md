@@ -115,7 +115,7 @@ If your users interact with the dispenser directly within your scene, your keys 
 When the Captcha flag is enabled, you first need to create a new captcha challenge using the `/api/captcha` endpoint from the rewards server. The response will provide all the necessary details to render the captcha image, including the image URL, dimensions, and expiration date, which indicates when the captcha will be invalidated. Be sure to save the captcha ID, as you will need it later.
 
 ```tsx
-const request = await fetch(`https://rewards.decentraland.org/api/captcha`)
+const request = await fetch(`https://rewards.decentraland.org/api/captcha`, { method: 'POST' })
 const captcha = await request.json()
 ```
 **JSON Response Example**: 
