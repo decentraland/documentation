@@ -1926,7 +1926,7 @@ executeTask(async () => {
     const result = await response.json()
     console.log('Transaction result:', result)
   } catch (error) {
-    console.error('Transaction failed:', error)
+    console.log('Transaction failed:', error)
   }
 })
 ```
@@ -1945,7 +1945,7 @@ executeTask(async () => {
     const result = await manaUser.send('0x123...abc', 100) // 100 MANA
     console.log('MANA sent:', result)
   } catch (error) {
-    console.error('MANA transaction failed:', error)
+    console.log('MANA transaction failed:', error)
   }
 })
 ```
@@ -2005,7 +2005,7 @@ executeTask(async () => {
     console.log('Balance:', result)
     
   } catch (error) {
-    console.error('Contract interaction failed:', error)
+    console.log('Contract interaction failed:', error)
   }
 })
 ```
@@ -2053,7 +2053,7 @@ executeTask(async () => {
     console.log('Current balance:', balance)
     
   } catch (error) {
-    console.error('Transaction failed:', error)
+    console.log('Transaction failed:', error)
   }
 })
 ```
@@ -2303,7 +2303,7 @@ executeTask(async () => {
     const data = await response.json()
     console.log('API response:', data)
   } catch (error) {
-    console.error('API call failed:', error)
+    console.log('API call failed:', error)
   }
 })
 ```
@@ -2326,7 +2326,7 @@ executeTask(async () => {
     const result = await response.json()
     console.log('Submission result:', result)
   } catch (error) {
-    console.error('Submission failed:', error)
+    console.log('Submission failed:', error)
   }
 })
 ```
@@ -2563,8 +2563,6 @@ npm install some-library
 ```typescript
 // Basic logging
 console.log('Debug message:', data)
-console.warn('Warning message')
-console.error('Error message')
 
 // Structured logging
 console.log('Entity transform:', {
@@ -2619,7 +2617,7 @@ export const DebugUI = () => {
 ```typescript
 function performanceSystem(dt: number) {
   if (dt > 0.033) { // More than 30ms per frame
-    console.warn('Performance warning: Frame time:', dt * 1000, 'ms')
+    console.log('Performance warning: Frame time:', dt * 1000, 'ms')
   }
 }
 
@@ -2658,7 +2656,7 @@ function checkBounds(entity: Entity) {
   const pos = transform.position
   
   if (pos.x < 0 || pos.x > 16 || pos.z < 0 || pos.z > 16) {
-    console.warn('Entity outside scene bounds:', pos)
+    console.log('Entity outside scene bounds:', pos)
   }
 }
 ```
@@ -2680,7 +2678,7 @@ executeTask(async () => {
     // Use the result in your scene
     updateSceneWithData(result)
   } catch (error) {
-    console.error('Async operation failed:', error)
+    console.log('Async operation failed:', error)
   }
 })
 ```
@@ -3556,7 +3554,7 @@ function trackInteraction(action: string, object: string) {
         })
       })
     } catch (error) {
-      console.error('Analytics tracking failed:', error)
+      console.log('Analytics tracking failed:', error)
     }
   })
 }
@@ -3580,7 +3578,7 @@ function boundaryCheckSystem() {
     
     // Check if entity is outside scene bounds
     if (pos.x < 0 || pos.x > 16 || pos.z < 0 || pos.z > 16 || pos.y > 20) {
-      console.warn('Entity outside bounds:', entity, pos)
+      console.log('Entity outside bounds:', entity, pos)
       
       // Optionally move back to bounds
       const mutableTransform = Transform.getMutable(entity)
@@ -3666,7 +3664,7 @@ function safeGetTransform(entity: Entity): Vector3 | null {
     }
     return null
   } catch (error) {
-    console.error('Error getting transform:', error)
+    console.log('Error getting transform:', error)
     return null
   }
 }
@@ -3676,7 +3674,7 @@ function attemptAction(entity: Entity, action: () => void) {
   try {
     action()
   } catch (error) {
-    console.error('Action failed:', error)
+    console.log('Action failed:', error)
     // Provide fallback behavior
     ui.displayAnnouncement('Action temporarily unavailable')
   }
