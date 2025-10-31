@@ -111,9 +111,9 @@ To do this, you need a streaming software that can output to an URL. Some popula
 
     <img src="/images/editor/admin/OBS-configuration.png" alt="Scene name" width="600"/>
 
-  {{< hint danger >}}
-  **❗Warning**: Only one person can stream to a scene at a time, even if the scene has multiple screens. When done streaming, streamers must click **Stop Streaming** on OBS to free the channel for others to start.
-  {{< /hint >}}
+    {{< hint danger >}}
+    **❗Warning**: Only one person can stream to a scene at a time, even if the scene has multiple screens. When finished streaming, streamers must click **Stop Streaming** on OBS to free the channel for others to start.
+    {{< /hint >}}
 
 6. Back in the scene's Amdin Tools console, press the **Activate** button to start showing your stream in the scene.
 
