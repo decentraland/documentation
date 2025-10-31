@@ -111,6 +111,10 @@ To do this, you need a streaming software that can output to an URL. Some popula
 
     <img src="/images/editor/admin/OBS-configuration.png" alt="Scene name" width="600"/>
 
+  {{< hint danger >}}
+  **❗Warning**: Only one person can stream to a scene at a time, even if the scene has multiple screens. When done streaming, streamers must click **Stop Streaming** on OBS to free the channel for others to start.
+  {{< /hint >}}
+
 6. Back in the scene's Amdin Tools console, press the **Activate** button to start showing your stream in the scene.
 
     <img src="/images/editor/admin/activate.png" alt="Scene name" width="200"/>
@@ -134,11 +138,19 @@ Although the keys are valid for 4 days, you can stream continuosly for up to 4 h
 
 <img src="/images/editor/admin/live-stream-settings.png" alt="Scene name" width="400"/>
 
-Click **Reset Stream Key** to revoke the current key and generate a new key. Any stream that's taking place at the time will be interrupted. To keep on streaming after that, you will need to copy the new stream key into your streaming software.
+Click **Reset Stream Key** to revoke the current key and generate a new key. Any stream that's taking place at the time will be interrupted. To keep on streaming after that, you will need to copy the new stream key into your streaming software. 
 
 Each scene has its own streaming address and key, only the scene admins have access to the key, but they can share it with other users. Users who are streaming don't need to be in Decentraland, they could even be using a mobile app.
 
 Only one stream can be active at a time in your scene, even if your scene has multiple screens. If you try to start a new stream while another is active, the new stream will stop and overwrite the current one, so if there are multiple streamers make sure they're well coordinated.
+
+{{< hint danger >}}
+**❗Warning**: Be careful who you share your stream key with, once they have the key you won't be able to stop them from streaming into your scene.
+
+If you host an event with multiple different presenters, make sure that when finished they click **stop their stream** to make room for the next presenter.
+
+As a last resort you can click **Reset Stream Key** to end all current streams. You must then share a new key with whoever needs to stream next.
+{{< /hint >}}
 
 ### Streaming from other sources
 
