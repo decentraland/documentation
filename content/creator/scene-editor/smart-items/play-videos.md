@@ -147,7 +147,7 @@ Only one stream can be active at a time in your scene, even if your scene has mu
 {{< hint danger >}}
 **❗Warning**: Be careful who you share your stream key with, once they have the key you won't be able to stop them from streaming into your scene.
 
-If you host an event with multiple different presenters, make sure that when finished they click **stop their stream** to make room for the next presenter.
+If you host an event with multiple different presenters, make sure that when finished they **stop their stream** to make room for the next presenter.
 
 As a last resort you can click **Reset Stream Key** to end all current streams. You must then share a new key with whoever needs to stream next.
 {{< /hint >}}
