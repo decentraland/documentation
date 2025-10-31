@@ -184,7 +184,7 @@ You'll see a list of each of the servers that make up Decentraland's content net
 
 You can also obtain this information at any time by running the following command on the command line console:
 
-`npx @dcl/opscli pointer-consistency --pointer '0,0'`
+`npx @dcl/opscli pointer-consistency --pointer 0,0`
 
 {{< hint warning >}}
 **📔 Note**: Use the coordinates of your scene instead of `0,0`. If your scene has multiple parcels, any one of its parcels will produce the same output. If the coordinates start with a negative number, add a `\` at the start of the coordinates to prevent the `-` character from being misinterpreted by the command line.
