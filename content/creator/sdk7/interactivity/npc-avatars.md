@@ -172,3 +172,39 @@ This is useful for displaying wearables, for example in a store.
 {{< hint info >}}
 **💡 Tip**: If a wearable is rather small, try setting the `scale` of the `Transform` to a larger value.
 {{< /hint >}}
+
+
+## Attach an entity to an NPC
+
+You can use the `AvatarAttach` feature to fix an entity to one of the bones of an NPC avatar, for example so that the NPC is holding an object on their hand. The entity will move together with the avatar when it animates.
+
+To use this feature, use the `id` property on the `AvatarShape` to assign an arbitrary id to this avatar, and then reference that id on the `AvatarAttach`. The id can be any string you want.
+
+```ts
+// Create NPC, with an ID
+const myAvatar = engine.addEntity()
+Transform.create(myAvatar, {
+  position: Vector3.create(8, 0.25, 8),
+})
+AvatarShape.create(myAvatar, {
+  id: "my-avatar-id", 
+  wearables: [],
+  emotes: []
+})
+
+// Create object to attach to NPC
+const attachedEntity = engine.addEntity()
+Transform.create(attachedEntity, {
+    position: Vector3.create(4, 2, 4),
+    scale: Vector3.create(0.15,0.15,0.15)
+})
+MeshRenderer.setBox(attachedEntity)
+Material.setBasicMaterial(attachedEntity, { diffuseColor: Color4.Blue() })
+AvatarAttach.create(attachedEntity, {
+    avatarId: "my-avatar-id",
+    anchorPointId: AvatarAnchorPointType.AAPT_LEFT_HAND
+})
+```
+
+Learn more about the `AvatarAttach` component [here]({{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar">}}).
+
