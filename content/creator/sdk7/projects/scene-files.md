@@ -26,7 +26,7 @@ Scenes include the following files:
 
 This is the entry point to your scene's custom code. You could fit your entire scene's logic into this file, although for clarity in most cases we recommend spreading out your code over several other _.ts_ files.
 
-If you rely only on the Scene Editor and [Smart Items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}), you won't need to modify this file.
+If you rely only on the Scene Editor and [Smart Items]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}), you won't need to modify this file.
 
 If you intend to write custom code, you'll most likely only need to edit this and other .ts files to create your scene. It contains the code that generates the [entities, components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}) and [systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) of your scene.
 
@@ -40,7 +40,7 @@ When running the scene, the contents of your `.ts` files are compiled to a singl
 
 The _scene.json_ file is a JSON formatted manifest for a scene in the world. A scene can span a single or multiple LAND parcels. The _scene.json_ manifest describes what objects exist in the scene, a list of any assets needed to render it, contact information for the parcel owner, and security settings.
 
-Most of the fields on the _scene.json_ file can be edited directly in the UI of the Scene Editor. See [Scene Settings]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#scene-settings" >}}).
+Most of the fields on the _scene.json_ file can be edited directly in the UI of the Scene Editor. See [Scene Settings]({{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md#scene-settings" >}}).
 
 <img src="/images/thumbnail-image.png" width="500" />
 

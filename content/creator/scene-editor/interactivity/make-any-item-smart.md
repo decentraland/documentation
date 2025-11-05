@@ -5,7 +5,9 @@ description: Configure any item to behave like a smart item.
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/make-any-item-smart
+url: /creator/scene-editor/interactivity/make-any-item-smart
+aliases:
+  - /creator/editor/make-any-item-smart
 weight: 6
 ---
 
@@ -33,10 +35,10 @@ Add a **Trigger** component, to detect to different actions from the player:
 - **Global button events** When the player presses a key, wherever they are in the scene.
 - **Player proximity**: When the player walks into the item's position.
 
-The **Trigger** component can be configured to be aware of any of these types of triggers. Every time a trigger happens, it can call Actions from their own **Actions** component, or from the **Actions** components of other items in the scene. See [Smart items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}}).
+The **Trigger** component can be configured to be aware of any of these types of triggers. Every time a trigger happens, it can call Actions from their own **Actions** component, or from the **Actions** components of other items in the scene. See [Smart items - Advanced]({{< ref "/content/creator/scene-editor/interactivity/smart-items-advanced.md" >}}).
 
 {{< hint info >}}
-**💡 Tip**: You can also combine these triggers with [conditional logic]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}}), so that the actions don't get called every time the trigger happens, only if the conditions are true.
+**💡 Tip**: You can also combine these triggers with [conditional logic]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}}), so that the actions don't get called every time the trigger happens, only if the conditions are true.
 
 For example, you could add a **Pointer Events** trigger to a door, so that it opens when clicked, but include conditional logic so that it only opens if it's unlocked.
 {{< /hint >}}
@@ -82,7 +84,7 @@ Add a **Trigger** component with **On Global Click**, **On Global Primary** or *
 - **On Global Secondary** reacts to every time the player the Secondary Button (F), anywhere in the scene.
 
 {{< hint info >}}
-**💡 Tip**: It often makes sense to combine this with [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}}), so that the items only react to the button event if the player is in the room, or some other condition.
+**💡 Tip**: It often makes sense to combine this with [States and conditions]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}}), so that the items only react to the button event if the player is in the room, or some other condition.
 {{< /hint >}}
 
 ### Player position
@@ -92,12 +94,12 @@ Add a **Trigger** component with **Player Enters Area**, **Player Leaves Area** 
 This will react to when the player enters or leaves an area of a default size of 1x1x1, positioned at the center of the item.
 
 {{< hint info >}}
-**💡 Tip**: It's often better to use the [**Trigger Area**]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md#trigger-areas" >}}) smart item instead, since this item's dimensions can be clearly visualized in the Scene Editor.
+**💡 Tip**: It's often better to use the [**Trigger Area**]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md#trigger-areas" >}}) smart item instead, since this item's dimensions can be clearly visualized in the Scene Editor.
 {{< /hint >}}
 
 ## See also
 
-- [Smart items - Basics]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}})
-- [Smart items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}})
-- [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}})
-- [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}})
+- [Smart items - Basics]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}})
+- [Smart items - Advanced]({{< ref "/content/creator/scene-editor/interactivity/smart-items-advanced.md" >}})
+- [States and conditions]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}})
+- [Combine with code]({{< ref "/content/creator/scene-editor/code/overview.md" >}})

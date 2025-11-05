@@ -5,24 +5,24 @@ description: Understand how an item's components work
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/components
-weight: 7
+url: /creator/scene-editor/build/components
+weight: 2
 ---
 
 Select an item by clicking on it on the canvas or on the entity tree. You'll then see its components displayed on the properties panel, on the right of the screen. Different items have different components that each display specific settings.
 
-<img src="/images/editor/components-in-editor.png" alt="Scene name" width="200"/>
+<img src="/images/editor/components-in-editor.png" alt="Scene name" width="250"/>
 
 Most non-interactive items have the following components:
 
-- **Transform**: Sets the position, rotation, and scale of the item. If the item is a child of another item on the [Entity Tree]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#the-entity-tree" >}}), these value are relative to those of the parent's.
+- **Transform**: Sets the position, rotation, and scale of the item. If the item is a child of another item on the [Entity Tree]({{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md#the-entity-tree" >}}), these value are relative to those of the parent's.
 - **GLTF**: What 3D model to load. It includes the local path to the file for this 3D model. It also includes some properties for configuring [colliders]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models" >}}) on the model.
 
 The items in your scene are all **Entities**. Everything in a scene is an Entity, they are the basic building blocks of scenes. Items are Entities that have at least a position and a visible shape.
 
 ## Add components
 
-To add Components to any Entity, click the **+** sign at the top of the properties tab and select the Component from the list. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
+To add Components to any Entity, click the **+** sign at the top of the properties tab and select the Component from the list. See [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}})
 
 <img src="/images/editor/add-component.png" alt="Scene name" width="200"/>
 
@@ -34,7 +34,7 @@ To create a fresh new Entity, right click on the root **Scene** Entity in the En
 
 <img src="/images/editor/new-entity.png" width="300"/>
 
-This creates an empty Entity with just a **Transform** Component. You can then add any other Components you want and shape it into anything you desire.
+This creates an empty Entity with just a **Transform** Component. The new entity is a child of the parent entity you clicked on. You can then add any other Components you want to it to shape it into anything you desire.
 
 ## Available components
 
@@ -49,11 +49,15 @@ The following Components can be added to any Entity via the Scene Editor UI:
 
 - **Visibility**: Defines if an Entity is invisible.
 
+- **Light Source**: Adds a light to the Entity.
+
+-- **Swap Material**: Swaps the material of an Entity that has a **GLTF** component. If the 3D model has multiple meshes, you can swap the material of each mesh individually.
+
 - **Audio Source**: Plays a sound from a sound file at the location of the Entity. See [Sounds]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}).
 - **Text Shape**: Displays text in the 3D space. See [Text]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).
 - **Pointer Events**: Marks an Entity as clickable, displaying a hover-hint.
   {{< hint warning >}}
-  **📔 Note**: The **Pointer Events** Component only provides feedback. To perform actions when an Entity is interacted with, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
+  **📔 Note**: The **Pointer Events** Component only provides feedback. To perform actions when an Entity is interacted with, see [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}})
   {{< /hint >}}
 
 - **Multiplayer**: Shares any changes that happen to the Entity so that all players in the scene see it too. It can be configured to only share changes on certain components. See [Serverless Multiplayer]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#mark-an-entity-as-synced" >}}) for more details.
@@ -61,21 +65,21 @@ The following Components can be added to any Entity via the Scene Editor UI:
 {{< hint warning >}}
 **📔 Note**: Other components exist on the SDK that are currently only usable via code. You can also create your own [Custom components]({{< ref "/content/creator/sdk7/architecture/custom-components.md" >}}) via code, these won't have a UI representation, but can be added and edited via code.
 
-See [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}}) for how to edit the code of your scene.
+See [Combine with code]({{< ref "/content/creator/scene-editor/code/overview.md" >}}) for how to edit the code of your scene.
 
 Also note that an Entity can only hold **one** of each Component. It's not possible to assign a second instance of a Component that already exists in the entity. For example, you can't two **Actions** components to a same Entity.
 {{< /hint >}}
 
 ## Smart items
 
-[Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) can also include special components that Control the Entity's interactivity. These are typically:
+[Smart items]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}) can also include special components that Control the Entity's interactivity. These are typically:
 
 - **Actions**: Lists all the possible actions the item can carry out.
 - **Triggers**: Determines when the actions from the Actions component are carried out.
 - **States**: Keeps track of the item's current state. The state can be used for conditional logic, to only trigger certain actions if the item is on certain state.
 - **Counter**: Keeps track of a counter. The counter can be used for conditional logic, to only trigger certain actions if the counter's value is equal/greater/lower than a given value.
 
-See [Smart items advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}}) for more details.
+See [Smart items advanced]({{< ref "/content/creator/scene-editor/interactivity/smart-items-advanced.md" >}}) for more details.
 
 ## About entities and components
 

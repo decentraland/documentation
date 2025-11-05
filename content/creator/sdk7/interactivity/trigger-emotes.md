@@ -19,7 +19,7 @@ Animations done by the player are overridden by the default locomotion animation
 
 ## Use the Scene Editor
 
-The easiest way to make a player perform an animation is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the no-code **Play Emote** action to play a default animation, or the **Play Custom Emote** action to play an animation form a file. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+The easiest way to make a player perform an animation is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}). Use the no-code **Play Emote** action to play a default animation, or the **Play Custom Emote** action to play an animation form a file. See [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}}).
 
 ## Default animations
 

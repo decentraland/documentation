@@ -17,7 +17,7 @@ The rendered shape of an entity is determined by what component it uses.
 
 ## Use the Scene Editor
 
-The easiest way to give an entity a shape is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). You can add a **Mesh Renderer** component to provide a primitive shape, or a **GLTF** component to reference a 3D model from a file. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}).
+The easiest way to give an entity a shape is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}). You can add a **Mesh Renderer** component to provide a primitive shape, or a **GLTF** component to reference a 3D model from a file. See [Add Components]({{< ref "/content/creator/scene-editor/build/components.md#add-components" >}}).
 
 ## Primitive shapes
 

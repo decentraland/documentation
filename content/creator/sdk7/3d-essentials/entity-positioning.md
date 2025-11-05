@@ -13,7 +13,7 @@ You can set the _position_, _rotation_ and _scale_ of any entity by using the `T
 
 ## Use the Scene Editor
 
-When adding an item to your scene via the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), it implicitly includes a **Transform** component. You then change the values in the entity's Transform component implicitly by changing the position, rotation or scale of an entity. You can also use the Scene Editor's UI to provide values numerically for more precision.
+When adding an item to your scene via the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}), it implicitly includes a **Transform** component. You then change the values in the entity's Transform component implicitly by changing the position, rotation or scale of an entity. You can also use the Scene Editor's UI to provide values numerically for more precision.
 
 ## Code essentials
 

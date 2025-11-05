@@ -25,7 +25,7 @@ There are several different ways to handle input actions, depending on the use c
 
 ## Use the Scene Editor
 
-The easiest way to handle click events on an entity is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the no-code **On Click** or **On Input Action** Triggers on an item to call actions when clicking on it. Or use **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers to react to global button events. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+The easiest way to handle click events on an entity is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}). Use the no-code **On Click** or **On Input Action** Triggers on an item to call actions when clicking on it. Or use **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers to react to global button events. See [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}}).
 
 ## Simple example
 
@@ -127,7 +127,7 @@ The following inputs can be handled by any of the approaches to detect input eve
 - `InputAction.IA_LEFT`: **A** key on a computer.
 - `InputAction.IA_RIGHT`: **D** key on a computer.
 - `InputAction.IA_BACKWARD`: **S** key on a computer.
-- `InputAction.IA_WALK`: **Shift** key on a computer.
+- `InputAction.IA_WALK`: **Control** key on a computer.
 
 Each `InputAction` is abstracted away from the literal input in the keyboard so that it can be mapped to different inputs depending on the device. For this same reason, not all buttons on the keyboard can be tracked for button events, only the buttons that are used for movement and interaction. This intentional limitation is to ensure that all content is compatible in the future with VR controllers, other kinds of game controllers, and mobile devices.
 

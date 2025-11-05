@@ -20,11 +20,11 @@ There are separate collision layers for interacting with either the player's phy
 
 ## Use the Scene Editor
 
-The easiest way to manage an entity's colliders is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+The easiest way to manage an entity's colliders is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}).
 
 You can add a **Mesh Collider** component to your entity to assign a primitive shape (cube, plain, sphere, cylinder, or cone) to your entity. You can then pick [Collision layers](#collision-layers) from a dropdown.
 
-You can also configure the collision layers on a **GLTF** component to change the default [Collision layers](#collision-layers) used on either the collider geometry or the visible geometry of the model. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}).
+You can also configure the collision layers on a **GLTF** component to change the default [Collision layers](#collision-layers) used on either the collider geometry or the visible geometry of the model. See [Add Components]({{< ref "/content/creator/scene-editor/build/components.md#add-components" >}}).
 
 <img src="/images/editor/gltf-component.png" alt="Scene name" width="200"/>
 

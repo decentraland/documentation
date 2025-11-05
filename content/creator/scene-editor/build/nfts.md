@@ -7,8 +7,9 @@ categories:
 type: Document
 aliases:
   - /builder/nfts/
-url: /creator/editor/nfts
-weight: 6
+  - /creator/editor/nfts
+url: /creator/scene-editor/build/nfts
+weight: 3
 ---
 
 You can add NFTs (Non-Fungible Tokens) into your scene, displayed as picture frames.
