@@ -5,9 +5,10 @@ description: The scene Editor is a simple visual tool that lets you create and p
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/about-scene-editor
+url: /creator/scene-editor/get-started/overview
 aliases:
   - /creator/web-editor
+  - /creator/editor/about-scene-editor
 weight: 1
 ---
 
@@ -15,7 +16,7 @@ The Creator Hub includes a powerful Scene Editor that combines a simple no-code 
 
 <img src="/images/editor/icon-creator-hub.png" alt="Header" width="128"/>
 
-See [Creator Hub Installation]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}) to get started.
+See [Creator Hub Installation]({{< ref "/content/creator/scene-editor/get-started/editor-installation.md" >}}) to get started.
 
 <!-- TODO: update video -->
 
@@ -31,7 +32,7 @@ You can then select what template to use as a starting point. You can pick a bla
 
 Then you'll be asked to name your scene, and choose a location to save it.
 
-See [Manage scenes]({{< ref "/content/creator/scene-editor/manage-scenes.md" >}}) for more details.
+See [Manage scenes]({{< ref "/content/creator/scene-editor/get-started/manage-scenes.md" >}}) for more details.
 
 ## Moving around
 
@@ -59,10 +60,10 @@ To place an item, click and drag it in from the asset pack menu into a location 
 
 <img src="/images/editor/drop-item.gif" width="300" alt="Scene name"/>
 
-Click and drag a selected item to move it freely around the scene at ground level. See [Scene editor essentials]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#position-items" >}}) for more details.
+Click and drag a selected item to move it freely around the scene at ground level. See [Scene editor essentials]({{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md#position-items" >}}) for more details.
 
 {{< hint info >}}
-**💡 Tip**: Some items are **Smart items**, these come with built-in interactive behaviors. See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for more details.
+**💡 Tip**: Some items are **Smart items**, these come with built-in interactive behaviors. See [Smart items]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}) for more details.
 {{< /hint >}}
 
 <img src="/images/editor/smart-items.jpg"/>
@@ -89,7 +90,7 @@ Click the **Pencil icon** on the top-right of the screen. This opens a series of
 
 <img src="/images/editor/pencil-icon.png" alt="Scene name" width="64"/>
 
-See [Scene Settings]({{< ref "/content/creator/scene-editor/scene-settings.md" >}}) for more details.
+See [Scene Settings]({{< ref "/content/creator/scene-editor/configure/scene-settings.md" >}}) for more details.
 
 ## Publish your scene
 
@@ -97,11 +98,11 @@ Once you're happy with your scene, press _Publish scene_.
 
  <img src="/images/editor/publish-options.png" alt="Scene name" width="500"/>
 
-See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}) for more details.
+See [Publish scene]({{< ref "/content/creator/scene-editor/publish/publish-scene.md" >}}) for more details.
 
 ## See also
 
-- See [Scene Editor Essentials]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md" >}}) for more details about the Scene Editor's interface.
-- See [Smart items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for how to add simple interactivity to your scene.
-- See [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}}) for how to edit the code of your scene.
-- See [Publish scene]({{< ref "/content/creator/scene-editor/publish-scene.md" >}}) for how to publish your scene to Decentraland.
+- See [Scene Editor Essentials]({{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md" >}}) for more details about the Scene Editor's interface.
+- See [Smart items]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}) for how to add simple interactivity to your scene.
+- See [Combine with code]({{< ref "/content/creator/scene-editor/code/overview.md" >}}) for how to edit the code of your scene.
+- See [Publish scene]({{< ref "/content/creator/scene-editor/publish/publish-scene.md" >}}) for how to publish your scene to Decentraland.

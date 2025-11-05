@@ -8,6 +8,7 @@ type: Document
 aliases:
   - /builder/manage-scenes/
 url: /creator/editor/manage-scenes
+url: /creator/scene-editor/get-started/manage
 weight: 3
 ---
 
@@ -19,7 +20,7 @@ Click **Create scene** to create a new scene. You'll then be asked to choose a t
 
 Then you'll be asked to name your scene, and choose a location to save it.
 
-Once you confirm these steps, the scene project will be created. This may take a minute or two, as it downloads dependencies and sets up a folder on your local machine with everything it needs. When done, your scene will be opened in the [Scene Editor]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md" >}}).
+Once you confirm these steps, the scene project will be created. This may take a minute or two, as it downloads dependencies and sets up a folder on your local machine with everything it needs. When done, your scene will be opened in the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md" >}}).
 
 Click the three dots on an already created scene's card and click **Duplicate** to make a copy of an existing scene.
 
@@ -37,7 +38,7 @@ The imported scene does not get moved in your local disk.
 **📔 Note**: Do not manually rename or move the folder of an imported scene directly from your file manager. The Scene Editor will no longer be able to find the imported scene in its new path.
 {{< /hint >}}
 
-Scenes you created on the older web editor are stored in the cloud. To work on these scenes from the desktop Scene Editor, you must export the scene from the Web Editor, unzip it into a folder, and then import it on the desktop Scene Editor. See [Migrate from Web Editor]({{< ref "/content/creator/scene-editor/migrate-from-web.md" >}}) for more details.
+Scenes you created on the older web editor are stored in the cloud. To work on these scenes from the desktop Scene Editor, you must export the scene from the Web Editor, unzip it into a folder, and then import it on the desktop Scene Editor. See [Migrate from Web Editor]({{< ref "/content/creator/scene-editor/get-started/migrate-from-web.md" >}}) for more details.
 
 ## Delete a scene
 

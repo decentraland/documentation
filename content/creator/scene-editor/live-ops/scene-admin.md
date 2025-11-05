@@ -5,8 +5,8 @@ description: Scene administrators have special control over what happens in the 
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/scene-admin
-weight: 8
+url: /creator/scene-editor/live-ops/scene-admin
+weight: 1
 ---
 
 Grant certain players the special role of **admin** on your scene. 
@@ -69,7 +69,7 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
     <img src="/images/editor/admin/video-player-item.png" alt="Scene name" width="200"/>
 
-    See [Video Playing]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md" >}}) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
+    See [Video Screen]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >}}) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
 
     {{< hint warning >}}
     **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
@@ -98,14 +98,14 @@ There are two kidns of media sources for playing videos:
   <img src="/images/editor/admin/video-from-url.png" alt="Scene name" width="300"/>
 
   {{< hint warning >}}
-  **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md#streaming-from-other-sources" >}}) for more information on what you can and can't play in Decentraland.
+  **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md#streaming-from-other-sources" >}}) for more information on what you can and can't play in Decentraland.
   {{< /hint >}}
 
 - **Live stream**: Play a live stream using Decentraland's free streaming infrastructure and a streaming software like OBS or StreamYard.
 
   <img src="/images/editor/admin/live-stream.png" alt="Scene name" width="300"/>
 
-  See [Live Streaming]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md#live-streaming" >}}) for more information on how to set up a live stream.
+  See [Live Streaming]({{< ref "/content/creator/scene-editor/live-ops/live-streaming.md" >}}) for more information on how to set up a live stream.
 
 Each screen in your scene will have one of the above media sources set as **Active**. You can click the **Video** or **Live** buttons to explore the settings on each section, you won't interrupt what's currently playing until you click the **Activate** button on either section.
 

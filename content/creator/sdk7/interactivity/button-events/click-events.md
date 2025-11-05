@@ -25,7 +25,7 @@ There are several different ways to handle input actions, depending on the use c
 
 ## Use the Scene Editor
 
-The easiest way to handle click events on an entity is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the no-code **On Click** or **On Input Action** Triggers on an item to call actions when clicking on it. Or use **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers to react to global button events. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+The easiest way to handle click events on an entity is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}). Use the no-code **On Click** or **On Input Action** Triggers on an item to call actions when clicking on it. Or use **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers to react to global button events. See [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}}).
 
 ## Simple example
 

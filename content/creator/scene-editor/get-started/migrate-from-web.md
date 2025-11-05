@@ -5,8 +5,10 @@ description: Migrate your scene from the Web Editor to the Creator Hub.
 categories:
   - web-editor
 type: Document
-url: /creator/editor-plus-code
-weight: 5
+url: /creator/scene-editor/get-started/migrate-from-web
+aliases:
+  - /creator/editor-plus-code
+weight: 4
 ---
 
 If you have a scene created with the Web Editor, you can easily migrate it to the Creator Hub.
@@ -20,7 +22,7 @@ To edit the code in a scene created with the Web Editor, you must export the sce
 {{< hint warning >}}
 **📔 Note**: If you don't have the Creator Hub installed, follow the steps in the following page before your start.
 
-[Install Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}})
+[Install Creator Hub]({{< ref "/content/creator/scene-editor/get-started/editor-installation.md" >}})
 {{< /hint >}}
 
 1. Click the **Download icon** on the top menu of the Web Editor while editing the scene.
@@ -35,4 +37,4 @@ To edit the code in a scene created with the Web Editor, you must export the sce
 
 Once you're done, you can keep working on your project inside the Creator Hub, with a visual interface that looks a lot like the Web Editor, but much more polished.
 
-You can also edit the files under the `/src` folder to add behavior with code to your scene. See [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}}) for how to edit the code of your scene.
+You can also edit the files under the `/src` folder to add behavior with code to your scene. See [Combine with code]({{< ref "/content/creator/scene-editor/code/overview.md" >}}) for how to edit the code of your scene.

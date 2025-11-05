@@ -5,10 +5,11 @@ description: Using smart items in your scene to add interactivity.
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/smart-items-advanced
+url: /creator/scene-editor/interactivity/advanced
 aliases:
   - /creator/smart-items-advanced
-weight: 4
+  - /creator/editor/smart-items-advanced
+weight: 5
 ---
 
 Most smart items have a basic mode and an advanced mode. The basic mode is tailored to only display the most common settings in a simple way. The advanced mode allows you to customize almost anything about how the item behaves.
@@ -38,7 +39,7 @@ For example, in a door smart item, the **Actions** component includes "Open" and
 
 The triggers of a smart item can activate actions on any smart item in the scene, not just on that same smart item. For example, a button smart item can have a **Triggers** component that activates the "move up" action defined on the **Actions** component of a floating platform.
 
-Triggers can also happen conditionally. For example, door smart items include two **On Click** triggers in its Triggers component: one opens the door if that door was closed, the other closes the door if it was open. For more details see [States and conditional logic]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}}).
+Triggers can also happen conditionally. For example, door smart items include two **On Click** triggers in its Triggers component: one opens the door if that door was closed, the other closes the door if it was open. For more details see [States and conditional logic]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}}).
 
 ## Interactions between items
 
@@ -64,7 +65,7 @@ For example, to make a button open a door:
 
 Any item can trigger any action from any other item, as long as the action is defined. See [Triggers](#triggers) for more ways in which an action can be triggered.
 
-You can use [states and conditional logic]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}}) to only trigger an action if a condition is met. The condition can even check the state of a third smart item. For example, a button only opens the door if the a custom "power generator" smart item has its state set to "On".
+You can use [states and conditional logic]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}}) to only trigger an action if a condition is met. The condition can even check the state of a third smart item. For example, a button only opens the door if the a custom "power generator" smart item has its state set to "On".
 
 {{< hint info >}}
 **📔 Note**: To call an item's internal actions, that are not exposed to the basic mode, set the item to its **Advanced Mode**.
@@ -124,7 +125,7 @@ The **Actions** component lists actions that the item can carry out. Each smart 
 - **Batch Actions**: All of the actions listed here will be played simultaneously each time the batch action is called. You can list any of the actions that bleong to the item.
 - **Heal Player**: Restore health to the player's health bar.
 
-See [states and conditional logic]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}}) to learn about other actions related to logic conditions.
+See [states and conditional logic]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}}) to learn about other actions related to logic conditions.
 
 The **Actions** component defines possible actions, but these don't do anything in the scene unless they are triggered. Actions are activated by a [trigger](#triggers), either from the same smart item, or from a different one.
 
@@ -141,7 +142,7 @@ The **Triggers** component defines trigger events, these activate actions when a
 - **Player Leaves Area**: When the player leaves an area. See [About trigger areas](#about-trigger-areas)
 - **On Spawn**: When the scene starts, or the item is spawned in the scene. See [Trigger on spawn](#trigger-on-spawn)
 
-See [states and conditional logic]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}}) to learn about other triggers related to logic conditions.
+See [states and conditional logic]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}}) to learn about other triggers related to logic conditions.
 
 To add a new trigger, click the **Add New Trigger Event** at the bottom of the Trigger component. Then select the type of trigger, the entity you want to activate and an action from that entity.
 
@@ -220,7 +221,7 @@ Tweens can follow different **Curve Types** that affect the rate of change over 
 **💡 Tip**: Experiment with different movement curves. The differences are often subtle, but we subconsciously interpret information from how things move, like weight, friction, or even personality.
 {{< /hint >}}
 
-Use **On Tween End** trigger events in the **Triggers** component to activate an action after a tween has finished. Use [states and conditional logic]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}}) to describe a looping path for a floating platform, so that it constantly moves between two locations.
+Use **On Tween End** trigger events in the **Triggers** component to activate an action after a tween has finished. Use [states and conditional logic]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}}) to describe a looping path for a floating platform, so that it constantly moves between two locations.
 
 When an item performs a tween, this affects everything about the item. For example, if it changes scale, it changes the scale of its visible 3D model and also invisible collider geometry, the size of text, etc. If the item has any children (nested in the entity tree on the left), these child entities are also affected by the tween.
 
@@ -235,7 +236,7 @@ To trigger an action by clicking on an item, create an **On Click** trigger. The
 
 <img src="/images/editor/on_click.png" width="300"/>
 
-See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md#interactivity" >}}) for more details.
+See [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md#interactivity" >}}) for more details.
 
 {{< hint info >}}
 **📔 Note**:
@@ -256,7 +257,7 @@ For example, use this to make a platform move continually. Use an **On Spawn** t
 
 ## Multiplayer
 
-All smart items are multiplayer by default. See [Smart Items - Basic]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for more details.
+All smart items are multiplayer by default. See [Smart Items - Basic]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}) for more details.
 
 You can change or fine-tune this multiplayer behavior to only sync certain components of the item.
 
@@ -272,7 +273,7 @@ In the advanced mode, these items have a **Visibility** component set to invisib
 
 ## See also
 
-- [Smart items - Basics]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}})
-- [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}})
-- [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
-- [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}})
+- [Smart items - Basics]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}})
+- [States and conditions]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}})
+- [Making any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}})
+- [Combine with code]({{< ref "/content/creator/scene-editor/code/overview.md" >}})

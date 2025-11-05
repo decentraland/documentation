@@ -26,7 +26,7 @@ Scenes include the following files:
 
 This is the entry point to your scene's custom code. You could fit your entire scene's logic into this file, although for clarity in most cases we recommend spreading out your code over several other _.ts_ files.
 
-If you rely only on the Scene Editor and [Smart Items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}), you won't need to modify this file.
+If you rely only on the Scene Editor and [Smart Items]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}), you won't need to modify this file.
 
 If you intend to write custom code, you'll most likely only need to edit this and other .ts files to create your scene. It contains the code that generates the [entities, components]({{< ref "/content/creator/sdk7/architecture/entities-components.md" >}}) and [systems]({{< ref "/content/creator/sdk7/architecture/systems.md" >}}) of your scene.
 

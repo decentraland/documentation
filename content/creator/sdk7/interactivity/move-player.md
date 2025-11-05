@@ -11,7 +11,7 @@ weight: 2
 
 ## Use the Scene Editor
 
-The easiest way to move the player is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the no-code **Move player** or the **Move player here** Actions, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+The easiest way to move the player is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}). Use the no-code **Move player** or the **Move player here** Actions, see [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}}).
 
 ## Move player
 

@@ -13,7 +13,7 @@ To move, rotate or resize an entity in your scene over a period of time, use the
 
 {{< hint info >}}
 **💡 Tip**:
-In the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can move entities in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+In the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}), you can move entities in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}}).
 {{< /hint >}}
 
 The Tween component has the following functions:

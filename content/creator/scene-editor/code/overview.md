@@ -5,10 +5,10 @@ description: Combine content created on the Scene Editor with the power of writi
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/editor-plus-code
+url: /creator/scene-editor/code/overview
 aliases:
   - /creator/editor-plus-code
-weight: 7
+weight: 1
 ---
 
 {{< youtube 55H37rygD7M >}}
@@ -351,7 +351,7 @@ function main() {
 ```
 
 {{< hint info >}}
-**💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+**💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}}).
 {{< /hint >}}
 
 ## Other smart item components
@@ -399,10 +399,10 @@ If you're not familiar with how to do this, see [Quickstart for repositories](ht
 
 ## See also
 
-- [Smart items - Basics]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}})
-- [Smart items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}})
-- [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}})
-- [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
+- [Smart items - Basics]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}})
+- [Smart items - Advanced]({{< ref "/content/creator/scene-editor/interactivity/smart-items-advanced.md" >}})
+- [States and conditions]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}})
+- [Making any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}})
 
 - [SDK Quick start]({{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >}}): follow this mini tutorial for a quick crash course.
 - [Development workflow]({{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >}}): read this to understand scene creation from end to end.

@@ -5,8 +5,8 @@ description: How to publish your scene to LAND or a NAME.
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/publish-scene
-weight: 7
+url: /creator/scene-editor/publish
+weight: 1
 ---
 
 ## Before you begin
@@ -23,7 +23,7 @@ Make sure of the following:
 **📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels.
 {{< /hint >}}
 
-Check your [scene's details]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#scene-details" >}}), make sure you provide an appealing name, description, thumbnail, categories, etc.
+Check your [scene's details]({{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md#scene-details" >}}), make sure you provide an appealing name, description, thumbnail, categories, etc.
 
 {{< hint danger >}}
 **❗Warning**: When planning live events, make sure you don't make last minute changes to the scene right before the event.

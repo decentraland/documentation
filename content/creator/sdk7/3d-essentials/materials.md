@@ -24,7 +24,7 @@ There are different types of supported materials:
 
 ## Use the Scene Editor
 
-The easiest way to give an entity a Material is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). You can add a **Material** component to your entity and then configure all of the available fields on the Scene Editor UI. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}).
+The easiest way to give an entity a Material is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}). You can add a **Material** component to your entity and then configure all of the available fields on the Scene Editor UI. See [Add Components]({{< ref "/content/creator/scene-editor/build/components.md#add-components" >}}).
 
 ## Add a material
 

@@ -12,7 +12,7 @@ aliases:
   - /creator/editor/installation-guide
   - /creator/development-guide/installation-guide
   - /creator/development-guide/sdk7/installation-guide/
-url: /creator/editor/install-editor
+url: /creator/scene-editor/get-started/install
 weight: 2
 ---
 

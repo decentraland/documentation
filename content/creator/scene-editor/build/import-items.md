@@ -5,10 +5,11 @@ description: Import your own 3D models, images, sound, etc to use in your scenes
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/import-items
+url: /creator/scene-editor/build/import-assets
 aliases:
   - /builder/import-items/
-weight: 4
+  - /creator/editor/import-items
+weight: 1
 ---
 
 You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models. You can also import other assets like images, sound files, and videos.
@@ -121,4 +122,4 @@ Note that you don't have any control over when the animation starts or stops, or
 
 If there are multiple players in the scene, they may be seeing the animation out of sync from each other.
 
-To change this behavior, you can include an **Animator** component. See [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}) for no-code tools to make your item interactive.
+To change this behavior, you can include an **Animator** component. See [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}}) for no-code tools to make your item interactive.

@@ -15,7 +15,7 @@ See [Files in a scene]({{< ref "/content/creator/sdk7/projects/scene-files.md" >
 
 ## Metadata
 
-To edit a scene's metadata on the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), open a scene and click the **pencil icon**.
+To edit a scene's metadata on the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}), open a scene and click the **pencil icon**.
 
 <img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
 
@@ -39,7 +39,7 @@ When players navigate the world and enter your scene, they are able to read the 
 
 <img src="/images/media/scene-name.png" alt="Scene name" width="200"/>
 
-Add this data via the scene menu in the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+Add this data via the scene menu in the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}).
 
 The thumbnail should be a _.png_ image of a recommended size of _228x160_ pixels. The minimum supported size is _196x143_ pixels. The image may be stretched if the width-to-height proportions don't match _228x160_.
 
