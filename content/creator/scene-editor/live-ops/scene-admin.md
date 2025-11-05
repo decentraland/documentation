@@ -16,7 +16,7 @@ During a live event, an admin can spontaneously control what happens in the scen
 
 {{< youtube efjJN7Jr7Qo >}}
 
-When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos or live streams, send announcements, or activate any smart item that is configured to be activated like this. These actions are seen by all other players in the scene that are connected to the same comms island as the admin.
+When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos or live streams, send announcements, ban players, or activate any smart item that is configured to be activated like this. These actions are seen by all other players in the scene that are connected to the same comms island as the admin.
 
   <img src="/images/editor/admin/admin-console.png" alt="Scene name" width="300"/>
 
@@ -52,7 +52,7 @@ You can see who is an admin in the scene by clicking the **Admin List** button. 
   <img src="/images/editor/admin/admin-list.png" alt="Scene name" width="200"/>
 
 {{< hint warning >}}
-**📔 Note**: It's only possible to remove the admin role from players that were added manually to the list via the **Moderation Tools** tab. Players who are owners, operators, or renters of the scene are displayed on this list but can't be removed from their admin roles from this UI.
+**📔 Note**: It's only possible to remove the admin role from players that were added manually to the list via the **Moderation Tools** tab. Players who are owners, operators, or renters of the scene are displayed on this list but can't be removed from their admin roles from this UI. To remove an admin role from an operator, you must first remove their operator role.
 {{< /hint >}}
 
 Whenever an admin player is in the scene, they will see a special UI on the top-right corner. Non-admin players don't see this UI.
@@ -72,9 +72,9 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
     See [Video Screen]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >}}) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
 
     {{< hint warning >}}
-    **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
+      **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
 
-    You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
+      You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
     {{< /hint >}}
 
 2. Open the Scene Admin Smart Item, make sure the **Video Screens** checkbox is enabled for this section to show. Then select the screen from a dropdown list and give it a friendly name to display on the Admin UI. You can add as many Video Screens as you want, each screen is controlled independently.

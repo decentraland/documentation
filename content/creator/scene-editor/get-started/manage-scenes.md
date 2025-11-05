@@ -38,7 +38,7 @@ The imported scene does not get moved in your local disk.
 **📔 Note**: Do not manually rename or move the folder of an imported scene directly from your file manager. The Scene Editor will no longer be able to find the imported scene in its new path.
 {{< /hint >}}
 
-Scenes you created on the older web editor are stored in the cloud. To work on these scenes from the desktop Scene Editor, you must export the scene from the Web Editor, unzip it into a folder, and then import it on the desktop Scene Editor. See [Migrate from Web Editor]({{< ref "/content/creator/scene-editor/get-started/migrate-into-creator-hub.md" >}}) for more details.
+Scenes you created on the older web editor are stored in the cloud. To work on these scenes from the desktop Scene Editor, you must export the scene from the Web Editor, unzip it into a folder, and then import it on the desktop Scene Editor. See [Migrate from Web Editor]({{< ref "/content/creator/scene-editor/get-started/migrate-from-web.md" >}}) for more details.
 
 ## Delete a scene
 
