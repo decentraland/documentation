@@ -40,7 +40,7 @@ When running the scene, the contents of your `.ts` files are compiled to a singl
 
 The _scene.json_ file is a JSON formatted manifest for a scene in the world. A scene can span a single or multiple LAND parcels. The _scene.json_ manifest describes what objects exist in the scene, a list of any assets needed to render it, contact information for the parcel owner, and security settings.
 
-Most of the fields on the _scene.json_ file can be edited directly in the UI of the Scene Editor. See [Scene Settings]({{< ref "/content/creator/scene-editor/scene-editor-essentials.md#scene-settings" >}}).
+Most of the fields on the _scene.json_ file can be edited directly in the UI of the Scene Editor. See [Scene Settings]({{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md#scene-settings" >}}).
 
 <img src="/images/thumbnail-image.png" width="500" />
 
