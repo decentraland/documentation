@@ -12,19 +12,21 @@ aliases:
 weight: 5
 ---
 
-Most smart items have a basic mode and an advanced mode. The basic mode is tailored to only display the most common settings in a simple way. The advanced mode allows you to customize almost anything about how the item behaves.
+Most smart items have a basic module where you can configure only the most common settings in a simple way, but you can scroll down past the **Advanced** marker to customize almost anything about how the item behaves.
 
 {{< youtube m_xWCSDDxpQ >}}
 
-Items start out int he basic mode, to switch to the advanced mode, click the three dots icon and select **Enable Advanced Mode**.
 
-<img src="/images/editor/advanced-mode.png" width="300"/>
+The following item has a Transform component and a basic module that exposes only the basic fields for configuring a button. But if you scroll down past the **Advanced** marker, you'll find all the available settings.
 
-Any configuration that you set in the basic mode is kept when switching into the advanced mode, but represented in more detail.
+<img src="/images/editor/advanced-settings-smart-item.png" width="300"/>
 
-<img src="/images/editor/basic-mode.png" width="300"/>
 
-You can revert back to the basic mode, but when doing this you will revert all configurations to the default.
+{{< hint info >}}
+**📔 Note**:
+Most of the settings in the basic module are also available in the components lower down. The changes done in the basic module are reflected in the components lower down and vice versa, except for some cases where the basic settings are an abstraction of multiple settings lower down. In those cases, changing the advanced settings to values that are not supported by the basic module will result in the field in the basic module being marked as undefined.
+{{< /hint >}}
+
 
 ## Advanced configuration
 
@@ -66,12 +68,6 @@ For example, to make a button open a door:
 Any item can trigger any action from any other item, as long as the action is defined. See [Triggers](#triggers) for more ways in which an action can be triggered.
 
 You can use [states and conditional logic]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}}) to only trigger an action if a condition is met. The condition can even check the state of a third smart item. For example, a button only opens the door if the a custom "power generator" smart item has its state set to "On".
-
-{{< hint info >}}
-**📔 Note**: To call an item's internal actions, that are not exposed to the basic mode, set the item to its **Advanced Mode**.
-
-For example, to play a door's **Play Sound** action from a button, both the button and the door must be on Advanced Mode.
-{{< /hint >}}
 
 ## Actions
 

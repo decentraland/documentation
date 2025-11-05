@@ -105,15 +105,17 @@ See [Trigger area]({{< ref "/content/creator/scene-editor/interactivity/trigger-
 
 A collection of invisible shapes that can block players from walking through or clicking through an area.
 
-SCREENSHOT MISSING
-when to use,
-models without colliders, link to collider properties for alternatives, link to 3d models colliders doc
+<img src="/images/editor/invisible-walls.png" width="300"/>
+
+These invisible walls can be useful when importing a 3D model that doesn't have a collider mesh, or when you want to create a wall that is not visible to the player.
+
+See [Colliders]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) for more info.
 
 ### Click area
 
 An invisible cube that can be clicked by players to trigger actions on any other smart items. This item can be enabled or disabled by any other smart item, when disabled it won't be clickable. You can also set the text that players see when pointing their cursor at it.
 
-SCREENSHOT MISSING
+<img src="/images/editor/click-area.png" width="300"/>
 
 ### Playing videos
 

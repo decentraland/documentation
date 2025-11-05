@@ -5,7 +5,7 @@ description: How to publish your scene to LAND or a NAME.
 categories:
   - scene-editor
 type: Document
-url: /creator/scene-editor/publish
+url: /creator/scene-editor/publish/publish-scene
 weight: 1
 ---
 

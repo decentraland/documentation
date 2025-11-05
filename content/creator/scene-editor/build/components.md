@@ -11,7 +11,7 @@ weight: 2
 
 Select an item by clicking on it on the canvas or on the entity tree. You'll then see its components displayed on the properties panel, on the right of the screen. Different items have different components that each display specific settings.
 
-<img src="/images/editor/components-in-editor.png" alt="Scene name" width="200"/>
+<img src="/images/editor/components-in-editor.png" alt="Scene name" width="250"/>
 
 Most non-interactive items have the following components:
 
@@ -34,7 +34,7 @@ To create a fresh new Entity, right click on the root **Scene** Entity in the En
 
 <img src="/images/editor/new-entity.png" width="300"/>
 
-This creates an empty Entity with just a **Transform** Component. You can then add any other Components you want and shape it into anything you desire.
+This creates an empty Entity with just a **Transform** Component. The new entity is a child of the parent entity you clicked on. You can then add any other Components you want to it to shape it into anything you desire.
 
 ## Available components
 
@@ -48,6 +48,10 @@ The following Components can be added to any Entity via the Scene Editor UI:
   {{< /hint >}}
 
 - **Visibility**: Defines if an Entity is invisible.
+
+- **Light Source**: Adds a light to the Entity.
+
+-- **Swap Material**: Swaps the material of an Entity that has a **GLTF** component. If the 3D model has multiple meshes, you can swap the material of each mesh individually.
 
 - **Audio Source**: Plays a sound from a sound file at the location of the Entity. See [Sounds]({{< ref "/content/creator/sdk7/3d-essentials/sounds.md" >}}).
 - **Text Shape**: Displays text in the 3D space. See [Text]({{< ref "/content/creator/sdk7/3d-essentials/text.md" >}}).

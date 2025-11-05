@@ -27,7 +27,7 @@ The Creator Hub application checks for updates every time you open it, and self-
 You can also check for updates manually by clicking on the **Check for updates** button in the **Settings** menu. For this, 
 
 1. Open the wheel icon in the top-right of the screen 
-<img src="/images/editor/settings-icon.png" alt="Header" width="128"/>
+<img src="/images/editor/settings-icon.png" alt="Header" width="25"/>
 
 2. Click **Check for updates**
 
@@ -42,7 +42,7 @@ If you also plan on reading and editing code in your scene, you'll also need to 
 You may need to select your Code Editor in the settings of the Creator Hub. To do this,
 
 1. Open the wheel icon in the top-right of the screen 
-<img src="/images/editor/settings-icon.png" alt="Header" width="128"/>
+<img src="/images/editor/settings-icon.png" alt="Header" width="25"/>
 
 2. Under **Code editor of choice**, select your Code Editor. You may find your editor listed in the dropdown, or you may need to select **Chose from your device** to find it.
 

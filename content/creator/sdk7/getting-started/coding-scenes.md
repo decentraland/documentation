@@ -134,7 +134,7 @@ You can then do anything you want with that entity, like add new components, mod
 
 See [Get entity by name]({{< ref "/content/creator/sdk7/architecture/entities-components.md#get-an-entity-by-name" >}}) for more information.
 
-If the entity is a [Smart item]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}), you can also call its **Actions** or subscribe to its **Triggers** via code. See [Combine with code]({{< ref "/content/creator/scene-editor/code/overview.md" >}}).
+If the entity is a [Smart item]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}), you can also call its **Actions** or subscribe to its **Triggers** via code. See [Reference Items]({{< ref "/content/creator/scene-editor/code/reference-items.md" >}}).
 
 ## Systems
 
