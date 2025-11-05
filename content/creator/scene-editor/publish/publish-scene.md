@@ -89,10 +89,30 @@ Players are never directed to this server, the only way to access it is to expli
 
 If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
 
+To publish to the test server, click the **Publish** button normally, then select **Publish to a different server** on the bottom. Then select **Test Server** from the dropdown.
+
+<img src="/images/editor/publish-to-test-server.png" alt="Scene name" width="500"/>
+
+
+## Publish to granted land
+
+If you're publishing to land owned by the Decentraland Foundation that was granted to you via a grant, click the **Publish** button normally, then select **Publish to a different server** on the bottom. Then select **Custom Server** from the dropdown and enter the following server address: `http://linker-server.decentraland.org`.
+
+<img src="/images/editor/publish-to-granted-land.png" alt="Scene name" width="500"/>
+
+{{< hint warning >}}
+**📔 Note**: You must first manually set the coordinates of your scene in the advanced tab of the Layout settings. See [Scene Settings]({{< ref "/content/creator/scene-editor/configure/scene-settings.md#layout" >}}) for more info.
+{{< /hint >}}
+
+
+
 ## Custom servers
 
 You can deploy content to a custom server that doesn't belong to the official DAO-maintained network of catalyst servers. To do this, you don't need to own any LAND or NAME tokens, as you can configure the server to use any validation logic you prefer to control who can deploy where.
 Custom servers can chose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
+
+To publish to a custom server, click the **Publish** button normally, then select **Publish to a different server** on the bottom. Then select **Custom Server** from the dropdown and enter the address of the server.
+
 
 See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/how-to-run-a-catalyst.md" >}}) for more info on what you can do with your own server and how to set it up.
 
@@ -101,6 +121,10 @@ See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/
 {{< /hint >}}
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
+
+
+
+
 
 ## Verify deployment success
 
