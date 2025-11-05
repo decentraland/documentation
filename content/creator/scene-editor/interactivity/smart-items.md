@@ -5,9 +5,10 @@ description: Using smart items in your scene to add interactivity.
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/smart-items
+url: /creator/scene-editor/interactivity/smart-items
 aliases:
   - /creator/smart-items
+  - /creator/editor/smart-items
 weight: 1
 ---
 
@@ -60,7 +61,7 @@ Some typical fields you can find in many items are:
 
 Each item has its own specific settings, that may vary from one item to another.
 
-All items have an **Advanced Mode** that lets you configure almost anything about them. This includes things like what sounds are played, or in what direction a platform moves. You can also add custom actions that include all kinds of things, like teleporting the player, playing avatar animations, attaching an item to the player's hands, etc. You can also add conditional logic, to only activate something in certain scenarios. See [Smart Items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}}).
+All items have an **Advanced Mode** that lets you configure almost anything about them. This includes things like what sounds are played, or in what direction a platform moves. You can also add custom actions that include all kinds of things, like teleporting the player, playing avatar animations, attaching an item to the player's hands, etc. You can also add conditional logic, to only activate something in certain scenarios. See [Smart Items - Advanced]({{< ref "/content/creator/scene-editor/interactivity/smart-items-advanced.md" >}}).
 
 <img src="/images/editor/advanced-mode.png" width="300"/>
 
@@ -82,7 +83,7 @@ Remove actions by clicking the three dots next to an action and selecting _Remov
 
 You can also chain actions. For example, if the door that is opened by the lever includes an action in its own **When Opened** field, this action will also be triggered indirectly by the lever.
 
-If you use the [Advanced mode]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}}) you can also add conditional logic to these kinds of actions.
+If you use the [Advanced mode]({{< ref "/content/creator/scene-editor/interactivity/smart-items-advanced.md" >}}) you can also add conditional logic to these kinds of actions.
 
 ## Special smart items
 
@@ -98,21 +99,23 @@ Use the **On Player Enters Area** and **On Player Leaves Area** trigger types on
 
 <img src="/images/editor/on_player_enters.png" width="300"/>
 
-See [Trigger area]({{< ref "/content/creator/scene-editor/smart-items/trigger-area.md" >}}) for more info.
+See [Trigger area]({{< ref "/content/creator/scene-editor/interactivity/trigger-area.md" >}}) for more info.
 
 ### Invisible walls
 
 A collection of invisible shapes that can block players from walking through or clicking through an area.
 
-<!-- TODO: image
-when to use,
-models without colliders, link to collider properties for alternatives, link to 3d models colliders doc -->
+<img src="/images/editor/invisible-walls.png" width="300"/>
+
+These invisible walls can be useful when importing a 3D model that doesn't have a collider mesh, or when you want to create a wall that is not visible to the player.
+
+See [Colliders]({{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >}}) for more info.
 
 ### Click area
 
 An invisible cube that can be clicked by players to trigger actions on any other smart items. This item can be enabled or disabled by any other smart item, when disabled it won't be clickable. You can also set the text that players see when pointing their cursor at it.
 
-<!-- TODO: image -->
+<img src="/images/editor/click-area.png" width="300"/>
 
 ### Playing videos
 
@@ -126,7 +129,7 @@ Play videos from either:
 **📔 Note**: Avoid playing more than one video at any given time in your scene, because it can severely impact performance for players. Always stop other videos before playing a second video.
 {{< /hint >}}
 
-See [Play Videos]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md" >}}) for more info.
+See [Play Videos]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >}}) for more info.
 
 ### Playing audio streams
 
@@ -231,7 +234,7 @@ However, if there are no players near the scene, then the scene is restored to i
 
 Make sure you design your scene so that the actions of one player don't sabotage the scene for others that come later. For example, if the scene is a puzzle game, you can use a _delay_ action on a _tools_ smart item to make all the items in the scene reset to their initial state a few seconds after the puzzle is solved.
 
-You can also disable the multiplayer behavior of an item, see [Smart Items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}}).
+You can also disable the multiplayer behavior of an item, see [Smart Items - Advanced]({{< ref "/content/creator/scene-editor/interactivity/smart-items-advanced.md" >}}).
 
 ## Troubleshooting
 
@@ -241,7 +244,7 @@ Make sure that it's not being obstructed by something else. You can't click thro
 
 ## See also
 
-- [Smart items - Advanced]({{< ref "/content/creator/scene-editor/smart-items/smart-items-advanced.md" >}})
-- [States and conditions]({{< ref "/content/creator/scene-editor/smart-items/states-and-conditions.md" >}})
-- [Making any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}})
-- [Combine with code]({{< ref "/content/creator/scene-editor/combine-with-code.md" >}})
+- [Smart items - Advanced]({{< ref "/content/creator/scene-editor/interactivity/smart-items-advanced.md" >}})
+- [States and conditions]({{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >}})
+- [Making any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}})
+- [Combine with code]({{< ref "/content/creator/scene-editor/code/overview.md" >}})

@@ -32,7 +32,7 @@ This document outlines the steps recommended for developing a scene for Decentra
 
 Make sure you have the Decentraland Creator Hub installed.
 
-- [Installation Guide]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
+- [Installation Guide]({{< ref "/content/creator/scene-editor/get-started/editor-installation.md" >}}).
 
 If you intend to work with code, also make sure you install [Visual Studio Code](https://code.visualstudio.com/).
 

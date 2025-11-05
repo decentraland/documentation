@@ -5,8 +5,8 @@ description: Scene administrators have special control over what happens in the 
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/scene-admin
-weight: 8
+url: /creator/scene-editor/live-ops/scene-admin
+weight: 1
 ---
 
 Grant certain players the special role of **admin** on your scene. 
@@ -16,7 +16,7 @@ During a live event, an admin can spontaneously control what happens in the scen
 
 {{< youtube efjJN7Jr7Qo >}}
 
-When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos or live streams, send announcements, or activate any smart item that is configured to be activated like this. These actions are seen by all other players in the scene that are connected to the same comms island as the admin.
+When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos or live streams, send announcements, ban players, or activate any smart item that is configured to be activated like this. These actions are seen by all other players in the scene that are connected to the same comms island as the admin.
 
   <img src="/images/editor/admin/admin-console.png" alt="Scene name" width="300"/>
 
@@ -52,7 +52,7 @@ You can see who is an admin in the scene by clicking the **Admin List** button. 
   <img src="/images/editor/admin/admin-list.png" alt="Scene name" width="200"/>
 
 {{< hint warning >}}
-**📔 Note**: It's only possible to remove the admin role from players that were added manually to the list via the **Moderation Tools** tab. Players who are owners, operators, or renters of the scene are displayed on this list but can't be removed from their admin roles from this UI.
+**📔 Note**: It's only possible to remove the admin role from players that were added manually to the list via the **Moderation Tools** tab. Players who are owners, operators, or renters of the scene are displayed on this list but can't be removed from their admin roles from this UI. To remove an admin role from an operator, you must first remove their operator role.
 {{< /hint >}}
 
 Whenever an admin player is in the scene, they will see a special UI on the top-right corner. Non-admin players don't see this UI.
@@ -69,12 +69,12 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
     <img src="/images/editor/admin/video-player-item.png" alt="Scene name" width="200"/>
 
-    See [Video Playing]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md" >}}) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
+    See [Video Screen]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >}}) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
 
     {{< hint warning >}}
-    **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
+      **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
 
-    You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
+      You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
     {{< /hint >}}
 
 2. Open the Scene Admin Smart Item, make sure the **Video Screens** checkbox is enabled for this section to show. Then select the screen from a dropdown list and give it a friendly name to display on the Admin UI. You can add as many Video Screens as you want, each screen is controlled independently.
@@ -98,14 +98,14 @@ There are two kidns of media sources for playing videos:
   <img src="/images/editor/admin/video-from-url.png" alt="Scene name" width="300"/>
 
   {{< hint warning >}}
-  **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md#streaming-from-other-sources" >}}) for more information on what you can and can't play in Decentraland.
+  **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md#streaming-from-other-sources" >}}) for more information on what you can and can't play in Decentraland.
   {{< /hint >}}
 
 - **Live stream**: Play a live stream using Decentraland's free streaming infrastructure and a streaming software like OBS or StreamYard.
 
   <img src="/images/editor/admin/live-stream.png" alt="Scene name" width="300"/>
 
-  See [Live Streaming]({{< ref "/content/creator/scene-editor/smart-items/play-videos.md#live-streaming" >}}) for more information on how to set up a live stream.
+  See [Live Streaming]({{< ref "/content/creator/scene-editor/live-ops/live-streaming.md" >}}) for more information on how to set up a live stream.
 
 Each screen in your scene will have one of the above media sources set as **Active**. You can click the **Video** or **Live** buttons to explore the settings on each section, you won't interrupt what's currently playing until you click the **Activate** button on either section.
 

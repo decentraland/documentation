@@ -87,7 +87,7 @@ If your scene interacts with a third party server, it's often useful to see what
 
 
 {{< hint warning >}}
-**📔 Note**: To use this feature, you must first install the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}), as the necessary dependencies are bundled with that installation. 
+**📔 Note**: To use this feature, you must first install the [Creator Hub]({{< ref "/content/creator/scene-editor/get-started/editor-installation.md" >}}), as the necessary dependencies are bundled with that installation. 
 
 You don't need to have the Creator Hub open or run your scene preview via the Creator Hub to use this feature, it can also be used if you're using the CLI to run your scene preview.
 {{< /hint >}}

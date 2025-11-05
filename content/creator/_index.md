@@ -46,7 +46,7 @@ Learn everything about [Creating emotes]({{< ref "/content/creator/wearables-and
 
 The Creator Hub lets you create scenes with an easy drag-and-drop interface, and also edit code to have full control over the interactions. You can run previews, debug, edit code, and publish.
 
-[Learn more]({{< ref "/content/creator/scene-editor/about-editor.md" >}})
+[Learn more]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}})
 
 ### 3D Art
 
@@ -70,7 +70,7 @@ See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for t
 
 To make your scene interactive:
 
-- \*_No Code_: Use the UI of the Scene Editor to drop [Smart Items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
+- \*_No Code_: Use the UI of the Scene Editor to drop [Smart Items]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
 
   <img src="/images/intro/smart-items.png" width="500" />
 

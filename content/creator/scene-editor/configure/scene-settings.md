@@ -5,8 +5,8 @@ description: Edit your scene's metadata
 categories:
   - scene-editor
 type: Document
-url: /creator/editor/scene-settings
-weight: 7
+url: /creator/scene-editor/configure/settings
+weight: 1
 ---
 
 Click the **Pencil icon** on the top-right of the screen. This opens a series of scene-level properties to edit.

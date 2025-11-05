@@ -21,7 +21,7 @@ _Components_ define the traits of an entity. For example, a `Transform` componen
 
 If you're familiar with web development, think of entities as the equivalent of _Elements_ in a _DOM_ tree, and of components as _attributes_ of those elements.
 
-In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can view the components that belong to an entity by selecting it.
+In the [Scene editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}), you can view the components that belong to an entity by selecting it.
 
 <img src="/images/editor/components-example.png" alt="Armature" width="300"/>
 
@@ -169,7 +169,7 @@ mutableChildTransform.parent = engine.RootEntity
 **📔 Note**: When dealing with nested entities that are synced with other players, use the `parentEntity()` function instead of the `parent` entity in the Transform. See [Parented entities]({{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#parented-entities" >}})
 {{< /hint >}}
 
-In the [Scene editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can see the entire hierarchy of nested entities in your scene on the left-side panel.
+In the [Scene editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}), you can see the entire hierarchy of nested entities in your scene on the left-side panel.
 
 <img src="/images/editor/entity-tree-example.png" alt="Armature" width="300"/>
 
@@ -190,7 +190,7 @@ For example, if a player's click or a [raycast]({{< ref "/content/creator/sdk7/i
 
 ## Get an entity by name
 
-When adding entities via drag-and-drop in the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the Scene Editor's UI, in the tree view on the left.
+When adding entities via drag-and-drop in the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}), each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the Scene Editor's UI, in the tree view on the left.
 
 ```ts
 function main() {
@@ -199,7 +199,7 @@ function main() {
 ```
 
 {{< hint warning >}}
-**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) UI may not yet be instanced.
+**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}) UI may not yet be instanced.
 {{< /hint >}}
 
 You're free to perform any action on an entity fetched via this method, like add or remove components, modify values of existing components, or remove the entity from the engine.
