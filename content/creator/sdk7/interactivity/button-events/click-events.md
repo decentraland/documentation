@@ -235,21 +235,20 @@ If your scene contains multiple entities with a `PointerLock`, they should all g
 You can also query the player's cursor state, and react to that. The following example enforces that the cursor is always unlocked.
 
 ```ts
-
-
 import {PointerLock} from '@dcl/sdk/ecs'
 
-pointerLockEntity = engine.addEntity();
-    
-PointerLock.create(pointerLockEntity, {isPointerLocked: false});
+export function main() {
+	pointerLockEntity = engine.addEntity();
 
-PointerLock.onChange(pointerLockEntity, (pointerLock) => {
-		if (!pointerLock) return
-		if(pointerLock.isPointerLocked){
-			PointerLock.getMutable(pointerLockEntity).isPointerLocked = false
-		}
+    PointerLock.create(pointerLockEntity, {isPointerLocked: false});
+
+    PointerLock.onChange(pointerLockEntity, (pointerLock) => {
+		    if (!pointerLock) return
+		    if(pointerLock.isPointerLocked){
+			    PointerLock.getMutable(pointerLockEntity).isPointerLocked = false
+		   }
 	})
-
+}
 ```
 
 
