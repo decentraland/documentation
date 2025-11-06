@@ -206,3 +206,50 @@ engine.addSystem(() => {
 	}
 })
 ```
+
+## Lock or unlock the cursor
+
+Players in Decentraland's desktop client can toggle between two distinct interaction modes with their cursor: 
+
+- Locked cursor: moving the mouse shifts the camera and click events occur in the corssair at the center of the screen  moving the mouse or pointer directly 
+- Unlocked cursor: the cursor is free to move independently of the camera, and players can click anywhere on the screen to interact with either the 3D space or the UI
+
+These modes of interaction are ideal for different kinds of game mechanics, and you may want to make players adopt one or the other depending on what suits your scene best. You may also want to momentarily ensure the player's cursor is unlocked to allow them to interact with a UI, this is especially helpful for new players that aren't familiar with how this is controlled.
+
+To change the player's cursor state, use the `PointerLock` component on any entity in your scene.
+
+```ts
+import {PointerLock} from '@dcl/sdk/ecs'
+
+pointerLockEntity = engine.addEntity();
+    
+PointerLock.create(pointerLockEntity, {isPointerLocked: false});
+```
+
+{{< hint warning >}}
+**📔 Note**: It's best to create a single entity in your scene who's only function is to manage the pointer state. 
+
+If your scene contains multiple entities with a `PointerLock`, they should all get updated by the engine whenever the state changes.
+{{< /hint >}}
+
+You can also query the player's cursor state, and react to that. The following example enforces that the cursor is always unlocked.
+
+```ts
+
+
+import {PointerLock} from '@dcl/sdk/ecs'
+
+pointerLockEntity = engine.addEntity();
+    
+PointerLock.create(pointerLockEntity, {isPointerLocked: false});
+
+PointerLock.onChange(pointerLockEntity, (pointerLock) => {
+		if (!pointerLock) return
+		if(pointerLock.isPointerLocked){
+			PointerLock.getMutable(pointerLockEntity).isPointerLocked = false
+		}
+	})
+
+```
+
+
