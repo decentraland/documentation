@@ -221,9 +221,9 @@ To change the player's cursor state, use the `PointerLock` component on any enti
 ```ts
 import {PointerLock} from '@dcl/sdk/ecs'
 
-pointerLockEntity = engine.addEntity();
+pointerLockEntity = engine.addEntity()
     
-PointerLock.create(pointerLockEntity, {isPointerLocked: false});
+PointerLock.create(pointerLockEntity, {isPointerLocked: false})
 ```
 
 {{< hint warning >}}
@@ -232,7 +232,20 @@ PointerLock.create(pointerLockEntity, {isPointerLocked: false});
 If your scene contains multiple entities with a `PointerLock`, they should all get updated by the engine whenever the state changes.
 {{< /hint >}}
 
-You can also query the player's cursor state, and react to that. The following example enforces that the cursor is always unlocked.
+You can also query the player's cursor state by reading a `PointerLock` component's state on any entity in the scene.
+
+```ts
+import {PointerLock} from '@dcl/sdk/ecs'
+
+pointerLockEntity = engine.addEntity()
+    
+PointerLock.create(pointerLockEntity)
+
+const isPointerLocked = PointerLock.get(pointerLockEntity).isPointerLocked
+```
+
+
+Use the `.onChange` function to react in changes in the pointer state. The following example enforces that the cursor is always unlocked.
 
 ```ts
 import {PointerLock} from '@dcl/sdk/ecs'
