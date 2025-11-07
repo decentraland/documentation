@@ -180,17 +180,16 @@ Players can switch between two cursor modes: _locked cursor_ mode to control the
 
 Players unlock the cursor by clicking the _Right mouse button_ or pressing the _Esc_ key, and lock the cursor back by clicking anywhere in the screen.
 
-Add a `PointerLock` component to any entity in your scene, and use the `onChange` function on the `PointerLock` component to fire an event each time the player changes between the two cursor modes.
+Add a `PointerLock` component to the `engine.CameraEntity` entity in your scene, and use the `onChange` function on the `PointerLock` component to fire an event each time the player changes between the two cursor modes.
 
 ```ts
 import {PointerLock} from '@dcl/sdk/ecs'
 
 export function main() {
-	pointerLockEntity = engine.addEntity();
 
-    PointerLock.create(pointerLockEntity);
+    PointerLock.create(engine.CameraEntity);
 
-    PointerLock.onChange(pointerLockEntity, (pointerLock) => {
+    PointerLock.onChange(engine.CameraEntity, (pointerLock) => {
 		    if (!pointerLock) return
 		    if(pointerLock.isPointerLocked){
 			    // Show hint about cursor mode
@@ -205,14 +204,13 @@ You can use this information to nudge the player subtly, like showing a UI popup
 import {PointerLock} from '@dcl/sdk/ecs'
 
 export function main() {
-	pointerLockEntity = engine.addEntity();
 
-    PointerLock.create(pointerLockEntity, {isPointerLocked: false});
+    PointerLock.create(engine.CameraEntity, {isPointerLocked: false});
 
-    PointerLock.onChange(pointerLockEntity, (pointerLock) => {
+    PointerLock.onChange(engine.CameraEntity, (pointerLock) => {
 		    if (!pointerLock) return
 		    if(pointerLock.isPointerLocked){
-			    PointerLock.getMutable(pointerLockEntity).isPointerLocked = false
+			    PointerLock.getMutable(engine.CameraEntity).isPointerLocked = false
 		   }
 	})
 }
