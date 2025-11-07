@@ -216,32 +216,22 @@ Players in Decentraland's desktop client can toggle between two distinct interac
 
 These modes of interaction are ideal for different kinds of game mechanics, and you may want to make players adopt one or the other depending on what suits your scene best. You may also want to momentarily ensure the player's cursor is unlocked to allow them to interact with a UI, this is especially helpful for new players that aren't familiar with how this is controlled.
 
-To change the player's cursor state, use the `PointerLock` component on any entity in your scene.
+To change the player's cursor state, use the `PointerLock` component on the `engine.CameraEntity` entity.
 
 ```ts
 import {PointerLock} from '@dcl/sdk/ecs'
-
-pointerLockEntity = engine.addEntity()
     
-PointerLock.create(pointerLockEntity, {isPointerLocked: false})
+PointerLock.create(engine.CameraEntity, {isPointerLocked: false})
 ```
 
-{{< hint warning >}}
-**📔 Note**: It's best to create a single entity in your scene who's only function is to manage the pointer state. 
-
-If your scene contains multiple entities with a `PointerLock`, they should all get updated by the engine whenever the state changes.
-{{< /hint >}}
-
-You can also query the player's cursor state by reading a `PointerLock` component's state on any entity in the scene.
+You can also query the player's cursor state by reading the `PointerLock` component's state.
 
 ```ts
 import {PointerLock} from '@dcl/sdk/ecs'
 
-pointerLockEntity = engine.addEntity()
-    
-PointerLock.create(pointerLockEntity)
+PointerLock.create(engine.CameraEntity)
 
-const isPointerLocked = PointerLock.get(pointerLockEntity).isPointerLocked
+const isPointerLocked = PointerLock.get(engine.CameraEntity).isPointerLocked
 ```
 
 
@@ -251,14 +241,13 @@ Use the `.onChange` function to react in changes in the pointer state. The follo
 import {PointerLock} from '@dcl/sdk/ecs'
 
 export function main() {
-	pointerLockEntity = engine.addEntity();
 
-    PointerLock.create(pointerLockEntity, {isPointerLocked: false});
+    PointerLock.create(engine.CameraEntity, {isPointerLocked: false});
 
-    PointerLock.onChange(pointerLockEntity, (pointerLock) => {
+    PointerLock.onChange(engine.CameraEntity, (pointerLock) => {
 		    if (!pointerLock) return
 		    if(pointerLock.isPointerLocked){
-			    PointerLock.getMutable(pointerLockEntity).isPointerLocked = false
+			    PointerLock.getMutable(engine.CameraEntity).isPointerLocked = false
 		   }
 	})
 }
