@@ -59,7 +59,12 @@ You can't modify the definition of a Custom Item that's already created, you mus
 
 You can share your custom items with other creators, so they can use them on their own scenes.
 
-Custom Items are stored each on a separate folder on your local machine
+Custom Items are stored each on a separate folder on your local machine. All **Assets** used by your Custom Item are also stored in the Custom Item's folder. This includes any 3D models, images, sounds, and videos referenced by the item.
+
+Open this folder by clicking the folder icon on the top right of the Custom Items tab.
+<img src="/images/editor/folder-icon.png" alt="Header" width="25"/>
+
+You can also find the Custom Items folder in the following locations:
 
 - In Windows: _User/AppData/Roaming/creator-hub/Custom Items_
 - In Mac: _Users/username/Library/Application Support/creator-hub/Custom Items_
@@ -69,6 +74,13 @@ Custom Items are stored each on a separate folder on your local machine
 The _Library_ folder is hidden in Mac by default. The easiest way to access it is by opening Go > Go to Folder, and Typing _application support/creator-hub_
 {{< /hint >}}
 
-To share with someone else, simply navigate with your file explorer of choice and copy the full folder for the item. The person using your Custom Item must then paste it on their own Custom Item path on their machine. This folder contains everything needed to use your Custom Item. If they can't see it in their **Custom Items** tab, users may need to close and re-open the project.
+To share with someone else, simply navigate with your file explorer of choice and copy the full folder for the item. The person using your Custom Item must then paste it on their own Custom Item path on their machine. This folder contains everything needed to use your Custom Item. 
 
-Any **Assets** used by your Custom Item are also stored in the Custom Item's folder. This includes any 3D models, images, sounds, and videos referenced by the item.
+
+{{< hint warning >}}
+**📔 Note**:
+If after pasting a Custom Item folder, you can't see it in your **Custom Items** tab, you may need to click the refresh button on the top right of the Custom Items tab.
+<img src="/images/editor/refresh-button.png" alt="Header" width="25"/>
+{{< /hint >}}
+
+
