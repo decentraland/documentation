@@ -146,14 +146,14 @@ Currently, only the following feature is handled like this:
 
 - **Voice Chat**: Refers to players using their microphones to have conversations over voice chat with other nearby players.
 
-- **Disable Portable Experiences**: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) but also [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
+- **Disable Portable Experiences**: This setting will set the behavior for any smart wearables or portable experience of a player while standing inside the your scene. This includes both [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) and [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). With this setting, you can chose to either keep them all enabled (default), or disable them. This is useful for scenes where smart wearables might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious global scene could potentially impersonate the scene´s UI.
 
 On the `scene.json` file, these toggles are managed under `featureToggles`. The corresponding features are enabled by default, unless specified as _disabled_ in the `scene.json` file.
 
 ```json
 "featureToggles": {
     "voiceChat": "disabled",
-    "portableExperiences": "enabled" | "disabled" | "hideUi"
+    "portableExperiences": "enabled" | "disabled"
 },
 ```
 
@@ -318,26 +318,26 @@ This example spawns a player on _5, 1, 4_ looking East at _10, 1, 4_. If the spa
 The `requiredPermissions` property manages various controlled features that could be used in an abusive way and damage a player's experience.
 
 {{< hint warning >}}
-**📔 Note**: Permissions are only relevant in [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}) and [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}). Normal scenes (both in parcels or in Worlds) are not affected by these permissions, and are free to use the corresponding functionality.
+**📔 Note**: Permissions are only relevant in [smart wearables]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}) and [portable experiences]({{< ref "/content/creator/sdk7/projects/portable-experiences.md" >}}). Normal scenes (both in parcels or in Worlds) are not affected by these permissions, and are free to use the corresponding functionality.
 {{< /hint >}}
 
-The corresponding features are blocked from being used by the scene, unless the permission is requested in the `scene.json` file.
+The corresponding features are blocked from being used by the global scene, unless the permission is requested in the `scene.json` file.
 
 ```json
 "requiredPermissions": [
-    "ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE",
+    "USE_WEB3_API",
 		"OPEN_EXTERNAL_LINK",
   ],
 ```
 
 Currently, the following permissions are managed on smart wearables and portable experiences:
 
-- `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}})
-- `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >}})
+<!-- - `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}})
+- `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >}}) -->
 - `USE_WEB3_API`: Refers to interacting with the player's browser wallets, to make transactions or sign messages.
-- `USE_FETCH`: Refers to sending http requests to 3rd party servers, using `fetch` or `signedFetch`
+<!-- - `USE_FETCH`: Refers to sending http requests to 3rd party servers, using `fetch` or `signedFetch`
 - `USE_WEBSOCKET`: Refers to opening websocket connections with 3rd party servers
-- `OPEN_EXTERNAL_LINK`: Refers to prompting the player to open links to external sites
+- `OPEN_EXTERNAL_LINK`: Refers to prompting the player to open links to external sites -->
 
 If a `requiredPermissions` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
 
