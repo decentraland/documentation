@@ -68,3 +68,14 @@ When `openExternalUrl` is called, players are prompted with a confirmation scree
 The link is opened in a new tab, keeping the original tab in Decentraland.
 
 If players tick the _trust this domain_ checkbox, they won't be prompted again during their session, as long as the link comes from the same scene and is to the same domain.
+
+
+## Copy to clipboard
+
+To copy a string to the player's clipboard, use `CopyToClipboard()`. After this, when the player does _paste_ in the Decentraland chat or in any other application on their machine, they will be pasting your string.
+
+```ts
+import { copyToClipboard } from "~system/RestrictedActions"
+
+copyToClipboard( { text: 'My text to copy' } )
+```
