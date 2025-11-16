@@ -1,6 +1,6 @@
 ---
 date: 2025-11-16
-title: Player Avatar
+title: The Player Avatar
 description: Learn how to control the player's avatar
 categories:
   - development-guide

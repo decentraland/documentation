@@ -292,7 +292,7 @@ The corresponding features are blocked from being used by the scene, unless the 
 Currently, the following permissions are managed on all content:
 
 - `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/deprecated/scenes/interactivity/move-player.md" >}})
-- `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/deprecated/scenes/interactivity/player-avatar.md#avatar-animations">}})
+- `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#play-animations" >}})
 
 Portable experiences and smart wearables are also affected by the following permissions:
 

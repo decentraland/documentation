@@ -381,7 +381,7 @@ All entities in the scene are children of the `engine.RootEntity`, directly or i
 
 ## The player entity
 
-The `engine.PlayerEntity` entity represents the player's avatar. Fetch the player's `Transform` component to get the player's current position and rotation, see [user data]({{< ref "/content/creator/sdk7/interactivity/user-data.md" >}}). You can also modify this Transform to move the player, see [move player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}}).
+The `engine.PlayerEntity` entity represents the player's avatar. Fetch the player's `Transform` component to get the player's current position and rotation, see [user data]({{< ref "/content/creator/sdk7/interactivity/user-data.md" >}}). You can also modify this Transform to move the player, see [move player]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#move-player" >}}).
 
 ## The camera entity
 

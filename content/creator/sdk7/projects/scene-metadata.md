@@ -332,7 +332,7 @@ The corresponding features are blocked from being used by the scene, unless the 
 
 Currently, the following permissions are managed on smart wearables and portable experiences:
 
-- `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}})
+- `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#move-player" >}})
 - `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md" >}})
 - `USE_WEB3_API`: Refers to interacting with the player's browser wallets, to make transactions or sign messages.
 - `USE_FETCH`: Refers to sending http requests to 3rd party servers, using `fetch` or `signedFetch`
