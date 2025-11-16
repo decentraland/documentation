@@ -105,40 +105,6 @@ Transform.create(entity, {
 
 This is especially useful in games where accidentally opening this UI could interrupt the flow of a game, for example in a multiplayer shooter game.
 
-## Camera modifiers
-
-Players are normally free to switch between first and third person camera by pressing V on the keyboard. Use a `CameraModeArea` to force the camera mode to either 1st or 3rd person for all players that stand within a specific area in your scene.
-
-```ts
-const entity = engine.addEntity()
-
-CameraModeArea.create(entity, {
-	area: Vector3.create(4, 3, 4),
-	mode: CameraType.CT_FIRST_PERSON,
-})
-```
-
-If a player's current camera mode doesn't match that of the `CameraModeArea`, they will transition to that camera mode. A toast appears onscreen to clarify that this change is due to the scene. While inside, players can't change their camera mode. When a player leaves the `CameraModeArea`, their camera mode is restored to what they had before entering.
-
-Use `CameraModeArea` in regions where players would have a significantly better experience by using a specific camera mode. For example, first person is ideal if the player needs to click on small object, or third person may be useful for players to notice some entity that your scene has attached over their head. Don't assume players know how to switch camera modes, many first-time players might not know they have the option, or not remember the key to do it.
-
-{{< hint warning >}}
-**📔 Note**: Camera modifier areas are affected by the _position_ and _rotation_ of the Transform component of their host entity, but they're not affected by the _scale_.
-{{< /hint >}}
-
-{{< hint warning >}}
-**📔 Note**: If you overlap multiple camera modifier areas, the last one to be instanced by your scene's code will take priority over the others.
-{{< /hint >}}
-
-When creating an `CameraModeArea` component, you must provide the following:
-
-- `area`: Size of the modifier area
-- `cameraMode`: Which camera mode to force in this area, from the `CameraType` enum.
-
-The supported camera modes are:
-
-- `CameraType.CT_FIRST_PERSON`
-- `CameraType.CT_THIRD_PERSON`
 
 ## Exclude Avatars
 

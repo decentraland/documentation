@@ -14,10 +14,65 @@ As a creator, you can have full control over the player's camera. By default, pl
 Virtual cameras can be static, they can rotate to always look at the player or some other entity, or they can be attached to the player or some other entity so that they're always accompanying.
 
 {{< hint warning >}}
-**📔 Note**: Virtual cameras are a feature that's only supported in the DCL 2.0 desktop client.
-
-To switch between the default 1st and 3rd person cameras, see [Camera modifier areas]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">}}).
+**📔 Note**: To switch between the default 1st and 3rd person cameras, see [Camera modifier areas]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">}}).
 {{< /hint >}}
+
+## 1st and 3rd person camera modes
+
+Players are normally free to switch between first and third person camera by pressing V on the keyboard. Use a `CameraModeArea` to force the camera mode to either 1st or 3rd person for all players that stand within a specific area in your scene.
+
+```ts
+const entity = engine.addEntity()
+
+CameraModeArea.create(entity, {
+	area: Vector3.create(4, 3, 4),
+	mode: CameraType.CT_FIRST_PERSON,
+})
+```
+
+If a player's current camera mode doesn't match that of the `CameraModeArea`, they will transition to that camera mode. A toast appears onscreen to clarify that this change is due to the scene. While inside, players can't change their camera mode. When a player leaves the `CameraModeArea`, their camera mode is restored to what they had before entering.
+
+Use `CameraModeArea` in regions where players would have a significantly better experience by using a specific camera mode. For example, first person is ideal if the player needs to click on small object, or third person may be useful for players to notice some entity that your scene has attached over their head. Don't assume players know how to switch camera modes, many first-time players might not know they have the option, or not remember the key to do it.
+
+{{< hint warning >}}
+**📔 Note**: Camera modifier areas are affected by the _position_ and _rotation_ of the Transform component of their host entity, but they're not affected by the _scale_.
+{{< /hint >}}
+
+{{< hint warning >}}
+**📔 Note**: If you overlap multiple camera modifier areas, the last one to be instanced by your scene's code will take priority over the others.
+{{< /hint >}}
+
+When creating an `CameraModeArea` component, you must provide the following:
+
+- `area`: Size of the modifier area
+- `cameraMode`: Which camera mode to force in this area, from the `CameraType` enum.
+
+The supported camera modes are:
+
+- `CameraType.CT_FIRST_PERSON`
+- `CameraType.CT_THIRD_PERSON`
+
+### Query the camera mode
+
+You can query the camera mode of the player by using the `CameraMode` component on the `engine.CameraEntity`.
+
+```ts
+const cameraMode = CameraMode.get(engine.CameraEntity)
+if (cameraMode.mode === CameraType.CT_FIRST_PERSON) {
+	console.log('The player is using the 1st person camera')
+} else {
+	console.log('The player is using the 3rd person camera')
+}
+```
+
+You can also subscribe to changes in the camera mode by using the `onChange` function on the `CameraMode` component.
+```ts
+CameraMode.onChange(engine.CameraEntity, (cameraMode) => {
+	if (!cameraMode) return
+	console.log('The player\'s camera mode changed to', cameraMode.mode)
+})
+```
+
 
 ## Using virtual cameras
 
