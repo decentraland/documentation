@@ -74,7 +74,7 @@ Transform.create(myAvatar, {
 })
 ```
 
-The `expressionTriggerId` field supports all [default animations]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#default-animations">}}), as well as custom animations [from a scene file]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#custom-animations">}}), and even URNs from emotes that are published to the marketplace.
+The `expressionTriggerId` field supports all [default animations]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#default-animations">}}), as well as custom animations [from a scene file]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#custom-animations">}}), and even URNs from emotes that are published to the marketplace.
 
 ### Looping Animations
 
