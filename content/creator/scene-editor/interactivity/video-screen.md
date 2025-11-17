@@ -69,7 +69,43 @@ In all cases you configure the video to either loop or play once.
 We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
 {{< /hint >}}
 
-### About Video Files
+
+## Multiple Video Screens
+
+You can play the same video on multiple screens at the same time. To do this, you must edit the advanced properties of the Video Player smart item.
+
+{{< hint warning >}}
+**📔 Note**: Avoid having more than one different video playing at the same time, as that hurts performance a lot.
+
+If you simply paste the same URL on two video players, the engine won't know these are the same video, and will play them both separately. Follow the steps below to configure the second video player to play the same video as the first one.
+{{< /hint >}}
+
+1) Add Two Video Player smart items to the scene, one for each screen.
+
+2) Configure the first one normally, as described in the [Play Videos](#play-videos) section.
+
+3) On the second video player, remove the **Video Player** component.
+
+ <img src="/images/editor/delete-video-player.png" width="400"/>
+
+  {{< hint warning >}}
+  **📔 Note**: This step is important, otherwise the second video player will be processed by the engine, even if not visible.
+  {{< /hint >}}
+
+4) Still on the second video player, open the **Material** component, expand the **Texture** section, and select the **Video Source Entity** dropdown to point to the first video player.
+
+ <img src="/images/editor/point-to-video.png" width="400"/>
+
+You can do the same for any number of video players, as long as you configure each one to point to the same video player.
+
+When doing [live streaming]({{< ref "/content/creator/scene-editor/live-ops/live-streaming.md" >}}), both screens will also display the same stream.
+
+{{< hint info >}}
+**💡 Tip**: 
+The steps above can also be repeated with an item that has a **Swap Material** component, to turn any 3D model into a video screen. Configure the **Texture** section inside the **Swap Material** component to point to the video player entity.
+{{< /hint >}}
+
+## About Video Files
 
 The following file formats are supported:
 
