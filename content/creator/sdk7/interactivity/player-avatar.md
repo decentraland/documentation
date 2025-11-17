@@ -287,8 +287,17 @@ The following properties are available:
 - `runJumpHeight`: The height at which the player jumps after running, in meters.
 - `hardLandingCooldown`: The cooldown after a hard landing, in seconds. This is the time that the player has to wait before they can move again after landing from a high fall.
 
+For reference, here are the default values for those properties:
+
+- `walkSpeed`: 1.5 m/s
+- `jogSpeed`: 8 m/s
+- `runSpeed`: 10 m/s
+- `jumpHeight`: 1 m
+- `runJumpHeight`: 1.5 m
+- `hardLandingCooldown`: 0.75 s
+
 {{< hint info >}}
-**💡 Tip**: None of these properties can be lower than 0. If you set one of them to a negative value, it will be clamped to 0.
+**💡 Tip**: None of these properties can be lower than 0. If you set one of them to a negative value, it will be clamped to 0. Setting these values to zero will have the same effect as using the `InputModifier` to block the use of certain keys.
 
 You can only affect the player's locomotion if they are inside the scene's bounds. To affect other player's avatars, you must run the code that affects their locomotion on their own instance.
 {{< /hint >}}
