@@ -302,6 +302,22 @@ For reference, here are the default values for those properties:
 You can only affect the player's locomotion if they are inside the scene's bounds. To affect other player's avatars, you must run the code that affects their locomotion on their own instance.
 {{< /hint >}}
 
+You can create a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}) that makes the player always run faster or jump higher. If both the scene and a smart wearable define different values for these parameters, the scene values are always used.
+
+To ensure nobody has unfair advantages at a parkour scene, you can enforce the default parameters by explicitly adding their default values in your scene:
+
+```ts
+import {AvatarLocomotionSettings, engine} from '@dcl/sdk/ecs'
+
+AvatarLocomotionSettings.create(engine.PlayerEntity, {
+	runSpeed: 10,
+	walkSpeed: 1.5,
+	jogSpeed: 8 ,
+	jumpHeight: 1,
+	runJumpHeight: 1.5,
+	hardLandingCooldown: 0.75
+})
+```
 
 ## Avatar modifier areas
 
