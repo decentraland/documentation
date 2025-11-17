@@ -70,7 +70,7 @@ We also recommend starting to play the video when the player is near or performs
 {{< /hint >}}
 
 
-## Multiple Video Screens
+## Multiple Video Screens
 
 You can play the same video on multiple screens at the same time. To do this, you must edit the advanced properties of the Video Player smart item.
 
