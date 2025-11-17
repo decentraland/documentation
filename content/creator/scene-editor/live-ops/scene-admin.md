@@ -69,7 +69,7 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
     <img src="/images/editor/admin/video-player-item.png" alt="Scene name" width="200"/>
 
-    See [Video Screen]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >}}) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
+    See [Video Screen]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >}}) for more details on how you can configure the default media source and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once the scene is running.
 
     {{< hint warning >}}
       **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
@@ -83,16 +83,23 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
 Once the above is configured, admin users in your scene can open the admin panel and select the video section to control these video screens.
 
-  <img src="/images/editor/admin/video-player.png" alt="Scene name" width="300"/>
 
 
-If your scene has multiple video screens, the **Current Screen** dropdown lets you pick which video screen to control. The list displays the names you gave to each video screen on the Admin Tools smart item configuration.
+  <img src="/images/editor/admin/video-sources.png" alt="Scene name" width="300"/>
+
+
+If your scene has multiple independent video screens, the **Current Screen** dropdown lets you pick which video screen to control. The list displays the names you gave to each video screen on the Admin Tools smart item configuration.
+
+{{< hint info >}}
+**💡 Tip**: To show the same video on multiple screens that can be controlled as one, see [Multiple Video Screens]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md#multiple-video-screens" >}}).
+{{< /hint >}}
+
 
 ### Media Sources
 
-There are two kidns of media sources for playing videos:
+There are three media source options for playing videos:
 
-- **Video**: Play a video file from your local filesystem or from an URL.
+- **Video URL**: Play a video file from your local filesystem or from an URL.
   Paste a video URL into the **Video URL** field and click the green **Activate** button. The video will start playing on the selected screen for all players. You can also stop, pause, restart, mute, or change the volume of the video.
 
   <img src="/images/editor/admin/video-from-url.png" alt="Scene name" width="300"/>
@@ -100,6 +107,8 @@ There are two kidns of media sources for playing videos:
   {{< hint warning >}}
   **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md#streaming-from-other-sources" >}}) for more information on what you can and can't play in Decentraland.
   {{< /hint >}}
+
+- **DCL Cast**: Use Decentraland's free streaming web app to easily share your camera or screen with other players in the scene, no need to set up a streaming software.
 
 - **Live stream**: Play a live stream using Decentraland's free streaming infrastructure and a streaming software like OBS or StreamYard.
 
@@ -110,6 +119,8 @@ There are two kidns of media sources for playing videos:
 Each screen in your scene will have one of the above media sources set as **Active**. You can click the **Video** or **Live** buttons to explore the settings on each section, you won't interrupt what's currently playing until you click the **Activate** button on either section.
 
 <img src="/images/editor/admin/activate.png" alt="Scene name" width="200"/>
+
+See [Live Streaming]({{< ref "/content/creator/scene-editor/live-ops/live-streaming.md" >}}) for more information on how to set up a live stream.
 
 
 ## Announcements
