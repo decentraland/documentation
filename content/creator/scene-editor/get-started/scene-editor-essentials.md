@@ -117,7 +117,7 @@ On the left margin, you'll see a tree structure with all of the entities in the 
 **💡 Tip**: Everything in a scene is an Entity, they are the basic building blocks of scenes. Items are Entities that have at least a position and a visible shape.
 {{< /hint >}}
 
-Instead of selecting an item by clicking on it from the 3D view of the scne, you can select it from the tree view. Click the right-mouse button on an entity to reveal more options: you can rename, delete, or duplicate, also create a child entity, or add a component to the entity.
+Instead of selecting an item by clicking on it from the 3D view of the scene, you can select it from the tree view. Click the right-mouse button on an entity to reveal more options: you can rename, delete, or duplicate, also create a child entity, or add a component to the entity.
 
 Entities follow a hierarchy that can have as many levels as you want. Establish a parent-child relationship between two entities by dragging one item onto another on the tree. A child entity inherits the position of the parent, so when the parent moves, it carries any children with it. This can be practical while building a scene, for example you can set glasses and plates as children of a table, and then move the table without needing to readjust anything else. It can also be important when interacting with the scene, for items to move together.
 
@@ -184,7 +184,7 @@ Even if the whole geometry of the 3D model fits in your scene, a model might be 
 
 ## Scene settings
 
-Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series of scene-level properties to edit.
+Click the **Pencil icon** on the top-right of the screen. This opens a series of scene-level properties to edit.
 
 <img src="/images/editor/pencil-icon.png" alt="Scene name" width="64"/>
 

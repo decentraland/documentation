@@ -90,7 +90,7 @@ If your scene has multiple video screens, the **Current Screen** dropdown lets y
 
 ### Media Sources
 
-There are two kidns of media sources for playing videos:
+There are two kinds of media sources for playing videos:
 
 - **Video**: Play a video file from your local filesystem or from an URL.
   Paste a video URL into the **Video URL** field and click the green **Activate** button. The video will start playing on the selected screen for all players. You can also stop, pause, restart, mute, or change the volume of the video.
@@ -125,7 +125,7 @@ Select the Message section of the admin UI. Write a message and click **Share**.
 
 To create an airdrop, you need to:
 
-1. Create an airdop in the [Rewards server]({{< ref "/content/creator/rewards/gatting-started.md" >}})
+1. Create an airdop in the [Rewards server]({{< ref "/content/creator/rewards/getting-started.md" >}})
 
 2. Add a **Collectible dispenser** Smart Item to your scene. Configure it with your **Campaign ID** and **Dispenser Key**
 
