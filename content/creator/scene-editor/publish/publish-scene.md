@@ -98,8 +98,6 @@ To publish to the test server, click the **Publish** button normally, then selec
 
 If you're publishing to land owned by the Decentraland Foundation that was granted to you via a grant, click the **Publish** button normally, then select **Publish to a different server** on the bottom. Then select **Custom Server** from the dropdown and enter the following server address: `http://linker-server.decentraland.org`.
 
-<img src="/images/editor/publish-to-granted-land.png" alt="Scene name" width="500"/>
-
 {{< hint warning >}}
 **📔 Note**: You must first manually set the coordinates of your scene in the advanced tab of the Layout settings. See [Scene Settings]({{< ref "/content/creator/scene-editor/configure/scene-settings.md#layout" >}}) for more info.
 {{< /hint >}}
