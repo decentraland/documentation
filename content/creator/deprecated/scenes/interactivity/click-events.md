@@ -65,7 +65,7 @@ Add an `OnPointerUp` component to track when a player releases the mouse button,
 
 Like the `OnPointerDown`, the `OnPointerUp` component requires a _callback function_ that declares what to do in the event of a button up event while pointing at the entity.
 
-This component also takes a second argument that supports the same additional fields as teh `OnPointerDown` component.
+This component also takes a second argument that supports the same additional fields as the `OnPointerDown` component.
 
 ```ts
 const myEntity = new Entity()
@@ -268,7 +268,7 @@ houseEntity.addComponent(
 				fireAnimation.play()
 			}
 		},
-		{ button: ActionButton.POINTER, showFeeback: false }
+		{ button: ActionButton.POINTER, showFeedback: false }
 	)
 )
 ```
@@ -433,7 +433,7 @@ myEntity.addComponent(
 ```
 
 {{< hint info >}}
-**💡 Tip**: Note that all entities with an `OnPointerDown` component by default show a UI hint when hovered over. You can disable this UI hint by setting the `showFeeback` property on the `OnPointerDown` component to false.
+**💡 Tip**: Note that all entities with an `OnPointerDown` component by default show a UI hint when hovered over. You can disable this UI hint by setting the `showFeedback` property on the `OnPointerDown` component to false.
 {{< /hint >}}
 
 ## Button state

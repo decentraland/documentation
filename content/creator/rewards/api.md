@@ -22,7 +22,7 @@ Refer to the [API SPEC](https://decentraland.org/rewards/docs/api/) for complete
 
 # Assigning Wearables or Emotes reward
 
-Once your [campaign is configured]({{< ref "/content/creator/rewards/gatting-started.md" >}}) you are ready to start minting wearables or emotes rewards for your users by using the Rewards Server API.
+Once your [campaign is configured]({{< ref "/content/creator/rewards/getting-started.md" >}}) you are ready to start minting wearables or emotes rewards for your users by using the Rewards Server API.
 
 Make sure you have your dispenser key (a.k.a campaign key). Use the key to send the `fetch` request to the rewards API:
 
@@ -85,7 +85,7 @@ You can follow the update of every reward using its id just by fetching `https:/
 
 The Rewards campaign dispenser includes several configuration options designed to help prevent rewards farming. While the service offers automated protections to deter individuals from mass-minting wearables, no system can be entirely immune to exploits. In this section, we'll review the various security measures available for your dispenser to enhance its protection.
 
-<img src="/images/rewards/dispenser-config.png" alt="dispenser configuration" style="width:80%; margin: 0 auto;display: block;" width="2296" hegiht="1012" />
+<img src="/images/rewards/dispenser-config.png" alt="dispenser configuration" style="width:80%; margin: 0 auto;display: block;" width="2296" height="1012" />
 
 ## Date Range Protection
 
@@ -134,7 +134,7 @@ const captcha = await request.json()
 
 {{< hint info >}}
 This is an example of what a captcha looks like:
-<img src="/images/rewards/captcha.png" alt="Captcha" width="300" hegiht="100" />
+<img src="/images/rewards/captcha.png" alt="Captcha" width="300" height="100" />
 {{< /hint >}}
 
 You then need to include the captcha id and value that resolves the captcha in the request body that assigns the reward.
