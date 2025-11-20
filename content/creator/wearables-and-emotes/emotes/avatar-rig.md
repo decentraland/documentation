@@ -50,7 +50,7 @@ _Deforming bones._
 _Non-deforming bones._
 
 {{< hint warning >}}
-⚠️ **Attention!**: **Do not edit the base skeleton at all!**
+⚠️ **Attention!** **Do not edit the base skeleton at all!**
 {{< /hint >}}
 
 <img src="/images/emotes/BaseSkeleton.png" width="100%" style="margin:30px 0;" />
