@@ -251,7 +251,7 @@ The skin texture is made in grayscale so it allows the render engine to tint the
 Important: always preserve the UV mapping for any body part that is exposed by a wearable, like the legs exposed by the shorts or skirts.
 {{< /hint >}}
 
-<img src="/images/wearables-and-emotes/creating-wearables/19_skin_uv.png"width="600"/>
+<img src="/images/wearables-and-emotes/creating-wearables/19_skin_uv.png" width="600"/>
 
 You can create custom textures for your wearables! However, it’s always best to use a single, very small, texture file for each wearable. Using the default AvatarWearable_MAT texture provided in the example files will guarantee that your wearables are performant!
 
