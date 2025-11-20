@@ -13,7 +13,7 @@ aliases:
   - /creator/development-guide/installation-guide
   - /creator/development-guide/sdk7/installation-guide/
 url: /creator/scene-editor/get-started/install
-weight: 2
+weight: 1
 ---
 
 <img src="/images/editor/icon-creator-hub.png" alt="Header" width="128"/>

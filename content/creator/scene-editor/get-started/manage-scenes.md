@@ -9,7 +9,7 @@ aliases:
   - /builder/manage-scenes/
 url: /creator/editor/manage-scenes
 url: /creator/scene-editor/get-started/manage
-weight: 3
+weight: 2
 ---
 
 Each of your available scenes is shown as a card. Open the card to edit that scene, from there you can preview it or publish it too.

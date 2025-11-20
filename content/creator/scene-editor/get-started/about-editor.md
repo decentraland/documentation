@@ -9,7 +9,7 @@ url: /creator/scene-editor/get-started/overview
 aliases:
   - /creator/web-editor
   - /creator/editor/about-scene-editor
-weight: 1
+weight: 3
 ---
 
 The Creator Hub includes a powerful Scene Editor that combines a simple no-code interface with the ability to write code to customize your scenes further.
