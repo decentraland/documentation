@@ -41,7 +41,7 @@ myEntity.addComponent(myText)
 {{< /hint >}}
 
 {{< hint warning >}}
-**📔 Note**: `TextShape` components aren't clickable. `OnPointerDown`, `OnPointerUp`, `OnHoverEnter`, and `OnHoverExit` comopnents aren't activated when used on entites that have a `TextShape` component.
+**📔 Note**: `TextShape` components aren't clickable. `OnPointerDown`, `OnPointerUp`, `OnHoverEnter`, and `OnHoverExit` components aren't activated when used on entities that have a `TextShape` component.
 {{< /hint >}}
 
 ## Change the text value
@@ -60,14 +60,14 @@ The `TextShape` component has several properties that can be set to style the te
 
 - `font`: _Font object_. Font objects are initiated with a value from the _Fonts_ enum, which contains all supported fonts. By default uses _LiberationSans_.
 - `fontSize`: _number_.
-- `color`: _Color3_ object. _Color3_ objects store an _RBG_ color as three numbers from 0 to 1.
+- `color`: _Color3_ object. _Color3_ objects store an _RGB_ color as three numbers from 0 to 1.
 
 <!--
 - `fontFamily`: _string_. Can be a specific font (like _Arial_) or a type of font (_serif_/_sans-serif_). If you list several different fonts, it will attempt with the first and progressively fall back to the next ones. If you are using an uncommon font, it's always recommendable to also list a more generic one, in case a player can't access it.
 - `fontWeight`: _string_. Can be _normal_, _bold_, _bolder_, or _lighter_.
 -->
 
-- `opacity`: _number_. Set it to less than 1 to make the text translucid.
+- `opacity`: _number_. Set it to less than 1 to make the text translucent.
 
 ```ts
 const myText = new TextShape('Hello World!')
@@ -78,7 +78,7 @@ myText.font = new Font(Fonts.SansSerif)
 
 ## Fonts
 
-By default, text in Decenrtaland uses the font `LiberationSans`. To use another font, you need to instance a new `Font` object and assign it to the `font` property of the `TextShape` object.
+By default, text in Decentraland uses the font `LiberationSans`. To use another font, you need to instance a new `Font` object and assign it to the `font` property of the `TextShape` object.
 
 When instancing a `Font`, you need to pass it a value from the `Fonts` enum. This enum is a list that contains all the supported fonts.
 
@@ -99,7 +99,7 @@ The following fonts are currently supported:
 **💡 Tip**: If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
 {{< /hint >}}
 
-You can share a same instanced `Font` object accross multiple `TextShape` components.
+You can share a same instanced `Font` object across multiple `TextShape` components.
 
 ```ts
 const sfFont = new Font(Fonts.SansSerif)
@@ -136,7 +136,7 @@ The text has no shadow by default, but you can set the following values to give 
 - `shadowBlur`: _number_
 - `shadowOffsetX`: _number_
 - `shadowOffsetY`: _number_
-- `shadowColor`: _Color3_ object. _Color3_ objects store an _RBG_ color as three numbers from 0 to 1.
+- `shadowColor`: _Color3_ object. _Color3_ objects store an _RGB_ color as three numbers from 0 to 1.
 
 ```ts
 myEntity.addComponent(new TextShape('Text with shadow'))
@@ -148,7 +148,7 @@ myEntity.getComponent(TextShape).shadowOffsetX = -1
 Every letter can also have an outline in a different color surrounding its perimeter.
 
 - `outlineWidth`: _number_. How many pixels wide the text outline will be, in all directions. By default _0_, which makes it invisible.
-- `outlineColor`: _Color3_ object. _Color3_ objects store an _RBG_ color as three numbers from 0 to 1.
+- `outlineColor`: _Color3_ object. _Color3_ objects store an _RGB_ color as three numbers from 0 to 1.
 
 ## Multiple lines
 

@@ -198,7 +198,7 @@ myText.color = Color4.Blue()
 **💡 Tip**: If using VS studio or some other IDE, type `Font.` and you should see a list of suggestions with all of the available fonts.
 {{< /hint >}}
 
-You can share a same instanced `Font` object accross multiple `UIText` components.
+You can share a same instanced `Font` object across multiple `UIText` components.
 
 ```ts
 const sfFont = new Font(Fonts.SansSerif)

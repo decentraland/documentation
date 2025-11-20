@@ -19,7 +19,7 @@ A campaign refers to an incentive initiative designed to boost user engagement t
 3. Click on the **Campaigns** tab
 4. Click on the **Create Campaign** button. You will be redirected to the campaign creation form.
 
-<img src="/images/rewards/create-campaign-page.png" alt="Creating new campaign" style="width:100%; max-width: 600px; margin: 0 auto;display: block;" width="1480" hegiht="1532" />
+<img src="/images/rewards/create-campaign-page.png" alt="Creating new campaign" style="width:100%; max-width: 600px; margin: 0 auto;display: block;" width="1480" height="1532" />
 
 5. Complete the following fields: 
  - **Campaign Name**: Choose a name for your campaign. This name will be visible to users on their rewards page.
@@ -28,7 +28,7 @@ A campaign refers to an incentive initiative designed to boost user engagement t
 
 6. Click the **Create Campaign** button. You will be redirected to the campaign page..
 
-<img src="/images/rewards/new-campaign.png" alt="New campaign" style="width:100%; margin: 0 auto;display: block;" width="2454" hegiht="1362" />
+<img src="/images/rewards/new-campaign.png" alt="New campaign" style="width:100%; margin: 0 auto;display: block;" width="2454" height="1362" />
 
 After creating your campaign, there are a few more steps to complete before you can start delivering rewards:
 
@@ -53,7 +53,7 @@ To send MATIC from an exchange you just need to withdraw MATIC token to the Poly
 
 When you create a new campaign, it starts with an empty inventory. To begin delivering rewards, you'll need to add items to the campaign:
 
-<img src="/images/rewards/without-supply.png" alt="without supply" style="width:80%; margin: 0 auto;display: block;" width="2296" hegiht="1012" />
+<img src="/images/rewards/without-supply.png" alt="without supply" style="width:80%; margin: 0 auto;display: block;" width="2296" height="1012" />
 
 - **Grant Minting Permissions**: First, authorize the campaign to mint items. Follow [this guide]({{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md" >}}#adding-minters-to-the-collection) and use the campaign address (located below the campaign name) as the minter's address. After submitting, wait for the transaction to be confirmed.
 
@@ -61,18 +61,18 @@ When you create a new campaign, it starts with an empty inventory. To begin deli
 
     a) Click on the **Add Supply** button to view all collections for which the campaign has minting permissions.
 
-<img src="/images/rewards/collection-available.png" alt="Collection available" style="width:80%; margin: 0 auto;display: block; max-with: 600px" width="1808" hegiht="1494" />
+<img src="/images/rewards/collection-available.png" alt="Collection available" style="width:80%; margin: 0 auto;display: block; max-width: 600px" width="1808" height="1494" />
 
     b) Select the item from the collection that you want to add to the stock, then click on the **Add Supply** button.
 
-<img src="/images/rewards/add-supply.png" alt="add supply" style="width:80%; margin: 0 auto;display: block; max-with: 600px" width="1816" hegiht="772" />
+<img src="/images/rewards/add-supply.png" alt="add supply" style="width:80%; margin: 0 auto;display: block; max-width: 600px" width="1816" height="772" />
 
     c) Select the amount of items you want to add to the campaign stock and click on the **Add supply** button.
 
-<img src="/images/rewards/with-supply.png" alt="supply added" style="width:80%; margin: 0 auto;display: block;" width="2290" hegiht="360" />
+<img src="/images/rewards/with-supply.png" alt="supply added" style="width:80%; margin: 0 auto;display: block;" width="2290" height="360" />
 
 {{< hint info >}}
-Priority and Group fields are advance features that will be covered in a dedicated section.
+Priority and Group fields are advanced features that will be covered in a dedicated section.
 {{< /hint >}}
 
 ### Create a dispenser to deliver the rewards
@@ -81,12 +81,12 @@ Dispensers are the tools used to send or claim rewards from your stock. Each dis
 
 When you create a new campaign, a default dispenser with a master key is automatically provided for testing purposes only. To set up a new dispenser, click the **Add Dispenser** button.
 
-<img src="/images/rewards/create-dispenser.png" alt="create dispenser" style="width:80%; margin: 0 auto;display: block; max-with: 600px" width="1714" hegiht="584" />
+<img src="/images/rewards/create-dispenser.png" alt="create dispenser" style="width:80%; margin: 0 auto;display: block; max-width: 600px" width="1714" height="584" />
 
-Select the item group where you want take items from, and click on the **Save** button.
+Select the item group where you want to take items from, and click on the **Save** button.
 
 {{< hint info >}}
-Dispenser have some configuration options that will be covered in a dedicated section.
+Dispensers have some configuration options that will be covered in a dedicated section.
 {{< /hint >}}
 
 ### Activate your campaign
@@ -97,14 +97,16 @@ By default your campaign is inactive. This prevents the rewards service from ass
 **📔 Note**: If an active campaign is set to inactive, any pending rewards will still be sent. However, new claims or claims that need to be retried for some reason will be prevented.
 {{< /hint >}}
 
-**Now you are ready to start minting wearables/emotes using the [API]({{< ref "/content/contributor/land/api.md">}})**
+**Now you are ready to start minting wearables/emotes using the [API]({{< ref "/content/creator/rewards/api.md">}})** 
 
 ### Manage funds
 
 Once the campaign is completed, if there are remaining funds from the transaction fees, the owner can choose to either reclaim the funds or reassign them to another campaign. To reclaim funds, simply click the Manage Funds button on the campaign detail page. 
 
-<img src="/images/rewards/manage-funds.png" alt="manage funds" style="width:70%; margin: 0 auto;display: block; max-with: 600px" width="1714" hegiht="584" />
+<img src="/images/rewards/manage-funds.png" alt="manage funds" style="width:70%; margin: 0 auto;display: block; max-width: 600px" width="1714" height="584" />
 
 {{< hint warning >}}
 **📔 Note**: If all funds are removed from a campaign, any pending or new transactions related to that campaign will be blocked until more funds are assigned.
 {{< /hint >}}
+
+

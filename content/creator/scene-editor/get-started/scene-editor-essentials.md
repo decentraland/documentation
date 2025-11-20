@@ -117,7 +117,7 @@ On the left margin, you'll see a tree structure with all of the entities in the 
 **💡 Tip**: Everything in a scene is an Entity, they are the basic building blocks of scenes. Items are Entities that have at least a position and a visible shape.
 {{< /hint >}}
 
-Instead of selecting an item by clicking on it from the 3D view of the scne, you can select it from the tree view. Click the right-mouse button on an entity to reveal more options: you can rename, delete, or duplicate, also create a child entity, or add a component to the entity.
+Instead of selecting an item by clicking on it from the 3D view of the scene, you can select it from the tree view. Click the right-mouse button on an entity to reveal more options: you can rename, delete, or duplicate, also create a child entity, or add a component to the entity.
 
 Entities follow a hierarchy that can have as many levels as you want. Establish a parent-child relationship between two entities by dragging one item onto another on the tree. A child entity inherits the position of the parent, so when the parent moves, it carries any children with it. This can be practical while building a scene, for example you can set glasses and plates as children of a table, and then move the table without needing to readjust anything else. It can also be important when interacting with the scene, for items to move together.
 
@@ -182,9 +182,29 @@ The content in a Decentraland scene must also avoid spilling onto neighbor parce
 
 Even if the whole geometry of the 3D model fits in your scene, a model might be marked in red if the model's Bounding Box extends beyond the area. If this is the case, you can ignore the warnings, as the entire model will be displayed correctly. Learn more about [Bounding Boxes]({{< ref "/content/creator/3d-modeling/meshes.md#bounding-boxes" >}}).
 
+## Clean up assets
+
+Keep your project tidy by removing assets that are no longer used. Open the **Local Assets** tab at the bottom of the screen and click the brush icon.
+
+<img src="/images/editor/brush-icon.png" width="64"/>
+
+A dialog opens listing all assets in your scene and highlights those not referenced by any item.
+
+<img src="/images/editor/clean-up-assets.png" width="500" />
+
+Select the assets you want to delete using the checkboxes, then click **Remove Selected** to permanently remove them.
+
+Deleting an item from the scene does not remove its files. Imported models, textures, or sounds remain in your project until you clean them up, so review unused assets periodically.
+
+
+{{< hint warning >}}
+**Important:** If your scene contains code that references assets, some in-use assets may appear as unused. This dialog only detects assets referenced by components in the Creator Hub UI. Deleting assets is irreversible—once you click **Remove Selected**, the files are permanently deleted.
+{{< /hint >}}
+
+
 ## Scene settings
 
-Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series of scene-level properties to edit.
+Click the **Pencil icon** on the top-right of the screen. This opens a series of scene-level properties to edit.
 
 <img src="/images/editor/pencil-icon.png" alt="Scene name" width="64"/>
 
