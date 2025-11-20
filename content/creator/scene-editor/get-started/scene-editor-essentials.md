@@ -184,11 +184,13 @@ Even if the whole geometry of the 3D model fits in your scene, a model might be 
 
 ## Clean up assets
 
-Keep your project tidy by removing assets that are no longer used. Open the **Local Assets** tab at the bottom of the screen and click the brush icon <img src="/images/editor/brush-icon.png" width="20"/>.
+Keep your project tidy by removing assets that are no longer used. Open the **Local Assets** tab at the bottom of the screen and click the brush icon.
+
+<img src="/images/editor/brush-icon.png" width="64"/>
 
 A dialog opens listing all assets in your scene and highlights those not referenced by any item.
 
-<img src="/images/editor/clean-up-assets.png" width="300" />
+<img src="/images/editor/clean-up-assets.png" width="500" />
 
 Select the assets you want to delete using the checkboxes, then click **Remove Selected** to permanently remove them.
 
