@@ -11,7 +11,7 @@ url: /creator/emotes/avatar-rig
 weight: 3
 ---
 
-202A rig is a virtual skeleton that allows a model to move. It consists of a hierarchy of individual bones, much like a real life skeleton, and it works under a parent/child relationship. This document will cover some basic rigging concepts, such as bone position, bone orientation, deforming and non-deforming bones, the difference between IK and FK and their purposes. The structure of an avatar’s rig, custom attributes, and setup for animating can be found in [rig features]({{< ref "/content/creator/wearables-and-emotes/emotes/rig-features.md" >}}).
+A rig is a virtual skeleton that allows a model to move. It consists of a hierarchy of individual bones, much like a real life skeleton, and it works under a parent/child relationship. This document will cover some basic rigging concepts, such as bone position, bone orientation, deforming and non-deforming bones, the difference between IK and FK and their purposes. The structure of an avatar’s rig, custom attributes, and setup for animating can be found in [rig features]({{< ref "/content/creator/wearables-and-emotes/emotes/rig-features.md" >}}).
 
 # **The Basics**
 
@@ -49,7 +49,9 @@ _Deforming bones._
 
 _Non-deforming bones._
 
-> **Attention!**: **Do not edit the base skeleton at all!**
+{{< hint warning >}}
+⚠️ **Attention!**: **Do not edit the base skeleton at all!**
+{{< /hint >}}
 
 <img src="/images/emotes/BaseSkeleton.png" width="100%" style="margin:30px 0;" />
 
@@ -64,9 +66,12 @@ Controls are basically non-deforming bones, which means they will not affect the
 It’s also important to notice that it’s not possible to use the controls setup in a software different from the one it was originally done in. Each software has its own logic and it’s not possible to export constraints.
 
 <img src="/images/emotes/RigControls.png" width="100%" style="margin:30px 0;" />
+
 _Controls and their different shapes and colors._
 
-> **Warning**: **The rig has to be animated in the same software it was created in. It’s not possible to use a Blender setup in, for example, Maya and vice versa.**
+{{< hint warning >}}
+⚠️ **Warning**: The rig has to be animated in the same software it was created in. It’s not possible to use a Blender setup in, for example, Maya and vice versa.
+{{< /hint >}}
 
 ### What’s FK and IK in a rig?
 
