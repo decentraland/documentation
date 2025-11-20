@@ -17,7 +17,7 @@ Decentraland offers different ways to stream live video into your scene:
 - **Stream** _(Advanced Mode)_: Use a streaming software like [OBS](https://obsproject.com/) to stream through Decentraland's streaming infrastructure. This mode allows you to have more control over the stream, like screen layout and audio sources.
 - **Video URL** _(Advanced Mode)_: Point to your own streaming infrastructure, by pasting the URL into the **Video URL** field.
 
-<img src="/images/editor/admin/stream-modes.png" alt="Stream methods" width="400"/>
+<img src="/images/editor/admin/streaming-modes.png" alt="Stream methods" width="400"/>
 
 
 
@@ -37,7 +37,7 @@ The following steps are common to both DCL Cast and Stream methods:
 
 3. Publish your scene (World or Genesis City) and enter as a user with admin permissions.
 
-   <img src="/images/editor/publish-button.png" alt="Publish" width="200"/>
+   <img src="/images/editor/publish-button.png" alt="Publish" width="150"/>
 
 Once your scene is published, you can enter as a user with admin permissions and configure the streaming settings.
 
@@ -72,13 +72,13 @@ Click the **Copy link** button to copy the links to the clipboard.
 
 When ready to stream, click the **Activate** button to make the stream visible to the audience in the scene.
 
-   <img src="/images/editor/admin/activate.png" alt="Activate stream" width="200"/>
+   <img src="/images/editor/admin/activate.png" alt="Activate stream" width="150"/>
 
 
 
 If for any reason you need to reset the room, click the **Reset Room** button to generate a new one. Anyone who's currently streaming will be disconnected.
 
- <img src="/images/editor/admin/reset-room.png" alt="Reset room" width="400"/>
+ <img src="/images/editor/admin/reset-room.png" alt="Reset room" width="150"/>
 
 
 ### Using the DCL Cast app
@@ -100,7 +100,7 @@ Once streaming, the app is similar to various familiar video conferencing apps, 
 
 The chat is read-only, and listens to all messages sent by players inside the scene in Decentraland. This is great to keep in touch with the audience, even if you're streaming from a different device.
 
- <img src="/images/editor/admin/dcl-cast-app.png" alt="DCL Cast app" width="400"/>
+ <img src="/images/editor/admin/dcl-cast-app.png" alt="DCL Cast app" width="700"/>
 
 On the **Participants** tab you can see three lists:
 
@@ -108,7 +108,7 @@ On the **Participants** tab you can see three lists:
 - **Viewers**: The people who are currently watching the stream from a browser.
 - **In-world participants**: The players who are currently inside the scene, watching the stream in-world.
 
- <img src="/images/editor/admin/participants.png" alt="Participants tab" width="400"/>
+ <img src="/images/editor/admin/participants.png" alt="Participants tab" width="200"/>
 
 
 ## Stream method
@@ -127,7 +127,7 @@ To use the Live Streaming feature on your scene you'll need to install a streami
 
 3. Copy the **RTMP Server** and **Stream Key** into your streaming software.
 
-   <img src="/images/editor/admin/OBS-configuration.png" alt="OBS configuration" width="600"/>
+   <img src="/images/editor/admin/OBS-configuration.png" alt="OBS configuration" width="700"/>
 
 {{< hint danger >}}
 **❗Warning**: Only one person can stream to a scene at a time. When finished streaming, click **Stop Streaming** in your software to free the channel.
@@ -138,7 +138,7 @@ To use the Live Streaming feature on your scene you'll need to install a streami
 1. Start streaming from your software.
 2. In the Admin UI, click **Activate** to show the stream in the scene.
 
-   <img src="/images/editor/admin/activate.png" alt="Activate stream" width="200"/>
+   <img src="/images/editor/admin/activate.png" alt="Activate stream" width="150"/>
 
 
 ### Stream keys
