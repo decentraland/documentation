@@ -79,7 +79,7 @@ Your scene _A_ can't be partially rendered in just one parcel, so _[100, 100]_ w
 
 ### The test server
 
-You can deploy content to the test catalyst server to run full tests with multiple users, the sourrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
+You can deploy content to the test catalyst server to run full tests with multiple users, the surrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
 
 {{< hint warning >}}
 **📔 Note**: To deploy to parcels in the test server, you must have the same permissions required to deploy to those parcels in the main network.
@@ -107,7 +107,7 @@ If you're publishing to land owned by the Decentraland Foundation that was grant
 ## Custom servers
 
 You can deploy content to a custom server that doesn't belong to the official DAO-maintained network of catalyst servers. To do this, you don't need to own any LAND or NAME tokens, as you can configure the server to use any validation logic you prefer to control who can deploy where.
-Custom servers can chose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
+Custom servers can choose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
 
 To publish to a custom server, click the **Publish** button normally, then select **Publish to a different server** on the bottom. Then select **Custom Server** from the dropdown and enter the address of the server.
 
@@ -115,7 +115,7 @@ To publish to a custom server, click the **Publish** button normally, then selec
 See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/how-to-run-a-catalyst.md" >}}) for more info on what you can do with your own server and how to set it up.
 
 {{< hint warning >}}
-**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server]({{< ref "/content/creator/rewards/gatting-started.md" >}}) or the [quests server]({{< ref "/content/creator/deprecated/quests/overview.md" >}}) might fail in these contexts, as often these services require that the request comes from an official server.
+**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server]({{< ref "/content/creator/rewards/getting-started.md" >}}) or the [quests server]({{< ref "/content/creator/deprecated/quests/overview.md" >}}) might fail in these contexts, as often these services require that the request comes from an official server.
 {{< /hint >}}
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.

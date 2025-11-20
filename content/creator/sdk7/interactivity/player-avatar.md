@@ -186,7 +186,7 @@ pointerEventsSystem.onPointerDown(
 {{< /hint >}}
 
 
-## Restrict locomotion
+## Restrict locomotion
 
 You can restrict what actions the player can do in your scene. Use it to freeze the player, or to only restrict specific ways of locomotion, for example to prevent the player from jumping or running.
 
