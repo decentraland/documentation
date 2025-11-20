@@ -103,6 +103,9 @@ There are three media source options for playing videos:
 
 - **DCL Cast**: Use Decentraland's free streaming web app to easily share your camera or screen with other players in the scene, no need to set up a streaming software.
 
+  <img src="/images/editor/admin/dcl-cast.png" alt="DCL Cast" width="300"/>
+
+
 - **Live stream**: Play a live stream using Decentraland's free streaming infrastructure and a streaming software like OBS or StreamYard.
 
   <img src="/images/editor/admin/live-stream.png" alt="Scene name" width="300"/>
