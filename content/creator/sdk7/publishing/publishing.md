@@ -59,7 +59,7 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ### Using the Scene Editor
 
-Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}).
+Make sure you've [installed the Creator Hub]({{< ref "/content/creator/scene-editor/get-started/editor-installation.md" >}}).
 
 1. Open your scene project.
 2. Click the **Publish** button on the top-right corner.
@@ -156,12 +156,12 @@ _https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
 ## Custom servers
 
 You can deploy content to a custom server that doesn't belong to the official DAO-maintained network of catalyst servers. To do this, you don't need to own any LAND or NAME tokens, as you can configure the server to use any validation logic you prefer to control who can deploy where.
-Custom servers can chose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
+Custom servers can choose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
 
 See [How to run your own Catalyst Node]({{< ref "/content/contributor/tutorials/how-to-run-a-catalyst.md" >}}) for more info on what you can do with your own server and how to set it up.
 
 {{< hint warning >}}
-**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server]({{< ref "/content/creator/rewards/gatting-started.md" >}}) or the [quests server]({{< ref "/content/creator/deprecated/quests/overview.md" >}}) might fail in these contexts, as often these services require that the request comes from an official server.
+**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server]({{< ref "/content/creator/rewards/getting-started.md" >}}) or the [quests server]({{< ref "/content/creator/deprecated/quests/overview.md" >}}) might fail in these contexts, as often these services require that the request comes from an official server.
 {{< /hint >}}
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
@@ -184,7 +184,7 @@ You'll see a list of each of the servers that make up Decentraland's content net
 
 You can also obtain this information at any time by running the following command on the command line console:
 
-`npx @dcl/opscli pointer-consistency --pointer '0,0'`
+`npx @dcl/opscli pointer-consistency --pointer 0,0`
 
 {{< hint warning >}}
 **📔 Note**: Use the coordinates of your scene instead of `0,0`. If your scene has multiple parcels, any one of its parcels will produce the same output. If the coordinates start with a negative number, add a `\` at the start of the coordinates to prevent the `-` character from being misinterpreted by the command line.

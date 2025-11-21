@@ -500,20 +500,14 @@ Material.setPbrMaterial(entity, {
 #### Texture Animation
 ```typescript
 // Animate texture offset
-Tween.create(entity, {
-  mode: Tween.Mode.TextureMove({
-    start: Vector2.create(0, 0),
-    end: Vector2.create(1, 0)
-  }),
-  duration: 2000,
-  easingFunction: EasingFunction.EF_LINEAR
-})
+Tween.setTextureMove(entity,
+  Vector2.create(0, 0),
+  Vector2.create(1, 0),
+  2000
+)
 
 // Loop texture animation
-TweenSequence.create(entity, {
-  sequence: [],
-  loop: TweenLoop.TL_RESTART
-})
+TweenSequence.create(entity, { sequence: [], loop: TweenLoop.TL_RESTART })
 ```
 
 #### Transparency
@@ -560,6 +554,39 @@ GltfNodeModifiers.create(model, {
 Tip: set `path` to a specific mesh node to target only that part; use `Material.Texture.Common({ src: '...' })` inside `pbr` to swap textures.
 
 ### Move Entities
+
+#### Tween helpers (concise syntax)
+```typescript
+// Move between two points
+Tween.setMove(entity,
+  Vector3.create(4, 1, 4),
+  Vector3.create(8, 1, 8),
+  2000,
+  { faceDirection: false, easingFunction: EasingFunction.EF_LINEAR }
+)
+
+// Rotate between two rotations
+Tween.setRotate(entity,
+  Quaternion.fromEulerDegrees(0, 0, 0),
+  Quaternion.fromEulerDegrees(0, 180, 0),
+  700,
+  EasingFunction.EF_EASEOUTBOUNCE
+)
+
+// Scale between sizes
+Tween.setScale(entity,
+  Vector3.create(1, 1, 1),
+  Vector3.create(4, 4, 4),
+  2000,
+  EasingFunction.EF_LINEAR
+)
+
+// Continuous movement (meters/second)
+Tween.setMoveContinuous(entity, Vector3.create(0, 0, 1), 0.7)
+
+// Continuous rotation (degrees/second)
+Tween.setRotateContinuous(entity, Quaternion.fromEulerDegrees(0, -1, 0), 700)
+```
 
 #### Tween System
 ```typescript
@@ -702,6 +729,7 @@ GltfContainer.create(entity, {
 ColliderLayer.CL_NONE
 ColliderLayer.CL_POINTER      // Pointer events
 ColliderLayer.CL_PHYSICS      // Player movement blocking
+ColliderLayer.CL_PLAYER       // Player avatar body
 ColliderLayer.CL_CUSTOM1      // Custom layer 1
 ColliderLayer.CL_CUSTOM2      // Custom layer 2
 // ... up to CL_CUSTOM8
@@ -709,6 +737,49 @@ ColliderLayer.CL_CUSTOM2      // Custom layer 2
 // Combine layers
 const combinedLayers = ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER
 ```
+
+### Trigger Areas
+
+Detect when the player or any entity enters, stays in, or exits a shaped area. Shapes: box or sphere. Size the area via `Transform.scale`. By default, reacts to the player layer; customize with `ColliderLayer`.
+
+```typescript
+import { engine, Transform, TriggerArea, MeshRenderer, MeshCollider, ColliderLayer } from '@dcl/sdk/ecs'
+import { Vector3 } from '@dcl/sdk/math'
+import { triggerAreaEventsSystem } from '@dcl/sdk/ecs'
+
+// Create a box trigger at (8,0,8), size 4x2x4
+const area = engine.addEntity()
+TriggerArea.setBox(area) // or TriggerArea.setSphere(area)
+Transform.create(area, { position: Vector3.create(8, 0, 8), scale: Vector3.create(4, 2, 4) })
+
+// Optional: visualize area for debugging
+MeshRenderer.setBox(area)
+
+// Events
+triggerAreaEventsSystem.onTriggerEnter(area, (e) => {
+  console.log('Enter by entity', e.trigger.entity)
+})
+triggerAreaEventsSystem.onTriggerExit(area, () => {
+  console.log('Exit')
+})
+triggerAreaEventsSystem.onTriggerStay(area, () => {
+  // Called every frame while inside
+})
+
+// Layers: restrict which entities activate the area
+TriggerArea.setBox(area, ColliderLayer.CL_CUSTOM1 | ColliderLayer.CL_CUSTOM2)
+
+// Mark a moving entity to activate the area
+const mover = engine.addEntity()
+Transform.create(mover, { position: Vector3.create(8, 0, 8) })
+MeshCollider.setBox(mover, ColliderLayer.CL_CUSTOM1)
+```
+
+Result payload (enter/exit/stay callback parameter):
+- `triggeredEntity`: area entity id
+- `eventType`: ENTER | EXIT | STAY
+- `trigger.entity`: entering entity id
+- `trigger.layer`, `trigger.position`, `trigger.rotation`, `trigger.scale`
 
 ### Sounds
 
@@ -1855,7 +1926,7 @@ executeTask(async () => {
     const result = await response.json()
     console.log('Transaction result:', result)
   } catch (error) {
-    console.error('Transaction failed:', error)
+    console.log('Transaction failed:', error)
   }
 })
 ```
@@ -1874,7 +1945,7 @@ executeTask(async () => {
     const result = await manaUser.send('0x123...abc', 100) // 100 MANA
     console.log('MANA sent:', result)
   } catch (error) {
-    console.error('MANA transaction failed:', error)
+    console.log('MANA transaction failed:', error)
   }
 })
 ```
@@ -1934,7 +2005,7 @@ executeTask(async () => {
     console.log('Balance:', result)
     
   } catch (error) {
-    console.error('Contract interaction failed:', error)
+    console.log('Contract interaction failed:', error)
   }
 })
 ```
@@ -1982,7 +2053,7 @@ executeTask(async () => {
     console.log('Current balance:', balance)
     
   } catch (error) {
-    console.error('Transaction failed:', error)
+    console.log('Transaction failed:', error)
   }
 })
 ```
@@ -2232,7 +2303,7 @@ executeTask(async () => {
     const data = await response.json()
     console.log('API response:', data)
   } catch (error) {
-    console.error('API call failed:', error)
+    console.log('API call failed:', error)
   }
 })
 ```
@@ -2255,7 +2326,7 @@ executeTask(async () => {
     const result = await response.json()
     console.log('Submission result:', result)
   } catch (error) {
-    console.error('Submission failed:', error)
+    console.log('Submission failed:', error)
   }
 })
 ```
@@ -2492,8 +2563,6 @@ npm install some-library
 ```typescript
 // Basic logging
 console.log('Debug message:', data)
-console.warn('Warning message')
-console.error('Error message')
 
 // Structured logging
 console.log('Entity transform:', {
@@ -2548,7 +2617,7 @@ export const DebugUI = () => {
 ```typescript
 function performanceSystem(dt: number) {
   if (dt > 0.033) { // More than 30ms per frame
-    console.warn('Performance warning: Frame time:', dt * 1000, 'ms')
+    console.log('Performance warning: Frame time:', dt * 1000, 'ms')
   }
 }
 
@@ -2575,7 +2644,8 @@ if (!Transform.has(entity)) {
 // Ensure entity has collider
 if (!MeshCollider.has(entity) && !GltfContainer.has(entity)) {
   console.log('Entity needs collider for click events')
-  MeshCollider.setBox(entity)
+  // Use pointer layer so raycasts/clicks hit this entity
+  MeshCollider.setBox(entity, ColliderLayer.CL_POINTER)
 }
 ```
 
@@ -2586,7 +2656,7 @@ function checkBounds(entity: Entity) {
   const pos = transform.position
   
   if (pos.x < 0 || pos.x > 16 || pos.z < 0 || pos.z > 16) {
-    console.warn('Entity outside scene bounds:', pos)
+    console.log('Entity outside scene bounds:', pos)
   }
 }
 ```
@@ -2608,7 +2678,7 @@ executeTask(async () => {
     // Use the result in your scene
     updateSceneWithData(result)
   } catch (error) {
-    console.error('Async operation failed:', error)
+    console.log('Async operation failed:', error)
   }
 })
 ```
@@ -3366,6 +3436,26 @@ function getChildren(parent: Entity): Entity[] {
 }
 ```
 
+#### Fetch entities by tag
+```typescript
+import { engine } from '@dcl/sdk/ecs'
+
+export function main() {
+  const tagged = engine.getEntitiesByTag('myTag')
+  for (const entity of tagged) {
+    // Handle each tagged entity
+  }
+}
+```
+
+Add or remove tags from code:
+```typescript
+import { Tags } from '@dcl/sdk/ecs'
+
+Tags.add(entity, 'myTag')
+Tags.remove(entity, 'myTag')
+```
+
 #### Smart item triggers (Creator Hub asset-packs)
 ```typescript
 import { getTriggerEvents } from '@dcl/asset-packs/dist/events'
@@ -3464,7 +3554,7 @@ function trackInteraction(action: string, object: string) {
         })
       })
     } catch (error) {
-      console.error('Analytics tracking failed:', error)
+      console.log('Analytics tracking failed:', error)
     }
   })
 }
@@ -3488,7 +3578,7 @@ function boundaryCheckSystem() {
     
     // Check if entity is outside scene bounds
     if (pos.x < 0 || pos.x > 16 || pos.z < 0 || pos.z > 16 || pos.y > 20) {
-      console.warn('Entity outside bounds:', entity, pos)
+      console.log('Entity outside bounds:', entity, pos)
       
       // Optionally move back to bounds
       const mutableTransform = Transform.getMutable(entity)
@@ -3574,7 +3664,7 @@ function safeGetTransform(entity: Entity): Vector3 | null {
     }
     return null
   } catch (error) {
-    console.error('Error getting transform:', error)
+    console.log('Error getting transform:', error)
     return null
   }
 }
@@ -3584,7 +3674,7 @@ function attemptAction(entity: Entity, action: () => void) {
   try {
     action()
   } catch (error) {
-    console.error('Action failed:', error)
+    console.log('Action failed:', error)
     // Provide fallback behavior
     ui.displayAnnouncement('Action temporarily unavailable')
   }

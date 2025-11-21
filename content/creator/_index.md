@@ -46,7 +46,7 @@ Learn everything about [Creating emotes]({{< ref "/content/creator/wearables-and
 
 The Creator Hub lets you create scenes with an easy drag-and-drop interface, and also edit code to have full control over the interactions. You can run previews, debug, edit code, and publish.
 
-[Learn more]({{< ref "/content/creator/scene-editor/about-editor.md" >}})
+[Learn more]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}})
 
 ### 3D Art
 
@@ -70,7 +70,7 @@ See [3D modeling]({{< ref "/content/creator/3d-modeling/3d-models.md" >}}) for t
 
 To make your scene interactive:
 
-- \*_No Code_: Use the UI of the Scene Editor to drop [Smart Items]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
+- \*_No Code_: Use the UI of the Scene Editor to drop [Smart Items]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
 
   <img src="/images/intro/smart-items.png" width="500" />
 
@@ -105,7 +105,3 @@ There are also some community-built tools that can help you create Decentraland 
 - [**Virtual Land Manager**](https://vlm.gg/): Control various aspects of your scene in real time, including highly customized controls. Includes analytics: View historical user activity, track custom interactions, export lists of players in scene, and more.
 - [**DCL Edit**](https://dcl-edit.com/): Drag and drop 3d models into your scene. You can then work on adding interactivity to the resulting scene using the SDK.
 - [**Unity Exporter Toolkit**](https://github.com/PolygonalMind/dcl-dev-exportersdk7-release): Build in Unity, with a number of pre-built interactive modules. Export a fully-working Decentraland scene.
-
-The following **deprecated tools** are also available:
-
-- **Web Editor:** Use an easy drag and drop interface to create scenes. [Learn more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}}).

@@ -142,10 +142,6 @@ export const WheelSpinComponent = engine.defineComponent(
 **💡 Tip**: When creating an instance of a component, the VS Studio autocomplete options will suggest what fields you can add to the component by pressing _Ctrl + Space_.
 {{< /hint >}}
 
-{{< hint warning >}}
-**📔 Note**: All values in a custom component are optional when instancing a component. There is no mechanism to define default values for these fields when instancing the component, but you can define systems that execute default behaviors if no values are present for a given field.
-{{< /hint >}}
-
 ### Default Schema types
 
 The following basic types are available for using within the fields of a schema:

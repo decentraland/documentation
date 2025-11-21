@@ -85,7 +85,7 @@ Transform.create(light, {
 LightSource.create(light, {
   type: LightSource.Type.Point({}),
   color: Color3.Red(),
-  intensity: 1000,
+  intensity: 10000,
 })
 ```
 
@@ -93,7 +93,7 @@ The color is a `Color3` object, if not specified it will be white. You can set t
 
 The intensity is expressed in candels (lumens/m^2 at 1 m distance, or lumens divided by 4*pi).
 
-The defualt intensity is 100, this is the brightness of an average lightbulb in the real world and can be seen up to around 10 meters away from the light source. If you need the light to be visible from further away, or during the day, you can increase the intensity.
+The defualt intensity is 16000, this is the brightness of an average lightbulb in the real world and can be seen up to around 10 meters away from the light source. If you need the light to be visible from further away, or during the day, you can increase the intensity.
 
 The distance at which the light is visible is the square root of the intensity value.
 
@@ -205,9 +205,9 @@ It's also important to note that lights are only rendered if the player is stand
 
 The lightSource component has a `range` property that can be used to set the maximum distance at which the light is visible. By default, the value of the `range` property is -1, which means that the light range depends on the intensity of the light.
 
-- At an intensity of 100, the range is 10 meters.
-- At an intensity of 1000, the range is 31 meters.
-- At an intensity of 10000, the range is 100 meters.
+- At an intensity of 16000, the range is 10 meters.
+- At an intensity of 160000, the range is 31 meters.
+- At an intensity of 1600000, the range is 100 meters.
 
 The default setting ensures that the dropoff curve is smooth and looks natural. But in case you want to limit the range of the light, you can set the `range` property to a positive number.
 
@@ -223,7 +223,7 @@ Transform.create(light, {
 
 LightSource.create(light, {
   type: LightSource.Type.Point({}),
-  intensity: 1000,
+  intensity: 16000,
   range: 20,
 })
 ```

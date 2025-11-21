@@ -15,7 +15,7 @@ See [Files in a scene]({{< ref "/content/creator/sdk7/projects/scene-files.md" >
 
 ## Metadata
 
-To edit a scene's metadata on the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), open a scene and click the **pencil icon**.
+To edit a scene's metadata on the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}), open a scene and click the **pencil icon**.
 
 <img src="/images/editor/pencil-icon.png" alt="Scene name" width="124"/>
 
@@ -39,7 +39,7 @@ When players navigate the world and enter your scene, they are able to read the 
 
 <img src="/images/media/scene-name.png" alt="Scene name" width="200"/>
 
-Add this data via the scene menu in the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+Add this data via the scene menu in the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}).
 
 The thumbnail should be a _.png_ image of a recommended size of _228x160_ pixels. The minimum supported size is _196x143_ pixels. The image may be stretched if the width-to-height proportions don't match _228x160_.
 
@@ -331,10 +331,8 @@ The corresponding features are blocked from being used by the global scene, unle
 ```
 
 Currently, the following permissions are managed on smart wearables and portable experiences:
-
-<!-- - `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}})
-- `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >}}) -->
 - `USE_WEB3_API`: Refers to interacting with the player's browser wallets, to make transactions or sign messages.
+
 <!-- - `USE_FETCH`: Refers to sending http requests to 3rd party servers, using `fetch` or `signedFetch`
 - `USE_WEBSOCKET`: Refers to opening websocket connections with 3rd party servers
 - `OPEN_EXTERNAL_LINK`: Refers to prompting the player to open links to external sites -->

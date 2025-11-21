@@ -378,7 +378,7 @@ The camera mode uses a value from the `CameraType` enum. The following values ar
 The `CameraMode` component of the `engine.CameraEntity` is read-only, you can't force the player to change camera mode through this.
 
 {{< hint info >}}
-**💡 Tip**: To change the player's camera mode, use a [Camera modifier area]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">}}).
+**💡 Tip**: To change the player's camera mode, use a [Camera modifier area]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#camera-modifiers">}}).
 {{< /hint >}}
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when in 3rd person.

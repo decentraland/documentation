@@ -12,7 +12,7 @@ weight: 3
 ---
 
 {{< hint danger >}}
-**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md" >}}).
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#avatar-modifiers">}}).
 {{< /hint >}}
 
 ## Avatar Modifiers

@@ -255,7 +255,8 @@ To check the size of your smart wearable, run `npm run pack`, the project size i
 
 Smart wearables only run the global scene for the player wearing the wearable. Other players don't see the effects. For example, if the global scene renders a pet that follows the player, other players around won't see this pet. However, other players will see avatars perform animations that run as part of the wearable's scene. 
 
-<!-- even [custom avatar animations]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#custom-animations">}}) uploaded as part of the smart wearable's files. -->
+Avatar animations that are triggered by a smart wearable are seen by others, but not [custom avatar animations]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#custom-animations">}}) uploaded as part of the smart wearable's files.
+
 
 Smart wearables only work when players have them on. For this reason, players can only have a limited number of activated smart wearables, and depending on what part of the body they take up, some will be incompatible with others. For example, you can’t have two hats at the same time, or a helmet and hair at the same time.
 

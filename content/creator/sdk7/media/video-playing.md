@@ -16,7 +16,7 @@ There are tree different ways you can show a video in a scene:
 - Stream live via Decentraland cast
 
 {{< hint info >}}
-**💡 Tip**: In the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can use an **Video Player** [Smart Item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) for a no-code way to achieve this.
+**💡 Tip**: In the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}), you can use an **Video Player** [Smart Item]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}) for a no-code way to achieve this.
 {{< /hint >}}
 
 In all cases, you'll need:
@@ -123,11 +123,11 @@ The following simple set-up is recommended:
 
 ## Live streaming
 
-You can livestream from your camera or share your screen using the [Live streaming]({{< ref "/creator/scene-editor/smart-items/play-videos.md#live-streaming">}}) feature of the [Admin tools]({{< ref "/creator/scene-editor/scene-admin.md">}}) smart item.
+You can livestream from your camera or share your screen using the [Live streaming]({{< ref "/content/creator/scene-editor/live-ops/live-streaming.md" >}}) feature of the [Admin tools]({{< ref "/content/creator/scene-editor/live-ops/scene-admin.md" >}}) smart item.
 
 This streaming method uses the same comms architecture used for live communications between players, and is easy to set up and has a lot less delay than streaming from external sources.
 
-1. Add an [Admin tools]({{< ref "/creator/scene-editor/scene-admin.md">}}) smart item to your scene, as well as a [Video player]({{< ref "/creator/scene-editor/smart-items/play-videos.md">}}) smart item.
+1. Add an [Admin tools]({{< ref "/content/creator/scene-editor/live-ops/scene-admin.md" >}}) smart item to your scene, as well as a [Video player]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >}}) smart item.
 2. Publish your scene, either to a World or to Genesis City.
 3. Enter the scene as a player with the permission to use the Admin tools.
 4. Open the Amin console, select the **Video** tab, then select the **Live** functionality and click the **Get Stream Key** button.

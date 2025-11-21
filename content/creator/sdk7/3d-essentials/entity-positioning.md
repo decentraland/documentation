@@ -13,7 +13,7 @@ You can set the _position_, _rotation_ and _scale_ of any entity by using the `T
 
 ## Use the Scene Editor
 
-When adding an item to your scene via the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), it implicitly includes a **Transform** component. You then change the values in the entity's Transform component implicitly by changing the position, rotation or scale of an entity. You can also use the Scene Editor's UI to provide values numerically for more precision.
+When adding an item to your scene via the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}), it implicitly includes a **Transform** component. You then change the values in the entity's Transform component implicitly by changing the position, rotation or scale of an entity. You can also use the Scene Editor's UI to provide values numerically for more precision.
 
 ## Code essentials
 
@@ -383,20 +383,49 @@ AvatarAttach.create(myEntity, {
 	anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
-// Attach to another player, by ID
+// Attach to a player by ID
 AvatarAttach.create(myEntity, {
 	avatarId: '0xAAAAAAAAAAAAAAAAA',
 	anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 ```
-{{< hint danger >}}
-**❗Warning**: Attaching entities to another player's bones is currently not working, this is a known issue that needs to be fixed. It's currently only possible to attach something to the current player's bones. 
-{{< /hint >}}
 
 When creating an `AvatarAttach` component, pass an object with the following data:
 
 - `avatarId`: _Optional_ The ID of the player to attach to. This is the same as the player's Ethereum address, for those players connected with an Ethereum wallet. If not speccified, it attaches the entity to the local player's avatar.
 - `anchorPointId`: What anchor point on the avatar skeleton to attach the entity, using a value from the enum `AvatarAnchorPointType`.
+
+{{< hint warning >}}
+**📔 Note**: If you want all players in the scene to see an object attached to the same player, for example for all to see that Player A picked up an object and holds it on their left hand, then you must provide a value to `avatarId`. If not specified then all players will see the object attached to their own avatars.
+{{< /hint >}}
+
+The following example places an enitiy attached to a particular avatar, for all other players to see it attached to that same avatar.
+
+```ts
+import { getPlayer } from '@dcl/sdk/src/players'
+import { AvatarAnchorPointType, AvatarAttach, engine, Entity } from '@dcl/sdk/ecs'
+import { syncEntity } from '@dcl/sdk/src/network'
+
+async function attachToPlayer(){
+
+ let userData = await getPlayer()
+ console.log(userData)
+
+ if (!userData || !userData.wearables) return
+
+  let entity = engine.addEntity()
+
+  AvatarAttach.create(entity, {
+    avatarId: userData.userId,
+    anchorPointId: AvatarAnchorPointType.AAPT_RIGHT_HAND,
+  })
+
+  // Other components
+
+  syncEntity(entity, [AvatarAttach.componentId])
+
+}
+```
 
 The following anchor points are available on the `AvatarAnchorPointType` enum:
 

@@ -18,7 +18,7 @@ The Rewards system manages most of the complexities involved in minting items on
 - Informing users about the item they will receive before the transaction is confirmed
 - Emits Notifications when rewards are granted and received
 
-- <img src="/images/rewards/overview.png" alt="Rewards Service Overview" width="1716" hegiht="687" />
+- <img src="/images/rewards/overview.png" alt="Rewards Service Overview" width="1716" height="687" />
 
 ## Limitations
 

@@ -36,13 +36,13 @@ At a very high level, the Decentraland **Software Development Kit** (SDK) allows
 
 Our SDK includes the following:
 
-- **The Creator Hub**: A standalone application that, amongst other things, lets you create scenes with an easy drag-and-drop interface. You can run previews, debug, edit code, and publish. [Read more]({{< ref "/content/creator/scene-editor/about-editor.md" >}})
+- **The Creator Hub**: A standalone application that, amongst other things, lets you create scenes with an easy drag-and-drop interface. You can run previews, debug, edit code, and publish. [Read more]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}})
 - **The Decentraland ECS**: A TypeScript package containing the framework of helper methods that allows you to create interactive experiences. Use it to create and manipulate objects in the scene and also to facilitate in-world transactions between players or other applications. ( [latest ECS reference](https://github.com/decentraland/ecs-reference/blob/master/docs-latest/decentraland-ecs.md))
 - **Scene examples**: Take inspiration and coding best practices from the [scene examples](https://studios.decentraland.org/resources?sdk_version=SDK7).
 
 Other legacy tools:
 
-- **The Web Editor**: A web based too for creating simple scenes and publishing them. [Read more]({{< ref "/content/creator/sdk7/web-editor/web-editor.md" >}})
+- **The Web Editor**: A web based too for creating simple scenes and publishing them.
 
 ## Requirements
 
@@ -50,7 +50,7 @@ To develop a scene locally, you don't need to own LAND tokens. Developing and te
 
 You must have:
 
-- **The Creator Hub**: A standalone application that, amongst other things, lets you create scenes with an easy drag-and-drop interface. You can run previews, debug, edit code, and publish. [Read more]({{< ref "/content/creator/scene-editor/about-editor.md" >}}).
+- **The Creator Hub**: A standalone application that, amongst other things, lets you create scenes with an easy drag-and-drop interface. You can run previews, debug, edit code, and publish. [Read more]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}).
 
 If you plan to edit the scene's code, you'll also need to install one of the following:
 
@@ -134,7 +134,7 @@ You can then do anything you want with that entity, like add new components, mod
 
 See [Get entity by name]({{< ref "/content/creator/sdk7/architecture/entities-components.md#get-an-entity-by-name" >}}) for more information.
 
-If the entity is a [Smart item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}), you can also call its **Actions** or subscribe to its **Triggers** via code. See [Combine with code]({{< ref "/content/creator/scene-editor/smart-items/combine-with-code.md" >}}).
+If the entity is a [Smart item]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}), you can also call its **Actions** or subscribe to its **Triggers** via code. See [Reference Items]({{< ref "/content/creator/scene-editor/code/reference-items.md" >}}).
 
 ## Systems
 

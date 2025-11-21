@@ -21,7 +21,9 @@ These are the armature’s transforms in Object Mode with the controls’ setup.
 
 _Rig 1.0 transforms._
 
-> **Warning**: **Never edit the rig in Object Mode.**
+{{< hint warning >}}
+⚠️ **Warning**: **Never edit the rig in Object Mode.**
+{{< /hint >}}
 
 ## Bone Orientation
 
@@ -31,7 +33,7 @@ This is the bone orientation for Rig 1.0. As it is right now, it’s not possibl
 
 _Axes for bone orientation._
 
-<img src="/images/media/MirrorPose.png" width="100%" style="margin:30px 0;" />
+<img src="/images/media/MirrorPose.gif" width="100%" style="margin:30px 0;" />
 
 _Behavior when mirrorring poses._
 
@@ -39,7 +41,7 @@ _Behavior when mirrorring poses._
 
 To avoid any accidents and to make it easier to identify the controls, this rig is organized in bone collections that can be accessed in the *Data Properties* tab in Blender. These collections’ visibility can be toggled on and off by clicking on the *Eye Icon.* By default, they are all visible, except for the DON'T TOUCH ones.
 
-<img src="/images/media/BoneCollections.png" width="100%" style="margin:30px 0;" />
+<img src="/images/media/BoneCollections.png" width="400" style="margin:30px 0;" />
 
 Armature Data Properties tab.
 
@@ -53,10 +55,10 @@ This is how the bones were separated into the collections:
 - Fingers: controls for both hands’ fingers.
 - Deformation Bones: this is where the deformation bones are stored.
 
-{{< hint info >}}
-**💡 Attention!**
+{{< hint warning >}}
+**⚠️ Attention!**
 
-The DON'T TOUCH collections  hold the set ups for IK and other rig constraints and should remain hidden. Editing these bone could brake  the functionality of the rig
+The DON'T TOUCH collections hold the set ups for IK and other rig constraints and should remain hidden. Editing these bones could break the functionality of the rig.
 {{< /hint >}}
 
 ## Controls and Grouping
@@ -110,7 +112,7 @@ _Isolate rotation attribute for the head._
 
 _How the IsoRot attribute for the head works._
 
-{{< hint warning >}} **Warning**: In older Blender versions, even if all controls have been selected and key framed, these custom attributes won’t be automatically key framed. Make sure to manually insert a keyframe in each attribute so you don’t lose the pose/motion you created. In Blender 4.4, by pressing I, a keyframe is set on all attributes and custom properties. {{< /hint >}}
+{{< hint warning >}} ⚠️ **Warning**: In older Blender versions, even if all controls have been selected and key framed, these custom attributes won’t be automatically key framed. Make sure to manually insert a keyframe in each attribute so you don’t lose the pose/motion you created. In Blender 4.4, by pressing I, a keyframe is set on all attributes and custom properties. {{< /hint >}}
 
 ![In previous versions of Blender, make sure to keyframe all the controls and custom attributes!](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/custom_attributes.gif)
 

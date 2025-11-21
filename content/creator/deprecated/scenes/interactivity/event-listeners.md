@@ -218,7 +218,7 @@ The event includes the following data:
   - `distance`: _number_ The distance in meters from the point of origin to the hit point.
   - `origin`: _Vector3_ The point of origin of the click, the position of the player who did the click, relative to the scene.
 
-Tip: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area]({{< ref "/content/creator/deprecated/scenes/interactivity/avatar-modifiers.md" >}}).
+Tip: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#disable-passport-popup">}}).
 
 ## Player locks/unlocks cursor
 

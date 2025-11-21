@@ -13,7 +13,7 @@ You can add links from your scene out to other content, either to other scenes o
 
 ## Use the Scene Editor
 
-The easiest way to add an external link or a teleport is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}). Use the **Teleport** [Smart Item]({{< ref "/content/creator/scene-editor/smart-items/smart-items.md" >}}) to add teleport to another scene in Genesis City, or use any of the **Social Links** smart items to add links to external sites.
+The easiest way to add an external link or a teleport is to use the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}). Use the **Teleport** [Smart Item]({{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >}}) to add teleport to another scene in Genesis City, or use any of the **Social Links** smart items to add links to external sites.
 
 <img src="/images/editor/social-links.png" alt="Move entity" width="300"/>
 
@@ -33,7 +33,7 @@ Players are presented a confirmation screen before they are teleported, this scr
 
 Bare in mind that teleports take you to a scene in the indicated coordinates, but not necessarily to that same coordinates. This means that when travelling to a scene that has multiple parcels, players may not be landing on the same coordinates as specified, but rather into one of the spawn points designated by the creator of the scene.
 
-To move a player to another set of coordinates inside the current scene, use the `movePlayerTo()` function instead. See [Move a Player]({{< ref "/content/creator/sdk7/interactivity/move-player.md" >}}).
+To move a player to another set of coordinates inside the current scene, use the `movePlayerTo()` function instead. See [Move a Player]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#move-player" >}}).
 
 ## Teleport to a WORLD
 
@@ -68,3 +68,14 @@ When `openExternalUrl` is called, players are prompted with a confirmation scree
 The link is opened in a new tab, keeping the original tab in Decentraland.
 
 If players tick the _trust this domain_ checkbox, they won't be prompted again during their session, as long as the link comes from the same scene and is to the same domain.
+
+
+## Copy to clipboard
+
+To copy a string to the player's clipboard, use `CopyToClipboard()`. After this, when the player does _paste_ in the Decentraland chat or in any other application on their machine, they will be pasting your string.
+
+```ts
+import { copyToClipboard } from "~system/RestrictedActions"
+
+copyToClipboard( { text: 'My text to copy' } )
+```

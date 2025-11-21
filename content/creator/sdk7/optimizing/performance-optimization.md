@@ -78,7 +78,7 @@ If you must use a system, avoid doing checks or adjustments on every single fram
 
 There are several ways in which your 3D models can be optimized to be lighter.
 
-When working with the [Creator Hub]({{< ref "/content/creator/scene-editor/editor-installation.md" >}}), you can see stats about the resources used by 3D models in your scene, and if they pass any of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
+When working with the [Creator Hub]({{< ref "/content/creator/scene-editor/get-started/editor-installation.md" >}}), you can see stats about the resources used by 3D models in your scene, and if they pass any of the [scene limitations]({{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >}}).
 
 <img src="/images/editor/triangle-limit1.png" width="250" />
 

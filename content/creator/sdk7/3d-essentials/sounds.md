@@ -21,11 +21,11 @@ _.wav_ files are also supported but not generally recommended as they are signif
 
 ## Play sounds
 
-The easiest way to play a sound is to add an **Audio Source** component visually on the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}) and set it to **Start Playing** and **Loop**. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}).
+The easiest way to play a sound is to add an **Audio Source** component visually on the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}) and set it to **Start Playing** and **Loop**. See [Add Components]({{< ref "/content/creator/scene-editor/build/components.md#add-components" >}}).
 
 <img src="/images/editor/AudioSource-component.png" alt="Scene name" width="200"/>
 
-You can also trigger the playing of a sound in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+You can also trigger the playing of a sound in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}}).
 
 To play a sound via code, use the `AudioSource.playSound` function.
 
@@ -79,7 +79,7 @@ The following properties can be set:
   {{< hint info >}}
   **💡 Tip**: To prevent a sound effect from becoming too repetitive during a game, it's useful to randomize some slight variations to the sound's pitch every time it plays.
   {{< /hint >}}
-- `currentTime`: _(optional)_ The current playback time of the sound file, in seconds. 0 by default. Set this value to avoid starting from the beginning of the sound file. You can also query this value at any time to check the sound's progress.
+- `currentTime`: _(optional)_ 0 by default. Set this value to avoid starting from the beginning of the sound file.
 
 Each entity can only have a single `AudioSource` component, that can only play a single clip at a time. This limitation can be easily overcome by modifying the audio source at the time of playing a new sound, or by including multiple invisible child entities, each with their own sound.
 

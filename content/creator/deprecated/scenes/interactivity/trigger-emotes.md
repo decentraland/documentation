@@ -12,7 +12,7 @@ weight: 4
 ---
 
 {{< hint danger >}}
-**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >}}).
+**❗Warning**: This is a legacy page covering functionality with the old SDK version 6. See the latest version of this topic [here]({{< ref "/content/creator/sdk7/interactivity/player-avatar.md#default-animations" >}}).
 {{< /hint >}}
 
 To make a player perform an emote, use the `triggerEmote()` function. Note that only existing default emotes are supported for now. This function takes a single argument:

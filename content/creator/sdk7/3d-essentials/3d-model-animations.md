@@ -6,7 +6,7 @@ categories:
   - development-guide
 type: Document
 url: /creator/development-guide/sdk7/3d-model-animations/
-weight: 5
+weight: 7
 ---
 
 3D models in _.glTF_ and _.glb_ format can include as many animations as you want in them. Animations tell the mesh how to move, by specifying a series of _keyframes_ that are laid out over time, the mesh then blends from one pose to the other to simulate continuous movement.
@@ -40,7 +40,7 @@ If a 3D model includes any animations, the default behavior is that the first of
 To avoid this behavior, add an `Animator` component to the entity that has the model, and then handle the playing of animations explicitly. If an `Animator` component is present in the entity, all animations default to a `playing: false` state, and need to be manually played.
 
 {{< hint info >}}
-**💡 Tip**: In the [Scene Editor]({{< ref "/content/creator/scene-editor/about-editor.md" >}}), you can add an **Animator** component visually. See [Add Components]({{< ref "/content/creator/scene-editor/components.md#add-components" >}}). You can also control animations in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/smart-items/make-any-item-smart.md" >}}).
+**💡 Tip**: In the [Scene Editor]({{< ref "/content/creator/scene-editor/get-started/about-editor.md" >}}), you can add an **Animator** component visually. See [Add Components]({{< ref "/content/creator/scene-editor/build/components.md#add-components" >}}). You can also control animations in a no-code way via **Actions**, see [Make any item smart]({{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >}}).
 {{< /hint >}}
 
 ## Handle animations explicitly
