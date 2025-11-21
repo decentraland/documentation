@@ -93,25 +93,26 @@ Then, in **_Target_**, select the avatar armature and in **_Bone_** select the b
 _***Chlid of*** constraint menu. Keyframe the influence to turn it on and off._
 
 {{< hint info >}}
-**💡Animation Tip!**
-If you use the slide to turn off the Influence, the prop will not maintain its previous position, making it hard to keep the animation fluid. To avoid having to manually fix the position, instead of using the slide, click on the X next to Influence, set a keyframe on it and another one on all the transform attributes. This way the prop will keep the same poistion as when the Influence was on!
+**💡 Animation Tip**
+
+If you use the slide to turn off the Influence, the prop will not maintain its previous position, making it hard to keep the animation fluid. To avoid having to manually fix the position, instead of using the slide, click on the X next to Influence, set a keyframe on it and another one on all the transform attributes. This way the prop will keep the same position as when the Influence was on!
 {{< /hint >}}
 
 <img src="/images/wearables-and-emotes/props-and-sound/17-influence.gif" width="600" />
 
 {{< hint info >}}
-**💡Animation Tip**
+**💡 Animation Tip**
 
 Don’t leave the prop visible from the start! To avoid spoiling what’s about to happen and an abrupt transition, start the animation with the prop scaled down to 0.001 and only turn it to 1 when you want it to appear. Remember to scale back down to 0 by the end of the action. This will make the transitions much more fluid and cool!
 {{< /hint >}}
 
 ## Animation Slots
 
-Belnder 4.4 introduced a new feature: animation slots. According to Blender documentation, “the purpose of slots is to allow an action to store distinct animation data for multiple data-blocks”. In a nutshell, slots make it possible to store the animation of multiple things in the same Action. How does it affect emotes 2.0?
+Blender 4.4 introduced a new feature: animation slots. According to Blender documentation, “the purpose of slots is to allow an action to store distinct animation data for multiple data-blocks”. In a nutshell, slots make it possible to store the animation of multiple things in the same Action. How does it affect emotes 2.0?
 
 <img src="/images/wearables-and-emotes/props-and-sound/animationslots.png" width="600" />
 
-Blender 4.4 new feature: animation slots.
+_Blender 4.4 new feature: animation slots._
 
 Even though it’s possible to have both the avatar and prop sharing the same action clip, because of the naming convention and number of animation clips involved in Emotes 2.0, it won’t work. So the pipeline for this would be: 
 
@@ -123,7 +124,7 @@ Even though it’s possible to have both the avatar and prop sharing the same ac
 
 <img src="/images/wearables-and-emotes/props-and-sound/animation-slot-prop.gif" width="600" />
 
-Creating and action clip and a slot for the prop animation.
+_Creating and action clip and a slot for the prop animation._
 
 # **NLA Tracks**
 
@@ -136,10 +137,10 @@ Then, change back to ***Object Mode***, select the prop armature, go to ***Pose 
 
 <img src="/images/wearables-and-emotes/props-and-sound/nla-tracks.gif" width="600" />
 
-Pushing actions down to the NLA tracks.
+_Pushing actions down to the NLA tracks._
 
 {{< hint warning >}}
-⚠️ Be careful when pushing actions down . Make sure you select the desired armature with the respective animation. Don’t just change the animation and push it down before selecting the other armature or else you will be assigning two actions to an armature and none to the other.
+⚠️ Be careful when pushing actions down. Make sure you select the desired armature with the respective animation. Don’t just change the animation and push it down before selecting the other armature or else you will be assigning two actions to an armature and none to the other.
 {{< /hint >}}
 
 <img src="/images/wearables-and-emotes/props-and-sound/NLA-tracks.png" width="600" />
@@ -174,10 +175,11 @@ Emotes 2.0 are exported the same way as common emotes. Make sure only the avatar
 
 <img src="/images/wearables-and-emotes/props-and-sound/visibility.png" width="600" />
 
-Have only avatar armature, prop armature and prop mesh visible for exporting.
+_Have only avatar armature, prop armature and prop mesh visible for exporting._
 
 
 To export, go to File > Export > glTF2.0 (.glb, .gltf)
+
 <img src="/images/wearables-and-emotes/props-and-sound/export.gif" width="600" />
 
 For the export settings, expand Include and in Limit to toggle Visible Objects. Then, expand the Data tab, expand Armature and enable Export Deformation Bones Only.
@@ -195,7 +197,7 @@ Hit Export and you are done!
 
 - The audio clip must have the same duration as the emote.
 
-- While there is no limitation for size in the audio, the emote with props and sounds cannot be bigger than 3mb.
+- While there is no limitation for size in the audio, the emote with props and sounds cannot be bigger than 3MB.
 
 {{< hint info >}}
 **📔 Note**: If the emote has sound (mp3 or ogg), it must be zipped with the .glb. After that, just drag and drop the .zip to the builder. More details can be found here: [Uploading emote with sound](https://docs.decentraland.org/creator/wearables-and-emotes/manage-collections/uploading-emotes/#uploading-emotes-using-a-zip-file)
@@ -228,7 +230,7 @@ Press the shortcut `N` to see more options to handle your sounds like displaying
 <img src="/images/wearables-and-emotes/props-and-sound/09-sound-properties.png" width="400" />
 
 {{< hint info >}}
-If you want to fade in and out you can simply do it by adding keyframes from 0 to 1 and viceversa to the volume property.
+💡 If you want to fade in and out you can simply do it by adding keyframes from 0 to 1 and viceversa to the volume property.
 {{< /hint >}}
 
 Once you finished to edit your sounds you can export it going to _Render> Render Audio_. In the exporting option you need to select `.mp3` or `.ogg` format in the _Container_ section and then _Mixdown_. **Only the audio within the frame range will be exported.**
