@@ -118,7 +118,7 @@ Keep in mind that a video file adds to the total size of the scene, which makes 
 
 ## Live streaming
 
-For end-to-end live streaming (OBS setup, stream keys, admin controls), see [Live Streaming]({{< ref "/content/creator/scene-editor/live-ops/live-streaming.md" >}}).
+For end-to-end live streaming, see [Live Streaming]({{< ref "/content/creator/scene-editor/live-ops/live-streaming.md" >}}).
 
 ### Streaming from other sources
 
