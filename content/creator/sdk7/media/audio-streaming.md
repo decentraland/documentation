@@ -92,3 +92,45 @@ export function main() {
 	})
 }
 ```
+
+## Spatial audio
+
+By default, the audio from an `AudioStream` component is global, meaning it will be heard at a consistent volume throughout your entire scene. If a player steps out of the scene, they will not hear the streaming at all.
+
+To make the audio spatial, set the `spatial` property to _true_.
+
+```ts
+AudioStream.create(entity, {
+	url: 'https://radioislanegra.org/listen/up/stream',
+    playing: true,
+	spatial: true,
+})
+```
+
+The audio will now be heard from the position of the entity that owns the `AudioStream` component, and will be louder as the player approaches it.
+
+Control the spatial audio with the following properties:
+
+- `spatialMinDistance`: The minimum distance at which audio becomes spatial. If the player is closer, the audio will be heard at full volume.
+- `spatialMaxDistance`: The maximum distance at which the audio is heard. If the player is further away, the audio will be heard at 0 volume.
+
+```ts
+const audioStreamEntity = engine.addEntity();
+
+Transform.create(audioStreamEntity, {
+    position: Vector3.create(8, 0, 8),
+});
+
+AudioStream.create(audioStreamEntity, {
+    url: 'https://radioislanegra.org/listen/up/stream',
+    playing: true,
+    volume: 1.0,
+    spatial: true,
+    spatialMinDistance: 5,
+    spatialMaxDistance: 10
+});
+```
+
+{{< hint warning >}}
+**📔 Note**: Some audio formats don't support spatial audio. Make sure the stream audio is encoded in _mp3_, _AAC-LC_ or _FLAC_.
+{{< /hint >}}
