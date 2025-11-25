@@ -111,8 +111,8 @@ The audio will now be heard from the position of the entity that owns the `Audio
 
 Control the spatial audio with the following properties:
 
-- `spatialMinDistance`: The minimum distance at which audio becomes spatial. If the player is closer, the audio will be heard at full volume.
-- `spatialMaxDistance`: The maximum distance at which the audio is heard. If the player is further away, the audio will be heard at 0 volume.
+- `spatialMinDistance`: The minimum distance at which audio becomes spatial. If the player is closer, the audio will be heard at full volume. _0_ by default.
+- `spatialMaxDistance`: The maximum distance at which the audio is heard. If the player is further away, the audio will be heard at 0 volume. _60_ by default
 
 ```ts
 const audioStreamEntity = engine.addEntity();
