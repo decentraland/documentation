@@ -149,7 +149,7 @@ export function swapAvatar(avatar: Entity) {
 
 ## Display only wearables
 
-Use the `show_only_wearables` field to display only the listed wearables of an avatar. The rest of the avatar's body will be invisible.
+Use the `showOnlyWearables` field to display only the listed wearables of an avatar. The rest of the avatar's body will be invisible.
 
 ```ts
 const myAvatar = engine.addEntity()
@@ -159,7 +159,7 @@ AvatarShape.create(myAvatar, {
 	wearables: [
     'urn:decentraland:matic:collections-v2:0x90e5cb2d673699be8f28d339c818a0b60144c494:0'
   ],
-	show_only_wearables: true,
+	showOnlyWearables: true,
 })
 
 Transform.create(myAvatar, {
