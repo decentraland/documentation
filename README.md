@@ -1,3 +1,7 @@
+# TO EDIT DOCUMENTATION GO TO https://github.com/decentraland/docs 
+
+
+
 # Docs web
 
 [https://docs.decentraland.org/](https://docs.decentraland.org/)
