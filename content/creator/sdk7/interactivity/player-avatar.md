@@ -263,6 +263,61 @@ InputModifier.createOrReplace(engine.PlayerEntity, {
 })
 ```
 
+## Locomotion Settings
+
+You can affect the player's locomotion, like their running speed, jump height, and more. This can be altered dynamically, for example to allow a player to collect a temporary speed boost by interacting with a item, or to disable the player's ability to jump for a short period of time.
+
+To do this, add an `AvatarLocomotionSettings` component to the `engine.PlayerEntity`.
+
+```ts
+import {AvatarLocomotionSettings, engine} from '@dcl/sdk/ecs'
+
+AvatarLocomotionSettings.create(engine.PlayerEntity, {
+	runSpeed: 10,
+	jumpHeight: 2,
+})
+```
+
+The following properties are available:
+
+- `walkSpeed`: The speed at which the player walks, in meters per second. On the desktop client, players walk by pressing the control key.
+- `jogSpeed`: The speed at which the player jogs, in meters per second. This is the default way in which the player moves.
+- `runSpeed`: The speed at which the player runs, in meters per second. On the desktop client, players run by pressing the shift key.
+- `jumpHeight`: The height at which the player jumps, in meters.
+- `runJumpHeight`: The height at which the player jumps after running, in meters.
+- `hardLandingCooldown`: The cooldown after a hard landing, in seconds. This is the time that the player has to wait before they can move again after landing from a high fall.
+
+For reference, here are the default values for those properties:
+
+- `walkSpeed`: 1.5 m/s
+- `jogSpeed`: 8 m/s
+- `runSpeed`: 10 m/s
+- `jumpHeight`: 1 m
+- `runJumpHeight`: 1.5 m
+- `hardLandingCooldown`: 0.75 s
+
+{{< hint info >}}
+**💡 Tip**: None of these properties can be lower than 0. If you set one of them to a negative value, it will be clamped to 0. Setting these values to zero will have the same effect as using the `InputModifier` to block the use of certain keys.
+
+You can only affect the player's locomotion if they are inside the scene's bounds. To affect other player's avatars, you must run the code that affects their locomotion on their own instance.
+{{< /hint >}}
+
+You can create a [smart wearable]({{< ref "/content/creator/sdk7/projects/smart-wearables.md" >}}) that makes the player always run faster or jump higher. If both the scene and a smart wearable define different values for these parameters, the scene values are always used.
+
+To ensure nobody has unfair advantages at a parkour scene, you can enforce the default parameters by explicitly adding their default values in your scene:
+
+```ts
+import {AvatarLocomotionSettings, engine} from '@dcl/sdk/ecs'
+
+AvatarLocomotionSettings.create(engine.PlayerEntity, {
+	runSpeed: 10,
+	walkSpeed: 1.5,
+	jogSpeed: 8 ,
+	jumpHeight: 1,
+	runJumpHeight: 1.5,
+	hardLandingCooldown: 0.75
+})
+```
 
 ## Avatar modifier areas
 
