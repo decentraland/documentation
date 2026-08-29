@@ -9,10 +9,9 @@ url: /creator/scene-editor/live-ops/scene-admin
 weight: 1
 ---
 
-Grant certain players the special role of **admin** on your scene. 
+Grant certain players the special role of **admin** on your scene.
 
 During a live event, an admin can spontaneously control what happens in the scene from inside Decentraland, without needing to pre-schedule actions or relying on a 3rd party service. Start playing the music when enough of a crowd gathered, drop confetti or make a spaceship appear when the time feels right.
-
 
 {{< youtube efjJN7Jr7Qo >}}
 
@@ -20,16 +19,14 @@ When a scene admin visits your scene, they see a special UI on the top-right cor
 
   <img src="/images/editor/admin/admin-console.png" alt="Scene name" width="300"/>
 
-
 ## Setting up admins
 
 To assign admins, you need to add the **Scene Admin** smart item to your scene.
 
   <img src="/images/editor/admin/admin-smart-item.png" alt="Scene name" width="200"/>
 
-
 {{< hint warning >}}
-**📔 Note**: Update your scene to use the latest dependencies. The Scene Admin Smart item won't work if the scene is outdated. 
+**📔 Note**: Update your scene to use the latest dependencies. The Scene Admin Smart item won't work if the scene is outdated.
 
  <img src="/images/editor/admin/update-dependencies.png" alt="Scene name" width="300"/>
 
@@ -67,32 +64,35 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
 1. Add a **Video Player** smart item to your scene
 
-    <img src="/images/editor/admin/video-player-item.png" alt="Scene name" width="200"/>
+   <img src="/images/editor/admin/video-player-item.png" alt="Scene name" width="200"/>
 
-    See [Video Screen]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >}}) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
+   See [Video Screen]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >}}) for more details on how you can configure the default media source and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once the scene is running.
 
-    {{< hint warning >}}
-      **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
+   {{< hint warning >}}
+   **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
 
-      You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
-    {{< /hint >}}
+   You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot.
+   {{< /hint >}}
 
 2. Open the Scene Admin Smart Item, make sure the **Video Screens** checkbox is enabled for this section to show. Then select the screen from a dropdown list and give it a friendly name to display on the Admin UI. You can add as many Video Screens as you want, each screen is controlled independently.
 
-      <img src="/images/editor/admin/multi-video-setup.png" alt="Scene name" width="300"/>
+  <img src="/images/editor/admin/multi-video-setup.png" alt="Scene name" width="300"/>
 
 Once the above is configured, admin users in your scene can open the admin panel and select the video section to control these video screens.
 
-  <img src="/images/editor/admin/video-player.png" alt="Scene name" width="300"/>
+  <img src="/images/editor/admin/video-sources.png" alt="Scene name" width="300"/>
 
+If your scene has multiple independent video screens, the **Current Screen** dropdown lets you pick which video screen to control. The list displays the names you gave to each video screen on the Admin Tools smart item configuration.
 
-If your scene has multiple video screens, the **Current Screen** dropdown lets you pick which video screen to control. The list displays the names you gave to each video screen on the Admin Tools smart item configuration.
+{{< hint info >}}
+**💡 Tip**: To show the same video on multiple screens that can be controlled as one, see [Multiple Video Screens]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md#multiple-video-screens" >}}).
+{{< /hint >}}
 
 ### Media Sources
 
-There are two kinds of media sources for playing videos:
+There are three media source options for playing videos:
 
-- **Video**: Play a video file from your local filesystem or from an URL.
+- **Video URL**: Play a video file from your local filesystem or from an URL.
   Paste a video URL into the **Video URL** field and click the green **Activate** button. The video will start playing on the selected screen for all players. You can also stop, pause, restart, mute, or change the volume of the video.
 
   <img src="/images/editor/admin/video-from-url.png" alt="Scene name" width="300"/>
@@ -100,6 +100,11 @@ There are two kinds of media sources for playing videos:
   {{< hint warning >}}
   **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources]({{< ref "/content/creator/scene-editor/interactivity/video-screen.md#streaming-from-other-sources" >}}) for more information on what you can and can't play in Decentraland.
   {{< /hint >}}
+
+- **DCL Cast**: Use Decentraland's free streaming web app to easily share your camera or screen with other players in the scene, no need to set up a streaming software.
+
+  <img src="/images/editor/admin/dcl-cast.png" alt="DCL Cast" width="300"/>
+
 
 - **Live stream**: Play a live stream using Decentraland's free streaming infrastructure and a streaming software like OBS or StreamYard.
 
@@ -111,6 +116,7 @@ Each screen in your scene will have one of the above media sources set as **Acti
 
 <img src="/images/editor/admin/activate.png" alt="Scene name" width="200"/>
 
+See [Live Streaming]({{< ref "/content/creator/scene-editor/live-ops/live-streaming.md" >}}) for more information on how to set up a live stream.
 
 ## Announcements
 
@@ -151,22 +157,17 @@ You can ban players from your scene by selecting the **Moderation** tab of the a
 
   <img src="/images/editor/admin/ban-players.png" alt="Scene name" width="300"/>
 
-
 {{< hint info >}}
 **💡 Tip**: To obtain a player's wallet address, click on their avatar to open up their profile, then click on the **Copy to clipboard** button next to the wallet address.
 {{< /hint >}}
 
-
 Banned players will be unable to load your scene or interact with any of its content. Other players will not see them in the scene, or read any of their chat messages.
-
 
 {{< hint warning >}}
 **📔 Note**: The effects of your ban are immediate and permanent. Once a player is banned, they will remain banned until the ban is lifted. Banning a player from your scene only affects what players who are standing inside your scene can see, if a player steps outside your scene's bounds, they are no longer affected by the ban. Banned players are invisible to other players if they're standing outside your scene too.
 {{< /hint >}}
 
 Click **View Ban List** to see the list of currently banned players. From this list you can also **Unban** players.
-
-
 
 ## Trigger smart items
 
@@ -175,7 +176,6 @@ To Trigger an action from any smart item in the scene:
 - Add a smart item to your scene
 - Open the settings for the **Scene Admin** Smart Item in the Creator Hub
 - In the **Smart item actions** section, add the smart item from the dropdown, give it a custom name and select a default action
-
 
 Once the above is configured, admins can trigger the action by opening the **Smart Item Actions** section of the admin UI and then selecting an item from the dropdown list. They can then either click the **Default** button to trigger the default action of that item, or select any other of the item's actions from the list.
 

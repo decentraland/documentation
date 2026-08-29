@@ -123,7 +123,8 @@ Play videos from either:
 
 - **Local files**
 - **Stream from a URL**
-- **Stream live from [Decentraland Cast]({{< ref "/creator/worlds/cast.md">}})**
+- **Stream live from [Decentraland Cast]({{< ref "/creator/scene-editor/live-ops/live-streaming.md#dcl-cast">}})**
+- **Stream live from [RTMP Software]({{< ref "/creator/scene-editor/live-ops/live-streaming.md#stream-method">}}) (OBS, XSplit, StreamYard, etc.)**
 
 {{< hint warning >}}
 **📔 Note**: Avoid playing more than one video at any given time in your scene, because it can severely impact performance for players. Always stop other videos before playing a second video.
@@ -140,8 +141,7 @@ Play an audio stream from a URL, using hte **Audio Stream** smart item.
 Not all streaming services allow you to play their audio outside their site. The following are some examples that work in Decentraland:
 
 ```ts
-GRAFFITI =
-	'https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5'
+GRAFFITI = 'https://n07.radiojar.com/2qm1fc5kb.m4a?1617129761=&rj-tok=AAABeIR7VqwAilDFeUM39SDjmw&rj-ttl=5'
 SIGNS = 'https://edge.singsingmusic.net/MC2.mp3'
 DELTA = 'https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e'
 JAZZ = 'https://live.vegascity.fm/radio/8010/the_flamingos.mp3'
@@ -163,11 +163,11 @@ To display an NFT on a picture frame, use the **NFT** smart item. You must provi
 - NFT Collection Contract: The smart contract for the NFT collection.
 - Token ID: The token ID of this particular NFT collectible.
 
-<img src="/images/editor/nft-shape.png" width="300"/>
+<img src="/images/editor/nft-shape.png" width="400"/>
 
 You can obtain this information from [OpenSea](https://opensea.io), by checking the **Details** tab under the NFT image.
 
-<img src="/images/editor/opensea.png" width="300"/>
+<img src="/images/editor/opensea.png" width="400"/>
 
 {{< hint info >}}
 **📔 Note**:
