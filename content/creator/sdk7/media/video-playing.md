@@ -449,6 +449,52 @@ The mapping of the video will follow the original UV mapping that the model uses
 
 You can also use the `GltfNodeModifiers` component to play a video only on a specific mesh inside the model. For example, you can play it on a specific wall of a building, even though the model spans the entire building. See [Modify glTF materials]({{< ref "/content/creator/sdk7/3d-essentials/materials.md#modify-gltf-materials" >}}) for more details.
 
+
+## Spatial audio
+
+By default, the video from a `VideoPlayer` component is global, meaning it will be heard at a consistent volume throughout your entire scene. If a player steps out of the scene, they will not hear the streaming at all.
+
+To make the audio spatial, set the `spatial` property to _true_.
+
+```ts
+VideoPlayer.create(entity, {
+	src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
+	playing: true,
+	spatial: true,
+})
+```
+
+The video will now be heard from the position of the entity that owns the `VideoPlayer` component, and will be louder as the player approaches it.
+
+Control the spatial audio with the following properties:
+
+- `spatialMinDistance`: The minimum distance at which audio becomes spatial. If the player is closer, the audio will be heard at full volume. _0_ by default.
+- `spatialMaxDistance`: The maximum distance at which the audio is heard. If the player is further away, the audio will be heard at 0 volume. _60_ by default
+
+```ts
+const videoPlayerEntity = engine.addEntity();
+
+Transform.create(videoPlayerEntity, {
+    position: Vector3.create(8, 0, 8),
+});
+
+VideoPlayer.create(videoPlayerEntity, {
+	src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
+	playing: true,
+	spatial: true,
+	spatialMinDistance: 5,
+	spatialMaxDistance: 10
+});
+```
+
+{{< hint warning >}}
+**📔 Note**: Some video formats don't support spatial audio. Make sure the stream is encoded in _mp4_, _m4a_, or _mov_.
+{{< /hint >}}
+
+
+
+
+
 <!--
 
 ## Map a video texture
