@@ -238,13 +238,13 @@ While an `AudioSource` clip is playing, the renderer also writes reports of the 
 
 These reports are the only way to know what the player is actually hearing. The renderer starts a clip 100 to 250 milliseconds after your scene asks for it, and that delay is different every time. The `currentTime` property of the `AudioSource` component doesn't help either: it's a seek command that your scene writes and the renderer never updates, so reading it back only tells you what you last set. Rely on the reports instead whenever your gameplay needs to follow the sound: rhythm games, effects that fire on the beat, or aligning a sound to a video.
 
-Use `audioEventsSystem.registerAudioPlaybackEntity` to define a function that runs once per frame with the newest report for that entity, position updates included. It's skipped on frames where nothing new arrived. Functions registered with `registerAudioEventsEntity` do **not** run for reports that only update the position.
+Use `audioEventsSystem.registerAudioPlaybackEntity` to define a function that runs once per frame with the newest position report for that entity. It's skipped on frames where no new position arrived. Functions registered with `registerAudioEventsEntity` do **not** run for reports that only update the position.
+
+Your function receives the reading already worked out against your scene's clock, as `{ report, sceneTime, offset }`. `report` is the raw `AudioEvent` if you need `clipLength` or the state, `offset` is the position in seconds, and `sceneTime` is explained in the next section.
 
 ```ts
-audioEventsSystem.registerAudioPlaybackEntity(sourceEntity, (report) => {
-	if (report.currentOffset === undefined) return
-
-	console.log(`clip at ${report.currentOffset}s of ${report.clipLength ?? 'unknown'}s`)
+audioEventsSystem.registerAudioPlaybackEntity(sourceEntity, ({ report, offset }) => {
+	console.log(`clip at ${offset}s of ${report.clipLength ?? 'unknown'}s`)
 })
 ```
 
@@ -264,7 +264,7 @@ engine.addSystem(() => {
 
 A report reaches your scene a few frames after the renderer sampled it. Don't compare `currentOffset` to your clock at the moment your function runs, or you'll be off by however long the report took to arrive. It has to be compared against your clock *in the tick the position was sampled*.
 
-The SDK keeps that per-tick history for you. Use `audioEventsSystem.registerAudioPlaybackSampleEntity`: its callback receives the report already resolved, as `{ report, sceneTime, offset }`, where `sceneTime` is the scene clock in seconds at the sampling tick and `offset` is the clip position at that same moment.
+The SDK keeps that per-tick history for you, which is why `registerAudioPlaybackEntity` hands you `sceneTime`: the scene clock in seconds at the tick the reading was taken, paired with `offset`, the clip position at that same moment.
 
 Subtracting one from the other gives the moment the audible clip started. Keep that, and the clip's position at any later time is a single subtraction.
 
@@ -282,7 +282,7 @@ engine.addSystem((dt) => {
 // The moment the sound you can actually hear started, on that same clock
 let originMs: number | undefined
 
-audioEventsSystem.registerAudioPlaybackSampleEntity(sourceEntity, ({ report, sceneTime, offset }) => {
+audioEventsSystem.registerAudioPlaybackEntity(sourceEntity, ({ report, sceneTime, offset }) => {
 	if (report.state !== MediaState.MS_PLAYING) return
 
 	originMs = sceneTime * 1000 - offset * 1000
