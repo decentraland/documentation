@@ -230,7 +230,7 @@ To stop listening, use `audioEventsSystem.removeAudioEventsEntity()`. Use `audio
 **📔 Note**: Playback position reports require an SDK version that includes them and an explorer that implements them. The DCL 2.0 desktop client is the first to do so. On explorers that don't, the properties described below stay `undefined`, and `getAudioPlayback()` always returns `undefined`.
 {{< /hint >}}
 
-While an `AudioSource` clip is playing, the renderer also writes periodic reports of the playback position into the `AudioEvent` component, roughly twice a second on the DCL 2.0 desktop client. These reports carry the following _optional_ properties, in addition to `state` and `timestamp`:
+While an `AudioSource` clip is playing, the renderer also writes reports of the playback position into the `AudioEvent` component, every time the playhead moves. These reports carry the following _optional_ properties, in addition to `state` and `timestamp`:
 
 - `tickNumber` (_number_): The scene tick in which the position was sampled. It matches the `tickNumber` of the [EngineInfo]({{< ref "/content/creator/sdk7/interactivity/runtime-data.md#the-engineinfo-component" >}}) component in that same tick.
 - `currentOffset` (_number_): The playback position of the clip, in seconds, at that tick.
@@ -238,7 +238,7 @@ While an `AudioSource` clip is playing, the renderer also writes periodic report
 
 These reports are the only way to know what the player is actually hearing. The renderer starts a clip 100 to 250 milliseconds after your scene asks for it, and that delay is different every time. The `currentTime` property of the `AudioSource` component doesn't help either: it's a seek command that your scene writes and the renderer never updates, so reading it back only tells you what you last set. Rely on the reports instead whenever your gameplay needs to follow the sound: rhythm games, effects that fire on the beat, or aligning a sound to a video.
 
-Use `audioEventsSystem.registerAudioPlaybackEntity` to define a function that runs on every report, including the periodic position updates. Functions registered with `registerAudioEventsEntity` do **not** run for reports that only update the position.
+Use `audioEventsSystem.registerAudioPlaybackEntity` to define a function that runs once per frame with the newest report for that entity, position updates included. It's skipped on frames where nothing new arrived. Functions registered with `registerAudioEventsEntity` do **not** run for reports that only update the position.
 
 ```ts
 audioEventsSystem.registerAudioPlaybackEntity(sourceEntity, (report) => {
@@ -262,45 +262,44 @@ engine.addSystem(() => {
 
 ### Sync gameplay to the sound
 
-A report reaches your scene a few frames after the renderer sampled it. Don't compare `currentOffset` to your clock at the moment your function runs, or you'll be off by however long the report took to arrive. Instead, keep a short history of your clock for each `EngineInfo.tickNumber`, and compare the report against the value for the tick it was sampled in.
+A report reaches your scene a few frames after the renderer sampled it. Don't compare `currentOffset` to your clock at the moment your function runs, or you'll be off by however long the report took to arrive. It has to be compared against your clock *in the tick the position was sampled*.
+
+The SDK keeps that per-tick history for you. Use `audioEventsSystem.registerAudioPlaybackSampleEntity`: its callback receives the report already resolved, as `{ report, sceneTime, offset }`, where `sceneTime` is the scene clock in seconds at the sampling tick and `offset` is the clip position at that same moment.
+
+Subtracting one from the other gives the moment the audible clip started. Keep that, and the clip's position at any later time is a single subtraction.
 
 ```ts
-import { engine, AudioSource, EngineInfo, audioEventsSystem } from '@dcl/sdk/ecs'
+import { engine, AudioSource, audioEventsSystem, MediaState } from '@dcl/sdk/ecs'
 
 const sourceEntity = engine.addEntity()
 
-// Milliseconds since the scene asked the clip to play, recorded for each tick
+// Your own scene clock, in milliseconds
 let clockMs = 0
-const clockAtTick = new Map<number, number>()
-
-// Difference between that clock and the sound that is actually being heard
-let lagMs = 0
-
 engine.addSystem((dt) => {
 	clockMs += dt * 1000
-	const tick = EngineInfo.getOrNull(engine.RootEntity)?.tickNumber
-	if (tick === undefined) return
-
-	clockAtTick.set(tick, clockMs)
-	clockAtTick.delete(tick - 60) // keep a short history
 })
 
-audioEventsSystem.registerAudioPlaybackEntity(sourceEntity, (report) => {
-	if (report.tickNumber === undefined || report.currentOffset === undefined) return
+// The moment the sound you can actually hear started, on that same clock
+let originMs: number | undefined
 
-	const clockThen = clockAtTick.get(report.tickNumber)
-	if (clockThen === undefined) return // older than the history we keep
+audioEventsSystem.registerAudioPlaybackSampleEntity(sourceEntity, ({ report, sceneTime, offset }) => {
+	if (report.state !== MediaState.MS_PLAYING) return
 
-	lagMs = clockThen - report.currentOffset * 1000
+	originMs = sceneTime * 1000 - offset * 1000
 })
 
 AudioSource.playSound(sourceEntity, 'sounds/music.mp3', true)
-clockMs = 0
 
-// At any moment, the clip is at about (clockMs - lagMs) milliseconds
+// At any moment, the clip is at about (clockMs - originMs) milliseconds
 ```
 
-`clockMs - lagMs` is your best estimate of the clip's position at any moment between two reports. Use it to schedule effects on the beat, or to judge how well timed a player's input was. If the explorer doesn't send position reports, `lagMs` stays at 0 and your scene simply falls back to its own clock.
+`clockMs - originMs` is your best estimate of the clip's position at any moment between two reports. Use it to schedule effects on the beat, or to judge how well timed a player's input was. If the explorer doesn't send position reports, the callback never runs, `originMs` stays `undefined`, and your scene should fall back to its own clock.
+
+If you'd rather handle the raw reports, `audioEventsSystem.getSceneTimeAtTick(tickNumber)` gives you the same per-tick lookup on its own. It works for `VideoEvent` reports too.
+
+{{< hint warning >}}
+**📔 Note**: `currentOffset` is where the decoder is reading, which isn't exactly what reaches the speakers. The sound card and its buffers add a few tens of milliseconds on top, and no property reports that. It's roughly constant for a given device, so if you need accuracy finer than a tick, measure it once at the start and subtract it.
+{{< /hint >}}
 
 {{< hint info >}}
 **💡 Tip**: The `VideoEvent` component reports `tickNumber` and `currentOffset` for videos in the same way, see [Video events]({{< ref "/content/creator/sdk7/media/video-playing.md#video-events" >}}). Use both to keep a sound and a video aligned.
